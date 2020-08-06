@@ -3,7 +3,7 @@ Scientific Computing for Chemists Book
 
 ## Chapter 01 - Basic Python
 
-[octahedral](test/f.txt)
+[octahedral](Chapter01/octahedral.png)
 
 [xkcd.com](https://xkcd.com/)
   
