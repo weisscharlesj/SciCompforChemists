@@ -22,4 +22,4 @@ The document is copyright © 2020 Charles J. Weiss and is released under under t
 * Chapter 13: Command Line & Spyder
 
 
-
+An article describing the structure, content, and philosophy behind this textbook, *A Creative Commons Textbook for Teaching Scientific Computing to Chemistry Students with Python and Jupyter Notebooks*, has been published in the Journal of Chemical Education [DOI: 10.1021/acs.jchemed.0c01071](https://doi.org/10.1021/acs.jchemed.0c01071).
