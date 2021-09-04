@@ -5,6 +5,7 @@ The following is the textbook used for the Scientific Computing chemistry course
 This book is periodically updated to fix typos and to account for new software versions. The most recent version can be downloaded below. Reports of errors and information on how people are using this books are always welcome.
 
 [Current Version, PDF](/Book_PDF/SciCompforChemists_1.1.0a.pdf)
+
 [Jupyter Notebooks and Book Files](/Jupyter Notebooks_v1.1.0a.zip)
 
 The document is copyright © 2021 Charles J. Weiss and is released under under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. The files associated with the text are under the same license.
