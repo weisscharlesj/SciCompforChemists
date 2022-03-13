@@ -1,0 +1,1542 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter 12: Machine Learning using Scikit-Learn &#8212; Scientific Computing for Chemists</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Chapter 13: Command Line &amp; Spyder" href="../chapter_13/chap_13.html" />
+    <link rel="prev" title="Chapter 11: Nuclear Magnetic Resonance with NMRglue" href="../chapter_11/chap_11_notebook.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Scientific Computing for Chemists</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Scientific Computing for Chemists
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_00/chap_00_notebook.html">
+   Chapter 0: Python &amp; Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_01/chap_01_notebook.html">
+   Chapter 1: Basic Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_02/chap_02_notebook.html">
+   Chapter 2: Intermediate Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_03/chap_03_notebook.html">
+   Chapter 3: Plotting with Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_04/chap_04_notebook.html">
+   Chapter 4: NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_05/chap_05_notebook.html">
+   Chapter 5: Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_06/chap_06_notebook.html">
+   Chapter 6: Signal &amp; Noise
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_07/chap_07_notebook.html">
+   Chapter 7: Image Processing &amp; Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_08/chap_08_notebook.html">
+   Chapter 8: Mathematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_09/chap_09_notebook.html">
+   Chapter 9: Simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_10/chap_10_notebook.html">
+   Chapter 10: Plotting with Seaborn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_11/chap_11_notebook.html">
+   Chapter 11: Nuclear Magnetic Resonance with NMRglue
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Chapter 12: Machine Learning using Scikit-Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_13/chap_13.html">
+   Chapter 13: Command Line &amp; Spyder
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org/">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/chapter_12/chap_12_notebook.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/chapter_12/chap_12_notebook.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/notebooks/chapter_12/chap_12_notebook.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#supervised-learning">
+   12.1 Supervised Learning
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#features-and-information">
+     12.1.1 Features and Information
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#train-test-split">
+     12.1.2 Train Test Split
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#training-a-linear-regression-model">
+     12.1.3 Training a Linear Regression Model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-evaluation">
+     12.1.4 Model Evaluation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linear-models-and-coefficients">
+     12.1.5 Linear Models and Coefficients
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classification-using-random-forests">
+     12.1.6 Classification using Random Forests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classify-chemical-compounds">
+     12.1.7 Classify Chemical Compounds
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#confusion-matrix">
+     12.1.8 Confusion Matrix
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unsupervised-learning">
+   12.2 Unsupervised Learning
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dimensional-reduction">
+     12.2.1 Dimensional Reduction
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-wine-dataset">
+     12.2.2 Load Wine Dataset
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reduce-dimensionality-of-wine-dataset">
+     12.2.3 Reduce Dimensionality of Wine Dataset
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clustering">
+     12.2.4 Clustering
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#blind-signal-separation">
+     12.2.5 Blind Signal Separation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#final-notes">
+   12.3 Final Notes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-reader">
+   Further Reader
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Chapter 12: Machine Learning using Scikit-Learn</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#supervised-learning">
+   12.1 Supervised Learning
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#features-and-information">
+     12.1.1 Features and Information
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#train-test-split">
+     12.1.2 Train Test Split
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#training-a-linear-regression-model">
+     12.1.3 Training a Linear Regression Model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-evaluation">
+     12.1.4 Model Evaluation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linear-models-and-coefficients">
+     12.1.5 Linear Models and Coefficients
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classification-using-random-forests">
+     12.1.6 Classification using Random Forests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classify-chemical-compounds">
+     12.1.7 Classify Chemical Compounds
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#confusion-matrix">
+     12.1.8 Confusion Matrix
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unsupervised-learning">
+   12.2 Unsupervised Learning
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dimensional-reduction">
+     12.2.1 Dimensional Reduction
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-wine-dataset">
+     12.2.2 Load Wine Dataset
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reduce-dimensionality-of-wine-dataset">
+     12.2.3 Reduce Dimensionality of Wine Dataset
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clustering">
+     12.2.4 Clustering
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#blind-signal-separation">
+     12.2.5 Blind Signal Separation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#final-notes">
+   12.3 Final Notes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-reader">
+   Further Reader
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="chapter-12-machine-learning-using-scikit-learn">
+<span id="id1"></span><h1>Chapter 12: Machine Learning using Scikit-Learn<a class="headerlink" href="#chapter-12-machine-learning-using-scikit-learn" title="Permalink to this headline">¶</a></h1>
+<p>Machine learning is a hot topic with popular applications in driverless cars, internet search engines, and data analysis among many others. Numerous fields are utilizing machine learning, and chemistry is certainly no exception with papers using machine learning methods being published regularly. There is a considerable amount of hype around the topic along with debate about whether the field will live up to this hype. However, there is little doubt that machine learning is making a significant impact and is a powerful tool when used properly.</p>
+<p><em>Machine learning</em> occurs when a program exhibits behavior that is not explicitly programmed but rather is “learned” from data. This definition may seem somewhat unsatisfying because it is so broad that it is vague and only mildly informative. Perhaps a better way of explaining machine learning is through an example. In <a class="reference internal" href="#id2"><span class="std std-ref">section 12.1</span></a>, we are faced with the challenge of writing a program that can accurately predict the boiling point of simple alcohols when provided with information about the alcohols such as the molecular weight, number of carbon atoms, degree, etc… These pieces of information about each alcohol are known as <em>features</em> while the answer we aim to predict (i.e., boiling point) is the <em>target</em>. How can each feature be used to predict the target? To generate a program for predicting boiling points, we would need to pour over the data to see how each feature affects the boiling point. Next, we would need to write a script that somehow uses these trends to calculate the boiling points of alcohols we have never seen. This probably appears like a daunting task. Instead, we can use machine learning to solve this task by allowing the machine learning algorithms to figure out how to use the data and make predictions. Simply provide the machine learning algorithm with the features and targets on a number of alcohols and allow the machine learning algorithm to quantify the trends and develop a function to predict the boiling point of alcohols. In simple situations, this entire task can be completed in just a few minutes!
+The sections in this chapter are broken down by types of machine learning. There are three major branches of machine learning: supervised, unsupervised, and reinforcement learning. This chapter will focus on the first two, which are the most applicable to chemistry and data science, while the latter relates more to robotics and is not as commonly employed in chemistry.</p>
+<p>There are multiple machine learning libraries for Python, but one of the most common, general-purpose machine learning libraries is scikit-learn. This library is simple to use, offers a wide array of common machine learning algorithms, and is installed by default with Anaconda. As you advance in machine learning, you may find it necessary to branch out to other libraries, but you will probably find that scikit-learn does almost everything you need it to do during your first year or two of using machine learning. In addition, scikit-learn includes functions for preprocessing data and evaluating the effectiveness of models.</p>
+<p>The scikit-learn library is abbreviated <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> during imports. Each module needs to be imported individually, so you will see them imported throughout this chapter. We will be working with data and visualizing our results, so we will also be utilizing pandas, NumPy, and matplotlib. This chapter assumes the following imports.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="supervised-learning">
+<span id="id2"></span><h2>12.1 Supervised Learning<a class="headerlink" href="#supervised-learning" title="Permalink to this headline">¶</a></h2>
+<p><em>Supervised learning</em> is where the machine learning algorithms are provided with both feature and target information with the goal of developing a model to predict targets based on the features. When the supervised machine learning predictions are looking to categorize an item like a photo or type of metal complex, it is known as <em>classification</em>; and when the predictions are seeking a numerical value from a continuous range, it is a <em>regression</em> problem. Some machine learning algorithms are designed for only classification or only regression while others can do either.</p>
+<p>There are numerous algorithms for supervised learning; below are simple examples employing some well known and common algorithms. For a more in-depth coverage of the different machine learning algorithms and scikit-learn, see the <a class="reference internal" href="#fr12"><span class="std std-ref">Further Reading</span></a> section at the end of this chapter.</p>
+<div class="section" id="features-and-information">
+<span id="id3"></span><h3>12.1.1 Features and Information<a class="headerlink" href="#features-and-information" title="Permalink to this headline">¶</a></h3>
+<p>The file titled <em>ROH_data.csv</em> contains information on over seventy simple alcohols (i.e., a single -OH with no other non-hydrocarbon function groups) including their boiling points. Our goal is to generate a function or algorithm to predict the boiling points of the alcohols based on the information on the alcohols, so here the target is the boiling point and features are the other information about the alcohols.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ROH</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/ROH_data.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">ROH</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>bp</th>
+      <th>MW</th>
+      <th>carbons</th>
+      <th>degree</th>
+      <th>aliphatic</th>
+      <th>avg_aryl_position</th>
+      <th>cyclic</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>338</td>
+      <td>32.04</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>351</td>
+      <td>46.07</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>371</td>
+      <td>60.10</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>356</td>
+      <td>60.10</td>
+      <td>3</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>391</td>
+      <td>74.12</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The dataset includes the boiling point (K), molecular weight (g/mol), number of carbon atoms, whether or not it is aliphatic, degree, whether it is cyclic, and the average position of any aryl substituents. Scikit-learn requires that all features be represented numerically, so for the last three features <code class="docutils literal notranslate"><span class="pre">1</span></code> represents <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">0</span></code> represents <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>Not every feature will be equally helpful in predicting the boiling points. Chemical intuition may lead someone to propose that the molecular weight will have a relatively large impact on the boiling points, and the scatter plot below supports this prediction with boiling points increasing with molecular weight. However, the molecular weight alone is not enough to obtain a good boiling point prediction as there is as much as a one hundred degree variation in boiling points at around the same molecular weight. The color of the markers indicates the degree of the alcohol, and it is pretty clear that tertiary alcohols tend to have lower boiling points than primary and secondary alcohols which means there is a small amount of information in the degree that can be used to improve a boiling point prediction. If all the small amounts of information from each feature are combined, there is potential to produce a better boiling point prediction, and machine learning algorithms do exactly this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">ROH</span><span class="p">[</span><span class="s1">&#39;MW&#39;</span><span class="p">],</span> <span class="n">ROH</span><span class="p">[</span><span class="s1">&#39;bp&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">ROH</span><span class="p">[</span><span class="s1">&#39;degree&#39;</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;MW, g/mol&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;bp, K&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;bp, K&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/chap_12_notebook_6_1.png" src="../../_images/chap_12_notebook_6_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="train-test-split">
+<span id="id4"></span><h3>12.1.2 Train Test Split<a class="headerlink" href="#train-test-split" title="Permalink to this headline">¶</a></h3>
+<p>Whenever training a machine learning model to make predictions, it is important to evaluate the accuracy of the predictions. It is unfair to test an algorithm on data it has already seen, so before training a model, first split the dataset into a training subset and testing subset. It is also important to shuffle the dataset before splitting it as many datasets are at least partially ordered. The alcohol dataset is roughly in order of molecular weight, so if an algorithm is trained on the first three-quarters of the dataset and then tested on the last quarter, training occurs on smaller alcohols and testing on larger alcohols. This could result in poorer predictions as the machine learning algorithm is not familiar with the trends of larger alcohols. The good news is that scikit-learn provides a built-in function for shuffling and splitting the dataset known as <code class="docutils literal notranslate"><span class="pre">train_test_split()</span></code>. The arguments are the features, target, and the fraction of the dataset to be used for testing. Below, a quarter of the dataset is allotted for testing (<code class="docutils literal notranslate"><span class="pre">test_size=0.25</span></code>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">train_test_splot()</span></code> function randomly shuffles the dataset before splitting it resulting in different results each time the function is called. The <code class="docutils literal notranslate"><span class="pre">random_state=</span></code> argument can be used to produce fixed results for example or demo purposes.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target</span> <span class="o">=</span> <span class="n">ROH</span><span class="p">[</span><span class="s1">&#39;bp&#39;</span><span class="p">]</span>
+<span class="n">features</span> <span class="o">=</span> <span class="n">ROH</span><span class="p">[[</span> <span class="s1">&#39;MW&#39;</span><span class="p">,</span> <span class="s1">&#39;carbons&#39;</span><span class="p">,</span> <span class="s1">&#39;degree&#39;</span><span class="p">,</span> <span class="s1">&#39;aliphatic&#39;</span><span class="p">,</span> 
+                <span class="s1">&#39;avg_aryl_position&#39;</span><span class="p">,</span><span class="s1">&#39;cyclic&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> 
+                                                   <span class="n">test_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The output includes four values containing the training/testing features and targets. By convention, <code class="docutils literal notranslate"><span class="pre">X</span></code> contains the features and <code class="docutils literal notranslate"><span class="pre">y</span></code> are the target values because they are the independent and dependent variables, respectively; and the features variable is capitalized because it contains multiple values per alcohol.</p>
+</div>
+<div class="section" id="training-a-linear-regression-model">
+<span id="id5"></span><h3>12.1.3 Training a Linear Regression Model<a class="headerlink" href="#training-a-linear-regression-model" title="Permalink to this headline">¶</a></h3>
+<p>Now for some machine learning using a very simple <em>linear regression</em> model. This model treats the target value as a linear combination or weighted sum of the features where <span class="math notranslate nohighlight">\(x\)</span> are the features and <span class="math notranslate nohighlight">\(w\)</span> are the weights.</p>
+<div class="math notranslate nohighlight">
+\[ target = w_0x_0 + w_1x_1 + w_2x_2 + w_3x_3 + w_4x_4 + w_5x_5 + ... \]</div>
+<p>The general procedure for supervised machine learning, regardless of model, usually includes three steps.</p>
+<ol class="simple">
+<li><p>Create a model and attach it to a variable</p></li>
+<li><p>Train the model with the training data</p></li>
+<li><p>Evaluate the model using the testing data or use it to make predictions.</p></li>
+</ol>
+<p>To implement these steps, the linear model from the <code class="docutils literal notranslate"><span class="pre">linear_model</span></code> module is first created with the <code class="docutils literal notranslate"><span class="pre">LinearRegression()</span></code> function and assigned the variable <code class="docutils literal notranslate"><span class="pre">reg</span></code>. Next, it is trained using the <code class="docutils literal notranslate"><span class="pre">fit()</span></code> method and the training data from above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinearRegression()
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, the trained model can make predictions using the <code class="docutils literal notranslate"><span class="pre">predict()</span></code> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prediction</span> <span class="o">=</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">prediction</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([521.94389573, 439.60028899, 421.38488633, 485.6143471 ,
+       355.07207513, 444.98911542, 439.60028899, 487.61879909,
+       488.64633926, 497.31838329, 388.22848073, 406.39325504,
+       424.6086577 , 444.98911542, 485.56371876, 439.60028899,
+       503.77912142, 409.61702641])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Remember that the algorithm has been only provided the features for the testing subset; it has never seen the <code class="docutils literal notranslate"><span class="pre">y_test</span></code> target data. The performance can be assessed by plotting the predictions against the true values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.3</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Predicted bp, K&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;True bp, K&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;True bp, K&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/chap_12_notebook_20_1.png" src="../../_images/chap_12_notebook_20_1.png" />
+</div>
+</div>
+<p>This is a substantial improvement from using only the molecular weight to make predictions! If the above code is run again, the results will likely vary because the <code class="docutils literal notranslate"><span class="pre">train_test_split()</span></code> function randomly splits the dataset, so each time the above code is run, the algorithm is trained and tested on different portions of the original dataset.</p>
+</div>
+<div class="section" id="model-evaluation">
+<span id="id6"></span><h3>12.1.4 Model Evaluation<a class="headerlink" href="#model-evaluation" title="Permalink to this headline">¶</a></h3>
+<p>It is important to evaluate the effectiveness of trained machine learning models before rolling them out for widespread use, and scikit-learn provides multiple built-in functions to help in this task. The first is the <code class="docutils literal notranslate"><span class="pre">score()</span></code> method. Instead of making predictions using the testing features and then plotting the predictions against the known values, the <code class="docutils literal notranslate"><span class="pre">score()</span></code> method takes in the testing features and target values and returns the <span class="math notranslate nohighlight">\(r^2\)</span>. The closer the <span class="math notranslate nohighlight">\(r^2\)</span> value is to 1, the better the predictions are.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9738116533899367
+</pre></div>
+</div>
+</div>
+</div>
+<p>Another tool for evaluating the efficacy of a machine learning algorithm is <em>k-fold cross-validation</em>. The prediction results will vary depending upon how the dataset is randomly split into training and testing data. <em>K</em>-fold cross-validation compensates for this randomness by splitting the entire dataset into <em>k</em> (<em>k</em> being some number) chunks called <em>folds</em>. It then reserves one fold as the testing fold and trains the algorithm on the rest. The algorithm is tested using the testing fold and the process is repeated with a different fold reserved for testing (Figure 1). Each iteration trains a fresh algorithm, so it does not remember anything from the previous train/test iteration. The results for each iteration are provided at the end of this process.</p>
+<p><img alt="" src="../../_images/cross_validation_folds.svg" /></p>
+<p><strong>Figure 1</strong> In each iteration of <em>k</em>-fold cross-validation, different folds of data are used for training and testing the algorithm.</p>
+<p>A demonstration of <em>k</em>-fold cross validation is show below. First, a cross-validation generator is created using the <code class="docutils literal notranslate"><span class="pre">ShuffleSplit()</span></code> function. This function shuffles the data to avoid having all similar alcohols in any particular fold. The linear model is then provided to the <code class="docutils literal notranslate"><span class="pre">cross_val_score()</span></code> function along with the feature and target data and the cross- validation generator.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">ShuffleSplit</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">splitter</span> <span class="o">=</span> <span class="n">ShuffleSplit</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">reg</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">splitter</span><span class="p">)</span>
+<span class="n">scores</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.96833682, 0.95735755, 0.93523996, 0.93894485, 0.94120102])
+</pre></div>
+</div>
+</div>
+</div>
+<p>The scores are the <span class="math notranslate nohighlight">\(r^2\)</span> values for each iteration. The average <span class="math notranslate nohighlight">\(r^2\)</span> is a pretty reasonable assessment of the efficacy of the model and can be found through the <code class="docutils literal notranslate"><span class="pre">mean()</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scores</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9482160382715221
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="linear-models-and-coefficients">
+<span id="id7"></span><h3>12.1.5 Linear Models and Coefficients<a class="headerlink" href="#linear-models-and-coefficients" title="Permalink to this headline">¶</a></h3>
+<p>Recall that the linear model calculates the boiling point based on a weighted sum of the features, so it can be informative to know the weights to see which features are the most influential in making the predictions. The <code class="docutils literal notranslate"><span class="pre">LinearRegression()</span></code> method contains the attribute <code class="docutils literal notranslate"><span class="pre">coef_</span></code> which provides these coefficients in a NumPy array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">reg</span><span class="o">.</span><span class="n">coef_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ -5.06283477,  89.19634615, -14.99163129,   5.73273187,
+        -2.05508033,  15.9368917 ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>These coefficients correspond to molecular weight, number of carbons, degree, whether or not it is aliphatic, average aryl position, and whether or not it is cyclic, respectively. While some coefficients are larger than others, we cannot yet distinguish which features are more important than the others because the values for each feature occur in different ranges. This is because the coefficients are not only proportional to the predictive value of a feature but also inversely proportional to the magnitude of feature values. For example, while the molecular mass has greater predictive value than the degree, the degree has a larger coefficient because it occurs in a smaller range (1 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 3) than the molecular weights (32.04 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 186.33 g/mol).</p>
+<p>To address this issue, the scikit-learn <code class="docutils literal notranslate"><span class="pre">sklearn.preprocess</span></code> module provides a selection of functions for scaling the features to the same range. Three common feature scaling functions are described in Table 1, but others are detailed on the scikit-learn website.</p>
+<p><strong>Table 1</strong> Preprocessing Data Scaling Functions</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Scaler</p></th>
+<th class="text-align:left head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">MinMaxScaler</span></code></p></td>
+<td class="text-align:left"><p>Scales the features to a designated range; defaults to [0, 1]</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">StandardScaler</span></code></p></td>
+<td class="text-align:left"><p>Centers the features around zero and scales them to a variance of one</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">RobustScaler</span></code></p></td>
+<td class="text-align:left"><p>Centers the features around zero using the median and sets the range using the quartiles; similar to StandardScaler except less affected by outliers</p></td>
+</tr>
+</tbody>
+</table>
+<p>For this data, we will use the <code class="docutils literal notranslate"><span class="pre">MinMaxScaler()</span></code> with the default scaling of values from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1. This process parallels the fit/predict procedure above except that instead of predicting the target, the algorithm transforms it. That is, first the algorithm learns about the data using the <code class="docutils literal notranslate"><span class="pre">fit()</span></code> method followed by scaling the data using the <code class="docutils literal notranslate"><span class="pre">transform()</span></code> method. Once the scaling model is trained, it can be used to scale any new data by the same amount as the original data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
+<span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+<span class="n">scaled_features</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With the features now scaled, we can proceed through training the linear regression model as we have done previously and examine the coefficients.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">scaled_features</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinearRegression()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg</span><span class="o">.</span><span class="n">coef_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-896.38931056, 1097.23193211,  -31.8191013 ,   11.16606064,
+        -12.00872412,   13.9091081 ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>It is quite clear from the coefficients that the molecular weight and number of carbons are both by far the most important features to predicting the boiling points of alcohols. This makes chemical sense being that larger molecules have greater London dispersion forces thus increasing the boiling points.</p>
+</div>
+<div class="section" id="classification-using-random-forests">
+<span id="id8"></span><h3>12.1.6 Classification using Random Forests<a class="headerlink" href="#classification-using-random-forests" title="Permalink to this headline">¶</a></h3>
+<p>Classification involves sorting items into discrete categories such as sorting alcohols, aldehydes/ketones, and amines by type based on features. Scikit-learn provides a number of algorithms designed for this type of task. One method is known as a <em>decision tree</em> (Figure 2, left) which sorts items into categories based on a series of conditions. For example, it might first sort chemicals based on which have degrees of unsaturation greater than zero because these are most likely to be the aldehydes and ketones. It will then take the samples with zero degrees of unsaturation, which are the alcohols and amines, and separate them through another condition based on other information about the chemical compounds. Decision trees are relatively simple and easily interpreted, but they tend not to perform particularly well in practice. An extension of the decision tree is the <em>random forest</em> (Figure 2, right) which trains a larger number of decision trees using different subsets of the training data resulting in large numbers of different decision trees. Each decision tree is used to predict the category, and the final prediction is based on the majority prediction of all the trees. Random forests tend to be more accurate than a single decision tree because even if every tree is only slightly better than random at making an accurate prediction, large numbers of decision trees have a much higher probability of making a correct prediction because of the law of large numbers.</p>
+<p><img alt="" src="../../_images/tree_and_forest.svg" /></p>
+<p><strong>Figure 2</strong> An illustration of a single decision tree (left) and a random forest (right) composed of numerous decision trees generated with different subsections of data.</p>
+</div>
+<div class="section" id="classify-chemical-compounds">
+<span id="id9"></span><h3>12.1.7 Classify Chemical Compounds<a class="headerlink" href="#classify-chemical-compounds" title="Permalink to this headline">¶</a></h3>
+<p>To demonstrate classification, we will use a small dataset containing 122 monofunctional organic compounds from three different categories: alcohols (category 0), ketones/aldehydes (category 1), and amines (category 2). The features provided are the molecular weight, number of carbons, boiling point, whether it is cyclic, whether it is aromatic, and the unsaturation number. All the data is represented numerically, so the data is ready to be used.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/org_comp.csv&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;bound method NDFrame.head of      class   bp      MW  C  cyclic  aromatic  unsaturation
+0        0  455   94.11  6       1         1             3
+1        0  475  108.14  7       1         1             3
+2        0  475  108.14  7       1         1             3
+3        0  464  108.14  7       1         1             3
+4        0  474  122.17  8       1         1             3
+..     ...  ...     ... ..     ...       ...           ...
+117      2  498  135.21  9       1         1             3
+118      2  407   99.17  6       1         0             1
+119      2  381   85.15  5       1         0             1
+120      2  327  113.20  7       1         0             1
+121      2  463  127.23  8       1         0             1
+
+[122 rows x 7 columns]&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span>
+<span class="n">features</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we have our data, the classification process is similar to the regression example above: first perform a train/test split, initiate the model, train the model, and then test it.</p>
+<div class="cell tag_remove-input docutils container">
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+
+<span class="n">rf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">()</span>
+<span class="n">rf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">rf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 0, 0, 0, 0, 2, 1, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0,
+       1, 2, 0, 1, 0, 2, 2, 0, 2])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now have predictions for our testing data, but it would be helpful to know how accurate these predictions are. Again, there is the <code class="docutils literal notranslate"><span class="pre">score()</span></code> method that can calculate the fraction of accurately predicted functional groups.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7419354838709677
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="confusion-matrix">
+<span id="id10"></span><h3>12.1.8 Confusion Matrix<a class="headerlink" href="#confusion-matrix" title="Permalink to this headline">¶</a></h3>
+<p>The above score shows that the predictions are about 74% accurate. However, with three possible categories, this number does not tell the whole story because it does not inform us as to where the errors are occurring. For this, we will use a <em>confusion matrix</em> which is a grid of predicted categories versus true categories.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conf_matrix</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">rf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+<span class="n">conf_matrix</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[11,  0,  1],
+       [ 1,  4,  0],
+       [ 6,  0,  8]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each row is a predicted category and each column is the true category, but it is difficult to interpret the confusion matrix without labels. We can use seaborn’s <code class="docutils literal notranslate"><span class="pre">heatmap()</span></code> function (see <a class="reference internal" href="../chapter_10/chap_10_notebook.html#id17"><span class="std std-ref">section 10.6</span></a>) to produce a clearer representation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">conf_matrix</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;True Value&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Predicted Value&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(33.0, 0.5, &#39;Predicted Value&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/chap_12_notebook_55_1.png" src="../../_images/chap_12_notebook_55_1.png" />
+</div>
+</div>
+<p>Every value in the diagonal has the same predicted category as the true value, making them correct predictions, whereas anything off diagonal are incorrect predictions. For example, the bottom left corner shows that six instance were predicted as category 2 but really belong to category 0. Examination of the confusion matrix shows that the most common erroneous prediction is a category 0. This could be due to, for example, the fact that alcohols and amines both tend to have degrees of unsaturation of zero in this dataset.</p>
+</div>
+</div>
+<div class="section" id="unsupervised-learning">
+<span id="id11"></span><h2>12.2 Unsupervised Learning<a class="headerlink" href="#unsupervised-learning" title="Permalink to this headline">¶</a></h2>
+<p>Another major class of machine learning is <em>unsupervised learning</em> where no target value is provided to the machine learning algorithm. Unsupervised learning seeks to find patterns in the data instead of making predictions. One form of unsupervised problem is <em>dimensionality reduction</em> where the number of features is condensed down to typically two or three features while maintaining as much information as possible. Another unsupervised learning task is <em>clustering</em> where the algorithm attempts to group similar items in a dataset. Because no target label is available, the algorithm does not know what each group contains; it only knows that the data fall into a pattern of cohesive groups. <em>Blind signal separation (BSS)</em> is a third unsupervised task introduced below where the algorithm attempts at pulling apart mixed signals into its components without knowledge of the components. One application of BSS is extracting the spectra of pure compounds from spectra containing a mixture of chemical compounds.</p>
+<div class="section" id="dimensional-reduction">
+<span id="id12"></span><h3>12.2.1 Dimensional Reduction<a class="headerlink" href="#dimensional-reduction" title="Permalink to this headline">¶</a></h3>
+<p>We will first address dimensionality reduction which typically condenses features down to two or three dimensions because it is often used in the visualization complex data. To demonstrate this task, we will use scikit-learn’s <code class="docutils literal notranslate"><span class="pre">datasets</span></code> module which contains datasets along with data-generating functions. We will use the wine classification dataset that includes 178 samples of three different types of wines which we will classify based on features such as alcohol content, hue, malic acid, etc…</p>
+</div>
+<div class="section" id="load-wine-dataset">
+<span id="id13"></span><h3>12.2.2 Load Wine Dataset<a class="headerlink" href="#load-wine-dataset" title="Permalink to this headline">¶</a></h3>
+<p>To load the wine dataset, we first need to import the <code class="docutils literal notranslate"><span class="pre">load_wine()</span></code> function and then call the function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_wine</span>
+<span class="n">wine</span> <span class="o">=</span> <span class="n">load_wine</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The data is now stored as a dictionary-style object in the variable <code class="docutils literal notranslate"><span class="pre">wine</span></code> with the features stored under the key <code class="docutils literal notranslate"><span class="pre">data</span></code> and targets stored under <code class="docutils literal notranslate"><span class="pre">target</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wine</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.423e+01, 1.710e+00, 2.430e+00, ..., 1.040e+00, 3.920e+00,
+        1.065e+03],
+       [1.320e+01, 1.780e+00, 2.140e+00, ..., 1.050e+00, 3.400e+00,
+        1.050e+03],
+       [1.316e+01, 2.360e+00, 2.670e+00, ..., 1.030e+00, 3.170e+00,
+        1.185e+03],
+       ...,
+       [1.327e+01, 4.280e+00, 2.260e+00, ..., 5.900e-01, 1.560e+00,
+        8.350e+02],
+       [1.317e+01, 2.590e+00, 2.370e+00, ..., 6.000e-01, 1.620e+00,
+        8.400e+02],
+       [1.413e+01, 4.100e+00, 2.740e+00, ..., 6.100e-01, 1.600e+00,
+        5.600e+02]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wine</span><span class="o">.</span><span class="n">target</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice again that every data point, including the category, is a number because scikit-learn requires that all data are numerically encoded. We can get a full listing of the keys using the <code class="docutils literal notranslate"><span class="pre">keys()</span></code> method shown below. Most keys are self-explanatory except for the <code class="docutils literal notranslate"><span class="pre">DESCR</span></code> which provides a description of the dataset for those who are interested.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wine</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;data&#39;, &#39;target&#39;, &#39;frame&#39;, &#39;target_names&#39;, &#39;DESCR&#39;, &#39;feature_names&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will store the features and target values in variables for use in the next section.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="n">wine</span><span class="o">.</span><span class="n">data</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">wine</span><span class="o">.</span><span class="n">target</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="reduce-dimensionality-of-wine-dataset">
+<span id="id14"></span><h3>12.2.3 Reduce Dimensionality of Wine Dataset<a class="headerlink" href="#reduce-dimensionality-of-wine-dataset" title="Permalink to this headline">¶</a></h3>
+<p>Below is a list of thirteen features in the wine dataset which is too many to represent in a single plot, so it needs to be paired down to two or three.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wine</span><span class="o">.</span><span class="n">feature_names</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;alcohol&#39;,
+ &#39;malic_acid&#39;,
+ &#39;ash&#39;,
+ &#39;alcalinity_of_ash&#39;,
+ &#39;magnesium&#39;,
+ &#39;total_phenols&#39;,
+ &#39;flavanoids&#39;,
+ &#39;nonflavanoid_phenols&#39;,
+ &#39;proanthocyanins&#39;,
+ &#39;color_intensity&#39;,
+ &#39;hue&#39;,
+ &#39;od280/od315_of_diluted_wines&#39;,
+ &#39;proline&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Inevitably, some information will be lost by representing high-dimensionality data in lower dimensions, but the algorithms in scikit-learn are designed to preserve as much information as possible. Among the most common algorithms is <em>principle component analysis (PCA)</em> which determines the axes of greatest variation in the dataset known as principle components. The first principle component is the axis of greatest variation, the second principle component is the axis of the second greatest variation, and so on. Every subsequent principle component is also orthogonal to the previous principle components.</p>
+<p>As a simplified example, below is a dataset containing only two features. The axis of greatest variation slopes down and to the right, shown with a longer solid line, making this the first principle component. The second principle component is the axis of second greatest variation perpendicular to the first axis shown as a dotted line. If the data had a third dimension, the third principle component would come directly out of the page orthogonal to the first two principle components. Each data point is then represented by its relationship to the principle component axes. That is, the principle components are the new Cartesian axes. This may seem trivial with only two features, but it allows high-dimensional data to be reasonably represented in only two or three dimensions while preserving as much information as possible.</p>
+<p><img alt="" src="../../_images/pca_graphic.svg" /></p>
+<p><strong>Figure 2</strong> Principle components are axes of greatest variation of a dataset in feature space. The first principle component (solid line) is the axis of greatest variation while the second principle component (dotted line) is the axis of second greatest variation orthogonal to the first.</p>
+<p>The PCA algorithm is provided in the <code class="docutils literal notranslate"><span class="pre">decomposition</span></code> module of scikit-learn. Unsupervised learning proceedures are similar to those of supervised learning except that there is no reason to split the data into training and testing sets, and instead of making predictions, the trained algorithm is used to transform the data. The general process is outlined below.</p>
+<ol class="simple">
+<li><p>Create a model attached to a variable</p></li>
+<li><p>Train the model with the <code class="docutils literal notranslate"><span class="pre">fit()</span></code> method using all of the data</p></li>
+<li><p>Modify the data using the <code class="docutils literal notranslate"><span class="pre">transform()</span></code> method</p></li>
+</ol>
+<p>Principle component analysis is sensitive to the scale of features, so before we proceed, we will scale the features using the <code class="docutils literal notranslate"><span class="pre">StandardScaler()</span></code> function introduced in <a class="reference internal" href="#id7"><span class="std std-ref">section 12.1.5</span></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SS</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span> 
+<span class="n">features_ss</span> <span class="o">=</span> <span class="n">SS</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>When training the PCA model, it can take a number of arguments. Most are beyond the scope of this chapter, but the one you should focus on is <code class="docutils literal notranslate"><span class="pre">n_components=</span></code> where the user provides the number of principle components desired. In this case, we will obtain two principle components because it is the easiest to visualize.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">trans_data</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">features_ss</span><span class="p">)</span>
+<span class="n">trans_data</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(178, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The result is a two-dimensional array where each column represents a principle component. We can plot these components against each other and color the markers based on the class.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">trans_data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">trans_data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">target</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fe115b55850&gt;
+</pre></div>
+</div>
+<img alt="../../_images/chap_12_notebook_74_1.png" src="../../_images/chap_12_notebook_74_1.png" />
+</div>
+</div>
+<p>We can see that the three categories of wine all form cohesive clusters with class 0 and 2 being well resolved and class 1 exhibiting slight overlap with the other two classes of wine. This suggests that we should have better luck distinguishing between class 0 and 2 than between these two classes and class 1.</p>
+</div>
+<div class="section" id="clustering">
+<span id="id15"></span><h3>12.2.4 Clustering<a class="headerlink" href="#clustering" title="Permalink to this headline">¶</a></h3>
+<p>Clustering involves grouping similar items in a dataset, and this can be performed with a number of algorithms including <em>k</em>-means, agglomerative clustering, and Density Based Spacial Clustering Application with Noise (DBSCAN) among others. This process is somewhat similar to classification except that no labels are provided, so the algorithm does not know anything about the groups and must rely on the similarity of samples. Here we will use the DBSCAN clustering algorithm. This algorithm works by assigning items in a dataset as <em>core</em> data points if they are within a minimum distance (<code class="docutils literal notranslate"><span class="pre">eps</span></code>) of a minimum number of other samples in a dataset (<code class="docutils literal notranslate"><span class="pre">min_samples</span></code>). Clusters are built around these core data points, and any data point not within <code class="docutils literal notranslate"><span class="pre">eps</span></code> distance from a core data point is designated as <em>noise</em>, which means it is not assigned to any cluster. The larger the minimum distance and smaller minimum number of samples, the fewer clusters that are likely to be predicted by DBSCAN. One notable attribute of this algorithm versus some of the others mentioned above is that DBSCAN does not require the user to provide a requested number of clusters; it determines the number of clusters based on the other parameters mentioned above.</p>
+<p>To demonstrate clustering, we will generate a random, synthetic dataset using the <code class="docutils literal notranslate"><span class="pre">make_blob()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">sklearn.datasets</span></code> module. This function takes a number of arguments including the number of samples (<code class="docutils literal notranslate"><span class="pre">n_samples</span></code>), number of features (<code class="docutils literal notranslate"><span class="pre">n_features</span></code>), number of clusters (<code class="docutils literal notranslate"><span class="pre">centers</span></code>), and the standard deviation of the clusters (<code class="docutils literal notranslate"><span class="pre">cluster_std</span></code>). We will only generate two features to make this example easy to visualize. The output of <code class="docutils literal notranslate"><span class="pre">make_blobs()</span></code> is a NumPy array containing the features (<code class="docutils literal notranslate"><span class="pre">X</span></code>) and a second NumPy array containing the labels (<code class="docutils literal notranslate"><span class="pre">y</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">cluster_std</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fe115c19c40&gt;
+</pre></div>
+</div>
+<img alt="../../_images/chap_12_notebook_79_1.png" src="../../_images/chap_12_notebook_79_1.png" />
+</div>
+</div>
+<p>We can see three distinct clusters with the cluster on the bottom being more distinct than the two at the top. Also notice that the scales of the two features are different by roughly a factor of two. Before we can use this data, we will need to normalize the scale of both features as clustering algorithms are sensitive to scale. For this task, we will use the <code class="docutils literal notranslate"><span class="pre">StandardScaler()</span></code> function introduced in <a class="reference internal" href="#id16"><span class="std std-ref">section 12.2.5</span></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SS</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">X_ss</span> <span class="o">=</span> <span class="n">SS</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that the data is scaled, we will initiate our model, train it using the <code class="docutils literal notranslate"><span class="pre">fit()</span></code> method, and examine the predictions using the <code class="docutils literal notranslate"><span class="pre">labels_</span></code> attribute.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">DBSCAN</span>
+<span class="n">DB</span> <span class="o">=</span> <span class="n">DBSCAN</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">DB</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_ss</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DBSCAN(eps=0.4)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DB</span><span class="o">.</span><span class="n">labels_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0,  0,  1,  1,  2,  0,  2,  1,  0,  0,  0,  0,  2,  2,  2,  2,  1,
+        0,  2,  0,  2,  0,  0,  0,  1,  0,  0,  0,  1,  1,  0,  0,  1,  1,
+        2,  2,  1,  0,  0,  0,  1,  0,  0,  1,  1,  2,  0,  2, -1,  1,  0,
+        1,  1,  1,  0,  0,  1,  2,  1,  2,  0,  2,  2,  0,  1,  0,  2,  2,
+        2,  0,  2,  1,  1,  0,  2,  1,  0,  2,  0,  1,  0,  2,  0,  2,  0,
+        2,  0,  2,  1,  1,  2,  1,  0,  1,  0,  0,  1,  1,  2,  0,  2,  1,
+        2,  2,  1,  2,  0,  1,  2,  2,  0,  2,  2,  2,  1,  1,  0,  0,  1,
+        0,  2,  2,  1,  1,  1,  2,  2,  1,  0,  0,  1,  1,  2,  2,  0,  2,
+        0,  1,  1,  1,  1,  2,  1,  1,  2,  1,  1,  1,  2,  2,  2,  1,  1,
+        2,  2,  1,  0,  1,  1,  2,  2,  2,  1,  2,  0,  0,  0,  2, -1,  2,
+        2,  2,  1,  2,  0,  0,  2,  1,  0,  1,  1,  2,  0,  2,  1,  1,  2,
+        2,  1,  0,  0,  1,  1,  1,  0,  0,  0,  0,  2,  2])
+</pre></div>
+</div>
+</div>
+</div>
+<p>The DBSCAN algorithm has designated which cluster each data point belongs to by assigning them an integer labels. Notice in the plot below that the labels assigned to each cluster are not the same as those in the previous plot. Clustering labels are not classes but rather are merely to indicate which data points belong to the same cluster. The values themselves do not matter. Two data points have been assigned values of <code class="docutils literal notranslate"><span class="pre">-1</span></code> which means these data points are noise. The <em>k</em>-means and agglomerative clustering algorithms would have assigned all data points, including outliers, to a cluster; but DBSCAN is willing to label outliers as noise.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_ss</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_ss</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">DB</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fe115da13d0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/chap_12_notebook_86_1.png" src="../../_images/chap_12_notebook_86_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="blind-signal-separation">
+<span id="id16"></span><h3>12.2.5 Blind Signal Separation<a class="headerlink" href="#blind-signal-separation" title="Permalink to this headline">¶</a></h3>
+<p>Blind signal (or source) separation (BSS) is the processes of separating independent component signals from a mixed signal. One application is in chemical spectroscopy where a spectrum may include signals from multiple chemical compounds in a mixture. If we provide the BSS algorithm multiple spectra of chemical mixtures where each mixture contains varying amounts of each chemical, the BSS algorithm should be able to separate the signals for each chemical component.</p>
+<p>To demonstrate this process, we will use infrared (IR) spectroscopy data containing mixtures of acetone, cyclohexane, toluene, and methanol in random ratios. Below are plots of four mixtures. We can see that, for example, the bands at ~3400 cm<span class="math notranslate nohighlight">\(^{-1}\)</span> and ~1000 cm<span class="math notranslate nohighlight">\(^{-1}\)</span> increase together suggesting that they originate from the same compound; this type of information can be used to discriminate which band belongs to which compound. However, instead of doing this manually, we can allow the machine learning algorithms to pick apart the spectra, and even better yet, yield complete spectra of each component.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/chap_12_notebook_88_0.png" src="../../_images/chap_12_notebook_88_0.png" />
+</div>
+</div>
+<p>For this task, we will use the <em>independent component analysis (ICA)</em> function called <code class="docutils literal notranslate"><span class="pre">fastICA()</span></code> available in scikit-learn. The process parallels the other unsupervised learning processes above of first training the algorithm using the <code class="docutils literal notranslate"><span class="pre">fit()</span></code> method followed by transforming the data using the <code class="docutils literal notranslate"><span class="pre">transform()</span></code> method. First we will load the data from the files and stack them into an array called <code class="docutils literal notranslate"><span class="pre">S_mix</span></code> where each column contains the data from a spectrum. For comparison purposes, we will also load IR spectra of each pure component into an array called <code class="docutils literal notranslate"><span class="pre">S_pure</span></code>. Normally we would not have spectra of pure components, hence the “blind” in blind singal seperation, but this is just an example.</p>
+<p>The code below also grabs a copy of the wavenumbers (<code class="docutils literal notranslate"><span class="pre">wn</span></code>) for plotting purposes later on. The last 300 data points of the sprectra in this example are also being clipped off becasue they are a low signal high noise region of the spectra which reduces the effectiveness of the seperation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">data_pure</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">data_mix</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">clip</span> <span class="o">=</span> <span class="mi">300</span> <span class="c1"># clip off noisy far end of spectrum</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s1">&#39;data&#39;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;pure.csv&#39;</span><span class="p">):</span>
+        <span class="n">data_pure</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="n">clip</span><span class="p">:,</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">wn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="n">clip</span><span class="p">:,</span><span class="mi">0</span><span class="p">]</span>        
+
+    <span class="k">elif</span> <span class="n">file</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;csv&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">file</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;mix&#39;</span><span class="p">):</span>
+        <span class="n">data_mix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="n">clip</span><span class="p">:,</span><span class="mi">1</span><span class="p">])</span>
+
+        
+<span class="n">data_array_pure</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">data_pure</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<span class="n">data_array_mix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">data_mix</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">S_pure</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">data_array_pure</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span> <span class="c1">#recast strings as floats</span>
+<span class="n">S_mix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">data_array_mix</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span> <span class="c1">#recast strings as floats</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The next step is to train and transform the data. When generating the fastICA model, it requires the number of components (<code class="docutils literal notranslate"><span class="pre">n_components</span></code>) which is four in this case. One minor drawback of this algorithm is that the user must first know the number of components in the mixed signal.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The below example sets the <code class="docutils literal notranslate"><span class="pre">random_state=42</span></code>. This is set to keep the outputs of this Jupyter Book consistent over time but is not neccesary for regular use of the <code class="docutils literal notranslate"><span class="pre">FastICA()</span></code> function.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">FastICA</span>
+<span class="n">ica</span> <span class="o">=</span> <span class="n">FastICA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">S_fit</span> <span class="o">=</span> <span class="n">ica</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">S_mix</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S_fit</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(6961, 4)
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may have noticed that instead of doing the <code class="docutils literal notranslate"><span class="pre">fit()</span></code> and <code class="docutils literal notranslate"><span class="pre">transform()</span></code> in two steps, we used a <code class="docutils literal notranslate"><span class="pre">fit_transform()</span></code> method. This method is present in many unsupervised algorithms allowing the user to perform both steps in a single function call. The resulting array <code class="docutils literal notranslate"><span class="pre">S_fit</span></code> contains the four extracted components where each column of the array is a component. We can plot each component next to IR spectra of pure compounds collected separately to see how it performed. Remember that the BSS algorithm does not know anything about what these components are, so interpreting them or matching them to real chemical compounds is left to the user.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig1</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wn</span><span class="p">,</span> <span class="o">-</span><span class="n">S_fit</span><span class="p">[:,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Wavenumbers, cm$^{-1}$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Extracted Acetone Spectrum&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_xaxis</span><span class="p">()</span>
+
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig1</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wn</span><span class="p">,</span> <span class="n">S_pure</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Wavenumbers, cm$^{-1}$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Transmittance, %&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Pure Acetone Spectrum&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_xaxis</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/chap_12_notebook_96_0.png" src="../../_images/chap_12_notebook_96_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig2</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wn</span><span class="p">,</span> <span class="n">S_fit</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Wavenumbers, cm$^{-1}$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Extracted Toluene Spectrum&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_xaxis</span><span class="p">()</span>
+
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig2</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wn</span><span class="p">,</span> <span class="n">S_pure</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Wavenumbers, cm$^{-1}$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Transmittance, %&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Pure Toluene Spectrum&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_xaxis</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/chap_12_notebook_97_0.png" src="../../_images/chap_12_notebook_97_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig3</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wn</span><span class="p">,</span> <span class="o">-</span><span class="n">S_fit</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Wavenumbers, cm$^{-1}$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Extracted Cyclohexane Spectrum&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_xaxis</span><span class="p">()</span>
+
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig3</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wn</span><span class="p">,</span> <span class="n">S_pure</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Wavenumbers, cm$^{-1}$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Transmittance, %&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Pure Cyclohexane Spectrum&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_xaxis</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/chap_12_notebook_98_0.png" src="../../_images/chap_12_notebook_98_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig4</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig4</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wn</span><span class="p">,</span> <span class="o">-</span><span class="n">S_fit</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Wavenumbers, cm$^{-1}$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Extracted Methanol Spectrum&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_xaxis</span><span class="p">()</span>
+
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig4</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wn</span><span class="p">,</span> <span class="n">S_pure</span><span class="p">[:,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Wavenumbers, cm$^{-1}$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Transmittance, %&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Pure Methanol Spectrum&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_xaxis</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/chap_12_notebook_99_0.png" src="../../_images/chap_12_notebook_99_0.png" />
+</div>
+</div>
+<p>Overall, the fastICA algorithm did a decent job - sometimes even impressive job of picking out small features, but there are some discrepancies between the extracted and pure IR spectra. The first is that there are peaks that extend above the extracted spectra. A transmittance over 100% is not possible, but the algorithm does not know this. The <em>y</em>-axis scales of the extracted IR spectra also do not match the percent transmittance. While it is not shown here, sometimes the extracted components are also upside down. This is because the mixtures are assumed to be weighted sums of the components, and a component can be negative. If this bothers you, there is a related BSS algorithm called <em>non-negative matrix factorization (NMF)</em> supported in scikit-learn which enforces each component to be non-negative. Finally, you may notice that there is a broad feature at around 3400 cm<span class="math notranslate nohighlight">\(^{-1}\)</span> in the second extracted component that is not in the pure compound. This is an O-H stretch from the methanol IR spectrum showing up in the acetone spectrum. This may be the result of hydrogen-bonding between methanol and acetone shifting the O-H band breaking down the assumption that the spectra of mixtures are purely additive.</p>
+</div>
+</div>
+<div class="section" id="final-notes">
+<span id="id17"></span><h2>12.3 Final Notes<a class="headerlink" href="#final-notes" title="Permalink to this headline">¶</a></h2>
+<p>There is a saying that there is no task so simple it cannot be done wrong, and machine learning is no exception. Machine learning, like any tool, can be used incorrectly leading to erroneous or error-prone results. One particular source of error in machine learning is making predictions outside the scope of the training dataset. That is, if we train an algorithm to predict the boiling points using aliphatic alcohols, there is no reason to expect that the algorithm should be able to accurately predict the boiling points of aromatic alcohols. Another risk in machine learning is overtraining an algorithm. Some algorithms provide numerous parameters which customize the behavior, and these parameters are often used to optimize the accuracy of the predictions. The parameters can be over optimized for the training data so that the algorithm then performs worse in predicts for non-training data. This is known as <em>overtraining</em> the algorithm. In all of the excitement about how powerful and useful machine learning is, we should always keep the sources of error in mind and always remember that just because a machine learning algorithm makes a prediction does not make it true.</p>
+</div>
+<div class="section" id="further-reader">
+<span id="fr12"></span><h2>Further Reader<a class="headerlink" href="#further-reader" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Scikit-Learn Website. <a class="reference external" href="https://scikit-learn.org/stable/">https://scikit-learn.org/stable/</a> This is a great resource both on using scikit-learn and about machine learning algorithms implemented within (free resource)</p></li>
+<li><p>VanderPlas, J. Python data Science Handbook: Essential Tools for Working with Data, 1st ed.; O’Reilly: Sebastopol, CA, 2017, chapter 5. A free, online version available is available by the author at <a class="reference external" href="https://github.com/jakevdp/PythonDataScienceHandbook">https://github.com/jakevdp/PythonDataScienceHandbook</a> (free resource)</p></li>
+<li><p>Nallon,E. C.; Schnee, V. P.; Bright, C.; Polcha, M. P.; Li, Q. Chemical Discrimination with an Unmodified Graphene Chemical Sensor. <em>ACS Sens.</em> <strong>2016,</strong> 1, 26−31. This is a relatively approachable chemistry article that applies scikit-learn to a chemical problem using both supervised and unsupervised techniques. <a class="reference external" href="https://doi.org/10.1021/acssensors.5b00029">https://doi.org/10.1021/acssensors.5b00029</a></p></li>
+</ol>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p>Import the data file <strong>ROH_data.csv</strong> containing data on simple alcohols and train a random forest algorithm to predict whether or not an alcohol is aliphatic. Remember to split the dataset using <code class="docutils literal notranslate"><span class="pre">train_test_split()</span></code> and evaluate the quality of the predictions.</p>
+<p>Note: Some densities are missing in this dataset, so you will need to decide how to deal with this missing data.</p>
+</li>
+<li><p>Open the file titled <strong>NMR_mixed_problem.csv</strong> which contains three <span class="math notranslate nohighlight">\(^1\)</span>H NMR spectra. Each spectrum (columns) is a mixture of three chemical compounds in different ratios (artificially generated). Use fastICA to separate out three pure <span class="math notranslate nohighlight">\(^1\)</span>H NMR spectra of each component. Compare your separated spectra to the pure NMR spectra in <strong>NMR_pure_problem.csv</strong>.</p></li>
+<li><p>Import the file titled <strong>clusters.csv</strong> containing unlabeled data with two features.</p>
+<p>a) Use the DBSCAN algorithm to predict clusters for each datapoint in the set. Plot
+the data points using color to represent each cluster.</p>
+<p>b) Use the <em>k</em>-means algorithm (<code class="docutils literal notranslate"><span class="pre">sklearn.cluster.KMeans</span></code>) to predict clusters for each datapoint in the set.         This may require you to visit the Scikit-Learn website to view the documentation for this algorithm and             function. Plot the data points using color to represent each cluster.</p>
+</li>
+<li><p>Load the handwritten digits dataset using the <code class="docutils literal notranslate"><span class="pre">sklearn.datasets.load_digits()</span></code> function.</p>
+<p>a) Reduce the dimensionality of the dataset to two principle components and visualize it. Color the markers         based on the category. You will need to import PCA from <code class="docutils literal notranslate"><span class="pre">sklearn.decomposition</span></code>.</p>
+<p>b) Train the Gaussian Naive Bays algorithm to classify the digits. Be sure to evaluate the effectiveness using a     testing dataset. Import <code class="docutils literal notranslate"><span class="pre">GaussianNB</span></code> from <code class="docutils literal notranslate"><span class="pre">sklearn.naive_bayes</span></code>.</p>
+</li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/chapter_12"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../chapter_11/chap_11_notebook.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Chapter 11: Nuclear Magnetic Resonance with NMRglue</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../chapter_13/chap_13.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 13: Command Line &amp; Spyder</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Charles J. Weiss<br/>
+    
+        &copy; Copyright 2021-2022.<br/>
+      <div class="extra_footer">
+        Scientific Computing for Chemists is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

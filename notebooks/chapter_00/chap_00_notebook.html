@@ -1,0 +1,595 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter 0: Python &amp; Jupyter Notebooks &#8212; Scientific Computing for Chemists</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Chapter 1: Basic Python" href="../chapter_01/chap_01_notebook.html" />
+    <link rel="prev" title="Scientific Computing for Chemists" href="../../intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Scientific Computing for Chemists</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Scientific Computing for Chemists
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Chapter 0: Python &amp; Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_01/chap_01_notebook.html">
+   Chapter 1: Basic Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_02/chap_02_notebook.html">
+   Chapter 2: Intermediate Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_03/chap_03_notebook.html">
+   Chapter 3: Plotting with Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_04/chap_04_notebook.html">
+   Chapter 4: NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_05/chap_05_notebook.html">
+   Chapter 5: Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_06/chap_06_notebook.html">
+   Chapter 6: Signal &amp; Noise
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_07/chap_07_notebook.html">
+   Chapter 7: Image Processing &amp; Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_08/chap_08_notebook.html">
+   Chapter 8: Mathematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_09/chap_09_notebook.html">
+   Chapter 9: Simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_10/chap_10_notebook.html">
+   Chapter 10: Plotting with Seaborn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_11/chap_11_notebook.html">
+   Chapter 11: Nuclear Magnetic Resonance with NMRglue
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_12/chap_12_notebook.html">
+   Chapter 12: Machine Learning using Scikit-Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_13/chap_13.html">
+   Chapter 13: Command Line &amp; Spyder
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org/">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/chapter_00/chap_00_notebook.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/chapter_00/chap_00_notebook.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/notebooks/chapter_00/chap_00_notebook.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python">
+   0.1 Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-software">
+   0.2 Installing Software
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#project-jupyter">
+   0.3 Project Jupyter
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#markdown">
+   0.4 Markdown
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comments">
+   0.5 Comments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scipy-stack">
+   0.6 SciPy Stack
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-reading">
+   Further Reading
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Chapter 0: Python & Jupyter Notebooks</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python">
+   0.1 Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-software">
+   0.2 Installing Software
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#project-jupyter">
+   0.3 Project Jupyter
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#markdown">
+   0.4 Markdown
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comments">
+   0.5 Comments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scipy-stack">
+   0.6 SciPy Stack
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-reading">
+   Further Reading
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="chapter-0-python-jupyter-notebooks">
+<span id="id1"></span><h1>Chapter 0: Python &amp; Jupyter Notebooks<a class="headerlink" href="#chapter-0-python-jupyter-notebooks" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="python">
+<span id="id2"></span><h2>0.1 Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<p>Python is a popular programming language available on all major computer platforms including Mac, Linux, and Windows.  It is a scripting language which means that the moment the user presses the Return key or Run, the Python software interprets and runs the code. This is in contrast to a compiled language like C where the code must first be translated into binary (i.e., machine language) before it can be run. On-the-fly interpretation makes Python quick to use and often provides the user with rapid results. This is ideal for scientific data analysis where the user is routinely making changes to the processing and visualization of the data.</p>
+<p>Python is free, open source software and is maintained by the non-profit <a class="reference external" href="https://www.python.org/psf/">Python Software Foundation</a>. This is appealing for two major reasons. The first is that it is widely, freely, and irrevocably available to anyone who wants to use it regardless of budget. With proprietary software, which is more and more commonly offered under a subscription model, if a company stops offering or updating a software package, it may simply become unavailable leaving users without the software they built their work around. Second, it is open source, so anyone can inspect and modify the code. This allows anyone to review the code to ensure it does what it claims instead of relying on the assertions of the software distributer.</p>
+<p>Another reason to use Python over other options, free or otherwise, is the power and the community support available to Python users. Python is a common and popular programming language that has been applied to a wide variety of applications including data analysis, visualization, machine learning, robotics, web scraping, 3D graphics, and more. As a result, there is a large community built around Python that provides valuable support for those who need assistance. If you are stuck on a problem or have a question, a quick internet search will likely provide the answer. Common internet forums include <a class="reference external" href="http://stackexchange.com">stackexchange.com</a> or <a class="reference external" href="http://stackoverflow.com">stackoverflow.com</a> among others. If you have a question or need help on something, you are probably not the first person to ask that question.</p>
+<p>Along with Python, this book uses the IPython environment and Jupyter notebooks as a medium for running and sharing Python code. More details are give below on Jupyter notebooks, but for now, know that they provide interactive environments ideal for scientific computing. In addition, we will use a variety of free, open source libraries to provide collections of useful functions for scientific data processing, analysis, and visualization. Think of a library as an add-on or tool pack for Python, and there are many to choose from.</p>
+</div>
+<div class="section" id="installing-software">
+<span id="id3"></span><h2>0.2 Installing Software<a class="headerlink" href="#installing-software" title="Permalink to this headline">¶</a></h2>
+<p>The first step is to install the software, if you have not done so already, and there are multiple options for software installation. The first is to install Python followed by Jupyter, IPython, and all of the libraries. This is a tedious process. The faster and more convenient approach is to use an installer that brings nearly all the software with it. The Anaconda installer (link below) provided for free by Continuum Analytics is a very popular option that does exactly this. There are other installation options available, but the instructions in this book for launching applications assumes Anaconda. When installing the software, be sure to choose <strong>Python 3</strong> as this is the current version. While many applications still support Python 2, it is technically legacy with support being gradually removed. As of the time of this writing, multiple major projects in the scientific Python ecosystem have announced that current or future releases of their software will no longer support Python 2, so it is likely in your interest to be on Python 3. Most of the examples in this book will probably work in Python 2 if you absolutely must use it, but you are <em>strongly</em> encouraged to install the most recent version of Python.</p>
+<p><a class="reference external" href="https://www.anaconda.com/download/">Anaconda Installer</a></p>
+<p>The Anaconda installer above brings everything you need except for chapter 11 which requires a more specialized library that is not installed by default. If you want to install additional libraries, open the Anaconda-Navigator (green circle icon) and select the <strong>Environment</strong> tab on the left. Select <strong>Not Installed</strong> from the pull-down menu to see all the libraries available to be installed as shown in Figure 1. To install a library, check the box next to it and click the <strong>Apply</strong> button that appears on the bottom right. Anaconda will install it and anything else that is required for the new library to work properly.</p>
+<p><img alt="" src="../../_images/Not_installed_screen.png" />
+<strong>Figure 1</strong> Installing additional libraries using Anaconda-Navigator.</p>
+<p>Any software used in this book that is not installed either by default or through the above method is addressed in its respective chapter. A key example of this is NMRglue covered in chapter 11.</p>
+</div>
+<div class="section" id="project-jupyter">
+<span id="id4"></span><h2>0.3 Project Jupyter<a class="headerlink" href="#project-jupyter" title="Permalink to this headline">¶</a></h2>
+<p>The Jupyter notebook (formerly known as the IPython notebook) is an electronic document designed to support interactive data processing, analysis, and visualization in an easily shared format. A Jupyter notebook can contain live code, equations, explanatory text, and the output of code such as values, text, images, and plots. The code and examples in this book are intended to be run from a Jupyter notebook but should work fine in many other environments including a basic IPython terminal.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The name changed as a result of support for more programming languages beyond Python. The name Jupyter was forged from Julia/Python/R, the first three languages supported, and is a nod to Galileo Galilei for his notebooks where he sketched the planet Jupiter and moons as observed through his telescope. The Jupyter notebook currently supports dozens of programming languages, but for this book, we will only be addressing Python.</p>
+</div>
+<p>If you already have Python and Jupyter installed, a Jupyter notebook can be launched by either starting the <strong>Navigator</strong> application (green circle icon) and then clicking the <strong>Launch</strong> button under JupyterLab. Alternatively, Jupyter can be launched from the Terminal or shell by typing <code class="docutils literal notranslate"><span class="pre">jupyter-lab</span></code>. The Jupyter notebook will launch in the web browser, but this is <em>not</em> a website or web application. An internet browser is fundamentally a fancy image and document viewer that displays documents and images from web servers, but it can also view files on your own computer. From here, you can either select an already existing Jupyter notebook, denoted by the orange icons and <strong>.ipynb</strong> extension (Figure 2, left), to open it or create a new notebook by selecting <strong>New</strong> from the <strong>File</strong> menu (Figure 2, right) and selecting <strong>Python 3</strong>.</p>
+<p><img alt="" src="../../_images/launch_notebook.png" />
+<strong>Figure 2</strong> Launching a Jupyter notebook can be accomplished by opening a preexisting notebook from within JupyterLab (left) or launching a new Jupyter notebook from the File menu (right).</p>
+<p>The Jupyter notebook is structured as a series of cells of two main types: code and markdown. The <em>code cells</em> contain live Python code that can be run inside the notebook with any output of the code, including values, text, and plots, appearing directly below the cell. The <em>markdown cell</em> is the other common cell type and is designed to contain explanatory information on what is happening in the code cells. They can contain text, equations, and images to help the user convey information. Markdown cells support formatting in markdown, html, and Latex. These two types of cells provide the user with the ability to produce documents containing the data analysis, results, and explanations of the data and analysis along with any conclusions.</p>
+<p>Both code and markdown cells can be run by either selecting <strong>Run Selected Cells</strong> in the <strong>Run menu</strong>, by clicking the ► button at the top of the notebook (Figure 3), or by using the <strong>Shift + Return</strong> shortcut. When a code cell is run, the code is executed with any output appearing directly below. When a markdown cell is executed, the text in the cell is rendered to look nicer, and any html or Latex code is rendered to generate the equation(s) or desired formatting.</p>
+<p><img alt="" src="../../_images/run_cell.png" />
+<strong>Figure 3</strong> Run a selected cell in a Jupyter notebook by clicking the  ► button at the top of the notebook or by selecting Run Selected Cells from the Run menu. The output of a code cell appears directly below the executed code cell.</p>
+</div>
+<div class="section" id="markdown">
+<span id="id5"></span><h2>0.4 Markdown<a class="headerlink" href="#markdown" title="Permalink to this headline">¶</a></h2>
+<p><em>Markdown</em> is a light-weight markup language that allows users to make bold, italic, or monospaced text and various kinds of lists and other simple formatting. The table below provides a collection of common markdown syntax (left) with the corresponding rendered result (right). These are worth knowing to generate sharp markdown cells in your Jupyter notebooks. You will likely find that regular usage will commit them to memory.</p>
+<p><strong>Table 1</strong> Markdown Syntax</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Markdown Syntax</p></th>
+<th class="text-align:center head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p># Header</p></td>
+<td class="text-align:center"><p>Header</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>## Sub-Header</p></td>
+<td class="text-align:center"><p>Sub-header</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>## Sub-Sub-Header</p></td>
+<td class="text-align:center"><p>Sub-Sub-Header</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>* Italic *</p></td>
+<td class="text-align:center"><p>Italic</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>** Bold **</p></td>
+<td class="text-align:center"><p>Bold</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>`Monospace`</p></td>
+<td class="text-align:center"><p>Monospace</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>—</p></td>
+<td class="text-align:center"><p>Line across page</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>* Item</p></td>
+<td class="text-align:center"><p>Bulleted item in line</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>1. Item</p></td>
+<td class="text-align:center"><p>Numbered list item</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>[link](<a class="reference external" href="http://www.python.org">www.python.org</a>)</p></td>
+<td class="text-align:center"><p>URL link</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="comments">
+<span id="id6"></span><h2>0.5 Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<p>Along with markdown cells, it is good practice to add comments to your code. Comments are a means of describing what each section of code does and makes it easier for you and others to navigate the code. It may seem clear to you what each piece of code does as you write it, but after a week, month, or longer, it is unlikely to be as obvious. Paul Wilson from the University of Wisconsin at Madison once elegantly described the importance of comments in stating that the “Your closest collaborator is you six months ago, but you don’t reply to emails.” Comment your code now so that you are not confused later.</p>
+<p>The code comments are added directly to code cells using the hash <code class="docutils literal notranslate"><span class="pre">#</span></code> symbol. Anything in a line after a hash symbol is not executed. This means that an entire line can be a comment or a comment can be added after code as demonstrated below with comments colored dark green.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">particles</span> <span class="o">=</span> <span class="mi">10000</span>   <span class="c1"># number of particles</span>
+<span class="n">steps</span> <span class="o">=</span> <span class="mi">1000</span>        <span class="c1"># steps in simulation</span>
+
+<span class="c1"># steps to iterate over</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">steps</span><span class="p">)</span>
+
+<span class="n">loc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">particles</span><span class="p">)</span>  <span class="c1"># particle locations</span>
+
+<span class="k">for</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">t</span><span class="p">:</span>
+    <span class="c1"># add random value to locations</span>
+    <span class="n">loc</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">particles</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="scipy-stack">
+<span id="id7"></span><h2>0.6 SciPy Stack<a class="headerlink" href="#scipy-stack" title="Permalink to this headline">¶</a></h2>
+<p>The Python programming language allows for add-ons known as <em>libraries</em> to provide extra features. Each library is a collection of <em>modules</em>, and each module is a collection of <em>functions</em>… or occasionally data. For example, the SciPy library contains a module called <code class="docutils literal notranslate"><span class="pre">integrate</span></code> which contains a collection of functions for integrating equations or sampled data. For scientific applications, there is a series of core libraries collectively known as the <em>SciPy stack</em> along with many other popular libraries. The table below lists some of the common libraries for scientific applications with an asterisk by those often considered part of the SciPy stack.</p>
+<p><strong>Table 2</strong> Common Python Scientific Libraries</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Library</p></th>
+<th class="text-align:left head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>NumPy*</p></td>
+<td class="text-align:left"><p>Foundation of the SciPy stack and provides arrays and a large collection of mathematical functions</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>SciPy*</p></td>
+<td class="text-align:left"><p>Scientific data analysis tools for common scientific data analysis tasks including signal analysis, Fourier transform, integration, linear algebra, optimization, feature identification, and others</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>Matplotlib*</p></td>
+<td class="text-align:left"><p>Popular and powerful plotting library</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Scikit-Image*</p></td>
+<td class="text-align:left"><p>Scientific image processing and analysis</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>Seaborn</p></td>
+<td class="text-align:left"><p>Advanced plotting library built on matplotlib</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>SymPy*</p></td>
+<td class="text-align:left"><p>Symbolic mathematics (somewhat analogous to Mathematica)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>Pandas*</p></td>
+<td class="text-align:left"><p>Advanced data analysis tools</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Scikit-Learn</p></td>
+<td class="text-align:left"><p>Machine learning tools</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>TensorFlow</p></td>
+<td class="text-align:left"><p>Machine learning tools for neural networks</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>NMRglue</p></td>
+<td class="text-align:left"><p>Nuclear magnetic resonance data processing</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>Biopython</p></td>
+<td class="text-align:left"><p>Computational biology and bioinformatics</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Scikit-Bio</p></td>
+<td class="text-align:left"><p>Computational biology and bioinformatics</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<div class="section" id="further-reading">
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
+<p>For further reading and exploration on Jupyter notebooks, the Jupyter Project website below is a good place to see what is happening. There are also a number of books that include chapters on the Jupyter notebooks and the interactive IPython environment.</p>
+<ol class="simple">
+<li><p>Jupyter Project Website. <a class="reference external" href="https://jupyter.org/">https://jupyter.org/</a> (free resource)</p></li>
+<li><p>SciPy Website. <a class="reference external" href="https://www.scipy.org/">https://www.scipy.org/</a> (free resource)</p></li>
+<li><p>IPython Interactive Computing Website. <a class="reference external" href="https://ipython.org/">https://ipython.org/</a> (free resource)</p></li>
+<li><p>VanderPlas, J. Python data Science Handbook: Essential Tools for Working with Data, 1st ed.; O’Reilly: Sebastopol, CA, 2017, chapter 1. A free, online version is available from the author at <a class="reference external" href="https://github.com/jakevdp/PythonDataScienceHandbook">https://github.com/jakevdp/PythonDataScienceHandbook</a> (free resource)</p></li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/chapter_00"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../../intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Scientific Computing for Chemists</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../chapter_01/chap_01_notebook.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 1: Basic Python</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Charles J. Weiss<br/>
+    
+        &copy; Copyright 2021-2022.<br/>
+      <div class="extra_footer">
+        Scientific Computing for Chemists is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

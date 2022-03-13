@@ -1,0 +1,41 @@
+Traceback (most recent call last):
+  File "/Users/Demos/opt/anaconda3/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/Users/Demos/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/Demos/opt/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/Demos/opt/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/Users/Demos/opt/anaconda3/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+    return future.result()
+  File "/Users/Demos/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/Users/Demos/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/Demos/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+x = np.linspace(0, 4e-5, 10)
+plt.plot(x, 1.55886e4 * x - 5.45355e-6, '-', label='Linear Regression')
+plt.plot(C, A, 'o', label='Data Points')
+
+plt.legend()
+plt.ticklabel_format(style='sci', axis='x', scilimits=(0,0))
+plt.xlabel('Concentration, M')
+plt.ylabel('Absorbance, au')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m/var/folders/cw/g8p9ghtd3_7b10t_kws_b86h0000gp/T/ipykernel_2194/1597303122.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mx[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mlinspace[0m[0;34m([0m[0;36m0[0m[0;34m,[0m [0;36m4e-5[0m[0;34m,[0m [0;36m10[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mx[0m[0;34m,[0m [0;36m1.55886e4[0m [0;34m*[0m [0mx[0m [0;34m-[0m [0;36m5.45355e-6[0m[0;34m,[0m [0;34m'-'[0m[0;34m,[0m [0mlabel[0m[0;34m=[0m[0;34m'Linear Regression'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mC[0m[0;34m,[0m [0mA[0m[0;34m,[0m [0;34m'o'[0m[0;34m,[0m [0mlabel[0m[0;34m=[0m[0;34m'Data Points'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0mplt[0m[0;34m.[0m[0mlegend[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'plt' is not defined
+NameError: name 'plt' is not defined
+
