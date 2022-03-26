@@ -152,7 +152,7 @@ Once Spyder has launched, you will be greeted by an interface divided into three
 
 **Figure 2** The Spyder interface with the text editor (left), variable explorer (top right), and interpreter (bottom right).
 
-So when should you use a Jupyter notebook and when should you use Spyder? The decision is often a matter of preference, but if you are doing interactive data analysis, Jupyter notebooks are typically the better choice. This is particularly true if you need to share your analysis and results with others. If you are writing large blocks of code, Spyder is likely a better choice of environment. As an example, if you wish to perform complex mining of information from an external dataset and then analyze the resulting information, you might want to write the data mining code in Spyder and then run the data analysis in a Jupyter notebook.
+So when should you use a Jupyter notebook and when should you use Spyder? The decision is often a matter of preference, but if you are doing interactive data analysis, Jupyter notebooks are typically the better choice. This is particularly true if you need to share your analysis and results with others. If you are writing large blocks of code, Spyder is likely a better choice of environment. As an example, if you wish to perform complex mining of information from an external data set and then analyze the resulting information, you might want to write the data mining code in Spyder and then run the data analysis in a Jupyter notebook.
 
 ## Further Reading
 
@@ -165,10 +165,11 @@ Complete the following problems by writing a Python scripts either in a text edi
 1. When an electron in a hydrogen atom relaxes from a higher to a lower energy orbital, a photon is released with the energy described by the below equation. Write and run a Python script that prompts the user to input the initial and final principle quantum numbers (n) and outputs the wavelength (λ) of light emitted.
 
 $$ 2.18 \times 10^{-18} \left( \frac{1}{n_i^2} - \frac{1}{n_f^2} \right) \quad \quad E = \frac{hc}{\lambda} $$
-                  
-2. In the folder titled Problem 2 Kinetic Data you will find synthetic data for the conversion of A $\rightarrow$ P. Both datasets are for first-order reactions. 
+           
+           
+2. In the folder titled Problem 2 Kinetic Data you will find synthetic data for the conversion of A $\rightarrow$ P. Both data sets are for first-order reactions. 
  
-    a) Write a Python script that accepts the name of a single data file like below and outputs the rate constant (k) for       the data. Test it on both datasets. For the script to find the file, it needs to either be in the same directory as the     data file or be provided the absolute path to the file.
+    a) Write a Python script that accepts the name of a single data file like below and outputs the rate constant (k) for       the data. Test it on both data sets. For the script to find the file, it needs to either be in the same directory as the     data file or be provided the absolute path to the file.
 
         $ python script.py kinetic_data_1.csv
 
