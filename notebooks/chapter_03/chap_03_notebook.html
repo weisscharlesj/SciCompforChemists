@@ -293,8 +293,13 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#figure-size">
+     3.1.4 Figure Size
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#saving-figures">
-     3.1.4 Saving Figures
+     3.1.5 Saving Figures
     </a>
    </li>
   </ul>
@@ -409,8 +414,13 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#figure-size">
+     3.1.4 Figure Size
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#saving-figures">
-     3.1.4 Saving Figures
+     3.1.5 Saving Figures
     </a>
    </li>
   </ul>
@@ -551,14 +561,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fac0e189040&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f8e111a0040&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_03_notebook_9_1.png" src="../../_images/chap_03_notebook_9_1.png" />
 </div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>You may have noticed a line of text above the plot that looks something like <code class="docutils literal notranslate"><span class="pre">[&lt;matplotlib.lines.Line2D</span> <span class="pre">at</span> <span class="pre">0x7f83318383a0&gt;]</span></code>. If it bothers you, you can suppress it by either ending the line of code with a semicolon (<code class="docutils literal notranslate"><span class="pre">;</span></code>) or adding a line with <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code>.</p>
 </div>
 <p>By default, matplotlib creates a scatter plot using blue as the default color. This can be modified if a blue circles are not to your taste. If the <code class="docutils literal notranslate"><span class="pre">plot()</span></code> function is only provided a single argument, matplotlib assumes the data are the <span class="math notranslate nohighlight">\(y\)</span>-values and plots them against their indices.</p>
@@ -685,7 +695,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fac0e2bf940&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f8e112bf9d0&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_03_notebook_13_1.png" src="../../_images/chap_03_notebook_13_1.png" />
@@ -699,7 +709,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fac0e3f2b80&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f8e113f1a90&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_03_notebook_14_1.png" src="../../_images/chap_03_notebook_14_1.png" />
@@ -743,7 +753,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">psi_3s</span><span class="p">,</span> <span class="s1">&#39;go-&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Radius, Rohrs&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Radius, Bohrs&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Wave Function, $\Psi$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;3S Radial Wave Function&#39;</span><span class="p">)</span>
 </pre></div>
@@ -757,8 +767,29 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
+<div class="section" id="figure-size">
+<span id="id6"></span><h3>3.1.4 Figure Size<a class="headerlink" href="#figure-size" title="Permalink to this headline">¶</a></h3>
+<p>If you want to change the size or dimensions of the figure in the Jupyter notebook, this can be accomplished by <code class="docutils literal notranslate"><span class="pre">plt.figure(figsize(width,</span> <span class="pre">height))</span></code>. It is important that this function be <em>above</em> the the actual plotting function and not below for it to modify the figure.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">psi_3s</span><span class="p">,</span> <span class="s1">&#39;go-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Radius, Bohrs&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Wave Function, $\Psi$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;3S Radial Wave Function&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;3S Radial Wave Function&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/chap_03_notebook_21_1.png" src="../../_images/chap_03_notebook_21_1.png" />
+</div>
+</div>
+</div>
 <div class="section" id="saving-figures">
-<span id="id6"></span><h3>3.1.4 Saving Figures<a class="headerlink" href="#saving-figures" title="Permalink to this headline">¶</a></h3>
+<span id="id7"></span><h3>3.1.5 Saving Figures<a class="headerlink" href="#saving-figures" title="Permalink to this headline">¶</a></h3>
 <p>A majority of matplotlib usage is to generate figures in a Jupyter notebook. However, there are times when it is necessary to save the figures to files for a manuscript, report, or presentation. In these situations, you can save your plot using the <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> function which takes a few arguments. The first and only required argument is the name of the output file as a string. Following this, the user can also choose the resolution in dots per inch using the <code class="docutils literal notranslate"><span class="pre">dpi</span></code> keyword argument. Finally, there are a number of file formats supported by the <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> functions including PNG, TIF, JPG, PDF, SVG, among others. The formats can be selected using the <code class="docutils literal notranslate"><span class="pre">format</span></code> argument which also takes a string, and if no format is explicitly chosen, matplotlib defaults to PNG.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -768,7 +799,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/chap_03_notebook_22_0.png" src="../../_images/chap_03_notebook_22_0.png" />
+<img alt="../../_images/chap_03_notebook_23_0.png" src="../../_images/chap_03_notebook_23_0.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -778,10 +809,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="plotting-types">
-<span id="id7"></span><h2>3.2 Plotting Types<a class="headerlink" href="#plotting-types" title="Permalink to this headline">¶</a></h2>
+<span id="id8"></span><h2>3.2 Plotting Types<a class="headerlink" href="#plotting-types" title="Permalink to this headline">¶</a></h2>
 <p>Matplotlib supports a wide variety of plotting types including scatter plots, bar plots, histograms, pie charts, stem plots, and many others. A few of the most common ones are introduced below. For additional plotting types, see the <a class="reference external" href="https://matplotlib.org/stable/plot_types/index.html">matplotlib website</a>.</p>
 <div class="section" id="bar-plots">
-<span id="id8"></span><h3>3.2.1 Bar Plots<a class="headerlink" href="#bar-plots" title="Permalink to this headline">¶</a></h3>
+<span id="id9"></span><h3>3.2.1 Bar Plots<a class="headerlink" href="#bar-plots" title="Permalink to this headline">¶</a></h3>
 <p>Bar plots, despite looking very different, are quite similar to scatter plots. They both show the same information except that instead of the verticle position of a marker showing the magnitude of a <span class="math notranslate nohighlight">\(y\)</span>-value, it is represented by the height of a bar. Bar plots are generated using the <code class="docutils literal notranslate"><span class="pre">plt.bar()</span></code> function. Similar to the <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> function, the bar plot takes <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> values as positional arguments, and if only one argument is given, the function assumes it is the <span class="math notranslate nohighlight">\(y\)</span>-variable and plots the values with respect to the index values.</p>
 <p>The atomic numbers (<code class="docutils literal notranslate"><span class="pre">AN</span></code>) for the first ten chemical elements are generated below using list comprehension introduced in <a class="reference internal" href="../chapter_02/chap_02_notebook.html#id4"><span class="std std-ref">section 2.1.2</span></a> to be plotted with the molecular weights (<code class="docutils literal notranslate"><span class="pre">MW</span></code>).</p>
 <div class="cell docutils container">
@@ -804,7 +835,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Molar Mass, g/mol&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_03_notebook_27_1.png" src="../../_images/chap_03_notebook_27_1.png" />
+<img alt="../../_images/chap_03_notebook_28_1.png" src="../../_images/chap_03_notebook_28_1.png" />
 </div>
 </div>
 <p>The bar plot characteristics can be adjusted like most other types of plots in matplotlib. The main arguments you will probably want to adjust are color and width, but some other arguments are provided in Table 5. The color arguments are consistent with the <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> colors from earlier. The error bar arguments can take either a single value to display homogenous error bars on all data points or can take a multi-element object (e.g., a list or tuple) containing the different margins of uncertainty for each data point.</p>
@@ -838,7 +869,7 @@ const thebe_selector_output = ".output, .cell_output"
 </table>
 </div>
 <div class="section" id="scatter-plots">
-<span id="id9"></span><h3>3.2.2 Scatter Plots<a class="headerlink" href="#scatter-plots" title="Permalink to this headline">¶</a></h3>
+<span id="id10"></span><h3>3.2.2 Scatter Plots<a class="headerlink" href="#scatter-plots" title="Permalink to this headline">¶</a></h3>
 <p>We have already generated scatter plots using the <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> function, but they can also be created using the <code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code> function. The latter is partially redundant, but unlike <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code>, <code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code> allows for different sizes, shapes, and colors of individual markers using the <code class="docutils literal notranslate"><span class="pre">s=</span></code>, <code class="docutils literal notranslate"><span class="pre">marker=</span></code>, and <code class="docutils literal notranslate"><span class="pre">c=</span></code> keyword arguments, respectively. See <a class="reference internal" href="#id4"><span class="std std-ref">section 3.1.2</span></a> for a short list of some of the marker shapes and colors available. Links to more complete lists can be found in the <a class="reference internal" href="#fr03"><span class="std std-ref">Further Reading</span></a> section.</p>
 <p>In the example below, we are loading the famous <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/wine">wine data set</a> that describes wine samples through a number of measurements including alcohol content, magnesium levels, color, etc… For convenience, we will load the data set using the scikit-learn library introduced in <a class="reference internal" href="../chapter_12/chap_12_notebook.html#id13"><span class="std std-ref">section 12.2.2</span></a>. We then plot it and include a third attribute to the color <code class="docutils literal notranslate"><span class="pre">c=</span></code> argument.</p>
 <div class="cell docutils container">
@@ -860,16 +891,16 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7fac1451e460&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f8e17648fa0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_03_notebook_31_1.png" src="../../_images/chap_03_notebook_31_1.png" />
+<img alt="../../_images/chap_03_notebook_32_1.png" src="../../_images/chap_03_notebook_32_1.png" />
 </div>
 </div>
 <p>In the example above, the alcohol content is represented on the <em>x</em>-axis, the alkalinity is represented on the <em>y</em>-axis, and the proline content is shown using the color of the markers. The spectrum of colors that represent the values is called the <em>colormap</em>, and this can be changed using an optional <code class="docutils literal notranslate"><span class="pre">cmap=</span></code> argument. See the <a class="reference external" href="https://matplotlib.org/3.5.1/tutorials/colors/colormaps.html">matplotlib colormap page</a> for a list of available colormaps.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>In the example above, the lighter colors represent the higher values while the darker colors represent the lower values. If you want to reverse the order of the colors, just place <code class="docutils literal notranslate"><span class="pre">_r</span></code> at the end of the colormap name. For example, <code class="docutils literal notranslate"><span class="pre">cmap='viridis'</span></code> becomes <code class="docutils literal notranslate"><span class="pre">cmap='viridis_r'</span></code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In the above example, the lighter colors represent the higher values while the darker colors represent the lower values. If you want to reverse the order of the colors, just place <code class="docutils literal notranslate"><span class="pre">_r</span></code> at the end of the colormap name. For example, <code class="docutils literal notranslate"><span class="pre">cmap='viridis'</span></code> becomes <code class="docutils literal notranslate"><span class="pre">cmap='viridis_r'</span></code>.</p>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">plt.colorbar()</span></code> provides a guide as to the meaning of the colors, but it would be nice to also have a text label on the color bar just like the axes. This can be accomplished by assigning the color bar to a varible and then using the <code class="docutils literal notranslate"><span class="pre">set_label()</span></code> attribute to add a label as demonstrated below.</p>
 <div class="cell docutils container">
@@ -884,7 +915,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/chap_03_notebook_33_0.png" src="../../_images/chap_03_notebook_33_0.png" />
+<img alt="../../_images/chap_03_notebook_34_0.png" src="../../_images/chap_03_notebook_34_0.png" />
 </div>
 </div>
 <p>As an additional example, we can generate a plot of nuclide atomic numbers versus the number of neutrons and color the markers with the log of the half-life, in years, of each nuclide.</p>
@@ -919,23 +950,13 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/chap_03_notebook_36_0.png" src="../../_images/chap_03_notebook_36_0.png" />
+<img alt="../../_images/chap_03_notebook_37_0.png" src="../../_images/chap_03_notebook_37_0.png" />
 </div>
 </div>
-<p>One of the issues we encounter in the above plot is that the range of half-lives is large with very few points in the extreme ends. We can see this using a histogram plot below.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">nuc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Log Half-Life, yrs&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Counts&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<p>One of the issues we encounter in the above plot is that the range of half-lives is large with relatively few points in the extreme ends. We can see this in the histogram plot of these log half-life values shown below (see <a class="reference internal" href="#id11"><span class="std std-ref">section 3.2.3</span></a>).</p>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Counts&#39;)
-</pre></div>
-</div>
-<img alt="../../_images/chap_03_notebook_38_1.png" src="../../_images/chap_03_notebook_38_1.png" />
+<img alt="../../_images/chap_03_notebook_39_0.png" src="../../_images/chap_03_notebook_39_0.png" />
 </div>
 </div>
 <p>In order to prevent the few values at the extremes from effectively washing out the color and making it difficult to see the differences, we can use the <code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code> arguments <code class="docutils literal notranslate"><span class="pre">vmax=</span></code> and <code class="docutils literal notranslate"><span class="pre">vmin=</span></code> to narrow the colormap range like shown below. By doing this, any values above the <code class="docutils literal notranslate"><span class="pre">vmax=</span></code> value will be a fixed color, and any values below the <code class="docutils literal notranslate"><span class="pre">vmin=</span></code> value with be a fixed color.</p>
@@ -951,12 +972,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/chap_03_notebook_40_0.png" src="../../_images/chap_03_notebook_40_0.png" />
+<img alt="../../_images/chap_03_notebook_41_0.png" src="../../_images/chap_03_notebook_41_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="histogram-plots">
-<span id="id10"></span><h3>3.2.3 Histogram Plots<a class="headerlink" href="#histogram-plots" title="Permalink to this headline">¶</a></h3>
+<span id="id11"></span><h3>3.2.3 Histogram Plots<a class="headerlink" href="#histogram-plots" title="Permalink to this headline">¶</a></h3>
 <p>Histograms display bars representing the frequency of values in a particular data set. Unlike bar plots, the width of the bars in a histogram plot is meaningful as each bar represents the number of <span class="math notranslate nohighlight">\(x\)</span>-values that fall within a particular range. A histogram plot can be generated using the <code class="docutils literal notranslate"><span class="pre">plt.hist()</span></code> function which does two things. First, the function takes the data provided and sorts them into equally-spaces groups, called <em>bins</em>; and second, it plots the totals in each bin. For example, we have a list, <code class="docutils literal notranslate"><span class="pre">Cp</span></code>, of specific heat capacities for various metals in J/g<span class="math notranslate nohighlight">\(\cdot^o\)</span>C, and we want to visualize the distribution of the specific heat capacities.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -973,7 +994,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Number of Metals&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_03_notebook_42_1.png" src="../../_images/chap_03_notebook_42_1.png" />
+<img alt="../../_images/chap_03_notebook_43_1.png" src="../../_images/chap_03_notebook_43_1.png" />
 </div>
 </div>
 <p>From the plot above, we can see that a large number of heat capacities reside in the area of 0.1-0.5 J/g<span class="math notranslate nohighlight">\(\cdot^o\)</span>C and none fall in the 0.6-0.8 J/g<span class="math notranslate nohighlight">\(\cdot^o\)</span>C range.</p>
@@ -990,13 +1011,13 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Number of Metals&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_03_notebook_44_1.png" src="../../_images/chap_03_notebook_44_1.png" />
+<img alt="../../_images/chap_03_notebook_45_1.png" src="../../_images/chap_03_notebook_45_1.png" />
 </div>
 </div>
 <p>Providing the histogram function bin edges offers far more control to the user, but writing out a list can be tedious. As an alternative, the histogram function also accepts bin edges as <code class="docutils literal notranslate"><span class="pre">range()</span></code> objects. Unfortunately, Python’s built-in <code class="docutils literal notranslate"><span class="pre">range()</span></code> function only generates values with integer steps. As an alternative, you can use list comprehension from chapter 2 or use NumPy’s <code class="docutils literal notranslate"><span class="pre">np.arange()</span></code> function from <a class="reference internal" href="../chapter_04/chap_04_notebook.html#id5"><span class="std std-ref">section 4.1.3</span></a> which does allow non-integer step sizes.</p>
 </div>
 <div class="section" id="other-plotting-types">
-<span id="id11"></span><h3>3.2.4 Other Plotting Types<a class="headerlink" href="#other-plotting-types" title="Permalink to this headline">¶</a></h3>
+<span id="id12"></span><h3>3.2.4 Other Plotting Types<a class="headerlink" href="#other-plotting-types" title="Permalink to this headline">¶</a></h3>
 <p>There are a variety of other two dimensional plotting types available in the matplotlib library including stem, step, pie, polar, box plots, and contour plots. Below is a table of a few worth knowing about along with the code that created them. See the matplotlib website for further details. Many Python library websites, including matplotlib’s, contain a gallery page which showcases examples of what can be done with that library. It is recommended to brows these pages when learning a new library.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1011,7 +1032,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Sine Wave&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_03_notebook_47_1.png" src="../../_images/chap_03_notebook_47_1.png" />
+<img alt="../../_images/chap_03_notebook_48_1.png" src="../../_images/chap_03_notebook_48_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1031,7 +1052,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Average Atomic Mass&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_03_notebook_48_1.png" src="../../_images/chap_03_notebook_48_1.png" />
+<img alt="../../_images/chap_03_notebook_49_1.png" src="../../_images/chap_03_notebook_49_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1052,7 +1073,7 @@ const thebe_selector_output = ".output, .cell_output"
  1.106634148119129)
 </pre></div>
 </div>
-<img alt="../../_images/chap_03_notebook_49_1.png" src="../../_images/chap_03_notebook_49_1.png" />
+<img alt="../../_images/chap_03_notebook_50_1.png" src="../../_images/chap_03_notebook_50_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1070,13 +1091,13 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;$d_{z^2} \\,$Orbital&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_03_notebook_50_1.png" src="../../_images/chap_03_notebook_50_1.png" />
+<img alt="../../_images/chap_03_notebook_51_1.png" src="../../_images/chap_03_notebook_51_1.png" />
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="overlaying-plots">
-<span id="id12"></span><h2>3.3 Overlaying Plots<a class="headerlink" href="#overlaying-plots" title="Permalink to this headline">¶</a></h2>
+<span id="id13"></span><h2>3.3 Overlaying Plots<a class="headerlink" href="#overlaying-plots" title="Permalink to this headline">¶</a></h2>
 <p>It is often necessary to plot more than one set of data on the same axes, and this can be accomplished in two ways with matplotlib. The first is to call the plotting function twice in the same Jupyter code cell. Matplotlib will automatically place both plots in the same figure and scale it appropriately to include all data. Below, data for the wave function for the 3p hydrogen orbital is generated similar to the 3s earlier, so now the wave functions for both the 3s and 3p orbitals can be plotted on the same set of axes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1108,7 +1129,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Wave Function&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_03_notebook_54_1.png" src="../../_images/chap_03_notebook_54_1.png" />
+<img alt="../../_images/chap_03_notebook_55_1.png" src="../../_images/chap_03_notebook_55_1.png" />
 </div>
 </div>
 <p>The second approach is to include both sets of data in the same plotting command as is shown below. Matplotlib will assume that each new non-keyword is a new set of data and that the positional arguments are associated with the most recent data.</p>
@@ -1125,7 +1146,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Wave Function&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_03_notebook_56_1.png" src="../../_images/chap_03_notebook_56_1.png" />
+<img alt="../../_images/chap_03_notebook_57_1.png" src="../../_images/chap_03_notebook_57_1.png" />
 </div>
 </div>
 <p>In the second plot above, <code class="docutils literal notranslate"><span class="pre">r</span></code>, <code class="docutils literal notranslate"><span class="pre">psi_3s</span></code>, <code class="docutils literal notranslate"><span class="pre">'bo'</span></code> are the data and style for the first set of data while <code class="docutils literal notranslate"><span class="pre">r</span></code>, <code class="docutils literal notranslate"><span class="pre">psi_3p</span></code>,<code class="docutils literal notranslate"><span class="pre">'r^'</span></code> are the data and plotting style for the second.</p>
@@ -1141,18 +1162,18 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fac0efd28e0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f8e11f3fd90&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_03_notebook_58_1.png" src="../../_images/chap_03_notebook_58_1.png" />
+<img alt="../../_images/chap_03_notebook_59_1.png" src="../../_images/chap_03_notebook_59_1.png" />
 </div>
 </div>
 </div>
 <div class="section" id="multifigure-plots">
-<span id="id13"></span><h2>3.4 Multifigure Plots<a class="headerlink" href="#multifigure-plots" title="Permalink to this headline">¶</a></h2>
+<span id="id14"></span><h2>3.4 Multifigure Plots<a class="headerlink" href="#multifigure-plots" title="Permalink to this headline">¶</a></h2>
 <p>To generate multiple, independent plots in the same figure, a few more lines of code are required to describe the dimensions of the figure and which plot goes where. Once you get used to it, it is fairly logical. There are two general methods for generating multifigure plots outlined below. The first is a little quicker, but the second is certainly more powerful and gives the user access to extra features. Whichever method you choose to adopt, just be aware that you will likely see the other method at times as both are common.</p>
 <div class="section" id="first-approach">
-<span id="id14"></span><h3>3.4.1 First Approach<a class="headerlink" href="#first-approach" title="Permalink to this headline">¶</a></h3>
+<span id="id15"></span><h3>3.4.1 First Approach<a class="headerlink" href="#first-approach" title="Permalink to this headline">¶</a></h3>
 <p>In the first method, we first need to generate the figure using the <code class="docutils literal notranslate"><span class="pre">plt.figure()</span></code> command. For every subplot, we first need to call <code class="docutils literal notranslate"><span class="pre">plt.subplot(rows,</span> <span class="pre">columns,</span> <span class="pre">plot_number)</span></code>. The first two values are the number of rows and columns in the figure, and the third number is which subplot you are referring to. For example, we will generate a figure with two plots side-by-side. This is a one-by-two figure (i.e., one row and two columns). Therefore, all subplots will be defined using <code class="docutils literal notranslate"><span class="pre">plt.subplot(1,</span> <span class="pre">2,</span> <span class="pre">plot_number)</span></code>. The <code class="docutils literal notranslate"><span class="pre">plot_number</span></code> indicates the subplot with the first subplot being 1 and the second subplot being 2. The numbering always runs left-to-right and top-to-bottom.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1176,10 +1197,10 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;3p Orbital&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_03_notebook_61_1.png" src="../../_images/chap_03_notebook_61_1.png" />
+<img alt="../../_images/chap_03_notebook_62_1.png" src="../../_images/chap_03_notebook_62_1.png" />
 </div>
 </div>
-<p>If you don’t like dimensions of your plot, you can change them using a <code class="docutils literal notranslate"><span class="pre">figsize=(width,</span> <span class="pre">height)</span></code> argument in <code class="docutils literal notranslate"><span class="pre">figure()</span></code> function like the following.</p>
+<p>If you don’t like dimensions of your plot, you can still change them using a <code class="docutils literal notranslate"><span class="pre">figsize=(width,</span> <span class="pre">height)</span></code> argument in <code class="docutils literal notranslate"><span class="pre">figure()</span></code> function like the following.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
@@ -1202,7 +1223,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;3p Orbital&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_03_notebook_63_1.png" src="../../_images/chap_03_notebook_63_1.png" />
+<img alt="../../_images/chap_03_notebook_64_1.png" src="../../_images/chap_03_notebook_64_1.png" />
 </div>
 </div>
 <p>The values in the <code class="docutils literal notranslate"><span class="pre">plt.subplot()</span></code> command may seem redundant. Why are the dimensions for the figure repeatedly defined instead of just once? The answer is that subplots with different dimensions can be created in the same figure (Figure 1). In this example, the top subplot dimension is created as if though it is the first subplot in a 2 <span class="math notranslate nohighlight">\(\times\)</span> 1 figure. The bottom two subplot dimensions are created as if they are the third and fourth subplots in a 2 <span class="math notranslate nohighlight">\(\times\)</span> 2 figure.</p>
@@ -1248,14 +1269,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/chap_03_notebook_67_0.png" src="../../_images/chap_03_notebook_67_0.png" />
+<img alt="../../_images/chap_03_notebook_68_0.png" src="../../_images/chap_03_notebook_68_0.png" />
 </div>
 </div>
 <p>Lastly, there are times when the titles and axis labels for multiple subplots will inadvertantly overlap. If this happens, simply add <code class="docutils literal notranslate"><span class="pre">plt.tight_layout()</span></code> at the very end to fix this.</p>
 </div>
 <div class="section" id="second-approach">
-<span id="id15"></span><h3>3.4.2 Second Approach<a class="headerlink" href="#second-approach" title="Permalink to this headline">¶</a></h3>
-<p>The second method is somewhat similar to the first except that it more explicitly creates and linked subplots, called axes. To create a figure with subplots, we first need to generate the overall figure using the <code class="docutils literal notranslate"><span class="pre">plt.figure()</span></code> command again, and we also need to attach it to a variable so that we can explicitly assign axes to it. To create each subplot, use the <code class="docutils literal notranslate"><span class="pre">add_subplot(rows,</span> <span class="pre">columns,</span> <span class="pre">plot_number)</span></code> command. The arguments in the <code class="docutils literal notranslate"><span class="pre">add_subplot()</span></code> command are the same as <code class="docutils literal notranslate"><span class="pre">plt.subplot()</span></code> in <a class="reference internal" href="#id14"><span class="std std-ref">section 3.4.1</span></a>. After an axis has been created as part of the figure, call your plotting function preceded by the axis variable name as demonstrated below.</p>
+<span id="id16"></span><h3>3.4.2 Second Approach<a class="headerlink" href="#second-approach" title="Permalink to this headline">¶</a></h3>
+<p>The second method is somewhat similar to the first except that it more explicitly creates and linked subplots, called axes. To create a figure with subplots, we first need to generate the overall figure using the <code class="docutils literal notranslate"><span class="pre">plt.figure()</span></code> command again, and we also need to attach it to a variable so that we can explicitly assign axes to it. To create each subplot, use the <code class="docutils literal notranslate"><span class="pre">add_subplot(rows,</span> <span class="pre">columns,</span> <span class="pre">plot_number)</span></code> command. The arguments in the <code class="docutils literal notranslate"><span class="pre">add_subplot()</span></code> command are the same as <code class="docutils literal notranslate"><span class="pre">plt.subplot()</span></code> in <a class="reference internal" href="#id15"><span class="std std-ref">section 3.4.1</span></a>. After an axis has been created as part of the figure, call your plotting function preceded by the axis variable name as demonstrated below.</p>
 <p>One noticable difference in this method is the functions functions for customizing the function are typically preceeded with <code class="docutils literal notranslate"><span class="pre">set_</span></code> such as <code class="docutils literal notranslate"><span class="pre">set_title()</span></code>, <code class="docutils literal notranslate"><span class="pre">set_xlim()</span></code>, or <code class="docutils literal notranslate"><span class="pre">set_ylabel()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1276,14 +1297,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/chap_03_notebook_70_0.png" src="../../_images/chap_03_notebook_70_0.png" />
+<img alt="../../_images/chap_03_notebook_71_0.png" src="../../_images/chap_03_notebook_71_0.png" />
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="d-plotting">
-<span id="id16"></span><h2>3.5 3D Plotting<a class="headerlink" href="#d-plotting" title="Permalink to this headline">¶</a></h2>
-<p>To plot in 3D, we will use the approach outlined in <a class="reference internal" href="#id15"><span class="std std-ref">section 3.4.2</span></a> with two additions. First, add <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">mpl_toolkits.mplot3d</span> <span class="pre">import</span> <span class="pre">Axes3D</span> </code> as shown below. Second, make the plot 3D by adding <code class="docutils literal notranslate"><span class="pre">projection='3D'</span></code> to the <code class="docutils literal notranslate"><span class="pre">plt.figure()</span></code> command. After that, it is analogous to the two dimensional plots above except <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> data are provided.</p>
+<span id="id17"></span><h2>3.5 3D Plotting<a class="headerlink" href="#d-plotting" title="Permalink to this headline">¶</a></h2>
+<p>To plot in 3D, we will use the approach outlined in <a class="reference internal" href="#id16"><span class="std std-ref">section 3.4.2</span></a> with two additions. First, add <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">mpl_toolkits.mplot3d</span> <span class="pre">import</span> <span class="pre">Axes3D</span> </code> as shown below. Second, make the plot 3D by adding <code class="docutils literal notranslate"><span class="pre">projection='3D'</span></code> to the <code class="docutils literal notranslate"><span class="pre">plt.figure()</span></code> command. After that, it is analogous to the two dimensional plots above except <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> data are provided.</p>
 <p>In the following example, we will import <span class="math notranslate nohighlight">\(xyz\)</span>-coordinates for a C<span class="math notranslate nohighlight">\(_{60}\)</span> buckyball molecule and plot the carbon atom positions in 3D.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1317,13 +1338,13 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Z axis&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_03_notebook_74_1.png" src="../../_images/chap_03_notebook_74_1.png" />
+<img alt="../../_images/chap_03_notebook_75_1.png" src="../../_images/chap_03_notebook_75_1.png" />
 </div>
 </div>
 </div>
 <div class="section" id="surface-plots">
-<span id="id17"></span><h2>3.6 Surface Plots<a class="headerlink" href="#surface-plots" title="Permalink to this headline">¶</a></h2>
-<p>The above 3D plots are simply scatter plots in a three-dimensional space. It is often useful to connect these points to describe surfaces in 3D space which can be used for energy surfaces or atomic orbital shapes among other applications. We again will import <code class="docutils literal notranslate"><span class="pre">Axes3D</span></code> from <code class="docutils literal notranslate"><span class="pre">mpl_toolkits.mplot3d</span></code> as we did in section <a class="reference internal" href="#id16"><span class="std std-ref">3.5</span></a>, but we also need to generate a mesh grid to create a surface plot. Mesh grids are simply the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> axes values extended into a 2D array. A simple example is shown below where the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> axes are integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 8. In the left grid, the values represent where each point is with respect to the <span class="math notranslate nohighlight">\(x\)</span>-axis, and the right grid is likewise where each point is located with respect to the <span class="math notranslate nohighlight">\(y\)</span>-axis.</p>
+<span id="id18"></span><h2>3.6 Surface Plots<a class="headerlink" href="#surface-plots" title="Permalink to this headline">¶</a></h2>
+<p>The above 3D plots are simply scatter plots in a three-dimensional space. It is often useful to connect these points to describe surfaces in 3D space which can be used for energy surfaces or atomic orbital shapes among other applications. We again will import <code class="docutils literal notranslate"><span class="pre">Axes3D</span></code> from <code class="docutils literal notranslate"><span class="pre">mpl_toolkits.mplot3d</span></code> as we did in section <a class="reference internal" href="#id17"><span class="std std-ref">3.5</span></a>, but we also need to generate a mesh grid to create a surface plot. Mesh grids are simply the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> axes values extended into a 2D array. A simple example is shown below where the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> axes are integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 8. In the left grid, the values represent where each point is with respect to the <span class="math notranslate nohighlight">\(x\)</span>-axis, and the right grid is likewise where each point is located with respect to the <span class="math notranslate nohighlight">\(y\)</span>-axis.</p>
 <p><img alt="" src="../../_images/meshgrid.png" /></p>
 <p>We will use NumPy to generate these grids as NumPy arrays. If you have not yet seen NumPy, you can still follow along in this example without understanding how arrays operate, or you can read chapter 4 and come back to this topic later. For those who are familiar with NumPy, being that the two grids/arrays are of the same dimension, all math is done on a position-by-position basis to generate a third array of the same dimensions as the first two. For example, if we were to take the sum of the squares of the two grids above, we would get the following grid.</p>
 <div class="math notranslate nohighlight">
@@ -1369,7 +1390,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Z axis&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_03_notebook_79_1.png" src="../../_images/chap_03_notebook_79_1.png" />
+<img alt="../../_images/chap_03_notebook_80_1.png" src="../../_images/chap_03_notebook_80_1.png" />
 </div>
 </div>
 <p>As a more chemical example, we can plot the standing waves for a 2D particle in a box by the following equation where <span class="math notranslate nohighlight">\(n_x\)</span> and <span class="math notranslate nohighlight">\(n_y\)</span> are the principle quantum numbers along each axis and <span class="math notranslate nohighlight">\(L\)</span> is the length of the box.</p>
@@ -1407,10 +1428,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x7fac0fdca820&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x7f8e12b9e160&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_03_notebook_83_1.png" src="../../_images/chap_03_notebook_83_1.png" />
+<img alt="../../_images/chap_03_notebook_84_1.png" src="../../_images/chap_03_notebook_84_1.png" />
 </div>
 </div>
 <p>You are encouraged to increase the values for <span class="math notranslate nohighlight">\(n_x\)</span> and <span class="math notranslate nohighlight">\(n_y\)</span> and see how the surface plot changes.</p>
@@ -1445,14 +1466,14 @@ You will need to look up the values which should be available in most general ch
 \[ 2 A \rightarrow P \]</div>
 </li>
 <li><p>Import the <strong>gc_trace.csv</strong> file containing a gas chromatography (GC) trace and plot the intensity (<em>y</em>-axis) versus <em>m/z</em> (<em>x</em>-axis) using a line plot. Be sure to label the axes.</p></li>
-<li><p>Earth’s atmosphere is composed of 78% N<span class="math notranslate nohighlight">\(_2\)</span>, 21% O<span class="math notranslate nohighlight">\(_2\)</span>, and 1% other gases. Represent this data with a pie chart, and make the last 1% slice stick out of the pie like in <a class="reference internal" href="#id11"><span class="std std-ref">section 3.2.4</span></a>.</p></li>
+<li><p>Earth’s atmosphere is composed of 78% N<span class="math notranslate nohighlight">\(_2\)</span>, 21% O<span class="math notranslate nohighlight">\(_2\)</span>, and 1% other gases. Represent this data with a pie chart, and make the last 1% slice stick out of the pie like in <a class="reference internal" href="#id12"><span class="std std-ref">section 3.2.4</span></a>.</p></li>
 <li><p>Create a histogram plot to examine the distribution of values generated below.
 import random</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rdn</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)]</span>
 </pre></div>
 </div>
 </li>
-<li><p>The <span class="math notranslate nohighlight">\(^1\)</span>H NMR spectrum of caffeine in CDCl<span class="math notranslate nohighlight">\(_3\)</span> is composed of four singlets with the following chemical shifts and relative intensities. Visualize this data using a <a class="reference internal" href="#id11"><span class="std std-ref">stem plot</span></a>. Hint: the dots on the top of the lines can be removed using <code class="docutils literal notranslate"><span class="pre">markerfmt='</span> <span class="pre">'</span></code> (i.e., feed it a blank space).</p>
+<li><p>The <span class="math notranslate nohighlight">\(^1\)</span>H NMR spectrum of caffeine in CDCl<span class="math notranslate nohighlight">\(_3\)</span> is composed of four singlets with the following chemical shifts and relative intensities. Visualize this data using a <a class="reference internal" href="#id12"><span class="std std-ref">stem plot</span></a>. Hint: the dots on the top of the lines can be removed using <code class="docutils literal notranslate"><span class="pre">markerfmt='</span> <span class="pre">'</span></code> (i.e., feed it a blank space).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ppm</span> <span class="o">=</span> <span class="p">[</span><span class="mf">7.52</span><span class="p">,</span> <span class="mf">4.00</span><span class="p">,</span> <span class="mf">3.60</span><span class="p">,</span> <span class="mf">3.44</span><span class="p">]</span>
 <span class="n">intensity</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.52</span><span class="p">,</span> <span class="mf">3.90</span><span class="p">,</span> <span class="mf">5.74</span><span class="p">,</span> <span class="mf">5.78</span><span class="p">]</span>
 </pre></div>
@@ -1492,7 +1513,7 @@ import random</p>
 </table>
 </li>
 <li><p>Generate two side-by-side plots that show the atomic radii and first ionization energies versus atomic number for the first ten elements on the periodic table. This data should be available on the internet or any general chemistry textbook, including <a class="reference external" href="https://openstax.org/">OpenStax</a> in the periodic trends chapter. Include titles on both plots along with appropriate axis labels.</p></li>
-<li><p>Generate a standing wave surface plot (similar to the one at the end of <a class="reference internal" href="#id17"><span class="std std-ref">section 3.6</span></a>) using using the following equation and parameters: <span class="math notranslate nohighlight">\(L\)</span> = 1, <span class="math notranslate nohighlight">\(n_x\)</span> = 2, <span class="math notranslate nohighlight">\(n_y\)</span> = 2.</p>
+<li><p>Generate a standing wave surface plot (similar to the one at the end of <a class="reference internal" href="#id18"><span class="std std-ref">section 3.6</span></a>) using using the following equation and parameters: <span class="math notranslate nohighlight">\(L\)</span> = 1, <span class="math notranslate nohighlight">\(n_x\)</span> = 2, <span class="math notranslate nohighlight">\(n_y\)</span> = 2.</p>
 <div class="math notranslate nohighlight">
 \[ \Psi(x,y) = (2/L) \, sin(n_x\pi x/L) \, sin(n_y \pi / L) \]</div>
 </li>
