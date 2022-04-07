@@ -561,7 +561,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f8e111a0040&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe20b1b8040&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_03_notebook_9_1.png" src="../../_images/chap_03_notebook_9_1.png" />
@@ -695,7 +695,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f8e112bf9d0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe20b2ef970&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_03_notebook_13_1.png" src="../../_images/chap_03_notebook_13_1.png" />
@@ -709,7 +709,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f8e113f1a90&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe20b41fb80&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_03_notebook_14_1.png" src="../../_images/chap_03_notebook_14_1.png" />
@@ -891,7 +891,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f8e17648fa0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7fe211587eb0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_03_notebook_32_1.png" src="../../_images/chap_03_notebook_32_1.png" />
@@ -981,8 +981,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Histograms display bars representing the frequency of values in a particular data set. Unlike bar plots, the width of the bars in a histogram plot is meaningful as each bar represents the number of <span class="math notranslate nohighlight">\(x\)</span>-values that fall within a particular range. A histogram plot can be generated using the <code class="docutils literal notranslate"><span class="pre">plt.hist()</span></code> function which does two things. First, the function takes the data provided and sorts them into equally-spaces groups, called <em>bins</em>; and second, it plots the totals in each bin. For example, we have a list, <code class="docutils literal notranslate"><span class="pre">Cp</span></code>, of specific heat capacities for various metals in J/g<span class="math notranslate nohighlight">\(\cdot^o\)</span>C, and we want to visualize the distribution of the specific heat capacities.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Cp</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.897</span><span class="p">,</span> <span class="mf">0.207</span><span class="p">,</span> <span class="mf">0.231</span><span class="p">,</span> <span class="mf">0.231</span><span class="p">,</span> <span class="mf">0.449</span><span class="p">,</span> <span class="mf">0.385</span><span class="p">,</span> <span class="mf">0.129</span><span class="p">,</span> <span class="mf">0.412</span><span class="p">,</span> <span class="mf">0.128</span><span class="p">,</span> <span class="mf">1.02</span><span class="p">,</span> <span class="mf">0.140</span><span class="p">,</span> <span class="mf">0.233</span><span class="p">,</span> <span class="mf">0.227</span><span class="p">,</span> <span class="mf">0.523</span><span class="p">,</span>
-            <span class="mf">0.134</span><span class="p">,</span> <span class="mf">0.387</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Cp</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.897</span><span class="p">,</span> <span class="mf">0.207</span><span class="p">,</span> <span class="mf">0.231</span><span class="p">,</span> <span class="mf">0.231</span><span class="p">,</span> <span class="mf">0.449</span><span class="p">,</span> <span class="mf">0.385</span><span class="p">,</span> <span class="mf">0.129</span><span class="p">,</span> 
+      <span class="mf">0.412</span><span class="p">,</span> <span class="mf">0.128</span><span class="p">,</span> <span class="mf">1.02</span><span class="p">,</span> <span class="mf">0.140</span><span class="p">,</span> <span class="mf">0.233</span><span class="p">,</span> <span class="mf">0.227</span><span class="p">,</span> <span class="mf">0.523</span><span class="p">,</span>
+      <span class="mf">0.134</span><span class="p">,</span> <span class="mf">0.387</span><span class="p">]</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">Cp</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Heat Capacity, J/gC&#39;</span><span class="p">)</span>
@@ -1162,7 +1163,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f8e11f3fd90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fe20c043fa0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_03_notebook_59_1.png" src="../../_images/chap_03_notebook_59_1.png" />
@@ -1428,7 +1429,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x7f8e12b9e160&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x7fe20ce3fee0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_03_notebook_84_1.png" src="../../_images/chap_03_notebook_84_1.png" />

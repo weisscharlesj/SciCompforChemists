@@ -47,12 +47,12 @@ The code in this version of the book has been most recently tested with the foll
 - Python – 3.9.7
 - NumPy – 1.22.3
 - SciPy – 1.8.0
-- Pandas – 1.4.1
+- Pandas – 1.4.2
 - Matplotlib – 3.5.1
 - Seaborn – 0.11.2
 - Scikit-image – 0.19.2
 - Scikit-learn – 1.0.2
-- Sympy - 1.10
+- Sympy - 1.10.1
 - NMRglue – 0.8
 - Spyder – 5.1.5
 

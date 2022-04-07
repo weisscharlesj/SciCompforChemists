@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chapter 14: Bioinformatics &#8212; Scientific Computing for Chemists</title>
+    <title>Chapter 14: Biochemistry &#8212; Scientific Computing for Chemists</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -270,34 +270,63 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pdb-and-fasta-files">
-   14.1 PDB and Fasta Files
+   PDB and Fasta Files
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#parsting-pdb-files">
-     14.1.1 Parsting PDB Files
+    <a class="reference internal nav-link" href="#pdb-files">
+     14.1.1 PDB Files
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#parsting-fasta-files">
-     14.1.2 Parsting Fasta Files
+    <a class="reference internal nav-link" href="#fasta-files">
+     14.1.2 Fasta Files
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ramachandran-plots">
-   Ramachandran Plots
+  <a class="reference internal nav-link" href="#parsing-pdb-files">
+   14.2 Parsing PDB Files
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#native-python-code">
+     14.2.1 Native Python Code
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parsing-pdb-files-using-biopython">
+     14.2.2 Parsing PDB Files using Biopython
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#visualizing-proteins-with">
-   Visualizing Proteins with
+  <a class="reference internal nav-link" href="#parsing-fasta-files">
+   14.3 Parsing Fasta Files
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     14.3.1 Native Python Code
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parting-fasta-files-using-biopython">
+     14.3.2 Parting Fasta Files using Biopython
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#further-reading">
    Further Reading
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
   </a>
  </li>
 </ul>
@@ -310,7 +339,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Chapter 14: Bioinformatics</h1>
+                <h1>Chapter 14: Biochemistry</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -322,34 +351,63 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pdb-and-fasta-files">
-   14.1 PDB and Fasta Files
+   PDB and Fasta Files
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#parsting-pdb-files">
-     14.1.1 Parsting PDB Files
+    <a class="reference internal nav-link" href="#pdb-files">
+     14.1.1 PDB Files
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#parsting-fasta-files">
-     14.1.2 Parsting Fasta Files
+    <a class="reference internal nav-link" href="#fasta-files">
+     14.1.2 Fasta Files
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ramachandran-plots">
-   Ramachandran Plots
+  <a class="reference internal nav-link" href="#parsing-pdb-files">
+   14.2 Parsing PDB Files
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#native-python-code">
+     14.2.1 Native Python Code
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parsing-pdb-files-using-biopython">
+     14.2.2 Parsing PDB Files using Biopython
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#visualizing-proteins-with">
-   Visualizing Proteins with
+  <a class="reference internal nav-link" href="#parsing-fasta-files">
+   14.3 Parsing Fasta Files
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     14.3.1 Native Python Code
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parting-fasta-files-using-biopython">
+     14.3.2 Parting Fasta Files using Biopython
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#further-reading">
    Further Reading
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
   </a>
  </li>
 </ul>
@@ -361,42 +419,52 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="chapter-14-bioinformatics">
-<span id="id1"></span><h1>Chapter 14: Bioinformatics<a class="headerlink" href="#chapter-14-bioinformatics" title="Permalink to this headline">¶</a></h1>
+  <p>=(14)</p>
+<div class="tex2jax_ignore mathjax_ignore section" id="chapter-14-biochemistry">
+<h1>Chapter 14: Biochemistry<a class="headerlink" href="#chapter-14-biochemistry" title="Permalink to this headline">¶</a></h1>
 <p>Bioinformatics is the field of working with biological and biochemical data, and while the data is fundamentally no different than the data seen so far, this field is large and significant enough to warrant its own chapter. More importantly, bioinformatics contains a multitude of different file formats making this a significant hurdle in working with the data. The good news is that these file formats are usually text files like seen in the previous chapters, and a multiple libraries exist to facilitate the loading and working with these file formats and data. This chapter will start by looking at a couple common file formats, PDB and fasta, parsing them with our own code followed by introducing the biopython library to perform the heavy lifting.</p>
+<p>=(14.1)</p>
 <div class="section" id="pdb-and-fasta-files">
-<span id="id2"></span><h2>14.1 PDB and Fasta Files<a class="headerlink" href="#pdb-and-fasta-files" title="Permalink to this headline">¶</a></h2>
+<h2>PDB and Fasta Files<a class="headerlink" href="#pdb-and-fasta-files" title="Permalink to this headline">¶</a></h2>
 <p>In this first section, we will look at PDB and fasta file formats and parse them with our own code as they are both simply text files. PDB files are designed to hold protein sequence and structural information while the fasta file format holds sequence data for proteins and nucleic acids. The fasta file format is simpler than the PDB file format, but there is significant amounts of structural data contained in the PDB file format not provided with just the sequence</p>
-<div class="section" id="parsting-pdb-files">
-<span id="id3"></span><h3>14.1.1 Parsting PDB Files<a class="headerlink" href="#parsting-pdb-files" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
-<li><p>Native Python code</p></li>
-<li><p>With Biopython</p></li>
-</ol>
-<p>(14.1.2)</p>
+<div class="section" id="pdb-files">
+<h3>14.1.1 PDB Files<a class="headerlink" href="#pdb-files" title="Permalink to this headline">¶</a></h3>
+<p>When you open the terminal, you are greeted with a line that looks something like the</p>
 </div>
-<div class="section" id="parsting-fasta-files">
-<h3>14.1.2 Parsting Fasta Files<a class="headerlink" href="#parsting-fasta-files" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
-<li><p>Native Python code</p></li>
-<li><p>With BioPython</p></li>
-</ol>
+<div class="section" id="fasta-files">
+<h3>14.1.2 Fasta Files<a class="headerlink" href="#fasta-files" title="Permalink to this headline">¶</a></h3>
+<p>To</p>
 </div>
 </div>
-<div class="section" id="ramachandran-plots">
-<span id="id4"></span><h2>Ramachandran Plots<a class="headerlink" href="#ramachandran-plots" title="Permalink to this headline">¶</a></h2>
-<p>Create Ramachandran plots</p>
+<div class="section" id="parsing-pdb-files">
+<h2>14.2 Parsing PDB Files<a class="headerlink" href="#parsing-pdb-files" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="native-python-code">
+<h3>14.2.1 Native Python Code<a class="headerlink" href="#native-python-code" title="Permalink to this headline">¶</a></h3>
 </div>
-<div class="section" id="visualizing-proteins-with">
-<h2>Visualizing Proteins with<a class="headerlink" href="#visualizing-proteins-with" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="parsing-pdb-files-using-biopython">
+<h3>14.2.2 Parsing PDB Files using Biopython<a class="headerlink" href="#parsing-pdb-files-using-biopython" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="parsing-fasta-files">
+<h2>14.3 Parsing Fasta Files<a class="headerlink" href="#parsing-fasta-files" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>14.3.1 Native Python Code<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="parting-fasta-files-using-biopython">
+<h3>14.3.2 Parting Fasta Files using Biopython<a class="headerlink" href="#parting-fasta-files-using-biopython" title="Permalink to this headline">¶</a></h3>
+</div>
 </div>
 <div class="section" id="further-reading">
 <h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
-<li><p>PDB format documentation. <a class="reference external" href="https://www.wwpdb.org/documentation/file-format">https://www.wwpdb.org/documentation/file-format</a> (free resource)</p></li>
-<li><p>Biopython Website. <a class="reference external" href="https://biopython.org">https://biopython.org</a> (free resource)</p></li>
-<li><p>Scikit-bio Website. <a class="reference external" href="http://scikit-bio.org">http://scikit-bio.org</a> (free resource)</p></li>
+<li><p>PDB format documentation. <a class="reference external" href="https://www.wwpdb.org/documentation/file-format">https://www.wwpdb.org/documentation/file-format</a></p></li>
+<li><p>Biopython Website. <a class="reference external" href="https://biopython.org">https://biopython.org</a></p></li>
+<li><p>Scikit-bio Website. <a class="reference external" href="http://scikit-bio.org">http://scikit-bio.org</a></p></li>
+<li></li>
 </ol>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
