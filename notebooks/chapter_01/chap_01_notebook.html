@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chapter 1: Basic Python &#8212; Scientific Computing for Chemists</title>
+    <title>Chapter 1: Basic Python &#8212; Scientific Computing for Chemists with Python</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -85,7 +85,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../../_static/logo.svg" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Scientific Computing for Chemists</h1>
+      <h1 class="site-logo" id="site-title">Scientific Computing for Chemists with Python</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -96,7 +96,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../intro.html">
-   Scientific Computing for Chemists
+   Scientific Computing for Chemists with Python
   </a>
  </li>
 </ul>
@@ -2028,7 +2028,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:1: SyntaxWarning: &quot;is&quot; with a literal. Did you mean &quot;==&quot;?
 &lt;&gt;:1: SyntaxWarning: &quot;is&quot; with a literal. Did you mean &quot;==&quot;?
-/var/folders/cw/g8p9ghtd3_7b10t_kws_b86h0000gp/T/ipykernel_4016/1557232650.py:1: SyntaxWarning: &quot;is&quot; with a literal. Did you mean &quot;==&quot;?
+/var/folders/cw/g8p9ghtd3_7b10t_kws_b86h0000gp/T/ipykernel_1233/1557232650.py:1: SyntaxWarning: &quot;is&quot; with a literal. Did you mean &quot;==&quot;?
   8 is 8.0
 </pre></div>
 </div>
@@ -2943,14 +2943,15 @@ S
 </div>
 </div>
 </div>
-<p>Essentially, what is going on is shown in the following pseudocode (i.e., not real code), and this continues until <code class="docutils literal notranslate"><span class="pre">x</span></code> is no longer greater than 10.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>is x &lt; 10?, if so:
-    print(x)
-    x = x + 2
-is x &lt; 10?, if so:
-    print(x)
-    x = x + 2
-…
+<p>Essentially, what is going on is shown in the following example, and this continues until <code class="docutils literal notranslate"><span class="pre">x</span></code> is no longer greater than 10.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
+    
+<span class="c1"># and continues until x is smaller than 10...</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">while</span></code> loops is not as common as the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop and should be used with caution. This is because it is not difficult to have what is known as a <em>faulty termination condition</em> resulting in the code executing indefinitely… or until you manually stop Python or Python crashes because it ran out of memory. This happens because the termination condition is never met resulting in a runaway process.</p>
@@ -3044,7 +3045,7 @@ is x &lt; 10?, if so:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/cw/g8p9ghtd3_7b10t_kws_b86h0000gp/T/ipykernel_4016/2693538935.py&quot;</span><span class="gt">, line </span><span class="mi">4</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/cw/g8p9ghtd3_7b10t_kws_b86h0000gp/T/ipykernel_1233/2693538935.py&quot;</span><span class="gt">, line </span><span class="mi">4</span>
     <span class="k">else</span><span class="p">:</span>
          <span class="o">^</span>
 <span class="ne">IndentationError</span>: expected an indented block
@@ -3405,7 +3406,7 @@ number, square
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_4016</span><span class="o">/</span><span class="mf">3161387801.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1233</span><span class="o">/</span><span class="mf">3161387801.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">d</span>
 
 <span class="ne">NameError</span>: name &#39;d&#39; is not defined
