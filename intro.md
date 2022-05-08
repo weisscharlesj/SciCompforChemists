@@ -1,6 +1,6 @@
 ![](pt_scipy.svg)
 
-# Scientific Computing for Chemists
+# Scientific Computing for Chemists with Python
 
 *Scientific computing* utilizes computers to aid in scientific tasks such as data processing and digital simulations among others. The well-developed field of computational chemistry is part of scientific computing and focuses on utilzing computings to simulate chemical phenomena and calculate properties. However, there is less focus in the field of chemistry on the data processing side of computing, so this book strives to fill this void by introducing the reader to tools and methods for processing, visualizing, and analyzing chemical data. The tools employed in this book are the powerful and popular combination of Jupyter notebooks and the Python programming language. No background beyond first-year college chemistry and occasionally some very basic spectroscopy is assumed, so this book starts with a brief primer on Jupyter notebooks in chapter 0 and computer programming with Python in chapter 1 and chapter 2. If you already have background in these tools, feel free to skip ahead. Python and Jupyter were chosen for a variety of reasons including that they are:
 
@@ -66,3 +66,4 @@ This book took a substantial time to write along with the time and effort in dev
 - Harrison Kuhn for identifying a code error in chapter 11
 - nzjakemartin (GitHub handle) identifying a type in the weighted average equation 
 - Paul A. Craig identifying a typo in the Python code
+- Patrick Coppock providing feedback
