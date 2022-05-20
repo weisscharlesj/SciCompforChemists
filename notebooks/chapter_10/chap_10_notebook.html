@@ -539,6 +539,8 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="chapter-10-plotting-with-seaborn">
 <span id="id1"></span><h1>Chapter 10: Plotting with Seaborn<a class="headerlink" href="#chapter-10-plotting-with-seaborn" title="Permalink to this headline">¶</a></h1>
+<div class="cell tag_remove-input docutils container">
+</div>
 <p>There are a number of plotting libraries available for Python including Bokeh, Plotly, and MayaVi; but the most prevalent library is still probably matplotlib. It is often the first plotting library a Python user will learn, and for good reason. It is stable, well supported, and there are few plots that matplotlib cannot generate. Despite its popularity, there are some drawbacks… namely, it can be quite verbose. That is, you may be able to generate nearly any plot, but it will take at least a few lines of code if not dozens to create and customize your figure.</p>
 <p>One attractive alternative is the seaborn plotting library. While seaborn cannot generate the same variety of plots as matplotlib, it is good at generating a few common plots that people use regularly, and here is the key detail… it often does what would take matplotlib 10+ lines of code in only one or two lines. To make things even better, seaborn is built on top of matplotlib. This means that if you are not completely happy with what seaborn creates, you can fine tune it with the same matplotlib commands you already know! In addition, seaborn is designed to work closely with the pandas library. For example, think of all the lines of code you have typed to simply add labels to your <em>x</em>- and <em>y</em>-axes. Instead, seaborn often pulls the labels from the DataFrame column headers. Again, if you do not like this default behavior, you can still override it with <code class="docutils literal notranslate"><span class="pre">plt.xlabel()</span></code> and other commands that you already know.</p>
 <p>By convention, seaborn is imported with the <code class="docutils literal notranslate"><span class="pre">sns</span></code> alias, but being that this is a relatively young library, it is unclear how strong this convention is. The <a class="reference external" href="https://seaborn.pydata.org/">official seaborn website</a> uses it, so we will as well. All code in this chapter assumes the following import.</p>
@@ -609,8 +611,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_10_notebook_6_1.png" src="../../_images/chap_10_notebook_6_1.png" />
-</div>
+<img alt="../../_images/chap_10_notebook_7_1.svg" src="../../_images/chap_10_notebook_7_1.svg" /></div>
 </div>
 <p>If the data is in a DataFrame, the <em>x</em> and <em>y</em> values can be provide as the column names, and seaborn will automatically add the column names as x and y labels. Below is a series of boiling point and molecular weights for various organic compounds.</p>
 <div class="cell docutils container">
@@ -840,8 +841,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;MW&#39;, ylabel=&#39;bp&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_10_notebook_10_1.png" src="../../_images/chap_10_notebook_10_1.png" />
-</div>
+<img alt="../../_images/chap_10_notebook_11_1.svg" src="../../_images/chap_10_notebook_11_1.svg" /></div>
 </div>
 <p>While the DataFrame column names provide accurate axis labels, the units are missing. We can use matplotlib commands from chapter 3 to modify the axis labels.</p>
 <div class="cell docutils container">
@@ -856,8 +856,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;bp, $^o$C&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_10_notebook_12_1.png" src="../../_images/chap_10_notebook_12_1.png" />
-</div>
+<img alt="../../_images/chap_10_notebook_13_1.svg" src="../../_images/chap_10_notebook_13_1.svg" /></div>
 </div>
 </div>
 </div>
@@ -881,8 +880,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(30.949635416666673, 0.5, &#39;bp, $^o$C&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_10_notebook_14_1.png" src="../../_images/chap_10_notebook_14_1.png" />
-</div>
+<img alt="../../_images/chap_10_notebook_15_1.svg" src="../../_images/chap_10_notebook_15_1.svg" /></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">lmplot()</span></code> function also provides arguments for modifying the appearance of the plot. Below is a demonstration of a few extra adjustments to the plot. The <code class="docutils literal notranslate"><span class="pre">legend_out</span></code> argument controls whether the legend is outside the plot’s boundaries, and the aspect argument sets the ratio of the <em>x</em>-axis versus the <em>y</em>-axis. The marker shapes can also be modified using the <code class="docutils literal notranslate"><span class="pre">markers</span></code> argument with matplotlib conventions from <a class="reference internal" href="../chapter_03/chap_03_notebook.html#id4"><span class="std std-ref">section 3.1.2</span></a>.</p>
 <div class="cell docutils container">
@@ -901,8 +899,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(17.675000000000004, 0.5, &#39;bp, $^o$C&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_10_notebook_16_2.png" src="../../_images/chap_10_notebook_16_2.png" />
-</div>
+<img alt="../../_images/chap_10_notebook_17_2.svg" src="../../_images/chap_10_notebook_17_2.svg" /></div>
 </div>
 </div>
 <div class="section" id="categorical-plots">
@@ -1057,8 +1054,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_10_notebook_21_1.png" src="../../_images/chap_10_notebook_21_1.png" />
-</div>
+<img alt="../../_images/chap_10_notebook_22_1.svg" src="../../_images/chap_10_notebook_22_1.svg" /></div>
 </div>
 <p>By default, the <em>x</em>-axis contains the column labels from the DataFrame, but the <em>y</em>-axis is without any label. Again, one of the conveniences of the seaborn library is that it is built on top of matplotlib, so any plot created by seaborn can be further modified by matplotlib commands as shown below.</p>
 <div class="cell docutils container">
@@ -1073,8 +1069,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Metals&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_10_notebook_23_1.png" src="../../_images/chap_10_notebook_23_1.png" />
-</div>
+<img alt="../../_images/chap_10_notebook_24_1.svg" src="../../_images/chap_10_notebook_24_1.svg" /></div>
 </div>
 <div class="section" id="swarm-plot">
 <span id="id8"></span><h3>10.3.2 Swarm Plot<a class="headerlink" href="#swarm-plot" title="Permalink to this headline">¶</a></h3>
@@ -1091,8 +1086,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Metals&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_10_notebook_25_1.png" src="../../_images/chap_10_notebook_25_1.png" />
-</div>
+<img alt="../../_images/chap_10_notebook_26_1.svg" src="../../_images/chap_10_notebook_26_1.svg" /></div>
 </div>
 </div>
 <div class="section" id="violin-plot">
@@ -1110,8 +1104,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Metals&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_10_notebook_27_1.png" src="../../_images/chap_10_notebook_27_1.png" />
-</div>
+<img alt="../../_images/chap_10_notebook_28_1.svg" src="../../_images/chap_10_notebook_28_1.svg" /></div>
 </div>
 </div>
 <div class="section" id="box-plot">
@@ -1131,8 +1124,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Metals&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_10_notebook_29_1.png" src="../../_images/chap_10_notebook_29_1.png" />
-</div>
+<img alt="../../_images/chap_10_notebook_30_1.svg" src="../../_images/chap_10_notebook_30_1.svg" /></div>
 </div>
 </div>
 <div class="section" id="count-plot">
@@ -1226,8 +1218,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;state&#39;, ylabel=&#39;count&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_10_notebook_32_1.png" src="../../_images/chap_10_notebook_32_1.png" />
-</div>
+<img alt="../../_images/chap_10_notebook_33_1.svg" src="../../_images/chap_10_notebook_33_1.svg" /></div>
 </div>
 <p>Like many plotting types in seaborn, the count plot can be further customized through keyword arguments and using other available data. One shortcoming of the above plot is that the states are listed in the order they first appear in the data set instead of based on disorder. We can assert a different order by providing the <code class="docutils literal notranslate"><span class="pre">order</span></code> argument as a list of how the states should appear.</p>
 <div class="cell docutils container">
@@ -1240,8 +1231,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;state&#39;, ylabel=&#39;count&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_10_notebook_34_1.png" src="../../_images/chap_10_notebook_34_1.png" />
-</div>
+<img alt="../../_images/chap_10_notebook_35_1.svg" src="../../_images/chap_10_notebook_35_1.svg" /></div>
 </div>
 <p>We can also set the color of each bar based on the valence orbital block by providing the <code class="docutils literal notranslate"><span class="pre">hue</span></code> argument with the name of the column.</p>
 <div class="cell docutils container">
@@ -1254,8 +1244,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;state&#39;, ylabel=&#39;count&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_10_notebook_36_1.png" src="../../_images/chap_10_notebook_36_1.png" />
-</div>
+<img alt="../../_images/chap_10_notebook_37_1.svg" src="../../_images/chap_10_notebook_37_1.svg" /></div>
 </div>
 </div>
 </div>
@@ -1289,8 +1278,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Fraction of Molecules&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_10_notebook_40_1.png" src="../../_images/chap_10_notebook_40_1.png" />
-</div>
+<img alt="../../_images/chap_10_notebook_41_1.svg" src="../../_images/chap_10_notebook_41_1.svg" /></div>
 </div>
 </div>
 <div class="section" id="kde-plot">
@@ -1306,8 +1294,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/chap_10_notebook_42_0.png" src="../../_images/chap_10_notebook_42_0.png" />
-</div>
+<img alt="../../_images/chap_10_notebook_43_0.svg" src="../../_images/chap_10_notebook_43_0.svg" /></div>
 </div>
 </div>
 <div class="section" id="jointplot-diffusion-simulation">
@@ -1334,8 +1321,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-286.9, 282.9, -305.4, 275.4)
 </pre></div>
 </div>
-<img alt="../../_images/chap_10_notebook_46_1.png" src="../../_images/chap_10_notebook_46_1.png" />
-</div>
+<img alt="../../_images/chap_10_notebook_47_1.svg" src="../../_images/chap_10_notebook_47_1.svg" /></div>
 </div>
 <p>One of the issues with this plot is that there are so many data points in the plot that it is difficult to determine the distribution/density inside the blanket of solid dots. The seaborn joint plot adds histograms to the side to help the viewer recognize where most of the data points reside.</p>
 <p>The joint plot function, <code class="docutils literal notranslate"><span class="pre">sns.jointplot()</span></code>, takes two required arguments of the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> variables. While this function does not require the use of pandas or a DataFrame, it is convenient because the axis labels are pulled directly from the column headers.</p>
@@ -1350,8 +1336,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/chap_10_notebook_48_0.png" src="../../_images/chap_10_notebook_48_0.png" />
-</div>
+<img alt="../../_images/chap_10_notebook_49_0.svg" src="../../_images/chap_10_notebook_49_0.svg" /></div>
 </div>
 <p>There are numerous arguments to fine tune the joint plot. For example, the joint plot does not need to be a scatter plot with histograms. The density of the data points can be represented with hexagonal patches or <em>kernel density estimates (kde)</em>. The latter represents the density of points through contours and is a reoccurring option in other plotting functions in the seaborn library. It is worth noting that the kde plotting types take a little time to calculate, so expect a brief delay in generating these plots.</p>
 <p>Below, the hexagonal joint plot was generated with a color bar on the side using the matplotlib <code class="docutils literal notranslate"><span class="pre">plt.colorbar()</span></code> command. As with all seaborn plots, the plot can be customized using matplotlib commands.</p>
@@ -1363,11 +1348,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7ff1ee77efa0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f8ad0eb1280&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_10_notebook_50_1.png" src="../../_images/chap_10_notebook_50_1.png" />
-</div>
+<img alt="../../_images/chap_10_notebook_51_1.svg" src="../../_images/chap_10_notebook_51_1.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1376,11 +1360,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x7ff1ee656dc0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x7f8aca54e370&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_10_notebook_51_1.png" src="../../_images/chap_10_notebook_51_1.png" />
-</div>
+<img alt="../../_images/chap_10_notebook_52_1.svg" src="../../_images/chap_10_notebook_52_1.svg" /></div>
 </div>
 </div>
 </div>
@@ -1551,11 +1534,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7ff1edd798b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f8acaadd910&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_10_notebook_55_1.png" src="../../_images/chap_10_notebook_55_1.png" />
-</div>
+<img alt="../../_images/chap_10_notebook_56_1.svg" src="../../_images/chap_10_notebook_56_1.svg" /></div>
 </div>
 <p>The color can also be set based on any piece of information. Below, the row is used to dictate the color of each data point.</p>
 <div class="cell docutils container">
@@ -1565,11 +1547,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7ff1ed6fb9a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f8acb91a550&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_10_notebook_57_1.png" src="../../_images/chap_10_notebook_57_1.png" />
-</div>
+<img alt="../../_images/chap_10_notebook_58_1.svg" src="../../_images/chap_10_notebook_58_1.svg" /></div>
 </div>
 </div>
 <div class="section" id="heat-map">
@@ -1664,13 +1645,13 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_10_notebook_61_1.png" src="../../_images/chap_10_notebook_61_1.png" />
+<img alt="../../_images/chap_10_notebook_62_1.svg" src="../../_images/chap_10_notebook_62_1.svg" /></div>
 </div>
-</div>
-<p>Now we have a color grid where the colors represent numerical values defined in a colorbar automatically displayed on the righthand side. This default color map can easily be customized through various arguments in the <code class="docutils literal notranslate"><span class="pre">heatmap()</span></code> function. One nice addition is to display the numerical values on the heat map by setting <code class="docutils literal notranslate"><span class="pre">annot=True</span></code>. If you choose to annotate the rectangles, you may need to use the <code class="docutils literal notranslate"><span class="pre">fmt=</span></code> parameter to dictate the format of the annotation labels. Some common formats are <code class="docutils literal notranslate"><span class="pre">d</span></code> for decimal, <code class="docutils literal notranslate"><span class="pre">f</span></code> for floating point, and <code class="docutils literal notranslate"><span class="pre">.2f</span></code> gives two places after the decimal place in a floating point number. If you want a different color map, this can be set using the <code class="docutils literal notranslate"><span class="pre">cmap</span></code> argument and any <a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">matplotlib colormap</a> you want. Below, the annotation is turned on with the perceptually uniform viridis colormap.</p>
+<p>Now we have a color grid where the colors represent numerical values defined in a colorbar automatically displayed on the righthand side. This default color map can easily be customized through various arguments in the <code class="docutils literal notranslate"><span class="pre">heatmap()</span></code> function. One nice addition is to display the numerical values on the heat map by setting <code class="docutils literal notranslate"><span class="pre">annot=True</span></code>. If you choose to annotate the rectangles, you may need to use the <code class="docutils literal notranslate"><span class="pre">fmt=</span></code> parameter to dictate the format of the annotation labels. Some common formats are <code class="docutils literal notranslate"><span class="pre">d</span></code> for decimal, <code class="docutils literal notranslate"><span class="pre">f</span></code> for floating point, and <code class="docutils literal notranslate"><span class="pre">.2f</span></code> gives two places after the decimal place in a floating point number. If you want a different color map, this can be set using the <code class="docutils literal notranslate"><span class="pre">cmap</span></code> argument and any <a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">matplotlib colormap</a> you want. Below, the annotation is turned on with the perceptually uniform viridis colormap. To further customize the colorbar, use the <code class="docutils literal notranslate"><span class="pre">cbar_kws=</span></code> argument that takes a dictionary of parameters found on the <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure.colorbar">matplotlib website</a>. For example, to add a label, use the <code class="docutils literal notranslate"><span class="pre">label</span></code> key and the label text is the dictionary value as shown below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">bde</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">bde</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span>
+           <span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span><span class="s1">&#39;Bond Enthalpy, kJ/mol&#39;</span><span class="p">})</span>
 </pre></div>
 </div>
 </div>
@@ -1678,8 +1659,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_10_notebook_63_1.png" src="../../_images/chap_10_notebook_63_1.png" />
-</div>
+<img alt="../../_images/chap_10_notebook_64_1.svg" src="../../_images/chap_10_notebook_64_1.svg" /></div>
 </div>
 </div>
 <div class="section" id="relational-plots">
@@ -1699,8 +1679,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;radius_pm&#39;, ylabel=&#39;EN&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_10_notebook_65_1.png" src="../../_images/chap_10_notebook_65_1.png" />
-</div>
+<img alt="../../_images/chap_10_notebook_66_1.svg" src="../../_images/chap_10_notebook_66_1.svg" /></div>
 </div>
 <p>To modify the color, size, and marker style of the data points, use the <code class="docutils literal notranslate"><span class="pre">hue</span></code>, <code class="docutils literal notranslate"><span class="pre">size</span></code>, and <code class="docutils literal notranslate"><span class="pre">marker</span></code> arguments. This allows additional information to be infused into a single plot. Note that the legend automatically appears on the plot. In addition, the colormap for the plot can be modified using the <code class="docutils literal notranslate"><span class="pre">palette</span></code> keyword argument and the name of any matplotlib colormap.</p>
 <div class="cell docutils container">
@@ -1714,8 +1693,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;radius_pm&#39;, ylabel=&#39;EN&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_10_notebook_67_1.png" src="../../_images/chap_10_notebook_67_1.png" />
-</div>
+<img alt="../../_images/chap_10_notebook_68_1.svg" src="../../_images/chap_10_notebook_68_1.svg" /></div>
 </div>
 </div>
 <div class="section" id="line-plots">
@@ -1805,8 +1783,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;[A], M&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_10_notebook_70_1.png" src="../../_images/chap_10_notebook_70_1.png" />
-</div>
+<img alt="../../_images/chap_10_notebook_71_1.svg" src="../../_images/chap_10_notebook_71_1.svg" /></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">[A]</span></code> was plotted versus <code class="docutils literal notranslate"><span class="pre">Time</span></code>, and the hue of each line was set to the <code class="docutils literal notranslate"><span class="pre">Run</span></code> number. The result is that each kinetic run is shown in a separate color. If the user is not concerned so much with seeing the individual runs but instead wants to see an average of each all the runs with some indication of the variation, the <code class="docutils literal notranslate"><span class="pre">lineplot()</span></code> function provides a default 95% confidence interval as is shown below.</p>
 <div class="cell docutils container">
@@ -1821,8 +1798,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;[A], M&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_10_notebook_72_1.png" src="../../_images/chap_10_notebook_72_1.png" />
-</div>
+<img alt="../../_images/chap_10_notebook_73_1.svg" src="../../_images/chap_10_notebook_73_1.svg" /></div>
 </div>
 <p>A confidence interval is only shown if there are multiple data points for each time. The confidence intervals can also be represented with error bars by setting <code class="docutils literal notranslate"><span class="pre">err_style</span> <span class="pre">=</span> <span class="pre">'bars'</span></code>.</p>
 <div class="cell docutils container">
@@ -1837,8 +1813,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;[A], M&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_10_notebook_74_1.png" src="../../_images/chap_10_notebook_74_1.png" />
-</div>
+<img alt="../../_images/chap_10_notebook_75_1.svg" src="../../_images/chap_10_notebook_75_1.svg" /></div>
 </div>
 </div>
 </div>
@@ -1983,7 +1958,7 @@ const thebe_selector_output = ".output, .cell_output"
     
         &copy; Copyright 2021-2022.<br/>
       <div class="extra_footer">
-        Scientific Computing for Chemists is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+        Scientific Computing for Chemists with Python is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
       </div>
   </p>
 </footer>

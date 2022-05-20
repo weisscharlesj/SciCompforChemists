@@ -475,6 +475,8 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="chapter-6-signal-noise">
 <span id="id1"></span><h1>Chapter 6: Signal &amp; Noise<a class="headerlink" href="#chapter-6-signal-noise" title="Permalink to this headline">¶</a></h1>
+<div class="cell tag_remove-input docutils container">
+</div>
 <p>When collecting data from a scientific instrument, a measurement is returned as a value or series of values, and these values are composed of both signal and noise. The signal is the component of interest while the noise is random instrument response resulting from a variety of sources that can include the instrument itself, the sample holder, and even the tiny vibrations of the building. For the most interpretable data, you want the largest signal-to-noise ratio possible in order to reliably identify the features in the data.</p>
 <p>This chapter introduces the processing of signal data including detecting features, removing noise from the data, and fitting the data to mathematical models. We will be using the NumPy library in this chapter and also start to use modules from the SciPy library. SciPy, short for “scientific python,” is one of the core libraries in the scientific Python ecosystem. This library includes a variety of modules for dealing with signal data, performing Fourier transforms, and integrating sampled data among other common tasks in scientific data analysis. Table 1 summarizes some of the key modules in the SciPy library.</p>
 <p><strong>Table 1</strong> Common SciPy Modules</p>
@@ -555,8 +557,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(70.0, 0.0)
 </pre></div>
 </div>
-<img alt="../../_images/chap_06_notebook_5_1.png" src="../../_images/chap_06_notebook_5_1.png" />
-</div>
+<img alt="../../_images/chap_06_notebook_6_1.svg" src="../../_images/chap_06_notebook_6_1.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -578,8 +579,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(4000.0, 600.0)
 </pre></div>
 </div>
-<img alt="../../_images/chap_06_notebook_7_1.png" src="../../_images/chap_06_notebook_7_1.png" />
-</div>
+<img alt="../../_images/chap_06_notebook_8_1.svg" src="../../_images/chap_06_notebook_8_1.svg" /></div>
 </div>
 <p>NMR resonances are positive peaks while IR stretches are represented here as negative peaks, so we can find the largest features in both spectra by finding the maximum value in the NMR spectrum and the smallest value in the IR spectrum.</p>
 <div class="cell docutils container">
@@ -672,8 +672,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(70.0, 0.0)
 </pre></div>
 </div>
-<img alt="../../_images/chap_06_notebook_18_1.png" src="../../_images/chap_06_notebook_18_1.png" />
-</div>
+<img alt="../../_images/chap_06_notebook_19_1.svg" src="../../_images/chap_06_notebook_19_1.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -689,8 +688,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Transmittance, %&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_06_notebook_19_1.png" src="../../_images/chap_06_notebook_19_1.png" />
-</div>
+<img alt="../../_images/chap_06_notebook_20_1.svg" src="../../_images/chap_06_notebook_20_1.svg" /></div>
 </div>
 <p>Both of these functions find the <em>global extremes</em> (or <em>global extrema</em>). If all you need is the largest feature in a spectrum, this works just fine. To find multiple features, we will need to find the local extrema addressed in the following section.</p>
 </div>
@@ -731,8 +729,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(70.0, 0.0)
 </pre></div>
 </div>
-<img alt="../../_images/chap_06_notebook_25_1.png" src="../../_images/chap_06_notebook_25_1.png" />
-</div>
+<img alt="../../_images/chap_06_notebook_26_1.svg" src="../../_images/chap_06_notebook_26_1.svg" /></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">argrelmax()</span></code> function may at times identify an edge or a point in a flat region as a local maximum because there is nothing larger near it. There are multiple ways to mitigate these erroneous peaks. First, we can increase the window for which the function checks to see if a point is the largest value in its neighborhood. Unfortunately, making the window too large can also prevent the identification of multiple extrema near each other. The second mitigation is to change the function’s mode from the default <code class="docutils literal notranslate"><span class="pre">'clip'</span></code> to <code class="docutils literal notranslate"><span class="pre">'wrap'</span></code>. This makes the function treat the data as wrapped around on itself instead of stopping at the edge. That is, both edges of the data are treated as being connected. This makes it more likely that an extrema value is in the neighborhood. Finally, the user can filter the returned for values that correspond to peaks above a certain theshold value. Below is an example of filtering values based on a threshold. The window below is intentionally narrowed so that the <code class="docutils literal notranslate"><span class="pre">argrelmax()</span></code> function returns too many values for demonstration purposes.</p>
 <div class="cell docutils container">
@@ -795,11 +792,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fee9281d820&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f9f42f3d220&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/chap_06_notebook_34_1.png" src="../../_images/chap_06_notebook_34_1.png" />
-</div>
+<img alt="../../_images/chap_06_notebook_35_1.svg" src="../../_images/chap_06_notebook_35_1.svg" /></div>
 </div>
 <p>We will use NumPy to calculate the slope using the <code class="docutils literal notranslate"><span class="pre">np.diff()</span></code> function which calculates the derivative of a user defined order (<code class="docutils literal notranslate"><span class="pre">n</span></code>). Because the slope is the <em>dy/dx</em> between every pair of adjacent points, the resulting slope data is one data point shorter than the original data. This is important when plotting the data because the length of the x and y values must be the same.</p>
 <p>When taking the derivative, it is important to use smooth data. In the example below, the slope from the noise in the noisy data dwarfs that of the main signal. Therefore, we will use the derivative of the smooth data to find the inflection point below.</p>
@@ -822,11 +818,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fee95218040&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f9f42f68460&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_06_notebook_37_1.png" src="../../_images/chap_06_notebook_37_1.png" />
-</div>
+<img alt="../../_images/chap_06_notebook_38_1.svg" src="../../_images/chap_06_notebook_38_1.svg" /></div>
 </div>
 <p>Because the inflection point in the center of the data has a negative slope, we will need to find the minimum slope. This may not always be the case with other data.</p>
 <div class="cell docutils container">
@@ -838,11 +833,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fee95435250&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f9f4384bc10&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/chap_06_notebook_39_1.png" src="../../_images/chap_06_notebook_39_1.png" />
-</div>
+<img alt="../../_images/chap_06_notebook_40_1.svg" src="../../_images/chap_06_notebook_40_1.svg" /></div>
 </div>
 </div>
 </div>
@@ -867,11 +861,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fee97058a90&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f9f438c2670&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/chap_06_notebook_42_1.png" src="../../_images/chap_06_notebook_42_1.png" />
-</div>
+<img alt="../../_images/chap_06_notebook_43_1.svg" src="../../_images/chap_06_notebook_43_1.svg" /></div>
 </div>
 <div class="section" id="unweighted-average">
 <span id="id7"></span><h3>6.2.1 Unweighted Average<a class="headerlink" href="#unweighted-average" title="Permalink to this headline">¶</a></h3>
@@ -889,11 +882,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fee972660d0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f9f43930070&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/chap_06_notebook_44_1.png" src="../../_images/chap_06_notebook_44_1.png" />
-</div>
+<img alt="../../_images/chap_06_notebook_45_1.svg" src="../../_images/chap_06_notebook_45_1.svg" /></div>
 </div>
 <p>The data is smoothed relative to the original data, but there is still a considerable amount of noise present.</p>
 </div>
@@ -913,11 +905,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fee973827f0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f9f4398c8b0&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/chap_06_notebook_47_1.png" src="../../_images/chap_06_notebook_47_1.png" />
-</div>
+<img alt="../../_images/chap_06_notebook_48_1.svg" src="../../_images/chap_06_notebook_48_1.svg" /></div>
 </div>
 <p>The triangular smooth results in a smoother data set than the rectangular smooth. This is not surprising as applying the triangular smooth above is mathematically equivalent to applying the rectangular smooth twice.</p>
 </div>
@@ -934,11 +925,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fee974e9850&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f9f439f0e20&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/chap_06_notebook_50_1.png" src="../../_images/chap_06_notebook_50_1.png" />
-</div>
+<img alt="../../_images/chap_06_notebook_51_1.svg" src="../../_images/chap_06_notebook_51_1.svg" /></div>
 </div>
 </div>
 <div class="section" id="savitzkygolay">
@@ -963,11 +953,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fee975ae8e0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f9f43a670a0&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/chap_06_notebook_53_1.png" src="../../_images/chap_06_notebook_53_1.png" />
-</div>
+<img alt="../../_images/chap_06_notebook_54_1.svg" src="../../_images/chap_06_notebook_54_1.svg" /></div>
 </div>
 </div>
 </div>
@@ -997,8 +986,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Time, s&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_06_notebook_56_1.png" src="../../_images/chap_06_notebook_56_1.png" />
-</div>
+<img alt="../../_images/chap_06_notebook_57_1.svg" src="../../_images/chap_06_notebook_57_1.svg" /></div>
 </div>
 <p>SciPy contains an entire module called <code class="docutils literal notranslate"><span class="pre">fftpack</span></code> dedicated to Fourier transforms and reverse Fourier transforms. We will use the basic <code class="docutils literal notranslate"><span class="pre">fft()</span></code> function for our synthetic data which returns a mixture of real and imaginary values. For plotting, we will simply look at the real component of the result using <code class="docutils literal notranslate"><span class="pre">.real</span></code>.</p>
 <div class="cell docutils container">
@@ -1015,8 +1003,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Frequency, Hz&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_06_notebook_58_1.png" src="../../_images/chap_06_notebook_58_1.png" />
-</div>
+<img alt="../../_images/chap_06_notebook_59_1.svg" src="../../_images/chap_06_notebook_59_1.svg" /></div>
 </div>
 <p>Only the first half of the Fourier transform output is plotted above because the second half is a mirror image of the first. A single peak at 62.0 Hz is present from our signal. The rest of the baseline of the plot is not smooth because there is noise present at a variety of frequencies. It is important to note that the erratic variations in the baseline of the frequency plot is not the noise itself but more like a histogram of all the frequencies present in the original data.</p>
 </div>
@@ -1043,11 +1030,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fee98095e80&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f9f43b1edf0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_06_notebook_63_1.png" src="../../_images/chap_06_notebook_63_1.png" />
-</div>
+<img alt="../../_images/chap_06_notebook_64_1.svg" src="../../_images/chap_06_notebook_64_1.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1056,11 +1042,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fee98226b20&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f9f43b8eb20&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_06_notebook_64_1.png" src="../../_images/chap_06_notebook_64_1.png" />
-</div>
+<img alt="../../_images/chap_06_notebook_65_1.svg" src="../../_images/chap_06_notebook_65_1.svg" /></div>
 </div>
 <div class="section" id="linear-regression">
 <span id="id13"></span><h3>6.4.1 Linear Regression<a class="headerlink" href="#linear-regression" title="Permalink to this headline">¶</a></h3>
@@ -1092,11 +1077,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fee9834c220&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f9f43c006d0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_06_notebook_68_1.png" src="../../_images/chap_06_notebook_68_1.png" />
-</div>
+<img alt="../../_images/chap_06_notebook_69_1.svg" src="../../_images/chap_06_notebook_69_1.svg" /></div>
 </div>
 <p>We can also obtain the statistics for our fit using the <code class="docutils literal notranslate"><span class="pre">linregress()</span></code> function from the SciPy <code class="docutils literal notranslate"><span class="pre">stats</span></code> module. Note that this does not return the <span class="math notranslate nohighlight">\(r^2\)</span> value but instead the <span class="math notranslate nohighlight">\(r\)</span>-value which can be squared to generate the <span class="math notranslate nohighlight">\(r^2\)</span> value.</p>
 <div class="cell docutils container">
@@ -1140,11 +1124,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fee984789a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f9f43c77dc0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_06_notebook_73_1.png" src="../../_images/chap_06_notebook_73_1.png" />
-</div>
+<img alt="../../_images/chap_06_notebook_74_1.svg" src="../../_images/chap_06_notebook_74_1.svg" /></div>
 </div>
 </div>
 <div class="section" id="interpolation">
@@ -1160,11 +1143,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fee985b8790&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f9f43cf5ee0&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/chap_06_notebook_75_1.png" src="../../_images/chap_06_notebook_75_1.png" />
-</div>
+<img alt="../../_images/chap_06_notebook_76_1.svg" src="../../_images/chap_06_notebook_76_1.svg" /></div>
 </div>
 <p>To interpolate this one-dimensional function, we will use the <code class="docutils literal notranslate"><span class="pre">interp1d()</span></code> method from SciPy. Along with the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> values, <code class="docutils literal notranslate"><span class="pre">interp1d()</span></code> requires a mode of interpolation using the kind keyword which can include the items listed in Table 2.</p>
 <p><strong>Table 2</strong> Modes for <code class="docutils literal notranslate"><span class="pre">interp1d()</span></code> Method</p>
@@ -1214,11 +1196,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fee985b8ca0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f9f43d30730&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_06_notebook_78_1.png" src="../../_images/chap_06_notebook_78_1.png" />
-</div>
+<img alt="../../_images/chap_06_notebook_79_1.svg" src="../../_images/chap_06_notebook_79_1.svg" /></div>
 </div>
 </div>
 </div>
@@ -1433,7 +1414,7 @@ const thebe_selector_output = ".output, .cell_output"
     
         &copy; Copyright 2021-2022.<br/>
       <div class="extra_footer">
-        Scientific Computing for Chemists is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+        Scientific Computing for Chemists with Python is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
       </div>
   </p>
 </footer>

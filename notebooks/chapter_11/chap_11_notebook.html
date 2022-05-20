@@ -441,6 +441,8 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="chapter-11-nuclear-magnetic-resonance-with-nmrglue">
 <span id="id1"></span><h1>Chapter 11: Nuclear Magnetic Resonance with NMRglue<a class="headerlink" href="#chapter-11-nuclear-magnetic-resonance-with-nmrglue" title="Permalink to this headline">¶</a></h1>
+<div class="cell tag_remove-input docutils container">
+</div>
 <p>Nuclear magnetic resonance (NMR) spectroscopy is one of the most common and powerful analytical methods used in modern chemistry. Up to this point, we having been primarily dealing with text-based data files - that is, files that can be opened with a text editor and still contain human comprehensible information. If you open most files that come out of an NMR instrument in a text editor, it will look more like gibberish than anything a human should be able to read. This is because they are <em>binary</em> files; they are written in computer language rather than human language.</p>
 <p>We need a specialized module to be able to import and read these data, and luckily a Python module called NMRglue to does exactly this. The module contains submodules for dealing with data from each of the major NMR spectroscopy file types which includes Bruker, Pipe, Sparky, and Varian. It does not read JOEL files, but as of this writing, JOEL spectrometers support exporting data into at least one of the above file types supported by NMRglue.</p>
 <p>Currently, NMRglue is not included with Anaconda, so you will need to fetch NMRglue and install it yourself. Instructions are included on the following website. NMRglue requires you have NumPy and SciPy already installed, and matplotlib should also be installed for visualization.</p>
@@ -616,11 +618,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7facb27799a0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe86f106b80&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/chap_11_notebook_13_1.png" src="../../_images/chap_11_notebook_13_1.png" />
-</div>
+<img alt="../../_images/chap_11_notebook_14_1.svg" src="../../_images/chap_11_notebook_14_1.svg" /></div>
 </div>
 <p>To convert the data to the frequency domain, we will use the fast Fourier transform function (<code class="docutils literal notranslate"><span class="pre">fft</span></code>) from the <code class="docutils literal notranslate"><span class="pre">fft</span></code> SciPy module. NMRglue also contains Fourier transform functions, but we will use SciPy here. The plot below inverts the <em>x</em>-axis with</p>
 <div class="cell docutils container">
@@ -641,8 +642,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/chap_11_notebook_16_0.png" src="../../_images/chap_11_notebook_16_0.png" />
-</div>
+<img alt="../../_images/chap_11_notebook_17_0.svg" src="../../_images/chap_11_notebook_17_0.svg" /></div>
 </div>
 <p>When you plot the Fourier transformed data, you may get a <code class="docutils literal notranslate"><span class="pre">ComplexWarning</span></code> error message because the Fourier transform will return complex values (i.e., values with real and imaginary components). To only work with the real components, use the <code class="docutils literal notranslate"><span class="pre">.real</span></code> method as is done above. The plot now looks more like an NMR spectrum, but most of the resonances are out of phase. The next step is to phase the spectrum.</p>
 </div>
@@ -683,8 +683,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/chap_11_notebook_20_0.png" src="../../_images/chap_11_notebook_20_0.png" />
-</div>
+<img alt="../../_images/chap_11_notebook_21_0.svg" src="../../_images/chap_11_notebook_21_0.svg" /></div>
 </div>
 <p>You should try both algorithms to see which works best for you. The above spectrum is the result of the <code class="docutils literal notranslate"><span class="pre">acme</span></code> autophasing algorithm which is close but still slightly off. If neither of the provided autophasing algorithms work for you, you will need to instead manually phase the NMR spectrum as discussed below.</p>
 </div>
@@ -749,8 +748,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/chap_11_notebook_28_0.png" src="../../_images/chap_11_notebook_28_0.png" />
-</div>
+<img alt="../../_images/chap_11_notebook_29_0.svg" src="../../_images/chap_11_notebook_29_0.svg" /></div>
 </div>
 <p>Alternatively, NMRglue contains an object called a <em>unit conversion object</em> that can be created and used to convert between ppm, Hz, and point index values for any position in an NMR spectrum. To create a unit unit conversion object, use the <code class="docutils literal notranslate"><span class="pre">make_uc()</span></code> function which takes two arguments  – the dictionary, <code class="docutils literal notranslate"><span class="pre">dic</span></code>, and the original data array, <code class="docutils literal notranslate"><span class="pre">data</span></code>, generated from reading the NMR file in section 11.2.</p>
 <div class="admonition note">
@@ -798,8 +796,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/chap_11_notebook_32_0.png" src="../../_images/chap_11_notebook_32_0.png" />
-</div>
+<img alt="../../_images/chap_11_notebook_33_0.svg" src="../../_images/chap_11_notebook_33_0.svg" /></div>
 </div>
 <p>If you want to narrow the plot to where the resonances are located, you can use the <code class="docutils literal notranslate"><span class="pre">plt.xlim(8,0)</span></code> function. Notice that 8 is first to indicate that the plot is from 8 ppm <span class="math notranslate nohighlight">\(\rightarrow\)</span> 0 ppm. The use of <code class="docutils literal notranslate"><span class="pre">plt.xlim(8,0)</span></code> removes the need to use <code class="docutils literal notranslate"><span class="pre">plt.gca().invert_xaxis()</span></code> to flip the <em>x</em>-axis.</p>
 </div>
@@ -839,8 +836,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/chap_11_notebook_37_0.png" src="../../_images/chap_11_notebook_37_0.png" />
-</div>
+<img alt="../../_images/chap_11_notebook_38_0.svg" src="../../_images/chap_11_notebook_38_0.svg" /></div>
 </div>
 <p>The limits are in ppm, so take a look at the spectrum above and decide where you want to put the integration limits. An NMR spectrum with the chosen integration limits are shown above as vertical red lines.</p>
 <p>Now to integrate our NMR spectrum.</p>
@@ -892,11 +888,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7facb3ece3d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7fe86f643a60&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_11_notebook_44_1.png" src="../../_images/chap_11_notebook_44_1.png" />
-</div>
+<img alt="../../_images/chap_11_notebook_45_1.svg" src="../../_images/chap_11_notebook_45_1.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -946,8 +941,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/chap_11_notebook_48_0.png" src="../../_images/chap_11_notebook_48_0.png" />
-</div>
+<img alt="../../_images/chap_11_notebook_49_0.svg" src="../../_images/chap_11_notebook_49_0.svg" /></div>
 </div>
 <p>We can plot the NMR spectrum with these chemical shifts marked with vertical dotted lines shown below. Looks like it did a pretty good job locating the resonances! If NMRglue fails to properly identify the peaks, there are a number of parameters described in the <a class="reference external" href="https://nmrglue.readthedocs.io/en/latest/reference/generated/nmrglue.analysis.peakpick.pick.html#nmrglue.analysis.peakpick.pick">NMRglue documentation</a> that can be adjusted.</p>
 </div>
@@ -1021,7 +1015,7 @@ const thebe_selector_output = ".output, .cell_output"
     
         &copy; Copyright 2021-2022.<br/>
       <div class="extra_footer">
-        Scientific Computing for Chemists is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+        Scientific Computing for Chemists with Python is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
       </div>
   </p>
 </footer>
