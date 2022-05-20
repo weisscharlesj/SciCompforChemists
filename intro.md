@@ -1,4 +1,4 @@
-![](pt_scipy.svg)
+![periodic table of software](pt_scipy.svg)
 
 # Scientific Computing for Chemists with Python
 
