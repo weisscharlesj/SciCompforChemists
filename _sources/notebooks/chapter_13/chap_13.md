@@ -162,14 +162,14 @@ So when should you use a Jupyter notebook and when should you use Spyder? The de
 
 Complete the following problems by writing a Python scripts either in a text editor or Spyder and run them from the terminal. JupyterLab, newest version of Jupyter, includes a text editor if you wish to use it, but do not use a Jupyter notebook for any of these problems!  
      
-1. When an electron in a hydrogen atom relaxes from a higher to a lower energy orbital, a photon is released with the energy described by the below equation. Write and run a Python script that prompts the user to input the initial and final principle quantum numbers (n) and outputs the wavelength (λ) of light emitted.
+1. When an electron in a hydrogen atom relaxes from a higher to a lower energy orbital, a photon is released with the wavelength in nm described by the below equation. Write and run a Python script that prompts the user to input the initial and final principle quantum numbers (n) and prints the wavelength (λ) of light emitted with units.
 
-$$ 2.18 \times 10^{-18} \left( \frac{1}{n_i^2} - \frac{1}{n_f^2} \right) \quad \quad E = \frac{hc}{\lambda} $$
+    $$ \frac{1}{\lambda_{nm}} = 1.097 \times 10^7 nm^{-1} \left( \frac{1}{n_i^2} - \frac{1}{n_f^2} \right) $$
            
            
-2. In the folder titled Problem 2 Kinetic Data you will find synthetic data for the conversion of A $\rightarrow$ P. Both data sets are for first-order reactions. 
+2. In the folder titled data you will find synthetic data for the conversion of A $\rightarrow$ P. Both data sets are for first-order reactions. 
  
-    a) Write a Python script that accepts the name of a single data file like below and outputs the rate constant (k) for       the data. Test it on both data sets. For the script to find the file, it needs to either be in the same directory as the     data file or be provided the absolute path to the file.
+    a) Write a Python script that accepts the name of a single data file like below and outputs the rate constant (k) for the data. Test it on both data sets. For the script to find the file, it needs to either be in the same directory as the data file or be provided the absolute path to the file.
 
         $ python script.py kinetic_data_1.csv
 
@@ -178,4 +178,4 @@ $$ 2.18 \times 10^{-18} \left( \frac{1}{n_i^2} - \frac{1}{n_f^2} \right) \quad \
         $ python script.py /Users/Me/Desktop/kinetic_data_1.csv
         
 
-    b) Modify the above script to print out the rate constant for all data sets in the folder. This script will accept the       folder name instead of the file name. Remember to use the os module described in section 2.4.1.
+    b) Modify the above script to print out the rate constant for all data sets in the folder. This script will accept the folder name instead of the file name. Remember to use the `os` module described in [section 2.4.1](2.4.1).

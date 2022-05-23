@@ -498,7 +498,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fb57805dcd0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fa24575dc70&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_09_notebook_8_1.svg" src="../../_images/chap_09_notebook_8_1.svg" /></div>
@@ -564,7 +564,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fb5781b5c40&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fa2458b7bb0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_09_notebook_14_1.svg" src="../../_images/chap_09_notebook_14_1.svg" /></div>
@@ -594,7 +594,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fb578235d90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fa245934be0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_09_notebook_17_1.svg" src="../../_images/chap_09_notebook_17_1.svg" /></div>
@@ -649,7 +649,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fb57829cf10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fa24599bc40&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_09_notebook_21_1.svg" src="../../_images/chap_09_notebook_21_1.svg" /></div>
@@ -706,7 +706,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fb57832b790&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fa245872790&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_09_notebook_27_1.svg" src="../../_images/chap_09_notebook_27_1.svg" /></div>
@@ -781,7 +781,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">t</span> <span class="o">=</span> <span class="mf">2.09</span>
 <span class="n">true</span> <span class="o">=</span> <span class="mf">6.2</span>  <span class="c1"># true value</span>
 <span class="c1"># list contain a one for each time true inside 95% CI</span>
-<span class="n">in_interval</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">in_interval</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="k">for</span> <span class="n">trial</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">trials</span><span class="p">):</span>
     <span class="c1"># create synthetic data</span>
@@ -796,7 +796,7 @@ const thebe_selector_output = ".output, .cell_output"
     
     <span class="c1"># determine if true values is inside 95% CI</span>
     <span class="k">if</span> <span class="n">lower</span> <span class="o">&lt;=</span> <span class="n">true</span> <span class="o">&lt;=</span> <span class="n">upper</span><span class="p">:</span>
-        <span class="n">in_interval</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">in_interval</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </div>
@@ -909,31 +909,35 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Simulate the following chemical equilibrium where the forward rate is described by Rate<span class="math notranslate nohighlight">\(_f\)</span> = (1.3 × 10<span class="math notranslate nohighlight">\(^{-2}\)</span> M<span class="math notranslate nohighlight">\(^{-1}\)</span>s<span class="math notranslate nohighlight">\(^{-1}\)</span>)[A]<span class="math notranslate nohighlight">\(^2\)</span> and the reverse rate is described by Rate<span class="math notranslate nohighlight">\(_r\)</span> = (6.2 × 10<span class="math notranslate nohighlight">\(^{-3}\)</span> s<span class="math notranslate nohighlight">\(^{-1}\)</span>)[B].</p>
 <div class="math notranslate nohighlight">
 \[ 2A \underset{k_r}{\stackrel{k_f}{\rightleftharpoons}} B \]</div>
-<p>Use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to simulate each second of reaction by calculating the rates and increasing/decreasing each         concentration appropriately. Record the concentrations in lists and plot the results. Start with 2.20 M of A and     1.72 M B and run the simulation for at least 200 seconds. Notice that the rates are in M/s.</p>
+<p>Use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to simulate each second of reaction by calculating the rates and increasing/decreasing each concentration appropriately. Record the concentrations in lists and plot the results. Start with 2.20 M of A and 1.72 M B and run the simulation for at least 200 seconds. Notice that the rates are in M/s.</p>
 </li>
-<li><p>In section 9.1.3, a two-step, reversible reaction is simulated. If the rate constant k<span class="math notranslate nohighlight">\(_{r1}\)</span> is decreased to 0.01 s<span class="math notranslate nohighlight">\(^{-1}\)</span>, what effect on the reaction do you anticipate? Simulate this to see if your prediction is correct.</p></li>
+<li><p>In <a class="reference internal" href="#id5"><span class="std std-ref">section 9.1.3</span></a>, a two-step, reversible reaction is simulated. If the rate constant k<span class="math notranslate nohighlight">\(_{r1}\)</span> is decreased to 0.001 s<span class="math notranslate nohighlight">\(^{-1}\)</span>, what effect on the reaction do you anticipate? Simulate this to see if your prediction is correct.</p></li>
 <li><p>Simulate two competing, first-order reactions of starting material A forming product P<span class="math notranslate nohighlight">\(_1\)</span> and P<span class="math notranslate nohighlight">\(_2\)</span> and plot the resulting concentrations of both products versus time. Use k<span class="math notranslate nohighlight">\(_1\)</span> = 0.02 M/s and k<span class="math notranslate nohighlight">\(_2\)</span> = 0.04 M/s and start with 2.00 M A. What do you predict the plot of concentration versus time to look like and the ratio of products to be? Does your simulation agree?</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[ P_1 \stackrel{k_1}{\leftarrow} A \stackrel{k_2}\rightarrow P_2 \]</div>
+<ol>
 <li><p>Polymers that consist of two or more different monomers are known as copolymers. Simulate an addition copolymer consisting of two monomers: ethylene (28.06 g/mol) and styrene (104.16 g/mol) with a fixed length of a thousand units. Given the molecular weights of the two monomers above, calculate the weights for a thousand simulated polymer strands and generate a histograms of the frequency versus weight. Hint: try using the <code class="docutils literal notranslate"><span class="pre">np.random.binomial()</span></code> function with <code class="docutils literal notranslate"><span class="pre">p=0.5</span></code> and treat a zero as one monomer and a one is   the other.</p></li>
 <li><p>Block copolymers are polymers where multiple monomer types are clustered along the polymer chain instead of being randomly dispersed. These clusters are called blocks which may be of random lengths as the polymer switches between monomer types. An example is shown below.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>-A-A-A-A-A-A-A-B-B-B-B-B-B-A-A-A-A-B-B-B-A-A-A-A-A-
 </pre></div>
 </div>
 <p>Simulate a block copolymer consisting of two monomers with a total length of a hundred monomer units.</p>
-<p>Hint: Append monomers (0 or 1) to a list inside a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, and use a function from <code class="docutils literal notranslate"><span class="pre">np.random.binomial()</span></code> to     decide when to toggle between monomers types. Use <code class="docutils literal notranslate"><span class="pre">mono</span> <span class="pre">=</span> <span class="pre">1</span> <span class="pre">-</span> <span class="pre">mono</span></code> to make the switch.</p>
+<p>Hint: Append monomers (0 or 1) to a list inside a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, and use a function from <code class="docutils literal notranslate"><span class="pre">np.random.binomial()</span></code> to decide when to toggle between monomers types. Use <code class="docutils literal notranslate"><span class="pre">mono</span> <span class="pre">=</span> <span class="pre">1</span> <span class="pre">-</span> <span class="pre">mono</span></code> to make the switch.</p>
 </li>
 <li><p>The random flight polymer simulation presented in section 9.2.3 uses a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. As discussed in chapter 4, one of the virtues of NumPy is that it often avoids the computationally inefficient <code class="docutils literal notranslate"><span class="pre">for</span></code> loops. Below is the same simulation written in a single line of code leveraging the power of NumPy arrays. Briefly explain what it is doing and why it works.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">loc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span><span class="mi">2</span><span class="p">)),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
-<li><p>Proteins are nature polymers consisting of twenty common monomers called amino acids. Simulate a random protein strand of a thousand units long using the <code class="docutils literal notranslate"><span class="pre">np.random.randint()</span></code> function and a Python dictionary containing the single letter amino acid codes.</p></li>
+<li><p>Proteins are nature polymers consisting of twenty common monomers called amino acids. Simulate a random protein strand of a thousand units long using the <code class="docutils literal notranslate"><span class="pre">np.random.randint()</span></code> function and a Python dictionary or list containing the single letter amino acid codes.</p></li>
 <li><p>Confidence intervals</p>
-<p>a) Convert the code for calculating a 95% confidence interval in section 9.2.2 to a Python function that accepts     a number of samples as the one argument and returns the percentage of the time the true value is inside the         confidence interval. You will need to look up t values and generate a dictionary that converts degrees of           freedom (N) to t values.</p>
-<p>b) Using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, calculate the percentage of the time the true value is in the 95% confidence interval for     each of the sample sizes in the above dictionary and plot the results. Describe the trend.</p>
+<p>a) Convert the code for calculating a 95% confidence interval in <a class="reference internal" href="#id9"><span class="std std-ref">section 9.2.2</span></a> to a Python function that accepts the number of samples as the one argument and returns the percentage of the time the true value is inside the confidence interval. You will need to look up t values and generate a dictionary that converts degrees of freedom (N) to t values.</p>
+<p>b) Using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, calculate the percentage of the time the true value is in the 95% confidence interval for each of the sample sizes in the above dictionary and plot the results. Describe the trend.</p>
 </li>
 <li><p>Simulate the diffusion of molecules along a single axis. Start all molecules at zero, and for each step of the simulation, add a random number, positive or negative, to each value in the array. Plot the results in a histogram.</p></li>
-<li><p>Using the function from 9.1.1, simulate the splitting pattern for the tertiary proton in isopropyl alcohol ((CH<span class="math notranslate nohighlight">\(_3\)</span>)<span class="math notranslate nohighlight">\(_2\)</span>CHOH). In CDCl<span class="math notranslate nohighlight">\(_3\)</span>, this proton is observed at 3.82 ppm with a coupling constant of 6 Hz. Assume no coupling with the hydroxyl proton is observed.</p></li>
-<li><p>The law of large numbers indicates that as the number of trials increases, the observed average should overall converge on the statistical average. For example, when rolling a six-sided die, all numbers are equally probable to land up, so if we roll a number of dice, the average of all the number is expected to be around 3.5 (i.e., (1 + 2 + 3 + 4 + 5 + 6)/6 = 3.5). Using the <code class="docutils literal notranslate"><span class="pre">np.random.randint()</span></code> function, simulate the rolling of between two and five thousand, six-sided dice and plot the resulting average number versus the number of dice rolled. Include at least a hundred data points in your plot and label your axes.</p></li>
+<li><p>Using the function from <a class="reference internal" href="#id3"><span class="std std-ref">section 9.1.1</span></a>, simulate the splitting pattern for the tertiary proton in isopropyl alcohol ((CH<span class="math notranslate nohighlight">\(_3\)</span>)<span class="math notranslate nohighlight">\(_2\)</span>CHOH). In CDCl<span class="math notranslate nohighlight">\(_3\)</span>, this proton is observed at 3.82 ppm with a coupling constant of 6 Hz. Assume no coupling with the hydroxyl proton is observed.</p></li>
+<li><p>The law of large numbers indicates that as the number of trials increases, the observed average should overall converge on the statistical average. For example, when rolling a six-sided die, all numbers are equally probable to land up, so if we roll a number of dice, the average of all the numbers is expected to be around 3.5 (i.e., (1 + 2 + 3 + 4 + 5 + 6)/6 = 3.5). Using the <code class="docutils literal notranslate"><span class="pre">np.random.randint()</span></code> function, simulate the rolling of between two and five thousand, six-sided dice and plot the resulting average number versus the number of dice rolled. Include at least a hundred data points in your plot and label your axes.</p></li>
 </ol>
 </div>
 </div>
