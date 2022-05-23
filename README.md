@@ -4,9 +4,11 @@ The following is the textbook used for the Scientific Computing Chemists course 
 
 This book is periodically updated to fix typos, account for new software versions, and add new content. The most recent version can be downloaded or forked above along with Jupyter notebooks containing all code in the book. Reports of errors and information on how people are using this books are always welcome.
 
+Answer keys to exercises are available to instructors upon request. Please [email me](https://www.augie.edu/academics/majors-and-programs/chemistry/faculty) using your institutional email address to request copies.
+
 ## [View Scientific Computing for Chemists with Python (Jupyter Book)](https://weisscharlesj.github.io/SciCompforChemists/)
 
-The document is copyright © 2021-2022 Charles J. Weiss and is released under under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. The files associated with the text are under the same license.
+The book and all files/materials are copyright © 2021-2022 Charles J. Weiss and are released under under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
 
 * Chapter 0: Python & Jupyter Notebooks
 * Chapter 1: Basic Python
