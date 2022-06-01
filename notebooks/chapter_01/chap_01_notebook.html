@@ -496,21 +496,36 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#file-i-o">
-   1.8 File I/O
+  <a class="reference internal nav-link" href="#file-input-output-i-o">
+   1.8 File Input/Output (I/O)
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#reading-lines">
-     1.8.1.Reading Lines
+    <a class="reference internal nav-link" href="#reading-lines-with-python">
+     1.8.1.Reading Lines with Python
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#using-np-genfromtxt">
-     1.8.2 Using
+    <a class="reference internal nav-link" href="#writing-data-with-python">
+     1.8.2 Writing Data with Python
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reading-data-with-np-genfromtxt">
+     1.8.3 Reading Data with
      <code class="docutils literal notranslate">
       <span class="pre">
        np.genfromtxt()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reading-data-with-np-savetxt">
+     1.8.4 Reading Data with
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       np.savetxt()
       </span>
      </code>
     </a>
@@ -803,21 +818,36 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#file-i-o">
-   1.8 File I/O
+  <a class="reference internal nav-link" href="#file-input-output-i-o">
+   1.8 File Input/Output (I/O)
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#reading-lines">
-     1.8.1.Reading Lines
+    <a class="reference internal nav-link" href="#reading-lines-with-python">
+     1.8.1.Reading Lines with Python
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#using-np-genfromtxt">
-     1.8.2 Using
+    <a class="reference internal nav-link" href="#writing-data-with-python">
+     1.8.2 Writing Data with Python
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reading-data-with-np-genfromtxt">
+     1.8.3 Reading Data with
      <code class="docutils literal notranslate">
       <span class="pre">
        np.genfromtxt()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reading-data-with-np-savetxt">
+     1.8.4 Reading Data with
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       np.savetxt()
       </span>
      </code>
     </a>
@@ -1462,7 +1492,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Triple quotes can also used to span a string across multiple lines and are also used for the docstring in a newly defined function (see <a class="reference internal" href="#id40"><span class="std std-ref">section 1.9.5</span></a>).</p>
+<p>Triple quotes can also used to span a string across multiple lines and are also used for the docstring in a newly defined function (see <a class="reference internal" href="#id42"><span class="std std-ref">section 1.9.5</span></a>).</p>
 </div>
 <div class="section" id="creating-a-string">
 <span id="id10"></span><h3>1.3.1 Creating a String<a class="headerlink" href="#creating-a-string" title="Permalink to this headline">¶</a></h3>
@@ -2028,7 +2058,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:1: SyntaxWarning: &quot;is&quot; with a literal. Did you mean &quot;==&quot;?
 &lt;&gt;:1: SyntaxWarning: &quot;is&quot; with a literal. Did you mean &quot;==&quot;?
-/var/folders/cw/g8p9ghtd3_7b10t_kws_b86h0000gp/T/ipykernel_2770/1557232650.py:1: SyntaxWarning: &quot;is&quot; with a literal. Did you mean &quot;==&quot;?
+/var/folders/cw/g8p9ghtd3_7b10t_kws_b86h0000gp/T/ipykernel_1778/1557232650.py:1: SyntaxWarning: &quot;is&quot; with a literal. Did you mean &quot;==&quot;?
   8 is 8.0
 </pre></div>
 </div>
@@ -2802,7 +2832,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
 12
-4
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
 </div>
@@ -3045,7 +3077,7 @@ S
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/cw/g8p9ghtd3_7b10t_kws_b86h0000gp/T/ipykernel_2770/2693538935.py&quot;</span><span class="gt">, line </span><span class="mi">4</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/cw/g8p9ghtd3_7b10t_kws_b86h0000gp/T/ipykernel_1778/2693538935.py&quot;</span><span class="gt">, line </span><span class="mi">4</span>
     <span class="k">else</span><span class="p">:</span>
          <span class="o">^</span>
 <span class="ne">IndentationError</span>: expected an indented block
@@ -3067,19 +3099,19 @@ S
 </div>
 </div>
 </div>
-<div class="section" id="file-i-o">
-<span id="id32"></span><h2>1.8 File I/O<a class="headerlink" href="#file-i-o" title="Permalink to this headline">¶</a></h2>
-<p>Up to this point, we have only been dealing with computer-generated and manually typed values, strings, lists, and tuples. In research and laboratory environments, we often need to work with data stored in a file. These files may be generated from an instrument or as the result of humans typing values into a spreadsheet as they take measurements or make observations. There are two general categories of data files: text and binary files. <em>Text files</em> are those that, when opened by a text editor, can be read by humans, while <em>binary files</em> cannot. We will focus only on text files here.</p>
-<p>There is a large variety of text files which differ simply by the way in which the information is formatted in the file. Common examples include comma separated values (CSV), protein database (PDB), and <em>xyz</em> coordinates (XYZ). These files have different extensions (i.e., those 3-4 letters after the period at the end of a file name), but they are all just text files. You can change the extension to .txt if you like. The <em>.csv</em>, <em>.pdb</em>, and <em>.xyz</em> are simply tags to help your computer decide which software application can and should open the file.</p>
-<p>We will focus on the CSV file format as it is extremely common, and many software applications can export data in the CSV format. Comma separated value files are a way of encoding information that might otherwise be stored in a spreadsheet.  Each line of the text file is a different row, and each item in a row is separated by commas… hence the name. Below are the contents of a CSV file and how it would look in a spreadsheet.</p>
+<div class="section" id="file-input-output-i-o">
+<span id="id32"></span><h2>1.8 File Input/Output (I/O)<a class="headerlink" href="#file-input-output-i-o" title="Permalink to this headline">¶</a></h2>
+<p>Up to this point, we have only been dealing with computer-generated and manually typed values, strings, lists, and tuples. In research and laboratory environments, we often need to work with data stored in a file. These files may be generated from an instrument or as the result of humans typing values into a spreadsheet as they take measurements or make observations. There are two general categories of data files: text and binary files. <em>Text files</em> are those that, when opened by a text editor, can be read by humans, while <em>binary files</em> cannot. The reading of binary files requires other specialized software, such as demonstrated in <a class="reference internal" href="../chapter_11/chap_11_notebook.html#id1"><span class="std std-ref">chapter 11</span></a>, and text files are very common for storing data, so we will focus only on text files here.</p>
+<p>There are a large variety of text files which differ simply by the way in which the information is formatted in the file. Common examples include comma separated values (CSV), protein database (PDB), and <em>xyz</em> coordinates (XYZ). These files have different extensions (i.e., those 3-4 letters after the period at the end of a file name), but they are all just text files. You can change the extension to <em>.txt</em> if you like and open them in any text editor or word processor. The <em>.csv</em>, <em>.pdb</em>, and <em>.xyz</em> are simply tags to help your computer decide which software application can and should open the file.</p>
+<p>We will focus on the CSV file format as it is extremely common, and many software applications can export data in the CSV format. Comma separated value files are a way of encoding information that might otherwise be stored in a spreadsheet, and spreadsheet applications are able to easily read and write CSV files.  Each line of the text file is a different row, and each item in a row is separated by commas… hence the name. Below are the contents of a CSV file and how it would look in a spreadsheet. In some files, you may see a <code class="docutils literal notranslate"><span class="pre">\n</span></code> at the end of each line. This is a line terminator character telling some software applications where a line ends.</p>
 <p><img alt="" src="../../_images/csv_file.png" /></p>
-<div class="section" id="reading-lines">
-<span id="id33"></span><h3>1.8.1.Reading Lines<a class="headerlink" href="#reading-lines" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="reading-lines-with-python">
+<span id="id33"></span><h3>1.8.1.Reading Lines with Python<a class="headerlink" href="#reading-lines-with-python" title="Permalink to this headline">¶</a></h3>
 <p>The first method we will cover for reading text files is the native Python method of reading the lines of the text file one at a time. This method requires a little more effort than the other methods in this book, but it also offers much more control.</p>
-<p>There are three general steps for this approach: open the file, read each line one at a time, and close the file. Opening the file is performed with the <code class="docutils literal notranslate"><span class="pre">open()</span></code> function. Be sure to attach the file to a variable to be accessed later. Next, the data is read a single line at a time using the <code class="docutils literal notranslate"><span class="pre">readlines()</span></code> method. Being that we need to do the same task over and over, we will use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. Finally, it is a good habit to close the file using the <code class="docutils literal notranslate"><span class="pre">close()</span></code> command. This process is demonstrated below in opening the data shown above in a file called <em>squares.csv</em>.</p>
+<p>There are three general steps for this approach: open the file, read each line one at a time, and close the file. Opening the file is performed with the <code class="docutils literal notranslate"><span class="pre">open()</span></code> function. Be sure to attach the file to a variable to be accessed later. Next, the data is read a single line at a time using the <code class="docutils literal notranslate"><span class="pre">readlines()</span></code> method. Being that we need to do the same task over and over, we will use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. Finally, it is a good practice to close the file using the <code class="docutils literal notranslate"><span class="pre">close()</span></code> command. This process is demonstrated below in opening the data shown above in a file called <em>squares.csv</em>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Unless otherwise indicated, Python searches for the file in the same directory (folder) as the Jupyter notebook.</p>
+<p>Unless otherwise indicated, Python searches for the file in the same directory (folder) as the Jupyter notebook. If the file is not in this directory, be sure to provide a path to the file. For more advanced techniques on navigating your file system, see <a class="reference internal" href="../chapter_02/chap_02_notebook.html#id10"><span class="std std-ref">section 2.4.1</span></a>.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3132,7 +3164,7 @@ S
 </div>
 </div>
 </div>
-<p>Now the values are in two separate lists. The first values are in the <code class="docutils literal notranslate"><span class="pre">numbers</span></code> list and the <code class="docutils literal notranslate"><span class="pre">squares</span></code> of the numbers are in the squares list.</p>
+<p>Now the values are in two separate lists. The first values are in the <code class="docutils literal notranslate"><span class="pre">numbers</span></code> list and the squares of the numbers are in the <code class="docutils literal notranslate"><span class="pre">squares</span></code> list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span>
@@ -3157,10 +3189,63 @@ S
 </div>
 </div>
 </div>
+<p>While the above methods work fine, it is considered best practice to read a file inside a <em>context</em> so that even if an error occurs, the file will still be closed properly. This is done as shown below using a <code class="docutils literal notranslate"><span class="pre">with</span></code> statement. There is no need to explicitly close the file because it is done for you.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/squares.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="using-np-genfromtxt">
-<span id="id34"></span><h3>1.8.2 Using <code class="docutils literal notranslate"><span class="pre">np.genfromtxt()</span></code><a class="headerlink" href="#using-np-genfromtxt" title="Permalink to this headline">¶</a></h3>
-<p>The second approach uses a function from the NumPy library called <code class="docutils literal notranslate"><span class="pre">genfromtxt()</span></code>. NumPy will not be covered in depth until <a class="reference internal" href="../chapter_04/chap_04_notebook.html#id1"><span class="std std-ref">chapter 4</span></a>, but we can still use this one function before then. Before using NumPy, we need to import it using <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code>, which can be thought of as activating it. The <code class="docutils literal notranslate"><span class="pre">genfromtxt()</span></code> function takes two required arguments for reading a text file: the file name and the delimiter. The <em>delimiter</em> is the symbol the separates values in each row and can be almost any symbol including spaces or tabs. If you encounter tab separated data, use <code class="docutils literal notranslate"><span class="pre">delimiter='\t'</span></code>, and for comma separated values (CSV) file, use <code class="docutils literal notranslate"><span class="pre">delimiter=','</span></code>.</p>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1,1
+
+2,4
+
+3,9
+
+4,16
+
+5,25
+
+6,36
+
+7,49
+
+8,64
+
+9,81
+
+10,100
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="writing-data-with-python">
+<span id="id34"></span><h3>1.8.2 Writing Data with Python<a class="headerlink" href="#writing-data-with-python" title="Permalink to this headline">¶</a></h3>
+<p>Python can also write data to a file using the <code class="docutils literal notranslate"><span class="pre">write()</span></code> function which takes a string and writes it to a file. Before this can be done, the file needs to be opened using the <code class="docutils literal notranslate"><span class="pre">open()</span></code> function requires the name of the file to write to, and if the file does not already exist, it creates a new file with this name. There is an optional second argument for the <code class="docutils literal notranslate"><span class="pre">open()</span></code> function that sets the mode in which the file is opened. There are a number of modes, but common modes include <code class="docutils literal notranslate"><span class="pre">'w'</span></code> for write only mode, <code class="docutils literal notranslate"><span class="pre">'r'</span></code> for read only mode, and <code class="docutils literal notranslate"><span class="pre">'a'</span></code> for append mode. The latter adds any new text to the end of an already-existing file.</p>
+<p>In the example below, a list, <code class="docutils literal notranslate"><span class="pre">angular</span></code>, containing nested lists of angular quantum numbers and shapes is written to a new file. Following each nested list (i.e., angular quantum number and shape pair) is a line terminator character <code class="docutils literal notranslate"><span class="pre">\n</span></code>. Because the following code opens the file in a context using a <code class="docutils literal notranslate"><span class="pre">with</span></code> statement, there is no need to explicitly close the file as this is done automatically.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">angular</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;shape&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">],</span> 
+            <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">]]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;new_file.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">angular</span><span class="p">:</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;,&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="reading-data-with-np-genfromtxt">
+<span id="id35"></span><h3>1.8.3 Reading Data with <code class="docutils literal notranslate"><span class="pre">np.genfromtxt()</span></code><a class="headerlink" href="#reading-data-with-np-genfromtxt" title="Permalink to this headline">¶</a></h3>
+<p>The second approach to reading data from files uses a function from the NumPy library called <code class="docutils literal notranslate"><span class="pre">genfromtxt()</span></code>. NumPy will not be covered in depth until <a class="reference internal" href="../chapter_04/chap_04_notebook.html#id1"><span class="std std-ref">chapter 4</span></a>, but we can still use a couple functions before then. Before using NumPy, we need to import it using <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code>, which can be thought of as activating the library. The <code class="docutils literal notranslate"><span class="pre">np.genfromtxt()</span></code> function takes two required arguments for reading a text file: the file name and the delimiter. The <em>delimiter</em> is the symbol that separates values in each row and can be almost any symbol including spaces or tabs. If you encounter tab separated data, use <code class="docutils literal notranslate"><span class="pre">delimiter='\t'</span></code>, and for comma separated values (CSV) file, use <code class="docutils literal notranslate"><span class="pre">delimiter=','</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s1">&#39;file_name&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -3190,7 +3275,7 @@ S
 </div>
 </div>
 </div>
-<p>The output of this function is something called a <em>NumPy array</em>. It is similar to a list except more powerful. You will learn to use these in <a class="reference internal" href="../chapter_04/chap_04_notebook.html#id1"><span class="std std-ref">chapter 4</span></a>, but for now, just treat it as a nested list (i.e., a list within a list). If we want to know the square of 4, we can access that value using indexing.</p>
+<p>The output of this function is something called a <em>NumPy array</em>. It is similar to a list except more powerful. You will learn to use these in <a class="reference internal" href="../chapter_04/chap_04_notebook.html#id1"><span class="std std-ref">chapter 4</span></a>, but for now, just treat it as a list. If we want to know the square of 4, we can access that value using indexing.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
@@ -3203,7 +3288,7 @@ S
 </div>
 </div>
 </div>
-<p>Another feature of the <code class="docutils literal notranslate"><span class="pre">genfromtxt()</span></code> function is the <code class="docutils literal notranslate"><span class="pre">skip_header</span></code> optional argument. It instructs the function to disregard data until after a certain number of rows in the file. This is helpful because files often include non-data headers providing details like the instrument, date, time, and other details about the data. A data file may look like this.</p>
+<p>Another feature of the <code class="docutils literal notranslate"><span class="pre">np.genfromtxt()</span></code> function is the <code class="docutils literal notranslate"><span class="pre">skip_header=</span></code> optional argument. It instructs the function to disregard data until after a certain number of rows in the file. This is helpful because files often include non-data headers providing details like the instrument, date, time, and other details about the data. A data file may look like this.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>July 7, 2017
 number, square 
 1, 1 
@@ -3241,13 +3326,40 @@ number, square
 </div>
 </div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>NumPy has a similar function to <code class="docutils literal notranslate"><span class="pre">np.genfromtxt()</span></code> called <code class="docutils literal notranslate"><span class="pre">np.loadtxt()</span></code> that you may see around. Both functions are similar except that <code class="docutils literal notranslate"><span class="pre">np.genfromtxt()</span></code> can also read files that have missing data while <code class="docutils literal notranslate"><span class="pre">np.loadtxt()</span></code> cannot.</p>
+</div>
+</div>
+<div class="section" id="reading-data-with-np-savetxt">
+<span id="id36"></span><h3>1.8.4 Reading Data with <code class="docutils literal notranslate"><span class="pre">np.savetxt()</span></code><a class="headerlink" href="#reading-data-with-np-savetxt" title="Permalink to this headline">¶</a></h3>
+<p>One of the easiest approaches to writing data back to a file is to again use a NumPy function, <code class="docutils literal notranslate"><span class="pre">np.savetxt()</span></code>, which requires both a file name as a string and the data. It is also recommended to include a delimiter as a string using the <code class="docutils literal notranslate"><span class="pre">delimiter=</span></code> keyword argument. This function can write a file from a list, tuple, or NumPy array (introduced in <a class="reference internal" href="../chapter_04/chap_04_notebook.html#id2"><span class="std std-ref">section 4.1</span></a>), and if a list or tuple is nested, each inner list/tuple is a row in the written file.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s1">&#39;file_name&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As an example, below is a nested list of temperatures (<span class="math notranslate nohighlight">\(^{\circ}\)</span>C) and the density of water at each temperature (g/mL). These data are saved to a file <em>water_density.csv</em> with each value seperated by a comma.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># temp(C), density(g/mL)</span>
+<span class="n">H2O_dens</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">10</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">],</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mf">0.998</span><span class="p">],</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mf">0.996</span><span class="p">],</span> 
+            <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mf">0.992</span><span class="p">],</span> <span class="p">[</span><span class="mi">60</span><span class="p">,</span> <span class="mf">0.983</span><span class="p">],</span> <span class="p">[</span><span class="mi">80</span><span class="p">,</span> <span class="mf">0.972</span><span class="p">]]</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s1">&#39;water_density.csv&#39;</span><span class="p">,</span> <span class="n">H2O_dens</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For more information on loading data with NumPy and handling missing data, see <a class="reference internal" href="../chapter_04/chap_04_notebook.html#id22"><span class="std std-ref">section 4.6</span></a>. Additional tools for reading/writing data are also discussed in <a class="reference internal" href="../chapter_05/chap_05_notebook.html#id5"><span class="std std-ref">section 5.2</span></a>.</p>
+</div>
 </div>
 </div>
 <div class="section" id="creating-functions">
-<span id="id35"></span><h2>1.9 Creating Functions<a class="headerlink" href="#creating-functions" title="Permalink to this headline">¶</a></h2>
+<span id="id37"></span><h2>1.9 Creating Functions<a class="headerlink" href="#creating-functions" title="Permalink to this headline">¶</a></h2>
 <p>After you have been programming for a while, you will likely find yourself repeating the same tasks. For example, let us say your research has you repeatedly calculating the distance between two atoms based on their <em>xyz</em> coordinates. You certainly could rewrite or copy-and-paste the same code every time you need to find the distance between two atoms, but that sounds horrible. You can avoid this by creating your own function that calculates the distance. This way, every time you need to calculate the distance between a pair of atoms, you can call the function and the same section of code located in the function is executed. You only have to write the code once and then you can execute it as many times as you need whenever you need.</p>
 <div class="section" id="basic-functions">
-<span id="id36"></span><h3>1.9.1 Basic Functions<a class="headerlink" href="#basic-functions" title="Permalink to this headline">¶</a></h3>
+<span id="id38"></span><h3>1.9.1 Basic Functions<a class="headerlink" href="#basic-functions" title="Permalink to this headline">¶</a></h3>
 <p>To create your own function, you first need a name for the function. The name should be descriptive of what it does and makes sense to you and anyone who would use it. If we want to create a function to measure the distance between two atoms, <code class="docutils literal notranslate"><span class="pre">distance</span></code> might be a good name for the function.</p>
 <p>The first line of a function definition looks like the following: the <code class="docutils literal notranslate"><span class="pre">def</span></code> statement followed by the name of the function with whatever information, called <em>arguments</em>, that is fed into the function, and a colon at the end. In this function, we will feed it the <em>xyz</em> coordinates for both atoms as either a pair of lists or tuples. In the parentheses following the function name, place variable names you want to use to represent these coordinates. We will use <code class="docutils literal notranslate"><span class="pre">coords1</span></code> and <code class="docutils literal notranslate"><span class="pre">coords2</span></code> here.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">coords1</span><span class="p">,</span> <span class="n">coords2</span><span class="p">):</span>
@@ -3307,7 +3419,7 @@ number, square
 </div>
 </div>
 <div class="section" id="return-statements">
-<span id="id37"></span><h3>1.9.2 return Statements<a class="headerlink" href="#return-statements" title="Permalink to this headline">¶</a></h3>
+<span id="id39"></span><h3>1.9.2 return Statements<a class="headerlink" href="#return-statements" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">distance()</span></code> function prints out a value for the distance, but what happens if we want to use this value for a subsequent calculation? Perhaps we want to calculation the average of the distances between multiple pairs of atoms. We certainly do not want to retype these values back into Python, so instead we can have the function <em>return</em> the value. You can think of functions as little machines where the arguments in the parentheses are the input and the return at the end of the function is what comes out of the machine. Below is a modified version of our <code class="docutils literal notranslate"><span class="pre">distance()</span></code> function with a <code class="docutils literal notranslate"><span class="pre">return</span></code> statement instead of printing the value. By running the following code, it overwrites the original function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3395,7 +3507,7 @@ number, square
 </div>
 </div>
 <div class="section" id="local-variable-scope">
-<span id="id38"></span><h3>1.9.3 Local Variable Scope<a class="headerlink" href="#local-variable-scope" title="Permalink to this headline">¶</a></h3>
+<span id="id40"></span><h3>1.9.3 Local Variable Scope<a class="headerlink" href="#local-variable-scope" title="Permalink to this headline">¶</a></h3>
 <p>Another advantage of using functions is that they maintain variables in a <em>local scope</em>. That is, any variable created <em>inside</em> a function is not accessible outside the function. If you look back at our <code class="docutils literal notranslate"><span class="pre">distance()</span></code> function, the variable <code class="docutils literal notranslate"><span class="pre">d</span></code> is only used inside the function. If we try to see what is attached to <code class="docutils literal notranslate"><span class="pre">d</span></code>, we get the following error message.</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
@@ -3406,7 +3518,7 @@ number, square
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_2770</span><span class="o">/</span><span class="mf">3161387801.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1778</span><span class="o">/</span><span class="mf">3161387801.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">d</span>
 
 <span class="ne">NameError</span>: name &#39;d&#39; is not defined
@@ -3463,7 +3575,7 @@ number, square
 </div>
 </div>
 <div class="section" id="arguments">
-<span id="id39"></span><h3>1.9.4 Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h3>
+<span id="id41"></span><h3>1.9.4 Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h3>
 <p>Functions take in data through <em>arguments</em> placed in the parentheses after the function name. Different functions take different numbers and types of arguments from as few as zero to potentially dozes of arguments. Function arguments are also sometimes optional. Some functions allow the user to add extra data or change the functions behavior through arguments.</p>
 <p>The first type of argument is a <em>positional argument</em>. This is an argument that is required to be in a specific position inside the parentheses. For example, the function below takes in the number of protons and neutrons, respectively, and outputs the isotope name. This function is only written for the first ten elements on the periodic table.</p>
 <div class="cell docutils container">
@@ -3569,7 +3681,7 @@ number, square
 <p>Functions can also take an indeterminate number of positional or keyword arguments, but this is less common and is covered in <a class="reference internal" href="../chapter_02/chap_02_notebook.html#id17"><span class="std std-ref">section 2.7</span></a> and an optional topic for those who are interested.</p>
 </div>
 <div class="section" id="docstrings">
-<span id="id40"></span><h3>1.9.5 Docstrings<a class="headerlink" href="#docstrings" title="Permalink to this headline">¶</a></h3>
+<span id="id42"></span><h3>1.9.5 Docstrings<a class="headerlink" href="#docstrings" title="Permalink to this headline">¶</a></h3>
 <p>The final component of a function is the docstring. Strictly speaking, this is not necessary for a function to work and is sometimes left out for simple functions, but it is a good habit to include them. This is especially true if you are creating the function for a much larger project or passing it to other people. A <em>docstring</em> is a string placed at the top a function definition describing what the function does, what types of data it takes, and what is returned at the end of the function. Traditionally, docstrings are enclosed in triple quotes. The first line of the docstring describes what type of data goes in the function and what comes out. In the <code class="docutils literal notranslate"><span class="pre">distance()</span></code> function above, our function takes in a pair of lists or tuples and outputs a single value, so the first line may look something like this.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">coords1</span><span class="p">,</span> <span class="n">coords2</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;(list/tuple, list/tuple) -&gt; float</span>
