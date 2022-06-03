@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chapter 4: NumPy &#8212; Scientific Computing for Chemists with Python</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +19,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -39,12 +36,13 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -64,7 +62,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -73,9 +85,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -93,14 +106,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../intro.html">
-   Scientific Computing for Chemists with Python
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Scientific Computing for Chemists with Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../chapter_00/chap_00_notebook.html">
    Chapter 0: Python &amp; Jupyter Notebooks
@@ -174,104 +188,177 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org/">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/notebooks/chapter_04/chap_04_notebook.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        
-        <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/chapter_04/chap_04_notebook.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/notebooks/chapter_04/chap_04_notebook.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org/">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/notebooks/chapter_04/chap_04_notebook.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/chapter_04/chap_04_notebook.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/notebooks/chapter_04/chap_04_notebook.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#numpy-arrays">
    4.1 NumPy Arrays
@@ -424,12 +511,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Chapter 4: NumPy</h1>
@@ -598,11 +684,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="chapter-4-numpy">
-<span id="id1"></span><h1>Chapter 4: NumPy<a class="headerlink" href="#chapter-4-numpy" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Chapter 4: NumPy<a class="headerlink" href="#chapter-4-numpy" title="Permalink to this headline">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 </div>
 <p>NumPy is a popular library in the Python ecosystem and a critical component of the SciPy stack. So much so that NumPy is even included in Apple’s default installation of Python and in other Python-powered applications such as <a class="reference external" href="https://www.blender.org/">Blender</a>. While it may be tempting to work with NumPy’s objects as lists or to circumnavigate the NumPy library altogether, the time it takes to learn NumPy’s powerful features is well worth it! It will often allow you to solve problems with less effort and time and with shorter and faster-executing code. This is due to:</p>
@@ -620,10 +707,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="numpy-arrays">
-<span id="id2"></span><h2>4.1 NumPy Arrays<a class="headerlink" href="#numpy-arrays" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2>4.1 NumPy Arrays<a class="headerlink" href="#numpy-arrays" title="Permalink to this headline">#</a></h2>
 <p>One of the main contributions of NumPy is the <em>ndarray</em> (i.e., “n-dimensional array”), <em>NumPy array</em>, or just <em>array</em> for short. This is an object similar to a list or nested list of lists except that mathematical operations and NumPy functions automatically propagate to each element instead of requiring a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to iterate over it. Because of their power and convenience, arrays are the default object type for any operation performed with NumPy and many scientific libraries that are built on NumPy (e.g., <a class="reference external" href="https://www.scipy.org/">SciPy</a>, <a class="reference internal" href="../chapter_05/chap_05_notebook.html#id1"><span class="std std-ref">pandas</span></a>, <a class="reference internal" href="../chapter_12/chap_12_notebook.html#id1"><span class="std std-ref">scikit-learn</span></a>, etc…).</p>
 <div class="section" id="basic-arrays">
-<span id="id3"></span><h3>4.1.1 Basic Arrays<a class="headerlink" href="#basic-arrays" title="Permalink to this headline">¶</a></h3>
+<span id="id3"></span><h3>4.1.1 Basic Arrays<a class="headerlink" href="#basic-arrays" title="Permalink to this headline">#</a></h3>
 <p>The NumPy array looks like a Python list wrapped in <code class="docutils literal notranslate"><span class="pre">array()</span></code>. It is an iterable object, so you <em>could</em> iterate over it using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop if you really want to. However, because NumPy automatically propagates operations through the array, <code class="docutils literal notranslate"><span class="pre">for</span></code> loops are typically unnecessary. For example, let us say you want to multiply a list of numbers by 2. Doing this with a list would likely look like the following.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -664,7 +751,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="type-conversion-to-arrays">
-<span id="id4"></span><h3>4.1.2 Type Conversion to Arrays<a class="headerlink" href="#type-conversion-to-arrays" title="Permalink to this headline">¶</a></h3>
+<span id="id4"></span><h3>4.1.2 Type Conversion to Arrays<a class="headerlink" href="#type-conversion-to-arrays" title="Permalink to this headline">#</a></h3>
 <p>There are three common ways to generate a NumPy array that we will cover in the beginning of this chapter. The first is simply to convert a list or tuple to an array using the <code class="docutils literal notranslate"><span class="pre">np.array()</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -683,7 +770,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The fact that the object is an ndarray is denoted by the <code class="docutils literal notranslate"><span class="pre">array()</span></code>.</p>
 </div>
 <div class="section" id="array-from-sequence">
-<span id="id5"></span><h3>4.1.3 Array from Sequence<a class="headerlink" href="#array-from-sequence" title="Permalink to this headline">¶</a></h3>
+<span id="id5"></span><h3>4.1.3 Array from Sequence<a class="headerlink" href="#array-from-sequence" title="Permalink to this headline">#</a></h3>
 <p>We can also create an array using NumPy sequence-generating functions. There are two common functions in NumPy for this task: <code class="docutils literal notranslate"><span class="pre">np.arange()</span></code> and <code class="docutils literal notranslate"><span class="pre">np.linspace()</span></code>. The <code class="docutils literal notranslate"><span class="pre">np.arange()</span></code> function behaves similarly to the native Python <code class="docutils literal notranslate"><span class="pre">range()</span></code> function with the key difference that it outputs an array. Another minor difference is that while <code class="docutils literal notranslate"><span class="pre">range()</span></code> generates a range object, <code class="docutils literal notranslate"><span class="pre">np.arange()</span></code> generates a sequences of values immediately. The arguments for <code class="docutils literal notranslate"><span class="pre">np.arange()</span></code> are similar to that of Python’s <code class="docutils literal notranslate"><span class="pre">range()</span></code> function where start is inclusive and stop is exclusive, but unlike <code class="docutils literal notranslate"><span class="pre">range()</span></code>, the step size for <code class="docutils literal notranslate"><span class="pre">np.arange()</span></code> does not need to be an integer value.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
 </pre></div>
@@ -766,7 +853,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="arrays-from-functions">
-<span id="id6"></span><h3>4.1.4 Arrays from Functions<a class="headerlink" href="#arrays-from-functions" title="Permalink to this headline">¶</a></h3>
+<span id="id6"></span><h3>4.1.4 Arrays from Functions<a class="headerlink" href="#arrays-from-functions" title="Permalink to this headline">#</a></h3>
 <p>A third approach is to generate an array from a function using <code class="docutils literal notranslate"><span class="pre">np.fromfunction()</span></code> which generates an array of values using the array indices as inputs. This function requires a function as an argument.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">fromfunction</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">shape</span><span class="p">)</span>
 </pre></div>
@@ -797,7 +884,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="reshaping-merging-arrays">
-<span id="id7"></span><h2>4.2 Reshaping &amp; Merging Arrays<a class="headerlink" href="#reshaping-merging-arrays" title="Permalink to this headline">¶</a></h2>
+<span id="id7"></span><h2>4.2 Reshaping &amp; Merging Arrays<a class="headerlink" href="#reshaping-merging-arrays" title="Permalink to this headline">#</a></h2>
 <p>Modifying the dimensions of one or more arrays is a common task in NumPy. This may involve changing the number of columns and rows or merging multiple arrays into a larger array. The <em>size</em> and <em>shape</em> or an array are the number of elements and dimensions, respectively. These can be determined using the <code class="docutils literal notranslate"><span class="pre">size</span></code> and <code class="docutils literal notranslate"><span class="pre">shape</span></code> NumPy methods.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -832,7 +919,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>The NumPy convension is to provide the dimensions of a two-dimensional array as <strong>(row, columns)</strong>.</p>
 <div class="section" id="reshaping-arrays">
-<span id="id8"></span><h3>4.2.1 Reshaping Arrays<a class="headerlink" href="#reshaping-arrays" title="Permalink to this headline">¶</a></h3>
+<span id="id8"></span><h3>4.2.1 Reshaping Arrays<a class="headerlink" href="#reshaping-arrays" title="Permalink to this headline">#</a></h3>
 <p>The dimensions of arrays can be modified using the <code class="docutils literal notranslate"><span class="pre">np.reshape()</span></code> method. This method maintains the number of elements and order of elements in the array but repacks them into a different number of row and columns. Because the number of elements is maintained, the new size array needs to contain the same number of elements as the original.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">dimensions</span><span class="p">)</span>
 </pre></div>
@@ -872,7 +959,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>If you need to reshape an array with only one new dimension known, place a <code class="docutils literal notranslate"><span class="pre">-1</span></code> in the other. This signals to NumPy that it should choose the second dimension to make the data fit.</p>
 </div>
 <div class="section" id="flatten-arrays">
-<span id="id9"></span><h3>4.2.2 Flatten Arrays<a class="headerlink" href="#flatten-arrays" title="Permalink to this headline">¶</a></h3>
+<span id="id9"></span><h3>4.2.2 Flatten Arrays<a class="headerlink" href="#flatten-arrays" title="Permalink to this headline">#</a></h3>
 <p>Flattening an array takes a higher-dimensional array and squishes it into a one-dimensional array. To flatten out an array, the <code class="docutils literal notranslate"><span class="pre">np.flatten()</span></code> method is often the most convenient way.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -890,7 +977,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The format of the output makes it look like it is still a 2D array, but notice that there is a comma instead of a square bracket at the end of the first row. The dimensions of this array are 1 <span class="math notranslate nohighlight">\(\times\)</span> 20.</p>
 </div>
 <div class="section" id="transpose-arrays">
-<span id="id10"></span><h3>4.2.3 Transpose Arrays<a class="headerlink" href="#transpose-arrays" title="Permalink to this headline">¶</a></h3>
+<span id="id10"></span><h3>4.2.3 Transpose Arrays<a class="headerlink" href="#transpose-arrays" title="Permalink to this headline">#</a></h3>
 <p>Transposing an array rotates the array around the diagonal (Figure 1).</p>
 <p><img alt="" src="../../_images/transpose.png" /></p>
 <p><strong>Figure 1</strong> The <code class="docutils literal notranslate"><span class="pre">np.transpose()</span></code> or <code class="docutils literal notranslate"><span class="pre">array.T</span></code> method transposes the NumPy array effectively flipping the rows and columns.</p>
@@ -928,7 +1015,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="merge-arrays">
-<span id="id11"></span><h3>4.2.4 Merge Arrays<a class="headerlink" href="#merge-arrays" title="Permalink to this headline">¶</a></h3>
+<span id="id11"></span><h3>4.2.4 Merge Arrays<a class="headerlink" href="#merge-arrays" title="Permalink to this headline">#</a></h3>
 <p>Merging arrays can be done in multiple ways. NumPy provides convenient methods for merging arrays using <code class="docutils literal notranslate"><span class="pre">np.vstack</span></code>, <code class="docutils literal notranslate"><span class="pre">np.hstack</span></code>, and <code class="docutils literal notranslate"><span class="pre">np.dstack</span></code> which merge arrays along the vertically, horizontally, and depth-wise axes, respectively (Figure 2).</p>
 <p><img alt="" src="../../_images/stack.png" /></p>
 <p><strong>Figure 2</strong> NumPy arrays can be stacked vertically (top left), depth-wise (top right), or horizontally (bottom) using the <code class="docutils literal notranslate"><span class="pre">np.vstack()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.dstack()</span></code>, and <code class="docutils literal notranslate"><span class="pre">np.hstack()</span></code> functions, respectively.</p>
@@ -990,10 +1077,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="indexing-arrays">
-<span id="id12"></span><h2>4.3 Indexing Arrays<a class="headerlink" href="#indexing-arrays" title="Permalink to this headline">¶</a></h2>
+<span id="id12"></span><h2>4.3 Indexing Arrays<a class="headerlink" href="#indexing-arrays" title="Permalink to this headline">#</a></h2>
 <p>Similar to lists, it is often useful to be able to index and slice ndarrays. Because arrays are often higher dimensional, there are some differences in indexing that provide extra convenience.</p>
 <div class="section" id="one-dimensional-arrays">
-<span id="id13"></span><h3>4.3.1 One-Dimensional Arrays<a class="headerlink" href="#one-dimensional-arrays" title="Permalink to this headline">¶</a></h3>
+<span id="id13"></span><h3>4.3.1 One-Dimensional Arrays<a class="headerlink" href="#one-dimensional-arrays" title="Permalink to this headline">#</a></h3>
 <p>Indexing one-dimensional arrays is done in an identical fashion to lists. Simply include the index value(s) or range in square brackets behind the array name.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1022,7 +1109,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="two-dimensional-arrays">
-<span id="id14"></span><h3>4.3.2 Two-Dimensional Arrays<a class="headerlink" href="#two-dimensional-arrays" title="Permalink to this headline">¶</a></h3>
+<span id="id14"></span><h3>4.3.2 Two-Dimensional Arrays<a class="headerlink" href="#two-dimensional-arrays" title="Permalink to this headline">#</a></h3>
 <p>Two-dimensional arrays can be also indexed in a similar fashion to nested lists, but because arrays are often multidimensional, there is also a shortcut below to make work with arrays more convenient. To access the entire second row of an array, provide the row index in square brackets behind the array name just like indexing in lists.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1131,15 +1218,15 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>As you index higher dimensional, you may see code that looks like <code class="docutils literal notranslate"><span class="pre">arr[...,0]</span></code> where <code class="docutils literal notranslate"><span class="pre">arr</span></code> is the array name. The three dots mean to include everything, so <code class="docutils literal notranslate"><span class="pre">arr[...,0]</span></code> has the same effect as <code class="docutils literal notranslate"><span class="pre">arr[:,:,0]</span></code> for a three-dimensional array, for example.</p>
+<p>As you index higher dimensional arrays, you may see code that looks like <code class="docutils literal notranslate"><span class="pre">arr[...,0]</span></code> where <code class="docutils literal notranslate"><span class="pre">arr</span></code> is the array name. The three dots mean to include everything, so <code class="docutils literal notranslate"><span class="pre">arr[...,0]</span></code> has the same effect as <code class="docutils literal notranslate"><span class="pre">arr[:,:,0]</span></code> for a three-dimensional array, for example.</p>
 </div>
 </div>
 </div>
 <div class="section" id="vectorization-broadcasting">
-<span id="id15"></span><h2>4.4 Vectorization &amp; Broadcasting<a class="headerlink" href="#vectorization-broadcasting" title="Permalink to this headline">¶</a></h2>
+<span id="id15"></span><h2>4.4 Vectorization &amp; Broadcasting<a class="headerlink" href="#vectorization-broadcasting" title="Permalink to this headline">#</a></h2>
 <p>One of the major advantages of NumPy arrays over lists is that operations automatically <em>vectorize</em> across the arrays. That is, mathematical operations propagate through the array(s) instead of requiring <code class="docutils literal notranslate"><span class="pre">for</span></code> loops. This both speeds up the calculations and makes the code easier to read and write.</p>
 <div class="section" id="numpy-functions">
-<span id="id16"></span><h3>4.4.1 NumPy Functions<a class="headerlink" href="#numpy-functions" title="Permalink to this headline">¶</a></h3>
+<span id="id16"></span><h3>4.4.1 NumPy Functions<a class="headerlink" href="#numpy-functions" title="Permalink to this headline">#</a></h3>
 <p>Let us take the square root of squares using NumPy’s <code class="docutils literal notranslate"><span class="pre">np.sqrt()</span></code> function. The square root is taken of each elements automatically.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1171,7 +1258,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1832</span><span class="o">/</span><span class="mf">206549509.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1239</span><span class="o">/</span><span class="mf">206549509.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">math</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span>
 
@@ -1182,7 +1269,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="scalars-arrays">
-<span id="id17"></span><h3>4.4.2 Scalars &amp; Arrays<a class="headerlink" href="#scalars-arrays" title="Permalink to this headline">¶</a></h3>
+<span id="id17"></span><h3>4.4.2 Scalars &amp; Arrays<a class="headerlink" href="#scalars-arrays" title="Permalink to this headline">#</a></h3>
 <p>When performing mathematical operations between a scalar and an array, the same operation is performed across each elements of the array returning an array of the same dimension as the starting array. Below, an array is multiplied by the scaler 3 which results in every element in the array being multiplied by this value.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 3 \times \left[ \begin{array}{cc} 5 &amp; 6 \\ 7 &amp; 8 \end{array} \right] = \left[ \begin{array}{cc} 15 &amp; 18 \\ 21 &amp; 24 \end{array} \right] \end{split}\]</div>
@@ -1216,7 +1303,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="arrays-of-the-same-dimensions">
-<span id="id18"></span><h3>4.4.3 Arrays of the Same Dimensions<a class="headerlink" href="#arrays-of-the-same-dimensions" title="Permalink to this headline">¶</a></h3>
+<span id="id18"></span><h3>4.4.3 Arrays of the Same Dimensions<a class="headerlink" href="#arrays-of-the-same-dimensions" title="Permalink to this headline">#</a></h3>
 <p>If a mathematical operation is performed between two arrays of the same dimensions, then the mathematical operation is performed between corresponding elements in the two arrays. For example, if a pair of 2 <span class="math notranslate nohighlight">\(\times\)</span> 2 arrays are added to one another, then the corresponding elements are added to one another. This means that the top left elements are added together and so on.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} \left[ \begin{array}{cc} 1 &amp; 2 \\ 3 &amp; 4 \end{array} \right] + \left[ \begin{array}{cc} 5 &amp; 6 \\ 7 &amp; 8 \end{array} \right] = \left[ \begin{array}{cc} 6 &amp; 8 \\ 10 &amp; 12 \end{array} \right] \end{split}\]</div>
@@ -1237,7 +1324,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="arrays-of-different-dimensions">
-<span id="id19"></span><h3>4.4.4 Arrays of Different Dimensions<a class="headerlink" href="#arrays-of-different-dimensions" title="Permalink to this headline">¶</a></h3>
+<span id="id19"></span><h3>4.4.4 Arrays of Different Dimensions<a class="headerlink" href="#arrays-of-different-dimensions" title="Permalink to this headline">#</a></h3>
 <p><em>Broadcasting</em> is another form of vectorization that is a series of rules for dealing with mathematical operations between two arrays of different dimensions. In broadcasting, the one of the dimensions of the two arrays must be either identical or one-dimensional, otherwise nothing happens except an error message. To deal with the different dimensions, NumPy clones the array with fewer dimensions out so that it has the same dimensions as the other array. It should be noted that NumPy does not really clone out the array in the background; it behavior acts as if it does. It is a convenient way of thinking about the behavior and results. For example, below is the addition between a 2<span class="math notranslate nohighlight">\(\times\)</span>2 and a 1<span class="math notranslate nohighlight">\(\times\)</span>2 array.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}  \left[ \begin{array}{cc} 1 &amp; 2 \\ 3 &amp; 4 \end{array} \right] +  \left[ \begin{array}{cc} 2 &amp; 2 \end{array} \right]= ? \end{split}\]</div>
@@ -1294,7 +1381,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1832</span><span class="o">/</span><span class="mf">1370257832.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1239</span><span class="o">/</span><span class="mf">1370257832.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
@@ -1306,7 +1393,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="vectorizing-python-functions">
-<span id="id20"></span><h3>4.4.5 Vectorizing Python Functions<a class="headerlink" href="#vectorizing-python-functions" title="Permalink to this headline">¶</a></h3>
+<span id="id20"></span><h3>4.4.5 Vectorizing Python Functions<a class="headerlink" href="#vectorizing-python-functions" title="Permalink to this headline">#</a></h3>
 <p>Standard Python functions are often designed to perform a calculation a single time and output Python objects and not NumPy arrays. As an example, the following function calculates the rate of a first-order reaction given the rate constant (<code class="docutils literal notranslate"><span class="pre">k</span></code>) and concentration of reactant (<code class="docutils literal notranslate"><span class="pre">conc</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1345,10 +1432,10 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1832</span><span class="o">/</span><span class="mf">93483950.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1239</span><span class="o">/</span><span class="mf">93483950.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">rate</span><span class="p">(</span><span class="mf">1.2</span><span class="p">,</span> <span class="n">concs</span><span class="p">)</span>
 
-<span class="nn">/var/folders/cw/g8p9ghtd3_7b10t_kws_b86h0000gp/T/ipykernel_1832/3081096767.py</span> in <span class="ni">rate</span><span class="nt">(k, conc)</span>
+<span class="nn">/var/folders/cw/g8p9ghtd3_7b10t_kws_b86h0000gp/T/ipykernel_1239/3081096767.py</span> in <span class="ni">rate</span><span class="nt">(k, conc)</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">rate</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">conc</span><span class="p">):</span>
 <span class="ne">----&gt; </span><span class="mi">2</span>     <span class="k">return</span> <span class="n">k</span> <span class="o">*</span> <span class="n">conc</span>
 
@@ -1380,7 +1467,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="array-methods">
-<span id="id21"></span><h2>4.5 Array Methods<a class="headerlink" href="#array-methods" title="Permalink to this headline">¶</a></h2>
+<span id="id21"></span><h2>4.5 Array Methods<a class="headerlink" href="#array-methods" title="Permalink to this headline">#</a></h2>
 <p>Technically, NumPy array methods have already been employed in this chapter. The functions above are NumPy methods specifically for working with NumPy arrays. If an array is fed to many non-NumPy functions, an error will result because they cannot handle multi-element objects or arrays specifically. Interestingly, if a float or integer is fed into a NumPy method, it will still work. As an example, the integer 4 can be fed into the <code class="docutils literal notranslate"><span class="pre">np.sqrt()</span></code> function as well as an array of values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1591,7 +1678,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="missing-data">
-<span id="id22"></span><h2>4.6 Missing Data<a class="headerlink" href="#missing-data" title="Permalink to this headline">¶</a></h2>
+<span id="id22"></span><h2>4.6 Missing Data<a class="headerlink" href="#missing-data" title="Permalink to this headline">#</a></h2>
 <p>Real data sets frequently contain gaps or missing values, so it is important to be able to deal with missing data. When importing data into NumPy, there are two commonly employed functions, <code class="docutils literal notranslate"><span class="pre">np.genfromtxt()</span></code> and <code class="docutils literal notranslate"><span class="pre">np.loadtxt()</span></code>. Though these are largly analogous functions in terms of capabilities, there is a key difference in that <code class="docutils literal notranslate"><span class="pre">np.genfromtxt()</span></code> can handle missing data while <code class="docutils literal notranslate"><span class="pre">np.loadtxt()</span></code> cannot. This means if your data set may contain gaps, you should use <code class="docutils literal notranslate"><span class="pre">np.genfromtxt()</span></code>.</p>
 <p>In the event the data file contains a gap, the <code class="docutils literal notranslate"><span class="pre">np.genfromtxt()</span></code> function will place a <code class="docutils literal notranslate"><span class="pre">nan</span></code> in that loacation by default. The <code class="docutils literal notranslate"><span class="pre">nan</span></code> stands for “not a number” and is simply a placeholder. For example, the file <em>dHf_ROH.csv</em> contains the number of carbons in linear alcohols and the gas-phase heat of formation in kJ/mol of each alcohol. The value for 1-undecanol (eleven carbons) is missing, so <code class="docutils literal notranslate"><span class="pre">np.genfromtxt()</span></code> places a <code class="docutils literal notranslate"><span class="pre">nan</span></code> in its place.</p>
 <div class="cell docutils container">
@@ -1715,7 +1802,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="random-number-generation">
-<span id="id23"></span><h2>4.7 Random Number Generation<a class="headerlink" href="#random-number-generation" title="Permalink to this headline">¶</a></h2>
+<span id="id23"></span><h2>4.7 Random Number Generation<a class="headerlink" href="#random-number-generation" title="Permalink to this headline">#</a></h2>
 <p>Stochastic simulations, addressed in <a class="reference internal" href="../chapter_09/chap_09_notebook.html#id1"><span class="std std-ref">chapter 9</span></a>, are a common tool in the sciences and rely on a series of random numbers; it is worth addressing their generation using NumPy. Depending upon the requirements of the simulation, random numbers may be a series of floats or integers, and they may be generated from various ranges of values. The numbers may also be generated as a uniform distribution where all values are equally likely or biased a distribution where some values are more probable than others. Below are random number functions from the NumPy <code class="docutils literal notranslate"><span class="pre">random</span></code> module useful in generating random number distributions to suit the needs of your simulations.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1723,7 +1810,7 @@ const thebe_selector_output = ".output, .cell_output"
 random for most chemical simulations and will be referred to as “random numbers” herein.</p>
 </div>
 <div class="section" id="uniform-distribution">
-<span id="id24"></span><h3>4.7.1 Uniform Distribution<a class="headerlink" href="#uniform-distribution" title="Permalink to this headline">¶</a></h3>
+<span id="id24"></span><h3>4.7.1 Uniform Distribution<a class="headerlink" href="#uniform-distribution" title="Permalink to this headline">#</a></h3>
 <p>The simplest distribution is the <em>uniform distribution</em> of random numbers where every number in the range has an equal probability of occurring. The distribution may not always appear as even with small sample sizes due to the random nature of the number generation, but as a larger population of samples is generated, the relative distribution will appear more even. The histograms below (Figure 3) are of a hundred (left) and a hundred thousand (right) randomly generated floats from the [0,1) range in an even distribution. While the plot on the right appears more even, this is mostly an effect of the different scales.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -1738,7 +1825,7 @@ random for most chemical simulations and will be referred to as “random number
 </div>
 </div>
 <div class="section" id="binomial-distribution">
-<span id="id25"></span><h3>4.7.2 Binomial Distribution<a class="headerlink" href="#binomial-distribution" title="Permalink to this headline">¶</a></h3>
+<span id="id25"></span><h3>4.7.2 Binomial Distribution<a class="headerlink" href="#binomial-distribution" title="Permalink to this headline">#</a></h3>
 <p>A binomial distribution results when values are generated from two possible outcomes. This is useful for applications such as deciding if a simulated molecule reacts or whether a polymer chain terminates or propagates. The two outcomes are represented by a <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">1</span></code> with the probability, <code class="docutils literal notranslate"><span class="pre">p</span></code>, of a <code class="docutils literal notranslate"><span class="pre">1</span></code> being generated. Binomial distributions are generated by the NumPy random module using the <code class="docutils literal notranslate"><span class="pre">np.random.binomial()</span></code> function which has a default probability of <code class="docutils literal notranslate"><span class="pre">0.5</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
 </pre></div>
@@ -1751,7 +1838,7 @@ random for most chemical simulations and will be referred to as “random number
 <p><strong>Figure 4</strong> Histograms of a hundred randomly generated numbers in a binomial distribution with <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">0.5</span></code> and <code class="docutils literal notranslate"><span class="pre">t</span> <span class="pre">=</span> <span class="pre">1</span></code> (top), <code class="docutils literal notranslate"><span class="pre">t</span> <span class="pre">=</span> <span class="pre">2</span></code> (bottom left), and <code class="docutils literal notranslate"><span class="pre">t</span> <span class="pre">=</span> <span class="pre">10</span></code> (bottom right).</p>
 </div>
 <div class="section" id="poisson-distribution">
-<span id="id26"></span><h3>4.7.3 Poisson Distribution<a class="headerlink" href="#poisson-distribution" title="Permalink to this headline">¶</a></h3>
+<span id="id26"></span><h3>4.7.3 Poisson Distribution<a class="headerlink" href="#poisson-distribution" title="Permalink to this headline">#</a></h3>
 <p>A <em>Poisson distribution</em> is a probability distribution of how likely it is for independent events to occur in a given interval (time or space) with a known average frequency (<span class="math notranslate nohighlight">\(\lambda\)</span>). Each sample in a poisson distribution is a count of how many events have occurred in the time interval, so they are always integers. NumPy can generate integers in a Poisson distribution using the <code class="docutils literal notranslate"><span class="pre">np.random.poisson()</span></code> function, which accepts two arguments.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="n">lam</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
 </pre></div>
@@ -1782,7 +1869,7 @@ random for most chemical simulations and will be referred to as “random number
 </div>
 </div>
 <div class="section" id="other-functions">
-<span id="id27"></span><h3>4.7.4 Other Functions<a class="headerlink" href="#other-functions" title="Permalink to this headline">¶</a></h3>
+<span id="id27"></span><h3>4.7.4 Other Functions<a class="headerlink" href="#other-functions" title="Permalink to this headline">#</a></h3>
 <p>The random module in NumPy also includes a large variety of other random number and sequence generators. This includes <code class="docutils literal notranslate"><span class="pre">np.random.randn()</span></code> which generates values centered around zero in a normal distribution. The <code class="docutils literal notranslate"><span class="pre">np.random.choice()</span></code> function selects a random value from a provided array of values, while the <code class="docutils literal notranslate"><span class="pre">np.random.shuffle()</span></code> function randomizes the order of values for a given array. Other random distribution functions can be found on the SciPy website (see <a class="reference internal" href="#fr04"><span class="std std-ref">Further Reading</span></a>). A summary of common np.random functions are in Table 5.</p>
 <p><strong>Table 5</strong> Summary of Common NumPy np.random Functions</p>
 <table class="colwidths-auto table">
@@ -1904,7 +1991,7 @@ random for most chemical simulations and will be referred to as “random number
 </div>
 </div>
 <div class="section" id="further-reading">
-<span id="fr04"></span><h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
+<span id="fr04"></span><h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h2>
 <p>The NumPy documentation is well written and a good resource. Because NumPy is the foundation of the SciPy ecosystem, if you find a Python book on scientific computing, odds are that it will discuss or use NumPy at some level.</p>
 <ol class="simple">
 <li><p>NumPy Website. <a class="reference external" href="http://www.numpy.org/">http://www.numpy.org/</a> (free resource)</p></li>
@@ -1912,7 +1999,7 @@ random for most chemical simulations and will be referred to as “random number
 </ol>
 </div>
 <div class="section" id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
 <p>Complete the following exercises in a Jupyter notebook using NumPy and NumPy arrays. Avoid using <code class="docutils literal notranslate"><span class="pre">for</span></code> loops whenever possible. Any data file(s) refered to in the problems can be found in the <strong>data</strong> folder in the same directory as this chapter’s Jupyter notebook.</p>
 <ol>
 <li><p>Generate an array of atomic numbers for the first 26 elements.</p></li>
@@ -2022,9 +2109,11 @@ random for most chemical simulations and will be referred to as “random number
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="../chapter_03/chap_03_notebook.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -2040,27 +2129,31 @@ random for most chemical simulations and will be referred to as “random number
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Charles J. Weiss<br/>
+  
+      &copy; Copyright 2021-2022.<br/>
+    <div class="extra_footer">
+      Scientific Computing for Chemists with Python is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+    </div>
+</p>
+        </footer>
+    </div>
     
-      By Charles J. Weiss<br/>
-    
-        &copy; Copyright 2021-2022.<br/>
-      <div class="extra_footer">
-        Scientific Computing for Chemists with Python is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
-      </div>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

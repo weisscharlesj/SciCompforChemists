@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chapter 6: Signal &amp; Noise &#8212; Scientific Computing for Chemists with Python</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +19,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -39,12 +36,13 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -64,7 +62,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -73,9 +85,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -93,14 +106,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../intro.html">
-   Scientific Computing for Chemists with Python
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Scientific Computing for Chemists with Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../chapter_00/chap_00_notebook.html">
    Chapter 0: Python &amp; Jupyter Notebooks
@@ -174,104 +188,177 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org/">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/notebooks/chapter_06/chap_06_notebook.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        
-        <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/chapter_06/chap_06_notebook.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/notebooks/chapter_06/chap_06_notebook.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org/">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/notebooks/chapter_06/chap_06_notebook.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/chapter_06/chap_06_notebook.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/notebooks/chapter_06/chap_06_notebook.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#feature-detection">
    6.1 Feature Detection
@@ -360,12 +447,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Chapter 6: Signal & Noise</h1>
@@ -470,11 +556,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="chapter-6-signal-noise">
-<span id="id1"></span><h1>Chapter 6: Signal &amp; Noise<a class="headerlink" href="#chapter-6-signal-noise" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Chapter 6: Signal &amp; Noise<a class="headerlink" href="#chapter-6-signal-noise" title="Permalink to this headline">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 </div>
 <p>When collecting data from a scientific instrument, a measurement is returned as a value or series of values, and these values are composed of both signal and noise. The signal is the component of interest while the noise is random instrument response resulting from a variety of sources that can include the instrument itself, the sample holder, and even the tiny vibrations of the building. For the most interpretable data, you want the largest signal-to-noise ratio possible in order to reliably identify the features in the data.</p>
@@ -532,10 +619,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="feature-detection">
-<span id="id2"></span><h2>6.1 Feature Detection<a class="headerlink" href="#feature-detection" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2>6.1 Feature Detection<a class="headerlink" href="#feature-detection" title="Permalink to this headline">#</a></h2>
 <p>When analyzing experimental data, there are typically key features in the signal that you are most interested in. Often, they are peaks or a series of peaks, but they can also be negative peaks (i.e., low point), the slopes, or inflection points. This section covers extracting feature information from signal data.</p>
 <div class="section" id="global-maxima-minima">
-<span id="id3"></span><h3>6.1.1 Global Maxima &amp; Minima<a class="headerlink" href="#global-maxima-minima" title="Permalink to this headline">¶</a></h3>
+<span id="id3"></span><h3>6.1.1 Global Maxima &amp; Minima<a class="headerlink" href="#global-maxima-minima" title="Permalink to this headline">#</a></h3>
 <p>The simplest and probably most commonly sought after features in signal data are peaks and negative peaks. These are known as the <em>maxima</em> and <em>minima</em>, respectively, or collectively known as the <em>extrema</em>. In the simplest data, there may be only one peak or negative peak, so finding it is a matter of finding the maximum or minimum value in the data. For this, we can use NumPy’s <code class="docutils literal notranslate"><span class="pre">np.maximum()</span></code> and <code class="docutils literal notranslate"><span class="pre">np.minimum()</span></code> functions, and these functions can also be called using the shorter <code class="docutils literal notranslate"><span class="pre">np.max()</span></code> and <code class="docutils literal notranslate"><span class="pre">np.min()</span></code> function calls, respectively.</p>
 <p>To demonstrate peak finding, we will use both a <span class="math notranslate nohighlight">\(^{13}\)</span>C{<span class="math notranslate nohighlight">\(^1\)</span>H} Nuclear Magnetic Resonance (NMR) spectrum and an infrared (IR) spectrum. These data are imported below using NumPy.</p>
 <div class="cell docutils container">
@@ -694,7 +781,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Both of these functions find the <em>global extremes</em> (or <em>global extrema</em>). If all you need is the largest feature in a spectrum, this works just fine. To find multiple features, we will need to find the local extrema addressed in the following section.</p>
 </div>
 <div class="section" id="local-maximums-minimums">
-<span id="id4"></span><h3>6.1.2 Local Maximums &amp; Minimums<a class="headerlink" href="#local-maximums-minimums" title="Permalink to this headline">¶</a></h3>
+<span id="id4"></span><h3>6.1.2 Local Maximums &amp; Minimums<a class="headerlink" href="#local-maximums-minimums" title="Permalink to this headline">#</a></h3>
 <p>A considerable amount of data in science contain numerous peaks and negative peaks which are called <em>local extrema</em>. To locate the multiple max and min values, we will use SciPy’s relative max/min functions <code class="docutils literal notranslate"><span class="pre">argrelmax()</span></code> and <code class="docutils literal notranslate"><span class="pre">argrelmin()</span></code>. These functions determine if a point is a max/min by checking a range of data points on both sides to see if the point is the larges/smallest. The range of data points examined is known as the window, and the window can be modified using the <code class="docutils literal notranslate"><span class="pre">order</span></code> argument. Instead of the actual max/min values, these functions return the indices as the “arg” part of the name suggests.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -780,7 +867,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="slopes-inflection-points">
-<span id="id5"></span><h3>6.1.3 Slopes &amp; Inflection Points<a class="headerlink" href="#slopes-inflection-points" title="Permalink to this headline">¶</a></h3>
+<span id="id5"></span><h3>6.1.3 Slopes &amp; Inflection Points<a class="headerlink" href="#slopes-inflection-points" title="Permalink to this headline">#</a></h3>
 <p>The slope is a useful feature as it can be used to identify inflection points, edges, and make subtle features in a curve more obvious. Noisy data can make it challenging to examine the slope as it causes the slope to fluctuate so much that it sometimes dwarfs the overall signal. It is recommended that the noise be first removed by signal smoothing covered in a section 6.2. To demonstrate the challenges, we will generate both noise-free and noisy synthetic data below and calculate the slopes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -798,7 +885,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe9fd9e2c10&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff7849e4c10&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_35_1.svg" src="../../_images/chap_06_notebook_35_1.svg" /></div>
@@ -824,7 +911,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fe9fd9a85b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7ff784a183d0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_38_1.svg" src="../../_images/chap_06_notebook_38_1.svg" /></div>
@@ -839,7 +926,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe9fdad9fa0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff784adce80&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_40_1.svg" src="../../_images/chap_06_notebook_40_1.svg" /></div>
@@ -847,7 +934,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="smoothing-data">
-<span id="id6"></span><h2>6.2 Smoothing Data<a class="headerlink" href="#smoothing-data" title="Permalink to this headline">¶</a></h2>
+<span id="id6"></span><h2>6.2 Smoothing Data<a class="headerlink" href="#smoothing-data" title="Permalink to this headline">#</a></h2>
 <p>It is not uncommon to collect signal data that has a considerable amount of noise in it. Smoothing the data can help in the processing and analysis of the data such as making it easier to identify peaks or preventing the noise from hiding the extremes in the derivative of the data. Smoothing alters the actual data, so it is important to be transparent to others that the data were smoothed and how they were smoothed.</p>
 <p>There are a variety of ways to smooth data including moving averages, band filters, and the Savitzky-Golay filter. We will focus on moving averages and Savitzky-Golay here. For this section, we will work with synthetic data with random noise generated below.</p>
 <div class="cell docutils container">
@@ -867,13 +954,13 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe9fdb51490&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff784b534f0&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_43_1.svg" src="../../_images/chap_06_notebook_43_1.svg" /></div>
 </div>
 <div class="section" id="unweighted-average">
-<span id="id7"></span><h3>6.2.1 Unweighted Average<a class="headerlink" href="#unweighted-average" title="Permalink to this headline">¶</a></h3>
+<span id="id7"></span><h3>6.2.1 Unweighted Average<a class="headerlink" href="#unweighted-average" title="Permalink to this headline">#</a></h3>
 <p>The first and simplest way to smooth data is to take the <em>moving average</em> of each data point with its immediate neighbors. This is an <em>unweighted sliding average smooth</em> or a <em>rectangular boxcar smooth</em>. From noisy data point <span class="math notranslate nohighlight">\(D_j\)</span>, we get smoothed data point <span class="math notranslate nohighlight">\(S_j\)</span> by the following equation where <span class="math notranslate nohighlight">\(D_{j-1}\)</span> and <span class="math notranslate nohighlight">\(D_{j+1}\)</span> are the points immediately preceding and following a data point <span class="math notranslate nohighlight">\(D_j\)</span>, respectively.</p>
 <div class="math notranslate nohighlight">
 \[ S_j = \frac{D_{j-1} + D_j + D_{j+1}}{3} \]</div>
@@ -888,7 +975,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe9fdbafb50&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff784bb2cd0&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_45_1.svg" src="../../_images/chap_06_notebook_45_1.svg" /></div>
@@ -896,7 +983,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The data is smoothed relative to the original data, but there is still a considerable amount of noise present.</p>
 </div>
 <div class="section" id="weighted-averages">
-<span id="id8"></span><h3>6.2.2 Weighted Averages<a class="headerlink" href="#weighted-averages" title="Permalink to this headline">¶</a></h3>
+<span id="id8"></span><h3>6.2.2 Weighted Averages<a class="headerlink" href="#weighted-averages" title="Permalink to this headline">#</a></h3>
 <p>The above method treats each point equally and only takes the average with the immediately adjacent data points. The <em>triangular smooth</em> approach averages extra data points with the points closer to the original point weighted more heavily than those further away. For example, if we take the average using five data points, this is described by the following equation.</p>
 <div class="math notranslate nohighlight">
 \[ S_j = \frac{D_{j-2} + 2D_{j-1} + 3D_j + 2D_{j+1} + D_{j+2}}{9} \]</div>
@@ -911,7 +998,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe9fdc22190&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff784c24250&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_48_1.svg" src="../../_images/chap_06_notebook_48_1.svg" /></div>
@@ -919,7 +1006,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The triangular smooth results in a smoother data set than the rectangular smooth. This is not surprising as applying the triangular smooth above is mathematically equivalent to applying the rectangular smooth twice.</p>
 </div>
 <div class="section" id="median-smoothing">
-<span id="id9"></span><h3>6.2.3 Median Smoothing<a class="headerlink" href="#median-smoothing" title="Permalink to this headline">¶</a></h3>
+<span id="id9"></span><h3>6.2.3 Median Smoothing<a class="headerlink" href="#median-smoothing" title="Permalink to this headline">#</a></h3>
 <p>While the above filters take some form of the mean of the surrounding data points, a median filter takes the median. This filter is sometimes applied to images because it reduces noise while maintaining sharp edges.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -931,14 +1018,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe9fdc87100&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff784c7bee0&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_51_1.svg" src="../../_images/chap_06_notebook_51_1.svg" /></div>
 </div>
 </div>
 <div class="section" id="savitzkygolay">
-<span id="id10"></span><h3>6.2.4 Savitzky–Golay<a class="headerlink" href="#savitzkygolay" title="Permalink to this headline">¶</a></h3>
+<span id="id10"></span><h3>6.2.4 Savitzky–Golay<a class="headerlink" href="#savitzkygolay" title="Permalink to this headline">#</a></h3>
 <p>Another approach is the <em>Savitzky–Golay</em> filter which incrementally moves along the noisy data and fits sections (i.e.., windows) of data points to a polynomial using least square minimization. While this approach had been previously described in the mathematical literature, Abraham Savitzky and M. J. E. Golay are known for applying it to spectroscopy (<a class="reference external" href="https://doi.org/10.1021/ac60214a047">https://doi.org/10.1021/ac60214a047</a>). Conveniently, SciPy contains a built-in function for this called <code class="docutils literal notranslate"><span class="pre">savgol_filter()</span></code> from the <code class="docutils literal notranslate"><span class="pre">signal</span></code> module shown below.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">savgol_filter</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">polyorder</span><span class="p">)</span>
 </pre></div>
@@ -959,7 +1046,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe9fdce1b80&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff784ce1fa0&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_54_1.svg" src="../../_images/chap_06_notebook_54_1.svg" /></div>
@@ -967,7 +1054,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="fourier-transforms">
-<span id="id11"></span><h2>6.3 Fourier Transforms<a class="headerlink" href="#fourier-transforms" title="Permalink to this headline">¶</a></h2>
+<span id="id11"></span><h2>6.3 Fourier Transforms<a class="headerlink" href="#fourier-transforms" title="Permalink to this headline">#</a></h2>
 <p>Another approach to filtering noise is to filter based on frequency. Many times, random noise in data occurs at a different frequency than the data itself, and the noise can be reduced by filtering noise frequency ranges while maintaining signal frequencies. If the noise is higher frequency than the signal, it can be filtered out with what is known as a <em>low-pass</em> filter. Alternatively, filtering out low-frequency noise is known as a <em>high-pass</em> filter, and filtering out noise above and blow the signal frequency is known as a <em>band-pass</em> filter. Frequency filtering is somewhat involved being that we need to use window functions which are covered in the <a class="reference external" href="https://greenteapress.com/wp/think-dsp/">Think DSP</a> book by Allen Downey listed at the end of this chapter. Instead, we will just look at the distribution of signal and noise frequencies in synthetic data. This is useful for analyzing the noise in data and also is used routinely in nuclear magnetic resonance (NMR) spectroscopy and Fourier Transform infrared spectroscopy (FTIR).</p>
 <p>To convert the data from the time domain to the frequency domain, we will use the <em>fast Fourier transform (FFT)</em> algorithm. This algorithm is only for data that is periodic.  Below, synthetic data is generated oscillating at 62.0 Hz with some random noise to make it more interesting.</p>
 <div class="cell docutils container">
@@ -1014,7 +1101,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Only the first half of the Fourier transform output is plotted above because the second half is a mirror image of the first. A single peak at 62.0 Hz is present from our signal. The rest of the baseline of the plot is not smooth because there is noise present at a variety of frequencies. It is important to note that the erratic variations in the baseline of the frequency plot is not the noise itself but more like a histogram of all the frequencies present in the original data.</p>
 </div>
 <div class="section" id="fitting-interpolation">
-<span id="id12"></span><h2>6.4 Fitting &amp; Interpolation<a class="headerlink" href="#fitting-interpolation" title="Permalink to this headline">¶</a></h2>
+<span id="id12"></span><h2>6.4 Fitting &amp; Interpolation<a class="headerlink" href="#fitting-interpolation" title="Permalink to this headline">#</a></h2>
 <p>Signal data or information taken from signal data often conforms to linear, polynomial, or other mathematical trends, and fitting data is important because it allows scientists to determine the equation describing the physical or chemical behavior of the data. In <em>data fitting</em>, the user provides the data and the general class of equation expected, and the software returns the <em>coefficients</em> for the equation. <em>Interpolation</em> is the method of predicting values in regions among known data points. The calculation of values where no data was collected can be accomplished by either using the coefficients derived from a curve fit or using a special interpolation function that generates a callable function to calculate the new data points. Both approaches are demonstrated below.</p>
 <p>Before we can do our fitting, we need some new, noisy data to examine. A linear set of data with added noise is generated below along with a second-order curve with the noise.</p>
 <div class="cell tag_remove-input docutils container">
@@ -1036,7 +1123,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fe9fdda6580&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7ff784da9550&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_64_1.svg" src="../../_images/chap_06_notebook_64_1.svg" /></div>
@@ -1048,13 +1135,13 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fe9fde1a1f0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7ff784f1b1f0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_65_1.svg" src="../../_images/chap_06_notebook_65_1.svg" /></div>
 </div>
 <div class="section" id="linear-regression">
-<span id="id13"></span><h3>6.4.1 Linear Regression<a class="headerlink" href="#linear-regression" title="Permalink to this headline">¶</a></h3>
+<span id="id13"></span><h3>6.4.1 Linear Regression<a class="headerlink" href="#linear-regression" title="Permalink to this headline">#</a></h3>
 <p>Now we can fit the noisy linear data with a line using the NumPy <code class="docutils literal notranslate"><span class="pre">np.polyfit(x,</span> <span class="pre">y,</span> <span class="pre">degree)</span></code> function. The function takes the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> data along with the <code class="docutils literal notranslate"><span class="pre">degree</span></code> of the polynomial.</p>
 <p>A line is a first-degree polynomial, and the function returns an array containing the coefficients for the fit with the highest order coefficients first. This is effectively a <em>linear regression</em>.</p>
 <div class="cell docutils container">
@@ -1083,7 +1170,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fe9fde7fa90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7ff784f84880&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_69_1.svg" src="../../_images/chap_06_notebook_69_1.svg" /></div>
@@ -1111,7 +1198,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="polynomial-fitting">
-<span id="id14"></span><h3>6.4.2 Polynomial Fitting<a class="headerlink" href="#polynomial-fitting" title="Permalink to this headline">¶</a></h3>
+<span id="id14"></span><h3>6.4.2 Polynomial Fitting<a class="headerlink" href="#polynomial-fitting" title="Permalink to this headline">#</a></h3>
 <p>Fitting to a polynomial of a higher order works the same way except that the order is above one. You will need to already know the order of the polynomial, or you can make a guess and see how well a particular order fits the data. Below, the <code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code> function determines the second-order data can be fit by the equation <span class="math notranslate nohighlight">\(y = 3.40x^2 + 3.95x + 8.70\)</span>. We can again plot this fit equation over our data points to see how well the data agree with our equation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1137,14 +1224,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fe9fdef1e50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7ff784ff1be0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_75_1.svg" src="../../_images/chap_06_notebook_75_1.svg" /></div>
 </div>
 </div>
 <div class="section" id="interpolation">
-<span id="id15"></span><h3>6.4.3 Interpolation<a class="headerlink" href="#interpolation" title="Permalink to this headline">¶</a></h3>
+<span id="id15"></span><h3>6.4.3 Interpolation<a class="headerlink" href="#interpolation" title="Permalink to this headline">#</a></h3>
 <p>The practical difference between the <code class="docutils literal notranslate"><span class="pre">np.polyfit</span></code> function and the interpolation functions in SciPy is that the former returns coefficients for the equation while the interpolation functions return a Python function that can be used to calculate values. There are times when one is more desirable than the other depending upon your application. Below we will use the interpolation function to interpolate a one dimensional function.</p>
 <p>Below is a dampening sine wave that we will interpolate from ten data points.</p>
 <div class="cell docutils container">
@@ -1156,7 +1243,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe9fdf72790&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff785874700&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_77_1.svg" src="../../_images/chap_06_notebook_77_1.svg" /></div>
@@ -1209,7 +1296,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fe9fdd171c0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7ff785839340&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_80_1.svg" src="../../_images/chap_06_notebook_80_1.svg" /></div>
@@ -1217,7 +1304,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="further-reading">
-<h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h2>
 <p>The ultimate authority on NumPy and SciPy are the Numpy &amp; SciPy Documentation page listed below. As changes and improvements occur in these libraries, this is one of the best places to find information. For information on digital signal processing (DSP), there are numerous sources such as Allen Downey’s Think DSP book or articles such as those listed below.</p>
 <ol class="simple">
 <li><p>Numpy and Scipy Documentation. <a class="reference external" href="https://docs.scipy.org/doc/">https://docs.scipy.org/doc/</a> (free resource)</p></li>
@@ -1227,7 +1314,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ol>
 </div>
 <div class="section" id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
 <p>Complete the following exercises in a Jupyter notebook. Any data file(s) refered to in the problems can be found in the <strong>data</strong> folder in the same directory as this chapter’s Jupyter notebook.</p>
 <ol>
 <li><p>Import the file <strong>CV_K3Fe(CN)6.csv</strong> which contains a cyclic voltammogram for potassium cyanoferrate. Plot the data with the green dots on the highest point(s) and red triangles on the lowest point(s).</p></li>
@@ -1401,9 +1488,11 @@ const thebe_selector_output = ".output, .cell_output"
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="../chapter_05/chap_05_notebook.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1419,27 +1508,31 @@ const thebe_selector_output = ".output, .cell_output"
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Charles J. Weiss<br/>
+  
+      &copy; Copyright 2021-2022.<br/>
+    <div class="extra_footer">
+      Scientific Computing for Chemists with Python is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+    </div>
+</p>
+        </footer>
+    </div>
     
-      By Charles J. Weiss<br/>
-    
-        &copy; Copyright 2021-2022.<br/>
-      <div class="extra_footer">
-        Scientific Computing for Chemists with Python is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
-      </div>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chapter 10: Plotting with Seaborn &#8212; Scientific Computing for Chemists with Python</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +19,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -39,12 +36,13 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -64,7 +62,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -73,9 +85,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -93,14 +106,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../intro.html">
-   Scientific Computing for Chemists with Python
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Scientific Computing for Chemists with Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../chapter_00/chap_00_notebook.html">
    Chapter 0: Python &amp; Jupyter Notebooks
@@ -174,104 +188,177 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org/">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/notebooks/chapter_10/chap_10_notebook.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        
-        <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/chapter_10/chap_10_notebook.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/notebooks/chapter_10/chap_10_notebook.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org/">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/notebooks/chapter_10/chap_10_notebook.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/chapter_10/chap_10_notebook.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/notebooks/chapter_10/chap_10_notebook.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#seaborn-plot-types">
    10.1 Seaborn Plot Types
@@ -392,12 +479,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Chapter 10: Plotting with Seaborn</h1>
@@ -534,11 +620,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="chapter-10-plotting-with-seaborn">
-<span id="id1"></span><h1>Chapter 10: Plotting with Seaborn<a class="headerlink" href="#chapter-10-plotting-with-seaborn" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Chapter 10: Plotting with Seaborn<a class="headerlink" href="#chapter-10-plotting-with-seaborn" title="Permalink to this headline">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 </div>
 <p>There are a number of plotting libraries available for Python including Bokeh, Plotly, and MayaVi; but the most prevalent library is still probably matplotlib. It is often the first plotting library a Python user will learn, and for good reason. It is stable, well supported, and there are few plots that matplotlib cannot generate. Despite its popularity, there are some drawbacks… namely, it can be quite verbose. That is, you may be able to generate nearly any plot, but it will take at least a few lines of code if not dozens to create and customize your figure.</p>
@@ -561,7 +648,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="seaborn-plot-types">
-<span id="id2"></span><h2>10.1 Seaborn Plot Types<a class="headerlink" href="#seaborn-plot-types" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2>10.1 Seaborn Plot Types<a class="headerlink" href="#seaborn-plot-types" title="Permalink to this headline">#</a></h2>
 <p>A map of the seaborn plotting library is mainly a series of the different types of plots that it can generate. Below is table of the main categories. The rest of this chapter is a more in-depth survey of select plotting functions, and it is certainly not a complete list.</p>
 <p><strong>Table 1</strong> Seaborn Plotting Type Categories Covered Herein</p>
 <table class="colwidths-auto table">
@@ -591,10 +678,10 @@ const thebe_selector_output = ".output, .cell_output"
 <p>One distinction between some of the plotting categories above is whether they display continuous versus discrete/categorial information. When data are continuous, they can be nearly any value in a range like the density of a metal. This in contrast to discrete or categorial data that places data in a limited number of groups or bins such as the element(s) present in a metal sample.</p>
 </div>
 <div class="section" id="regression-plots">
-<span id="id3"></span><h2>10.2 Regression Plots<a class="headerlink" href="#regression-plots" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2>10.2 Regression Plots<a class="headerlink" href="#regression-plots" title="Permalink to this headline">#</a></h2>
 <p>Generating a regression line through data is a common task in science, and seaborn includes multiple plotting types that perform this task. All of the plots discussed below use a least square best fit and include a confidence interval for the regression line as a shaded region. Remember that there is uncertainty in both the slope and <em>y</em>-intercept for a regression line. If we were to plot all the possible variations of the regression line within the slope and intercept uncertainties, we get the regression confidence interval. By default, seaborn displays the 95% confidence interval, but this can be changed.</p>
 <div class="section" id="regplot">
-<span id="id4"></span><h3>10.2.1 regplot<a class="headerlink" href="#regplot" title="Permalink to this headline">¶</a></h3>
+<span id="id4"></span><h3>10.2.1 regplot<a class="headerlink" href="#regplot" title="Permalink to this headline">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">regplot</span></code> generates a single scatter plot of data with a linear regression through the data points complete with a 95% confidence interval. The <code class="docutils literal notranslate"><span class="pre">sns.regplot()</span></code> function can take <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> positional arguments just like <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code>, but it also can take the <em>x</em> and <em>y</em> column names from a pandas DataFrame. Both approaches are demonstrated below.</p>
 <div class="cell tag_remove-input docutils container">
 </div>
@@ -866,7 +953,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="lmplot">
-<span id="id5"></span><h2>10.2.2 lmplot<a class="headerlink" href="#lmplot" title="Permalink to this headline">¶</a></h2>
+<span id="id5"></span><h2>10.2.2 lmplot<a class="headerlink" href="#lmplot" title="Permalink to this headline">#</a></h2>
 <p>An <code class="docutils literal notranslate"><span class="pre">lmplot()</span></code> is very similar to the <code class="docutils literal notranslate"><span class="pre">regplot()</span></code> function except that an <code class="docutils literal notranslate"><span class="pre">lmplot()</span></code> also allows for multiple regressions based on additional pieces of information about each data point. For example, the <em>org_bp.csv</em> file above contains the boiling points of various alcohols and alkanes along with their molecular weights. Chemical intuition might bring one to expect two independent boiling point trends between the alcohol and alkanes, so we need two independent regression lines for the two classes of organic molecule. The <code class="docutils literal notranslate"><span class="pre">lmplot()</span></code> function can do exactly this.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">lmplot()</span></code> function takes the <em>x</em> and <em>y</em> variables and the DataFrame name as either positional or keyword arguments, so the function call could also be as shown below where the first three arguments are positional arguments providing the <em>x</em>-values, <em>y</em>-values, and the DataFrame name in this order.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="s1">&#39;MW&#39;</span><span class="p">,</span> <span class="s1">&#39;bp&#39;</span><span class="p">,</span> <span class="n">bp</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;type&#39;</span><span class="p">)</span>
@@ -905,7 +992,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="categorical-plots">
-<span id="id6"></span><h2>10.3 Categorical Plots<a class="headerlink" href="#categorical-plots" title="Permalink to this headline">¶</a></h2>
+<span id="id6"></span><h2>10.3 Categorical Plots<a class="headerlink" href="#categorical-plots" title="Permalink to this headline">#</a></h2>
 <p>Categorical plots contain one axis of continuous values and one axis of discrete or categorical values. For example, if the density of three metals were measured repeatedly in lab, we would want to plot measured density (continuous) with respect to metal identity (categorial). Below are a few fictitious laboratory measurements for the densities of copper, iron, and zinc.</p>
 <p><strong>Table 2</strong> Density (g/mL) Measurements for Different Metals</p>
 <table class="colwidths-auto table">
@@ -1044,7 +1131,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="strip-plot">
-<span id="id7"></span><h2>10.3.1 Strip Plot<a class="headerlink" href="#strip-plot" title="Permalink to this headline">¶</a></h2>
+<span id="id7"></span><h2>10.3.1 Strip Plot<a class="headerlink" href="#strip-plot" title="Permalink to this headline">#</a></h2>
 <p>The simplest categorical plot function is <code class="docutils literal notranslate"><span class="pre">stripplot()</span></code> which generates a scatter plot with the <em>x</em>-axis as the categorical dimension and the <em>y</em>-axis as the continuous value dimension. By providing the function with the DataFrame, it will assume the columns are the categories.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1074,7 +1161,7 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="../../_images/chap_10_notebook_24_1.svg" src="../../_images/chap_10_notebook_24_1.svg" /></div>
 </div>
 <div class="section" id="swarm-plot">
-<span id="id8"></span><h3>10.3.2 Swarm Plot<a class="headerlink" href="#swarm-plot" title="Permalink to this headline">¶</a></h3>
+<span id="id8"></span><h3>10.3.2 Swarm Plot<a class="headerlink" href="#swarm-plot" title="Permalink to this headline">#</a></h3>
 <p>While the plots above are elegantly simple, they can make it difficult to accurately interpret the data when multiple data points are overlapping as can happen with larger numbers of data points. This obscures the quantity of points in various regions. One plot that alleviates this issue is the swarm plot which is almost identical to the strip plot except that points are no permitted to overlap to make the quantity more apparent.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1092,7 +1179,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="violin-plot">
-<span id="id9"></span><h3>10.3.3 Violin Plot<a class="headerlink" href="#violin-plot" title="Permalink to this headline">¶</a></h3>
+<span id="id9"></span><h3>10.3.3 Violin Plot<a class="headerlink" href="#violin-plot" title="Permalink to this headline">#</a></h3>
 <p>An additional option for understanding the density of points is the violin plot. By default, this plot renders a blob with the width representing the density of points at various regions. Inside the blob are miniature box plots (discussed in the next section) that provide more information about the distribution of data points.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1110,7 +1197,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="box-plot">
-<span id="id10"></span><h3>10.3.4 Box Plot<a class="headerlink" href="#box-plot" title="Permalink to this headline">¶</a></h3>
+<span id="id10"></span><h3>10.3.4 Box Plot<a class="headerlink" href="#box-plot" title="Permalink to this headline">#</a></h3>
 <p>The box plot is a classic plot in statistics for representing the distribution of data and can be easily generated in seaborn using the <code class="docutils literal notranslate"><span class="pre">boxplot()</span></code> function which works much the same way as the above categorical plots. There are three main components to a box plot. The center box contains lines marking the 25, 50, and 75 percentile regions. For example, the 75 percentile line is where 75% of the data points are below. The 50 percentile is also known as the median. The length of the box (i.e., from 25 percentile to 75 percentile) is known as the <em>inner quartile range (IQR)</em>.  Beyond the box are the bars known as <em>whiskers</em> which mark the range of the rest of the data points up to 1.5x the IQR. If a data point is beyond 1.5x the IQR, it is an outlier and is explicitly represented with a spot (Figure 1)</p>
 <p><img alt="" src="../../_images/box_plot_diagram.svg" /></p>
 <p><strong>Figure 1</strong> A box plot is composed of a box with lines at the 25<span class="math notranslate nohighlight">\(^{th}\)</span>, 50<span class="math notranslate nohighlight">\(^{th}\)</span>, and 75<span class="math notranslate nohighlight">\(^{th}\)</span> percentiles and whiskers that extend out to the rest of the non-outlier data points. If a data point is greater than 1.5 <span class="math notranslate nohighlight">\(\times\)</span> the inner quartile range from the 25<span class="math notranslate nohighlight">\(^{th}\)</span> or 75<span class="math notranslate nohighlight">\(^{th}\)</span> percentiles, it is an outlier represented by a dot.</p>
@@ -1130,7 +1217,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="count-plot">
-<span id="id11"></span><h3>10.3.5 Count Plot<a class="headerlink" href="#count-plot" title="Permalink to this headline">¶</a></h3>
+<span id="id11"></span><h3>10.3.5 Count Plot<a class="headerlink" href="#count-plot" title="Permalink to this headline">#</a></h3>
 <p>The count plot represents the frequency of values for different categories. This is similar to a histogram plot except that a histogram’s <em>x</em>-axis is a continuous set of values while a count plot’s <em>x</em>-axis is made up of discrete categories. The <code class="docutils literal notranslate"><span class="pre">countplot()</span></code> function accepts a raw collection of responses, tallies them up, and plots them as a labeled bar plot. For example, if we have a data set of all the chemical elements up to rutherfordium (Rf) and their physical state under standard conditions, the function accepts the list of their physical states, counts them, and generates the plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1251,10 +1338,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="distribution-plots">
-<span id="id12"></span><h2>10.4 Distribution Plots<a class="headerlink" href="#distribution-plots" title="Permalink to this headline">¶</a></h2>
+<span id="id12"></span><h2>10.4 Distribution Plots<a class="headerlink" href="#distribution-plots" title="Permalink to this headline">#</a></h2>
 <p>Seaborn provides a set of plotting types that represent the distribution of data. These are essentially extensions of the histogram plot but with extra features like additional dimensions, kernel density estimates, and generating grids of histogram plots.</p>
 <div class="section" id="histplot">
-<span id="id13"></span><h3>10.4.1 histplot<a class="headerlink" href="#histplot" title="Permalink to this headline">¶</a></h3>
+<span id="id13"></span><h3>10.4.1 histplot<a class="headerlink" href="#histplot" title="Permalink to this headline">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">histplot()</span></code> function is one of the most basic distribution plotting functions in seaborn. This function is similar to the matplotlib <code class="docutils literal notranslate"><span class="pre">plt.hist()</span></code> function except that seaborn brings a few extra options like setting the color (<code class="docutils literal notranslate"><span class="pre">hue=</span></code>) based on a particular column of data.</p>
 <p>To demonstrate this, we will use the results of a one-dimensional stochastic diffusion simulation. During the individual steps of this simulation, each of a thousand simulated molecules are either moved to the right one unit, to the left one unit, or not moved at all. A random number generator dictates this movement as demonstrated below.</p>
 <div class="cell tag_remove-input docutils container">
@@ -1284,7 +1371,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="kde-plot">
-<span id="id14"></span><h3>10.4.2 kde Plot<a class="headerlink" href="#kde-plot" title="Permalink to this headline">¶</a></h3>
+<span id="id14"></span><h3>10.4.2 kde Plot<a class="headerlink" href="#kde-plot" title="Permalink to this headline">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">kdeplot()</span></code> function is very similar to the <code class="docutils literal notranslate"><span class="pre">histplot()</span></code> except that it fits the histogram with a kernel density estimates (kde) curve. This curve is basically just a smoothed curve over the data to help visualize the overall trend.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1300,7 +1387,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="jointplot-diffusion-simulation">
-<span id="id15"></span><h3>10.4.3 jointplot (diffusion simulation)<a class="headerlink" href="#jointplot-diffusion-simulation" title="Permalink to this headline">¶</a></h3>
+<span id="id15"></span><h3>10.4.3 jointplot (diffusion simulation)<a class="headerlink" href="#jointplot-diffusion-simulation" title="Permalink to this headline">#</a></h3>
 <p>A joint plot can be described as a scatter plot with histograms on the sides providing additional information or clarification on the density of the data points. To demonstrate this, below is a two dimensional stochastic diffusion simulation and the results. The principles are the same as above except applied to two dimensions.</p>
 <div class="cell tag_remove-input docutils container">
 </div>
@@ -1341,16 +1428,14 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="../../_images/chap_10_notebook_49_0.svg" src="../../_images/chap_10_notebook_49_0.svg" /></div>
 </div>
 <p>There are numerous arguments to fine tune the joint plot. For example, the joint plot does not need to be a scatter plot with histograms. The density of the data points can be represented with hexagonal patches or <em>kernel density estimates (kde)</em>. The latter represents the density of points through contours and is a reoccurring option in other plotting functions in the seaborn library. It is worth noting that the kde plotting types take a little time to calculate, so expect a brief delay in generating these plots.</p>
-<p>Below, the hexagonal joint plot was generated with a color bar on the side using the matplotlib <code class="docutils literal notranslate"><span class="pre">plt.colorbar()</span></code> command. As with all seaborn plots, the plot can be customized using matplotlib commands.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;X Distance, au&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Y Distance, au&#39;</span><span class="p">],</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hex&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7fe7d35b0bb0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x7ffb268d9af0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_10_notebook_51_1.svg" src="../../_images/chap_10_notebook_51_1.svg" /></div>
@@ -1362,7 +1447,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x7fe7d2b79d30&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x7ffafe524cd0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_10_notebook_52_1.svg" src="../../_images/chap_10_notebook_52_1.svg" /></div>
@@ -1370,7 +1455,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="pair-plot">
-<span id="id16"></span><h2>10.5 Pair Plot<a class="headerlink" href="#pair-plot" title="Permalink to this headline">¶</a></h2>
+<span id="id16"></span><h2>10.5 Pair Plot<a class="headerlink" href="#pair-plot" title="Permalink to this headline">#</a></h2>
 <p>The pair plot belongs to the category of distribution plots, but it is different enough to be worth addressing separately. A pair plot is designed to show the relationship among multiple variables by generating a grid of plots in a single figure. Each plot in the grid is a scatter plot showing the relationship between two of the variables on either axis with the exception of the plots in the diagonals. Because the diagonal plots are the intersection between a variable and itself, these are histograms showing the distributions of values for that variable. Pair plots are particularly useful for looking at new data to see if there are any trends worth investigating because this entire grid can be easily generated with a single <code class="docutils literal notranslate"><span class="pre">sns.pairplot()</span></code> function.</p>
 <p>To demonstrate a pair plot, the file <em>periodic_trends.csv</em> contains physical data on non-noble gas elements in the first three rows of the periodic table. To quickly see how each of the columns of data relate to each other, we will generate a pair plot.</p>
 <div class="cell docutils container">
@@ -1536,7 +1621,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7fe7d2b39f40&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7ffb268b1c40&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_10_notebook_56_1.svg" src="../../_images/chap_10_notebook_56_1.svg" /></div>
@@ -1549,14 +1634,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7fe7d321eca0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7ffafe145100&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_10_notebook_58_1.svg" src="../../_images/chap_10_notebook_58_1.svg" /></div>
 </div>
 </div>
 <div class="section" id="heat-map">
-<span id="id17"></span><h2>10.6 Heat Map<a class="headerlink" href="#heat-map" title="Permalink to this headline">¶</a></h2>
+<span id="id17"></span><h2>10.6 Heat Map<a class="headerlink" href="#heat-map" title="Permalink to this headline">#</a></h2>
 <p>Heat maps are color representations of 2D grids of numerical data and are ideal for making large tables of values easily interpretable. As an example, we can import a table of bond dissociation energies (in kJ/mol) and visualize these data as a heat map. In the following pandas function call, the <code class="docutils literal notranslate"><span class="pre">index_col=0</span></code> tells pandas to apply the first column as column headers as well.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1665,10 +1750,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="relational-plots">
-<span id="id18"></span><h2>10.7 Relational Plots<a class="headerlink" href="#relational-plots" title="Permalink to this headline">¶</a></h2>
+<span id="id18"></span><h2>10.7 Relational Plots<a class="headerlink" href="#relational-plots" title="Permalink to this headline">#</a></h2>
 <p>Relational plots are a new addition to the seaborn library as of version 0.9 and include seaborn’s functions for scatter and line plots. Of course, matplotlib does a nice job making scatter and line plots reasonably easy, but seaborn offers a few extra ease-of-use improvements upon matplotlib that may be worth something to you depending upon your needs.</p>
 <div class="section" id="scatter-plots">
-<span id="id19"></span><h3>10.7.1 Scatter Plots<a class="headerlink" href="#scatter-plots" title="Permalink to this headline">¶</a></h3>
+<span id="id19"></span><h3>10.7.1 Scatter Plots<a class="headerlink" href="#scatter-plots" title="Permalink to this headline">#</a></h3>
 <p>One difference between seaborn and matplotlib in generating scatter and line plots is that seaborn allows the user to change the color, size, and marker styles of individual markers based on numerical values or text data. Matplotlib can also change the color and size of the markers but only based on numerical values, and to change the marker style, the  <code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code> function needs to be called a second time. Seaborn allows this whole process in a single function call.</p>
 <p>Below, we are using the periodic trends data (<code class="docutils literal notranslate"><span class="pre">per</span></code>) imported in <a class="reference internal" href="#id16"><span class="std std-ref">section 10.5</span></a>. We can start with plotting the electronegativity (<code class="docutils literal notranslate"><span class="pre">EN</span></code>) versus the atomic radius (<code class="docutils literal notranslate"><span class="pre">radius_pm</span></code>) using the <code class="docutils literal notranslate"><span class="pre">sns.scatterplot()</span></code> function which takes many of the same basic arguments as plots we have seen so far with seaborn.</p>
 <div class="cell docutils container">
@@ -1699,7 +1784,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="line-plots">
-<span id="id20"></span><h3>10.7.2 Line Plots<a class="headerlink" href="#line-plots" title="Permalink to this headline">¶</a></h3>
+<span id="id20"></span><h3>10.7.2 Line Plots<a class="headerlink" href="#line-plots" title="Permalink to this headline">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">lineplot()</span></code> function in seaborn is somewhat similar to the <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> function in matplotlib except it also includes a number of extra features similar to those seen in other seaborn plotting functions. This includes the ability to change the plotting color and style based on additional information, easy visualization of confidence intervals, automatic generation of a legend, and others. To demonstrate the <code class="docutils literal notranslate"><span class="pre">lineplot()</span></code> function, we will import simulated kinetic data for a first-order chemical reaction run seven times (i.e., runs 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 6).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1820,7 +1905,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="internal-data-sets">
-<span id="id21"></span><h2>10.8 Internal Data Sets<a class="headerlink" href="#internal-data-sets" title="Permalink to this headline">¶</a></h2>
+<span id="id21"></span><h2>10.8 Internal Data Sets<a class="headerlink" href="#internal-data-sets" title="Permalink to this headline">#</a></h2>
 <p>Similar to a number of other Python libraries, seaborn brings with it data sets for users to experiment with. These are callable using the <code class="docutils literal notranslate"><span class="pre">sns.load_datasets()</span></code> function with the name of the data set as the argument. Below is a table describing a few of the available Seaborn data sets. This list may change, so you can use the <code class="docutils literal notranslate"><span class="pre">sns.get_dataset_names()</span></code> to see the most current list.</p>
 <p><strong>Table 3</strong> A Few Data Sets Available in Seaborn</p>
 <table class="colwidths-auto table">
@@ -1858,13 +1943,13 @@ const thebe_selector_output = ".output, .cell_output"
 </table>
 </div>
 <div class="section" id="further-reading">
-<h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p>Seaborn Website. <a class="reference external" href="https://seaborn.pydata.org/">https://seaborn.pydata.org/</a> (free resource)</p></li>
 </ol>
 </div>
 <div class="section" id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
 <p>Complete the following exercises in a Jupyter notebook and seaborn library. Any data file(s) refered to in the problems can be found in the <strong>data</strong> folder in the same directory as this chapter’s Jupyter notebook.</p>
 <ol>
 <li><p>Import the file <strong>linear_data.csv</strong> and visualize it using a <a class="reference internal" href="#id3"><span class="std std-ref">regression plot</span></a>.</p></li>
@@ -1932,9 +2017,11 @@ const thebe_selector_output = ".output, .cell_output"
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="../chapter_09/chap_09_notebook.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1950,27 +2037,31 @@ const thebe_selector_output = ".output, .cell_output"
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Charles J. Weiss<br/>
+  
+      &copy; Copyright 2021-2022.<br/>
+    <div class="extra_footer">
+      Scientific Computing for Chemists with Python is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+    </div>
+</p>
+        </footer>
+    </div>
     
-      By Charles J. Weiss<br/>
-    
-        &copy; Copyright 2021-2022.<br/>
-      <div class="extra_footer">
-        Scientific Computing for Chemists with Python is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
-      </div>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

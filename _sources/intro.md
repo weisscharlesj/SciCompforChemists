@@ -58,7 +58,7 @@ The code in this version of the book has been most recently tested with the foll
 
 ## Exercise Answers
 
-Copies of exercise answer keys are available for instructors upon request. To optain copies, please [email me](https://www.augie.edu/academics/majors-and-programs/chemistry/faculty) using your school email address.
+Copies of exercise answer keys are available for instructors upon request. To optain copies, please [email](https://www.augie.edu/academics/majors-and-programs/chemistry/faculty) using your school email address.
 
 ## Acknowledgements
 

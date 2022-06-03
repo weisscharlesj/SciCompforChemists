@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chapter 7: Image Processing &amp; Analysis &#8212; Scientific Computing for Chemists with Python</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +19,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -39,12 +36,13 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -64,7 +62,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -73,9 +85,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -93,14 +106,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../intro.html">
-   Scientific Computing for Chemists with Python
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Scientific Computing for Chemists with Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../chapter_00/chap_00_notebook.html">
    Chapter 0: Python &amp; Jupyter Notebooks
@@ -174,104 +188,177 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org/">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/notebooks/chapter_07/chap_07_notebook.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        
-        <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/chapter_07/chap_07_notebook.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/notebooks/chapter_07/chap_07_notebook.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org/">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/notebooks/chapter_07/chap_07_notebook.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/chapter_07/chap_07_notebook.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/notebooks/chapter_07/chap_07_notebook.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#basic-image-structure">
    7.1 Basic Image Structure
@@ -360,12 +447,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Chapter 7: Image Processing & Analysis</h1>
@@ -470,11 +556,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="chapter-7-image-processing-analysis">
-<span id="id1"></span><h1>Chapter 7: Image Processing &amp; Analysis<a class="headerlink" href="#chapter-7-image-processing-analysis" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Chapter 7: Image Processing &amp; Analysis<a class="headerlink" href="#chapter-7-image-processing-analysis" title="Permalink to this headline">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 </div>
 <p>Images are a major data format in chemistry and other sciences. They can be electron microscope images of a surface, photos of a reaction, or images from fluorescence microscopy. Image processing and analysis can be performed using software like Photoshop or <a class="reference external" href="https://www.gimp.org/">GIMP</a>, but this can be tedious and subjective when done manually. A better alternative is to have software automate the entire process to provide consistent, precise, and objective processing of images and taking measurements of their features.</p>
@@ -569,12 +656,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>Despite the power and utility of the scikit-image library, there is a significant amount of image processing and analysis that can be performed using NumPy functionality. This is especially true being that scikit-image imports/stores images as NumPy arrays.</p>
 <div class="section" id="basic-image-structure">
-<span id="id2"></span><h2>7.1 Basic Image Structure<a class="headerlink" href="#basic-image-structure" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2>7.1 Basic Image Structure<a class="headerlink" href="#basic-image-structure" title="Permalink to this headline">#</a></h2>
 <p>Most images are <em>raster</em> images, which are essentially a grid of pixels where each location on the grid is a number describing that pixel. If the image is a grayscale image, these values represent how light or dark each pixel is; and if it is a color image, the value(s) at each location describe the color. Figure 1 shows a grayscale photo of a flask containing crystals, with a 10 <span class="math notranslate nohighlight">\(\times\)</span> 10 pixel excerpt showing the brightness values from the photo. While there is another major class of images known as <em>vector</em> images, we will restrict ourself to dealing with rastor images in this chapter as primary scientific data tend to be rastor images.</p>
 <p><img alt="" src="../../_images/image_data_graphic.png" /></p>
 <p><strong>Figure 1</strong> An excerpts of values from a grayscale image showing values representing the brightness of each pixel.</p>
 <div class="section" id="loading-images">
-<span id="id3"></span><h3>7.1.1 Loading Images<a class="headerlink" href="#loading-images" title="Permalink to this headline">¶</a></h3>
+<span id="id3"></span><h3>7.1.1 Loading Images<a class="headerlink" href="#loading-images" title="Permalink to this headline">#</a></h3>
 <p>The scikit-image library includes a <code class="docutils literal notranslate"><span class="pre">data</span></code> module containing a series of images for the user to experiment with. To display images in the notebook, use the <code class="docutils literal notranslate"><span class="pre">io.imshow()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">io</span></code> module. Each image in the <code class="docutils literal notranslate"><span class="pre">data</span></code> module has a function for fetching the image, and you can find a complete list of images/functions in the <code class="docutils literal notranslate"><span class="pre">data</span></code> module by typing <code class="docutils literal notranslate"><span class="pre">help(data)</span></code>. We will open and view the image of a lunar surface using the <code class="docutils literal notranslate"><span class="pre">data.moon()</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -584,7 +671,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f89fb6c9ee0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f861208df40&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_8_1.svg" src="../../_images/chap_07_notebook_8_1.svg" /></div>
@@ -617,14 +704,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f89fbb2b130&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f861231b190&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_12_1.svg" src="../../_images/chap_07_notebook_12_1.svg" /></div>
 </div>
 </div>
 <div class="section" id="color-images">
-<span id="id4"></span><h3>7.1.2 Color Images<a class="headerlink" href="#color-images" title="Permalink to this headline">¶</a></h3>
+<span id="id4"></span><h3>7.1.2 Color Images<a class="headerlink" href="#color-images" title="Permalink to this headline">#</a></h3>
 <p>Color images are slightly more complicated to represent because all colors cannot be represented by single integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255. Probably the most popular way to digitally encode colors is <em>RGB</em> which describes every color as a combination of red, green, and blue (Figure 2). These are also known as <em>color channels</em>, and this is typically how computer monitors display colors. If you look close enough at the screen, which may require a magnifying glass for high resolution displays, you can see that every pixel is really made up of three lights: a red, a green, and a blue. Ther perceived color is a mixture or blend of the red, green, and blue values. Being that every pixel now has three values to describe it, a NumPy array that defines a color image is three dimensional. The first two dimensions are the height and width of the image, and the third dimension contains values from each of the three color channels.</p>
 <p><img alt="" src="../../_images/image_data_graphic_color.png" /></p>
 <p><strong>Figure 2</strong> An excerpts of the red, green, and blue color channels for a small portion of a color image. The values in each channel represent the brightness of that color in each pixel.</p>
@@ -639,7 +726,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f89f873b1c0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f860ef39220&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_14_1.svg" src="../../_images/chap_07_notebook_14_1.svg" /></div>
@@ -712,14 +799,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f89f8816c40&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f860f018c40&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_17_1.svg" src="../../_images/chap_07_notebook_17_1.svg" /></div>
 </div>
 </div>
 <div class="section" id="external-images">
-<span id="id5"></span><h3>7.1.3 External Images<a class="headerlink" href="#external-images" title="Permalink to this headline">¶</a></h3>
+<span id="id5"></span><h3>7.1.3 External Images<a class="headerlink" href="#external-images" title="Permalink to this headline">#</a></h3>
 <p>Alternatively, images can be loaded from an external source using the <code class="docutils literal notranslate"><span class="pre">io.imread()</span></code> function provided by scikit-image. This function requires one argument to tell scikit-image which image the user wants to load. If your Jupyter notebook is in the same directory as the image you want to load, you can simply input the full file name, including the extension, as a string. Otherwise, you will need to include the full path to the file in addition to the name. Below an image showing a flask full of [Ni(CH<span class="math notranslate nohighlight">\(_3\)</span>CN)<span class="math notranslate nohighlight">\(_6\)</span>][BF<span class="math notranslate nohighlight">\(_4\)</span>]<span class="math notranslate nohighlight">\(_2\)</span> crystals is read into Python.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -729,7 +816,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f89fbe83bb0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f8612627c10&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_19_1.svg" src="../../_images/chap_07_notebook_19_1.svg" /></div>
@@ -797,7 +884,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="colormaps">
-<span id="id6"></span><h3>7.1.4 Colormaps<a class="headerlink" href="#colormaps" title="Permalink to this headline">¶</a></h3>
+<span id="id6"></span><h3>7.1.4 Colormaps<a class="headerlink" href="#colormaps" title="Permalink to this headline">#</a></h3>
 <p>So far, we having been displaying images using the scikit-image <code class="docutils literal notranslate"><span class="pre">io.imshow()</span></code> function which is intended specifically for images. Matplotlib also provides a <code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code> function that does roughly the same thing but with some important differences. Below is the red color channel from the hubble image displayed using the <code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code> function. The first thing you probably notice about the image is that the colors are likely not what you expected because when matplotlib deals with a NumPy array, it treats it as generic data, not an image. The human mind does not effectively handle data on this scale, so to make it easier for humans to interpret, matplotlib maps the values to colors according the colormap on the right. By default, the colormap <em>viridis</em> is used, but there are many other colormaps available to choose from in matplotlib.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -808,7 +895,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f89fc1c3d00&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f861266de50&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_23_1.svg" src="../../_images/chap_07_notebook_23_1.svg" /></div>
@@ -821,7 +908,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f89fba08f70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f86127241c0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_25_1.svg" src="../../_images/chap_07_notebook_25_1.svg" /></div>
@@ -832,7 +919,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="saving-images">
-<span id="id7"></span><h3>7.1.5 Saving Images<a class="headerlink" href="#saving-images" title="Permalink to this headline">¶</a></h3>
+<span id="id7"></span><h3>7.1.5 Saving Images<a class="headerlink" href="#saving-images" title="Permalink to this headline">#</a></h3>
 <p>After processing an image, it is sometimes helpful to save the image to disk for records, reports, and presentations. Being that the images are ndarrays, the <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> function works just fine if executed in the same Jupyter cell as the <code class="docutils literal notranslate"><span class="pre">io.imshow()</span></code> function. Alternatively, scikit-image provides an image saving function <code class="docutils literal notranslate"><span class="pre">io.imsave(file_name,</span> <span class="pre">array)</span></code> that operates similarly as <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> except with a couple image-specific arguments. One key difference is that <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> does not take an array argument but instead assumes you want the recently displayed image saved while <code class="docutils literal notranslate"><span class="pre">io.imsave(file_name,</span> <span class="pre">array)</span></code> takes an array and can save an image even if it has not been displayed in the Jupyter notebook. Check the directory containing the Jupyter notebook, and there should be a new file titled <em>new_image.png</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -844,10 +931,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="basic-image-manipulation">
-<span id="id8"></span><h2>7.2 Basic Image Manipulation<a class="headerlink" href="#basic-image-manipulation" title="Permalink to this headline">¶</a></h2>
+<span id="id8"></span><h2>7.2 Basic Image Manipulation<a class="headerlink" href="#basic-image-manipulation" title="Permalink to this headline">#</a></h2>
 <p>The scikit-image library along with NumPy also provide a variety of basic image manipulation functions such as adjusting the color, managing how the data is numerically represented, and establishing threshold cutoff values.</p>
 <div class="section" id="colors">
-<span id="id9"></span><h3>7.2.1 Colors<a class="headerlink" href="#colors" title="Permalink to this headline">¶</a></h3>
+<span id="id9"></span><h3>7.2.1 Colors<a class="headerlink" href="#colors" title="Permalink to this headline">#</a></h3>
 <p>There are numerous ways to represent colors in digital data. The RGB color space is undoubtably one of the most popular color spaces, but there are others that you may encounter such as HSV (hue, saturation, value) or XYZ. Scikit-image provides functions in the <code class="docutils literal notranslate"><span class="pre">color</span></code> module for easily converting between these color spaces, and Table 2 lists some common functions. See the <a class="reference external" href="https://scikit-image.org/">scikit-image website</a> for a more complete list.</p>
 <p><strong>Table 2</strong> Common Functions from the <code class="docutils literal notranslate"><span class="pre">color</span></code> Module</p>
 <table class="colwidths-auto table">
@@ -899,7 +986,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>You will notice that scikit-image takes a three-dimensional data structure, the third dimension being the color channels, and converted it to a two-dimensional, grayscale structure as expected. One detail that may strike you as different is that the values are decimals. Up to this point, grayscale images were represented as two-dimensional arrays of integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255. There is no rule that says lightness and darkness values need to be represented as integers. Above, they are presented as floats from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1. This brings us to the next topic of encoding values.</p>
 </div>
 <div class="section" id="encoding">
-<span id="id10"></span><h3>7.2.2 Encoding<a class="headerlink" href="#encoding" title="Permalink to this headline">¶</a></h3>
+<span id="id10"></span><h3>7.2.2 Encoding<a class="headerlink" href="#encoding" title="Permalink to this headline">#</a></h3>
 <p><em>Encoding</em> is how the values are presented in the image array. The two most common are integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255 or floats from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1. However, there are other ranges outlined in Table 3. Though you may have never encounter some, it is good to be aware that they exist in case you need to deal with them. The difference between signed integers (<code class="docutils literal notranslate"><span class="pre">int</span></code>) and unsigned integers (<code class="docutils literal notranslate"><span class="pre">uint</span></code>) is that unsigned integers are only positive integers starting with zero while signed integers are both positive and negative centered approximately around zero. The approximate part is because there are equal numbers of positive and negative integers, and being that zero is a positive integer, zero is not the exact center. To determine what the range of values is for an image, scikit-image provides the function <code class="docutils literal notranslate"><span class="pre">skimage.dtype.limits()</span></code>.</p>
 <p>Scikit-image also provides some convenient functions for converting to various value ranges described in Table 3. These functions are not contained in a module, so you will need to just do an <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">skimage</span></code> to get access to them, which was done at the start of this chapter. The one format that probably needs commenting on is the Boolean format. In this encoding, every pixel is a <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> value, which is equivalent to saying <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">0</span></code>. This is for black-and-white images where each pixel is one of two possible values.</p>
 <p><strong>Table 3</strong> Scikit-Image Functions for Converting Data Types</p>
@@ -957,7 +1044,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="image-contrast">
-<span id="id11"></span><h3>7.2.3 Image Contrast<a class="headerlink" href="#image-contrast" title="Permalink to this headline">¶</a></h3>
+<span id="id11"></span><h3>7.2.3 Image Contrast<a class="headerlink" href="#image-contrast" title="Permalink to this headline">#</a></h3>
 <p>Before trying to extract certain types of information or identify features in an image, it is sometimes helpful to first increase the contrast of an image. There are a number of ways of doing this including thresholding and modification of the image histogram. Some approaches can be performed using NumPy array manipulation, but scikit-image also provides convenient functions designed for these task.</p>
 <p><em>Thresholding</em> can be used to generate a black-and-white image (i.e., not grayscale) by converting gray values at or below a brightness threshold to black and above the threshold to white. The threshold can be set manually or by an algorithm that chooses an optimal value customized to each image. We will start with manually setting a threshold. The grayscale image generated from <code class="docutils literal notranslate"><span class="pre">rgb2gray()</span></code> is encoded with floats from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1, so a threshold of 0.65 is chosen using trial-and-error. A black-and-white image is then generated as a Boolean. The resulting black-and-white image is shown below.</p>
 <div class="cell docutils container">
@@ -969,7 +1056,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f89fc046fa0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f8612747fd0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_36_1.svg" src="../../_images/chap_07_notebook_36_1.svg" /></div>
@@ -983,7 +1070,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f89fd2d00d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f8613a41130&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_37_1.svg" src="../../_images/chap_07_notebook_37_1.svg" /></div>
@@ -1044,7 +1131,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;frozen importlib._bootstrap&gt;:228: RuntimeWarning: scipy._lib.messagestream.MessageStream size changed, may indicate binary incompatibility. Expected 56 from C header, got 64 from PyObject
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f89fefba730&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f86156a1790&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_39_2.svg" src="../../_images/chap_07_notebook_39_2.svg" /></div>
@@ -1075,7 +1162,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f89ff56c580&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f8615d995e0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_43_1.svg" src="../../_images/chap_07_notebook_43_1.svg" /></div>
@@ -1099,10 +1186,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="scikit-image-examples">
-<span id="id12"></span><h2>7.3 Scikit-Image Examples<a class="headerlink" href="#scikit-image-examples" title="Permalink to this headline">¶</a></h2>
+<span id="id12"></span><h2>7.3 Scikit-Image Examples<a class="headerlink" href="#scikit-image-examples" title="Permalink to this headline">#</a></h2>
 <p>The scikit-image library contains numerous functions for performing various scientific analyses… so many that they cannot be comprehensively covered here. Below is a selection of some interesting examples that are relevant to science including counting objects in images, entropy analysis, and measuring eccentricity of objects. The examples below use mostly synthetic data to represent various data you might encounter in the lab. Real data can be easily extracted from publications but are not used here for copyright reasons.</p>
 <div class="section" id="blob-detection">
-<span id="id13"></span><h3>7.3.1 Blob Detection<a class="headerlink" href="#blob-detection" title="Permalink to this headline">¶</a></h3>
+<span id="id13"></span><h3>7.3.1 Blob Detection<a class="headerlink" href="#blob-detection" title="Permalink to this headline">#</a></h3>
 <p>A classic problem that translates across many scientific fields is to count spots in a photograph. A biologist may need to quantifying the number of bacteria colonies in a petrie dish over the course of an experiment, while an astronomer may want to count the number of stars in a large cluster. In chemistry, this problem may occur as a need to quantify the number of nanoparticles in a photograph or using the locations to calculate the average distances between the particles.</p>
 <p>The good news is that the scikit-image library provides three functions that will take a photograph and return an array of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(z\)</span> coordinates indicating where the blobs are located in the image. If all you care about is the number of blobs, simply find the length of the returned array. There are three functions listed below which include Laplacian of Gaussian (LoG), Difference of Gaussian (DoG), and Determinant of Hessian (DoH). The LoG algorithm is the most accurate but the slowest while the DoH algorithm is the fastest. These functions only accept two-dimensional images, so if it is a color image, you will need to either convert it to grayscale or select a single color channel to work with.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">skimage</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">blob_log</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="p">)</span>
@@ -1120,7 +1207,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f89eadf96a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f86015fb700&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_47_1.svg" src="../../_images/chap_07_notebook_47_1.svg" /></div>
@@ -1141,7 +1228,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f89eaedfc10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f86016e0c70&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_49_1.svg" src="../../_images/chap_07_notebook_49_1.svg" /></div>
@@ -1181,7 +1268,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f89eae19a30&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f86019afa30&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_53_1.svg" src="../../_images/chap_07_notebook_53_1.svg" /></div>
@@ -1201,7 +1288,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="entropy-analysis">
-<span id="id14"></span><h3>7.3.2 Entropy Analysis<a class="headerlink" href="#entropy-analysis" title="Permalink to this headline">¶</a></h3>
+<span id="id14"></span><h3>7.3.2 Entropy Analysis<a class="headerlink" href="#entropy-analysis" title="Permalink to this headline">#</a></h3>
 <p>The term <em>entropy</em> outside of the physical sciences is used to represent a quantification of disorder or irregularity. In image analysis, this disorder is the amount of pixel (brightness or color) variation within a region of the image. As you will see below, entropy is the highest near the boundaries and in noisy areas of a photograph. This makes an entropy analysis useful for edge detection, checking for image quality, and detecting alterations to an image.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">filters.rank</span></code> modules contains the entropy function shown below. It works by going through the image pixel-by-pixel and calculating the entropy in the neighborhood. The <em>neighborhood</em> is the area around each pixel. An entropy value is recored in the new array at each location and can be plotted to generate an entropy map. The entropy function takes two required arguments: the image (<code class="docutils literal notranslate"><span class="pre">img</span></code>) and a description of the neighborhood called a <em>structured element</em> (<code class="docutils literal notranslate"><span class="pre">selem</span></code>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">filters</span><span class="o">.</span><span class="n">rank</span><span class="o">.</span><span class="n">entropy</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">selem</span><span class="p">)</span>
@@ -1243,7 +1330,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f89b5cf0b80&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f85cc4f3d60&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_59_1.svg" src="../../_images/chap_07_notebook_59_1.svg" /></div>
@@ -1255,7 +1342,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Examination of the image shows that there is an increase in entropy near the edges of the features in the image as expected. There are two regions (blue) that contain unusually low entropy. If you look back at the original image, these regions are comparatively homogeneous in color.</p>
 </div>
 <div class="section" id="eccentricity">
-<span id="id15"></span><h3>7.3.3 Eccentricity<a class="headerlink" href="#eccentricity" title="Permalink to this headline">¶</a></h3>
+<span id="id15"></span><h3>7.3.3 Eccentricity<a class="headerlink" href="#eccentricity" title="Permalink to this headline">#</a></h3>
 <p><em>Eccentricity</em> is the measurement of how non-circular an object is. It runs from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1 with zero being a perfect circle and large values representing more eccentric objects. This can be useful for quantifying the shape of nanoparticles or droplets of liquid. The <code class="docutils literal notranslate"><span class="pre">measure</span></code> module from scikit-image provides an easy method of measuring eccentricity. First, let us first import an image of ovals for an example. Alternatively, you are welcome to use the <code class="docutils literal notranslate"><span class="pre">coins</span></code> image from the <code class="docutils literal notranslate"><span class="pre">data</span></code> module, but this will require some preprocessing such as increasing the contrast.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1265,7 +1352,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f89b6221700&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f85cc9db760&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_63_1.svg" src="../../_images/chap_07_notebook_63_1.svg" /></div>
@@ -1279,7 +1366,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f89b5869df0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f85cc06de20&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_65_1.svg" src="../../_images/chap_07_notebook_65_1.svg" /></div>
@@ -1321,7 +1408,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="further-reading">
-<h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h2>
 <p>The scikit-image library with NumPy are likely all you will need for a vast majority of your scientific image processing, and the scikit-image project webpage is an excellent course of information and examples. The gallery page is particularly worth checking out as it provides a large number of examples highlighting the library’s capabilities. In the event there is an edge case the scikit-image cannot do, the pillow library may be of some use. Pillow provides more fundamental image processing functionality such as extracting metadata from the original file.</p>
 <ol class="simple">
 <li><p>Scikit-image Website. <a class="reference external" href="http://scikit-image.org/">http://scikit-image.org/</a> (free resource)</p></li>
@@ -1329,7 +1416,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ol>
 </div>
 <div class="section" id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
 <p>Complete the following exercises in a Jupyter notebook. Any data file(s) refered to in the problems can be found in the <strong>data</strong> folder in the same directory as this chapter’s Jupyter notebook.</p>
 <ol>
 <li><p>Import the image titled <strong>NaK_THF.jpg</strong> using scikit-image.</p>
@@ -1378,9 +1465,11 @@ const thebe_selector_output = ".output, .cell_output"
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="../chapter_06/chap_06_notebook.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1396,27 +1485,31 @@ const thebe_selector_output = ".output, .cell_output"
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Charles J. Weiss<br/>
+  
+      &copy; Copyright 2021-2022.<br/>
+    <div class="extra_footer">
+      Scientific Computing for Chemists with Python is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+    </div>
+</p>
+        </footer>
+    </div>
     
-      By Charles J. Weiss<br/>
-    
-        &copy; Copyright 2021-2022.<br/>
-      <div class="extra_footer">
-        Scientific Computing for Chemists with Python is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
-      </div>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

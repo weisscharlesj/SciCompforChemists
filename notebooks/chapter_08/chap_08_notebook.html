@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chapter 8: Mathematics &#8212; Scientific Computing for Chemists with Python</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +19,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -39,12 +36,13 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -64,7 +62,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -73,9 +85,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -93,14 +106,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../intro.html">
-   Scientific Computing for Chemists with Python
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Scientific Computing for Chemists with Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../chapter_00/chap_00_notebook.html">
    Chapter 0: Python &amp; Jupyter Notebooks
@@ -174,104 +188,177 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org/">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/notebooks/chapter_08/chap_08_notebook.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        
-        <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/chapter_08/chap_08_notebook.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/notebooks/chapter_08/chap_08_notebook.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org/">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/notebooks/chapter_08/chap_08_notebook.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/chapter_08/chap_08_notebook.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/notebooks/chapter_08/chap_08_notebook.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#symbolic-mathematics">
    8.1 Symbolic Mathematics
@@ -387,12 +474,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Chapter 8: Mathematics</h1>
@@ -524,11 +610,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="chapter-8-mathematics">
-<span id="id1"></span><h1>Chapter 8: Mathematics<a class="headerlink" href="#chapter-8-mathematics" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Chapter 8: Mathematics<a class="headerlink" href="#chapter-8-mathematics" title="Permalink to this headline">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 </div>
 <p>We have already been doing math throughout this book as Python is fundamentally performing mathematical operations through arithmetic, calculus, algebra, and Boolean logic among others, but this chapter will dive deeper into symbolic mathematics, matrix operations, and integration. Some of this chapter will rely on SciPy and NumPy, but for the symbolic mathematics, we will use the popular <a class="reference external" href="http://www.sympy.org/en/index.html">SymPy  library</a>.</p>
@@ -541,7 +628,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="symbolic-mathematics">
-<span id="id2"></span><h2>8.1 Symbolic Mathematics<a class="headerlink" href="#symbolic-mathematics" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2>8.1 Symbolic Mathematics<a class="headerlink" href="#symbolic-mathematics" title="Permalink to this headline">#</a></h2>
 <p>SymPy differentiates itself from the rest of Python and SciPy stack in that it returns exact or symbolic results whereas Python, SciPy, and NumPy will generate numerical answers which may not be exact. That is to say, not only does SymPy perform symbolic mathematical operations, but even if the result of an operation has a numerical answer, SymPy will return the value in exact form. For example, if we take the square root of 2 using the <code class="docutils literal notranslate"><span class="pre">math</span></code> module, we get a numerical value.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -604,7 +691,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="symbols">
-<span id="id3"></span><h3>8.1.1 Symbols<a class="headerlink" href="#symbols" title="Permalink to this headline">¶</a></h3>
+<span id="id3"></span><h3>8.1.1 Symbols<a class="headerlink" href="#symbols" title="Permalink to this headline">#</a></h3>
 <p>Before SymPy will accept a variable as a symbol, the variable must first be defined as a SymPy symbol using the <code class="docutils literal notranslate"><span class="pre">symbols()</span></code> function. It takes one or more symbols at a time and attaches them to variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -656,7 +743,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="pretty-printing">
-<span id="id4"></span><h3>8.1.2 Pretty Printing<a class="headerlink" href="#pretty-printing" title="Permalink to this headline">¶</a></h3>
+<span id="id4"></span><h3>8.1.2 Pretty Printing<a class="headerlink" href="#pretty-printing" title="Permalink to this headline">#</a></h3>
 <p>Depending upon settings and version of SymPy, the output may look like Python equations which are not always the easiest to read. If so, you can turn on <em>pretty printing</em>, shown below, which will instruct SymPy to render the expressions in more traditional mathematical representations that you might see in a math textbook.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">init_printing</span>
 <span class="n">sympy</span><span class="o">.</span><span class="n">init_printing</span><span class="p">()</span>
@@ -664,7 +751,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="sympy-mathematical-functions">
-<span id="id5"></span><h3>8.1.3 SymPy Mathematical Functions<a class="headerlink" href="#sympy-mathematical-functions" title="Permalink to this headline">¶</a></h3>
+<span id="id5"></span><h3>8.1.3 SymPy Mathematical Functions<a class="headerlink" href="#sympy-mathematical-functions" title="Permalink to this headline">#</a></h3>
 <p>Similar to the <code class="docutils literal notranslate"><span class="pre">math</span></code> Python module, SymPy contains an assortment of standard mathematical operators such as square root and trigonometric functions. A table of common functions is below. Some of the functions start with a capital letter such as <code class="docutils literal notranslate"><span class="pre">Abs()</span></code>. This is important so that they do not collide with native Python functions if SymPy is imported into the global namespace.</p>
 <p><strong>Table 1</strong> Common SymPy Functions</p>
 <table class="colwidths-auto table">
@@ -701,7 +788,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="algebra-in-sympy">
-<span id="id6"></span><h2>8.2 Algebra in SymPy<a class="headerlink" href="#algebra-in-sympy" title="Permalink to this headline">¶</a></h2>
+<span id="id6"></span><h2>8.2 Algebra in SymPy<a class="headerlink" href="#algebra-in-sympy" title="Permalink to this headline">#</a></h2>
 <p>SymPy is quite capable at algebraic operations and is knowledgeable of common identities such as <span class="math notranslate nohighlight">\(sin(x)^2 + cos(x)^2 = 1\)</span>, but before we proceed with doing algebra in SymPy, we need to cover some basic algebraic methods. These are provided in Table 2 which includes polynomial expansion and factoring, expression simplification, and solving equations. The subsequent sections demonstrate each of these.</p>
 <p><strong>Table 2</strong> Common Algebraic Methods</p>
 <table class="colwidths-auto table">
@@ -726,7 +813,7 @@ const thebe_selector_output = ".output, .cell_output"
 </tbody>
 </table>
 <div class="section" id="polynomial-expansion-and-factoring">
-<span id="id7"></span><h3>8.2.1 Polynomial Expansion and Factoring<a class="headerlink" href="#polynomial-expansion-and-factoring" title="Permalink to this headline">¶</a></h3>
+<span id="id7"></span><h3>8.2.1 Polynomial Expansion and Factoring<a class="headerlink" href="#polynomial-expansion-and-factoring" title="Permalink to this headline">#</a></h3>
 <p>When dealing with polynomials, expansion and factoring are common operations that can be tedious and time-consuming by hand. SymPy makes these quick and easy. For example, we can expand the expression <span class="math notranslate nohighlight">\((x - 1)(3x + 2)\)</span> as demonstrated below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -760,7 +847,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="simplification">
-<span id="id8"></span><h3>8.2.2 Simplification<a class="headerlink" href="#simplification" title="Permalink to this headline">¶</a></h3>
+<span id="id8"></span><h3>8.2.2 Simplification<a class="headerlink" href="#simplification" title="Permalink to this headline">#</a></h3>
 <p>SymPy may not always return a mathematical expression in the simplest form. Below is an expression with a simpler form, and if we feed this into SymPy, it is not automatically simplified.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -787,7 +874,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="solving-equations">
-<span id="id9"></span><h3>8.2.3 Solving Equations<a class="headerlink" href="#solving-equations" title="Permalink to this headline">¶</a></h3>
+<span id="id9"></span><h3>8.2.3 Solving Equations<a class="headerlink" href="#solving-equations" title="Permalink to this headline">#</a></h3>
 <p>SymPy can also solve equations for an unknown variable using the <code class="docutils literal notranslate"><span class="pre">solve()</span></code> function. The function requires a single expression that is equal to zero. For example, the following solves for <span class="math notranslate nohighlight">\(x\)</span> in <span class="math notranslate nohighlight">\(x^2 + 1.4x – 5.76 = 0\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -803,7 +890,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="equilibrium-ice-table">
-<span id="id10"></span><h3>8.2.4 Equilibrium ICE Table<a class="headerlink" href="#equilibrium-ice-table" title="Permalink to this headline">¶</a></h3>
+<span id="id10"></span><h3>8.2.4 Equilibrium ICE Table<a class="headerlink" href="#equilibrium-ice-table" title="Permalink to this headline">#</a></h3>
 <p>A common chemical application of the above algebraic operations is solving equilibrium problems using the ICE (Initial, Change, and Equilibrium) method. As a penultimate step, the mathematical expressions are inserted into the equilibrium expression and often result in a polynomial equation. Below is an example problem with completed ICE table and equilibrium expression.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -892,7 +979,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="matrices">
-<span id="id11"></span><h2>8.3 Matrices<a class="headerlink" href="#matrices" title="Permalink to this headline">¶</a></h2>
+<span id="id11"></span><h2>8.3 Matrices<a class="headerlink" href="#matrices" title="Permalink to this headline">#</a></h2>
 <p>Matrices are an efficient method of working with larger amounts of data. When done by hand, as is the case in many classroom environments, it is likely slow and painful. The beauty and power of matrices is when they are used with computers because they simplify bulk calculations. SymPy, SciPy, and NumPy all support matrix operations. If you need to do symbolic math, SymPy should be your go-to, but for the numerical calculations that we will do here, we will use NumPy’s <code class="docutils literal notranslate"><span class="pre">linalg</span></code> module.</p>
 <p>SciPy and NumPy both offer a matrix object, but the SciPy official documentation discourages their use as they offer little advantage over a standard NumPy array. We will stick with NumPy arrays here, but below demonstrates creating a matrix object if you feel that you absolutely must use them. See the NumPy documentation page for further details on attributes and methods for this class of object as they will not be covered here.</p>
 <div class="cell docutils container">
@@ -917,7 +1004,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="mathematical-operations-with-arrays">
-<span id="id12"></span><h3>8.3.1 Mathematical Operations with Arrays<a class="headerlink" href="#mathematical-operations-with-arrays" title="Permalink to this headline">¶</a></h3>
+<span id="id12"></span><h3>8.3.1 Mathematical Operations with Arrays<a class="headerlink" href="#mathematical-operations-with-arrays" title="Permalink to this headline">#</a></h3>
 <p>Being that we are using NumPy arrays, the standard mathematical operations use the <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">‒</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, and <code class="docutils literal notranslate"><span class="pre">**</span></code> operators as demonstrated in chapter 4. There are a few other operations and methods, however, that are important for matrices such as calculating the inverse, determinant, transpose, and dot product. For these operations, we have the following methods provided by NumPy’s <code class="docutils literal notranslate"><span class="pre">linalg</span></code> module, Table 3, which are demonstrated in the following sections.</p>
 <p><strong>Table 3</strong> Common <code class="docutils literal notranslate"><span class="pre">np.linalg</span></code> Methods</p>
 <table class="colwidths-auto table">
@@ -944,7 +1031,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>In addition, it is worth reiterating that there is a general NumPy array method <code class="docutils literal notranslate"><span class="pre">transpose()</span></code> that will transpose or rotate the array around the diagonal. There is a convenient <code class="docutils literal notranslate"><span class="pre">array.T</span></code> shortcut that is often used. See <a class="reference internal" href="../chapter_04/chap_04_notebook.html#id10"><span class="std std-ref">section 4.2.3</span></a> for details.</p>
 </div>
 <div class="section" id="solving-systems-of-equations">
-<span id="id13"></span><h3>8.3.2 Solving Systems of Equations<a class="headerlink" href="#solving-systems-of-equations" title="Permalink to this headline">¶</a></h3>
+<span id="id13"></span><h3>8.3.2 Solving Systems of Equations<a class="headerlink" href="#solving-systems-of-equations" title="Permalink to this headline">#</a></h3>
 <p>Solving systems of equations can be a tedious process by hand, but solving them using matrices can save time and effort. Let us say we want to solve the following system of equations for <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[ 6x + 10y + −5z = 21 \]</div>
@@ -1041,7 +1128,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The concentrations are <span class="math notranslate nohighlight">\(C_x\)</span> = 0.078 M, <span class="math notranslate nohighlight">\(C_y\)</span> = 0.023 M, and <span class="math notranslate nohighlight">\(C_z\)</span> = 0.0066 M.</p>
 </div>
 <div class="section" id="least-square-minimization-by-the-normal-equation">
-<span id="id14"></span><h3>8.3.3 Least-Square Minimization by the Normal Equation<a class="headerlink" href="#least-square-minimization-by-the-normal-equation" title="Permalink to this headline">¶</a></h3>
+<span id="id14"></span><h3>8.3.3 Least-Square Minimization by the Normal Equation<a class="headerlink" href="#least-square-minimization-by-the-normal-equation" title="Permalink to this headline">#</a></h3>
 <p>Finding the line of best fit through data points can be accomplished by least-square minimization. What we are essentially looking for is an equation of the form <span class="math notranslate nohighlight">\(y = mx + b\)</span> that is as close as possible to the data points, and the mean square error determines what qualifies as “close.” If we rewrite this problem in matrix or array form, it will look like the following for a series of four point (<span class="math notranslate nohighlight">\(x_n\)</span>, <span class="math notranslate nohighlight">\(y_n\)</span>) on a two-dimensional plane. The first array contains a columns of ones to multiply with b, so for the first row, we get <span class="math notranslate nohighlight">\(mx_0 + b = y_0\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} \left[ \begin{array}{cc} x_0 &amp; 1 \\ x_1 &amp; 1 \\ x_2 &amp; 1 \\ x_3 &amp; 1 \end{array} \right]
@@ -1170,7 +1257,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="calculus">
-<span id="id15"></span><h2>8.4 Calculus<a class="headerlink" href="#calculus" title="Permalink to this headline">¶</a></h2>
+<span id="id15"></span><h2>8.4 Calculus<a class="headerlink" href="#calculus" title="Permalink to this headline">#</a></h2>
 <p>SymPy and SciPy both contain functionality for performing calculus operations. We will start with SymPy for the symbolic math and switch over to SciPy for the strictly numerical work in <a class="reference internal" href="#id18"><span class="std std-ref">section 8.4.3</span></a>. In this section, we will be working with the radial density functions (<span class="math notranslate nohighlight">\(\psi\)</span>) for hydrogen atomic orbitals. The squares of these functions (<span class="math notranslate nohighlight">\(\psi ^2\)</span>) provide the probability of finding an electron with respect to distance from the nucleus. While these equations are available in various textbooks, SymPy provides a <code class="docutils literal notranslate"><span class="pre">physics</span></code> module with a <code class="docutils literal notranslate"><span class="pre">R_nl()</span></code> function for generating these equations based on the principle (<em>n</em>) quantum number, angular (<em>l</em>) quantum number, and the atomic number (<em>Z</em>). For example, to generate the function for the 2p orbital of hydrogen, <em>n</em> = 2, <em>l</em> = 1, and <em>Z</em> = 1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1220,7 +1307,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="differentiation">
-<span id="id16"></span><h3>8.4.1 Differentiation<a class="headerlink" href="#differentiation" title="Permalink to this headline">¶</a></h3>
+<span id="id16"></span><h3>8.4.1 Differentiation<a class="headerlink" href="#differentiation" title="Permalink to this headline">#</a></h3>
 <p>SymPy can take the derivative of mathematical expression using the <code class="docutils literal notranslate"><span class="pre">sympy.diff()</span></code> function.  This function requires a mathematical expression, the variable with respect the derivative is taken from, and the degree. The default behavior is to take the first derivative if a degree is not specified.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">deg</span><span class="p">)</span>
 </pre></div>
@@ -1265,7 +1352,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The radius is in Bohrs (<span class="math notranslate nohighlight">\(a_0\)</span>) which is equal to approximately 0.53 angstroms.</p>
 </div>
 <div class="section" id="integration-of-functions">
-<span id="id17"></span><h3>8.4.2 Integration of Functions<a class="headerlink" href="#integration-of-functions" title="Permalink to this headline">¶</a></h3>
+<span id="id17"></span><h3>8.4.2 Integration of Functions<a class="headerlink" href="#integration-of-functions" title="Permalink to this headline">#</a></h3>
 <p>SymPy can also integrate expressions using the <code class="docutils literal notranslate"><span class="pre">sympy.integrate()</span></code> function which takes the mathematical expression and the variable plus integration range in the form of a tuple. If the integration range is omitted, then SymPy will return a symbolic expression.</p>
 <p>The normalized (i.e., totals to one) density function is the squared wave function times <span class="math notranslate nohighlight">\(r^2\)</span> (i.e, <span class="math notranslate nohighlight">\(\psi ^2 r^2\)</span>). We can use this to determine the probability of finding an electron in a particular range of distances from the radius. Below, we integrate from the nucleus to the radius of maximum density.</p>
 <div class="cell docutils container">
@@ -1295,7 +1382,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The SciPy library also includes functions in the <code class="docutils literal notranslate"><span class="pre">integrate</span></code> module for integrating mathematical functions. Information can be found on the SciPy documentation page listed at the end of this chapter under <a class="reference internal" href="#further-reading08"><span class="std std-ref">Further Reading</span></a>.</p>
 </div>
 <div class="section" id="integrating-sampled-data">
-<span id="id18"></span><h3>8.4.3 Integrating Sampled Data<a class="headerlink" href="#integrating-sampled-data" title="Permalink to this headline">¶</a></h3>
+<span id="id18"></span><h3>8.4.3 Integrating Sampled Data<a class="headerlink" href="#integrating-sampled-data" title="Permalink to this headline">#</a></h3>
 <p>The above integration assumes a mathematical function is known. There are times when there is no known function to describe the data such as spectra. This is common in NMR spectroscopy and gas chromatography (GC) among many other applications where integrations of peak areas are used to quantify different components of a spectrum.</p>
 <p>In the following example, we will use a section of a <span class="math notranslate nohighlight">\(^1\)</span>H NMR spectrum where we want to determine the ratio of the three triplet peaks via integration. NMR spectra are typically stored in binary files that require a special library to read, which is covered in chapter 11. For simplicity in this example, the data for a section of the NMR spectrum has been converted to a CSV file titled <em>Ar_NMR.csv</em>.</p>
 <div class="cell docutils container">
@@ -1368,7 +1455,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe2829099a0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fa7d29038b0&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_08_notebook_82_1.svg" src="../../_images/chap_08_notebook_82_1.svg" /></div>
@@ -1454,7 +1541,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The three peaks have areas of approximately 2:3:1 ratio. Using Simpson’s rule here gives approximately the same result.</p>
 </div>
 <div class="section" id="integrating-ordinary-differential-equations">
-<span id="id19"></span><h3>8.4.4 Integrating Ordinary Differential Equations<a class="headerlink" href="#integrating-ordinary-differential-equations" title="Permalink to this headline">¶</a></h3>
+<span id="id19"></span><h3>8.4.4 Integrating Ordinary Differential Equations<a class="headerlink" href="#integrating-ordinary-differential-equations" title="Permalink to this headline">#</a></h3>
 <p><em>Ordinary differential equations (ODE)</em> mathematically describe the change of one or more dependent variables with respect to an independent variable. Common chemical applications include chemical kinetics, diffusion, electric current, among others. The SciPy <code class="docutils literal notranslate"><span class="pre">integrate</span></code> module provides an ODE integrator called <code class="docutils literal notranslate"><span class="pre">odeint()</span></code> which can integrate ordinary differential equations. This is useful for, among other things, integrating under kinetic differential equations to determine the concentration of reactants and products over the course of a chemical reaction.</p>
 <p>For example, the following is a first-order chemical reaction with starting material, A, and product, P.</p>
 <div class="math notranslate nohighlight">
@@ -1500,7 +1587,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fe2831360d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fa7d2ff7dc0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_08_notebook_98_1.svg" src="../../_images/chap_08_notebook_98_1.svg" /></div>
@@ -1509,18 +1596,18 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="mathematics-in-python">
-<span id="id20"></span><h2>8.5 Mathematics in Python<a class="headerlink" href="#mathematics-in-python" title="Permalink to this headline">¶</a></h2>
+<span id="id20"></span><h2>8.5 Mathematics in Python<a class="headerlink" href="#mathematics-in-python" title="Permalink to this headline">#</a></h2>
 <p>Between SymPy, NumPy, SciPy, and Python’s built-in functionality, there is often more than one way to carry out calculations in Python. For example, finding roots and derivatives of polynomials can be, along with the approaches demonstrated in this chapter, calculated by creating a NumPy <code class="docutils literal notranslate"><span class="pre">Polynomial</span></code> object and using NumPy’s <code class="docutils literal notranslate"><span class="pre">roots()</span></code> and <code class="docutils literal notranslate"><span class="pre">deriv()</span></code> methods, respectively. How you carry out a calculation can often come down to matter of person preference, though there are differences in terms of speed and the output format. Find what works for you and do not necessarily worry if others are doing the same calculations through a different library or set of functions.</p>
 </div>
 <div class="section" id="further-reading">
-<span id="further-reading08"></span><h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
+<span id="further-reading08"></span><h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p>SymPy Website. <a class="reference external" href="http://www.sympy.org/en/index.html">http://www.sympy.org/en/index.html</a> (free resource)</p></li>
 <li><p>SciPy and NumPy Documentation Pages. <a class="reference external" href="http://www.sympy.org/en/index.html">https://docs.scipy.org/doc/</a> (free resource)</p></li>
 </ol>
 </div>
 <div class="section" id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
 <p>Complete the following exercises in a Jupyter notebook using the SymPy and SciPy libraries. Any data file(s) refered to in the problems can be found in the <strong>data</strong> folder in the same directory as this chapter’s Jupyter notebook.</p>
 <ol>
 <li><p>Factor the following polynomial using SymPy: <span class="math notranslate nohighlight">\(x^2 + x – 6\)</span></p></li>
@@ -1591,9 +1678,11 @@ Hint: Assume this is an isolated system, so q<span class="math notranslate nohig
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="../chapter_07/chap_07_notebook.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1609,27 +1698,31 @@ Hint: Assume this is an isolated system, so q<span class="math notranslate nohig
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Charles J. Weiss<br/>
+  
+      &copy; Copyright 2021-2022.<br/>
+    <div class="extra_footer">
+      Scientific Computing for Chemists with Python is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+    </div>
+</p>
+        </footer>
+    </div>
     
-      By Charles J. Weiss<br/>
-    
-        &copy; Copyright 2021-2022.<br/>
-      <div class="extra_footer">
-        Scientific Computing for Chemists with Python is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
-      </div>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
