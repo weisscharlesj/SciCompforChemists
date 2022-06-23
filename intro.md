@@ -45,9 +45,9 @@ While great efforts have gone into ensuring that all the code in this book works
 The code in this version of the book has been most recently tested with the following software versions but will likely work with other versions.
 
 - Python – 3.9.7
-- NumPy – 1.22.4
+- NumPy – 1.23
 - SciPy – 1.8.1
-- Pandas – 1.4.2
+- Pandas – 1.4.3
 - Matplotlib – 3.5.2
 - Seaborn – 0.11.2
 - Scikit-image – 0.19.2
@@ -58,7 +58,7 @@ The code in this version of the book has been most recently tested with the foll
 
 ## Exercise Answers
 
-Copies of exercise answer keys are available for instructors upon request. To optain copies, please [email me](https://www.augie.edu/academics/majors-and-programs/chemistry/faculty) using your school email address.
+Copies of exercise answer keys are available for instructors upon request. To optain copies, please [email](https://www.augie.edu/academics/majors-and-programs/chemistry/faculty) using your school email address.
 
 ## Acknowledgements
 
