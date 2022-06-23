@@ -185,6 +185,11 @@ const thebe_selector_output = ".output, .cell_output"
    Chapter 13: Command Line &amp; Spyder
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../genindex.html">
+   Index
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -644,7 +649,7 @@ title="Print to PDF"
 </div>
 </div>
 <p>The value returned is a rounded approximation of the true answer. In contrast, if the same operation is performed using SymPy, we get a different result.</p>
-<div class="cell docutils container">
+<div class="cell docutils container" id="index-0">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
@@ -875,7 +880,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="solving-equations">
 <span id="id9"></span><h3>8.2.3 Solving Equations<a class="headerlink" href="#solving-equations" title="Permalink to this headline">#</a></h3>
-<p>SymPy can also solve equations for an unknown variable using the <code class="docutils literal notranslate"><span class="pre">solve()</span></code> function. The function requires a single expression that is equal to zero. For example, the following solves for <span class="math notranslate nohighlight">\(x\)</span> in <span class="math notranslate nohighlight">\(x^2 + 1.4x – 5.76 = 0\)</span>.</p>
+<p id="index-1">SymPy can also solve equations for an unknown variable using the <code class="docutils literal notranslate"><span class="pre">solve()</span></code> function. The function requires a single expression that is equal to zero. For example, the following solves for <span class="math notranslate nohighlight">\(x\)</span> in <span class="math notranslate nohighlight">\(x^2 + 1.4x – 5.76 = 0\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">1.4</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mf">5.76</span><span class="p">)</span>
@@ -891,7 +896,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="equilibrium-ice-table">
 <span id="id10"></span><h3>8.2.4 Equilibrium ICE Table<a class="headerlink" href="#equilibrium-ice-table" title="Permalink to this headline">#</a></h3>
-<p>A common chemical application of the above algebraic operations is solving equilibrium problems using the ICE (Initial, Change, and Equilibrium) method. As a penultimate step, the mathematical expressions are inserted into the equilibrium expression and often result in a polynomial equation. Below is an example problem with completed ICE table and equilibrium expression.</p>
+<p id="index-2">A common chemical application of the above algebraic operations is solving equilibrium problems using the ICE (Initial, Change, and Equilibrium) method. As a penultimate step, the mathematical expressions are inserted into the equilibrium expression and often result in a polynomial equation. Below is an example problem with completed ICE table and equilibrium expression.</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="text-align:center head"><p></p></th>
@@ -1129,7 +1134,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="least-square-minimization-by-the-normal-equation">
 <span id="id14"></span><h3>8.3.3 Least-Square Minimization by the Normal Equation<a class="headerlink" href="#least-square-minimization-by-the-normal-equation" title="Permalink to this headline">#</a></h3>
-<p>Finding the line of best fit through data points can be accomplished by least-square minimization. What we are essentially looking for is an equation of the form <span class="math notranslate nohighlight">\(y = mx + b\)</span> that is as close as possible to the data points, and the mean square error determines what qualifies as “close.” If we rewrite this problem in matrix or array form, it will look like the following for a series of four point (<span class="math notranslate nohighlight">\(x_n\)</span>, <span class="math notranslate nohighlight">\(y_n\)</span>) on a two-dimensional plane. The first array contains a columns of ones to multiply with b, so for the first row, we get <span class="math notranslate nohighlight">\(mx_0 + b = y_0\)</span>.</p>
+<p id="index-3">Finding the line of best fit through data points can be accomplished by least-square minimization. What we are essentially looking for is an equation of the form <span class="math notranslate nohighlight">\(y = mx + b\)</span> that is as close as possible to the data points, and the mean square error determines what qualifies as “close.” If we rewrite this problem in matrix or array form, it will look like the following for a series of four point (<span class="math notranslate nohighlight">\(x_n\)</span>, <span class="math notranslate nohighlight">\(y_n\)</span>) on a two-dimensional plane. The first array contains a columns of ones to multiply with b, so for the first row, we get <span class="math notranslate nohighlight">\(mx_0 + b = y_0\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} \left[ \begin{array}{cc} x_0 &amp; 1 \\ x_1 &amp; 1 \\ x_2 &amp; 1 \\ x_3 &amp; 1 \end{array} \right]
 \cdot
@@ -1258,7 +1263,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="calculus">
 <span id="id15"></span><h2>8.4 Calculus<a class="headerlink" href="#calculus" title="Permalink to this headline">#</a></h2>
-<p>SymPy and SciPy both contain functionality for performing calculus operations. We will start with SymPy for the symbolic math and switch over to SciPy for the strictly numerical work in <a class="reference internal" href="#id18"><span class="std std-ref">section 8.4.3</span></a>. In this section, we will be working with the radial density functions (<span class="math notranslate nohighlight">\(\psi\)</span>) for hydrogen atomic orbitals. The squares of these functions (<span class="math notranslate nohighlight">\(\psi ^2\)</span>) provide the probability of finding an electron with respect to distance from the nucleus. While these equations are available in various textbooks, SymPy provides a <code class="docutils literal notranslate"><span class="pre">physics</span></code> module with a <code class="docutils literal notranslate"><span class="pre">R_nl()</span></code> function for generating these equations based on the principle (<em>n</em>) quantum number, angular (<em>l</em>) quantum number, and the atomic number (<em>Z</em>). For example, to generate the function for the 2p orbital of hydrogen, <em>n</em> = 2, <em>l</em> = 1, and <em>Z</em> = 1.</p>
+<p id="index-4">SymPy and SciPy both contain functionality for performing calculus operations. We will start with SymPy for the symbolic math and switch over to SciPy for the strictly numerical work in <a class="reference internal" href="#id18"><span class="std std-ref">section 8.4.3</span></a>. In this section, we will be working with the radial density functions (<span class="math notranslate nohighlight">\(\psi\)</span>) for hydrogen atomic orbitals. The squares of these functions (<span class="math notranslate nohighlight">\(\psi ^2\)</span>) provide the probability of finding an electron with respect to distance from the nucleus. While these equations are available in various textbooks, SymPy provides a <code class="docutils literal notranslate"><span class="pre">physics</span></code> module with a <code class="docutils literal notranslate"><span class="pre">R_nl()</span></code> function for generating these equations based on the principle (<em>n</em>) quantum number, angular (<em>l</em>) quantum number, and the atomic number (<em>Z</em>). For example, to generate the function for the 2p orbital of hydrogen, <em>n</em> = 2, <em>l</em> = 1, and <em>Z</em> = 1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy.physics.hydrogen</span> <span class="kn">import</span> <span class="n">R_nl</span>
@@ -1308,7 +1313,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="differentiation">
 <span id="id16"></span><h3>8.4.1 Differentiation<a class="headerlink" href="#differentiation" title="Permalink to this headline">#</a></h3>
-<p>SymPy can take the derivative of mathematical expression using the <code class="docutils literal notranslate"><span class="pre">sympy.diff()</span></code> function.  This function requires a mathematical expression, the variable with respect the derivative is taken from, and the degree. The default behavior is to take the first derivative if a degree is not specified.</p>
+<p id="index-5">SymPy can take the derivative of mathematical expression using the <code class="docutils literal notranslate"><span class="pre">sympy.diff()</span></code> function.  This function requires a mathematical expression, the variable with respect the derivative is taken from, and the degree. The default behavior is to take the first derivative if a degree is not specified.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">deg</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1353,7 +1358,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="integration-of-functions">
 <span id="id17"></span><h3>8.4.2 Integration of Functions<a class="headerlink" href="#integration-of-functions" title="Permalink to this headline">#</a></h3>
-<p>SymPy can also integrate expressions using the <code class="docutils literal notranslate"><span class="pre">sympy.integrate()</span></code> function which takes the mathematical expression and the variable plus integration range in the form of a tuple. If the integration range is omitted, then SymPy will return a symbolic expression.</p>
+<p id="index-6">SymPy can also integrate expressions using the <code class="docutils literal notranslate"><span class="pre">sympy.integrate()</span></code> function which takes the mathematical expression and the variable plus integration range in the form of a tuple. If the integration range is omitted, then SymPy will return a symbolic expression.</p>
 <p>The normalized (i.e., totals to one) density function is the squared wave function times <span class="math notranslate nohighlight">\(r^2\)</span> (i.e, <span class="math notranslate nohighlight">\(\psi ^2 r^2\)</span>). We can use this to determine the probability of finding an electron in a particular range of distances from the radius. Below, we integrate from the nucleus to the radius of maximum density.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1455,7 +1460,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fa7d29038b0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7faefefd8c10&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_08_notebook_82_1.svg" src="../../_images/chap_08_notebook_82_1.svg" /></div>
@@ -1475,14 +1480,9 @@ title="Print to PDF"
 <img alt="../../_images/chap_08_notebook_84_0.svg" src="../../_images/chap_08_notebook_84_0.svg" /></div>
 </div>
 <p>Integrations under sampled data do not include the values between data points, so these regions are estimated based on assumptions. The <code class="docutils literal notranslate"><span class="pre">trapz()</span></code> function assumes that any data point between known points lies directly between the known data points (i.e., linear interpolation) as shown below by the blue lines.</p>
-<div class="cell docutils container">
+<div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;frozen importlib._bootstrap&gt;:228: RuntimeWarning: scipy._lib.messagestream.MessageStream size changed, may indicate binary incompatibility. Expected 56 from C header, got 64 from PyObject
 </pre></div>
 </div>
 </div>
@@ -1587,7 +1587,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fa7d2ff7dc0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7faf00000c10&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_08_notebook_98_1.svg" src="../../_images/chap_08_notebook_98_1.svg" /></div>

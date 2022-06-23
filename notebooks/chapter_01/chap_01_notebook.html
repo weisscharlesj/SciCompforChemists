@@ -185,6 +185,11 @@ const thebe_selector_output = ".output, .cell_output"
    Chapter 13: Command Line &amp; Spyder
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../genindex.html">
+   Index
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -417,6 +422,28 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#string-methods">
      1.3.3 String Methods
     </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#string-formatting">
+     1.3.4 String Formatting
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#str-format-method">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         str.format()
+        </span>
+       </code>
+       Method
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#f-strings">
+       F-Strings
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -739,6 +766,28 @@ title="Print to PDF"
      1.3.3 String Methods
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#string-formatting">
+     1.3.4 String Formatting
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#str-format-method">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         str.format()
+        </span>
+       </code>
+       Method
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#f-strings">
+       F-Strings
+      </a>
+     </li>
+    </ul>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1056,7 +1105,7 @@ title="Print to PDF"
 </div>
 </div>
 <p>You may have noticed that there are spaces around the mathematical operators in the example calculations above. Python does <em>not</em> care about spaces <em>within</em> a line, so feel free to add spaces to make your calculation more readable as is done above. Python does, however, care about spaces at the <em>beginning</em> of a line. This will be further addressed in the sections on conditions and loops.</p>
-<p>Regular division, denoted by a single forward slash (<code class="docutils literal notranslate"><span class="pre">/</span></code>), is exactly what you probably expect. Three divided by two is one and a half. <em>Integer division</em>, shown with a double forward slash (<code class="docutils literal notranslate"><span class="pre">//</span></code>),  is a little more surprising. Instead of providing the exact answer, it can be viewed as either rounding down to the nearest integer (also known as <em>flooring</em> it) or simply truncating off anything after the decimal place.</p>
+<p id="index-0">Regular division, denoted by a single forward slash (<code class="docutils literal notranslate"><span class="pre">/</span></code>), is exactly what you probably expect. Three divided by two is one and a half. <em>Integer division</em>, shown with a double forward slash (<code class="docutils literal notranslate"><span class="pre">//</span></code>),  is a little more surprising. Instead of providing the exact answer, it can be viewed as either rounding down to the nearest integer (also known as <em>flooring</em> it) or simply truncating off anything after the decimal place.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">/</span> <span class="mi">2</span>
@@ -1094,7 +1143,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>Occasionally, obtaining the <em>modulus</em> is also useful and is done using the <em>modulo</em> operator (<code class="docutils literal notranslate"><span class="pre">%</span></code>). This is also sometimes referred to as the <em>remainder</em> after division as it is whatever is left over that does not divide evenly into the divisor. In the example below, 3 is seen as going into 10 thrice with 1 left over. The left over portion is the modulus. This is often useful in determining if a number is even among other things.</p>
+<span class="target" id="index-1"></span><p id="index-2">Occasionally, obtaining the <em>modulus</em> is also useful and is done using the <em>modulo</em> operator (<code class="docutils literal notranslate"><span class="pre">%</span></code>). This is also sometimes referred to as the <em>remainder</em> after division as it is whatever is left over that does not divide evenly into the divisor. In the example below, 3 is seen as going into 10 thrice with 1 left over. The left over portion is the modulus. This is often useful in determining if a number is even among other things.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span> <span class="o">%</span> <span class="mi">3</span>
@@ -1110,7 +1159,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="integers-floats">
 <span id="id4"></span><h3>1.1.2 Integers &amp; Floats<a class="headerlink" href="#integers-floats" title="Permalink to this headline">#</a></h3>
-<p>There are two types of numbers in Python – floats and integers. <em>Floats</em>, short for “floating point numbers,” are values with decimals in them. They may be either whole or non-whole values such as 3.0 or 1.2, but there is always a decimal point. <em>Integers</em> are whole numbers with no decimal point such as 2 or 53.</p>
+<span class="target" id="index-3"></span><p id="index-4">There are two types of numbers in Python – floats and integers. <em>Floats</em>, short for “floating point numbers,” are values with decimals in them. They may be either whole or non-whole values such as 3.0 or 1.2, but there is always a decimal point. <em>Integers</em> are whole numbers with no decimal point such as 2 or 53.</p>
 <p>Mathematical operations that include only integers and evaluate to a whole number will generate an integer. All other situations will generate a float. In the second example below, a float is generated because one of the inputs is a float. In the third example below, a float is generated despite only integers in the input because the operation evaluates to a fraction.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1177,7 +1226,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="python-functions">
 <span id="id5"></span><h3>1.1.3 Python Functions<a class="headerlink" href="#python-functions" title="Permalink to this headline">#</a></h3>
-<p>In addition to basic mathematical operators, Python contains a number of functions. As in mathematics, a function has a name (e.g., <span class="math notranslate nohighlight">\(f\)</span>) and the arguments are placed inside of the parentheses after the name. The <em>argument</em> is any value or piece of information fed into a function. In the case below, <span class="math notranslate nohighlight">\(f\)</span> requires a single argument <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p id="index-5">In addition to basic mathematical operators, Python contains a number of functions. As in mathematics, a function has a name (e.g., <span class="math notranslate nohighlight">\(f\)</span>) and the arguments are placed inside of the parentheses after the name. The <em>argument</em> is any value or piece of information fed into a function. In the case below, <span class="math notranslate nohighlight">\(f\)</span> requires a single argument <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <div class="math notranslate nohighlight">
 \[ f(x) \]</div>
 <p>There are a number of useful math functions in Python with Table 2 describing a few common ones such as the absolute value, <code class="docutils literal notranslate"><span class="pre">abs()</span></code>, and round, <code class="docutils literal notranslate"><span class="pre">round()</span></code>, functions. Note that the <code class="docutils literal notranslate"><span class="pre">round()</span></code> function uses Banker’s rounding -  if a number is half way between two integers (e.g., 4.5), it will round toward the even integer (i.e., 4).</p>
@@ -1398,7 +1447,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="variables">
 <span id="id6"></span><h2>1.2 Variables<a class="headerlink" href="#variables" title="Permalink to this headline">#</a></h2>
-<p>When performing mathematical operations, it is often desirable to store values in <em>variables</em> for later use instead of manually typing them back in. This will save effort when writing your code and make any changes automatically propagate through your calculations.</p>
+<p id="index-6">When performing mathematical operations, it is often desirable to store values in <em>variables</em> for later use instead of manually typing them back in. This will save effort when writing your code and make any changes automatically propagate through your calculations.</p>
 <div class="section" id="choosing-assigning-variables">
 <span id="id7"></span><h3>1.2.1 Choosing &amp; Assigning Variables<a class="headerlink" href="#choosing-assigning-variables" title="Permalink to this headline">#</a></h3>
 <p>Attaching a value to a variable is called <em>assignment</em> and is performed using a single equal sign (<code class="docutils literal notranslate"><span class="pre">=</span></code>). Below, <code class="docutils literal notranslate"><span class="pre">5.0</span></code> and <code class="docutils literal notranslate"><span class="pre">3</span></code> are assigned to the variables <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>, respectively. Mathematical operations can then be performed with the variables just as is done with numerical values.</p>
@@ -1564,7 +1613,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="strings">
 <span id="id9"></span><h2>1.3 Strings<a class="headerlink" href="#strings" title="Permalink to this headline">#</a></h2>
-<p>Floats and integers are means of storing numerical data. The other major type of data is text which is stored as a string of characters known simply as a <em>string</em>. Strings can contain a variety of characters including letters, numbers, and symbols and are identified by single or double quotes.</p>
+<p id="index-7">Floats and integers are means of storing numerical data. The other major type of data is text which is stored as a string of characters known simply as a <em>string</em>. Strings can contain a variety of characters including letters, numbers, and symbols and are identified by single or double quotes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;some text&#39;</span>
@@ -1579,7 +1628,7 @@ title="Print to PDF"
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Triple quotes can also used to span a string across multiple lines and are also used for the docstring in a newly defined function (see <a class="reference internal" href="#id42"><span class="std std-ref">section 1.9.5</span></a>).</p>
+<p>Triple quotes can also used to span a string across multiple lines and are also used for the docstring in a newly defined function (see <a class="reference internal" href="#id43"><span class="std std-ref">section 1.9.5</span></a>).</p>
 </div>
 <div class="section" id="creating-a-string">
 <span id="id10"></span><h3>1.3.1 Creating a String<a class="headerlink" href="#creating-a-string" title="Permalink to this headline">#</a></h3>
@@ -2054,12 +2103,137 @@ title="Print to PDF"
 </tbody>
 </table>
 </div>
+<div class="section" id="string-formatting">
+<span id="id13"></span><h3>1.3.4 String Formatting<a class="headerlink" href="#string-formatting" title="Permalink to this headline">#</a></h3>
+<p>In <a class="reference internal" href="#id10"><span class="std std-ref">section 1.3.1</span></a>, we were able to concatenate two strings by using the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator as shown below. With this approach, it is neccesary to convert any non-string into a string using the <code class="docutils literal notranslate"><span class="pre">str()</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MW</span> <span class="o">=</span> <span class="mf">63.21</span>
+<span class="s2">&quot;Molar mass = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">MW</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; g/mol.&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Molar mass = 63.21 g/mol.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>While this approach usually works fine, it can get messy or unwieldly as you are combining more strings. In this section, we will cover a couple other methods for merging strings. Which you choose to use is a matter of personal preference, but it is good to be aware of them as you may see them around.</p>
+<div class="section" id="str-format-method">
+<h4><code class="docutils literal notranslate"><span class="pre">str.format()</span></code> Method<a class="headerlink" href="#str-format-method" title="Permalink to this headline">#</a></h4>
+<p>The first method we will address is using the <code class="docutils literal notranslate"><span class="pre">str.format()</span></code> method. In this approach, the string (i.e., <code class="docutils literal notranslate"><span class="pre">str</span></code>) includes curly brackets <code class="docutils literal notranslate"><span class="pre">{}</span></code> where you want to insert additional strings, and these additional strings are provided as arguments in the <code class="docutils literal notranslate"><span class="pre">str.format()</span></code> function. As an example, below we are generating a sentence providing the name and molecular weight of a compound. Notice how <code class="docutils literal notranslate"><span class="pre">compound</span></code> is inserted in the sentence where the first <code class="docutils literal notranslate"><span class="pre">{}</span></code> is located while <code class="docutils literal notranslate"><span class="pre">MW</span></code> is inserted in the location of the second <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compound</span> <span class="o">=</span> <span class="s1">&#39;ammonia&#39;</span>
+<span class="n">MW</span> <span class="o">=</span> <span class="mf">17.03</span>
+
+<span class="s1">&#39;The molar mass of </span><span class="si">{}</span><span class="s1"> is </span><span class="si">{}</span><span class="s1"> g/mol.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">compound</span><span class="p">,</span> <span class="n">MW</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The molar mass of ammonia is 17.03 g/mol.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we assign the <code class="docutils literal notranslate"><span class="pre">compound</span></code> and <code class="docutils literal notranslate"><span class="pre">MW</span></code> varible to other values, the <code class="docutils literal notranslate"><span class="pre">str.format()</span></code> function dutifully inserts these new strings into our sentence. Also notice that the <code class="docutils literal notranslate"><span class="pre">format()</span></code> function automatically converts non-string objects into strings for us.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compound</span> <span class="o">=</span> <span class="s1">&#39;urea&#39;</span>
+<span class="n">MW</span> <span class="o">=</span> <span class="mf">60.06</span>
+
+<span class="s1">&#39;The molar mass of </span><span class="si">{}</span><span class="s1"> is </span><span class="si">{}</span><span class="s1"> g/mol.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">compound</span><span class="p">,</span> <span class="n">MW</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The molar mass of urea is 60.06 g/mol.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>A variation of the above approach is to include an index value inside the curly brackets indicating which string provided to the <code class="docutils literal notranslate"><span class="pre">str.format()</span></code> function is inserted where in the sentence. In the example below, <code class="docutils literal notranslate"><span class="pre">compound</span></code> is provided to the <code class="docutils literal notranslate"><span class="pre">str.format()</span></code> function first, so it replaces <code class="docutils literal notranslate"><span class="pre">{0}</span></code> while <code class="docutils literal notranslate"><span class="pre">MW</span></code> is second, so it replaces <code class="docutils literal notranslate"><span class="pre">{1}</span></code>. Remember that Python index values start with zero.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compound</span> <span class="o">=</span> <span class="s1">&#39;urea&#39;</span>
+<span class="n">MW</span> <span class="o">=</span> <span class="mf">60.06</span>
+
+<span class="s1">&#39;The molar mass of </span><span class="si">{0}</span><span class="s1"> is </span><span class="si">{1}</span><span class="s1"> g/mol.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">compound</span><span class="p">,</span> <span class="n">MW</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The molar mass of urea is 60.06 g/mol.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Because we are explicitly providing index values, we can insert strings into the setence in any order. Notice in the example below that the <code class="docutils literal notranslate"><span class="pre">MW</span></code> and <code class="docutils literal notranslate"><span class="pre">compound</span></code> variables are provided to the function in a different order.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;The molar mass of </span><span class="si">{1}</span><span class="s1"> is </span><span class="si">{0}</span><span class="s1"> g/mol.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">MW</span><span class="p">,</span> <span class="n">compound</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The molar mass of urea is 60.06 g/mol.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also insert strings into our sentence multiple times as shown below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;The compound </span><span class="si">{0}</span><span class="s1"> is a molecular compound </span><span class="se">\</span>
+<span class="s1">and </span><span class="si">{0}</span><span class="s1"> has a molecular mass of </span><span class="si">{1}</span><span class="s1"> g/mol.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">compound</span><span class="p">,</span> <span class="n">MW</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The compound urea is a molecular compound and urea has a molecular mass of 60.06 g/mol.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="f-strings">
+<h4>F-Strings<a class="headerlink" href="#f-strings" title="Permalink to this headline">#</a></h4>
+<p>The next approach to combining strings is using <em>f-strings</em>. In this approach, the string is preceeded with <code class="docutils literal notranslate"><span class="pre">f</span></code>, and any inserted strings are denonted with <code class="docutils literal notranslate"><span class="pre">{}</span></code> with the variable name inside the curly brackets as demonstrated below. The appeal of this approach is that it is simple, versitile, and relatively easy to follw.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s1">&#39;The molar mass of </span><span class="si">{</span><span class="n">compound</span><span class="si">}</span><span class="s1"> is </span><span class="si">{</span><span class="n">MW</span><span class="si">}</span><span class="s1"> g/mol.&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The molar mass of urea is 60.06 g/mol.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also modify the strings by placing additional Python code inside the brackets like below where the first letter of the compound is capitalized.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s1">&#39;The molar mass of </span><span class="si">{</span><span class="n">compound</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span><span class="si">}</span><span class="s1"> is </span><span class="si">{</span><span class="n">MW</span><span class="si">}</span><span class="s1"> g/mol.&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The molar mass of Urea is 60.06 g/mol.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="boolean-logic">
-<span id="id13"></span><h2>1.4 Boolean Logic<a class="headerlink" href="#boolean-logic" title="Permalink to this headline">#</a></h2>
-<p>Python supports <em>Boolean logic</em> where all expressions are evaluated to either <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. These are useful for adding conditions to scripts. For example, if you are writing code to determine if a sample is a neutral pH, you will want to test if the pH equals 7. If the <code class="docutils literal notranslate"><span class="pre">pH</span> <span class="pre">==</span> <span class="pre">7</span></code> evaluates as <code class="docutils literal notranslate"><span class="pre">True</span></code>, the sample is neutral, and if this statement is <code class="docutils literal notranslate"><span class="pre">False</span></code>, the sample is not neutral.</p>
+<span id="id14"></span><h2>1.4 Boolean Logic<a class="headerlink" href="#boolean-logic" title="Permalink to this headline">#</a></h2>
+<p id="index-8">Python supports <em>Boolean logic</em> where all expressions are evaluated to either <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. These are useful for adding conditions to scripts. For example, if you are writing code to determine if a sample is a neutral pH, you will want to test if the pH equals 7. If the <code class="docutils literal notranslate"><span class="pre">pH</span> <span class="pre">==</span> <span class="pre">7</span></code> evaluates as <code class="docutils literal notranslate"><span class="pre">True</span></code>, the sample is neutral, and if this statement is <code class="docutils literal notranslate"><span class="pre">False</span></code>, the sample is not neutral.</p>
 <div class="section" id="boolean-basics">
-<span id="id14"></span><h3>1.4.1 Boolean Basics<a class="headerlink" href="#boolean-basics" title="Permalink to this headline">#</a></h3>
+<span id="id15"></span><h3>1.4.1 Boolean Basics<a class="headerlink" href="#boolean-basics" title="Permalink to this headline">#</a></h3>
 <p>There are a number of Boolean operators available in Python with the most common summarized in Table 6. These operators are essentially truth tests with Python returning either <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. Many of them work as one would expect. For example, if <code class="docutils literal notranslate"><span class="pre">8</span></code> is tested for equality with <code class="docutils literal notranslate"><span class="pre">3</span></code>, a <code class="docutils literal notranslate"><span class="pre">False</span></code> is returned. Note that the operator for equals is a double equal signs, whereas a single equal sign assigns a value to a variable.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -2145,7 +2319,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:1: SyntaxWarning: &quot;is&quot; with a literal. Did you mean &quot;==&quot;?
 &lt;&gt;:1: SyntaxWarning: &quot;is&quot; with a literal. Did you mean &quot;==&quot;?
-/var/folders/cw/g8p9ghtd3_7b10t_kws_b86h0000gp/T/ipykernel_964/1557232650.py:1: SyntaxWarning: &quot;is&quot; with a literal. Did you mean &quot;==&quot;?
+/var/folders/cw/g8p9ghtd3_7b10t_kws_b86h0000gp/T/ipykernel_4416/1557232650.py:1: SyntaxWarning: &quot;is&quot; with a literal. Did you mean &quot;==&quot;?
   8 is 8.0
 </pre></div>
 </div>
@@ -2157,7 +2331,7 @@ title="Print to PDF"
 <p>In the last example, Python generates a warning because the user probably meant to use <code class="docutils literal notranslate"><span class="pre">==</span></code> instead of <code class="docutils literal notranslate"><span class="pre">is</span></code>.</p>
 </div>
 <div class="section" id="compound-comparisons">
-<span id="id15"></span><h3>1.4.2 Compound Comparisons<a class="headerlink" href="#compound-comparisons" title="Permalink to this headline">#</a></h3>
+<span id="id16"></span><h3>1.4.2 Compound Comparisons<a class="headerlink" href="#compound-comparisons" title="Permalink to this headline">#</a></h3>
 <p>Comparisons can be concatenated together with Boolean logic operators to make compound comparisons. Common Boolean logic operators are shown in Table 7.</p>
 <p><strong>Table 7</strong> Common Boolean Logic Operators</p>
 <table class="colwidths-auto table">
@@ -2278,7 +2452,7 @@ title="Print to PDF"
 </table>
 </div>
 <div class="section" id="alternative-truth-representations">
-<span id="id16"></span><h3>1.4.3 Alternative Truth Representations<a class="headerlink" href="#alternative-truth-representations" title="Permalink to this headline">#</a></h3>
+<span id="id17"></span><h3>1.4.3 Alternative Truth Representations<a class="headerlink" href="#alternative-truth-representations" title="Permalink to this headline">#</a></h3>
 <p>The values <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">0</span></code> can also be used in place of <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code>, respectively, as Python recognizes them as surrogates. For Python to know that you mean these values as Booleans and not simply integers, Python sometimes requires the <code class="docutils literal notranslate"><span class="pre">bool()</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2316,7 +2490,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>You can perform some of the above Boolean operations from <a class="reference internal" href="#id15"><span class="std std-ref">section 1.4.2</span></a> with <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">0</span></code>, but Python will return the result in terms of <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p>You can perform some of the above Boolean operations from <a class="reference internal" href="#id16"><span class="std std-ref">section 1.4.2</span></a> with <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">0</span></code>, but Python will return the result in terms of <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="ow">or</span> <span class="mi">0</span>
@@ -2343,8 +2517,8 @@ title="Print to PDF"
 </div>
 </div>
 <div class="section" id="any-all">
-<span id="id17"></span><h3>1.4.4 <code class="docutils literal notranslate"><span class="pre">any()</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">all()</span></code><a class="headerlink" href="#any-all" title="Permalink to this headline">#</a></h3>
-<p>It is sometimes helpful to test if any or all values test <code class="docutils literal notranslate"><span class="pre">True</span></code> in a list or tuple covered in <a class="reference internal" href="#id22"><span class="std std-ref">section 1.6</span></a>. The <code class="docutils literal notranslate"><span class="pre">any()</span></code> and <code class="docutils literal notranslate"><span class="pre">all()</span></code> functions do exactly this. The former will return <code class="docutils literal notranslate"><span class="pre">True</span></code> if one or more of the values in the object test <code class="docutils literal notranslate"><span class="pre">True</span></code> while the latter will only evaluate as <code class="docutils literal notranslate"><span class="pre">True</span></code> only if all values are <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<span id="id18"></span><h3>1.4.4 <code class="docutils literal notranslate"><span class="pre">any()</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">all()</span></code><a class="headerlink" href="#any-all" title="Permalink to this headline">#</a></h3>
+<p>It is sometimes helpful to test if any or all values test <code class="docutils literal notranslate"><span class="pre">True</span></code> in a list or tuple covered in <a class="reference internal" href="#id23"><span class="std std-ref">section 1.6</span></a>. The <code class="docutils literal notranslate"><span class="pre">any()</span></code> and <code class="docutils literal notranslate"><span class="pre">all()</span></code> functions do exactly this. The former will return <code class="docutils literal notranslate"><span class="pre">True</span></code> if one or more of the values in the object test <code class="docutils literal notranslate"><span class="pre">True</span></code> while the latter will only evaluate as <code class="docutils literal notranslate"><span class="pre">True</span></code> only if all values are <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">any</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
@@ -2381,7 +2555,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>When fed numbers, both the <code class="docutils literal notranslate"><span class="pre">any()</span></code> and <code class="docutils literal notranslate"><span class="pre">all()</span></code> functions will treat them as Booleans as described in <a class="reference internal" href="#id16"><span class="std std-ref">section 1.4.3</span></a>.</p>
+<p>When fed numbers, both the <code class="docutils literal notranslate"><span class="pre">any()</span></code> and <code class="docutils literal notranslate"><span class="pre">all()</span></code> functions will treat them as Booleans as described in <a class="reference internal" href="#id17"><span class="std std-ref">section 1.4.3</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">any</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
@@ -2396,7 +2570,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="section" id="test-for-inclusion">
-<span id="id18"></span><h3>1.4.5 Test for Inclusion<a class="headerlink" href="#test-for-inclusion" title="Permalink to this headline">#</a></h3>
+<span id="id19"></span><h3>1.4.5 Test for Inclusion<a class="headerlink" href="#test-for-inclusion" title="Permalink to this headline">#</a></h3>
 <p>Python allows for the testing of <em>inclusion</em> using the <code class="docutils literal notranslate"><span class="pre">in</span></code> operator. Let us say we want to test if there is nickel in a provided molecular formula. We can simply test to see if “Ni” is in the formula.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2430,19 +2604,19 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>The in operator also works for other objects beyond strings including lists and tuples which you will learn about in <a class="reference internal" href="#id22"><span class="std std-ref">section 1.6</span></a>.</p>
+<p>The in operator also works for other objects beyond strings including lists and tuples which you will learn about in <a class="reference internal" href="#id23"><span class="std std-ref">section 1.6</span></a>.</p>
 </div>
 </div>
 <div class="section" id="conditions">
-<span id="id19"></span><h2>1.5 Conditions<a class="headerlink" href="#conditions" title="Permalink to this headline">#</a></h2>
-<p><em>Conditions</em> allow for the user to specify if and when certain lines or blocks of code are executed. Specifically, when a condition is true, the block of indented code directly below runs. In the example below, if pH is greater than 7, the code prints out the statements “The solution is basic” and “Neutralize with acid.”</p>
+<span id="id20"></span><h2>1.5 Conditions<a class="headerlink" href="#conditions" title="Permalink to this headline">#</a></h2>
+<p id="index-9"><em>Conditions</em> allow for the user to specify if and when certain lines or blocks of code are executed. Specifically, when a condition is true, the block of indented code directly below runs. In the example below, if pH is greater than 7, the code prints out the statements “The solution is basic” and “Neutralize with acid.”</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">pH</span> <span class="o">&gt;</span> <span class="mi">7</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The solution is basic.&#39;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Neutralize with acid.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="section" id="if-statements">
-<span id="id20"></span><h3>1.5.1 <code class="docutils literal notranslate"><span class="pre">if</span></code> Statements<a class="headerlink" href="#if-statements" title="Permalink to this headline">#</a></h3>
+<span id="id21"></span><h3>1.5.1 <code class="docutils literal notranslate"><span class="pre">if</span></code> Statements<a class="headerlink" href="#if-statements" title="Permalink to this headline">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">if</span></code> statement is a powerful way to control when a block of code is run. It is structured as shown below with the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement ending in a colon and the block of code below indented by <strong>four spaces</strong>. In the Jupyter notebook, hitting the <strong>Tab</strong> key will also generate four spaces.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2485,7 +2659,7 @@ title="Print to PDF"
 <p>Nothing is printed or returned in this code because <code class="docutils literal notranslate"><span class="pre">x</span></code> is not greater than 5.</p>
 </div>
 <div class="section" id="else-statements">
-<span id="id21"></span><h3>1.5.2 <code class="docutils literal notranslate"><span class="pre">else</span></code> Statements<a class="headerlink" href="#else-statements" title="Permalink to this headline">#</a></h3>
+<span id="id22"></span><h3>1.5.2 <code class="docutils literal notranslate"><span class="pre">else</span></code> Statements<a class="headerlink" href="#else-statements" title="Permalink to this headline">#</a></h3>
 <p>There are times when there is an alternative block of code that you will want to be run when the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement evaluates as <code class="docutils literal notranslate"><span class="pre">False</span></code>. This is accomplished using the <code class="docutils literal notranslate"><span class="pre">else</span></code> statement as shown below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2532,10 +2706,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="section" id="list-tuples">
-<span id="id22"></span><h2>1.6 List &amp; Tuples<a class="headerlink" href="#list-tuples" title="Permalink to this headline">#</a></h2>
-<p>Up to this point, we have only been dealing with single values or strings. It is common to work with a collection of values such as the average atomic masses of the chemical elements, but it is inconvenient to assign each value to its own variable. Instead, the values can be placed in a list or tuple. <em>Lists</em> and <em>tuple</em> are both collections of <em>elements</em>, such as numbers or strings, with the key difference that a list can be modified while a tuple cannot. A tuple is said to be <em>immutable</em> as it cannot be changed once created. Not surprisingly, lists are often more useful than tuples.</p>
+<span id="id23"></span><h2>1.6 List &amp; Tuples<a class="headerlink" href="#list-tuples" title="Permalink to this headline">#</a></h2>
+<p id="index-10">Up to this point, we have only been dealing with single values or strings. It is common to work with a collection of values such as the average atomic masses of the chemical elements, but it is inconvenient to assign each value to its own variable. Instead, the values can be placed in a list or tuple. <em>Lists</em> and <em>tuple</em> are both collections of <em>elements</em>, such as numbers or strings, with the key difference that a list can be modified while a tuple cannot. A tuple is said to be <em>immutable</em> as it cannot be changed once created. Not surprisingly, lists are often more useful than tuples.</p>
 <div class="section" id="creating-lists">
-<span id="id23"></span><h3>1.6.1 Creating Lists<a class="headerlink" href="#creating-lists" title="Permalink to this headline">#</a></h3>
+<span id="id24"></span><h3>1.6.1 Creating Lists<a class="headerlink" href="#creating-lists" title="Permalink to this headline">#</a></h3>
 <p>A list is created by placing elements inside square brackets. Below, the list called <code class="docutils literal notranslate"><span class="pre">mass</span></code> is created containing the atomic mass of the first six chemical elements.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2578,7 +2752,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="section" id="indexing-slicing-list">
-<span id="id24"></span><h3>1.6.2 Indexing &amp; Slicing List<a class="headerlink" href="#indexing-slicing-list" title="Permalink to this headline">#</a></h3>
+<span id="id25"></span><h3>1.6.2 Indexing &amp; Slicing List<a class="headerlink" href="#indexing-slicing-list" title="Permalink to this headline">#</a></h3>
 <p><em>Indexing</em> is used to access individual elements in a list, and this method is similar to indexing strings as demonstrated below. The index is the position in the list of a given object, and again, the <strong>index numbering starts with zero</strong>. Accessing an element of a list is done by placing the numerical index of the element we want in square brackets behind the list name. For example, if we want the first element in the electronegativity list (<code class="docutils literal notranslate"><span class="pre">EN</span></code>), we use <code class="docutils literal notranslate"><span class="pre">EN[0]</span></code>, while <code class="docutils literal notranslate"><span class="pre">EN[1]</span></code> provides the second element and so on.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2642,9 +2816,13 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Variable names can be anything as long as they follow Python rules for variable names, but there are also a few informal conventions. One convention is to use the lowercase letter <code class="docutils literal notranslate"><span class="pre">i</span></code> to hold an index value if you ever need to store indicies.</p>
+</div>
 </div>
 <div class="section" id="list-methods">
-<span id="id25"></span><h3>1.6.3 List Methods<a class="headerlink" href="#list-methods" title="Permalink to this headline">#</a></h3>
+<span id="id26"></span><h3>1.6.3 List Methods<a class="headerlink" href="#list-methods" title="Permalink to this headline">#</a></h3>
 <p>Similar to strings, list objects also have a collection of methods (i.e., functions) for performing common tasks. Some of the more common and useful list methods are presented in Table 10, and all of these methods modify the original list except <code class="docutils literal notranslate"><span class="pre">copy()</span></code>. As is the case with methods, they only work on the object type they are designed for, so list methods only work on lists.</p>
 <p><strong>Table 10</strong> Common List Methods</p>
 <table class="colwidths-auto table">
@@ -2778,7 +2956,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="section" id="range-objects">
-<span id="id26"></span><h3>1.6.4 <code class="docutils literal notranslate"><span class="pre">range</span></code> Objects<a class="headerlink" href="#range-objects" title="Permalink to this headline">#</a></h3>
+<span id="id27"></span><h3>1.6.4 <code class="docutils literal notranslate"><span class="pre">range</span></code> Objects<a class="headerlink" href="#range-objects" title="Permalink to this headline">#</a></h3>
 <p>It is common to need a sequential series of values in a specific range. The user can manually type these values into a list, but computer programming is about making the computer do the hard work for you. Python includes a function called <code class="docutils literal notranslate"><span class="pre">range()</span></code> that will generate a series of values in the desired range. The <code class="docutils literal notranslate"><span class="pre">range()</span></code> function requires at least one argument to tell it how high the range should be. For example, <code class="docutils literal notranslate"><span class="pre">range(10)</span></code> generates values up to and excluding 10.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2866,8 +3044,8 @@ title="Print to PDF"
 </div>
 </div>
 <div class="section" id="tuples">
-<span id="id27"></span><h3>1.6.5 Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">#</a></h3>
-<p><em>Tuples</em> are another object type similar to lists except that they are <em>immutable</em>… that is to say, they cannot be changed once created. They look similar a list except that they use parentheses instead of square brackets. So what use is an unchangeable list-like object? There are times when you might want data inside your code, but you do not want to accidentally change it. Think of it as something similar to locking a file on your computer to avoid accidentally making modifications. While this features is not strictly necessary, it may be a prudent practice in some situation in case you make a mistake.</p>
+<span id="id28"></span><h3>1.6.5 Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">#</a></h3>
+<p id="index-11"><em>Tuples</em> are another object type similar to lists except that they are <em>immutable</em>… that is to say, they cannot be changed once created. They look similar a list except that they use parentheses instead of square brackets. So what use is an unchangeable list-like object? There are times when you might want data inside your code, but you do not want to accidentally change it. Think of it as something similar to locking a file on your computer to avoid accidentally making modifications. While this features is not strictly necessary, it may be a prudent practice in some situation in case you make a mistake.</p>
 <p>Below is a tuple containing the energy in joules of the first five hydrogen atomic orbitals. There is no need to change this data in your code, so fixing it in a tuple makes sense. Indexing and slicing work exactly the same in tuples as they do in string and lists, so we can use this tuple to quickly calculate the energy difference between any pair of atomic orbitals.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2904,10 +3082,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="section" id="loops">
-<span id="id28"></span><h2>1.7 Loops<a class="headerlink" href="#loops" title="Permalink to this headline">#</a></h2>
-<p><em>Loops</em> allow programs to rerun the same block of code multiple times. This is important because there are often sections of code that need to be run numerous times… sometimes extending into the thousands. If we needed to include a separate copy of the same code for every time it is run, our scripts would be unreasonably large.</p>
+<span id="id29"></span><h2>1.7 Loops<a class="headerlink" href="#loops" title="Permalink to this headline">#</a></h2>
+<p id="index-12"><em>Loops</em> allow programs to rerun the same block of code multiple times. This is important because there are often sections of code that need to be run numerous times… sometimes extending into the thousands. If we needed to include a separate copy of the same code for every time it is run, our scripts would be unreasonably large.</p>
 <div class="section" id="for-loops">
-<span id="id29"></span><h3>1.7.1 <code class="docutils literal notranslate"><span class="pre">for</span></code> Loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">#</a></h3>
+<span id="id30"></span><h3>1.7.1 <code class="docutils literal notranslate"><span class="pre">for</span></code> Loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">for</span></code> loop is probably the most common loop you will encounter. It is often used to iterate over a multi-element object like lists or tuples, and for each element, the block of indented code below is executed. For example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3039,7 +3217,7 @@ S
 <p>In the above example, the value <code class="docutils literal notranslate"><span class="pre">x</span></code> from the range object is not used in the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. There is no rule that says it has to be. Also, you may notice that the variable names in all the above examples keep changing. Just like in the rest of your code, you are also welcome to pick your variables in the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. Some people like to use <code class="docutils literal notranslate"><span class="pre">x</span></code> as a generic variable, but it is often best to give the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop variable an intuative name so that it is easy to follow as your code grows more complex.</p>
 </div>
 <div class="section" id="while-loops">
-<span id="id30"></span><h3>1.7.2 <code class="docutils literal notranslate"><span class="pre">while</span></code> Loops<a class="headerlink" href="#while-loops" title="Permalink to this headline">#</a></h3>
+<span id="id31"></span><h3>1.7.2 <code class="docutils literal notranslate"><span class="pre">while</span></code> Loops<a class="headerlink" href="#while-loops" title="Permalink to this headline">#</a></h3>
 <p>The other common loop is the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop. It is used to keep executing the indented block of code below until a stop condition is satisfied. As an example, the indented block of code below the <code class="docutils literal notranslate"><span class="pre">while</span></code> statement is run until <code class="docutils literal notranslate"><span class="pre">x</span></code> is no longer less than ten. The <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">10</span></code> is known as the <em>termination condition</em>, and it is checked each time before the indented code is executed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3085,7 +3263,7 @@ S
 <p>In the above code, the value is incremented until it reaches 10 (remember, <code class="docutils literal notranslate"><span class="pre">!=</span></code> means “does not equal”), and then a “Done” message is printed… at least that is the intention. No message is ever printed and the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop keeps running. If we do the math on the values for <code class="docutils literal notranslate"><span class="pre">x</span></code>, we find that in incrementing by three (0, 3, 6, 9, 12,…), the value for <code class="docutils literal notranslate"><span class="pre">x</span></code> never equals 10, so the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop never stops. For this reason, it is wise to avoid <code class="docutils literal notranslate"><span class="pre">while</span></code> loops unless you absolutely must use them. If you do use a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, triple check you termination condition and avoid using <code class="docutils literal notranslate"><span class="pre">=</span></code> or <code class="docutils literal notranslate"><span class="pre">!=</span></code> in your termination condition. Instead, try to use <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> or <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>. These are less likely to fail.</p>
 </div>
 <div class="section" id="continue-pass-break-commands">
-<span id="id31"></span><h3>1.7.3 <code class="docutils literal notranslate"><span class="pre">Continue</span></code>, <code class="docutils literal notranslate"><span class="pre">Pass</span></code>, &amp; <code class="docutils literal notranslate"><span class="pre">Break</span></code> Commands<a class="headerlink" href="#continue-pass-break-commands" title="Permalink to this headline">#</a></h3>
+<span id="id32"></span><h3>1.7.3 <code class="docutils literal notranslate"><span class="pre">Continue</span></code>, <code class="docutils literal notranslate"><span class="pre">Pass</span></code>, &amp; <code class="docutils literal notranslate"><span class="pre">Break</span></code> Commands<a class="headerlink" href="#continue-pass-break-commands" title="Permalink to this headline">#</a></h3>
 <p>Other ways to control the flow of code execution are the <code class="docutils literal notranslate"><span class="pre">continue</span></code>, <code class="docutils literal notranslate"><span class="pre">pass</span></code>, and <code class="docutils literal notranslate"><span class="pre">break</span></code> commands. These are not used heavily, but it is helpful to know about them on the occasions that you need them. Table 11 summarizes each of these statements below.</p>
 <p><strong>Table 11</strong> Loop Interruptions</p>
 <table class="colwidths-auto table">
@@ -3121,7 +3299,7 @@ S
     <span class="k">else</span><span class="p">:</span>
         <span class="n">vol_H</span> <span class="o">=</span> <span class="n">vol_H</span> <span class="o">+</span> <span class="mi">1</span>
         
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Endpoint: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">vol_H</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; mL HCl solution&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Endpoint: </span><span class="si">{</span><span class="n">vol_H</span><span class="si">}</span><span class="s1"> mL HCl solution&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3162,7 +3340,7 @@ S
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/cw/g8p9ghtd3_7b10t_kws_b86h0000gp/T/ipykernel_964/2693538935.py&quot;</span><span class="gt">, line </span><span class="mi">4</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/cw/g8p9ghtd3_7b10t_kws_b86h0000gp/T/ipykernel_4416/2693538935.py&quot;</span><span class="gt">, line </span><span class="mi">4</span>
     <span class="k">else</span><span class="p">:</span>
          <span class="o">^</span>
 <span class="ne">IndentationError</span>: expected an indented block
@@ -3185,13 +3363,13 @@ S
 </div>
 </div>
 <div class="section" id="file-input-output-i-o">
-<span id="id32"></span><h2>1.8 File Input/Output (I/O)<a class="headerlink" href="#file-input-output-i-o" title="Permalink to this headline">#</a></h2>
-<p>Up to this point, we have only been dealing with computer-generated and manually typed values, strings, lists, and tuples. In research and laboratory environments, we often need to work with data stored in a file. These files may be generated from an instrument or as the result of humans typing values into a spreadsheet as they take measurements or make observations. There are two general categories of data files: text and binary files. <em>Text files</em> are those that, when opened by a text editor, can be read by humans, while <em>binary files</em> cannot. The reading of binary files requires other specialized software, such as demonstrated in <a class="reference internal" href="../chapter_11/chap_11_notebook.html#id1"><span class="std std-ref">chapter 11</span></a>, and text files are very common for storing data, so we will focus only on text files here.</p>
+<span id="id33"></span><h2>1.8 File Input/Output (I/O)<a class="headerlink" href="#file-input-output-i-o" title="Permalink to this headline">#</a></h2>
+<p id="index-13">Up to this point, we have only been dealing with computer-generated and manually typed values, strings, lists, and tuples. In research and laboratory environments, we often need to work with data stored in a file. These files may be generated from an instrument or as the result of humans typing values into a spreadsheet as they take measurements or make observations. There are two general categories of data files: text and binary files. <em>Text files</em> are those that, when opened by a text editor, can be read by humans, while <em>binary files</em> cannot. The reading of binary files requires other specialized software, such as demonstrated in <a class="reference internal" href="../chapter_11/chap_11_notebook.html#id1"><span class="std std-ref">chapter 11</span></a>, and text files are very common for storing data, so we will focus only on text files here.</p>
 <p>There are a large variety of text files which differ simply by the way in which the information is formatted in the file. Common examples include comma separated values (CSV), protein database (PDB), and <em>xyz</em> coordinates (XYZ). These files have different extensions (i.e., those 3-4 letters after the period at the end of a file name), but they are all just text files. You can change the extension to <em>.txt</em> if you like and open them in any text editor or word processor. The <em>.csv</em>, <em>.pdb</em>, and <em>.xyz</em> are simply tags to help your computer decide which software application can and should open the file.</p>
 <p>We will focus on the CSV file format as it is extremely common, and many software applications can export data in the CSV format. Comma separated value files are a way of encoding information that might otherwise be stored in a spreadsheet, and spreadsheet applications are able to easily read and write CSV files.  Each line of the text file is a different row, and each item in a row is separated by commas… hence the name. Below are the contents of a CSV file and how it would look in a spreadsheet. In some files, you may see a <code class="docutils literal notranslate"><span class="pre">\n</span></code> at the end of each line. This is a line terminator character telling some software applications where a line ends.</p>
 <p><img alt="" src="../../_images/csv_file.png" /></p>
 <div class="section" id="reading-lines-with-python">
-<span id="id33"></span><h3>1.8.1.Reading Lines with Python<a class="headerlink" href="#reading-lines-with-python" title="Permalink to this headline">#</a></h3>
+<span id="id34"></span><h3>1.8.1.Reading Lines with Python<a class="headerlink" href="#reading-lines-with-python" title="Permalink to this headline">#</a></h3>
 <p>The first method we will cover for reading text files is the native Python method of reading the lines of the text file one at a time. This method requires a little more effort than the other methods in this book, but it also offers much more control.</p>
 <p>There are three general steps for this approach: open the file, read each line one at a time, and close the file. Opening the file is performed with the <code class="docutils literal notranslate"><span class="pre">open()</span></code> function. Be sure to attach the file to a variable to be accessed later. Next, the data is read a single line at a time using the <code class="docutils literal notranslate"><span class="pre">readlines()</span></code> method. Being that we need to do the same task over and over, we will use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. Finally, it is a good practice to close the file using the <code class="docutils literal notranslate"><span class="pre">close()</span></code> command. This process is demonstrated below in opening the data shown above in a file called <em>squares.csv</em>.</p>
 <div class="admonition note">
@@ -3309,7 +3487,7 @@ S
 </div>
 </div>
 <div class="section" id="writing-data-with-python">
-<span id="id34"></span><h3>1.8.2 Writing Data with Python<a class="headerlink" href="#writing-data-with-python" title="Permalink to this headline">#</a></h3>
+<span id="id35"></span><h3>1.8.2 Writing Data with Python<a class="headerlink" href="#writing-data-with-python" title="Permalink to this headline">#</a></h3>
 <p>Python can also write data to a file using the <code class="docutils literal notranslate"><span class="pre">write()</span></code> function which takes a string and writes it to a file. Before this can be done, the file needs to be opened using the <code class="docutils literal notranslate"><span class="pre">open()</span></code> function requires the name of the file to write to, and if the file does not already exist, it creates a new file with this name. There is an optional second argument for the <code class="docutils literal notranslate"><span class="pre">open()</span></code> function that sets the mode in which the file is opened. There are a number of modes, but common modes include <code class="docutils literal notranslate"><span class="pre">'w'</span></code> for write only mode, <code class="docutils literal notranslate"><span class="pre">'r'</span></code> for read only mode, and <code class="docutils literal notranslate"><span class="pre">'a'</span></code> for append mode. The latter adds any new text to the end of an already-existing file.</p>
 <p>In the example below, a list, <code class="docutils literal notranslate"><span class="pre">angular</span></code>, containing nested lists of angular quantum numbers and shapes is written to a new file. Following each nested list (i.e., angular quantum number and shape pair) is a line terminator character <code class="docutils literal notranslate"><span class="pre">\n</span></code>. Because the following code opens the file in a context using a <code class="docutils literal notranslate"><span class="pre">with</span></code> statement, there is no need to explicitly close the file as this is done automatically.</p>
 <div class="cell docutils container">
@@ -3319,15 +3497,15 @@ S
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;new_file.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">angular</span><span class="p">:</span>
-        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;,&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0}</span><span class="s1">, </span><span class="si">{1}</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="reading-data-with-np-genfromtxt">
-<span id="id35"></span><h3>1.8.3 Reading Data with <code class="docutils literal notranslate"><span class="pre">np.genfromtxt()</span></code><a class="headerlink" href="#reading-data-with-np-genfromtxt" title="Permalink to this headline">#</a></h3>
-<p>The second approach to reading data from files uses a function from the NumPy library called <code class="docutils literal notranslate"><span class="pre">genfromtxt()</span></code>. NumPy will not be covered in depth until <a class="reference internal" href="../chapter_04/chap_04_notebook.html#id1"><span class="std std-ref">chapter 4</span></a>, but we can still use a couple functions before then. Before using NumPy, we need to import it using <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code>, which can be thought of as activating the library. The <code class="docutils literal notranslate"><span class="pre">np.genfromtxt()</span></code> function takes two required arguments for reading a text file: the file name and the delimiter. The <em>delimiter</em> is the symbol that separates values in each row and can be almost any symbol including spaces or tabs. If you encounter tab separated data, use <code class="docutils literal notranslate"><span class="pre">delimiter='\t'</span></code>, and for comma separated values (CSV) file, use <code class="docutils literal notranslate"><span class="pre">delimiter=','</span></code>.</p>
+<span id="id36"></span><h3>1.8.3 Reading Data with <code class="docutils literal notranslate"><span class="pre">np.genfromtxt()</span></code><a class="headerlink" href="#reading-data-with-np-genfromtxt" title="Permalink to this headline">#</a></h3>
+<p id="index-14">The second approach to reading data from files uses a function from the NumPy library called <code class="docutils literal notranslate"><span class="pre">genfromtxt()</span></code>. NumPy will not be covered in depth until <a class="reference internal" href="../chapter_04/chap_04_notebook.html#id1"><span class="std std-ref">chapter 4</span></a>, but we can still use a couple functions before then. Before using NumPy, we need to import it using <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code>, which can be thought of as activating the library. The <code class="docutils literal notranslate"><span class="pre">np.genfromtxt()</span></code> function takes two required arguments for reading a text file: the file name and the delimiter. The <em>delimiter</em> is the symbol that separates values in each row and can be almost any symbol including spaces or tabs. If you encounter tab separated data, use <code class="docutils literal notranslate"><span class="pre">delimiter='\t'</span></code>, and for comma separated values (CSV) file, use <code class="docutils literal notranslate"><span class="pre">delimiter=','</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s1">&#39;file_name&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -3417,7 +3595,7 @@ number, square
 </div>
 </div>
 <div class="section" id="reading-data-with-np-savetxt">
-<span id="id36"></span><h3>1.8.4 Reading Data with <code class="docutils literal notranslate"><span class="pre">np.savetxt()</span></code><a class="headerlink" href="#reading-data-with-np-savetxt" title="Permalink to this headline">#</a></h3>
+<span id="id37"></span><h3>1.8.4 Reading Data with <code class="docutils literal notranslate"><span class="pre">np.savetxt()</span></code><a class="headerlink" href="#reading-data-with-np-savetxt" title="Permalink to this headline">#</a></h3>
 <p>One of the easiest approaches to writing data back to a file is to again use a NumPy function, <code class="docutils literal notranslate"><span class="pre">np.savetxt()</span></code>, which requires both a file name as a string and the data. It is also recommended to include a delimiter as a string using the <code class="docutils literal notranslate"><span class="pre">delimiter=</span></code> keyword argument. This function can write a file from a list, tuple, or NumPy array (introduced in <a class="reference internal" href="../chapter_04/chap_04_notebook.html#id2"><span class="std std-ref">section 4.1</span></a>), and if a list or tuple is nested, each inner list/tuple is a row in the written file.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s1">&#39;file_name&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 </pre></div>
@@ -3441,10 +3619,10 @@ number, square
 </div>
 </div>
 <div class="section" id="creating-functions">
-<span id="id37"></span><h2>1.9 Creating Functions<a class="headerlink" href="#creating-functions" title="Permalink to this headline">#</a></h2>
-<p>After you have been programming for a while, you will likely find yourself repeating the same tasks. For example, let us say your research has you repeatedly calculating the distance between two atoms based on their <em>xyz</em> coordinates. You certainly could rewrite or copy-and-paste the same code every time you need to find the distance between two atoms, but that sounds horrible. You can avoid this by creating your own function that calculates the distance. This way, every time you need to calculate the distance between a pair of atoms, you can call the function and the same section of code located in the function is executed. You only have to write the code once and then you can execute it as many times as you need whenever you need.</p>
+<span id="id38"></span><h2>1.9 Creating Functions<a class="headerlink" href="#creating-functions" title="Permalink to this headline">#</a></h2>
+<p id="index-15">After you have been programming for a while, you will likely find yourself repeating the same tasks. For example, let us say your research has you repeatedly calculating the distance between two atoms based on their <em>xyz</em> coordinates. You certainly could rewrite or copy-and-paste the same code every time you need to find the distance between two atoms, but that sounds horrible. You can avoid this by creating your own function that calculates the distance. This way, every time you need to calculate the distance between a pair of atoms, you can call the function and the same section of code located in the function is executed. You only have to write the code once and then you can execute it as many times as you need whenever you need.</p>
 <div class="section" id="basic-functions">
-<span id="id38"></span><h3>1.9.1 Basic Functions<a class="headerlink" href="#basic-functions" title="Permalink to this headline">#</a></h3>
+<span id="id39"></span><h3>1.9.1 Basic Functions<a class="headerlink" href="#basic-functions" title="Permalink to this headline">#</a></h3>
 <p>To create your own function, you first need a name for the function. The name should be descriptive of what it does and makes sense to you and anyone who would use it. If we want to create a function to measure the distance between two atoms, <code class="docutils literal notranslate"><span class="pre">distance</span></code> might be a good name for the function.</p>
 <p>The first line of a function definition looks like the following: the <code class="docutils literal notranslate"><span class="pre">def</span></code> statement followed by the name of the function with whatever information, called <em>arguments</em>, that is fed into the function, and a colon at the end. In this function, we will feed it the <em>xyz</em> coordinates for both atoms as either a pair of lists or tuples. In the parentheses following the function name, place variable names you want to use to represent these coordinates. We will use <code class="docutils literal notranslate"><span class="pre">coords1</span></code> and <code class="docutils literal notranslate"><span class="pre">coords2</span></code> here.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">coords1</span><span class="p">,</span> <span class="n">coords2</span><span class="p">):</span>
@@ -3471,7 +3649,7 @@ number, square
 
     <span class="n">d</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">dy</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">dz</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The distance is: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The distance is: </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3504,7 +3682,7 @@ number, square
 </div>
 </div>
 <div class="section" id="return-statements">
-<span id="id39"></span><h3>1.9.2 return Statements<a class="headerlink" href="#return-statements" title="Permalink to this headline">#</a></h3>
+<span id="id40"></span><h3>1.9.2 return Statements<a class="headerlink" href="#return-statements" title="Permalink to this headline">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">distance()</span></code> function prints out a value for the distance, but what happens if we want to use this value for a subsequent calculation? Perhaps we want to calculation the average of the distances between multiple pairs of atoms. We certainly do not want to retype these values back into Python, so instead we can have the function <em>return</em> the value. You can think of functions as little machines where the arguments in the parentheses are the input and the return at the end of the function is what comes out of the machine. Below is a modified version of our <code class="docutils literal notranslate"><span class="pre">distance()</span></code> function with a <code class="docutils literal notranslate"><span class="pre">return</span></code> statement instead of printing the value. By running the following code, it overwrites the original function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3592,7 +3770,7 @@ number, square
 </div>
 </div>
 <div class="section" id="local-variable-scope">
-<span id="id40"></span><h3>1.9.3 Local Variable Scope<a class="headerlink" href="#local-variable-scope" title="Permalink to this headline">#</a></h3>
+<span id="id41"></span><h3>1.9.3 Local Variable Scope<a class="headerlink" href="#local-variable-scope" title="Permalink to this headline">#</a></h3>
 <p>Another advantage of using functions is that they maintain variables in a <em>local scope</em>. That is, any variable created <em>inside</em> a function is not accessible outside the function. If you look back at our <code class="docutils literal notranslate"><span class="pre">distance()</span></code> function, the variable <code class="docutils literal notranslate"><span class="pre">d</span></code> is only used inside the function. If we try to see what is attached to <code class="docutils literal notranslate"><span class="pre">d</span></code>, we get the following error message.</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
@@ -3603,7 +3781,7 @@ number, square
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_964</span><span class="o">/</span><span class="mf">3161387801.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_4416</span><span class="o">/</span><span class="mf">3161387801.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">d</span>
 
 <span class="ne">NameError</span>: name &#39;d&#39; is not defined
@@ -3660,7 +3838,7 @@ number, square
 </div>
 </div>
 <div class="section" id="arguments">
-<span id="id41"></span><h3>1.9.4 Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">#</a></h3>
+<span id="id42"></span><h3>1.9.4 Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">#</a></h3>
 <p>Functions take in data through <em>arguments</em> placed in the parentheses after the function name. Different functions take different numbers and types of arguments from as few as zero to potentially dozes of arguments. Function arguments are also sometimes optional. Some functions allow the user to add extra data or change the functions behavior through arguments.</p>
 <p>The first type of argument is a <em>positional argument</em>. This is an argument that is required to be in a specific position inside the parentheses. For example, the function below takes in the number of protons and neutrons, respectively, and outputs the isotope name. This function is only written for the first ten elements on the periodic table.</p>
 <div class="cell docutils container">
@@ -3766,7 +3944,7 @@ number, square
 <p>Functions can also take an indeterminate number of positional or keyword arguments, but this is less common and is covered in <a class="reference internal" href="../chapter_02/chap_02_notebook.html#id17"><span class="std std-ref">section 2.7</span></a> and an optional topic for those who are interested.</p>
 </div>
 <div class="section" id="docstrings">
-<span id="id42"></span><h3>1.9.5 Docstrings<a class="headerlink" href="#docstrings" title="Permalink to this headline">#</a></h3>
+<span id="id43"></span><h3>1.9.5 Docstrings<a class="headerlink" href="#docstrings" title="Permalink to this headline">#</a></h3>
 <p>The final component of a function is the docstring. Strictly speaking, this is not necessary for a function to work and is sometimes left out for simple functions, but it is a good habit to include them. This is especially true if you are creating the function for a much larger project or passing it to other people. A <em>docstring</em> is a string placed at the top a function definition describing what the function does, what types of data it takes, and what is returned at the end of the function. Traditionally, docstrings are enclosed in triple quotes. The first line of the docstring describes what type of data goes in the function and what comes out. In the <code class="docutils literal notranslate"><span class="pre">distance()</span></code> function above, our function takes in a pair of lists or tuples and outputs a single value, so the first line may look something like this.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">coords1</span><span class="p">,</span> <span class="n">coords2</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;(list/tuple, list/tuple) -&gt; float</span>
@@ -3840,7 +4018,7 @@ number, square
 <p>a) Write a Python script that takes the name of a PNG image (i.e., name always ends in “.png”) and removes the     “.png” file extension using a <a class="reference internal" href="#id12"><span class="std std-ref">string method</span></a>.</p>
 <p>b) Write a Python script that removes the file extension from a file name using <a class="reference internal" href="#id11"><span class="std std-ref">slicing</span></a>. You may assume that the file extensions will always be three letters long with a period (e.g., .png, .pdf, .txt, etc…).</p>
 </li>
-<li><p>For <code class="docutils literal notranslate"><span class="pre">DNA</span> <span class="pre">=</span> <span class="pre">'ATTCGCCGCTTA'</span></code>, use <a class="reference internal" href="#id13"><span class="std std-ref">Boolean logic</span></a> to show that the DNA sequence is a palindrome (same forwards and backwards). Hint: this will require a Boolean logic operator to evaluate as <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<li><p>For <code class="docutils literal notranslate"><span class="pre">DNA</span> <span class="pre">=</span> <span class="pre">'ATTCGCCGCTTA'</span></code>, use <a class="reference internal" href="#id14"><span class="std std-ref">Boolean logic</span></a> to show that the DNA sequence is a palindrome (same forwards and backwards). Hint: this will require a Boolean logic operator to evaluate as <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DNA</span> <span class="o">=</span> <span class="s1">&#39;ATTCGCCGCTTA</span>
 </pre></div>
 </div>
@@ -3893,7 +4071,7 @@ number, square
 <p>a) Create a tuple of even numbers from 18 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 320 including 320.</p>
 <p>b) Can you reverse, remove, or append values to the tuple?</p>
 </li>
-<li><p>The following code generates a random list of integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 20 (<a class="reference internal" href="../chapter_02/chap_02_notebook.html#id12"><span class="std std-ref">section 2.4.3</span></a> will cover this in more detail). Run the code and test to see if 7 is in the list. Hint: <a class="reference internal" href="#id18"><span class="std std-ref">section 1.4.5</span></a> may be helpful.</p>
+<li><p>The following code generates a random list of integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 20 (<a class="reference internal" href="../chapter_02/chap_02_notebook.html#id12"><span class="std std-ref">section 2.4.3</span></a> will cover this in more detail). Run the code and test to see if 7 is in the list. Hint: <a class="reference internal" href="#id19"><span class="std std-ref">section 1.4.5</span></a> may be helpful.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
 <span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
 </pre></div>
@@ -3924,8 +4102,8 @@ number, square
 </pre></div>
 </div>
 </li>
-<li><p>Using Python’s native <a class="reference internal" href="#id33"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">open()</span></code> and <code class="docutils literal notranslate"><span class="pre">readlines()</span></code></span></a> functions, open the <strong>test.txt</strong> file and print each line.</p></li>
-<li><p>Using <a class="reference internal" href="#id34"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">np.genfromtxt()</span></code></span></a>, read the <strong>test.txt</strong> file and append the time values to one list and the concentration values to a second list. You will need to skip a line in the file.</p></li>
+<li><p>Using Python’s native <a class="reference internal" href="#id34"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">open()</span></code> and <code class="docutils literal notranslate"><span class="pre">readlines()</span></code></span></a> functions, open the <strong>test.txt</strong> file and print each line.</p></li>
+<li><p>Using <a class="reference internal" href="#id35"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">np.genfromtxt()</span></code></span></a>, read the <strong>test.txt</strong> file and append the time values to one list and the concentration values to a second list. You will need to skip a line in the file.</p></li>
 <li><p>Write and test a function, complete with docstring, that solves the Ideal Gas Law for pressure when provided with volume, temperature, and moles of gas (R = 0.08206 L·atm/mol·K) with the following stipulations.</p>
 <p>a) Create one version of the function that takes only positional arguments.</p>
 <p>b) Create a second copy of the function that takes only keyword arguments. Try testing this function with positional       arguments. Does it still work?</p>

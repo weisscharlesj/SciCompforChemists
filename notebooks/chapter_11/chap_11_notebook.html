@@ -185,6 +185,11 @@ const thebe_selector_output = ".output, .cell_output"
    Chapter 13: Command Line &amp; Spyder
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../genindex.html">
+   Index
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -535,7 +540,7 @@ title="Print to PDF"
 <p>Currently, NMRglue is not included with Anaconda, so you will need to fetch NMRglue and install it yourself. Instructions are included on the following website. NMRglue requires you have NumPy and SciPy already installed, and matplotlib should also be installed for visualization.</p>
 <p><a class="reference external" href="https://nmrglue.readthedocs.io/en/latest/install.html">https://nmrglue.readthedocs.io/en/latest/install.html</a></p>
 <p>All use of NMRglue below assumes the following import with alias. NMRglue is not a major library in the SciPy ecosystem, so the <code class="docutils literal notranslate"><span class="pre">ng</span></code> alias is not a strong convention but is used here for convenience and to be consistent with the online documentation.</p>
-<div class="cell docutils container">
+<div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nmrglue</span> <span class="k">as</span> <span class="nn">ng</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -544,15 +549,10 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;frozen importlib._bootstrap&gt;:228: RuntimeWarning: scipy._lib.messagestream.MessageStream size changed, may indicate binary incompatibility. Expected 56 from C header, got 64 from PyObject
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="nmr-processing">
 <span id="id2"></span><h2>11.1 NMR Processing<a class="headerlink" href="#nmr-processing" title="Permalink to this headline">#</a></h2>
-<p>The general procedure for collecting NMR data is to excite a given type of NMR-active nuclei with a radio-frequency pulse and allow them to relax. As they precess, their rotation leads to a voltage oscillation in the instrument at characteristic frequencies, and the spectrometer records these oscillations as a <em>free induction decay (fid)</em> depicted below (Figure 1, left). It is the frequency of these oscillations that we are interested in because they are informative to a trained chemist as to the chemical environment of the nuclei. One challenge is that all the different signals from each of the nuclei are stacked on top of each other making it difficult to distinguish one from the other or to determine the wave frequency. This is similar to the problem of a computer discerning a single instrument in an entire orchestra playing at once. Fortunately, there is a mathematical equation called the Fourier transform that converts the above <em>fid</em> into a graph showing all of the different frequencies (Figure 1, right). This is what is known as converting the <em>time domain</em> to the <em>frequency domain</em>.</p>
+<p id="index-0">The general procedure for collecting NMR data is to excite a given type of NMR-active nuclei with a radio-frequency pulse and allow them to relax. As they precess, their rotation leads to a voltage oscillation in the instrument at characteristic frequencies, and the spectrometer records these oscillations as a <em>free induction decay (fid)</em> depicted below (Figure 1, left). It is the frequency of these oscillations that we are interested in because they are informative to a trained chemist as to the chemical environment of the nuclei. One challenge is that all the different signals from each of the nuclei are stacked on top of each other making it difficult to distinguish one from the other or to determine the wave frequency. This is similar to the problem of a computer discerning a single instrument in an entire orchestra playing at once. Fortunately, there is a mathematical equation called the Fourier transform that converts the above <em>fid</em> into a graph showing all of the different frequencies (Figure 1, right). This is what is known as converting the <em>time domain</em> to the <em>frequency domain</em>.</p>
 <p><img alt="" src="../../_images/fid.svg" /></p>
 <p><strong>Figure 1</strong> Raw NMR spectroscopy data is converted from the time domain (left) to the frequency domains (right) using a Fourier transform.</p>
 <p>The general steps for dealing with NMR spectroscopic data in Python are outlined below.</p>
@@ -566,7 +566,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="importing-data-with-nmrglue">
 <span id="id3"></span><h2>11.2 Importing Data with NMRglue<a class="headerlink" href="#importing-data-with-nmrglue" title="Permalink to this headline">#</a></h2>
-<p>The importing of data using NMRglue is performed by the read function from one of four submodules shown below. The choice of module is dictated by the data file type.</p>
+<p id="index-1">The importing of data using NMRglue is performed by the read function from one of four submodules shown below. The choice of module is dictated by the data file type.</p>
 <p><strong>Table 1</strong> Four NMRglue Modules</p>
 <table class="colwidths-auto table">
 <thead>
@@ -696,7 +696,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="fourier-transforming-data">
 <span id="id4"></span><h2>11.3 Fourier Transforming Data<a class="headerlink" href="#fourier-transforming-data" title="Permalink to this headline">#</a></h2>
-<p>When the data is first imported, it is often in the time domain. You can confirm this by checking that the <code class="docutils literal notranslate"><span class="pre">time</span></code> value in the <code class="docutils literal notranslate"><span class="pre">udic</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> like below.</p>
+<p id="index-2">When the data is first imported, it is often in the time domain. You can confirm this by checking that the <code class="docutils literal notranslate"><span class="pre">time</span></code> value in the <code class="docutils literal notranslate"><span class="pre">udic</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> like below.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">udic</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;time&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -710,7 +710,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fd651aa30a0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7feecd96cfa0&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_11_notebook_14_1.svg" src="../../_images/chap_11_notebook_14_1.svg" /></div>
@@ -980,7 +980,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7fd6521bb640&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7feecdf674c0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_11_notebook_45_1.svg" src="../../_images/chap_11_notebook_45_1.svg" /></div>
@@ -1042,6 +1042,7 @@ title="Print to PDF"
 <ol class="simple">
 <li><p>NMRglue Website. <a class="reference external" href="https://www.nmrglue.com/">https://www.nmrglue.com/</a> (free resource)</p></li>
 <li><p>NMRglue Documentation Page. <a class="reference external" href="https://www.nmrglue.com/">http://nmrglue.readthedocs.io/en/latest/tutorial.html</a> (free resource)</p></li>
+<li><p>J.J. Helmus, C.P. Jaroniec, Nmrglue: An open source Python package for the analysis of multidimensional NMR data, J. Biomol. NMR 2013, 55, 355-367, <a class="reference external" href="http://dx.doi.org/10.1007/s10858-013-9718-x">http://dx.doi.org/10.1007/s10858-013-9718-x</a>. (paper on nmrglue)</p></li>
 </ol>
 </div>
 <div class="section" id="exercises">

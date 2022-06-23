@@ -185,6 +185,11 @@ const thebe_selector_output = ".output, .cell_output"
    Chapter 13: Command Line &amp; Spyder
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../genindex.html">
+   Index
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -385,12 +390,12 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#categorical-plots">
    10.3 Categorical Plots
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#strip-plot">
-   10.3.1 Strip Plot
-  </a>
   <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#strip-plot">
+     10.3.1 Strip Plot
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#swarm-plot">
      10.3.2 Swarm Plot
@@ -522,12 +527,12 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#categorical-plots">
    10.3 Categorical Plots
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#strip-plot">
-   10.3.1 Strip Plot
-  </a>
   <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#strip-plot">
+     10.3.1 Strip Plot
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#swarm-plot">
      10.3.2 Swarm Plot
@@ -631,18 +636,13 @@ title="Print to PDF"
 <p>There are a number of plotting libraries available for Python including Bokeh, Plotly, and MayaVi; but the most prevalent library is still probably matplotlib. It is often the first plotting library a Python user will learn, and for good reason. It is stable, well supported, and there are few plots that matplotlib cannot generate. Despite its popularity, there are some drawbacks… namely, it can be quite verbose. That is, you may be able to generate nearly any plot, but it will take at least a few lines of code if not dozens to create and customize your figure.</p>
 <p>One attractive alternative is the seaborn plotting library. While seaborn cannot generate the same variety of plots as matplotlib, it is good at generating a few common plots that people use regularly, and here is the key detail… it often does what would take matplotlib 10+ lines of code in only one or two lines. To make things even better, seaborn is built on top of matplotlib. This means that if you are not completely happy with what seaborn creates, you can fine tune it with the same matplotlib commands you already know! In addition, seaborn is designed to work closely with the pandas library. For example, think of all the lines of code you have typed to simply add labels to your <em>x</em>- and <em>y</em>-axes. Instead, seaborn often pulls the labels from the DataFrame column headers. Again, if you do not like this default behavior, you can still override it with <code class="docutils literal notranslate"><span class="pre">plt.xlabel()</span></code> and other commands that you already know.</p>
 <p>By convention, seaborn is imported with the <code class="docutils literal notranslate"><span class="pre">sns</span></code> alias, but being that this is a relatively young library, it is unclear how strong this convention is. The <a class="reference external" href="https://seaborn.pydata.org/">official seaborn website</a> uses it, so we will as well. All code in this chapter assumes the following import.</p>
-<div class="cell docutils container">
+<div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;frozen importlib._bootstrap&gt;:228: RuntimeWarning: scipy._lib.messagestream.MessageStream size changed, may indicate binary incompatibility. Expected 56 from C header, got 64 from PyObject
 </pre></div>
 </div>
 </div>
@@ -682,7 +682,7 @@ title="Print to PDF"
 <p>Generating a regression line through data is a common task in science, and seaborn includes multiple plotting types that perform this task. All of the plots discussed below use a least square best fit and include a confidence interval for the regression line as a shaded region. Remember that there is uncertainty in both the slope and <em>y</em>-intercept for a regression line. If we were to plot all the possible variations of the regression line within the slope and intercept uncertainties, we get the regression confidence interval. By default, seaborn displays the 95% confidence interval, but this can be changed.</p>
 <div class="section" id="regplot">
 <span id="id4"></span><h3>10.2.1 regplot<a class="headerlink" href="#regplot" title="Permalink to this headline">#</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">regplot</span></code> generates a single scatter plot of data with a linear regression through the data points complete with a 95% confidence interval. The <code class="docutils literal notranslate"><span class="pre">sns.regplot()</span></code> function can take <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> positional arguments just like <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code>, but it also can take the <em>x</em> and <em>y</em> column names from a pandas DataFrame. Both approaches are demonstrated below.</p>
+<span class="target" id="index-0"></span><p id="index-1">The <code class="docutils literal notranslate"><span class="pre">regplot</span></code> generates a single scatter plot of data with a linear regression through the data points complete with a 95% confidence interval. The <code class="docutils literal notranslate"><span class="pre">sns.regplot()</span></code> function can take <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> positional arguments just like <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code>, but it also can take the <em>x</em> and <em>y</em> column names from a pandas DataFrame. Both approaches are demonstrated below.</p>
 <div class="cell tag_remove-input docutils container">
 </div>
 <div class="cell docutils container">
@@ -993,7 +993,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="categorical-plots">
 <span id="id6"></span><h2>10.3 Categorical Plots<a class="headerlink" href="#categorical-plots" title="Permalink to this headline">#</a></h2>
-<p>Categorical plots contain one axis of continuous values and one axis of discrete or categorical values. For example, if the density of three metals were measured repeatedly in lab, we would want to plot measured density (continuous) with respect to metal identity (categorial). Below are a few fictitious laboratory measurements for the densities of copper, iron, and zinc.</p>
+<p id="index-2">Categorical plots contain one axis of continuous values and one axis of discrete or categorical values. For example, if the density of three metals were measured repeatedly in lab, we would want to plot measured density (continuous) with respect to metal identity (categorial). Below are a few fictitious laboratory measurements for the densities of copper, iron, and zinc.</p>
 <p><strong>Table 2</strong> Density (g/mL) Measurements for Different Metals</p>
 <table class="colwidths-auto table">
 <thead>
@@ -1129,9 +1129,8 @@ title="Print to PDF"
 </table>
 </div></div></div>
 </div>
-</div>
 <div class="section" id="strip-plot">
-<span id="id7"></span><h2>10.3.1 Strip Plot<a class="headerlink" href="#strip-plot" title="Permalink to this headline">#</a></h2>
+<span id="id7"></span><h3>10.3.1 Strip Plot<a class="headerlink" href="#strip-plot" title="Permalink to this headline">#</a></h3>
 <p>The simplest categorical plot function is <code class="docutils literal notranslate"><span class="pre">stripplot()</span></code> which generates a scatter plot with the <em>x</em>-axis as the categorical dimension and the <em>y</em>-axis as the continuous value dimension. By providing the function with the DataFrame, it will assume the columns are the categories.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1160,6 +1159,7 @@ title="Print to PDF"
 </div>
 <img alt="../../_images/chap_10_notebook_24_1.svg" src="../../_images/chap_10_notebook_24_1.svg" /></div>
 </div>
+</div>
 <div class="section" id="swarm-plot">
 <span id="id8"></span><h3>10.3.2 Swarm Plot<a class="headerlink" href="#swarm-plot" title="Permalink to this headline">#</a></h3>
 <p>While the plots above are elegantly simple, they can make it difficult to accurately interpret the data when multiple data points are overlapping as can happen with larger numbers of data points. This obscures the quantity of points in various regions. One plot that alleviates this issue is the swarm plot which is almost identical to the strip plot except that points are no permitted to overlap to make the quantity more apparent.</p>
@@ -1180,7 +1180,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="violin-plot">
 <span id="id9"></span><h3>10.3.3 Violin Plot<a class="headerlink" href="#violin-plot" title="Permalink to this headline">#</a></h3>
-<p>An additional option for understanding the density of points is the violin plot. By default, this plot renders a blob with the width representing the density of points at various regions. Inside the blob are miniature box plots (discussed in the next section) that provide more information about the distribution of data points.</p>
+<p id="index-3">An additional option for understanding the density of points is the violin plot. By default, this plot renders a blob with the width representing the density of points at various regions. Inside the blob are miniature box plots (discussed in the next section) that provide more information about the distribution of data points.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
@@ -1372,7 +1372,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="kde-plot">
 <span id="id14"></span><h3>10.4.2 kde Plot<a class="headerlink" href="#kde-plot" title="Permalink to this headline">#</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">kdeplot()</span></code> function is very similar to the <code class="docutils literal notranslate"><span class="pre">histplot()</span></code> except that it fits the histogram with a kernel density estimates (kde) curve. This curve is basically just a smoothed curve over the data to help visualize the overall trend.</p>
+<p id="index-4">The <code class="docutils literal notranslate"><span class="pre">kdeplot()</span></code> function is very similar to the <code class="docutils literal notranslate"><span class="pre">histplot()</span></code> except that it fits the histogram with a kernel density estimates (kde) curve. This curve is basically just a smoothed curve over the data to help visualize the overall trend.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">loc</span><span class="p">)</span>
@@ -1435,7 +1435,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x7ffb268d9af0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x7fd61445f670&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_10_notebook_51_1.svg" src="../../_images/chap_10_notebook_51_1.svg" /></div>
@@ -1447,7 +1447,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x7ffafe524cd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x7fd614b5eb20&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_10_notebook_52_1.svg" src="../../_images/chap_10_notebook_52_1.svg" /></div>
@@ -1621,7 +1621,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7ffb268b1c40&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7fd615732c40&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_10_notebook_56_1.svg" src="../../_images/chap_10_notebook_56_1.svg" /></div>
@@ -1634,7 +1634,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7ffafe145100&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7fd6151d5f40&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_10_notebook_58_1.svg" src="../../_images/chap_10_notebook_58_1.svg" /></div>
@@ -1642,7 +1642,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="heat-map">
 <span id="id17"></span><h2>10.6 Heat Map<a class="headerlink" href="#heat-map" title="Permalink to this headline">#</a></h2>
-<p>Heat maps are color representations of 2D grids of numerical data and are ideal for making large tables of values easily interpretable. As an example, we can import a table of bond dissociation energies (in kJ/mol) and visualize these data as a heat map. In the following pandas function call, the <code class="docutils literal notranslate"><span class="pre">index_col=0</span></code> tells pandas to apply the first column as column headers as well.</p>
+<p id="index-5">Heat maps are color representations of 2D grids of numerical data and are ideal for making large tables of values easily interpretable. As an example, we can import a table of bond dissociation energies (in kJ/mol) and visualize these data as a heat map. In the following pandas function call, the <code class="docutils literal notranslate"><span class="pre">index_col=0</span></code> tells pandas to apply the first column as column headers as well.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bde</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/bond_enthalpy_kJmol.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>

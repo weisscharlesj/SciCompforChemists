@@ -185,6 +185,11 @@ const thebe_selector_output = ".output, .cell_output"
    Chapter 13: Command Line &amp; Spyder
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../genindex.html">
+   Index
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -636,7 +641,7 @@ title="Print to PDF"
 <p>To support the wealth of features, pandas uses its own objects to hold data called a Series and a DataFrame, which are built on NumPy arrays. Because they are built on NumPy, many of the NumPy functions (e.g., <code class="docutils literal notranslate"><span class="pre">np.mean()</span></code>) work on pandas objects. The key difference between the a Series and DataFrame is that a Series is one-dimensional while a DataFrame is two-dimensional. Unlike a NumPy array, pandas objects have fixed dimensionality. There is a three-dimensional object called a <em>Panel</em>, but this will not be covered here as it is not often used.</p>
 <div class="section" id="series">
 <span id="id3"></span><h3>5.1.1 Series<a class="headerlink" href="#series" title="Permalink to this headline">#</a></h3>
-<p>While the pandas <em>Series</em> is restricted to being a single dimension, it can be as long as necessary to hold the data. A Series containing the atomic masses of the first five elements on the periodic table is generated below using the <code class="docutils literal notranslate"><span class="pre">pd.Series()</span></code> function. This function is always capitalized.</p>
+<p id="index-0">While the pandas <em>Series</em> is restricted to being a single dimension, it can be as long as necessary to hold the data. A Series containing the atomic masses of the first five elements on the periodic table is generated below using the <code class="docutils literal notranslate"><span class="pre">pd.Series()</span></code> function. This function is always capitalized.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mass</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">1.01</span><span class="p">,</span><span class="mf">4.00</span><span class="p">,</span><span class="mf">6.94</span><span class="p">,</span><span class="mf">9.01</span><span class="p">,</span><span class="mf">10.81</span><span class="p">])</span>
@@ -737,7 +742,7 @@ dtype: float64
 </div>
 <div class="section" id="dataframe">
 <span id="id4"></span><h3>5.1.2 DataFrame<a class="headerlink" href="#dataframe" title="Permalink to this headline">#</a></h3>
-<p>Most data you will find yourself working with will be best placed in a two-dimensional pandas object called a <em>DataFrame</em> which is always written with two capital letters. The DataFrame is similar to a Series except that now there are also columns with names. The columns can be accessed by column names and rows can be accesses by indices. You might think of a DataFrame as a collection of Series objects. Below, a DataFrame is constructed to hold the names, atomic numbers, masses, and ionization energies of the first five elements.</p>
+<p id="index-1">Most data you will find yourself working with will be best placed in a two-dimensional pandas object called a <em>DataFrame</em> which is always written with two capital letters. The DataFrame is similar to a Series except that now there are also columns with names. The columns can be accessed by column names and rows can be accesses by indices. You might think of a DataFrame as a collection of Series objects. Below, a DataFrame is constructed to hold the names, atomic numbers, masses, and ionization energies of the first five elements.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hydrogen&#39;</span><span class="p">,</span> <span class="s1">&#39;helium&#39;</span><span class="p">,</span> <span class="s1">&#39;lithium&#39;</span><span class="p">,</span> <span class="s1">&#39;beryllium&#39;</span><span class="p">,</span><span class="s1">&#39;boron&#39;</span><span class="p">]</span>
@@ -937,7 +942,7 @@ Name: Li, dtype: object
 </div>
 <div class="section" id="reading-writing-data">
 <span id="id5"></span><h2>5.2 Reading/Writing Data<a class="headerlink" href="#reading-writing-data" title="Permalink to this headline">#</a></h2>
-<p>Similar to NumPy, pandas contains multiple, convenient functions for reading/writing data directly to and from its own object types, and each function is suited to a specific file format. This includes CSV, HTML, JSON, SQL, Excel, and HDF5 files <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html">among others</a>.</p>
+<p id="index-2">Similar to NumPy, pandas contains multiple, convenient functions for reading/writing data directly to and from its own object types, and each function is suited to a specific file format. This includes CSV, HTML, JSON, SQL, Excel, and HDF5 files <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html">among others</a>.</p>
 <p><strong>Table 2</strong> Import/Export Functions in Pandas</p>
 <table class="colwidths-auto table">
 <thead>
@@ -1556,7 +1561,7 @@ IE,13.6,24.6,5.4,9.3,8.3
 <p>Once you load data into pandas, you will likely want to get an idea of what the data look like before you proceed to calculations and in-depth analyses. This section covers a few methods provided in pandas to gain a preliminary understanding of your data.</p>
 <div class="section" id="descriptive-functions">
 <span id="id11"></span><h3>5.3.1 Descriptive Functions<a class="headerlink" href="#descriptive-functions" title="Permalink to this headline">#</a></h3>
-<p>Pandas provides a few simple functions to view and describe new data. The first two are <code class="docutils literal notranslate"><span class="pre">head()</span></code> and <code class="docutils literal notranslate"><span class="pre">tail()</span></code> which allow you to see the top and bottom of the DataFrame, respectively. These are particularly useful when dealing with very large DataFrames. Below, a DataFrame containing random values in an even, normal, and poisson distribution (<span class="math notranslate nohighlight">\(\lambda\)</span> = 3.0) demonstrates these functions.</p>
+<p id="index-3">Pandas provides a few simple functions to view and describe new data. The first two are <code class="docutils literal notranslate"><span class="pre">head()</span></code> and <code class="docutils literal notranslate"><span class="pre">tail()</span></code> which allow you to see the top and bottom of the DataFrame, respectively. These are particularly useful when dealing with very large DataFrames. Below, a DataFrame containing random values in an even, normal, and poisson distribution (<span class="math notranslate nohighlight">\(\lambda\)</span> = 3.0) demonstrates these functions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;even&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
@@ -1600,33 +1605,33 @@ IE,13.6,24.6,5.4,9.3,8.3
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.704817</td>
-      <td>-1.429796</td>
+      <td>0.904361</td>
+      <td>0.432098</td>
       <td>3</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.557525</td>
-      <td>0.393671</td>
-      <td>1</td>
+      <td>0.773636</td>
+      <td>0.018930</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.061526</td>
-      <td>-1.143882</td>
+      <td>0.922036</td>
+      <td>-1.390009</td>
       <td>3</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.399208</td>
-      <td>-0.488949</td>
-      <td>4</td>
+      <td>0.392730</td>
+      <td>0.340726</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.672308</td>
-      <td>0.212017</td>
-      <td>2</td>
+      <td>0.118898</td>
+      <td>-1.096279</td>
+      <td>3</td>
     </tr>
   </tbody>
 </table>
@@ -1665,33 +1670,33 @@ IE,13.6,24.6,5.4,9.3,8.3
   <tbody>
     <tr>
       <th>995</th>
-      <td>0.845585</td>
-      <td>0.295298</td>
-      <td>6</td>
+      <td>0.804440</td>
+      <td>0.907905</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>996</th>
-      <td>0.061204</td>
-      <td>1.716903</td>
-      <td>4</td>
+      <td>0.258453</td>
+      <td>-0.457874</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>997</th>
-      <td>0.539732</td>
-      <td>0.964386</td>
-      <td>3</td>
+      <td>0.663011</td>
+      <td>1.174274</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>998</th>
-      <td>0.191217</td>
-      <td>-0.340134</td>
+      <td>0.535899</td>
+      <td>-1.008679</td>
       <td>5</td>
     </tr>
     <tr>
       <th>999</th>
-      <td>0.710390</td>
-      <td>0.409383</td>
-      <td>6</td>
+      <td>0.270974</td>
+      <td>1.205042</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
@@ -1737,45 +1742,45 @@ IE,13.6,24.6,5.4,9.3,8.3
     </tr>
     <tr>
       <th>mean</th>
-      <td>0.512996</td>
-      <td>0.023840</td>
-      <td>2.985000</td>
+      <td>0.500658</td>
+      <td>-0.014315</td>
+      <td>2.995000</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>0.283517</td>
-      <td>0.971333</td>
-      <td>1.747521</td>
+      <td>0.284139</td>
+      <td>1.012932</td>
+      <td>1.714618</td>
     </tr>
     <tr>
       <th>min</th>
-      <td>0.000965</td>
-      <td>-3.048260</td>
+      <td>0.000295</td>
+      <td>-3.035712</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>25%</th>
-      <td>0.269704</td>
-      <td>-0.573132</td>
+      <td>0.254114</td>
+      <td>-0.700820</td>
       <td>2.000000</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>0.528499</td>
-      <td>0.056901</td>
+      <td>0.501130</td>
+      <td>-0.054835</td>
       <td>3.000000</td>
     </tr>
     <tr>
       <th>75%</th>
-      <td>0.752148</td>
-      <td>0.661881</td>
+      <td>0.745040</td>
+      <td>0.681458</td>
       <td>4.000000</td>
     </tr>
     <tr>
       <th>max</th>
-      <td>0.998857</td>
-      <td>2.544956</td>
-      <td>9.000000</td>
+      <td>0.998868</td>
+      <td>3.695254</td>
+      <td>10.000000</td>
     </tr>
   </tbody>
 </table>
@@ -1790,16 +1795,17 @@ IE,13.6,24.6,5.4,9.3,8.3
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2    231
-3    206
-1    164
-4    164
-5    107
-6     53
-0     45
-7     14
-8     10
-9      6
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3     217
+2     217
+4     179
+1     152
+5     106
+0      51
+6      49
+7      18
+8       8
+9       2
+10      1
 Name: poisson, dtype: int64
 </pre></div>
 </div>
@@ -1876,7 +1882,7 @@ Name: poisson, dtype: int64
 <p>Now that you are able to generate DataFrames, it is useful to be able to modify them as you clean your data or perform calculations. This can be done through methods such as assignment, dropping rows and columns, and combining DataFrames or Series.</p>
 <div class="section" id="insert-columns-via-assignment">
 <span id="id14"></span><h3>5.4.1 Insert Columns via Assignment<a class="headerlink" href="#insert-columns-via-assignment" title="Permalink to this headline">#</a></h3>
-<p>Possibly the easiest method of adding a new column is through assignment. If a nonexistent column is called and assigned values, instead of returning an error, pandas creates a new column with the given name and populates it with the data. For example, the <code class="docutils literal notranslate"><span class="pre">elements</span></code> DataFrame below does not contain a carbon column, so the column is added when assigned to a Series with the data.</p>
+<p id="index-4">Possibly the easiest method of adding a new column is through assignment. If a nonexistent column is called and assigned values, instead of returning an error, pandas creates a new column with the given name and populates it with the data. For example, the <code class="docutils literal notranslate"><span class="pre">elements</span></code> DataFrame below does not contain a carbon column, so the column is added when assigned to a Series with the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span>
@@ -2128,7 +2134,7 @@ dtype: object
 </div>
 <div class="section" id="dropping-columns">
 <span id="id16"></span><h3>5.4.3 Dropping Columns<a class="headerlink" href="#dropping-columns" title="Permalink to this headline">#</a></h3>
-<p>When cleaning up data, you may wish to drop a column or row. Pandas provides the <code class="docutils literal notranslate"><span class="pre">drop()</span></code> method for this purpose. It requires the name of the column or row to be dropped, and by default, it assumes a row, <code class="docutils literal notranslate"><span class="pre">axis=0</span></code>, is to be dropped. If you want to drop a column, change the axis using the <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> argument. Below, the hydrogen column is dropped from the elements DataFrame.</p>
+<p id="index-5">When cleaning up data, you may wish to drop a column or row. Pandas provides the <code class="docutils literal notranslate"><span class="pre">drop()</span></code> method for this purpose. It requires the name of the column or row to be dropped, and by default, it assumes a row, <code class="docutils literal notranslate"><span class="pre">axis=0</span></code>, is to be dropped. If you want to drop a column, change the axis using the <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> argument. Below, the hydrogen column is dropped from the elements DataFrame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -2273,10 +2279,11 @@ dtype: object
 </div></div></div>
 </div>
 <p>In the second example above, the hydrogen is back despite being previously dropped. This is because the <code class="docutils literal notranslate"><span class="pre">drop()</span></code> method does not by default modify the origional DataFrame. To make the changes perminent, either assigned the new DataFrame to a new variable or add the <code class="docutils literal notranslate"><span class="pre">inplace=True</span></code> keyword argument to the above <code class="docutils literal notranslate"><span class="pre">drop()</span></code> function.</p>
+<p id="index-6">There is a similar function <code class="docutils literal notranslate"><span class="pre">pd.dropna()</span></code> that drops columns or rows from a DataFrame that contain <code class="docutils literal notranslate"><span class="pre">nan</span></code> values. This is commonly used to remove incomplete data from a data set. The <code class="docutils literal notranslate"><span class="pre">pd.dropna()</span></code> function behaves very similarily to the <code class="docutils literal notranslate"><span class="pre">pd.drop()</span></code> function including the <code class="docutils literal notranslate"><span class="pre">inplace=</span></code> and <code class="docutils literal notranslate"><span class="pre">axis=</span></code> arguments.</p>
 </div>
 <div class="section" id="merge">
 <span id="id17"></span><h3>5.4.4 Merge<a class="headerlink" href="#merge" title="Permalink to this headline">#</a></h3>
-<p>To merge multiple DataFrames, pandas provides a <code class="docutils literal notranslate"><span class="pre">merge()</span></code> method. Similar to above, the <code class="docutils literal notranslate"><span class="pre">merge()</span></code> function will properly align data, but because DataFrames have multiple columns and index values to choose from, the <code class="docutils literal notranslate"><span class="pre">merge()</span></code> function can align data based on any of these values. The default behavior for <code class="docutils literal notranslate"><span class="pre">merge()</span></code> is to check for common columns between the two DataFrames and align the data based on those columns. As an example, below are two DataFrames containing data from various chemical compounds.</p>
+<p id="index-7">To merge multiple DataFrames, pandas provides a <code class="docutils literal notranslate"><span class="pre">merge()</span></code> method. Similar to above, the <code class="docutils literal notranslate"><span class="pre">merge()</span></code> function will properly align data, but because DataFrames have multiple columns and index values to choose from, the <code class="docutils literal notranslate"><span class="pre">merge()</span></code> function can align data based on any of these values. The default behavior for <code class="docutils literal notranslate"><span class="pre">merge()</span></code> is to check for common columns between the two DataFrames and align the data based on those columns. As an example, below are two DataFrames containing data from various chemical compounds.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chemdata1</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;MW&#39;</span><span class="p">,</span> <span class="mf">58.08</span><span class="p">,</span> <span class="mf">32.04</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;dipole&#39;</span><span class="p">,</span> <span class="mf">2.91</span><span class="p">,</span> <span class="mf">1.69</span><span class="p">],</span> 
@@ -2606,7 +2613,7 @@ dtype: object
 </div>
 <div class="section" id="concatenation">
 <span id="id18"></span><h3>5.4.5 Concatenation<a class="headerlink" href="#concatenation" title="Permalink to this headline">#</a></h3>
-<p>Concatenation is the process of splicing two DataFrames along a given axis. This is different from the <code class="docutils literal notranslate"><span class="pre">merge()</span></code> method above in that <code class="docutils literal notranslate"><span class="pre">merge()</span></code> merges and aligns common data between the two DataFrames while <code class="docutils literal notranslate"><span class="pre">pd.concat()</span></code> blindly appends one DataFrame to another. As an example, imagine two lab groups measure the densities of magnesium, aluminum, titanium, and iron and load their results into DataFrames below.</p>
+<p id="index-8">Concatenation is the process of splicing two DataFrames along a given axis. This is different from the <code class="docutils literal notranslate"><span class="pre">merge()</span></code> method above in that <code class="docutils literal notranslate"><span class="pre">merge()</span></code> merges and aligns common data between the two DataFrames while <code class="docutils literal notranslate"><span class="pre">pd.concat()</span></code> blindly appends one DataFrame to another. As an example, imagine two lab groups measure the densities of magnesium, aluminum, titanium, and iron and load their results into DataFrames below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">group1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;metal&#39;</span><span class="p">:[</span><span class="s1">&#39;Mg&#39;</span><span class="p">,</span> <span class="s1">&#39;Al&#39;</span><span class="p">,</span> <span class="s1">&#39;Ti&#39;</span><span class="p">,</span> <span class="s1">&#39;Fe&#39;</span><span class="p">],</span> 

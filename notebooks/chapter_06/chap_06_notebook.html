@@ -185,6 +185,11 @@ const thebe_selector_output = ".output, .cell_output"
    Chapter 13: Command Line &amp; Spyder
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../genindex.html">
+   Index
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -623,7 +628,7 @@ title="Print to PDF"
 <p>When analyzing experimental data, there are typically key features in the signal that you are most interested in. Often, they are peaks or a series of peaks, but they can also be negative peaks (i.e., low point), the slopes, or inflection points. This section covers extracting feature information from signal data.</p>
 <div class="section" id="global-maxima-minima">
 <span id="id3"></span><h3>6.1.1 Global Maxima &amp; Minima<a class="headerlink" href="#global-maxima-minima" title="Permalink to this headline">#</a></h3>
-<p>The simplest and probably most commonly sought after features in signal data are peaks and negative peaks. These are known as the <em>maxima</em> and <em>minima</em>, respectively, or collectively known as the <em>extrema</em>. In the simplest data, there may be only one peak or negative peak, so finding it is a matter of finding the maximum or minimum value in the data. For this, we can use NumPy’s <code class="docutils literal notranslate"><span class="pre">np.maximum()</span></code> and <code class="docutils literal notranslate"><span class="pre">np.minimum()</span></code> functions, and these functions can also be called using the shorter <code class="docutils literal notranslate"><span class="pre">np.max()</span></code> and <code class="docutils literal notranslate"><span class="pre">np.min()</span></code> function calls, respectively.</p>
+<span class="target" id="index-0"></span><p id="index-1">The simplest and probably most commonly sought after features in signal data are peaks and negative peaks. These are known as the <em>maxima</em> and <em>minima</em>, respectively, or collectively known as the <em>extrema</em>. In the simplest data, there may be only one peak or negative peak, so finding it is a matter of finding the maximum or minimum value in the data. For this, we can use NumPy’s <code class="docutils literal notranslate"><span class="pre">np.maximum()</span></code> and <code class="docutils literal notranslate"><span class="pre">np.minimum()</span></code> functions, and these functions can also be called using the shorter <code class="docutils literal notranslate"><span class="pre">np.max()</span></code> and <code class="docutils literal notranslate"><span class="pre">np.min()</span></code> function calls, respectively.</p>
 <p>To demonstrate peak finding, we will use both a <span class="math notranslate nohighlight">\(^{13}\)</span>C{<span class="math notranslate nohighlight">\(^1\)</span>H} Nuclear Magnetic Resonance (NMR) spectrum and an infrared (IR) spectrum. These data are imported below using NumPy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -783,14 +788,9 @@ title="Print to PDF"
 <div class="section" id="local-maximums-minimums">
 <span id="id4"></span><h3>6.1.2 Local Maximums &amp; Minimums<a class="headerlink" href="#local-maximums-minimums" title="Permalink to this headline">#</a></h3>
 <p>A considerable amount of data in science contain numerous peaks and negative peaks which are called <em>local extrema</em>. To locate the multiple max and min values, we will use SciPy’s relative max/min functions <code class="docutils literal notranslate"><span class="pre">argrelmax()</span></code> and <code class="docutils literal notranslate"><span class="pre">argrelmin()</span></code>. These functions determine if a point is a max/min by checking a range of data points on both sides to see if the point is the larges/smallest. The range of data points examined is known as the window, and the window can be modified using the <code class="docutils literal notranslate"><span class="pre">order</span></code> argument. Instead of the actual max/min values, these functions return the indices as the “arg” part of the name suggests.</p>
-<div class="cell docutils container">
+<div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">argrelmax</span><span class="p">,</span> <span class="n">argrelmin</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;frozen importlib._bootstrap&gt;:228: RuntimeWarning: scipy._lib.messagestream.MessageStream size changed, may indicate binary incompatibility. Expected 56 from C header, got 64 from PyObject
 </pre></div>
 </div>
 </div>
@@ -868,7 +868,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="slopes-inflection-points">
 <span id="id5"></span><h3>6.1.3 Slopes &amp; Inflection Points<a class="headerlink" href="#slopes-inflection-points" title="Permalink to this headline">#</a></h3>
-<p>The slope is a useful feature as it can be used to identify inflection points, edges, and make subtle features in a curve more obvious. Noisy data can make it challenging to examine the slope as it causes the slope to fluctuate so much that it sometimes dwarfs the overall signal. It is recommended that the noise be first removed by signal smoothing covered in a section 6.2. To demonstrate the challenges, we will generate both noise-free and noisy synthetic data below and calculate the slopes.</p>
+<span class="target" id="index-2"></span><p id="index-3">The slope is a useful feature as it can be used to identify inflection points, edges, and make subtle features in a curve more obvious. Noisy data can make it challenging to examine the slope as it causes the slope to fluctuate so much that it sometimes dwarfs the overall signal. It is recommended that the noise be first removed by signal smoothing covered in a section 6.2. To demonstrate the challenges, we will generate both noise-free and noisy synthetic data below and calculate the slopes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
@@ -885,7 +885,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff7849e4c10&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f83a4a83bb0&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_35_1.svg" src="../../_images/chap_06_notebook_35_1.svg" /></div>
@@ -911,7 +911,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7ff784a183d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f83a34c63a0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_38_1.svg" src="../../_images/chap_06_notebook_38_1.svg" /></div>
@@ -926,7 +926,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff784adce80&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f83a4b7acd0&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_40_1.svg" src="../../_images/chap_06_notebook_40_1.svg" /></div>
@@ -935,7 +935,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="smoothing-data">
 <span id="id6"></span><h2>6.2 Smoothing Data<a class="headerlink" href="#smoothing-data" title="Permalink to this headline">#</a></h2>
-<p>It is not uncommon to collect signal data that has a considerable amount of noise in it. Smoothing the data can help in the processing and analysis of the data such as making it easier to identify peaks or preventing the noise from hiding the extremes in the derivative of the data. Smoothing alters the actual data, so it is important to be transparent to others that the data were smoothed and how they were smoothed.</p>
+<p id="index-4">It is not uncommon to collect signal data that has a considerable amount of noise in it. Smoothing the data can help in the processing and analysis of the data such as making it easier to identify peaks or preventing the noise from hiding the extremes in the derivative of the data. Smoothing alters the actual data, so it is important to be transparent to others that the data were smoothed and how they were smoothed.</p>
 <p>There are a variety of ways to smooth data including moving averages, band filters, and the Savitzky-Golay filter. We will focus on moving averages and Savitzky-Golay here. For this section, we will work with synthetic data with random noise generated below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -954,7 +954,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff784b534f0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f83a4bf5370&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_43_1.svg" src="../../_images/chap_06_notebook_43_1.svg" /></div>
@@ -975,7 +975,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff784bb2cd0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f83a4c52b80&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_45_1.svg" src="../../_images/chap_06_notebook_45_1.svg" /></div>
@@ -998,7 +998,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff784c24250&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f83a4cc5040&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_48_1.svg" src="../../_images/chap_06_notebook_48_1.svg" /></div>
@@ -1018,7 +1018,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff784c7bee0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f83a4d1be80&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_51_1.svg" src="../../_images/chap_06_notebook_51_1.svg" /></div>
@@ -1026,7 +1026,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="savitzkygolay">
 <span id="id10"></span><h3>6.2.4 Savitzky–Golay<a class="headerlink" href="#savitzkygolay" title="Permalink to this headline">#</a></h3>
-<p>Another approach is the <em>Savitzky–Golay</em> filter which incrementally moves along the noisy data and fits sections (i.e.., windows) of data points to a polynomial using least square minimization. While this approach had been previously described in the mathematical literature, Abraham Savitzky and M. J. E. Golay are known for applying it to spectroscopy (<a class="reference external" href="https://doi.org/10.1021/ac60214a047">https://doi.org/10.1021/ac60214a047</a>). Conveniently, SciPy contains a built-in function for this called <code class="docutils literal notranslate"><span class="pre">savgol_filter()</span></code> from the <code class="docutils literal notranslate"><span class="pre">signal</span></code> module shown below.</p>
+<p id="index-5">Another approach is the <em>Savitzky–Golay</em> filter which incrementally moves along the noisy data and fits sections (i.e.., windows) of data points to a polynomial using least square minimization. While this approach had been previously described in the mathematical literature, Abraham Savitzky and M. J. E. Golay are known for applying it to spectroscopy (<a class="reference external" href="https://doi.org/10.1021/ac60214a047">https://doi.org/10.1021/ac60214a047</a>). Conveniently, SciPy contains a built-in function for this called <code class="docutils literal notranslate"><span class="pre">savgol_filter()</span></code> from the <code class="docutils literal notranslate"><span class="pre">signal</span></code> module shown below.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">savgol_filter</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">polyorder</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1046,7 +1046,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff784ce1fa0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f83a35b1bb0&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_54_1.svg" src="../../_images/chap_06_notebook_54_1.svg" /></div>
@@ -1055,7 +1055,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="fourier-transforms">
 <span id="id11"></span><h2>6.3 Fourier Transforms<a class="headerlink" href="#fourier-transforms" title="Permalink to this headline">#</a></h2>
-<p>Another approach to filtering noise is to filter based on frequency. Many times, random noise in data occurs at a different frequency than the data itself, and the noise can be reduced by filtering noise frequency ranges while maintaining signal frequencies. If the noise is higher frequency than the signal, it can be filtered out with what is known as a <em>low-pass</em> filter. Alternatively, filtering out low-frequency noise is known as a <em>high-pass</em> filter, and filtering out noise above and blow the signal frequency is known as a <em>band-pass</em> filter. Frequency filtering is somewhat involved being that we need to use window functions which are covered in the <a class="reference external" href="https://greenteapress.com/wp/think-dsp/">Think DSP</a> book by Allen Downey listed at the end of this chapter. Instead, we will just look at the distribution of signal and noise frequencies in synthetic data. This is useful for analyzing the noise in data and also is used routinely in nuclear magnetic resonance (NMR) spectroscopy and Fourier Transform infrared spectroscopy (FTIR).</p>
+<p id="index-6">Another approach to filtering noise is to filter based on frequency. Many times, random noise in data occurs at a different frequency than the data itself, and the noise can be reduced by filtering noise frequency ranges while maintaining signal frequencies. If the noise is higher frequency than the signal, it can be filtered out with what is known as a <em>low-pass</em> filter. Alternatively, filtering out low-frequency noise is known as a <em>high-pass</em> filter, and filtering out noise above and blow the signal frequency is known as a <em>band-pass</em> filter. Frequency filtering is somewhat involved being that we need to use window functions which are covered in the <a class="reference external" href="https://greenteapress.com/wp/think-dsp/">Think DSP</a> book by Allen Downey listed at the end of this chapter. Instead, we will just look at the distribution of signal and noise frequencies in synthetic data. This is useful for analyzing the noise in data and also is used routinely in nuclear magnetic resonance (NMR) spectroscopy and Fourier Transform infrared spectroscopy (FTIR).</p>
 <p>To convert the data from the time domain to the frequency domain, we will use the <em>fast Fourier transform (FFT)</em> algorithm. This algorithm is only for data that is periodic.  Below, synthetic data is generated oscillating at 62.0 Hz with some random noise to make it more interesting.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1123,7 +1123,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7ff784da9550&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f83a4e07580&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_64_1.svg" src="../../_images/chap_06_notebook_64_1.svg" /></div>
@@ -1135,14 +1135,14 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7ff784f1b1f0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f83a4e71ee0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_65_1.svg" src="../../_images/chap_06_notebook_65_1.svg" /></div>
 </div>
 <div class="section" id="linear-regression">
 <span id="id13"></span><h3>6.4.1 Linear Regression<a class="headerlink" href="#linear-regression" title="Permalink to this headline">#</a></h3>
-<p>Now we can fit the noisy linear data with a line using the NumPy <code class="docutils literal notranslate"><span class="pre">np.polyfit(x,</span> <span class="pre">y,</span> <span class="pre">degree)</span></code> function. The function takes the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> data along with the <code class="docutils literal notranslate"><span class="pre">degree</span></code> of the polynomial.</p>
+<p id="index-7">Now we can fit the noisy linear data with a line using the NumPy <code class="docutils literal notranslate"><span class="pre">np.polyfit(x,</span> <span class="pre">y,</span> <span class="pre">degree)</span></code> function. The function takes the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> data along with the <code class="docutils literal notranslate"><span class="pre">degree</span></code> of the polynomial.</p>
 <p>A line is a first-degree polynomial, and the function returns an array containing the coefficients for the fit with the highest order coefficients first. This is effectively a <em>linear regression</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1170,7 +1170,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7ff784f84880&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f83a4ee59d0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_69_1.svg" src="../../_images/chap_06_notebook_69_1.svg" /></div>
@@ -1199,7 +1199,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="polynomial-fitting">
 <span id="id14"></span><h3>6.4.2 Polynomial Fitting<a class="headerlink" href="#polynomial-fitting" title="Permalink to this headline">#</a></h3>
-<p>Fitting to a polynomial of a higher order works the same way except that the order is above one. You will need to already know the order of the polynomial, or you can make a guess and see how well a particular order fits the data. Below, the <code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code> function determines the second-order data can be fit by the equation <span class="math notranslate nohighlight">\(y = 3.40x^2 + 3.95x + 8.70\)</span>. We can again plot this fit equation over our data points to see how well the data agree with our equation.</p>
+<p id="index-8">Fitting to a polynomial of a higher order works the same way except that the order is above one. You will need to already know the order of the polynomial, or you can make a guess and see how well a particular order fits the data. Below, the <code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code> function determines the second-order data can be fit by the equation <span class="math notranslate nohighlight">\(y = 3.40x^2 + 3.95x + 8.70\)</span>. We can again plot this fit equation over our data points to see how well the data agree with our equation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y2_noisy</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
@@ -1224,7 +1224,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7ff784ff1be0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f83a4f53cd0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_75_1.svg" src="../../_images/chap_06_notebook_75_1.svg" /></div>
@@ -1243,7 +1243,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff785874700&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f83a4fd5670&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_77_1.svg" src="../../_images/chap_06_notebook_77_1.svg" /></div>
@@ -1296,7 +1296,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7ff785839340&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f83a4fea4f0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_80_1.svg" src="../../_images/chap_06_notebook_80_1.svg" /></div>

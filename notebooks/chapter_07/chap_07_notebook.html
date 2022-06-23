@@ -185,6 +185,11 @@ const thebe_selector_output = ".output, .cell_output"
    Chapter 13: Command Line &amp; Spyder
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../genindex.html">
+   Index
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -566,7 +571,7 @@ title="Print to PDF"
 </div>
 <p>Images are a major data format in chemistry and other sciences. They can be electron microscope images of a surface, photos of a reaction, or images from fluorescence microscopy. Image processing and analysis can be performed using software like Photoshop or <a class="reference external" href="https://www.gimp.org/">GIMP</a>, but this can be tedious and subjective when done manually. A better alternative is to have software automate the entire process to provide consistent, precise, and objective processing of images and taking measurements of their features.</p>
 <p>Among the more popular Python library for performing scientific image analysis is scikit-image. This is a library specifically designed for scientific image analysis and includes a wide variety of tools for the processing and extracting information from images. Examples of tools in scikit-image include functions for boundary detection, object counting, entropy quantification, color space conversion, image comparison, and many others. Even though there are other Python libraries for working with images, such as <a class="reference external" href="https://pillow.readthedocs.io/en/4.2.x/">pillow</a>, scikit-image is designed for scientific image analysis while pillow is intended for more fundamental operations such as image rotation and cropping.</p>
-<p>Unlike NumPy which automatically imports all modules with the library, scikit-image requires each module be imported explicitly. For example, if the user wants to import the <code class="docutils literal notranslate"><span class="pre">color</span></code> module, it is imported using the following code.</p>
+<p id="index-0">Unlike NumPy which automatically imports all modules with the library, scikit-image requires each module be imported explicitly. For example, if the user wants to import the <code class="docutils literal notranslate"><span class="pre">color</span></code> module, it is imported using the following code.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">color</span>
 </pre></div>
 </div>
@@ -657,12 +662,12 @@ title="Print to PDF"
 <p>Despite the power and utility of the scikit-image library, there is a significant amount of image processing and analysis that can be performed using NumPy functionality. This is especially true being that scikit-image imports/stores images as NumPy arrays.</p>
 <div class="section" id="basic-image-structure">
 <span id="id2"></span><h2>7.1 Basic Image Structure<a class="headerlink" href="#basic-image-structure" title="Permalink to this headline">#</a></h2>
-<p>Most images are <em>raster</em> images, which are essentially a grid of pixels where each location on the grid is a number describing that pixel. If the image is a grayscale image, these values represent how light or dark each pixel is; and if it is a color image, the value(s) at each location describe the color. Figure 1 shows a grayscale photo of a flask containing crystals, with a 10 <span class="math notranslate nohighlight">\(\times\)</span> 10 pixel excerpt showing the brightness values from the photo. While there is another major class of images known as <em>vector</em> images, we will restrict ourself to dealing with rastor images in this chapter as primary scientific data tend to be rastor images.</p>
+<p id="index-1">Most images are <em>raster</em> images, which are essentially a grid of pixels where each location on the grid is a number describing that pixel. If the image is a grayscale image, these values represent how light or dark each pixel is; and if it is a color image, the value(s) at each location describe the color. Figure 1 shows a grayscale photo of a flask containing crystals, with a 10 <span class="math notranslate nohighlight">\(\times\)</span> 10 pixel excerpt showing the brightness values from the photo. While there is another major class of images known as <em>vector</em> images, we will restrict ourself to dealing with rastor images in this chapter as primary scientific data tend to be rastor images.</p>
 <p><img alt="" src="../../_images/image_data_graphic.png" /></p>
 <p><strong>Figure 1</strong> An excerpts of values from a grayscale image showing values representing the brightness of each pixel.</p>
 <div class="section" id="loading-images">
 <span id="id3"></span><h3>7.1.1 Loading Images<a class="headerlink" href="#loading-images" title="Permalink to this headline">#</a></h3>
-<p>The scikit-image library includes a <code class="docutils literal notranslate"><span class="pre">data</span></code> module containing a series of images for the user to experiment with. To display images in the notebook, use the <code class="docutils literal notranslate"><span class="pre">io.imshow()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">io</span></code> module. Each image in the <code class="docutils literal notranslate"><span class="pre">data</span></code> module has a function for fetching the image, and you can find a complete list of images/functions in the <code class="docutils literal notranslate"><span class="pre">data</span></code> module by typing <code class="docutils literal notranslate"><span class="pre">help(data)</span></code>. We will open and view the image of a lunar surface using the <code class="docutils literal notranslate"><span class="pre">data.moon()</span></code> function.</p>
+<p id="index-2">The scikit-image library includes a <code class="docutils literal notranslate"><span class="pre">data</span></code> module containing a series of images for the user to experiment with. To display images in the notebook, use the <code class="docutils literal notranslate"><span class="pre">io.imshow()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">io</span></code> module. Each image in the <code class="docutils literal notranslate"><span class="pre">data</span></code> module has a function for fetching the image, and you can find a complete list of images/functions in the <code class="docutils literal notranslate"><span class="pre">data</span></code> module by typing <code class="docutils literal notranslate"><span class="pre">help(data)</span></code>. We will open and view the image of a lunar surface using the <code class="docutils literal notranslate"><span class="pre">data.moon()</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">moon</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">moon</span><span class="p">()</span>
@@ -671,7 +676,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f861208df40&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f80e879fcd0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_8_1.svg" src="../../_images/chap_07_notebook_8_1.svg" /></div>
@@ -704,7 +709,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f861231b190&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f80e897efa0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_12_1.svg" src="../../_images/chap_07_notebook_12_1.svg" /></div>
@@ -712,7 +717,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="color-images">
 <span id="id4"></span><h3>7.1.2 Color Images<a class="headerlink" href="#color-images" title="Permalink to this headline">#</a></h3>
-<p>Color images are slightly more complicated to represent because all colors cannot be represented by single integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255. Probably the most popular way to digitally encode colors is <em>RGB</em> which describes every color as a combination of red, green, and blue (Figure 2). These are also known as <em>color channels</em>, and this is typically how computer monitors display colors. If you look close enough at the screen, which may require a magnifying glass for high resolution displays, you can see that every pixel is really made up of three lights: a red, a green, and a blue. Ther perceived color is a mixture or blend of the red, green, and blue values. Being that every pixel now has three values to describe it, a NumPy array that defines a color image is three dimensional. The first two dimensions are the height and width of the image, and the third dimension contains values from each of the three color channels.</p>
+<p id="index-3">Color images are slightly more complicated to represent because all colors cannot be represented by single integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255. Probably the most popular way to digitally encode colors is <em>RGB</em> which describes every color as a combination of red, green, and blue (Figure 2). These are also known as <em>color channels</em>, and this is typically how computer monitors display colors. If you look close enough at the screen, which may require a magnifying glass for high resolution displays, you can see that every pixel is really made up of three lights: a red, a green, and a blue. Ther perceived color is a mixture or blend of the red, green, and blue values. Being that every pixel now has three values to describe it, a NumPy array that defines a color image is three dimensional. The first two dimensions are the height and width of the image, and the third dimension contains values from each of the three color channels.</p>
 <p><img alt="" src="../../_images/image_data_graphic_color.png" /></p>
 <p><strong>Figure 2</strong> An excerpts of the red, green, and blue color channels for a small portion of a color image. The values in each channel represent the brightness of that color in each pixel.</p>
 <p>By scikit-image convention, the encoding of color images in arrays is shown below, and the colors are in the order red, green, and then blue.</p>
@@ -726,7 +731,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f860ef39220&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f80e57550a0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_14_1.svg" src="../../_images/chap_07_notebook_14_1.svg" /></div>
@@ -799,7 +804,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f860f018c40&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f80e5830ac0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_17_1.svg" src="../../_images/chap_07_notebook_17_1.svg" /></div>
@@ -816,7 +821,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f8612627c10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f80e88dfa90&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_19_1.svg" src="../../_images/chap_07_notebook_19_1.svg" /></div>
@@ -895,7 +900,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f861266de50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f80e8f2fcd0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_23_1.svg" src="../../_images/chap_07_notebook_23_1.svg" /></div>
@@ -908,7 +913,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f86127241c0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f80e8dc03a0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_25_1.svg" src="../../_images/chap_07_notebook_25_1.svg" /></div>
@@ -920,7 +925,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="saving-images">
 <span id="id7"></span><h3>7.1.5 Saving Images<a class="headerlink" href="#saving-images" title="Permalink to this headline">#</a></h3>
-<p>After processing an image, it is sometimes helpful to save the image to disk for records, reports, and presentations. Being that the images are ndarrays, the <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> function works just fine if executed in the same Jupyter cell as the <code class="docutils literal notranslate"><span class="pre">io.imshow()</span></code> function. Alternatively, scikit-image provides an image saving function <code class="docutils literal notranslate"><span class="pre">io.imsave(file_name,</span> <span class="pre">array)</span></code> that operates similarly as <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> except with a couple image-specific arguments. One key difference is that <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> does not take an array argument but instead assumes you want the recently displayed image saved while <code class="docutils literal notranslate"><span class="pre">io.imsave(file_name,</span> <span class="pre">array)</span></code> takes an array and can save an image even if it has not been displayed in the Jupyter notebook. Check the directory containing the Jupyter notebook, and there should be a new file titled <em>new_image.png</em>.</p>
+<p id="index-4">After processing an image, it is sometimes helpful to save the image to disk for records, reports, and presentations. Being that the images are ndarrays, the <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> function works just fine if executed in the same Jupyter cell as the <code class="docutils literal notranslate"><span class="pre">io.imshow()</span></code> function. Alternatively, scikit-image provides an image saving function <code class="docutils literal notranslate"><span class="pre">io.imsave(file_name,</span> <span class="pre">array)</span></code> that operates similarly as <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> except with a couple image-specific arguments. One key difference is that <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> does not take an array argument but instead assumes you want the recently displayed image saved while <code class="docutils literal notranslate"><span class="pre">io.imsave(file_name,</span> <span class="pre">array)</span></code> takes an array and can save an image even if it has not been displayed in the Jupyter notebook. Check the directory containing the Jupyter notebook, and there should be a new file titled <em>new_image.png</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">io</span><span class="o">.</span><span class="n">imsave</span><span class="p">(</span><span class="s1">&#39;new_img.png&#39;</span><span class="p">,</span> <span class="n">hubble</span><span class="p">)</span>
@@ -987,7 +992,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="encoding">
 <span id="id10"></span><h3>7.2.2 Encoding<a class="headerlink" href="#encoding" title="Permalink to this headline">#</a></h3>
-<p><em>Encoding</em> is how the values are presented in the image array. The two most common are integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255 or floats from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1. However, there are other ranges outlined in Table 3. Though you may have never encounter some, it is good to be aware that they exist in case you need to deal with them. The difference between signed integers (<code class="docutils literal notranslate"><span class="pre">int</span></code>) and unsigned integers (<code class="docutils literal notranslate"><span class="pre">uint</span></code>) is that unsigned integers are only positive integers starting with zero while signed integers are both positive and negative centered approximately around zero. The approximate part is because there are equal numbers of positive and negative integers, and being that zero is a positive integer, zero is not the exact center. To determine what the range of values is for an image, scikit-image provides the function <code class="docutils literal notranslate"><span class="pre">skimage.dtype.limits()</span></code>.</p>
+<p id="index-5"><em>Encoding</em> is how the values are presented in the image array. The two most common are integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255 or floats from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1. However, there are other ranges outlined in Table 3. Though you may have never encounter some, it is good to be aware that they exist in case you need to deal with them. The difference between signed integers (<code class="docutils literal notranslate"><span class="pre">int</span></code>) and unsigned integers (<code class="docutils literal notranslate"><span class="pre">uint</span></code>) is that unsigned integers are only positive integers starting with zero while signed integers are both positive and negative centered approximately around zero. The approximate part is because there are equal numbers of positive and negative integers, and being that zero is a positive integer, zero is not the exact center. To determine what the range of values is for an image, scikit-image provides the function <code class="docutils literal notranslate"><span class="pre">skimage.dtype.limits()</span></code>.</p>
 <p>Scikit-image also provides some convenient functions for converting to various value ranges described in Table 3. These functions are not contained in a module, so you will need to just do an <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">skimage</span></code> to get access to them, which was done at the start of this chapter. The one format that probably needs commenting on is the Boolean format. In this encoding, every pixel is a <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> value, which is equivalent to saying <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">0</span></code>. This is for black-and-white images where each pixel is one of two possible values.</p>
 <p><strong>Table 3</strong> Scikit-Image Functions for Converting Data Types</p>
 <table class="colwidths-auto table">
@@ -1045,7 +1050,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="image-contrast">
 <span id="id11"></span><h3>7.2.3 Image Contrast<a class="headerlink" href="#image-contrast" title="Permalink to this headline">#</a></h3>
-<p>Before trying to extract certain types of information or identify features in an image, it is sometimes helpful to first increase the contrast of an image. There are a number of ways of doing this including thresholding and modification of the image histogram. Some approaches can be performed using NumPy array manipulation, but scikit-image also provides convenient functions designed for these task.</p>
+<p id="index-6">Before trying to extract certain types of information or identify features in an image, it is sometimes helpful to first increase the contrast of an image. There are a number of ways of doing this including thresholding and modification of the image histogram. Some approaches can be performed using NumPy array manipulation, but scikit-image also provides convenient functions designed for these task.</p>
 <p><em>Thresholding</em> can be used to generate a black-and-white image (i.e., not grayscale) by converting gray values at or below a brightness threshold to black and above the threshold to white. The threshold can be set manually or by an algorithm that chooses an optimal value customized to each image. We will start with manually setting a threshold. The grayscale image generated from <code class="docutils literal notranslate"><span class="pre">rgb2gray()</span></code> is encoded with floats from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1, so a threshold of 0.65 is chosen using trial-and-error. A black-and-white image is then generated as a Boolean. The resulting black-and-white image is shown below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1056,7 +1061,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f8612747fd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f80e8e3ee80&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_36_1.svg" src="../../_images/chap_07_notebook_36_1.svg" /></div>
@@ -1070,7 +1075,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f8613a41130&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f80e8e65f70&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_37_1.svg" src="../../_images/chap_07_notebook_37_1.svg" /></div>
@@ -1118,7 +1123,7 @@ title="Print to PDF"
 </table>
 <p>*Threshold value functions provides a single threshold value while threshold masks provides arrays of values the size of the image. They are used in the same fashion except that the latter provides a per-pixel threshold.</p>
 <p>Below, we can see the Otsu filter being demonstrated.</p>
-<div class="cell docutils container">
+<div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">filters</span>
 <span class="n">threshold</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">threshold_otsu</span><span class="p">(</span><span class="n">chem_gray</span><span class="p">)</span>
@@ -1127,14 +1132,6 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;frozen importlib._bootstrap&gt;:228: RuntimeWarning: scipy._lib.messagestream.MessageStream size changed, may indicate binary incompatibility. Expected 56 from C header, got 64 from PyObject
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f86156a1790&gt;
-</pre></div>
-</div>
-<img alt="../../_images/chap_07_notebook_39_2.svg" src="../../_images/chap_07_notebook_39_2.svg" /></div>
 </div>
 <p>Another method for increasing contrast is by modifying the image histogram. If the values from an image are plotted in a histogram, you will see something that looks like the following.</p>
 <div class="cell docutils container">
@@ -1162,7 +1159,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f8615d995e0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f80ec4444f0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_43_1.svg" src="../../_images/chap_07_notebook_43_1.svg" /></div>
@@ -1190,7 +1187,7 @@ title="Print to PDF"
 <p>The scikit-image library contains numerous functions for performing various scientific analyses… so many that they cannot be comprehensively covered here. Below is a selection of some interesting examples that are relevant to science including counting objects in images, entropy analysis, and measuring eccentricity of objects. The examples below use mostly synthetic data to represent various data you might encounter in the lab. Real data can be easily extracted from publications but are not used here for copyright reasons.</p>
 <div class="section" id="blob-detection">
 <span id="id13"></span><h3>7.3.1 Blob Detection<a class="headerlink" href="#blob-detection" title="Permalink to this headline">#</a></h3>
-<p>A classic problem that translates across many scientific fields is to count spots in a photograph. A biologist may need to quantifying the number of bacteria colonies in a petrie dish over the course of an experiment, while an astronomer may want to count the number of stars in a large cluster. In chemistry, this problem may occur as a need to quantify the number of nanoparticles in a photograph or using the locations to calculate the average distances between the particles.</p>
+<p id="index-7">A classic problem that translates across many scientific fields is to count spots in a photograph. A biologist may need to quantifying the number of bacteria colonies in a petrie dish over the course of an experiment, while an astronomer may want to count the number of stars in a large cluster. In chemistry, this problem may occur as a need to quantify the number of nanoparticles in a photograph or using the locations to calculate the average distances between the particles.</p>
 <p>The good news is that the scikit-image library provides three functions that will take a photograph and return an array of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(z\)</span> coordinates indicating where the blobs are located in the image. If all you care about is the number of blobs, simply find the length of the returned array. There are three functions listed below which include Laplacian of Gaussian (LoG), Difference of Gaussian (DoG), and Determinant of Hessian (DoH). The LoG algorithm is the most accurate but the slowest while the DoH algorithm is the fastest. These functions only accept two-dimensional images, so if it is a color image, you will need to either convert it to grayscale or select a single color channel to work with.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">skimage</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">blob_log</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="p">)</span>
 
@@ -1207,7 +1204,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f86015fb700&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f80ec7ca610&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_47_1.svg" src="../../_images/chap_07_notebook_47_1.svg" /></div>
@@ -1228,7 +1225,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f86016e0c70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f80d80ffb80&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_49_1.svg" src="../../_images/chap_07_notebook_49_1.svg" /></div>
@@ -1268,7 +1265,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f86019afa30&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f80d7e74940&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_53_1.svg" src="../../_images/chap_07_notebook_53_1.svg" /></div>
@@ -1289,7 +1286,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="entropy-analysis">
 <span id="id14"></span><h3>7.3.2 Entropy Analysis<a class="headerlink" href="#entropy-analysis" title="Permalink to this headline">#</a></h3>
-<p>The term <em>entropy</em> outside of the physical sciences is used to represent a quantification of disorder or irregularity. In image analysis, this disorder is the amount of pixel (brightness or color) variation within a region of the image. As you will see below, entropy is the highest near the boundaries and in noisy areas of a photograph. This makes an entropy analysis useful for edge detection, checking for image quality, and detecting alterations to an image.</p>
+<p id="index-8">The term <em>entropy</em> outside of the physical sciences is used to represent a quantification of disorder or irregularity. In image analysis, this disorder is the amount of pixel (brightness or color) variation within a region of the image. As you will see below, entropy is the highest near the boundaries and in noisy areas of a photograph. This makes an entropy analysis useful for edge detection, checking for image quality, and detecting alterations to an image.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">filters.rank</span></code> modules contains the entropy function shown below. It works by going through the image pixel-by-pixel and calculating the entropy in the neighborhood. The <em>neighborhood</em> is the area around each pixel. An entropy value is recored in the new array at each location and can be plotted to generate an entropy map. The entropy function takes two required arguments: the image (<code class="docutils literal notranslate"><span class="pre">img</span></code>) and a description of the neighborhood called a <em>structured element</em> (<code class="docutils literal notranslate"><span class="pre">selem</span></code>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">filters</span><span class="o">.</span><span class="n">rank</span><span class="o">.</span><span class="n">entropy</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">selem</span><span class="p">)</span>
 </pre></div>
@@ -1330,7 +1327,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f85cc4f3d60&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f80a2b10af0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_59_1.svg" src="../../_images/chap_07_notebook_59_1.svg" /></div>
@@ -1352,7 +1349,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f85cc9db760&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f80a2d96670&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_63_1.svg" src="../../_images/chap_07_notebook_63_1.svg" /></div>
@@ -1366,7 +1363,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f85cc06de20&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f80a296cd60&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_07_notebook_65_1.svg" src="../../_images/chap_07_notebook_65_1.svg" /></div>

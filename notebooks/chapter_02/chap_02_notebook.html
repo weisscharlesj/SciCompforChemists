@@ -185,6 +185,11 @@ const thebe_selector_output = ".output, .cell_output"
    Chapter 13: Command Line &amp; Spyder
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../genindex.html">
+   Index
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -871,7 +876,7 @@ title="Print to PDF"
 <p>The contents of this chapter are intended for those who wish to dive deeper into the Python programming language. Many of the topics herein are <em>not</em> strictly required for most subsequent chapters but will make you more efficient and effective as a Python programmer. Items from this chapter are occasionally used in subsequent chapters, but you should still be able to follow along without having read this chapter. If you are in a rush, you can bypass this chapter and circle back as needed. The sections and sometimes subsections of this chapter may also be read in any order or as needed.</p>
 <div class="section" id="syntactic-sugar">
 <span id="id2"></span><h2>2.1 Syntactic Sugar<a class="headerlink" href="#syntactic-sugar" title="Permalink to this headline">#</a></h2>
-<p><em>Syntactic sugar</em> is a nickname given to any part of a programming language that does not extend the capabilities of the language. If any of these features were suddenly removed from the language, the language would still be just as capable, but the advantage of anything labeled “syntactic sugar” is that it makes the code quicker/shorter to write or easier to read. Below are a few examples from the Python language that you are likely to come across and find useful.</p>
+<p id="index-0"><em>Syntactic sugar</em> is a nickname given to any part of a programming language that does not extend the capabilities of the language. If any of these features were suddenly removed from the language, the language would still be just as capable, but the advantage of anything labeled “syntactic sugar” is that it makes the code quicker/shorter to write or easier to read. Below are a few examples from the Python language that you are likely to come across and find useful.</p>
 <div class="section" id="augmented-assignment">
 <span id="id3"></span><h3>2.1.1 Augmented Assignment<a class="headerlink" href="#augmented-assignment" title="Permalink to this headline">#</a></h3>
 <p>Augmented assignment is a simple example of syntactic sugar that allows the user to modify the value assigned to a variable. If we want to increase a value by one, we can recursively assign the variable to itself plus one as shown below.</p>
@@ -1067,15 +1072,10 @@ title="Print to PDF"
 <p>As an example looking ahead to chapter 8, the <code class="docutils literal notranslate"><span class="pre">quad()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code> module is a general-purpose method for integrating the area under mathematical functions. Along with the upper and lower limits, the integration functions require a mathematical function in the form of a Python function (i.e., not just a mathematical expression). This would ordinarily require a formally-defined Python function, but it is often more convenient to use a lambda function as a single use Python function as shown below. In the following example, we use integration to find the probability of finding a particle in the lowest state between 0 and 0.4 in a box of length 1 by performing the following integration.</p>
 <div class="math notranslate nohighlight">
 \[ p = 2 \int_0^{0.4} sin^2(\pi x) \]</div>
-<div class="cell docutils container">
+<div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">quad</span>
 <span class="kn">import</span> <span class="nn">math</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;frozen importlib._bootstrap&gt;:228: RuntimeWarning: scipy._lib.messagestream.MessageStream size changed, may indicate binary incompatibility. Expected 56 from C header, got 64 from PyObject
 </pre></div>
 </div>
 </div>
@@ -1117,7 +1117,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="dictionaries">
 <span id="id7"></span><h2>2.2 Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">#</a></h2>
-<p>Python <em>dictionaries</em> are a multi-element Python object type that connects keys and values analogous to the way a real dictionary connects a word (the key) with a definition (the value). These are also known as <em>associative arrays</em>. Dictionaries allow the user to access the stored values using a key without knowing anything about order of items in the dictionary. One way to think of a dictionary is an object full of variables and assigned values. For example, if we are looking to write a scrip to calculate the molecular weight of a compound based on its molecular formula, we would need access to the atomic mass of each element based on the elemental symbol. Here the key is the symbol and the value is the atomic mass. It looks something like a list with curly brackets and each item is a <code class="docutils literal notranslate"><span class="pre">key:value</span></code> pair separated by a colon. Below is an example of a dictionary containing the atomic masses of the first ten elements on the periodic table.</p>
+<p id="index-1">Python <em>dictionaries</em> are a multi-element Python object type that connects keys and values analogous to the way a real dictionary connects a word (the key) with a definition (the value). These are also known as <em>associative arrays</em>. Dictionaries allow the user to access the stored values using a key without knowing anything about order of items in the dictionary. One way to think of a dictionary is an object full of variables and assigned values. For example, if we are looking to write a scrip to calculate the molecular weight of a compound based on its molecular formula, we would need access to the atomic mass of each element based on the elemental symbol. Here the key is the symbol and the value is the atomic mass. It looks something like a list with curly brackets and each item is a <code class="docutils literal notranslate"><span class="pre">key:value</span></code> pair separated by a colon. Below is an example of a dictionary containing the atomic masses of the first ten elements on the periodic table.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">AM</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span><span class="mf">1.01</span><span class="p">,</span> <span class="s1">&#39;He&#39;</span><span class="p">:</span><span class="mf">4.00</span><span class="p">,</span> <span class="s1">&#39;Li&#39;</span><span class="p">:</span><span class="mf">6.94</span><span class="p">,</span> <span class="s1">&#39;Be&#39;</span><span class="p">:</span><span class="mf">9.01</span><span class="p">,</span>
@@ -1230,7 +1230,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="set">
 <span id="id8"></span><h2>2.3 Set<a class="headerlink" href="#set" title="Permalink to this headline">#</a></h2>
-<p>Sets are another Python object type you may encounter and use on occasions. These are multi-element objects similar to lists with the key difference that each element can appear only once in the set. This may be useful in applications where code is taking stock of what is present. For example, if we are taking inventory of the chemical stockroom to know which chemical compounds are on hand for experiments, the names of the compounds can be stored in a set. If more than one bottle of a compound is present in the stockroom, the set only contains the name once because we are only concerned with what is available, not how many are available. A set looks like a list except curly brackets are used instead of square brackets.</p>
+<p id="index-2">Sets are another Python object type you may encounter and use on occasions. These are multi-element objects similar to lists with the key difference that each element can appear only once in the set. This may be useful in applications where code is taking stock of what is present. For example, if we are taking inventory of the chemical stockroom to know which chemical compounds are on hand for experiments, the names of the compounds can be stored in a set. If more than one bottle of a compound is present in the stockroom, the set only contains the name once because we are only concerned with what is available, not how many are available. A set looks like a list except curly brackets are used instead of square brackets.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compounds</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ethanol&#39;</span><span class="p">,</span> <span class="s1">&#39;sodium chloride&#39;</span><span class="p">,</span> <span class="s1">&#39;water&#39;</span><span class="p">,</span>
@@ -1435,7 +1435,7 @@ title="Print to PDF"
 </pre></div>
 </div>
 <p>Another useful function from the os module is the <code class="docutils literal notranslate"><span class="pre">listdir()</span></code> method which lists all the files and directories in a folder. It is useful not only for determining the contents a folder but also for iterating through all the files in a folder. Imagine you have not just a single CSV file with data but an entire folder of similar CSV files that you need to import into Python. Instead of handling these files one at a time, you can have Python iterate through the folder and import each CSV file it finds. Below is a demonstration of importing and printing every CSV file on the computer desktop.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate" id="index-3"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/Users/me/Desktop&#39;</span><span class="p">)</span> <span class="c1"># changes directory</span>
 <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;csv&#39;</span><span class="p">):</span> <span class="c1"># only open csv files</span>
@@ -1464,7 +1464,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;itertools.combinations at 0x7fa2ae3ac680&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;itertools.combinations at 0x7f9b90aa34f0&gt;
 </pre></div>
 </div>
 </div>
@@ -1534,7 +1534,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="random-module">
 <span id="id12"></span><h3>2.4.3 <code class="docutils literal notranslate"><span class="pre">random</span></code> Module<a class="headerlink" href="#random-module" title="Permalink to this headline">#</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">random</span></code> module provides a selection of functions for generating random values. Random values can be integers or floats and can be generated from a variety of ranges and distributions. A selection of common functions from the <code class="docutils literal notranslate"><span class="pre">random</span></code> module are shown in Table 5. We will not go into much detail here as random value generation is covered in significantly more detail at the end of chapter 4. One key limitation of the <code class="docutils literal notranslate"><span class="pre">random</span></code> module is that the functions typically only generate a single value at a time. If you want multiple random values, you need to either use a loop or use the random value functions from NumPy presented in chapter 4.</p>
+<p id="index-4">The <code class="docutils literal notranslate"><span class="pre">random</span></code> module provides a selection of functions for generating random values. Random values can be integers or floats and can be generated from a variety of ranges and distributions. A selection of common functions from the <code class="docutils literal notranslate"><span class="pre">random</span></code> module are shown in Table 5. We will not go into much detail here as random value generation is covered in significantly more detail at the end of chapter 4. One key limitation of the <code class="docutils literal notranslate"><span class="pre">random</span></code> module is that the functions typically only generate a single value at a time. If you want multiple random values, you need to either use a loop or use the random value functions from NumPy presented in chapter 4.</p>
 <p><strong>Table 5</strong> Functions from random Module</p>
 <table class="colwidths-auto table">
 <thead>
@@ -1569,7 +1569,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7700800413682456
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8690275423357934
 </pre></div>
 </div>
 </div>
@@ -1581,7 +1581,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
 </pre></div>
 </div>
 </div>
@@ -1595,7 +1595,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 4, 3, 6, 5, 2]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 3, 1, 2, 5, 6]
 </pre></div>
 </div>
 </div>
@@ -1616,7 +1616,7 @@ title="Print to PDF"
 <p>If we want to calculate the number of neutrons in each isotope, we need to subtract each atomic number (equal to the number of protons) from the atomic mass. To accomplish this, it would be helpful to iterate over both lists simultaneously. Below are a couple methods of doing this.</p>
 <div class="section" id="zipping">
 <span id="id14"></span><h3>2.5.1 Zipping<a class="headerlink" href="#zipping" title="Permalink to this headline">#</a></h3>
-<p>The simplest way to iterate over two lists simultaneously is to combine both lists into a single, iterable object and iterate over it once. The <code class="docutils literal notranslate"><span class="pre">zip()</span></code> function does exactly this by merging two lists or tuples, like a zipper on a jacket, into something like a nested list of lists. However, instead of returning a list or tuple, the <code class="docutils literal notranslate"><span class="pre">zip()</span></code> function returns a single-use zip object.</p>
+<p id="index-5">The simplest way to iterate over two lists simultaneously is to combine both lists into a single, iterable object and iterate over it once. The <code class="docutils literal notranslate"><span class="pre">zip()</span></code> function does exactly this by merging two lists or tuples, like a zipper on a jacket, into something like a nested list of lists. However, instead of returning a list or tuple, the <code class="docutils literal notranslate"><span class="pre">zip()</span></code> function returns a single-use zip object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zipped</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">AN</span><span class="p">,</span> <span class="n">mass</span><span class="p">)</span>
@@ -1655,7 +1655,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="enumeration">
 <span id="id15"></span><h3>2.5.2 Enumeration<a class="headerlink" href="#enumeration" title="Permalink to this headline">#</a></h3>
-<p>A close relative to <code class="docutils literal notranslate"><span class="pre">zip()</span></code> is the <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> function. Instead of zipping  two lists or tuples together, it zips a list or tuple to the index values for that list. Similar to <code class="docutils literal notranslate"><span class="pre">zip()</span></code>, it returns a one-time use iterable object.</p>
+<p id="index-6">A close relative to <code class="docutils literal notranslate"><span class="pre">zip()</span></code> is the <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> function. Instead of zipping  two lists or tuples together, it zips a list or tuple to the index values for that list. Similar to <code class="docutils literal notranslate"><span class="pre">zip()</span></code>, it returns a one-time use iterable object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="o">=</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">mass</span><span class="p">)</span>
@@ -1705,7 +1705,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="encoding-numbers">
 <span id="id16"></span><h2>2.6 Encoding Numbers<a class="headerlink" href="#encoding-numbers" title="Permalink to this headline">#</a></h2>
-<p>During most of your work in Python, you do not need to think about how and where the values are stored as Python handles this for you. If you assign a number to a variable, Python will determine how to properly store this information. However, there are instances where you will need to understand a little about how numbers are encoded such as in gray scale images (chapter 7).</p>
+<p id="index-7">During most of your work in Python, you do not need to think about how and where the values are stored as Python handles this for you. If you assign a number to a variable, Python will determine how to properly store this information. However, there are instances where you will need to understand a little about how numbers are encoded such as in gray scale images (chapter 7).</p>
 <p>Numbers on your computer are stored in <em>binary</em> which is a base two numbering system. That is, instead of using digits from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 9 to describe a number, only 0 and 1 are used.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1752,7 +1752,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="advanced-functions">
 <span id="id17"></span><h2>2.7 Advanced Functions<a class="headerlink" href="#advanced-functions" title="Permalink to this headline">#</a></h2>
-<p>Section 1.9 describes positional arguments and keyword arguments as two methods for providing functions with information and instructions, but thus far, these methods have only allowed the function to take a predetermined numbers of arguments. While some flexibility is offered by the ability to set default keyword arguments that users have the option of overriding or leaving as the default, there is still a limit on the number of parameters in the function. What do we do when we need to write a function that takes an unspecified number of arguments? This section provides two approaches to solving this problem.</p>
+<p id="index-8">Section 1.9 describes positional arguments and keyword arguments as two methods for providing functions with information and instructions, but thus far, these methods have only allowed the function to take a predetermined numbers of arguments. While some flexibility is offered by the ability to set default keyword arguments that users have the option of overriding or leaving as the default, there is still a limit on the number of parameters in the function. What do we do when we need to write a function that takes an unspecified number of arguments? This section provides two approaches to solving this problem.</p>
 <div class="section" id="variable-positional-arguments">
 <span id="id18"></span><h3>2.7.1 Variable Positional Arguments<a class="headerlink" href="#variable-positional-arguments" title="Permalink to this headline">#</a></h3>
 <p>As a possible use case, it is common practice in lab to purify a solid compound by recrystallization, and chemists will often harvest multiple crops of crystals from the same solution to get the highest possible yield. If we want to write a function that returns the percent yield of a synthesized compound using the theoretical yield and the yields of each recrystallization crop, we are faced with the challenge of not knowing how many crops to expect. One solution is a var-positional argument.</p>
@@ -1827,12 +1827,14 @@ title="Print to PDF"
 </div>
 <div class="section" id="recursive-functions">
 <span id="id20"></span><h3>2.7.3 Recursive Functions<a class="headerlink" href="#recursive-functions" title="Permalink to this headline">#</a></h3>
-<p>Functions can call other functions. This is probably not surprising as we have already seen functions call <code class="docutils literal notranslate"><span class="pre">math.sqrt()</span></code> and <code class="docutils literal notranslate"><span class="pre">append()</span></code>, but what may be surprising is that Python allows a function to call itself. This is known as a <em>recursive function</em>.</p>
+<p id="index-9">Functions can call other functions. This is probably not surprising as we have already seen functions call <code class="docutils literal notranslate"><span class="pre">math.sqrt()</span></code> and <code class="docutils literal notranslate"><span class="pre">append()</span></code>, but what may be surprising is that Python allows a function to call itself. This is known as a <em>recursive function</em>.</p>
 <p>If we want to write a function that calculates the remaining mass of radioactive materials after a given number of half-lives, this can be accomplished using a <code class="docutils literal notranslate"><span class="pre">for</span></code> or <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, but it can also be accomplished recursively. We start by having the function divide the provided mass (<code class="docutils literal notranslate"><span class="pre">mass</span></code>) in half and then decrement the number of half-lives (<code class="docutils literal notranslate"><span class="pre">hl</span></code>) by one. This is the core component of the function. If <code class="docutils literal notranslate"><span class="pre">hl</span></code> is zero, the function is done and returns the mass. If not, the function calls itself again with the remaining mass and number of half-lives. This is the recursive part. The second time the function is run, the mass is again halved and the half-lives decremented by one, and the number of half-lives is again checked.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">half_life</span><span class="p">(</span><span class="n">mass</span><span class="p">,</span> <span class="n">hl</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;(float, hl=int) -&gt; float Takes in mass and number of half-lives and returns remaining mass of material. Half-lives need to be integer values.</span>
+    <span class="sd">&#39;&#39;&#39;(float, hl=int) -&gt; float Takes in mass and number of half-lives </span>
+<span class="sd">    and returns remaining mass of material. Half-lives need to be integer </span>
+<span class="sd">    values.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">mass</span> <span class="o">/=</span> <span class="mi">2</span>
     <span class="n">hl</span> <span class="o">-=</span> <span class="mi">1</span>
@@ -1915,7 +1917,7 @@ title="Print to PDF"
 <p>It doesn’t take long to realize that error messages are an inevitable part of computer programming, so it is helpful to know what the different type of errors messages mean and how to deal with them. This section provides a quick overview of major types of error messages and how to get Python to work past them when appropriate.</p>
 <div class="section" id="types-of-errors">
 <span id="id22"></span><h3>2.8.1 Types of Errors<a class="headerlink" href="#types-of-errors" title="Permalink to this headline">#</a></h3>
-<p>Whenever you encounter an error message, it includes the type of error followed by more details. There are numberous types of errors, but there are a few errors types that are more prevalent and worth being familar with. Below is a short list of some of these common error types.</p>
+<p id="index-10">Whenever you encounter an error message, it includes the type of error followed by more details. There are numberous types of errors, but there are a few errors types that are more prevalent and worth being familar with. Below is a short list of some of these common error types.</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="text-align:center head"><p>Type of Error</p></th>
@@ -1965,7 +1967,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_969</span><span class="o">/</span><span class="mf">2125787354.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_3749</span><span class="o">/</span><span class="mf">2125787354.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;root&#39; is not defined
@@ -1985,7 +1987,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/cw/g8p9ghtd3_7b10t_kws_b86h0000gp/T/ipykernel_969/2186603431.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/cw/g8p9ghtd3_7b10t_kws_b86h0000gp/T/ipykernel_3749/2186603431.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
 <span class="g g-Whitespace">    </span><span class="mi">5</span> <span class="o">&lt;&gt;</span> <span class="mi">6</span>
       <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
@@ -2001,7 +2003,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/cw/g8p9ghtd3_7b10t_kws_b86h0000gp/T/ipykernel_969/848242794.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/cw/g8p9ghtd3_7b10t_kws_b86h0000gp/T/ipykernel_3749/848242794.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
 <span class="g g-Whitespace">    </span><span class="mi">5</span><span class="n">sdq</span> <span class="o">=</span> <span class="mi">52</span>
      <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
@@ -2022,7 +2024,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_969</span><span class="o">/</span><span class="mf">2284501298.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_3749</span><span class="o">/</span><span class="mf">2284501298.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">abs</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
 
 <span class="ne">TypeError</span>: bad operand type for abs(): &#39;str&#39;
@@ -2040,7 +2042,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_969</span><span class="o">/</span><span class="mf">3042216965.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_3749</span><span class="o">/</span><span class="mf">3042216965.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">5</span>
 
 <span class="ne">TypeError</span>: &#39;&gt;&#39; not supported between instances of &#39;list&#39; and &#39;int&#39;
@@ -2062,7 +2064,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_969</span><span class="o">/</span><span class="mf">4172608794.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_3749</span><span class="o">/</span><span class="mf">4172608794.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">math</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
@@ -2084,7 +2086,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_969</span><span class="o">/</span><span class="mf">2293179708.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_3749</span><span class="o">/</span><span class="mf">2293179708.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="mi">4</span> <span class="o">/</span> <span class="mi">0</span>
 
 <span class="ne">ZeroDivisionError</span>: division by zero
@@ -2104,7 +2106,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/cw/g8p9ghtd3_7b10t_kws_b86h0000gp/T/ipykernel_969/963956298.py&quot;</span><span class="gt">, line </span><span class="mi">2</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/cw/g8p9ghtd3_7b10t_kws_b86h0000gp/T/ipykernel_3749/963956298.py&quot;</span><span class="gt">, line </span><span class="mi">2</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="o">^</span>
 <span class="ne">IndentationError</span>: expected an indented block
@@ -2126,7 +2128,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_969</span><span class="o">/</span><span class="mf">1098396888.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_3749</span><span class="o">/</span><span class="mf">1098396888.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">lst</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
 
@@ -2158,7 +2160,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_969</span><span class="o">/</span><span class="mf">1242611454.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_3749</span><span class="o">/</span><span class="mf">1242611454.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">elements</span><span class="p">[</span><span class="s1">&#39;N&#39;</span><span class="p">]</span>
 
 <span class="ne">KeyError</span>: &#39;N&#39;
@@ -2204,7 +2206,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_969</span><span class="o">/</span><span class="mf">609664091.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_3749</span><span class="o">/</span><span class="mf">609664091.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> 
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">sqr_nums</span><span class="p">:</span>
 <span class="ne">----&gt; </span><span class="mi">5</span>     <span class="n">sqr_root</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>
@@ -2325,7 +2327,7 @@ acids2 = {‘HI’, ‘HBr’, ‘HClO4’, ‘HNO3’}</p>
 What is the theoretical mean for this data set?</p>
 <p>b) Generate 10,000 random integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 9 and calculate the mean of these values. Is this mean closer or further than the mean from part a? Rationalize your answer. Hint: look up the “law of large numbers” for help.</p>
 </li>
-<li><p>The following code generates five atoms at random coordinates in 3D space. Write a Python script that calculates the distance between each pair of atoms and returns the shortest distance. The itertools module might be helpful here. See <a class="reference internal" href="../chapter_01/chap_01_notebook.html#id38"><span class="std std-ref">section 1.9.1</span></a> for help calculating distance.</p>
+<li><p>The following code generates five atoms at random coordinates in 3D space. Write a Python script that calculates the distance between each pair of atoms and returns the shortest distance. The itertools module might be helpful here. See <a class="reference internal" href="../chapter_01/chap_01_notebook.html#id39"><span class="std std-ref">section 1.9.1</span></a> for help calculating distance.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
 <span class="n">atoms</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>

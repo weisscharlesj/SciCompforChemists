@@ -45,9 +45,9 @@ While great efforts have gone into ensuring that all the code in this book works
 The code in this version of the book has been most recently tested with the following software versions but will likely work with other versions.
 
 - Python – 3.9.7
-- NumPy – 1.22.4
+- NumPy – 1.23
 - SciPy – 1.8.1
-- Pandas – 1.4.2
+- Pandas – 1.4.3
 - Matplotlib – 3.5.2
 - Seaborn – 0.11.2
 - Scikit-image – 0.19.2
