@@ -1,6 +1,9 @@
 (13)=
 # Chapter 13: Command Line & Spyder
 
+```{index} command line
+```
+
 Up to this point, we have been running all of our Python scripts through the IPython environment from either a Jupyter notebook or a Python interpreter. A third way to run Python code is to save it as text files and run the code from the computer's command prompt. The advantage of this approach is that it is more practical for larger scripts and more convenient for doing repetitive tasks like reformatting instrument data. You will need access to the command prompt to run your Python script. If you are using Linux or Mac, launch the Terminal to get access to the Bash command line, and if you are on Windows, you will likely first need to activate the Bash command line before proceeding.
 
 (13.1)=

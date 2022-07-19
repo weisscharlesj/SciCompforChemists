@@ -4,7 +4,7 @@ The following is the textbook used for the Scientific Computing Chemists course 
 
 This book is periodically updated to fix typos, account for new software versions, and add new content. The most recent version can be viewed using the link below or downloaded or forked above along with Jupyter notebooks containing all code in the book. Reports of errors and information on how people are using this book are always welcome.
 
-Answer keys to exercises are available to instructors upon request. Please [email me](https://www.augie.edu/academics/majors-and-programs/chemistry/faculty) using your institutional email address to request a copy.
+Answer keys to exercises are available to instructors upon request by [emailing] (https://www.augie.edu/academics/majors-and-programs/chemistry/faculty) me using your school email address to request a copy.
 
 ## [View Scientific Computing for Chemists with Python (Jupyter Book)](https://weisscharlesj.github.io/SciCompforChemists/)
 
@@ -24,11 +24,22 @@ The book and all files/materials included with it are copyright © 2021-2022 Cha
 * Chapter 11: Nuclear Magnetic Resonance with NMRglue
 * Chapter 12: Machine Learning using Scikit-Learn
 * Chapter 13: Command Line & Spyder
+* Chapter 14: Optimization and Root Finding
 
-## Articles on Course and Textbook
+## Interested in Using This Book for Your Course?
+
+First, I'd love to hear how people are using this book. Second, this book may receive updates with additional content, clarifications, and corrections, so if you want a static copy of the book to use during the academic term, below are multiple options.
+
+1. (Simpler) Download PDF copies of the chapters to share with your student - at the top right of each chapter page, click the download button and select the PDF option.
+
+2. Fork this repository to your GitHub page and have your students use your copy - create a GitHub account, fork this repository, build the book using [Jupyter Book](https://jupyterbook.org/), and have you students use your copy on your GitHub page. You can update your fork of this repository at any time to received any updates, and unlike a PDF copy, this approach makes it easier for students to copy-and-paste code from the chapters. The approach does require the user be confortable using git and GitHub.
+
+## Citing this Book and Curriculum
+
+A Creative Commons Textbook for Teaching Scientific Computing to Chemistry Students with Python and Jupyter Notebooks *J. Chem. Educ.* **2021,** 98, 489-494 [DOI: 10.1021/acs.jchemed.0c01071](https://doi.org/10.1021/acs.jchemed.0c01071)
 
 Scientific Computing for Chemists: An Undergraduate Course in Simulations, Data Processing, and Visualization *J. Chem. Educ.* **2017,** 94, 592-597 [DOI: 10.1021/acs.jchemed.7b00078](http://dx.doi.org/10.1021/acs.jchemed.7b00078)  
 
 Introduction to Stochastic Simulations for Chemical and Physical Processes: Principles and Applications *J. Chem. Educ.* **2017,** 94, 1904-1910 [DOI: 10.1021/acs.jchemed.7b00395](http://dx.doi.org/10.1021/acs.jchemed.7b00395)
 
-A Creative Commons Textbook for Teaching Scientific Computing to Chemistry Students with Python and Jupyter Notebooks *J. Chem. Educ.* **2021,** 98, 489-494 [DOI: 10.1021/acs.jchemed.0c01071](https://doi.org/10.1021/acs.jchemed.0c01071)
+
