@@ -1,0 +1,1440 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter 14: Optimization and Root Finding (beta) &#8212; Scientific Computing for Chemists with Python</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Index" href="../../genindex.html" />
+    <link rel="prev" title="Chapter 13: Command Line &amp; Spyder" href="../chapter_13/chap_13.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Scientific Computing for Chemists with Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Scientific Computing for Chemists with Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_00/chap_00_notebook.html">
+   Chapter 0: Python &amp; Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_01/chap_01_notebook.html">
+   Chapter 1: Basic Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_02/chap_02_notebook.html">
+   Chapter 2: Intermediate Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_03/chap_03_notebook.html">
+   Chapter 3: Plotting with Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_04/chap_04_notebook.html">
+   Chapter 4: NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_05/chap_05_notebook.html">
+   Chapter 5: Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_06/chap_06_notebook.html">
+   Chapter 6: Signal &amp; Noise
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_07/chap_07_notebook.html">
+   Chapter 7: Image Processing &amp; Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_08/chap_08_notebook.html">
+   Chapter 8: Mathematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_09/chap_09_notebook.html">
+   Chapter 9: Simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_10/chap_10_notebook.html">
+   Chapter 10: Plotting with Seaborn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_11/chap_11_notebook.html">
+   Chapter 11: Nuclear Magnetic Resonance with NMRglue
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_12/chap_12_notebook.html">
+   Chapter 12: Machine Learning using Scikit-Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_13/chap_13.html">
+   Chapter 13: Command Line &amp; Spyder
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Chapter 14: Optimization and Root Finding (beta)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../genindex.html">
+   Index
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org/">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/notebooks/chapter_14/chap_14_notebook.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/chapter_14/chap_14_notebook.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/notebooks/chapter_14/chap_14_notebook.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-ed0a3f-this-chapter-is-still-being-edited-and-may-contain-typos-if-you-find-an-error-reports-are-welcome-and-gratefully-acknowledged-in-the-acknowledgement-section-font">
+   <font color="ED0A3F">
+    <em>
+     This chapter is still being edited and may contain typos. If you find an error, reports are welcome and gratefully acknowledged in the acknowledgement section.
+    </em>
+   </font>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#minimization">
+   14.1 Minimization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#univariant-minimization">
+     14.1.1 Univariant Minimization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minimization-for-maximization">
+     14.1.2 Minimization for Maximization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multivarient-minimization">
+     14.1.3 Multivarient Minimization
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fitting-equations-to-data">
+   14.2 Fitting Equations to Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linear-equations">
+     14.2.1 Linear Equations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nonlinear-regression">
+     14.2.2 Nonlinear Regression
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mixed-analyte-example">
+     14.2.3 Mixed Analyte Example
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#root-finding">
+   14.3 Root Finding
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-reading">
+   Further Reading
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Chapter 14: Optimization and Root Finding (beta)</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-ed0a3f-this-chapter-is-still-being-edited-and-may-contain-typos-if-you-find-an-error-reports-are-welcome-and-gratefully-acknowledged-in-the-acknowledgement-section-font">
+   <font color="ED0A3F">
+    <em>
+     This chapter is still being edited and may contain typos. If you find an error, reports are welcome and gratefully acknowledged in the acknowledgement section.
+    </em>
+   </font>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#minimization">
+   14.1 Minimization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#univariant-minimization">
+     14.1.1 Univariant Minimization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minimization-for-maximization">
+     14.1.2 Minimization for Maximization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multivarient-minimization">
+     14.1.3 Multivarient Minimization
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fitting-equations-to-data">
+   14.2 Fitting Equations to Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linear-equations">
+     14.2.1 Linear Equations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nonlinear-regression">
+     14.2.2 Nonlinear Regression
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mixed-analyte-example">
+     14.2.3 Mixed Analyte Example
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#root-finding">
+   14.3 Root Finding
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-reading">
+   Further Reading
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="chapter-14-optimization-and-root-finding-beta">
+<span id="id1"></span><h1>Chapter 14: Optimization and Root Finding (beta)<a class="headerlink" href="#chapter-14-optimization-and-root-finding-beta" title="Permalink to this headline">#</a></h1>
+<div class="section" id="font-color-ed0a3f-this-chapter-is-still-being-edited-and-may-contain-typos-if-you-find-an-error-reports-are-welcome-and-gratefully-acknowledged-in-the-acknowledgement-section-font">
+<h2><font color = 'ED0A3F'> <em>This chapter is still being edited and may contain typos. If you find an error, reports are welcome and gratefully acknowledged in the acknowledgement section.</em> </font><a class="headerlink" href="#font-color-ed0a3f-this-chapter-is-still-being-edited-and-may-contain-typos-if-you-find-an-error-reports-are-welcome-and-gratefully-acknowledged-in-the-acknowledgement-section-font" title="Permalink to this headline">#</a></h2>
+<span class="target" id="index-0"></span><p id="index-1"><em>Optimization</em> is the process of improving something to the extent that it cannot be reasonably improved any further. This often involves maximizing desirable attributes and/or minimizing those that are undesirable, so finding the maximum and minimum are common optimization goals. While you may or may not have previously worked <em>directly</em> with optimization, you almost certainly have used it as part of a larger application or task such as energy minimization of a molecule, regression analysis, or a number of machine learning algorithms.</p>
+<p>In optimization tasks, we often find ourselves searching for the maximum or minimum of a given mathematical function. If we, for example, seek to minimize a function <span class="math notranslate nohighlight">\(f(a,b)\)</span>, our goal is to find values for input variables <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> to generate the smallest possible output from the function <span class="math notranslate nohighlight">\(f\)</span>. One approach is to manually try different input values until you get the smallest possible output, but this kind of tedious and time-consuming task is best left to computers. The <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module contains a number of functions for performing optimizations of mathematical functions. The goal of this chapter is to introduce the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module and apply it to chemical applications. This chapter does not delve into the deeper theory behind optimization, such as specific algorithms. For those interested in some of the deeper theory of optimization, see the <a class="reference internal" href="#fr14"><span class="std std-ref">Further Reading</span></a> section.</p>
+<p>Before we begin, we first need to address how we measure what is “best”? For this, we use a <em>cost function</em>, also known as an <em>objective function</em>, which is a mathematical function that takes in features and returns a value that is a measure of “goodness.” If we were a company that is trying to maximize our profits, the objective function would likely be some mathematical equation that calculates our net profit. Optimization of a molecule’s conformation involves minimizing the energy, so the objective function here is the function that calculates the energy of the molecule based on the attributes like bond angles and lengths. In the examples below, each of the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> functions takes as its first argument an objective function in the form of a Python function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">obj_func</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The examples in this chapter assume the following imports from NumPy, SciPy, pandas, and matplotlib.</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="minimization">
+<span id="id2"></span><h2>14.1 Minimization<a class="headerlink" href="#minimization" title="Permalink to this headline">#</a></h2>
+<p id="index-2">The first task we will look at is minimization, and for this, <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> has two related functions <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize()</span></code> and <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize_scalar()</span></code>. Both functions minimize the provided function, but the difference is in the number of independent variables that the objective function takes. A function with only one independent variable, <span class="math notranslate nohighlight">\(f(a)\)</span>, is known as <em>univariant</em> while a function that takes multiple independent variables, <span class="math notranslate nohighlight">\(f(a,b,...)\)</span>, is known as <em>multivariant</em>. The <code class="docutils literal notranslate"><span class="pre">minimize()</span></code> function can minimize either multivariant and univariant functions while <code class="docutils literal notranslate"><span class="pre">minimize_scalar()</span></code> can only accept univariant functions.</p>
+<div class="section" id="univariant-minimization">
+<span id="id3"></span><h3>14.1.1 Univariant Minimization<a class="headerlink" href="#univariant-minimization" title="Permalink to this headline">#</a></h3>
+<p>If we are trying to minimize a function with a single independent variable, the <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize_scalar()</span></code> is likely a good choice. As a simple example, we will find the radius of minimal energy for two xenon atoms using the Lennard-Jones equation below which describes the potential energy with respect to the distance, <span class="math notranslate nohighlight">\(r\)</span>, between the two atoms. In this example, <span class="math notranslate nohighlight">\(\sigma\)</span> = 4.10 angstroms and <span class="math notranslate nohighlight">\(\epsilon\)</span> = 1.77 kJ/mol.</p>
+<div class="math notranslate nohighlight">
+\[ PE = 4 \epsilon \left[ \left(\frac{\sigma}{r}\right)^{12} - \left(\frac{\sigma}{r}\right)^6 \right] \]</div>
+<p>Being that energy described by the Lennard-Jones energy equation is what we are trying to minimize, this is our objective function. We first need to define this equation as a Python function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">PE_LJ</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+    <span class="n">epsilon</span> <span class="o">=</span> <span class="mf">4.10</span> <span class="c1">#kJ/mol</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="mf">1.77</span> <span class="c1">#angstroms</span>
+    <span class="n">PE</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">epsilon</span> <span class="o">*</span> <span class="p">(</span> <span class="p">(</span><span class="n">sigma</span><span class="o">/</span><span class="n">r</span><span class="p">)</span><span class="o">**</span><span class="mi">12</span> <span class="o">-</span> <span class="p">(</span><span class="n">sigma</span><span class="o">/</span><span class="n">r</span><span class="p">)</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">PE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we will feed our objective function into the <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize_scalar()</span></code> function along with some constraints. In this case, we are constraining the values of <span class="math notranslate nohighlight">\(r\)</span> to a specific range using the <code class="docutils literal notranslate"><span class="pre">bounds=</span></code> argument and setting the <code class="docutils literal notranslate"><span class="pre">method='bounded'</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is an optional argument, but if you know roughly where the minimum will be or where it cannot be, this is helpful information. In this example, it is important to provide constraints on <span class="math notranslate nohighlight">\(r\)</span> to ensure the <code class="docutils literal notranslate"><span class="pre">minimize_scalar()</span></code> function does not try r = 0 and generate a <code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">PE_LJ</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> 
+                               <span class="n">method</span><span class="o">=</span><span class="s1">&#39;bounded&#39;</span><span class="p">)</span>
+<span class="n">opt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     fun: -4.099999999992542
+ message: &#39;Solution found.&#39;
+    nfev: 21
+     nit: 21
+  status: 0
+ success: True
+       x: 1.986757378942203
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alternatively, we can use the <code class="docutils literal notranslate"><span class="pre">bracket=(a,</span> <span class="pre">b)</span></code> argument where <em>f(b)</em> &lt; <em>f(a)</em>. This argument is different from the <code class="docutils literal notranslate"><span class="pre">bounds=</span></code> argument in that instead of telling the function a region to search, it instead tells the <code class="docutils literal notranslate"><span class="pre">minimize_scalar()</span></code> function the <em>direction</em> to search for the minimum. The minimum does not need to be between <em>a</em> and <em>b</em>, but it simply tells the function that if it moves in the direction of <em>a</em> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <em>b</em>, it will be moving <em>toward</em> the minimum.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">bracket=</span></code> argument can also accept three values,<code class="docutils literal notranslate"><span class="pre">bracket=(a,</span> <span class="pre">b,</span> <span class="pre">b)</span></code>, where <span class="math notranslate nohighlight">\(f\)</span>(a) &gt; <span class="math notranslate nohighlight">\(f\)</span>(b) &lt; <span class="math notranslate nohighlight">\(f\)</span>(c). This is even more helpful to the minimization function but also requires more foreknowledge from the user about the function being minimized.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">PE_LJ</span><span class="p">,</span> <span class="n">bracket</span><span class="o">=</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
+<span class="n">opt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     fun: -4.099999999999997
+ message: &#39;\nOptimization terminated successfully;\nThe returned value satisfies the termination criteria\n(using xtol = 1.48e-08 )&#39;
+    nfev: 27
+     nit: 23
+ success: True
+       x: 1.9867578344041286
+</pre></div>
+</div>
+</div>
+</div>
+<p>After running our optimization function, an <code class="docutils literal notranslate"><span class="pre">OptimizeResult</span></code> object is returned. This object has a series of attributes listed above, but the two most important are <code class="docutils literal notranslate"><span class="pre">success</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span></code>. The <code class="docutils literal notranslate"><span class="pre">success</span></code> attribute tells us if the optimization function was successful at converging on the minimized function while the <code class="docutils literal notranslate"><span class="pre">x</span></code> attribute is the optimized solution. We can access the solution using <code class="docutils literal notranslate"><span class="pre">opt.x</span></code> to learn that the minimized distance according to the  Lennard-Jones energy equation is 1.99 angstroms.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.9867578344041286
+</pre></div>
+</div>
+</div>
+</div>
+<p>Being that our energy function is only univariant, we can easily visualize the function and our minimized solution (orange dot) as done below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">1.7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="n">PE</span> <span class="o">=</span> <span class="n">PE_LJ</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">PE</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">opt</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">PE_LJ</span><span class="p">(</span><span class="n">opt</span><span class="o">.</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Distance, Angstroms&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Potential Energy, kJ/mol&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Potential Energy, kJ/mol&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/chap_14_notebook_15_1.svg" src="../../_images/chap_14_notebook_15_1.svg" /></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Optimization functions can use algorithms with random components, so if they are run multiple times, variations in the results may be observed. The results typically vary only slightly, but sometimes more significant variations may be observed such as if there are multiple minima or maxima in the objective function.</p>
+</div>
+</div>
+<div class="section" id="minimization-for-maximization">
+<span id="id4"></span><h3>14.1.2 Minimization for Maximization<a class="headerlink" href="#minimization-for-maximization" title="Permalink to this headline">#</a></h3>
+<p id="index-3">The SciPy library does not contain any maximization functions, but maximization functions are not really necessary as minimizing the negative of a function provides the maximum. For example, below we have the radial probability function for the hydrogen 3s orbital. For convenience, the SymPy library’s <code class="docutils literal notranslate"><span class="pre">sympy.physics</span></code> module is used to generate the 3s radial function (<span class="math notranslate nohighlight">\(\psi\)</span>, <code class="docutils literal notranslate"><span class="pre">psi</span></code>) as a Python function. For this maximization example, let’s find the radius of maximum probability for the electron. The normalized probability can be calculated by <span class="math notranslate nohighlight">\(\psi ^2 r^2\)</span> where <span class="math notranslate nohighlight">\(r\)</span> is the distance from the nucleus.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span>
+<span class="kn">from</span> <span class="nn">sympy.physics.hydrogen</span> <span class="kn">import</span> <span class="n">R_nl</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">)</span>
+
+<span class="n">psi_expr</span> <span class="o">=</span> <span class="n">R_nl</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span> <span class="c1"># generate wave function using SymPy</span>
+<span class="n">psi</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">lambdify</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">psi_expr</span><span class="p">,</span> <span class="s1">&#39;numpy&#39;</span><span class="p">)</span> <span class="c1"># convert to a Python function</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">psi</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">r</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># r is in bohrs (~0.529 anstroms)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">margins</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Radius, $a_0$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability Density&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Probability Density&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/chap_14_notebook_18_1.svg" src="../../_images/chap_14_notebook_18_1.svg" /></div>
+</div>
+<p>There are multiple ways to make the function negative like including a negative sign in the Python function definition. Our Python function has already been created, so below we will make the radial probability density negative using a <code class="docutils literal notranslate"><span class="pre">lambda</span></code> function (see <a class="reference internal" href="../chapter_02/chap_02_notebook.html#id6"><span class="std std-ref">section 2.1.4</span></a> for review on lambda functions).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mx</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="n">psi</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">mx</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     fun: -0.014833612579485785
+ message: &#39;\nOptimization terminated successfully;\nThe returned value satisfies the termination criteria\n(using xtol = 1.48e-08 )&#39;
+    nfev: 17
+     nit: 13
+ success: True
+       x: 0.7400370693225894
+</pre></div>
+</div>
+</div>
+</div>
+<p id="index-4">The value returned is the first local maximum but not the global maximum we are seeking. To ensure we get the global maximum, we need to add a constraint for the range of radii used by the optimization function. This is known as <em>constrained optimization</em> and is accomplished by setting the <code class="docutils literal notranslate"><span class="pre">method='bounded'</span></code> and setting the <code class="docutils literal notranslate"><span class="pre">bounds=</span></code> to the range of values the function will operate in.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mx</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="n">psi</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span>
+                              <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;bounded&#39;</span><span class="p">)</span>
+<span class="n">mx</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     fun: -0.10153431119853075
+ message: &#39;Solution found.&#39;
+    nfev: 11
+     nit: 11
+  status: 0
+ success: True
+       x: 13.074031887574048
+</pre></div>
+</div>
+</div>
+</div>
+<p>The global maximum is plotted as an orange dot below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">psi</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">r</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mx</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">psi</span><span class="p">(</span><span class="n">mx</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">mx</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Radius, $a_0$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability Density&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">margins</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/chap_14_notebook_24_0.svg" src="../../_images/chap_14_notebook_24_0.svg" /></div>
+</div>
+</div>
+<div class="section" id="multivarient-minimization">
+<span id="id5"></span><h3>14.1.3 Multivarient Minimization<a class="headerlink" href="#multivarient-minimization" title="Permalink to this headline">#</a></h3>
+<p id="index-5">One of the key minimization functions in the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module is the <code class="docutils literal notranslate"><span class="pre">minimize()</span></code> function which is capable of minimizing multiple variables simultaneously. This function requires at least two arguments, the objective function and initial guesses for each value as a list or tuple.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">obj_func</span><span class="p">,</span> <span class="p">(</span><span class="n">guess</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>As an example, we will calculate the equilibrium concentrations for a tandem equilibrium shown below between three different isomers assuming we place an initial 122 mmol of the isomer A into solution and allow it to equilibrate at 25 <span class="math notranslate nohighlight">\(^o\)</span>C. The two equilibrium constants for this equilibrium are <em>K</em><span class="math notranslate nohighlight">\(_1\)</span>=5.0 and <em>K</em><span class="math notranslate nohighlight">\(_2\)</span>=0.80.</p>
+<div class="math notranslate nohighlight">
+\[ A {\stackrel{K_1}{\rightleftharpoons}} B {\stackrel{K_2}{\rightleftharpoons}} C\]</div>
+<p>To solve this problem, we need to adjust the three isomer concentrations, our variables, such that they get as close as possible to the equilibrium ratios set by the equilibrium constants.</p>
+<p>The first step is to write an objective function as a Python function, <code class="docutils literal notranslate"><span class="pre">obj_func()</span></code>, that quantifies how poor the solution is. It is the value from this function that we are minimizing to generate the optimal solution to our problem. Being that our goal is to bring the isomer quantities as close to the equilibrium ratios as possible, a reasonable objective function will calculate how far our isomer ratios are from equilibrium. The quality of our solution will be calculated from the squares of the difference between a proposed solution and the target equilibrium constants so that the further the proposed solution is from the target equilibrium values, the exponentially worse the quality of the solution will be evaluated as.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K1</span><span class="p">,</span> <span class="n">K2</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.80</span>
+
+<span class="k">def</span> <span class="nf">obj_func</span><span class="p">(</span><span class="n">guess</span><span class="p">):</span>
+    <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">guess</span>
+    
+    <span class="n">Q1</span> <span class="o">=</span> <span class="n">B</span><span class="o">/</span><span class="n">A</span>  <span class="c1"># reaction quotient</span>
+    <span class="n">Q2</span> <span class="o">=</span> <span class="n">C</span><span class="o">/</span><span class="n">B</span>  <span class="c1"># reaction quotient</span>
+    
+    <span class="n">quality</span> <span class="o">=</span> <span class="p">(</span><span class="n">Q1</span> <span class="o">-</span> <span class="n">K1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">Q2</span> <span class="o">-</span> <span class="n">K2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    
+    <span class="k">return</span> <span class="n">quality</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we provide the <code class="docutils literal notranslate"><span class="pre">minimize()</span></code> function both our objective function and an initial guess for the quantities A, B, and C. The initial guess needs to be a single collection such as a tuple, array, or list. The output of the <code class="docutils literal notranslate"><span class="pre">minimize()</span></code> function is again an <code class="docutils literal notranslate"><span class="pre">OptimizeResult</span></code> object with the <code class="docutils literal notranslate"><span class="pre">x</span></code> attribute accessing the minimized quantities for A, B, and C, respectively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">guess</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
+<span class="n">equ</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">obj_func</span><span class="p">,</span> <span class="n">guess</span><span class="p">)</span>
+<span class="n">equ</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 9.425982056756344e-14
+ hess_inv: array([[0.00320007, 0.01199286, 0.00510192],
+       [0.01199286, 0.05824245, 0.02449791],
+       [0.00510192, 0.02449791, 0.45818116]])
+      jac: array([-5.53845281e-06,  3.65673409e-06, -1.14935904e-07])
+  message: &#39;Optimization terminated successfully.&#39;
+     nfev: 60
+      nit: 8
+     njev: 15
+   status: 0
+  success: True
+        x: array([0.1916679 , 0.95833958, 0.76667161])
+</pre></div>
+</div>
+</div>
+</div>
+<p>To access the minimized values, use <code class="docutils literal notranslate"><span class="pre">equ.x</span></code> in this example. We can then verify the results by calculating the equilibrium values based on the calculated equilibrium quantities.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">equ</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">equ</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.00000030051608
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">equ</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">/</span><span class="n">equ</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7999999371517186
+</pre></div>
+</div>
+</div>
+</div>
+<p>Both values are in excellent agreement with <span class="math notranslate nohighlight">\(K_1\)</span> and <span class="math notranslate nohighlight">\(K_2\)</span> listed above. One step still remains to solve our problem. In the above problem, it is stated that we started with 122 mmol of isomer A, so if we take the sum of the quantities of A, B, and C, they need to equal 122.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">equ</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.91667909144148
+</pre></div>
+</div>
+</div>
+</div>
+<p>They do not total to 122 mmol, so we can to scale the quantities up to a total of 122 mmol. Keep in mind that scaling up our values for A, B, and C will not change the ratios.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scale_factor</span> <span class="o">=</span> <span class="mi">122</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">equ</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<span class="n">scale_factor</span> <span class="o">*</span> <span class="n">equ</span><span class="o">.</span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([12.19999972, 61.00000228, 48.79999799])
+</pre></div>
+</div>
+</div>
+</div>
+<p>The final equilibrium quanties for A, B, and C are 12.2, 61.0, and 48.8 mmol, respectively.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is important to recognize that just because an optimization function generates an answer does not mean that it is indeed the correct answer for your problem. The generated answer is the optimization algorithm’s best effort in producing the optimal result which may be, for example, a local minimum instead of the global minimum. If there is a way to verify the answer such as was done in the equilibrium example above, this is a prudent last step before using this information.</p>
+</div>
+</div>
+</div>
+<div class="section" id="fitting-equations-to-data">
+<span id="id6"></span><h2>14.2 Fitting Equations to Data<a class="headerlink" href="#fitting-equations-to-data" title="Permalink to this headline">#</a></h2>
+<span class="target" id="index-6"></span><p id="index-7">An common application of optimization is fitting an equation to a series of data points such as a linear regression. While linear regression also  happens to have an analytical solution demonstrated in <a class="reference internal" href="../chapter_08/chap_08_notebook.html#id14"><span class="std std-ref">section 8.3.3</span></a>, we will solve it here using optimization. In the figure below, a regression line (solid orange) runs through the data points. The <em>residuals</em> are the difference between the regression line and the data points (green vertical dotted lines). The goal of linear regression is to generate a regression line that minimizes these residuals.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/chap_14_notebook_39_0.svg" src="../../_images/chap_14_notebook_39_0.svg" /></div>
+</div>
+<p><strong>Figure 1</strong> An example of a line of best fit (solid orange) running through data points (blue) with residuals (green dashed) shown as the difference on the <span class="math notranslate nohighlight">\(y\)</span>-axis between the data point and linear regression.</p>
+<p id="index-8">One of the major questions in regression is how do we measure the quality of the fit. We could in principle use the total absolute sum of the residuals, known as the <em>lease absolute deviation</em> cost or objective function, but the commonly accepted objective function for fitting equations to data is <em>mean square error (MSE)</em> function. This is the average of the square of the difference between the equation’s predictions and the actual data points, or another way of wording this is MSE is the average square residual of the fit line. The MSE equation is shown below where <span class="math notranslate nohighlight">\(f_i\)</span> is the <em>y</em>-value from the regression line, <span class="math notranslate nohighlight">\(y_i\)</span> is the data point <em>y</em>-value, and <span class="math notranslate nohighlight">\(N\)</span> is the number of data points.</p>
+<div class="math notranslate nohighlight">
+\[ MSE = \frac{1}{N} \sum_{i=1}^{N}{(f_i - y_i)^2} \]</div>
+<p>There are two general types of regression: linear regression and nonlinear regression. The key difference is that the former fits data to a linear equation (or plane or hyperplane for higher dimensions) while the latter fits data to nonlinear equations.</p>
+<div class="section" id="linear-equations">
+<span id="id7"></span><h3>14.2.1 Linear Equations<a class="headerlink" href="#linear-equations" title="Permalink to this headline">#</a></h3>
+<p id="index-9">There are numerous examples of linear equations in chemistry, and often when equations are nonlinear, they can be rearranged into a linear form. One classic example of a linear trend is the absorption of light being passed through a solution of colored analyte (i.e., material being quantified) with respect to the concentration of the analyte. This is related by Beer’s law shown below where <span class="math notranslate nohighlight">\(A\)</span> is absorption, <span class="math notranslate nohighlight">\(\epsilon\)</span> is the molar absorptivity constant for a particular analyte, <span class="math notranslate nohighlight">\(b\)</span> is path length of the sample, and <span class="math notranslate nohighlight">\(C\)</span> is the concentration of analyte.</p>
+<div class="math notranslate nohighlight">
+\[ A = \epsilon bC \]</div>
+<p>Being that the path length for our instrument is 1 cm, which is quite common, this equation simplifies to the following.</p>
+<div class="math notranslate nohighlight">
+\[ A = \epsilon C \]</div>
+<p>By measuring the absorbance of multiple samples of analyte at known concentrations, the absorbance can be plotted with respect to concentration, and the slope of the linear trend is the molar absorptivity, <span class="math notranslate nohighlight">\(\epsilon\)</span>.</p>
+<p>As our sample data, let’s again use the copper cuprizone data we saw in chapter 8.</p>
+<p><strong>Table 1</strong> Beer-Lambert Law Data for Copper Cuprizone</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Concentration (10<span class="math notranslate nohighlight">\(^{-6}\)</span> M)</p></th>
+<th class="text-align:center head"><p>Absorbance</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>1.0</p></td>
+<td class="text-align:center"><p>0.0154</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>3.0</p></td>
+<td class="text-align:center"><p>0.0467</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>6.0</p></td>
+<td class="text-align:center"><p>0.0930</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>15</p></td>
+<td class="text-align:center"><p>0.2311</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>25</p></td>
+<td class="text-align:center"><p>0.3925</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>35</p></td>
+<td class="text-align:center"><p>0.5413</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0e-06</span><span class="p">,</span> <span class="mf">3.0e-06</span><span class="p">,</span> <span class="mf">6.0e-06</span><span class="p">,</span> <span class="mf">1.5e-05</span><span class="p">,</span> <span class="mf">2.5e-05</span><span class="p">,</span> <span class="mf">3.5e-05</span><span class="p">])</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0154</span><span class="p">,</span> <span class="mf">0.0467</span><span class="p">,</span> <span class="mf">0.0930</span> <span class="p">,</span> <span class="mf">0.2311</span><span class="p">,</span> <span class="mf">0.3975</span><span class="p">,</span> <span class="mf">0.5413</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The function we will use to fit this data is the <code class="docutils literal notranslate"><span class="pre">optimize.curve_fit()</span></code> function which performs a least-square minimization that fits an equation to the data provided. Despite this function being often described for fitting an equation to nonlinear data, this function is highly versatile and can fit both linear and nonlinear data. This function requires the theoretical equation, <code class="docutils literal notranslate"><span class="pre">func</span></code>, in the form of a Python function, the independent variable, <code class="docutils literal notranslate"><span class="pre">xdata</span></code>, and the dependent variable, <code class="docutils literal notranslate"><span class="pre">ydata</span></code>. The <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> function also allows the user to optionally provide an initial guess for the equation variables/constants, <code class="docutils literal notranslate"><span class="pre">p0</span></code>. This can help speed up the process for more challenging problems and helps ensure the algorithm converges on a reasonable solution.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">p0</span><span class="o">=</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Below we have defined a Python function describing our equation that will be used to fit the data. The Python function used with <code class="docutils literal notranslate"><span class="pre">optimize.curve_fit()</span></code> function requires that the first argument of the Python function must be the independent variable(s), and all the rest of the arguments are the parameters used to fit the equation to the data. In this case, these are the slope, <span class="math notranslate nohighlight">\(m\)</span>, and the <em>y</em>-intercept, <span class="math notranslate nohighlight">\(b\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">lin_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">m</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The objective function is then provided to the <code class="docutils literal notranslate"><span class="pre">optimize.curve_fit()</span></code> function along with the data to fit. The <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> function returns two arrays: the optimized parameters and the estimated covariance of the optimized parameters. We are only concerned with the optimized parameters right now, so we use the <code class="docutils literal notranslate"><span class="pre">__</span></code> junk variable to hold the covariance array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">const</span><span class="p">,</span> <span class="n">__</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">lin_func</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="n">const</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.55886228e+04, -5.51831756e-06])
+</pre></div>
+</div>
+</div>
+</div>
+<p>According to the <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> function, the slope is 1.55 <span class="math notranslate nohighlight">\(\times\)</span> 10<span class="math notranslate nohighlight">\(^4\)</span> cm<span class="math notranslate nohighlight">\(^{-1}\)</span>M<span class="math notranslate nohighlight">\(^{-1}\)</span> while the <em>y</em>-intercept is -5.45 <span class="math notranslate nohighlight">\(\times\)</span> 10<span class="math notranslate nohighlight">\(^{-6}\)</span>.</p>
+</div>
+<div class="section" id="nonlinear-regression">
+<span id="id8"></span><h3>14.2.2 Nonlinear Regression<a class="headerlink" href="#nonlinear-regression" title="Permalink to this headline">#</a></h3>
+<span class="target" id="index-10"></span><span class="target" id="index-11"></span><p id="index-12">Optimization can also be used to find the best fit for nonlinear data based off of a theoretical equation. One application of nonlinear fitting is to fit data to a theoretical rate law as a means of determining one or more rate constants in the equation. For this, we will again use the <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module.</p>
+<p>To demonstrate this process, let’s consider the two-step reaction of A + B <span class="math notranslate nohighlight">\(\rightarrow\)</span> P catalyzed by a metal catalyst M.</p>
+<div class="math notranslate nohighlight">
+\[ [M] + A \underset{k_{r1}}{\stackrel{k_1}{\rightleftharpoons}} [M]-A \]</div>
+<div class="math notranslate nohighlight">
+\[ [M]-A + B \stackrel{k_2}\rightarrow P + [M]\]</div>
+<p>The theoretical rate law for this two-step reaction is shown below.</p>
+<div class="math notranslate nohighlight">
+\[ Rate = \frac{k_2k_1[M][A][B]}{k_{r1} + k_2[B]} \]</div>
+<p>We need to again define the theoretical equation in the form of a Python function. Our function calculates the rate of the chemical reaction versus the concentration of B, but it would also work using data for rate versus the concentration of A depending upon what data you happen to have.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">frate</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">k1</span><span class="p">,</span> <span class="n">kr1</span><span class="p">,</span> <span class="n">k2</span><span class="p">):</span>
+    <span class="n">rate</span> <span class="o">=</span> <span class="p">(</span><span class="n">k2</span> <span class="o">*</span> <span class="n">k1</span> <span class="o">*</span> <span class="n">M</span> <span class="o">*</span> <span class="n">A</span> <span class="o">*</span> <span class="n">B</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">kr1</span> <span class="o">+</span> <span class="n">k2</span> <span class="o">*</span> <span class="n">B</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">rate</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For our example, we will generate some simulated data with random noise mixed in it. The values of our rate constants will be k<span class="math notranslate nohighlight">\(_1\)</span>=1.2, k<span class="math notranslate nohighlight">\(_{r2}\)</span>=0.48, k<span class="math notranslate nohighlight">\(_2\)</span>=4.29, and we will fix [A] = 0.50 M and [M] = 1.2 <span class="math notranslate nohighlight">\(\times\)</span> 10<span class="math notranslate nohighlight">\(^{-3}\)</span> M. The concentrations of [A] and [M] are unchanged during the course of the rate measurement (e.g., using the method of initial rates).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span><span class="p">,</span> <span class="n">A</span> <span class="o">=</span> <span class="mf">1.2e-3</span><span class="p">,</span> <span class="mf">0.50</span>
+
+<span class="n">k1</span><span class="p">,</span> <span class="n">kr1</span><span class="p">,</span> <span class="n">k2</span> <span class="o">=</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.48</span><span class="p">,</span> <span class="mf">4.29</span>
+
+<span class="n">points</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">conc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">points</span><span class="p">)</span>
+<span class="n">rate</span> <span class="o">=</span> <span class="n">frate</span><span class="p">(</span><span class="n">conc</span><span class="p">,</span> <span class="n">k1</span><span class="p">,</span> <span class="n">kr1</span><span class="p">,</span> <span class="n">k2</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">points</span><span class="p">)</span><span class="o">/</span><span class="mi">40000</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">conc</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;[B], M&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Rate, M/s&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Rate, M/s&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/chap_14_notebook_54_1.svg" src="../../_images/chap_14_notebook_54_1.svg" /></div>
+</div>
+<p>Now that we have our data, we can fit it to the theoretical equation to extract the rate constants.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">const</span><span class="p">,</span> <span class="n">__</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">frate</span><span class="p">,</span> <span class="n">conc</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">const</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.2212841 , 0.48435293, 4.51564708])
+</pre></div>
+</div>
+</div>
+</div>
+<p>These rate constants are in good agreement with those used to generate the data. We can also plot the simulated data versus the rate equation generated by our curve fitting below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">conc</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data&#39;</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">8.5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">frate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">const</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">const</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">const</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> 
+         <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Calculated Regression&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;[B], M&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Rate, M/s&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fab7b847fa0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/chap_14_notebook_58_1.svg" src="../../_images/chap_14_notebook_58_1.svg" /></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Fitting data to a mathematical function can also be accomplished using the <code class="docutils literal notranslate"><span class="pre">optimize.least_squares()</span></code> function. The key difference between using <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> and <code class="docutils literal notranslate"><span class="pre">least_squares()</span></code> is that the former accepts the theoretical equation and data directly while the latter requires a Python function that calculates the <a class="reference internal" href="#id6"><span class="std std-ref">residuals</span></a>. Interestingly, the source code for the <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> function calls the <code class="docutils literal notranslate"><span class="pre">least_squares()</span></code> function. We use the <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> function here as it is more intuitive and convenient.</p>
+<p>There is another related function, <code class="docutils literal notranslate"><span class="pre">optimize.leastsq()</span></code>, that performs a similar operation but only uses the Levenberg-Marquardt algorithm and is described as legacy on the <a class="reference external" href="http://scipy.org">scipy.org</a> website. The <code class="docutils literal notranslate"><span class="pre">optimize.least_squares()</span></code> function is more versatile and is likely the better choice of the two.</p>
+</div>
+<p>Another feature of the <code class="docutils literal notranslate"><span class="pre">optimize.curve_fit()</span></code> function is that it also accepts the uncertainty or errors in each data point. All regression examples seen so far in this book assume that each data point has the same level of uncertainty, but it is not uncommon for data to have different uncertainties. If your uncertainty varies, you can provide the <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> function with the uncertainties as standard deviations to the <code class="docutils literal notranslate"><span class="pre">sigma=</span></code> argument as an array-like object (e.g., list, set, or NumPy array). When uncertainties are provided, data points with more uncertainty have less influence on the resulting regression as data points with less uncertainty. See the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html#scipy.optimize.curve_fit"><code class="docutils literal notranslate"><span class="pre">scipy.optimize.curve_fit()</span></code></a> documentation for more information and options.</p>
+<p>In the example below, we will again fit concentration versus kinetic rate data from the above two-step chemical reaction. This time, we also have an array, <code class="docutils literal notranslate"><span class="pre">uncertainty</span></code>, that provides degrees of uncertainty for the rates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uncertainty</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.10e-6</span><span class="p">,</span> <span class="mf">0.12e-6</span><span class="p">,</span> <span class="mf">0.15e-6</span><span class="p">,</span> <span class="mf">0.18e-6</span><span class="p">,</span> <span class="mf">2.0e-6</span><span class="p">,</span> 
+               <span class="mf">2.1e-6</span><span class="p">,</span> <span class="mf">2.3e-6</span><span class="p">,</span> <span class="mf">2.6e-6</span><span class="p">,</span> <span class="mf">2.9e-6</span><span class="p">,</span> <span class="mf">3.0e-6</span><span class="p">,</span>
+               <span class="mf">3.0e-6</span><span class="p">,</span> <span class="mf">3.1e-6</span><span class="p">,</span> <span class="mf">2.9e-6</span><span class="p">,</span> <span class="mf">3.5e-6</span><span class="p">,</span> <span class="mf">3.9e-6</span><span class="p">,</span>
+               <span class="mf">4.0e-6</span><span class="p">,</span> <span class="mf">4.1e-6</span><span class="p">,</span> <span class="mf">4.4e-6</span><span class="p">,</span> <span class="mf">5.7e-6</span><span class="p">,</span> <span class="mf">5.3e-6</span><span class="p">]</span> <span class="c1"># M/s</span>
+
+<span class="n">const</span><span class="p">,</span> <span class="n">__</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">frate</span><span class="p">,</span> <span class="n">conc</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> 
+                               <span class="n">sigma</span> <span class="o">=</span> <span class="n">uncertainty</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">const</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.21696215, 0.47294891, 4.49810594])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Comparing these constants to those calculated with the assumption of constant uncertainty, the values are similar but have a noticeable difference. The general rule is that the greater the variation in the uncertainties, the more the constants will differ from those derived under the assumption of constant uncertainty.</p>
+</div>
+<div class="section" id="mixed-analyte-example">
+<span id="id9"></span><h3>14.2.3 Mixed Analyte Example<a class="headerlink" href="#mixed-analyte-example" title="Permalink to this headline">#</a></h3>
+<p id="index-13">Below is an additional example where we use optimization to determine the concentrations of two different dyes mixed together and analyzed by UV-Vis spectroscopy. This example was inspired by a <em>Journal of Chemical Education</em> article by <a class="reference external" href="https://doi.org/10.1021/acs.jchemed.9b00421">Jesse Maccione, Joseph Welch, and Emily C. Heider</a>. By Beer’s law, the absorbance (A) of an analyte is the product of the molar absoptivity constant (<span class="math notranslate nohighlight">\(\epsilon\)</span>) for that analyte, the path length in cm (<span class="math notranslate nohighlight">\(b\)</span>), and concentration (<span class="math notranslate nohighlight">\(C\)</span>).</p>
+<div class="math notranslate nohighlight">
+\[ A = \epsilon bC \]</div>
+<p>If there are multiple analytes in solution, the total absorbance (A<span class="math notranslate nohighlight">\(_{tot}\)</span>) is equal to the sum of the absorbances for the individual analytes. In our example, we will be dealing with a mixture of red, blue, and yellow dyes.</p>
+<div class="math notranslate nohighlight">
+\[ A_{tot} = A_{red} + A_{blue} + A_{yellow} \]</div>
+<p>We ultimately want concentrations of the dyes, so we can substitute in Beer’s law for the three dye absorbances.</p>
+<div class="math notranslate nohighlight">
+\[  A_{tot} = \epsilon_{red} bC_{red} + \epsilon_{blue} bC_{blue} + \epsilon_{yellow} bC_{yellow} \]</div>
+<p>The path length is a constant that depends upon the instrument, and the molar absorptivity constants (<span class="math notranslate nohighlight">\(\epsilon\)</span>) are constants that depend upon the analytes and the wavelength we are measuring absorbances at. This means that for a particular set of dyes and instrument, the total absorbance (<span class="math notranslate nohighlight">\(A_{tot}\)</span>) depends upon the unknown concentrations of individual dyes. Because we have three unknowns, we need to measure the the absorbance and molar absorptivity at least three different wavelengths as done in <a class="reference internal" href="../chapter_08/chap_08_notebook.html#id13"><span class="std std-ref">section 8.3.2</span></a>. In the example in this chapter, we will instead measure absorbances at <em>every</em> nanometer from 400 nm to 850 nm and allow the optimization function to fit the total absorbances by adjusting the individual dye concentrations.</p>
+<p>First, we will import the absorbance data from the <code class="docutils literal notranslate"><span class="pre">food_coloring.csv</span></code> file using pandas and plot it to see what the data look like. In the CSV file, there are UV-Vis spectra for pure red, pure blue, pure yellow, and a mixture of the three.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/food_coloring.csv&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;nm&#39;</span><span class="p">]</span>
+<span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;nm&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">A_red</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;red_40&#39;</span><span class="p">]</span>
+<span class="n">A_yellow</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;yellow_6&#39;</span><span class="p">]</span>
+<span class="n">A_blue</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;blue_1&#39;</span><span class="p">]</span>
+<span class="n">A_mix</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;mix_1&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">A_blue</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">A_yellow</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;C8&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">A_red</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;C3&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">A_mix</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Wavelength, nm&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Absorbance&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;blue 1&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow 6&#39;</span><span class="p">,</span> <span class="s1">&#39;red 40&#39;</span><span class="p">,</span> <span class="s1">&#39;mix&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fab7b93beb0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/chap_14_notebook_64_1.svg" src="../../_images/chap_14_notebook_64_1.svg" /></div>
+</div>
+<p>Next, we will use the absorbances for each pure dye sample to find the molar absorptivities using Beer’s law. The path length, <span class="math notranslate nohighlight">\(b\)</span>, in this instrument is 1 cm, and the concentrations are in molarity.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eps_red</span> <span class="o">=</span> <span class="n">A_red</span> <span class="o">/</span> <span class="mf">4.09e-5</span>
+<span class="n">eps_blue</span> <span class="o">=</span> <span class="n">A_blue</span> <span class="o">/</span> <span class="mf">5.00e-6</span>
+<span class="n">eps_yellow</span> <span class="o">=</span> <span class="n">A_yellow</span> <span class="o">/</span> <span class="mf">2.92e-5</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, we will write a Python function that calculates the total absorbance from the individual concentrations and molar absorptivities, and we will provide this function to the <code class="docutils literal notranslate"><span class="pre">optimize.curve_fit()</span></code> function. The fitting parameters are the calculated concentrations of the individual dyes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">absorp</span><span class="p">(</span><span class="n">spec</span><span class="p">,</span> <span class="n">C_red</span><span class="p">,</span> <span class="n">C_blue</span><span class="p">,</span> <span class="n">C_yellow</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">eps_red</span> <span class="o">*</span> <span class="n">C_red</span> <span class="o">+</span> <span class="n">eps_blue</span> <span class="o">*</span> <span class="n">C_blue</span> <span class="o">+</span> <span class="n">eps_yellow</span> <span class="o">*</span> <span class="n">C_yellow</span>
+
+<span class="n">fit</span><span class="p">,</span> <span class="n">__</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">absorp</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">A_mix</span><span class="p">)</span>
+<span class="n">fit</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.44922873e-05, 2.84592011e-06, 1.26645031e-05])
+</pre></div>
+</div>
+</div>
+</div>
+<p>The end result is that the red, blue, and yellow dyes have concentrations of 1.45 <span class="math notranslate nohighlight">\(\times\)</span> 10<span class="math notranslate nohighlight">\(^{-5}\)</span> M, 2.85 <span class="math notranslate nohighlight">\(\times\)</span> 10<span class="math notranslate nohighlight">\(^{-6}\)</span> M, and 1.27 <span class="math notranslate nohighlight">\(\times\)</span> 10<span class="math notranslate nohighlight">\(^{-5}\)</span> M.</p>
+<p>Below is a quick demonstration on how to also solve this problem using the <code class="docutils literal notranslate"><span class="pre">optimize.lease_squares()</span></code> function. As mentioned earlier, both the <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> and <code class="docutils literal notranslate"><span class="pre">least_squares()</span></code> functions can be used to solve the same problems. The <code class="docutils literal notranslate"><span class="pre">least_squares()</span></code> function requires a Python function that calculates the residuals (i.e., the difference between the calculated and measured absorbances) instead of the theoretical equation. This function also requires an initial guess for the fit parameters. Even if you don’t know the concentrations, just give some reasonable value. In this case, we guessed 1 <span class="math notranslate nohighlight">\(\times\)</span> 10<span class="math notranslate nohighlight">\(^{-3}\)</span> M for each dye.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">residuals</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="n">C_red</span><span class="p">,</span> <span class="n">C_blue</span><span class="p">,</span> <span class="n">C_yellow</span> <span class="o">=</span> <span class="n">X</span>
+    <span class="n">A_calc</span> <span class="o">=</span> <span class="n">C_red</span> <span class="o">*</span> <span class="n">eps_red</span> <span class="o">+</span> <span class="n">C_blue</span> <span class="o">*</span> <span class="n">eps_blue</span> <span class="o">+</span> <span class="n">C_yellow</span> <span class="o">*</span> <span class="n">eps_yellow</span>
+    <span class="k">return</span> <span class="n">A_mix</span> <span class="o">-</span> <span class="n">A_calc</span>
+
+<span class="n">lstsq</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">least_squares</span><span class="p">(</span><span class="n">residuals</span><span class="p">,</span> <span class="p">(</span><span class="mf">1e-3</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">))</span>
+<span class="n">lstsq</span><span class="o">.</span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.44922873e-05, 2.84592011e-06, 1.26645031e-05])
+</pre></div>
+</div>
+</div>
+</div>
+<p>The resulting concentrations for the three dyes appears identical (or nearly so) to those calculated by the <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> function.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The above approach assumes that the contribution of each dye is purely additive, so the contribution of each dye to the total absorbance is only a function of its own concentration. This means, for example, that the interaction of different dyes with each other in solution is assumed to be negligible.</p>
+</div>
+</div>
+</div>
+<div class="section" id="root-finding">
+<span id="id10"></span><h2>14.3 Root Finding<a class="headerlink" href="#root-finding" title="Permalink to this headline">#</a></h2>
+<p id="index-14">Root finding is the process of determining when a function equals zero, <span class="math notranslate nohighlight">\(f(a,b,...) = 0\)</span>. Being that any equation can be rearranged to equal zero, this is a versatile way of solving an equation. If the function is univariant, <span class="math notranslate nohighlight">\(f(a)=0\)</span>, this task may sometimes seem trivial even without optimization algorithms, but as the complexity of the equation or number of variables increases, using optimization algorithms can be beneficial.</p>
+<p>Like the minimization functions above, there are two related versions of the root finding functions: <code class="docutils literal notranslate"><span class="pre">scipy.optimize.root()</span></code> and <code class="docutils literal notranslate"><span class="pre">scipy.optimize.root_scalar()</span></code>. The key difference is that the <code class="docutils literal notranslate"><span class="pre">root()</span></code> function can solve for both univariant and multivariant functions while <code class="docutils literal notranslate"><span class="pre">root_scalar()</span></code> can only solve for univariant functions. Both functions require a function, <code class="docutils literal notranslate"><span class="pre">func</span></code>, to find the root of, and <code class="docutils literal notranslate"><span class="pre">root()</span></code> function also requires an initial guess, <code class="docutils literal notranslate"><span class="pre">x0</span></code>. The <code class="docutils literal notranslate"><span class="pre">root_scalar()</span></code> function also allows for an optional range of values that bracket the root, <code class="docutils literal notranslate"><span class="pre">bracket=</span></code> to be provides by the user.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x0</span><span class="p">)</span>
+<span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">root_scalar</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">bracket</span><span class="o">=</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>As a root finding example, we can locate the nodes in a radial wave function for the hydrogen 3s orbital. Because there is only one variable, <span class="math notranslate nohighlight">\(r\)</span>, we can use the <code class="docutils literal notranslate"><span class="pre">scipy.optimize.root_scalar()</span></code> function. Below, we first define our radial wave function as a Python function, <code class="docutils literal notranslate"><span class="pre">orbital_3s</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">orbital_3s</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+    <span class="n">wf</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">27</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">9</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">r</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span><span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">r</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Before we find the roots, let’s visualize the function to see what we are dealing with. The horizontal dotted at <em>y</em> = 0 is provided as a visual guide. The roots are located where the solid line of the wave function intersects with the dotted line.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="n">psi_3s</span> <span class="o">=</span> <span class="p">[</span><span class="n">orbital_3s</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">r</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Zero line&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">psi_3s</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;3s radial wave function&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Radius, $a_0$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$\psi$&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;$\\psi$&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/chap_14_notebook_76_1.svg" src="../../_images/chap_14_notebook_76_1.svg" /></div>
+</div>
+<p>The function has two nodes, so our <code class="docutils literal notranslate"><span class="pre">bracket=</span></code> values will determine which we will end up
+solving for.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">node1</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">root_scalar</span><span class="p">(</span><span class="n">orbital_3s</span><span class="p">,</span> <span class="n">bracket</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">node1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      converged: True
+           flag: &#39;converged&#39;
+ function_calls: 11
+     iterations: 10
+           root: 1.901923788646684
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">node2</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">root_scalar</span><span class="p">(</span><span class="n">orbital_3s</span><span class="p">,</span> <span class="n">bracket</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<span class="n">node2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      converged: True
+           flag: &#39;converged&#39;
+ function_calls: 9
+     iterations: 8
+           root: 7.098076211353316
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="n">psi_3s</span> <span class="o">=</span> <span class="p">[</span><span class="n">orbital_3s</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">r</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Zero line&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">psi_3s</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;3s radial wave function&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">node1</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="n">orbital_3s</span><span class="p">(</span><span class="n">node1</span><span class="o">.</span><span class="n">root</span><span class="p">),</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Node 1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">node2</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="n">orbital_3s</span><span class="p">(</span><span class="n">node2</span><span class="o">.</span><span class="n">root</span><span class="p">),</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Node 2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Radius, $a_0$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$\psi$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fab7bc16790&gt;
+</pre></div>
+</div>
+<img alt="../../_images/chap_14_notebook_80_1.svg" src="../../_images/chap_14_notebook_80_1.svg" /></div>
+</div>
+<p>The two dots above show the location of the two roots for this function which clearly are located on the nodes of the wave function.</p>
+</div>
+<div class="section" id="further-reading">
+<span id="fr14"></span><h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module user guide. <a class="reference external" href="https://docs.scipy.org/doc/scipy/tutorial/optimize.html">https://docs.scipy.org/doc/scipy/tutorial/optimize.html</a> (free resource)</p></li>
+<li><p>Watt, J.; Borhani, R.; Katsaggelos, A. K. Machine Learning Refined: Foundations, Algorithms, and Applications; 2nd ed.; Cambridge University Press, 2020, pp 21-124. These chapters are a good introduction to optimization algorithms.</p></li>
+</ol>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<p>Solve the following problems using Python in a Jupyter notebook and functions from the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module.</p>
+<span class="target" id="index-15"></span><ol id="index-16">
+<li><p>A warm or hot object emits radiation in a range of wavelengths described by Plank’s law shown below where B is radiance, <span class="math notranslate nohighlight">\(\lambda\)</span> is frequency of radiation, <span class="math notranslate nohighlight">\(c\)</span> is the speed of light, <span class="math notranslate nohighlight">\(h\)</span> is Plank’s constant, <span class="math notranslate nohighlight">\(k\)</span> is Boltzmann’s constant, and <span class="math notranslate nohighlight">\(T\)</span> is temperature of the object in K.</p>
+<div class="math notranslate nohighlight">
+\[ B(\lambda) = \frac{2hc^2}{\lambda^5} \frac{1}{e^{\frac{hc}{\lambda kT}}-1} \]</div>
+<p>Determine the wavelength of greatest radiance for an object at 5000 K using a minimization function. Hint: be sure to include an extra negative sign in the Python function that you define, and you will want to use either bounds or brackets to prevent the minimization function from trying zero and generating a <code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code>.</p>
+</li>
+<li><p>The three isomers of ethyltoluene (i.e., <em>ortho</em>-, <em>meta</em>-, and <em>para</em>-) interchange under Friedel-Crafts conditions facilitated aluminum chloride. An investigation into this isomer equilibrium by <a class="reference external" href="https://doi.org/10.1021/ja01503a026">Allen, R. H. et al.</a> experimentally determined the rate constants for the interconversion of these isomers. Using the rate constant data, the following equilibrium constants were calculated: <em>K</em><span class="math notranslate nohighlight">\(_{om}\)</span>=7.2, <em>K</em><span class="math notranslate nohighlight">\(_{pm}\)</span>=2.47, and <em>K</em><span class="math notranslate nohighlight">\(_{op}\)</span>=2.9 where each equilibrium constant is defined below.</p>
+<div class="math notranslate nohighlight">
+\[ K_{om}=\frac{[meta]}{[ortho]}, \quad K_{pm}=\frac{[meta]}{[para]}, \quad K_{op}={\frac{[para]}{[ortho]}}  \]</div>
+<p>Using this information, calculate the percentages of each isomer at equilibrium. Compare your percentage to those provided in the above paper (in the abstract).</p>
+</li>
+<li><p>A sealed piston contains 0.32 moles of helium gas at 298 K. Determine the value of <span class="math notranslate nohighlight">\(R\)</span> by performing a nonlinear fit on the data below with the <code class="docutils literal notranslate"><span class="pre">optimize.curve_fit()</span></code> function and the ideal gas law.</p>
+<div class="math notranslate nohighlight" id="index-17">
+\[ P = \frac{nRT}{V} \]</div>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Volume (L)</p></th>
+<th class="text-align:center head"><p>Pressure (atm)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>0.401</p></td>
+<td class="text-align:center"><p>21.8</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>0.701</p></td>
+<td class="text-align:center"><p>11.3</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>1.22</p></td>
+<td class="text-align:center"><p>5.17</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>1.80</p></td>
+<td class="text-align:center"><p>5.49</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>2.39</p></td>
+<td class="text-align:center"><p>3.86</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>2.83</p></td>
+<td class="text-align:center"><p>4.34</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>3.09</p></td>
+<td class="text-align:center"><p>2.72</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>Below is the theoretical kinetic rate law for a chemical reaction of A <span class="math notranslate nohighlight">\(\rightarrow\)</span> P catalyzed by 0.001 M of a metal catalyst M. The table includes kinetic data for the rate, concentration of A, and the uncertainty in rate. Use the <code class="docutils literal notranslate"><span class="pre">optimize.curve_fit()</span></code> function to determine values for <span class="math notranslate nohighlight">\(k_1\)</span> and <span class="math notranslate nohighlight">\(K_{eq}\)</span>. Plot the data below with an overlay of calculated values using the constants that you determined to show that they are reasonable values.</p>
+<div class="math notranslate nohighlight">
+\[ Rate = \frac{k_1K_{eq}[A][M]}{1 + K_{eq}[A]} \]</div>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Rate, M/s</p></th>
+<th class="text-align:center head"><p>[A], M</p></th>
+<th class="text-align:center head"><p>Rate Uncertainty, M/s</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>2.18e-06</p></td>
+<td class="text-align:center"><p>0.01</p></td>
+<td class="text-align:center"><p>0.11e-6</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>1.72e-05</p></td>
+<td class="text-align:center"><p>0.71</p></td>
+<td class="text-align:center"><p>0.12e-6</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>2.75e-05</p></td>
+<td class="text-align:center"><p>1.43</p></td>
+<td class="text-align:center"><p>0.25e-6</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>4.36e-05</p></td>
+<td class="text-align:center"><p>2.14</p></td>
+<td class="text-align:center"><p>0.40e-6</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>5.23e-05</p></td>
+<td class="text-align:center"><p>2.86</p></td>
+<td class="text-align:center"><p>0.50e-6</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>5.23e-05</p></td>
+<td class="text-align:center"><p>3.57</p></td>
+<td class="text-align:center"><p>1.0e-6</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>6.71e-05</p></td>
+<td class="text-align:center"><p>4.29</p></td>
+<td class="text-align:center"><p>1.5e-6</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>6.26e-05</p></td>
+<td class="text-align:center"><p>5.00</p></td>
+<td class="text-align:center"><p>1.8e-6</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li id="index-18"><p>One method of solving acid-base equilibrium concentrations is through polynomials as demonstrated by <a class="reference external" href="https://doi.org/10.1021/ed081p758">F. Bamdad</a>. Below is a third-degree polynomial from the equilibria resulting from placing hydrocyanic acid (HCN) in water where <span class="math notranslate nohighlight">\(x\)</span> is the concentration of hydronium, <em>K</em><span class="math notranslate nohighlight">\(_a\)</span> is the acid equilibrium constant, <em>K</em><span class="math notranslate nohighlight">\(_w\)</span> is equilibrium constant for the autoionization of water, and HCN<span class="math notranslate nohighlight">\(_0\)</span> is the initial concentration of hydrocyanic acid. Solve for the concentration of hydronium using a root finding algorithm in the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module assuming HCN<span class="math notranslate nohighlight">\(_0\)</span> = 6.8 <span class="math notranslate nohighlight">\(\times\)</span> 10<span class="math notranslate nohighlight">\(^{-6}\)</span> M and K<span class="math notranslate nohighlight">\(_a\)</span> = 6.2 <span class="math notranslate nohighlight">\(\times\)</span> 10<span class="math notranslate nohighlight">\(^{-10}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[ x^3 + K_a x^2 + (K_w + [HCN]_0K_a)x - K_wK_a = 0 \]</div>
+</li>
+<li id="index-19"><p>The van der Waals equation is a modified form of the ideal gas law but includes two correction factors that account for intermolecular forces and the volume of gas molecules. These correction factors include constants <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> which are gas-dependent, and the values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> can be calculated by fitting the van der Waals equation to pressure versus volume data.</p>
+<div class="math notranslate nohighlight">
+\[ \left(P + a\frac{n^2}{V^2} \right) (V - nb) = nRT \]</div>
+<p>Load the file <code class="docutils literal notranslate"><span class="pre">PV_CO.csv</span></code> containing pressure and volume data for one mole of carbon monixide at 298 K acquired from the <a class="reference external" href="https://webbook.nist.gov/chemistry/">NIST Chemistry WebBook</a>. Fit the van der Waals equation to this data set to determine <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> values for carbon monoxide.</p>
+</li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/chapter_14"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../chapter_13/chap_13.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Chapter 13: Command Line &amp; Spyder</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../genindex.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Index</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Charles J. Weiss<br/>
+  
+      &copy; Copyright 2021-2022.<br/>
+    <div class="extra_footer">
+      Scientific Computing for Chemists with Python is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

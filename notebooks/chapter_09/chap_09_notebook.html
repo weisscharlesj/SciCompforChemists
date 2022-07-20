@@ -186,6 +186,11 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_14/chap_14_notebook.html">
+   Chapter 14: Optimization and Root Finding
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../../genindex.html">
    Index
   </a>
@@ -546,9 +551,9 @@ title="Print to PDF"
 <span class="sd">    list of ppm values for all peaks in the splitting pattern.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="c1"># check validity of input values</span>
-    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">peaks</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">list</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">peaks</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
         <span class="n">peaks</span> <span class="o">=</span> <span class="nb">list</span><span class="p">([</span><span class="n">peaks</span><span class="p">])</span>
-    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error: n must be an integer.&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="kc">None</span>
     
@@ -590,7 +595,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe4261c1ac0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f91149c3bb0&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_09_notebook_8_1.svg" src="../../_images/chap_09_notebook_8_1.svg" /></div>
@@ -613,7 +618,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="single-step-stepwise-chemical-kinetics">
 <span id="id4"></span><h3>9.1.2 Single-Step Stepwise Chemical Kinetics<a class="headerlink" href="#single-step-stepwise-chemical-kinetics" title="Permalink to this headline">#</a></h3>
-<p>Another phenomenon that can be simulated deterministically is the progress of a chemical reaction with respect to time. Many chemical reaction slow over the course of the reaction as the result of diminishing reactant concentrations. This is because many reaction rates are dependent on the concentration of at least one staring material, and as the reaction progresses, starting material is consumed slowing the reaction.</p>
+<p id="index-1">Another phenomenon that can be simulated deterministically is the progress of a chemical reaction with respect to time. Many chemical reaction slow over the course of the reaction as the result of diminishing reactant concentrations. This is because many reaction rates are dependent on the concentration of at least one staring material, and as the reaction progresses, starting material is consumed slowing the reaction.</p>
 <p>One method for simulating this phenomenon is to incrementally calculate the rate of the chemical reaction at various points in the reaction based on the current concentrations. That is, at each small time step of the reaction, use the concentration(s) to calculate the current reaction rate and then increased/decreased the reaction concentrations by the amount calculated.</p>
 <p>For example, we can simulate the following single-step chemical reaction of A <span class="math notranslate nohighlight">\(\rightarrow\)</span> P. Because this is an elementary step, the rate law is derivable from the stoichiometry where rate is M/s, <span class="math notranslate nohighlight">\(k_{rxn}\)</span> is the rate constant, and [A] is the concentration of A in molarity (M).</p>
 <div class="math notranslate nohighlight">
@@ -645,7 +650,7 @@ title="Print to PDF"
 </div>
 </div>
 <p>You may be wondering why the first lines of code in the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop record the concentrations instead of first decreasing them. This is because we need to record the initial concentration first before recalculating them. The next iteration will record the new concentrations before again recalculating rates and concentrations. Below is a plot of the simulation results.</p>
-<div class="cell docutils container" id="index-1">
+<div class="cell docutils container" id="index-2">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">A_conc</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">P_conc</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;P&#39;</span><span class="p">)</span>
@@ -656,7 +661,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fe42630fee0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f9114b0dfa0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_09_notebook_14_1.svg" src="../../_images/chap_09_notebook_14_1.svg" /></div>
@@ -686,7 +691,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fe42638e9d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f9114b90a30&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_09_notebook_17_1.svg" src="../../_images/chap_09_notebook_17_1.svg" /></div>
@@ -741,7 +746,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fe4263ca6d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f9114bcc8b0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_09_notebook_21_1.svg" src="../../_images/chap_09_notebook_21_1.svg" /></div>
@@ -750,7 +755,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="chemical-kinetics-and-odeint">
 <span id="id6"></span><h3>9.1.4 Chemical Kinetics and ODEINT<a class="headerlink" href="#chemical-kinetics-and-odeint" title="Permalink to this headline">#</a></h3>
-<p>Another approach to performing the above kinetic simulations is to integrate the differential equations. For an introduction to integrating differential equations, see <a class="reference internal" href="../chapter_08/chap_08_notebook.html#id19"><span class="std std-ref">section 8.4.4</span></a>. Below we will simulate a two step reaction where the first step is reversible. Because the following are the elementary steps, the rate equations can be inferred from the reaction stoichiometry.</p>
+<p>Another approach to performing the above kinetic simulations is to integrate the differential equations. For an introduction to integrating differential equations, see <a class="reference internal" href="../chapter_08/chap_08_notebook.html#id21"><span class="std std-ref">section 8.4.4</span></a>. Below we will simulate a two step reaction where the first step is reversible. Because the following are the elementary steps, the rate equations can be inferred from the reaction stoichiometry.</p>
 <div class="math notranslate nohighlight">
 \[ A \underset{k_{r1}}{\stackrel{k_1}{\rightleftharpoons}} B \stackrel{k_2}\rightarrow P\]</div>
 <p>The three differential equations tracking the concentrations of A, B, and P are shown below where <span class="math notranslate nohighlight">\(k_1\)</span> and <span class="math notranslate nohighlight">\(k_{r1}\)</span> are the forward and reverse rate constants, respectively, for the first step and <span class="math notranslate nohighlight">\(k_2\)</span> is the rate constant for the second step.</p>
@@ -760,7 +765,7 @@ title="Print to PDF"
 \[ \frac{d[B]}{dt} = k_1[A] + k_2[B] - k_{r1}[B]\]</div>
 <div class="math notranslate nohighlight">
 \[ \frac{d[P]}{dt} = k_2[B] \]</div>
-<p>As is done in <a class="reference internal" href="../chapter_08/chap_08_notebook.html#id19"><span class="std std-ref">section 8.4.4</span></a>, a Python function is created containing the differential equations, but in contrast to chapter 8, the differential equation for d[P]/dt is also included in the Python function instead  of calculating [P] after the integration.</p>
+<p>As is done in <a class="reference internal" href="../chapter_08/chap_08_notebook.html#id21"><span class="std std-ref">section 8.4.4</span></a>, a Python function is created containing the differential equations, but in contrast to chapter 8, the differential equation for d[P]/dt is also included in the Python function instead  of calculating [P] after the integration.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k1</span><span class="p">,</span> <span class="n">kr1</span><span class="p">,</span> <span class="n">k2</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.3</span>
@@ -798,7 +803,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fe426477bb0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f9114c60b80&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_09_notebook_27_1.svg" src="../../_images/chap_09_notebook_27_1.svg" /></div>
@@ -807,14 +812,14 @@ title="Print to PDF"
 </div>
 <div class="section" id="stochastic-simulations">
 <span id="id7"></span><h2>9.2 Stochastic Simulations<a class="headerlink" href="#stochastic-simulations" title="Permalink to this headline">#</a></h2>
-<p id="index-2">Unlike the deterministic simulations above, if the same code for a stochastic simulation is run multiple times, the results will vary at least slightly, though the overall patterns should be similar. This is because the outcome of stochastic simulations is determined by (pseudo)random number generators. It is as if the results of the simulation are dictated by the flip of a coin or roll of a die. This analogy is so good that rolling dice repeatedly can simulate radioactive decay kinetics among other things. We will use NumPy’s <code class="docutils literal notranslate"><span class="pre">random</span></code> module to generate random values for the simulations.</p>
+<p id="index-3">Unlike the deterministic simulations above, if the same code for a stochastic simulation is run multiple times, the results will vary at least slightly, though the overall patterns should be similar. This is because the outcome of stochastic simulations is determined by (pseudo)random number generators. It is as if the results of the simulation are dictated by the flip of a coin or roll of a die. This analogy is so good that rolling dice repeatedly can simulate radioactive decay kinetics among other things. We will use NumPy’s <code class="docutils literal notranslate"><span class="pre">random</span></code> module to generate random values for the simulations.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>There is a random component to some of the following code, so exact results may vary.</p>
 </div>
 <div class="section" id="radioactive-decay">
 <span id="id8"></span><h3>9.2.1 Radioactive Decay<a class="headerlink" href="#radioactive-decay" title="Permalink to this headline">#</a></h3>
-<p>Radioactive decay is a random process, so logically it can be simulated as such. Every radioactive atom has a fixed probability of decaying each second just like a die has a fixed probability of rolling a one. A <code class="docutils literal notranslate"><span class="pre">for</span></code> loop is used for each second or step of the simulation, and a random number generator is used in each step to decide how many atoms decay. The <code class="docutils literal notranslate"><span class="pre">np.random.binomial()</span></code> function is used here to generate a series of zeros and ones with a set probability of generating a one. In this simulation, a one signifies a decaying atom. These decayed atoms are tallied and subtracted from the current number of remaining atoms, and this value is recorded.</p>
+<p id="index-4">Radioactive decay is a random process, so logically it can be simulated as such. Every radioactive atom has a fixed probability of decaying each second just like a die has a fixed probability of rolling a one. A <code class="docutils literal notranslate"><span class="pre">for</span></code> loop is used for each second or step of the simulation, and a random number generator is used in each step to decide how many atoms decay. The <code class="docutils literal notranslate"><span class="pre">np.random.binomial()</span></code> function is used here to generate a series of zeros and ones with a set probability of generating a one. In this simulation, a one signifies a decaying atom. These decayed atoms are tallied and subtracted from the current number of remaining atoms, and this value is recorded.</p>
 <div class="cell tag_remove-input docutils container">
 </div>
 <div class="cell docutils container">
@@ -859,7 +864,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="confidence-intervals">
 <span id="id9"></span><h3>9.2.2 Confidence Intervals<a class="headerlink" href="#confidence-intervals" title="Permalink to this headline">#</a></h3>
-<p>Uncertainty is a part of all data, and uncertainty around a repeatedly measured and calculated value is sometimes represented in the form of a 95% confidence interval (CI). This is the interval around the mean that has a 95% chance of containing the true value. Another way of describing 95% CI is that if we were to repeatedly collect a data set and calculate the 95% CI, the true value should be, statistically speaking, inside the confidence interval 95% of the time. Performing these experiments would be tedious, but this can be simulated in Python relatively easily.</p>
+<p id="index-5">Uncertainty is a part of all data, and uncertainty around a repeatedly measured and calculated value is sometimes represented in the form of a 95% confidence interval (CI). This is the interval around the mean that has a 95% chance of containing the true value. Another way of describing 95% CI is that if we were to repeatedly collect a data set and calculate the 95% CI, the true value should be, statistically speaking, inside the confidence interval 95% of the time. Performing these experiments would be tedious, but this can be simulated in Python relatively easily.</p>
 <p>The equation for calculating the 95% CI is shown below where <span class="math notranslate nohighlight">\(\bar{x}\)</span> is the average value in a set of repeated measurements, s is the standard deviation (corrected), t is the statistical t value from a table, and N is the degrees of freedom. For 20 samples per set, t = 2.09 and N = 19.</p>
 <div class="math notranslate nohighlight">
 \[ 95\%CI = \bar{x} \pm \frac{ts}{\sqrt{N}} \]</div>
@@ -909,7 +914,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="random-flight-polymer">
 <span id="id10"></span><h3>9.2.3 Random Flight Polymer<a class="headerlink" href="#random-flight-polymer" title="Permalink to this headline">#</a></h3>
-<p>Polymers are long chains of repeating units called monomers. These chains can easily extend for thousands of monomers and wind around in 3D space in seemingly random fashions. A single polymer chain can be made of a single type of monomer or multiple types and can be of varying lengths, but for the following polymer simulation, we will work with polymers of a fixed number of monomers and ignore the monomer types.</p>
+<p id="index-6">Polymers are long chains of repeating units called monomers. These chains can easily extend for thousands of monomers and wind around in 3D space in seemingly random fashions. A single polymer chain can be made of a single type of monomer or multiple types and can be of varying lengths, but for the following polymer simulation, we will work with polymers of a fixed number of monomers and ignore the monomer types.</p>
 <p>One model for polymer conformation is a <em>random flight polymer</em> which assumes that the conformation of the polymer is entirely random. We can simulate a random flight polymer through a <em>random walk</em> by making each subsequent segment of polymer extend in a random direction and distance. For simplicity, we will simulate the polymer in only two dimensions, but this simulation can be expanded to a third dimension. The random element of the simulation is provided by a NumPy random number generator which generates a random length and direction for each new segment.</p>
 <p>The general procedure for the following simulation is to start the polymer chain at coordinate (0, 0), and for each new segment, add a random value to the x-coordinate of the previous polymer end and another random value to the y-coordinate. Each new coordinate is then appended to a list of coordinates (<code class="docutils literal notranslate"><span class="pre">coords</span></code>) for analysis and visualization. This simulation is coded below. The random values are floats from -1 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1. NumPy does not provide a function for generating this range, so we can modify the 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1 range from the <code class="docutils literal notranslate"><span class="pre">np.random.rand()</span></code> function by subtracting 0.5 and multiplying by 2.</p>
 <div class="cell tag_remove-input docutils container">
@@ -1009,8 +1014,9 @@ title="Print to PDF"
 \[ P_1 \stackrel{k_1}{\leftarrow} A \stackrel{k_2}\rightarrow P_2 \]</div>
 <p>Use k<span class="math notranslate nohighlight">\(_1\)</span> = 0.02 M/s and k<span class="math notranslate nohighlight">\(_2\)</span> = 0.04 M/s and start with 2.00 M A. What do you predict the plot of concentration versus time to look like and the ratio of products to be? Does your simulation agree?</p>
 </li>
-<li><p>Polymers that consist of two or more different monomers are known as copolymers. Simulate an addition copolymer consisting of two monomers: ethylene (28.06 g/mol) and styrene (104.16 g/mol) with a fixed length of a thousand units. Given the molecular weights of the two monomers above, calculate the weights for a thousand simulated polymer strands and generate a histograms of the frequency versus weight. Hint: try using the <code class="docutils literal notranslate"><span class="pre">np.random.binomial()</span></code> function with <code class="docutils literal notranslate"><span class="pre">p=0.5</span></code> and treat a zero as one monomer and a one is   the other.</p></li>
-<li><p>Block copolymers are polymers where multiple monomer types are clustered along the polymer chain instead of being randomly dispersed. These clusters are called blocks which may be of random lengths as the polymer switches between monomer types. An example is shown below.</p>
+<li id="index-7"><p>Polymers that consist of two or more different monomers are known as copolymers. Simulate an addition copolymer consisting of two monomers: ethylene (28.06 g/mol) and styrene (104.16 g/mol) with a fixed length of a thousand units. Given the molecular weights of the two monomers above, calculate the weights for a thousand simulated polymer strands and generate a histograms of the frequency versus weight. Hint: try using the <code class="docutils literal notranslate"><span class="pre">np.random.binomial()</span></code> function with <code class="docutils literal notranslate"><span class="pre">p=0.5</span></code> and treat a zero as one monomer and a one is   the other.</p>
+</li>
+<li id="index-8"><p>Block copolymers are polymers where multiple monomer types are clustered along the polymer chain instead of being randomly dispersed. These clusters are called blocks which may be of random lengths as the polymer switches between monomer types. An example is shown below.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>-A-A-A-A-A-A-A-B-B-B-B-B-B-A-A-A-A-B-B-B-A-A-A-A-A-
 </pre></div>
 </div>

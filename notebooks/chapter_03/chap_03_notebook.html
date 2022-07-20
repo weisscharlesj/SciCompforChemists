@@ -186,6 +186,11 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../chapter_14/chap_14_notebook.html">
+   Chapter 14: Optimization and Root Finding
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../../genindex.html">
    Index
   </a>
@@ -600,7 +605,7 @@ title="Print to PDF"
 <div class="cell tag_remove-input docutils container">
 </div>
 <p>Data visualization is an important part of scientific computing both in analyzing your data and in supporting your conclusions. There are a variety of plotting libraries available in Python, but the one that stands out from the rest is matplotlib. Matplotlib is a core SciPy library because it is powerful and can generate nearly any plot a user may need. The main drawback is that it is often verbose. That is to say, anything more complex than a very basic plot may require a few lines of boilerplate code to create. This chapter introduces plotting with matplotlib.</p>
-<p>Before the first plot can be created, we must first import matplotlib using the below imports. The first line imports the  <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> module which does much of the basic plotting in matplotlib. While the <code class="docutils literal notranslate"><span class="pre">plt</span></code> alias is not required, it is a common convention in the SciPy community and is highly recommended as it will save you a considerable amount of typing. The second line is not really Python so much as a Jupyter notebook command. It tells Jupyter to display the matplotlib figures directly in the notebook instead of a separate window. This text assumes that you are using inline plotting.</p>
+<p id="index-0">Before the first plot can be created, we must first import matplotlib using the below imports. The first line imports the  <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> module which does much of the basic plotting in matplotlib. While the <code class="docutils literal notranslate"><span class="pre">plt</span></code> alias is not required, it is a common convention in the SciPy community and is highly recommended as it will save you a considerable amount of typing. The second line is not really Python so much as a Jupyter notebook command. It tells Jupyter to display the matplotlib figures directly in the notebook instead of a separate window. This text assumes that you are using inline plotting.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -655,7 +660,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f9f2fa7ed90&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fcab8926dc0&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_03_notebook_10_1.svg" src="../../_images/chap_03_notebook_10_1.svg" /></div>
@@ -668,7 +673,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="markers-and-color">
 <span id="id4"></span><h3>3.1.2 Markers and Color<a class="headerlink" href="#markers-and-color" title="Permalink to this headline">#</a></h3>
-<span class="target" id="index-0"></span><p id="index-1">To change the color and markers, you can add a few extra arguments: <code class="docutils literal notranslate"><span class="pre">marker</span></code>, <code class="docutils literal notranslate"><span class="pre">linestyle</span></code>, and <code class="docutils literal notranslate"><span class="pre">color</span></code>. All of these keyword arguments take strings.  The <code class="docutils literal notranslate"><span class="pre">marker</span></code> argument allows the user to choose from a list of markers (Table 1). The <code class="docutils literal notranslate"><span class="pre">linestyle</span></code> argument (Table 2) determines if a line is solid or the type of dashing that occurs, and the <code class="docutils literal notranslate"><span class="pre">color</span></code> argument (Table 3) allows the user to dictate the color of the line/markers. If an empty string is provided to <code class="docutils literal notranslate"><span class="pre">linestyle</span></code> or <code class="docutils literal notranslate"><span class="pre">marker</span></code>, no line or marker, respectively, is included in the plot. See the <a class="reference external" href="https://matplotlib.org/">matplotlib website</a> for a more complete list of styles.</p>
+<span class="target" id="index-1"></span><p id="index-2">To change the color and markers, you can add a few extra arguments: <code class="docutils literal notranslate"><span class="pre">marker</span></code>, <code class="docutils literal notranslate"><span class="pre">linestyle</span></code>, and <code class="docutils literal notranslate"><span class="pre">color</span></code>. All of these keyword arguments take strings.  The <code class="docutils literal notranslate"><span class="pre">marker</span></code> argument allows the user to choose from a list of markers (Table 1). The <code class="docutils literal notranslate"><span class="pre">linestyle</span></code> argument (Table 2) determines if a line is solid or the type of dashing that occurs, and the <code class="docutils literal notranslate"><span class="pre">color</span></code> argument (Table 3) allows the user to dictate the color of the line/markers. If an empty string is provided to <code class="docutils literal notranslate"><span class="pre">linestyle</span></code> or <code class="docutils literal notranslate"><span class="pre">marker</span></code>, no line or marker, respectively, is included in the plot. See the <a class="reference external" href="https://matplotlib.org/">matplotlib website</a> for a more complete list of styles.</p>
 <p><strong>Table 1</strong> Common Matplotlib Marker Styles</p>
 <table class="colwidths-auto table">
 <thead>
@@ -788,7 +793,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f9f2fb57970&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fcab8a05700&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_03_notebook_14_1.svg" src="../../_images/chap_03_notebook_14_1.svg" /></div>
@@ -801,7 +806,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f9f2fbce8e0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fcab8a78970&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_03_notebook_15_1.svg" src="../../_images/chap_03_notebook_15_1.svg" /></div>
@@ -809,7 +814,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="labels">
 <span id="id5"></span><h3>3.1.3 Labels<a class="headerlink" href="#labels" title="Permalink to this headline">#</a></h3>
-<p>It is often important to label the axes of your plot. This is accomplished using the <code class="docutils literal notranslate"><span class="pre">plt.xlabel()</span></code> and <code class="docutils literal notranslate"><span class="pre">plt.ylabel()</span></code> functions which are placed on different lines as the <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> function. Both functions take strings.</p>
+<p id="index-3">It is often important to label the axes of your plot. This is accomplished using the <code class="docutils literal notranslate"><span class="pre">plt.xlabel()</span></code> and <code class="docutils literal notranslate"><span class="pre">plt.ylabel()</span></code> functions which are placed on different lines as the <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> function. Both functions take strings.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">psi_3s</span><span class="p">,</span> <span class="s1">&#39;go-&#39;</span><span class="p">)</span>
@@ -824,7 +829,7 @@ title="Print to PDF"
 </div>
 <img alt="../../_images/chap_03_notebook_17_1.svg" src="../../_images/chap_03_notebook_17_1.svg" /></div>
 </div>
-<p>In the event you want a title at the top of your plots, you can add one using the <code class="docutils literal notranslate"><span class="pre">plt.title()</span></code> argument. To add symbols to the axes, this can be done using Latex commands which are used below, but discussion of Latex is beyond the scope of this chapter.</p>
+<p id="index-4">In the event you want a title at the top of your plots, you can add one using the <code class="docutils literal notranslate"><span class="pre">plt.title()</span></code> argument. To add symbols to the axes, this can be done using Latex commands which are used below, but discussion of Latex is beyond the scope of this chapter.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">psi_3s</span><span class="p">,</span> <span class="s1">&#39;go-&#39;</span><span class="p">)</span>
@@ -857,7 +862,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="figure-size">
 <span id="id6"></span><h3>3.1.4 Figure Size<a class="headerlink" href="#figure-size" title="Permalink to this headline">#</a></h3>
-<p id="index-2">If you want to change the size or dimensions of the figure in the Jupyter notebook, this can be accomplished by <code class="docutils literal notranslate"><span class="pre">plt.figure(figsize(width,</span> <span class="pre">height))</span></code>. It is important that this function be <em>above</em> the the actual plotting function and not below for it to modify the figure.</p>
+<p id="index-5">If you want to change the size or dimensions of the figure in the Jupyter notebook, this can be accomplished by <code class="docutils literal notranslate"><span class="pre">plt.figure(figsize(width,</span> <span class="pre">height))</span></code>. It is important that this function be <em>above</em> the the actual plotting function and not below for it to modify the figure.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
@@ -877,7 +882,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="saving-figures">
 <span id="id7"></span><h3>3.1.5 Saving Figures<a class="headerlink" href="#saving-figures" title="Permalink to this headline">#</a></h3>
-<p id="index-3">A majority of matplotlib usage is to generate figures in a Jupyter notebook. However, there are times when it is necessary to save the figures to files for a manuscript, report, or presentation. In these situations, you can save your plot using the <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> function which takes a few arguments. The first and only required argument is the name of the output file as a string. Following this, the user can also choose the resolution in dots per inch using the <code class="docutils literal notranslate"><span class="pre">dpi</span></code> keyword argument. Finally, there are a number of file formats supported by the <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> functions including PNG, TIF, JPG, PDF, SVG, among others. The formats can be selected using the <code class="docutils literal notranslate"><span class="pre">format</span></code> argument which also takes a string, and if no format is explicitly chosen, matplotlib defaults to PNG.</p>
+<span class="target" id="index-6"></span><p id="index-7">A majority of matplotlib usage is to generate figures in a Jupyter notebook. However, there are times when it is necessary to save the figures to files for a manuscript, report, or presentation. In these situations, you can save your plot using the <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> function which takes a few arguments. The first and only required argument is the name of the output file as a string. Following this, the user can also choose the resolution in dots per inch using the <code class="docutils literal notranslate"><span class="pre">dpi</span></code> keyword argument. Finally, there are a number of file formats supported by the <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> functions including PNG, TIF, JPG, PDF, SVG, among others. The formats can be selected using the <code class="docutils literal notranslate"><span class="pre">format</span></code> argument which also takes a string, and if no format is explicitly chosen, matplotlib defaults to PNG.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">psi_3s</span><span class="p">,</span> <span class="s1">&#39;g.-&#39;</span><span class="p">)</span>
@@ -899,7 +904,7 @@ title="Print to PDF"
 <p>Matplotlib supports a wide variety of plotting types including scatter plots, bar plots, histograms, pie charts, stem plots, and many others. A few of the most common ones are introduced below. For additional plotting types, see the <a class="reference external" href="https://matplotlib.org/stable/plot_types/index.html">matplotlib website</a>.</p>
 <div class="section" id="bar-plots">
 <span id="id9"></span><h3>3.2.1 Bar Plots<a class="headerlink" href="#bar-plots" title="Permalink to this headline">#</a></h3>
-<p id="index-4">Bar plots, despite looking very different, are quite similar to scatter plots. They both show the same information except that instead of the verticle position of a marker showing the magnitude of a <span class="math notranslate nohighlight">\(y\)</span>-value, it is represented by the height of a bar. Bar plots are generated using the <code class="docutils literal notranslate"><span class="pre">plt.bar()</span></code> function. Similar to the <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> function, the bar plot takes <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> values as positional arguments, and if only one argument is given, the function assumes it is the <span class="math notranslate nohighlight">\(y\)</span>-variable and plots the values with respect to the index values.</p>
+<p id="index-8">Bar plots, despite looking very different, are quite similar to scatter plots. They both show the same information except that instead of the verticle position of a marker showing the magnitude of a <span class="math notranslate nohighlight">\(y\)</span>-value, it is represented by the height of a bar. Bar plots are generated using the <code class="docutils literal notranslate"><span class="pre">plt.bar()</span></code> function. Similar to the <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> function, the bar plot takes <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> values as positional arguments, and if only one argument is given, the function assumes it is the <span class="math notranslate nohighlight">\(y\)</span>-variable and plots the values with respect to the index values.</p>
 <p>The atomic numbers (<code class="docutils literal notranslate"><span class="pre">AN</span></code>) for the first ten chemical elements are generated below using list comprehension introduced in <a class="reference internal" href="../chapter_02/chap_02_notebook.html#id4"><span class="std std-ref">section 2.1.2</span></a> to be plotted with the molecular weights (<code class="docutils literal notranslate"><span class="pre">MW</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -955,7 +960,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="scatter-plots">
 <span id="id10"></span><h3>3.2.2 Scatter Plots<a class="headerlink" href="#scatter-plots" title="Permalink to this headline">#</a></h3>
-<p id="index-5">We have already generated scatter plots using the <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> function, but they can also be created using the <code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code> function. The latter is partially redundant, but unlike <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code>, <code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code> allows for different sizes, shapes, and colors of individual markers using the <code class="docutils literal notranslate"><span class="pre">s=</span></code>, <code class="docutils literal notranslate"><span class="pre">marker=</span></code>, and <code class="docutils literal notranslate"><span class="pre">c=</span></code> keyword arguments, respectively. See <a class="reference internal" href="#id4"><span class="std std-ref">section 3.1.2</span></a> for a short list of some of the marker shapes and colors available. Links to more complete lists can be found in the <a class="reference internal" href="#fr03"><span class="std std-ref">Further Reading</span></a> section.</p>
+<p id="index-9">We have already generated scatter plots using the <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> function, but they can also be created using the <code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code> function. The latter is partially redundant, but unlike <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code>, <code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code> allows for different sizes, shapes, and colors of individual markers using the <code class="docutils literal notranslate"><span class="pre">s=</span></code>, <code class="docutils literal notranslate"><span class="pre">marker=</span></code>, and <code class="docutils literal notranslate"><span class="pre">c=</span></code> keyword arguments, respectively. See <a class="reference internal" href="#id4"><span class="std std-ref">section 3.1.2</span></a> for a short list of some of the marker shapes and colors available. Links to more complete lists can be found in the <a class="reference internal" href="#fr03"><span class="std std-ref">Further Reading</span></a> section.</p>
 <p>In the example below, we are loading the famous <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/wine">wine data set</a> that describes wine samples through a number of measurements including alcohol content, magnesium levels, color, etc… For convenience, we will load the data set using the scikit-learn library introduced in <a class="reference internal" href="../chapter_12/chap_12_notebook.html#id13"><span class="std std-ref">section 12.2.2</span></a>. We then plot it and include a third attribute to the color <code class="docutils literal notranslate"><span class="pre">c=</span></code> argument.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -976,7 +981,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f9f363d6040&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7fcabf387e50&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_03_notebook_33_1.svg" src="../../_images/chap_03_notebook_33_1.svg" /></div>
@@ -1058,7 +1063,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="histogram-plots">
 <span id="id11"></span><h3>3.2.3 Histogram Plots<a class="headerlink" href="#histogram-plots" title="Permalink to this headline">#</a></h3>
-<p id="index-6">Histograms display bars representing the frequency of values in a particular data set. Unlike bar plots, the width of the bars in a histogram plot is meaningful as each bar represents the number of <span class="math notranslate nohighlight">\(x\)</span>-values that fall within a particular range. A histogram plot can be generated using the <code class="docutils literal notranslate"><span class="pre">plt.hist()</span></code> function which does two things. First, the function takes the data provided and sorts them into equally-spaces groups, called <em>bins</em>; and second, it plots the totals in each bin. For example, we have a list, <code class="docutils literal notranslate"><span class="pre">Cp</span></code>, of specific heat capacities for various metals in J/g<span class="math notranslate nohighlight">\(\cdot^o\)</span>C, and we want to visualize the distribution of the specific heat capacities.</p>
+<p id="index-10">Histograms display bars representing the frequency of values in a particular data set. Unlike bar plots, the width of the bars in a histogram plot is meaningful as each bar represents the number of <span class="math notranslate nohighlight">\(x\)</span>-values that fall within a particular range. A histogram plot can be generated using the <code class="docutils literal notranslate"><span class="pre">plt.hist()</span></code> function which does two things. First, the function takes the data provided and sorts them into equally-spaces groups, called <em>bins</em>; and second, it plots the totals in each bin. For example, we have a list, <code class="docutils literal notranslate"><span class="pre">Cp</span></code>, of specific heat capacities for various metals in J/g<span class="math notranslate nohighlight">\(\cdot^o\)</span>C, and we want to visualize the distribution of the specific heat capacities.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Cp</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.897</span><span class="p">,</span> <span class="mf">0.207</span><span class="p">,</span> <span class="mf">0.231</span><span class="p">,</span> <span class="mf">0.231</span><span class="p">,</span> <span class="mf">0.449</span><span class="p">,</span> <span class="mf">0.385</span><span class="p">,</span> <span class="mf">0.129</span><span class="p">,</span> 
@@ -1097,7 +1102,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="other-plotting-types">
 <span id="id12"></span><h3>3.2.4 Other Plotting Types<a class="headerlink" href="#other-plotting-types" title="Permalink to this headline">#</a></h3>
-<p id="index-7">There are a variety of other two dimensional plotting types available in the matplotlib library including stem, step, pie, polar, box plots, and contour plots. Below is a table of a few worth knowing about along with the code that created them. See the matplotlib website for further details. Many Python library websites, including matplotlib’s, contain a gallery page which showcases examples of what can be done with that library. It is recommended to brows these pages when learning a new library.</p>
+<p id="index-11">There are a variety of other two dimensional plotting types available in the matplotlib library including stem, step, pie, polar, box plots, and contour plots. Below is a table of a few worth knowing about along with the code that created them. See the matplotlib website for further details. Many Python library websites, including matplotlib’s, contain a gallery page which showcases examples of what can be done with that library. It is recommended to brows these pages when learning a new library.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
@@ -1113,7 +1118,7 @@ title="Print to PDF"
 </div>
 <img alt="../../_images/chap_03_notebook_49_1.svg" src="../../_images/chap_03_notebook_49_1.svg" /></div>
 </div>
-<div class="cell docutils container" id="index-8">
+<div class="cell docutils container" id="index-12">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">AN</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
 <span class="n">mass_avg</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.01</span><span class="p">,</span> <span class="mf">4.00</span><span class="p">,</span> <span class="mf">6.94</span><span class="p">,</span> <span class="mf">9.01</span><span class="p">,</span>
@@ -1132,7 +1137,7 @@ title="Print to PDF"
 </div>
 <img alt="../../_images/chap_03_notebook_51_1.svg" src="../../_images/chap_03_notebook_51_1.svg" /></div>
 </div>
-<div class="cell docutils container" id="index-9">
+<div class="cell docutils container" id="index-13">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Solids&#39;</span><span class="p">,</span> <span class="s1">&#39;Liquids&#39;</span><span class="p">,</span><span class="s1">&#39;Gases&#39;</span><span class="p">]</span>
 <span class="n">percents</span> <span class="o">=</span> <span class="p">(</span><span class="mf">85.6</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">12.2</span><span class="p">)</span>
@@ -1152,7 +1157,7 @@ title="Print to PDF"
 </div>
 <img alt="../../_images/chap_03_notebook_53_1.svg" src="../../_images/chap_03_notebook_53_1.svg" /></div>
 </div>
-<div class="cell docutils container" id="index-10">
+<div class="cell docutils container" id="index-14">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
@@ -1173,7 +1178,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="overlaying-plots">
 <span id="id13"></span><h2>3.3 Overlaying Plots<a class="headerlink" href="#overlaying-plots" title="Permalink to this headline">#</a></h2>
-<p id="index-11">It is often necessary to plot more than one set of data on the same axes, and this can be accomplished in two ways with matplotlib. The first is to call the plotting function twice in the same Jupyter code cell. Matplotlib will automatically place both plots in the same figure and scale it appropriately to include all data. Below, data for the wave function for the 3p hydrogen orbital is generated similar to the 3s earlier, so now the wave functions for both the 3s and 3p orbitals can be plotted on the same set of axes.</p>
+<p id="index-15">It is often necessary to plot more than one set of data on the same axes, and this can be accomplished in two ways with matplotlib. The first is to call the plotting function twice in the same Jupyter code cell. Matplotlib will automatically place both plots in the same figure and scale it appropriately to include all data. Below, data for the wave function for the 3p hydrogen orbital is generated similar to the 3s earlier, so now the wave functions for both the 3s and 3p orbitals can be plotted on the same set of axes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">orbital_3P</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
@@ -1223,7 +1228,7 @@ title="Print to PDF"
 <img alt="../../_images/chap_03_notebook_61_1.svg" src="../../_images/chap_03_notebook_61_1.svg" /></div>
 </div>
 <p>In the second plot above, <code class="docutils literal notranslate"><span class="pre">r</span></code>, <code class="docutils literal notranslate"><span class="pre">psi_3s</span></code>, <code class="docutils literal notranslate"><span class="pre">'bo'</span></code> are the data and style for the first set of data while <code class="docutils literal notranslate"><span class="pre">r</span></code>, <code class="docutils literal notranslate"><span class="pre">psi_3p</span></code>,<code class="docutils literal notranslate"><span class="pre">'r^'</span></code> are the data and plotting style for the second.</p>
-<p>One issue that quickly arrises with multifigure plots is identifying which symbols belong to which data. Matplotlib allows the user to add a legend to the plot. The user first needs to provide a label for each data set using the <code class="docutils literal notranslate"><span class="pre">label=</span></code> keyword argument. Finally, calling <code class="docutils literal notranslate"><span class="pre">plt.legend()</span></code> causes the labels to be displayed on the plot. The default is for matplotlib to place the legend where it decides is the optimal location, but this behavior can be overridden by adding a keyword <code class="docutils literal notranslate"><span class="pre">loc=</span></code> argument. A complete list of location arguments are available on the <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.legend.html">matplotlib website</a>.</p>
+<p id="index-16">One issue that quickly arrises with multifigure plots is identifying which symbols belong to which data. Matplotlib allows the user to add a legend to the plot. The user first needs to provide a label for each data set using the <code class="docutils literal notranslate"><span class="pre">label=</span></code> keyword argument. Finally, calling <code class="docutils literal notranslate"><span class="pre">plt.legend()</span></code> causes the labels to be displayed on the plot. The default is for matplotlib to place the legend where it decides is the optimal location, but this behavior can be overridden by adding a keyword <code class="docutils literal notranslate"><span class="pre">loc=</span></code> argument. A complete list of location arguments are available on the <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.legend.html">matplotlib website</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">psi_3s</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;3s orbital&#39;</span><span class="p">)</span>
@@ -1235,7 +1240,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f9f30387a00&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fcab8fb68b0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_03_notebook_63_1.svg" src="../../_images/chap_03_notebook_63_1.svg" /></div>
@@ -1243,7 +1248,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="multifigure-plots">
 <span id="id14"></span><h2>3.4 Multifigure Plots<a class="headerlink" href="#multifigure-plots" title="Permalink to this headline">#</a></h2>
-<p id="index-12">To generate multiple, independent plots in the same figure, a few more lines of code are required to describe the dimensions of the figure and which plot goes where. Once you get used to it, it is fairly logical. There are two general methods for generating multifigure plots outlined below. The first is a little quicker, but the second is certainly more powerful and gives the user access to extra features. Whichever method you choose to adopt, just be aware that you will likely see the other method at times as both are common.</p>
+<p id="index-17">To generate multiple, independent plots in the same figure, a few more lines of code are required to describe the dimensions of the figure and which plot goes where. Once you get used to it, it is fairly logical. There are two general methods for generating multifigure plots outlined below. The first is a little quicker, but the second is certainly more powerful and gives the user access to extra features. Whichever method you choose to adopt, just be aware that you will likely see the other method at times as both are common.</p>
 <div class="section" id="first-approach">
 <span id="id15"></span><h3>3.4.1 First Approach<a class="headerlink" href="#first-approach" title="Permalink to this headline">#</a></h3>
 <p>In the first method, we first need to generate the figure using the <code class="docutils literal notranslate"><span class="pre">plt.figure()</span></code> command. For every subplot, we first need to call <code class="docutils literal notranslate"><span class="pre">plt.subplot(rows,</span> <span class="pre">columns,</span> <span class="pre">plot_number)</span></code>. The first two values are the number of rows and columns in the figure, and the third number is which subplot you are referring to. For example, we will generate a figure with two plots side-by-side. This is a one-by-two figure (i.e., one row and two columns). Therefore, all subplots will be defined using <code class="docutils literal notranslate"><span class="pre">plt.subplot(1,</span> <span class="pre">2,</span> <span class="pre">plot_number)</span></code>. The <code class="docutils literal notranslate"><span class="pre">plot_number</span></code> indicates the subplot with the first subplot being 1 and the second subplot being 2. The numbering always runs left-to-right and top-to-bottom.</p>
@@ -1378,7 +1383,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="d-plotting">
 <span id="id17"></span><h2>3.5 3D Plotting<a class="headerlink" href="#d-plotting" title="Permalink to this headline">#</a></h2>
-<p id="index-13">To plot in 3D, we will use the approach outlined in <a class="reference internal" href="#id16"><span class="std std-ref">section 3.4.2</span></a> with two additions. First, add <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">mpl_toolkits.mplot3d</span> <span class="pre">import</span> <span class="pre">Axes3D</span> </code> as shown below. Second, make the plot 3D by adding <code class="docutils literal notranslate"><span class="pre">projection='3D'</span></code> to the <code class="docutils literal notranslate"><span class="pre">plt.figure()</span></code> command. After that, it is analogous to the two dimensional plots above except <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> data are provided.</p>
+<p id="index-18">To plot in 3D, we will use the approach outlined in <a class="reference internal" href="#id16"><span class="std std-ref">section 3.4.2</span></a> with two additions. First, add <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">mpl_toolkits.mplot3d</span> <span class="pre">import</span> <span class="pre">Axes3D</span> </code> as shown below. Second, make the plot 3D by adding <code class="docutils literal notranslate"><span class="pre">projection='3D'</span></code> to the <code class="docutils literal notranslate"><span class="pre">plt.figure()</span></code> command. After that, it is analogous to the two dimensional plots above except <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> data are provided.</p>
 <p>In the following example, we will import <span class="math notranslate nohighlight">\(xyz\)</span>-coordinates for a C<span class="math notranslate nohighlight">\(_{60}\)</span> buckyball molecule and plot the carbon atom positions in 3D.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1417,14 +1422,14 @@ title="Print to PDF"
 </div>
 <div class="section" id="surface-plots">
 <span id="id18"></span><h2>3.6 Surface Plots<a class="headerlink" href="#surface-plots" title="Permalink to this headline">#</a></h2>
-<p id="index-14">The above 3D plots are simply scatter plots in a three-dimensional space. It is often useful to connect these points to describe surfaces in 3D space which can be used for energy surfaces or atomic orbital shapes among other applications. We again will import <code class="docutils literal notranslate"><span class="pre">Axes3D</span></code> from <code class="docutils literal notranslate"><span class="pre">mpl_toolkits.mplot3d</span></code> as we did in section <a class="reference internal" href="#id17"><span class="std std-ref">3.5</span></a>, but we also need to generate a mesh grid to create a surface plot. Mesh grids are simply the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> axes values extended into a 2D array. A simple example is shown below where the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> axes are integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 8. In the left grid, the values represent where each point is with respect to the <span class="math notranslate nohighlight">\(x\)</span>-axis, and the right grid is likewise where each point is located with respect to the <span class="math notranslate nohighlight">\(y\)</span>-axis.</p>
+<p id="index-19">The above 3D plots are simply scatter plots in a three-dimensional space. It is often useful to connect these points to describe surfaces in 3D space which can be used for energy surfaces or atomic orbital shapes among other applications. We again will import <code class="docutils literal notranslate"><span class="pre">Axes3D</span></code> from <code class="docutils literal notranslate"><span class="pre">mpl_toolkits.mplot3d</span></code> as we did in section <a class="reference internal" href="#id17"><span class="std std-ref">3.5</span></a>, but we also need to generate a mesh grid to create a surface plot. Mesh grids are simply the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> axes values extended into a 2D array. A simple example is shown below where the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> axes are integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 8. In the left grid, the values represent where each point is with respect to the <span class="math notranslate nohighlight">\(x\)</span>-axis, and the right grid is likewise where each point is located with respect to the <span class="math notranslate nohighlight">\(y\)</span>-axis.</p>
 <p><img alt="" src="../../_images/xygrid.svg" /></p>
 <p>We will use NumPy to generate these grids as NumPy arrays. If you have not yet seen NumPy, you can still follow along in this example without understanding how arrays operate, or you can read chapter 4 and come back to this topic later. For those who are familiar with NumPy, being that the two grids/arrays are of the same dimension, all math is done on a position-by-position basis to generate a third array of the same dimensions as the first two. For example, if we were to take the sum of the squares of the two grids above, we would get the following grid.</p>
 <div class="math notranslate nohighlight">
 \[ z = x^2 + y^2 \]</div>
 <p><img alt="" src="../../_images/zgrid.svg" /></p>
 <p>Notice that each value on the <span class="math notranslate nohighlight">\(z\)</span> grid is the sum of the squared values from the equivalent positions on the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> grids, so for example, the bottom left value is 64 because it is the sum of 64 and 0.</p>
-<p>To generate mesh grids, we will use the <code class="docutils literal notranslate"><span class="pre">np.meshgrid()</span></code> function from NumPy. It requires the input of the desired values from the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> axes as a list, range object, or NumPy array. The output of the <code class="docutils literal notranslate"><span class="pre">np.meshgrid()</span></code> function is two arrays – the <span class="math notranslate nohighlight">\(x\)</span> grid and <span class="math notranslate nohighlight">\(y\)</span> grid, respectively.</p>
+<p id="index-20">To generate mesh grids, we will use the <code class="docutils literal notranslate"><span class="pre">np.meshgrid()</span></code> function from NumPy. It requires the input of the desired values from the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> axes as a list, range object, or NumPy array. The output of the <code class="docutils literal notranslate"><span class="pre">np.meshgrid()</span></code> function is two arrays – the <span class="math notranslate nohighlight">\(x\)</span> grid and <span class="math notranslate nohighlight">\(y\)</span> grid, respectively.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1500,7 +1505,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x7f9f30b65760&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x7fcab97fea00&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_03_notebook_88_1.svg" src="../../_images/chap_03_notebook_88_1.svg" /></div>
@@ -1537,7 +1542,7 @@ You will need to look up the values which should be available in most general ch
 <div class="math notranslate nohighlight">
 \[ 2 A \rightarrow P \]</div>
 </li>
-<li><p>Import the <strong>gc_trace.csv</strong> file containing a gas chromatography (GC) trace and plot the intensity (<em>y</em>-axis) versus time (<em>x</em>-axis) using a line plot. Be sure to label the axes.</p></li>
+<li id="index-21"><p>Import the <strong>gc_trace.csv</strong> file containing a gas chromatography (GC) trace and plot the intensity (<em>y</em>-axis) versus time (<em>x</em>-axis) using a line plot. Be sure to label the axes.</p></li>
 <li><p>Import the mass spectra file <strong>ms_bromobenzene.csv</strong> and visualize it using a stem plot where <em>m/z</em> is on the <em>x</em>-axis and intensity is on the <em>y</em>-axis. Hint: the dots on the top of the lines can be removed using <code class="docutils literal notranslate"><span class="pre">markerfmt='</span> <span class="pre">'</span></code> (i.e., feed it a blank space).</p></li>
 <li><p>Earth’s atmosphere is composed of 78% N<span class="math notranslate nohighlight">\(_2\)</span>, 21% O<span class="math notranslate nohighlight">\(_2\)</span>, and 1% other gases. Represent this data with a pie chart, and make the last 1% slice stick out of the pie like in <a class="reference internal" href="#id12"><span class="std std-ref">section 3.2.4</span></a>.</p></li>
 <li><p>Create a histogram plot to examine the distribution of values generated below.</p>
