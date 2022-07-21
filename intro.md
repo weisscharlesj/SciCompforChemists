@@ -67,7 +67,7 @@ This book took a substantial time to write along with the time and effort in dev
 
 - Wesley A. Deutscher helping collect some example data
 - M. Roarke Tollar providing feedback and reporting typos in chapters 0 and 1
-- Andrew Klose providing feedback and reporting typos in chapter 12
+- Andrew Klose providing feedback and reporting typos in chapter 12 and an idea for an exercise
 - Harrison Kuhn for identifying a code error in chapter 11
 - nzjakemartin (GitHub handle) identifying a type in the weighted average equation 
 - Paul A. Craig identifying a typo in the Python code
