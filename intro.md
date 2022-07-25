@@ -72,3 +72,4 @@ This book took a substantial time to write along with the time and effort in dev
 - nzjakemartin (GitHub handle) identifying a type in the weighted average equation 
 - Paul A. Craig identifying a typo in the Python code
 - Patrick Coppock providing feedback
+- Zachary M. Schulte for providing feedback and reporting typos in chapter 14
