@@ -47,7 +47,7 @@ The code in this version of the book has been most recently tested with the foll
 
 - Python – 3.9.7
 - NumPy – 1.23
-- SciPy – 1.8.1
+- SciPy – 1.9.0
 - Pandas – 1.4.3
 - Matplotlib – 3.5.2
 - Seaborn – 0.11.2
