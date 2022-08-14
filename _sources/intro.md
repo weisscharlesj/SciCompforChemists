@@ -54,7 +54,7 @@ While great efforts have gone into ensuring that all the code in this book works
 The code in this version of the book has been most recently tested with the following software versions but will likely work with other versions.
 
 - Python – 3.9.7
-- NumPy – 1.23
+- NumPy – 1.23.2
 - SciPy – 1.9.0
 - Pandas – 1.4.3
 - Matplotlib – 3.5.2

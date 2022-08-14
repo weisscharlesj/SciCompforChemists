@@ -1050,11 +1050,17 @@ title="Print to PDF"
 <tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">np.linalg.inv()</span></code></p></td>
 <td class="text-align:left"><p>Returns the inverse of an array</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">np.linalg.det()</span></code></p></td>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">np.linalg.pinv()</span></code></p></td>
+<td class="text-align:left"><p>Retursns the Moore-Penrose pseudoinverse of an array</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">np.linalg.det()</span></code></p></td>
 <td class="text-align:left"><p>Returns the determinant of an array</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">np.linalg.solve()</span></code></p></td>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">np.linalg.solve()</span></code></p></td>
 <td class="text-align:left"><p>Solves a system of linear equations</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">np.linalg.lstsq()</span></code></p></td>
+<td class="text-align:left"><p>Returns approximate solution to a system of linear equations</p></td>
 </tr>
 </tbody>
 </table>
@@ -1169,14 +1175,15 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If performing either the above calculations on other data generates a <code class="docutils literal notranslate"><span class="pre">LinAlgError:</span> <span class="pre">Singular</span> <span class="pre">matrix</span></code> error, this means that the coefficient matrix does not have an inverse and cannot be solved by these methods.</p>
-</div>
+<p id="index-10">If performing either the above calculations on other data generates a <code class="docutils literal notranslate"><span class="pre">LinAlgError:</span> <span class="pre">Singular</span> <span class="pre">matrix</span></code> error, this means that the coefficient matrix does not have an inverse and cannot be solved by these methods. One possible reason is that the coefficient matrix is not square which is a requirement for calculating the inverse. Here are two possible solutions to working around this issue.</p>
+<ol class="simple" id="index-11">
+<li><p>Subsitute the <code class="docutils literal notranslate"><span class="pre">np.linalg.inv()</span></code> function with the Moore-Penrose pseudoinverse function <code class="docutils literal notranslate"><span class="pre">np.linalg.pinv()</span></code>. This versitile function can work with non-square matricies.</p></li>
+<li><p>Substitute the <code class="docutils literal notranslate"><span class="pre">np.linalg.lstsq()</span></code> for the <code class="docutils literal notranslate"><span class="pre">np.linalg.solve()</span></code> function. The former can find approximate solutions when exact solutions do not exist or when the coefficient matrix is not square. This is not uncommon when dealing with linear fitting because not all data points may fall perfectly on the line of best fit or the number of data points does not equal the number of independant variables.</p></li>
+</ol>
 </div>
 <div class="section" id="least-square-minimization-by-the-normal-equation">
 <span id="id14"></span><h3>8.3.3 Least-Square Minimization by the Normal Equation<a class="headerlink" href="#least-square-minimization-by-the-normal-equation" title="Permalink to this headline">#</a></h3>
-<span class="target" id="index-10"></span><p id="index-11">Finding the line of best fit through data points can be accomplished by least-square minimization. What we are essentially looking for is an equation of the form <span class="math notranslate nohighlight">\(y = mx + b\)</span> that is as close as possible to the data points, and the mean square error determines what qualifies as “close.” If we rewrite this problem in matrix or array form, it will look like the following for a series of four point (<span class="math notranslate nohighlight">\(x_n\)</span>, <span class="math notranslate nohighlight">\(y_n\)</span>) on a two-dimensional plane. The first array contains a columns of ones to multiply with b, so for the first row, we get <span class="math notranslate nohighlight">\(mx_0 + b = y_0\)</span>.</p>
+<span class="target" id="index-12"></span><p id="index-13">Finding the line of best fit through data points can be accomplished by least-square minimization. What we are essentially looking for is an equation of the form <span class="math notranslate nohighlight">\(y = mx + b\)</span> that is as close as possible to the data points, and the mean square error determines what qualifies as “close.” If we rewrite this problem in matrix or array form, it will look like the following for a series of four point (<span class="math notranslate nohighlight">\(x_n\)</span>, <span class="math notranslate nohighlight">\(y_n\)</span>) on a two-dimensional plane. The first array contains a columns of ones to multiply with b, so for the first row, we get <span class="math notranslate nohighlight">\(mx_0 + b = y_0\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} \left[ \begin{array}{cc} x_0 &amp; 1 \\ x_1 &amp; 1 \\ x_2 &amp; 1 \\ x_3 &amp; 1 \end{array} \right]
 \cdot
@@ -1304,7 +1311,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="balancing-chemical-equations">
 <span id="id15"></span><h3>8.3.4 Balancing Chemical Equations<a class="headerlink" href="#balancing-chemical-equations" title="Permalink to this headline">#</a></h3>
-<p id="index-12">Matricies can also be used to balance chemical equations as shown below where <span class="math notranslate nohighlight">\(x_1\)</span> through <span class="math notranslate nohighlight">\(x_4\)</span> are the coefficients for the balanced chemical equation.</p>
+<p id="index-14">Matricies can also be used to balance chemical equations as shown below where <span class="math notranslate nohighlight">\(x_1\)</span> through <span class="math notranslate nohighlight">\(x_4\)</span> are the coefficients for the balanced chemical equation.</p>
 <div class="math notranslate nohighlight">
 \[ x_1 C_3H_{8} + x_2 O_2 \rightarrow x_3 CO_2 + x_4 H_2O \]</div>
 <p>We can then describe the number of carbon, hydrogen, and oxygen atoms in each compound using 3 <span class="math notranslate nohighlight">\(\times\)</span> 1 matricies <span class="math notranslate nohighlight">\(\left[ \begin{array}{c} C \\ H \\ O \end{array} \right]\)</span> as shown below.</p>
@@ -1382,7 +1389,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="eigenvalues-and-eigenvectors">
 <span id="id16"></span><h3>8.3.5 Eigenvalues and Eigenvectors<a class="headerlink" href="#eigenvalues-and-eigenvectors" title="Permalink to this headline">#</a></h3>
-<span class="target" id="index-13"></span><span class="target" id="index-14"></span><span class="target" id="index-15"></span><p id="index-16">This section covers using <code class="docutils literal notranslate"><span class="pre">np.linalg</span></code> to calculate <em>eigenvalues</em> and <em>eigenvectors</em> which is useful in quantum mechanics among other applications. This topic will not be utilized later in this book, so feel free to skip over this section if you have no interest in this topic.</p>
+<span class="target" id="index-15"></span><span class="target" id="index-16"></span><span class="target" id="index-17"></span><p id="index-18">This section covers using <code class="docutils literal notranslate"><span class="pre">np.linalg</span></code> to calculate <em>eigenvalues</em> and <em>eigenvectors</em> which is useful in quantum mechanics among other applications. This topic will not be utilized later in this book, so feel free to skip over this section if you have no interest in this topic.</p>
 <p>For a square matrix <span class="math notranslate nohighlight">\(A\)</span>, there can exist a scalar <span class="math notranslate nohighlight">\(\lambda\)</span> and vector <span class="math notranslate nohighlight">\(V\)</span> that satisfy the following equation.</p>
 <div class="math notranslate nohighlight">
 \[ AV = \lambda V \]</div>
@@ -1432,7 +1439,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="calculus">
 <span id="id17"></span><h2>8.4 Calculus<a class="headerlink" href="#calculus" title="Permalink to this headline">#</a></h2>
-<p id="index-17">SymPy and SciPy both contain functionality for performing calculus operations. We will start with SymPy for the symbolic math and switch over to SciPy for the strictly numerical work in <a class="reference internal" href="#id20"><span class="std std-ref">section 8.4.3</span></a>. In this section, we will be working with the radial density functions (<span class="math notranslate nohighlight">\(\psi\)</span>) for hydrogen atomic orbitals. The squares of these functions (<span class="math notranslate nohighlight">\(\psi ^2\)</span>) provide the probability of finding an electron with respect to distance from the nucleus. While these equations are available in various textbooks, SymPy provides a <code class="docutils literal notranslate"><span class="pre">physics</span></code> module with a <code class="docutils literal notranslate"><span class="pre">R_nl()</span></code> function for generating these equations based on the principle (<em>n</em>) quantum number, angular (<em>l</em>) quantum number, and the atomic number (<em>Z</em>). For example, to generate the function for the 2p orbital of hydrogen, <em>n</em> = 2, <em>l</em> = 1, and <em>Z</em> = 1.</p>
+<p id="index-19">SymPy and SciPy both contain functionality for performing calculus operations. We will start with SymPy for the symbolic math and switch over to SciPy for the strictly numerical work in <a class="reference internal" href="#id20"><span class="std std-ref">section 8.4.3</span></a>. In this section, we will be working with the radial density functions (<span class="math notranslate nohighlight">\(\psi\)</span>) for hydrogen atomic orbitals. The squares of these functions (<span class="math notranslate nohighlight">\(\psi ^2\)</span>) provide the probability of finding an electron with respect to distance from the nucleus. While these equations are available in various textbooks, SymPy provides a <code class="docutils literal notranslate"><span class="pre">physics</span></code> module with a <code class="docutils literal notranslate"><span class="pre">R_nl()</span></code> function for generating these equations based on the principle (<em>n</em>) quantum number, angular (<em>l</em>) quantum number, and the atomic number (<em>Z</em>). For example, to generate the function for the 2p orbital of hydrogen, <em>n</em> = 2, <em>l</em> = 1, and <em>Z</em> = 1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy.physics.hydrogen</span> <span class="kn">import</span> <span class="n">R_nl</span>
@@ -1482,7 +1489,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="differentiation">
 <span id="id18"></span><h3>8.4.1 Differentiation<a class="headerlink" href="#differentiation" title="Permalink to this headline">#</a></h3>
-<p id="index-18">SymPy can take the derivative of mathematical expression using the <code class="docutils literal notranslate"><span class="pre">sympy.diff()</span></code> function.  This function requires a mathematical expression, the variable with respect the derivative is taken from, and the degree. The default behavior is to take the first derivative if a degree is not specified.</p>
+<p id="index-20">SymPy can take the derivative of mathematical expression using the <code class="docutils literal notranslate"><span class="pre">sympy.diff()</span></code> function.  This function requires a mathematical expression, the variable with respect the derivative is taken from, and the degree. The default behavior is to take the first derivative if a degree is not specified.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">deg</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1527,7 +1534,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="integration-of-functions">
 <span id="id19"></span><h3>8.4.2 Integration of Functions<a class="headerlink" href="#integration-of-functions" title="Permalink to this headline">#</a></h3>
-<p id="index-19">SymPy can also integrate expressions using the <code class="docutils literal notranslate"><span class="pre">sympy.integrate()</span></code> function which takes the mathematical expression and the variable plus integration range in the form of a tuple. If the integration range is omitted, then SymPy will return a symbolic expression.</p>
+<p id="index-21">SymPy can also integrate expressions using the <code class="docutils literal notranslate"><span class="pre">sympy.integrate()</span></code> function which takes the mathematical expression and the variable plus integration range in the form of a tuple. If the integration range is omitted, then SymPy will return a symbolic expression.</p>
 <p>The normalized (i.e., totals to one) density function is the squared wave function times <span class="math notranslate nohighlight">\(r^2\)</span> (i.e, <span class="math notranslate nohighlight">\(\psi ^2 r^2\)</span>). We can use this to determine the probability of finding an electron in a particular range of distances from the radius. Below, we integrate from the nucleus to the radius of maximum density.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1629,7 +1636,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f9b787e6370&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f9f96fba250&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_08_notebook_94_1.svg" src="../../_images/chap_08_notebook_94_1.svg" /></div>
@@ -1715,7 +1722,7 @@ title="Print to PDF"
 <p>For example, the following is a first-order chemical reaction with starting material, A, and product, P.</p>
 <div class="math notranslate nohighlight">
 \[ A \rightarrow P \]</div>
-<p id="index-20">The decay of a radioactive isotope is an example of a first-order reaction because the rate of decay is proportional to the amount of A. First-order reaction rates are described by</p>
+<p id="index-22">The decay of a radioactive isotope is an example of a first-order reaction because the rate of decay is proportional to the amount of A. First-order reaction rates are described by</p>
 <div class="math notranslate nohighlight">
 \[ Rate = \frac{d[A]}{dt} = -k[A] \]</div>
 <p>where [A] is the concentration (M) of A, <span class="math notranslate nohighlight">\(k\)</span> is the rate constant (1/s), and rate is the change in [A] versus time (M/s). The <code class="docutils literal notranslate"><span class="pre">odeint()</span></code> function below takes a differential equation in the form of a Python function, <code class="docutils literal notranslate"><span class="pre">func</span></code>, the initial values for A, <code class="docutils literal notranslate"><span class="pre">A0</span></code>, and a list or array of the times,<code class="docutils literal notranslate"><span class="pre">t</span></code>, to calculate the [A] .</p>
@@ -1756,7 +1763,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f9b78f9f700&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f9f97699b80&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_08_notebook_110_1.svg" src="../../_images/chap_08_notebook_110_1.svg" /></div>
