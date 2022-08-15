@@ -163,7 +163,7 @@ So when should you use a Jupyter notebook and when should you use Spyder? The de
 
 ## Exercises
 
-Complete the following problems by writing a Python scripts either in a text editor or Spyder and run them from the terminal. JupyterLab, newest version of Jupyter, includes a text editor if you wish to use it, but do not use a Jupyter notebook for any of these problems!  
+Complete the following problems by writing a Python scripts either in a text editor or Spyder and run them from the terminal. JupyterLab, newest version of Jupyter, includes a text editor if you wish to use it, but do not use a Jupyter notebook for any of these problems!  Any data file(s) refered to in the problems can be found in the [data](https://github.com/weisscharlesj/SciCompforChemists/tree/master/notebooks) folder in the same directory as this chapter's Jupyter notebook. Alternatively, you can download a zip file of the data for this chapter from [here](https://github.com/weisscharlesj/data_SciCompforChem) by selecting the appropriate chapter file and then clicking the **Download** button.
      
 1. When an electron in a hydrogen atom relaxes from a higher to a lower energy orbital, a photon is released with the wavelength in nm described by the below equation. Write and run a Python script that prompts the user to input the initial and final principle quantum numbers (n) and prints the wavelength (λ) of light emitted with units.
 

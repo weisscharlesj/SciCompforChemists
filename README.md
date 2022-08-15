@@ -8,7 +8,7 @@ Answer keys to exercises are available to instructors upon request by [emailing]
 
 ## [View Scientific Computing for Chemists with Python (Jupyter Book)](https://weisscharlesj.github.io/SciCompforChemists/)
 
-The book and all files/materials included with it are copyright © 2021-2022 Charles J. Weiss and are released under under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
+The book and all files/materials included with it are copyright © 2017-2022 Charles J. Weiss and are released under under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
 
 * Chapter 0: Python & Jupyter Notebooks
 * Chapter 1: Basic Python

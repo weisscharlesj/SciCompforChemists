@@ -15,7 +15,7 @@ Learning to use a number of popular Python scientific libraries to solve chemica
 
 ## Organization of Book
 
-This book is organized in order of more fundamental topics first, but not every earlier chapter is a prerequisite for all subsequent chapters. Chapter 0 provides a quick introduction to the Jupyter notebook and chapters 1-2 provide background on the Python programming language. Anyone who already knows Python can skim or skip past these two chapters. Chapter 3 introduces plotting and visualization, and chapter 4 covers the NumPy library. Both of these chapters are used heavily in this book and should not be bypassed. The pandas library is covered in chapter 5 which is used in some subsequent chapters, but not all. This library adds functionality and extra ease-of-use to NumPy. Anyone looking to streamline their schedule could skip this chapter, but be aware that it is heavily utilized in chapters 10 and 12. However, chapters 10 and 12 should be largely readable by someone who is not familiar with pandas or at least has read sections 5.1-5.2. Chapters beyond chapter 5 are mostly applications or cover libraries for very specific applications such as image processing or machine learning. Chapters 6-13 are designed to be modular, so after getting through chapters 0-5, these subsequent chapters can be covered in any order depending up the reader's needs and interests. Below is a listing with brief descriptions of the chapters.
+This book is organized in order of more fundamental topics first, but not every earlier chapter is a prerequisite for all subsequent chapters. Chapter 0 provides a quick introduction to the Jupyter notebook and chapters 1-2 provide background on the Python programming language. Anyone who already knows Python can skim or skip past these two chapters. Chapter 3 introduces plotting and visualization, and chapter 4 covers the NumPy library. Both of these chapters are used heavily in this book and should not be bypassed. The pandas library is covered in chapter 5 which is used in some subsequent chapters, but not all. This library adds functionality and extra ease-of-use to NumPy. Anyone looking to streamline their schedule could skip this chapter, but be aware that it is heavily utilized in chapters 10 and 12. However, chapters 10 and 12 should be largely readable by someone who is not familiar with pandas or at least has read sections 5.1-5.2. Chapters beyond chapter 5 are mostly applications or cover libraries for very specific applications such as image processing or machine learning. Chapters 6-14 are designed to be modular, so after getting through chapters 0-5, these subsequent chapters can be covered in any order depending up the reader's needs and interests. Below is a listing with brief descriptions of the chapters.
 
 | Chapter Number | Description |
 |:-----:  | :---------- |
@@ -39,6 +39,14 @@ This book is organized in order of more fundamental topics first, but not every 
 One of the goals of this book is to provide a streamlined introduction to Python and its scientific libraries in order to allow the reader to start applying these new skills to chemistry as quickly as possible. As a result, not all topics covered in a typical computer science course on Python are included here. Instead, the most relevant topics to chemistry are covered along with a selection of scientific libraries not likely taught in most Python courses. Another difference between this book and a typical computer science course on Python is that many computer science courses would have students write and save code as text files and run them from the command line. In contrast, this book assumes that the reader is running his or her code in a Jupyter notebook, as described in chapter 0, which is an ideal environment for scientific data analysis. The Jupyter notebook provides immediate feedback to the user, convenient graphical outputs, is shareable, and is simpler to use than running Python scripts from the command line. For those students who wish to continue on to run Python scripts from the command line, chapter 13 provides a brief introduction to this process.
 
 
+## Chapter and Exercise Data
+
+Any data file(s) refered to in the chapters or end-of-chapter exercises can be found in the [data](https://github.com/weisscharlesj/SciCompforChemists/tree/master/notebooks) folder in the same directory as this chapter's Jupyter notebook. Alternatively, you can download a zip file of the data for this chapter from [here](https://github.com/weisscharlesj/data_SciCompforChem) by selecting the appropriate chapter file and then clicking the **Download** button.
+
+## Exercise Answers
+
+Copies of exercise answer keys are available for instructors upon request. To optain copies, please [email](https://www.augie.edu/academics/majors-and-programs/chemistry/faculty) the authuor using your school email address.
+
 ## Code and Software Versions
 
 While great efforts have gone into ensuring that all the code in this book works as prescribed and all text and code are free of errors, some errors could exist. Additionally, some examples in this book are simplified for pedagogical reasons and may not be appropriate for research and other applications. It is the responsibility of the reader to check that their code is free of errors, behaves as required, and that the methods are appropriate for their applications.
@@ -46,7 +54,7 @@ While great efforts have gone into ensuring that all the code in this book works
 The code in this version of the book has been most recently tested with the following software versions but will likely work with other versions.
 
 - Python – 3.9.7
-- NumPy – 1.23
+- NumPy – 1.23.2
 - SciPy – 1.9.0
 - Pandas – 1.4.3
 - Matplotlib – 3.5.2
@@ -57,9 +65,6 @@ The code in this version of the book has been most recently tested with the foll
 - NMRglue – 0.9
 - Spyder – 5.1.5
 
-## Exercise Answers
-
-Copies of exercise answer keys are available for instructors upon request. To optain copies, please [email](https://www.augie.edu/academics/majors-and-programs/chemistry/faculty) using your school email address.
 
 ## Acknowledgements
 
