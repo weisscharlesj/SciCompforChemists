@@ -1051,7 +1051,7 @@ title="Print to PDF"
 <td class="text-align:left"><p>Returns the inverse of an array</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">np.linalg.pinv()</span></code></p></td>
-<td class="text-align:left"><p>Retursns the Moore-Penrose pseudoinverse of an array</p></td>
+<td class="text-align:left"><p>Returns the Moore-Penrose <a class="reference internal" href="#singular-matrix"><span class="std std-ref">pseudoinverse</span></a> of an array</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">np.linalg.det()</span></code></p></td>
 <td class="text-align:left"><p>Returns the determinant of an array</p></td>
@@ -1060,7 +1060,7 @@ title="Print to PDF"
 <td class="text-align:left"><p>Solves a system of linear equations</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">np.linalg.lstsq()</span></code></p></td>
-<td class="text-align:left"><p>Returns approximate solution to a system of linear equations</p></td>
+<td class="text-align:left"><p>Returns <a class="reference internal" href="#singular-matrix"><span class="std std-ref">approximate solution</span></a> to a system of linear equations</p></td>
 </tr>
 </tbody>
 </table>
@@ -1175,11 +1175,92 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p id="index-10">If performing either the above calculations on other data generates a <code class="docutils literal notranslate"><span class="pre">LinAlgError:</span> <span class="pre">Singular</span> <span class="pre">matrix</span></code> error, this means that the coefficient matrix does not have an inverse and cannot be solved by these methods. One possible reason is that the coefficient matrix is not square which is a requirement for calculating the inverse. Here are two possible solutions to working around this issue.</p>
-<ol class="simple" id="index-11">
-<li><p>Subsitute the <code class="docutils literal notranslate"><span class="pre">np.linalg.inv()</span></code> function with the Moore-Penrose pseudoinverse function <code class="docutils literal notranslate"><span class="pre">np.linalg.pinv()</span></code>. This versitile function can work with non-square matricies.</p></li>
-<li><p>Substitute the <code class="docutils literal notranslate"><span class="pre">np.linalg.lstsq()</span></code> for the <code class="docutils literal notranslate"><span class="pre">np.linalg.solve()</span></code> function. The former can find approximate solutions when exact solutions do not exist or when the coefficient matrix is not square. This is not uncommon when dealing with linear fitting because not all data points may fall perfectly on the line of best fit or the number of data points does not equal the number of independant variables.</p></li>
+<p id="index-10">If you perform either the above calculations on other data and receive a <code class="docutils literal notranslate"><span class="pre">LinAlgError:</span> <span class="pre">Singular</span> <span class="pre">matrix</span></code> error, this means that the coefficient matrix does not have an inverse and cannot be solved by these methods. One possible reason is that the coefficient matrix is not square - a requirement for obtaining an inverse. Here are two possible solutions to working around this issue.</p>
+<span id="index-11"></span><ol class="simple" id="singular-matrix">
+<li><p>Substitute the <code class="docutils literal notranslate"><span class="pre">np.linalg.inv()</span></code> function with the Moore-Penrose pseudoinverse function <code class="docutils literal notranslate"><span class="pre">np.linalg.pinv()</span></code>. This versatile function can work with non-square matrices.</p></li>
+<li><p>Substitute the <code class="docutils literal notranslate"><span class="pre">np.linalg.lstsq()</span></code> for the <code class="docutils literal notranslate"><span class="pre">np.linalg.solve()</span></code> function. The former can find approximate solutions when exact solutions do not exist or when the coefficient matrix is not square. This is not uncommon when dealing with linear fitting because not all data points may fall perfectly on the line of best fit or the number of data points does not equal the number of independent variables.</p></li>
 </ol>
+<p>As an example inspired by <a class="reference external" href="https://doi.org/10.1021/ed077p185"><em>J. Chem. Educ.</em> <strong>2000,</strong> 77, 185-187</a>, let’s calculate the enthalpy of the following reaction</p>
+<div class="math notranslate nohighlight">
+\[ S_8(s) + 8 \, O_2(g) \rightarrow 8 \, SO_2(g) \quad \Delta H_{net} = ? \]</div>
+<p>knowing the enthalpy of the following two subreactions.</p>
+<div class="math notranslate nohighlight">
+\[ S_8(s) + 4 \, O_2(g) \rightarrow SO_2(g) \quad \Delta H_a = -3160 kJ \]</div>
+<div class="math notranslate nohighlight">
+\[ 2 \, SO_2(g) + O_2(g) \rightarrow 2 \, SO_3(g) \quad \Delta H_b = -196 kJ \]</div>
+<p>Using Hess’s law, we need to multiply the subreactions <em>a</em> and <em>b</em> by coefficients and add them together to generate the overall net reaction. Remember that reversing a reaction results in reversing the sign of reaction enthalpy, so it’s the same as multiplying by -1. We can represent this calculation using matrices show below where r<span class="math notranslate nohighlight">\(_1\)</span> and r<span class="math notranslate nohighlight">\(_2\)</span> are the coefficients for each subreaction. The values in each row of the first matrix are the number of SO<span class="math notranslate nohighlight">\(_2\)</span>, SO<span class="math notranslate nohighlight">\(_3\)</span>, O<span class="math notranslate nohighlight">\(_2\)</span>, and S<span class="math notranslate nohighlight">\(_8\)</span> molecules, respectively in the two subreactions, and the numbers in the last matrix are the numbers of the same molecules in the net reaction. The gray molecular formulas in the equation below are not part of the equation but rather are simply a visual guide. You may notice that the coefficients in the balance equations on the reactant side are negative while products are positive. This allows us keep track of the side they are on.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{array}{ccc} \color{gray} {SO_2} \\ \color{gray} {SO_3} \\ \color{gray}{O_2} \\ \color{gray}{S_8} \end{array}
+\left[ \begin{array}{ccc} 0 &amp; -2 \\ 8 &amp; 2 \\ -12 &amp; -1 \\ -1 &amp; 0 \end{array} \right]
+\cdot
+\left[ \begin{array}{c} r_1 \\ r_2 \end{array} \right]
+=
+\left[ \begin{array}{c} 8 \\ 0 \\ -8 \\ -1 \end{array} \right] \end{split}\]</div>
+<p>If the three matrices are called A, R, and Y, respectively, we can rewrite the above calculation as follows.</p>
+<div class="math notranslate nohighlight">
+\[ A R = Y \]</div>
+<p>When solving for R in the past, we simply multiplied both sides by the inverse of A like below.</p>
+<div class="math notranslate nohighlight">
+\[ A^{-1}A R = A^{-1} Y = R \]</div>
+<p>The problem we face is that matrix A is not square and thus the matrix inverse cannot be calculated. Instead, we can use the Moore-Penrose pseudoinverse in place of the regular inverse as demonstrated below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+              <span class="p">[</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+              <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+<span class="n">R</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1., -4.])
+</pre></div>
+</div>
+</div>
+</div>
+<p>This means we need to multiply the first subreaction by 1 and the second subreaction by -4 (i.e., reverse it and quadruple everything).</p>
+<p>Alternatively, we can use the <code class="docutils literal notranslate"><span class="pre">np.linalg.lstsq()</span></code> similarly to how we use the <code class="docutils literal notranslate"><span class="pre">np.linalg.solve()</span></code> function. Set the keyword argument <code class="docutils literal notranslate"><span class="pre">rcond=None</span></code> to avoid an error.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">rcond</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 1., -4.]),
+ array([8.03606306e-31]),
+ 2,
+ array([14.58924398,  2.27023349]))
+</pre></div>
+</div>
+</div>
+</div>
+<p>For the final step of our calculation, we need to multiply the values r<span class="math notranslate nohighlight">\(_a\)</span> and r<span class="math notranslate nohighlight">\(_b\)</span> by the enthalpy values of the subreactions and add them together.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dH_sub</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">3160</span><span class="p">,</span> <span class="o">-</span><span class="mi">196</span><span class="p">])</span>
+
+<span class="n">dH</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">dH_sub</span><span class="p">)</span>
+<span class="n">dH</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2375.9999999999995
+</pre></div>
+</div>
+</div>
+</div>
+<p>This means that the enthalpy of the overall net reaction is -2376 kJ.</p>
 </div>
 <div class="section" id="least-square-minimization-by-the-normal-equation">
 <span id="id14"></span><h3>8.3.3 Least-Square Minimization by the Normal Equation<a class="headerlink" href="#least-square-minimization-by-the-normal-equation" title="Permalink to this headline">#</a></h3>
@@ -1306,7 +1387,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Absorbance, au&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_08_notebook_62_1.svg" src="../../_images/chap_08_notebook_62_1.svg" /></div>
+<img alt="../../_images/chap_08_notebook_70_1.svg" src="../../_images/chap_08_notebook_70_1.svg" /></div>
 </div>
 </div>
 <div class="section" id="balancing-chemical-equations">
@@ -1528,7 +1609,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Probability Density&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_08_notebook_84_1.svg" src="../../_images/chap_08_notebook_84_1.svg" /></div>
+<img alt="../../_images/chap_08_notebook_92_1.svg" src="../../_images/chap_08_notebook_92_1.svg" /></div>
 </div>
 <p>The radius is in Bohrs (<span class="math notranslate nohighlight">\(a_0\)</span>) which is equal to approximately 0.53 angstroms.</p>
 </div>
@@ -1636,10 +1717,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f9f96fba250&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ffb97fea100&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/chap_08_notebook_94_1.svg" src="../../_images/chap_08_notebook_94_1.svg" /></div>
+<img alt="../../_images/chap_08_notebook_102_1.svg" src="../../_images/chap_08_notebook_102_1.svg" /></div>
 </div>
 <p>Above is a plot of the peaks with respect to the index values (not ppm). To integrate under each of the triplet peaks, first we need the index values for the edges of each peak. Below is a list, <code class="docutils literal notranslate"><span class="pre">i</span></code>, that provides reasonable boundaries, and a plot is below with these edges marked in orange squares.</p>
 <div class="cell docutils container">
@@ -1653,7 +1734,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/chap_08_notebook_96_0.svg" src="../../_images/chap_08_notebook_96_0.svg" /></div>
+<img alt="../../_images/chap_08_notebook_104_0.svg" src="../../_images/chap_08_notebook_104_0.svg" /></div>
 </div>
 <p>Integrations under sampled data do not include the values between data points, so these regions are estimated based on assumptions. The <code class="docutils literal notranslate"><span class="pre">trapz()</span></code> function assumes that any data point between known points lies directly between the known data points (i.e., linear interpolation) as shown below by the blue lines.</p>
 <div class="cell tag_remove-output docutils container">
@@ -1676,7 +1757,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/chap_08_notebook_99_0.svg" src="../../_images/chap_08_notebook_99_0.svg" /></div>
+<img alt="../../_images/chap_08_notebook_107_0.svg" src="../../_images/chap_08_notebook_107_0.svg" /></div>
 </div>
 <p>Alternatively, the <code class="docutils literal notranslate"><span class="pre">simps()</span></code> function uses the <em>Simpson’s rule</em> which estimates the data between known points using quadratic interpolation shown below.</p>
 <div class="cell docutils container">
@@ -1692,7 +1773,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/chap_08_notebook_101_0.svg" src="../../_images/chap_08_notebook_101_0.svg" /></div>
+<img alt="../../_images/chap_08_notebook_109_0.svg" src="../../_images/chap_08_notebook_109_0.svg" /></div>
 </div>
 <p>Both functions take the <code class="docutils literal notranslate"><span class="pre">y</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span></code> values in this order. Below, the trapezoidal method is employed.</p>
 <div class="cell docutils container">
@@ -1763,10 +1844,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f9f97699b80&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7ffb9879da90&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_08_notebook_110_1.svg" src="../../_images/chap_08_notebook_110_1.svg" /></div>
+<img alt="../../_images/chap_08_notebook_118_1.svg" src="../../_images/chap_08_notebook_118_1.svg" /></div>
 </div>
 <p>This approach to kinetic simulations can be adapted to even more complex reactions which are demonstrated in <a class="reference internal" href="../chapter_09/chap_09_notebook.html#id6"><span class="std std-ref">section 9.1.4</span></a>.</p>
 </div>
