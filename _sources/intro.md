@@ -45,7 +45,7 @@ Any data file(s) refered to in the chapters or end-of-chapter exercises can be f
 
 ## Exercise Answers
 
-Copies of exercise answer keys are available for instructors upon request. To optain copies, please [email](https://www.augie.edu/academics/majors-and-programs/chemistry/faculty) the authuor using your school email address.
+Copies of exercise answer keys are available for instructors upon request. To optain copies, please [email](https://www.augie.edu/directory) the authuor using your school email address.
 
 ## Code and Software Versions
 
