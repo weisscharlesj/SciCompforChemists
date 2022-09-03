@@ -561,9 +561,12 @@ title="Print to PDF"
 </pre></div>
 </div>
 <p>Creating bounds is typically optional, but if you know roughly where the minimum will be or where it cannot be, this is helpful information. In this example, it is important to provide constraints on <span class="math notranslate nohighlight">\(r\)</span> to ensure the <code class="docutils literal notranslate"><span class="pre">minimize_scalar()</span></code> function does not try r = 0 and generate a <code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code>.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Because we imported the <code class="docutils literal notranslate"><span class="pre">optimize</span></code> module explicitley in this chapter, calling any function from inside the <code class="docutils literal notranslate"><span class="pre">scipi.optimize</span></code> module does not need to include <code class="docutils literal notranslate"><span class="pre">scipy</span></code>.</p>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -586,9 +589,12 @@ title="Print to PDF"
 </div>
 </div>
 <p>Alternatively, we can use the <code class="docutils literal notranslate"><span class="pre">bracket=(a,</span> <span class="pre">b)</span></code> argument where <em>f(b)</em> &lt; <em>f(a)</em>. This argument is different from the <code class="docutils literal notranslate"><span class="pre">bounds=</span></code> argument in that instead of telling the function a region to search, it tells the <code class="docutils literal notranslate"><span class="pre">minimize_scalar()</span></code> function the <em>direction</em> to search for the minimum. The minimum does not need to be between <em>a</em> and <em>b</em>, but it simply tells the function that if it moves in the direction of <em>a</em> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <em>b</em>, it will be moving <em>toward</em> the minimum.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">bracket=</span></code> argument can also accept three values,<code class="docutils literal notranslate"><span class="pre">bracket=(a,</span> <span class="pre">b,</span> <span class="pre">b)</span></code>, where <span class="math notranslate nohighlight">\(f\)</span>(a) &gt; <span class="math notranslate nohighlight">\(f\)</span>(b) &lt; <span class="math notranslate nohighlight">\(f\)</span>(c). This is even more helpful to the minimization function but also requires more foreknowledge from the user about the function being minimized.</p>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -635,14 +641,17 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f9ac367a7f0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fc448e7b730&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_14_notebook_15_1.svg" src="../../_images/chap_14_notebook_15_1.svg" /></div>
 </div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Optimization functions can use algorithms with random components, so if they are run multiple times, variations in the results may be observed. The results typically vary only slightly, but sometimes more significant variations may be observed such as if there are multiple minima or maxima in the objective function.</p>
+</div>
 </div>
 <div class="seealso admonition">
 <p class="admonition-title">How it works…</p>
@@ -732,7 +741,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f9ac367aee0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fc44af3ffd0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_14_notebook_24_1.svg" src="../../_images/chap_14_notebook_24_1.svg" /></div>
@@ -845,9 +854,12 @@ title="Print to PDF"
 </div>
 </div>
 <p>The final equilibrium quanties for A, B, and C are 12.2, 61.0, and 48.8 mmol, respectively.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>It is important to recognize that just because an optimization function generates an answer does not mean that it is indeed the correct answer for your problem. The generated answer is the optimization algorithm’s best effort in producing the optimal result which may be, for example, a local minimum instead of the global minimum. If there is a way to verify the answer such as was done in the equilibrium example above, this is a prudent last step before using this information.</p>
+<p>It is important to recognize that just because an optimization function generates an answer does not mean that it is indeed the correct answer for your problem. The generated answer is the optimization algorithm’s best effort in producing the optimal result which may be, for example, a local minimum instead of the global minimum. If there is a way to verify the answer such as is done in the equilibrium example above, this is a prudent last step before using this information.</p>
+</div>
 </div>
 </div>
 </div>
@@ -1017,7 +1029,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f9ac590aeb0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fc44b9d2070&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_14_notebook_58_1.svg" src="../../_images/chap_14_notebook_58_1.svg" /></div>
@@ -1062,6 +1074,13 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[  A_{tot} = \epsilon_{red} bC_{red} + \epsilon_{blue} bC_{blue} + \epsilon_{yellow} bC_{yellow} \]</div>
 <p>The path length is a constant that depends upon the instrument, and the molar absorptivity constants (<span class="math notranslate nohighlight">\(\epsilon\)</span>) are constants that depend upon the analytes and the wavelength we are measuring absorbances at. This means that for a particular set of dyes and instrument, the total absorbance (<span class="math notranslate nohighlight">\(A_{tot}\)</span>) depends upon the unknown concentrations of individual dyes. Because we have three unknowns, we need three equations to solve for the unknowns. This can be accomplished by measuring the absorbance and molar absorptivity at a minimum of three different wavelengths as demonstrated in <a class="reference internal" href="../chapter_08/chap_08_notebook.html#id13"><span class="std std-ref">section 8.3.2</span></a>. In this chapter, we will instead measure absorbances at <em>every</em> nanometer from 400 nm to 850 nm and allow the optimization function to fit the total absorbances by adjusting the individual dye concentrations.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>While using more data points from the spectra can often result in better results, using too many points can sometimes have the opposite effect due to overfitting noise. When selecting regions of a spectrum to use for fitting, it is best to select regions where there is the largest signal-to-noise ratio to avoid fitting too much noise.</p>
+</div>
+</div>
 <p>First, we will import the absorbance data from the <code class="docutils literal notranslate"><span class="pre">food_coloring.csv</span></code> file using pandas and plot it to see what the data look like. In the CSV file, there are UV-Vis spectra for pure red, pure blue, pure yellow, and a mixture of the three.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1079,18 +1098,18 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">A_blue</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">A_yellow</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">A_red</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">A_blue</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">A_yellow</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;C8&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">A_red</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;C3&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">A_mix</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;C7&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Wavelength, nm&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Absorbance&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;pure blue 1&#39;</span><span class="p">,</span> <span class="s1">&#39;pure yellow 6&#39;</span><span class="p">,</span> <span class="s1">&#39;pure red 40&#39;</span><span class="p">,</span> <span class="s1">&#39;mixture&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;blue 1&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow 6&#39;</span><span class="p">,</span> <span class="s1">&#39;red 40&#39;</span><span class="p">,</span> <span class="s1">&#39;mixture&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f9ac5934ee0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fc44ba97cd0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_14_notebook_64_1.svg" src="../../_images/chap_14_notebook_64_1.svg" /></div>
@@ -1143,9 +1162,12 @@ title="Print to PDF"
 </div>
 </div>
 <p>The resulting concentrations for the three dyes appears identical (or nearly so) to those calculated by the <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> function.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>The above approach assumes that the contribution of each dye is purely additive, so the contribution of each dye to the total absorbance is only a function of its own concentration. This means, for example, that the interaction of different dyes with each other in solution is assumed to be negligible.</p>
+</div>
 </div>
 </div>
 </div>
@@ -1239,7 +1261,7 @@ solving for.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f9ac5b40ac0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fc44bc70490&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_14_notebook_80_1.svg" src="../../_images/chap_14_notebook_80_1.svg" /></div>

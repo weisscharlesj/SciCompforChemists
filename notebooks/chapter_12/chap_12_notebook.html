@@ -721,9 +721,12 @@ The sections in this chapter are broken down by types of machine learning. There
 <div class="section" id="train-test-split">
 <span id="id4"></span><h3>12.1.2 Train Test Split<a class="headerlink" href="#train-test-split" title="Permalink to this headline">#</a></h3>
 <p>Whenever training a machine learning model to make predictions, it is important to evaluate the accuracy of the predictions. It is unfair to test an algorithm on data it has already seen, so before training a model, first split the data set into a training subset and testing subset. It is also important to shuffle the data set before splitting it as many data sets are at least partially ordered. The alcohol data set is roughly in order of molecular weight, so if an algorithm is trained on the first three-quarters of the data set and then tested on the last quarter, training occurs on smaller alcohols and testing on larger alcohols. This could result in poorer predictions as the machine learning algorithm is not familiar with the trends of larger alcohols. The good news is that scikit-learn provides a built-in function for shuffling and splitting the data set known as <code class="docutils literal notranslate"><span class="pre">train_test_split()</span></code>. The arguments are the features, target, and the fraction of the data set to be used for testing. Below, a quarter of the data set is allotted for testing (<code class="docutils literal notranslate"><span class="pre">test_size=0.25</span></code>).</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">train_test_splot()</span></code> function randomly shuffles the data set before splitting it resulting in different results each time the function is called. The <code class="docutils literal notranslate"><span class="pre">random_state=</span></code> argument can be used to produce fixed results for example or demo purposes.</p>
+</div>
 </div>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -752,9 +755,12 @@ The sections in this chapter are broken down by types of machine learning. There
 </div>
 </div>
 <p>The output includes four values containing the training/testing features and targets. By convention, <code class="docutils literal notranslate"><span class="pre">X</span></code> contains the features and <code class="docutils literal notranslate"><span class="pre">y</span></code> are the target values because they are the independent and dependent variables, respectively; and the features variable is capitalized because it contains multiple values per alcohol.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Another variable name convention is to capitalize variables that contain a collection and use lowercase letters for single values. For example, a single <span class="math notranslate nohighlight">\(x\)</span> value in a plot would be <code class="docutils literal notranslate"><span class="pre">x</span></code> while a list containing multiple <span class="math notranslate nohighlight">\(x\)</span> values would be <code class="docutils literal notranslate"><span class="pre">X</span></code>.</p>
+</div>
 </div>
 </div>
 <div class="section" id="training-a-linear-regression-model">
@@ -1274,7 +1280,7 @@ The sections in this chapter are broken down by types of machine learning. There
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f8e8b263fa0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f8f8ca65b20&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_12_notebook_77_1.svg" src="../../_images/chap_12_notebook_77_1.svg" /></div>
@@ -1302,7 +1308,7 @@ The sections in this chapter are broken down by types of machine learning. There
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f8e8b2c7430&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f8f8cabbe20&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_12_notebook_82_1.svg" src="../../_images/chap_12_notebook_82_1.svg" /></div>
@@ -1359,7 +1365,7 @@ The sections in this chapter are broken down by types of machine learning. There
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f8e8b3b26a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f8f8cbaafa0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_12_notebook_89_1.svg" src="../../_images/chap_12_notebook_89_1.svg" /></div>
@@ -1412,21 +1418,18 @@ The sections in this chapter are broken down by types of machine learning. There
 </div>
 </div>
 <p>The next step is to train and transform the data. When generating the fastICA model, it requires the number of components (<code class="docutils literal notranslate"><span class="pre">n_components</span></code>) which is four in this case. One minor drawback of this algorithm is that the user must first know the number of components in the mixed signal.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The below example sets the <code class="docutils literal notranslate"><span class="pre">random_state=42</span></code>. This is set to keep the outputs of this Jupyter Book consistent over time but is not neccesary for regular use of the <code class="docutils literal notranslate"><span class="pre">FastICA()</span></code> function.</p>
 </div>
-<div class="cell docutils container">
+</div>
+<div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">FastICA</span>
 <span class="n">ica</span> <span class="o">=</span> <span class="n">FastICA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 <span class="n">S_fit</span> <span class="o">=</span> <span class="n">ica</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">S_mix</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/Demos/opt/anaconda3/lib/python3.9/site-packages/sklearn/decomposition/_fastica.py:488: FutureWarning: From version 1.3 whiten=&#39;unit-variance&#39; will be used by default.
-  warnings.warn(
 </pre></div>
 </div>
 </div>
@@ -1543,6 +1546,7 @@ The sections in this chapter are broken down by types of machine learning. There
 <li><p>Müller, A. C.; Guido, S. Introduction to Machine Learning with Python: A Guide for Data Scientists, O’Reilly: Sebastopol, CA, 2016. This book is general introduction to machine learning using scikit-learn and discusses many of the algorithms.</p></li>
 <li><p>Géron, A. Hands-On Machine Learning with Scikit-Learn and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems, 1st ed.; O’Reilly: Sebastopol, CA 2017. This book provides a deeper discussion into the algorithms behind machine learning and provides an introduction into both scikit-learn and TensorFlow. A newer addition is also available that also provides an introduction to the keras machine learning library.</p></li>
 <li><p>Nallon,E. C.; Schnee, V. P.; Bright, C.; Polcha, M. P.; Li, Q. Chemical Discrimination with an Unmodified Graphene Chemical Sensor. <em>ACS Sens.</em> <strong>2016,</strong> 1, 26−31. This is a relatively approachable article that applies scikit-learn to a chemical problem using both supervised and unsupervised techniques. <a class="reference external" href="https://doi.org/10.1021/acssensors.5b00029">https://doi.org/10.1021/acssensors.5b00029</a></p></li>
+<li><p>Chen, J.; Wang, X. Z. A New Approach to Near-Infrared Spectral Data Analysis Using Independent Component Analysis. <em>J. Chem. Inf. Comput. Sci.</em> <strong>2001,</strong> 41, 992-1001. This article provides extra background on how <a class="reference internal" href="#id14"><span class="std std-ref">principle component analysis (PCA)</span></a> and <a class="reference internal" href="#id16"><span class="std std-ref">independant component analysis (ICA)</span></a> work, among other topics, and apply ICA to analyzing chemical mixtures using near-infrared spectroscopy. <a class="reference external" href="https://doi.org/10.1021/ci0004053">https://doi.org/10.1021/ci0004053</a></p></li>
 </ol>
 </div>
 <div class="section" id="exercises">
