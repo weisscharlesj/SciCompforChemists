@@ -6,7 +6,7 @@ This book is periodically updated to fix typos, account for new software version
 
 Answer keys to exercises are available to instructors upon request by [emailing](https://www.augie.edu/directory) me using your school email address to request a copy.
 
-## [View Scientific Computing for Chemists with Python (Jupyter Book)](https://weisscharlesj.github.io/SciCompforChemists/)
+## [Read Scientific Computing for Chemists with Python (Jupyter Book)](https://weisscharlesj.github.io/SciCompforChemists/)
 
 The book and all files/materials included with it are copyright © 2017-2022 Charles J. Weiss and are released under under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
 
