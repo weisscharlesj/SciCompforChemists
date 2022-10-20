@@ -873,7 +873,7 @@ title="Print to PDF"
 </div>
 <div class="section" id="slopes-inflection-points">
 <span id="id5"></span><h3>6.1.3 Slopes &amp; Inflection Points<a class="headerlink" href="#slopes-inflection-points" title="Permalink to this headline">#</a></h3>
-<span class="target" id="index-5"></span><p id="index-6">The slope is a useful feature as it can be used to identify inflection points, edges, and make subtle features in a curve more obvious. Noisy data can make it challenging to examine the slope as it causes the slope to fluctuate so much that it sometimes dwarfs the overall signal. It is recommended that the noise be first removed by signal smoothing covered in a section 6.2. To demonstrate the challenges, we will generate both noise-free and noisy synthetic data below and calculate the slopes.</p>
+<span class="target" id="index-5"></span><p id="index-6">The slope is a useful feature as it can be used to identify inflection points, edges, and make subtle features in a curve more obvious. Unfortunately, noisy data can make it challenging to examine the slope as the noise causes the slope to fluctuate so much that it sometimes dwarfs the overall signal. It is sometimes recommended that the noise be first removed by signal smoothing covered in section 6.2 before trying to identify signal features. To demonstrate the challenges of noisy data, we will generate both noise-free and noisy synthetic data below and calculate the slopes for both.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
@@ -890,16 +890,17 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f94c6344640&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f8e86224a60&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_35_1.svg" src="../../_images/chap_06_notebook_35_1.svg" /></div>
 </div>
-<p>We will use NumPy to calculate the slope using the <code class="docutils literal notranslate"><span class="pre">np.diff()</span></code> function which calculates the derivative of a user defined order (<code class="docutils literal notranslate"><span class="pre">n</span></code>). Because the slope is the <em>dy/dx</em> between every pair of adjacent points, the resulting slope data is one data point shorter than the original data. This is important when plotting the data because the length of the x and y values must be the same.</p>
-<p>When taking the derivative, it is important to use smooth data. In the example below, the slope from the noise in the noisy data dwarfs that of the main signal. Therefore, we will use the derivative of the smooth data to find the inflection point below.</p>
+<p>We will use NumPy to calculate the slope using the <code class="docutils literal notranslate"><span class="pre">np.diff()</span></code> function which calculates the differential of a user defined order (<code class="docutils literal notranslate"><span class="pre">n</span></code>). Because the slope is the <em>dy/dx</em> between every pair of adjacent points, the resulting slope data is one data point shorter than the original data. This is important when plotting the data because the length of the x and y values must be the same.</p>
+<p>When examing the slope, it is important to use smooth data. In the example below, the slope from the noise in the noisy data dwarfs that of the main signal. Therefore, we will use the slope of the smooth data to find the inflection point below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dy_smooth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">y_smooth</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dx</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="p">(</span><span class="mi">1000</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">dy_smooth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">y_smooth</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">dy_noisy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">y_noisy</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">x2</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">/</span> <span class="mi">2</span> <span class="c1"># x values one shorter</span>
 </pre></div>
@@ -908,15 +909,15 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">dy_noisy</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Noisy Data&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">dy_smooth</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Smooth Data&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Slope, dx/dy&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">dy_noisy</span><span class="o">/</span><span class="n">dx</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Noisy Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">dy_smooth</span><span class="o">/</span><span class="n">dx</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Smooth Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Slope, dy/dx&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f94c6375280&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f8e8624ff40&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_38_1.svg" src="../../_images/chap_06_notebook_38_1.svg" /></div>
@@ -924,14 +925,14 @@ title="Print to PDF"
 <p>Because the inflection point in the center of the data has a negative slope, we will need to find the minimum slope. This may not always be the case with other data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">dy_smooth</span><span class="p">)</span>  <span class="c1"># finds min slope</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">dy_smooth</span><span class="p">)</span>  <span class="c1"># finds min slope index</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_smooth</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y_smooth</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f94c4c78520&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f8e863220a0&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_40_1.svg" src="../../_images/chap_06_notebook_40_1.svg" /></div>
@@ -976,7 +977,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f94c6587970&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f8e86456a60&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_44_1.svg" src="../../_images/chap_06_notebook_44_1.svg" /></div>
@@ -999,7 +1000,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f94c65c7670&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f8e864ce670&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_47_1.svg" src="../../_images/chap_06_notebook_47_1.svg" /></div>
@@ -1019,7 +1020,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f94c6637b20&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f8e86517970&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_50_1.svg" src="../../_images/chap_06_notebook_50_1.svg" /></div>
@@ -1047,7 +1048,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f94c673e7f0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f8e8663ddc0&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_53_1.svg" src="../../_images/chap_06_notebook_53_1.svg" /></div>
@@ -1132,7 +1133,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f94c70696a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f8e86350be0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_64_1.svg" src="../../_images/chap_06_notebook_64_1.svg" /></div>
@@ -1144,7 +1145,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f94c7124b20&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f8e869038b0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_65_1.svg" src="../../_images/chap_06_notebook_65_1.svg" /></div>
@@ -1179,7 +1180,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f94c71976a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f8e86955730&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_06_notebook_69_1.svg" src="../../_images/chap_06_notebook_69_1.svg" /></div>
@@ -1222,6 +1223,13 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>See section <a class="reference internal" href="../chapter_14/chap_14_notebook.html#id6"><span class="std std-ref">14.2</span></a> for instuctions on fitting data to equatons other than linear or polynomial using <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> functions.</p>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_fit</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">c</span>
@@ -1233,10 +1241,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f94c7205880&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f8e869e6550&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_06_notebook_75_1.svg" src="../../_images/chap_06_notebook_75_1.svg" /></div>
+<img alt="../../_images/chap_06_notebook_76_1.svg" src="../../_images/chap_06_notebook_76_1.svg" /></div>
 </div>
 </div>
 <div class="section" id="interpolation">
@@ -1252,10 +1260,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f94c728b130&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f8e86a5df70&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/chap_06_notebook_77_1.svg" src="../../_images/chap_06_notebook_77_1.svg" /></div>
+<img alt="../../_images/chap_06_notebook_78_1.svg" src="../../_images/chap_06_notebook_78_1.svg" /></div>
 </div>
 <p>To interpolate this one-dimensional function, we will use the <code class="docutils literal notranslate"><span class="pre">interp1d()</span></code> method from SciPy. Along with the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> values, <code class="docutils literal notranslate"><span class="pre">interp1d()</span></code> requires a mode of interpolation using the kind keyword which can include the items listed in Table 2.</p>
 <p><strong>Table 2</strong> Modes for <code class="docutils literal notranslate"><span class="pre">interp1d()</span></code> Method</p>
@@ -1305,10 +1313,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f94c72b9f10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f8e86a9b940&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_06_notebook_80_1.svg" src="../../_images/chap_06_notebook_80_1.svg" /></div>
+<img alt="../../_images/chap_06_notebook_81_1.svg" src="../../_images/chap_06_notebook_81_1.svg" /></div>
 </div>
 </div>
 </div>

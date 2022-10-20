@@ -721,7 +721,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff2311ece50&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fce9c0f5e80&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/chap_11_notebook_14_1.svg" src="../../_images/chap_11_notebook_14_1.svg" /></div>
@@ -817,9 +817,9 @@ title="Print to PDF"
 <p>Even though the NMR spectrum is now phased, it is unlikely to be properly <em>referenced</em>. That is, the peaks are not currently located at the correct <em>chemical shift</em>. Referencing is often performed by knowing the accepted chemical shifts of the solvent resonances or an internal standard (e.g., tetramethylsilane, TMS) and adjusting the spectrum by a correction factor. Currently, we are plotting our data against the index of each data point, so first we need to create a frequency scaled <em>x</em>-axis as an array followed by adjusting the location of the spectrum so that it is properly referenced.</p>
 <div class="section" id="generate-the-x-axis">
 <span id="id9"></span><h3>11.5.1 Generate the X-Axis<a class="headerlink" href="#generate-the-x-axis" title="Permalink to this headline">#</a></h3>
-<p>The <em>x</em>-axis is the frequency scale, so this axis is sometimes presented in hertz (Hz). However, because the frequency of NMR resonances depends upon the instrument field strength, the same sample will exhibit different frequencies in different instruments. To make the frequency axis independent of the spectrometer field strength, NMR spectra are often presented on a <em>ppm scale</em> which is the ratio of the frequency of the spectrum (Hz) by the frequency at which the spectrum is collected at (MHz).</p>
+<p>The <em>x</em>-axis is the frequency scale, so this axis is sometimes presented in hertz (Hz). However, because the frequency of NMR resonances depends upon the instrument field strength, the same sample will exhibit different frequencies in different instruments. To make the frequency axis independent of the spectrometer field strength, NMR spectra are often presented on a <em>ppm scale</em> which is the ratio of the observed chemical shift (Hz) versus a standard over the spectrometer frequency (MHz) at which that particular nucleus is observed.</p>
 <div class="math notranslate nohighlight">
-\[ ppm = \frac{Spectral \, Frequency \, (Hz)}{Observed \, Frequency \, (MHz)} \]</div>
+\[ ppm = \frac{Observed \, Frequency \, (Hz)}{Spectrometer \, Frequency \, (MHz)} \]</div>
 <p>This makes the locations of the peaks consistent from spectrometer to spectrometer no matter the strength of the magnet. This is where the <code class="docutils literal notranslate"><span class="pre">udic</span></code> from section 11.2 is important because we can obtained the observed frequency width (Hz) of the spectrum, and the resolution of the data. The latter is how many data points are in the spectrum which is important so that we avoid a plotting error (we all know this one: <code class="docutils literal notranslate"><span class="pre">ValueError:</span> <span class="pre">x</span> <span class="pre">and</span> <span class="pre">y</span> <span class="pre">must</span> <span class="pre">have</span> <span class="pre">same</span> <span class="pre">first</span> <span class="pre">dimension,...</span></code>). If any of the values from the <code class="docutils literal notranslate"><span class="pre">udic</span></code> are 999.99, this means the spectrometer did not record this piece of information and you will need to find it elsewhere.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -994,7 +994,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7ff23171fbb0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7fce9c85cfa0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_11_notebook_45_1.svg" src="../../_images/chap_11_notebook_45_1.svg" /></div>

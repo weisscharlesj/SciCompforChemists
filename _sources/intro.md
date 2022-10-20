@@ -78,3 +78,4 @@ This book took a substantial time to write along with the time and effort in dev
 - Paul A. Craig identifying a typo in the Python code
 - Patrick Coppock providing feedback
 - Zachary M. Schulte for providing feedback and reporting typos in chapter 14
+- Yuthana Tantirungrotechai for reporting errors in chapter 6

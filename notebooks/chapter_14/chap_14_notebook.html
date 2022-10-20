@@ -641,7 +641,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fdb94d93730&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f980dd6efd0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_14_notebook_15_1.svg" src="../../_images/chap_14_notebook_15_1.svg" /></div>
@@ -741,7 +741,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fdb9779d0a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f981073ffd0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_14_notebook_24_1.svg" src="../../_images/chap_14_notebook_24_1.svg" /></div>
@@ -1026,15 +1026,18 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fdb97941fd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f981086a190&gt;
 </pre></div>
 </div>
 <img alt="../../_images/chap_14_notebook_58_1.svg" src="../../_images/chap_14_notebook_58_1.svg" /></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Fitting data to a mathematical function can also be accomplished using the <code class="docutils literal notranslate"><span class="pre">optimize.least_squares()</span></code> function. The key difference between using <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> and <code class="docutils literal notranslate"><span class="pre">least_squares()</span></code> is that the former accepts the theoretical equation and data directly while the latter requires a Python function that calculates the <a class="reference internal" href="#id6"><span class="std std-ref">residuals</span></a>. Interestingly, the source code for the <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> function calls the <code class="docutils literal notranslate"><span class="pre">least_squares()</span></code> function. We use the <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> function here as it is more intuitive and convenient.</p>
-<p>There is another related function, <code class="docutils literal notranslate"><span class="pre">optimize.leastsq()</span></code>, that performs a similar operation but only uses the Levenberg-Marquardt algorithm and is described as legacy on the <a class="reference external" href="http://scipy.org">scipy.org</a> website. The <code class="docutils literal notranslate"><span class="pre">optimize.least_squares()</span></code> function is more versatile and is likely the better choice of the two.</p>
+<p>If you are optimizing a function with multiple parameters, bounds are formatted with two lists or tuples. The first contains the lower bounds while the second contains the upper bounds as demonstrated below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bounds</span> <span class="o">=</span> <span class="p">((</span><span class="n">a_low</span><span class="p">,</span> <span class="n">b_low</span><span class="p">,</span> <span class="n">c_low</span><span class="p">),</span> <span class="p">(</span><span class="n">a_high</span><span class="p">,</span> <span class="n">b_high</span><span class="p">,</span> <span class="n">c_high</span><span class="p">))</span>
+<span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="n">bounds</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <p>Another feature of the <code class="docutils literal notranslate"><span class="pre">optimize.curve_fit()</span></code> function is that it also accepts the uncertainty or errors in each data point. All regression examples seen so far in this book assume that each data point has the same level of uncertainty, but it is not uncommon for data to have different uncertainties. If your uncertainty varies, you can provide the <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> function with the uncertainties as standard deviations to the <code class="docutils literal notranslate"><span class="pre">sigma=</span></code> argument as an array-like object (e.g., list, set, or NumPy array). When uncertainties are provided, data points with more uncertainty have less influence on the resulting regression than data points with less uncertainty. See the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html#scipy.optimize.curve_fit"><code class="docutils literal notranslate"><span class="pre">scipy.optimize.curve_fit()</span></code></a> documentation for more information and options.</p>
 <p>In the example below, we will again fit concentration versus kinetic rate data from the above two-step chemical reaction. This time, we also have an array, <code class="docutils literal notranslate"><span class="pre">uncertainty</span></code>, that provides degrees of uncertainty for the rates.</p>
@@ -1058,6 +1061,11 @@ title="Print to PDF"
 </div>
 </div>
 <p>Comparing these constants to those calculated with the assumption of constant uncertainty, the values are similar but have a noticeable difference. The general rule is that the greater the <em>variation</em> in the uncertainties, the more the constants will differ from those derived with the assumption of constant uncertainty.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Fitting data to a mathematical function can also be accomplished using the <code class="docutils literal notranslate"><span class="pre">optimize.least_squares()</span></code> function. The key difference between using <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> and <code class="docutils literal notranslate"><span class="pre">least_squares()</span></code> is that the former accepts the theoretical equation and data directly while the latter requires a Python function that calculates the <a class="reference internal" href="#id6"><span class="std std-ref">residuals</span></a>. Interestingly, the source code for the <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> function calls the <code class="docutils literal notranslate"><span class="pre">least_squares()</span></code> function. We use the <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> function here as it is more intuitive and convenient.</p>
+<p>There is another related function, <code class="docutils literal notranslate"><span class="pre">optimize.leastsq()</span></code>, that performs a similar operation but only uses the Levenberg-Marquardt algorithm and is described as legacy on the <a class="reference external" href="http://scipy.org">scipy.org</a> website. The <code class="docutils literal notranslate"><span class="pre">optimize.least_squares()</span></code> function is more versatile and is likely the better choice of the two.</p>
+</div>
 </div>
 <div class="section" id="mixed-analyte-example">
 <span id="id9"></span><h3>14.2.3 Mixed Analyte Example<a class="headerlink" href="#mixed-analyte-example" title="Permalink to this headline">#</a></h3>
@@ -1106,10 +1114,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fdb979d55b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f98109bbd60&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_14_notebook_64_1.svg" src="../../_images/chap_14_notebook_64_1.svg" /></div>
+<img alt="../../_images/chap_14_notebook_66_1.svg" src="../../_images/chap_14_notebook_66_1.svg" /></div>
 </div>
 <p>Next, we will use the absorbances for each pure dye sample to find the molar absorptivities using Beer’s law. The path length, <span class="math notranslate nohighlight">\(b\)</span>, in this instrument is 1 cm, and the concentrations are in molarity.</p>
 <div class="cell docutils container">
@@ -1204,7 +1212,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;$\\psi$&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_14_notebook_76_1.svg" src="../../_images/chap_14_notebook_76_1.svg" /></div>
+<img alt="../../_images/chap_14_notebook_78_1.svg" src="../../_images/chap_14_notebook_78_1.svg" /></div>
 </div>
 <p>The function has two nodes, so our <code class="docutils literal notranslate"><span class="pre">bracket=</span></code> values will determine which we will end up
 solving for.</p>
@@ -1258,10 +1266,10 @@ solving for.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fdb97b49ca0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f9810b7d640&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_14_notebook_80_1.svg" src="../../_images/chap_14_notebook_80_1.svg" /></div>
+<img alt="../../_images/chap_14_notebook_82_1.svg" src="../../_images/chap_14_notebook_82_1.svg" /></div>
 </div>
 <p>The two dots above show the location of the two roots for this function which clearly are located on the nodes of the wave function.</p>
 </div>
