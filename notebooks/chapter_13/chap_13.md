@@ -135,7 +135,33 @@ Now we can run the script as follows.
 The above method is ideal from accepting file names and extension as they can be dragged into the terminal more easily than typed. The down side to this approach is that the user needs to be aware of what information to provide the script and in what order. This is analogous to the difference between a keyword argument and positional argument in a function.
 
 (13.4)=
-## 13.4 Spyder
+## Running .py Files in Jupyter
+
+As a way to combine Python scripts in external .py files and Jupyter notebooks, it is possible to run these Python scripts from the Jupyter notebook using the `%run` magic command. As an example, let's say we have the following code in a file called $dist.py$.
+
+~~~python
+
+coord1 = (1,5,9)
+coord2 = (9, 0, 3)
+
+def distance(coord1, coord2):
+    x1, y1, z1 = coord1
+    x2, y2, z2 = coord2
+    
+    return ((x1 - x2)**2 + (y1 - y2)**2 + (z1 - z2)**2)**0.5
+~~~
+
+We can run this code from a Jupyter notebook using the following command. Like we've seen previously, Jupyter assumes the referenced file is in the same directory as the Jupyter notebook unless otherwise indicated.
+
+%run dist.py
+
+Now that the $dist.py$ file has been executed, the variables and function are available in the Jupyter notebook as if this code had been run in a Jupyter code cell.
+
+
+
+
+(13.5)=
+## 13.5 Spyder
 
 While using a text editor to write your scripts works just fine, you may long for some of the features of Jupyter notebooks like how it automatically color codes text based on syntax and provides easy access to function docstrings. To get some of these features back, you can use an Integrated Development Environment (IDE). There are many to choose from, but here we will address Spyder (Scientific Python Development Environment) as it is specifically tailored to scientific applications and comes with the Anaconda installation of Python.
 

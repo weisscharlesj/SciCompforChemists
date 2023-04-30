@@ -51,24 +51,24 @@ Copies of exercise answer keys are available for instructors upon request. To op
 
 While great efforts have gone into ensuring that all the code in this book works as prescribed and all text and code are free of errors, some errors could exist. Additionally, some examples in this book are simplified for pedagogical reasons and may not be appropriate for research and other applications. It is the responsibility of the reader to check that their code is free of errors, behaves as required, and that the methods are appropriate for their applications.
 
-The code in this version of the book has been most recently tested with the following software versions but will likely work with other versions.
+The code in this version of the book has been most recently tested with the following software versions unless otherwise noted but will likely work with other versions.
 
-- Python – 3.9.7
-- NumPy – 1.23.2
-- SciPy – 1.9.1
-- Pandas – 1.4.3
-- Matplotlib – 3.5.2
-- Seaborn – 0.11.2
-- Scikit-image – 0.19.2
-- Scikit-learn – 1.1.1
-- Sympy - 1.10.1
+- Python – 3.10.8
+- NumPy – 1.24.3
+- SciPy – 1.10.1
+- Pandas – 2.0.0
+- Matplotlib – 3.7.1
+- Seaborn – 0.12.2
+- Scikit-image – 0.20.0
+- Scikit-learn – 1.2.2
+- Sympy - 1.11.1
 - NMRglue – 0.9
-- Spyder – 5.1.5
+- Spyder – 5.4.2
 
 
 ## Acknowledgements
 
-This book took a substantial time to write along with the time and effort in developing the curriculum. I would like to thank the Department of Chemistry at Wabash College and Department of Chemistry and Biochemistry at Augustana University for being supportive of the development of this course and curriculum. I would also like to thank my students for their feedback and enthusiasm for this topic and for testing out the early versions of this book. I would also like to thank my family for the support and patience as I performed endless edits and proofreading. Finally, thank you to the following people for proof reading or reporting errors. Reports of additional errors are welcome on GitHub or in an [email](https://www.augie.edu/academics/majors-and-programs/chemistry/faculty).
+This book took a substantial time to write along with the time and effort in developing the curriculum, and I have had a number of people encouraging me along the way. I would like to thank the Department of Chemistry at Wabash College and Department of Chemistry and Biochemistry at Augustana University for being supportive of the development of this course and curriculum. I would also like to thank my students for their feedback and enthusiasm for this topic and for testing out the early versions of this book. I am thankful to family for their support and patience as I performed endless edits and proofreading. Finally, thank you to the following people for proof reading or reporting errors. Reports of additional errors are welcome on GitHub or in an [email](https://www.augie.edu/directory).
 
 - Wesley A. Deutscher helping collect some example data
 - M. Roarke Tollar providing feedback and reporting typos in chapters 0 and 1
