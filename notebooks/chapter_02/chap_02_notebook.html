@@ -1,47 +1,59 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chapter 2: Intermediate Python &#8212; Scientific Computing for Chemists with Python</title>
-    
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    <title>Chapter 2: Intermediate Python &#8212; Scientific Computing for Chemists with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -51,61 +63,93 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/chapter_02/chap_02_notebook';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Chapter 3: Plotting with Matplotlib" href="../chapter_03/chap_03_notebook.html" />
     <link rel="prev" title="Chapter 1: Basic Python" href="../chapter_01/chap_01_notebook.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/logo.svg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Scientific Computing for Chemists with Python</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -115,775 +159,246 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_00/chap_00_notebook.html">
-   Chapter 0: Python &amp; Jupyter Notebooks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_01/chap_01_notebook.html">
-   Chapter 1: Basic Python
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Chapter 2: Intermediate Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_03/chap_03_notebook.html">
-   Chapter 3: Plotting with Matplotlib
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_04/chap_04_notebook.html">
-   Chapter 4: NumPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_05/chap_05_notebook.html">
-   Chapter 5: Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_06/chap_06_notebook.html">
-   Chapter 6: Signal &amp; Noise
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_07/chap_07_notebook.html">
-   Chapter 7: Image Processing &amp; Analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_08/chap_08_notebook.html">
-   Chapter 8: Mathematics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_09/chap_09_notebook.html">
-   Chapter 9: Simulations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_10/chap_10_notebook.html">
-   Chapter 10: Plotting with Seaborn
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_11/chap_11_notebook.html">
-   Chapter 11: Nuclear Magnetic Resonance with NMRglue
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_12/chap_12_notebook.html">
-   Chapter 12: Machine Learning using Scikit-Learn
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_13/chap_13.html">
-   Chapter 13: Command Line &amp; Spyder
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_14/chap_14_notebook.html">
-   Chapter 14: Optimization and Root Finding
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../genindex.html">
-   Index
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_00/chap_00_notebook.html">Chapter 0: Python &amp; Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_01/chap_01_notebook.html">Chapter 1: Basic Python</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 2: Intermediate Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_03/chap_03_notebook.html">Chapter 3: Plotting with Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_04/chap_04_notebook.html">Chapter 4: NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_05/chap_05_notebook.html">Chapter 5: Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_06/chap_06_notebook.html">Chapter 6: Signal &amp; Noise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_07/chap_07_notebook.html">Chapter 7: Image Processing &amp; Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_08/chap_08_notebook.html">Chapter 8: Mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_09/chap_09_notebook.html">Chapter 9: Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_10/chap_10_notebook.html">Chapter 10: Plotting with Seaborn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_11/chap_11_notebook.html">Chapter 11: Nuclear Magnetic Resonance with NMRglue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_12/chap_12_notebook.html">Chapter 12: Machine Learning using Scikit-Learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_13/chap_13_notebook.html">Chapter 13: Command Line &amp; Spyder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_14/chap_14_notebook.html">Chapter 14: Optimization and Root Finding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org/">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/notebooks/chapter_02/chap_02_notebook.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
-</div>
+  
+  <div id="rtd-footer-container"></div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/chapter_02/chap_02_notebook.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button"
+   title="Open an issue"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-<a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/chapter_02/chap_02_notebook.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="bottom"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-lightbulb"></i>
   </span>
 
 </a>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/notebooks/chapter_02/chap_02_notebook.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/chapter_02/chap_02_notebook.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-
-      </li>
+</li>
+      
+      
+      
       
       <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
   </span>
 
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#syntactic-sugar">
-   2.1 Syntactic Sugar
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#augmented-assignment">
-     2.1.1 Augmented Assignment
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#list-comprehension">
-     2.1.2 List Comprehension
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#compound-assignment">
-     2.1.3 Compound Assignment
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lambda-functions">
-     2.1.4 Lambda Functions
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dictionaries">
-   2.2 Dictionaries
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#set">
-   2.3 Set
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#python-modules">
-   2.4 Python Modules
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#os-module">
-     2.4.1
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       os
-      </span>
-     </code>
-     Module
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#itertools-module">
-     2.4.2
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       itertools
-      </span>
-     </code>
-     Module
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#random-module">
-     2.4.3
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       random
-      </span>
-     </code>
-     Module
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#zipping-and-enumeration">
-   2.5 Zipping and Enumeration
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zipping">
-     2.5.1 Zipping
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#enumeration">
-     2.5.2 Enumeration
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#encoding-numbers">
-   2.6 Encoding Numbers
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#advanced-functions">
-   2.7 Advanced Functions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#variable-positional-arguments">
-     2.7.1 Variable Positional Arguments
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#variable-keyword-arguments">
-     2.7.2 Variable Keyword Arguments
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#recursive-functions">
-     2.7.3 Recursive Functions
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#error-handling">
-   2.8 Error Handling
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#types-of-errors">
-     2.8.1 Types of Errors
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#nameerror">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         NameError
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#syntaxerror">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         SyntaxError
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#typeerror">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         TypeError
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#valueerror">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         ValueError
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#zerodivisionerror">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         ZeroDivisionError
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#indentationerror">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         IndentationError
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#indexerror-and-keyerror">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         IndexError
-        </span>
-       </code>
-       and
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         KeyError
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#deprecationwarning">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         DeprecationWarning
-        </span>
-       </code>
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#workout-around-errors-with-try-and-except">
-     2.8.2 Workout Around Errors with
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       try
-      </span>
-     </code>
-     and
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       except
-      </span>
-     </code>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#further-reading">
-   Further Reading
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Chapter 2: Intermediate Python</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#syntactic-sugar">
-   2.1 Syntactic Sugar
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#augmented-assignment">
-     2.1.1 Augmented Assignment
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#list-comprehension">
-     2.1.2 List Comprehension
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#compound-assignment">
-     2.1.3 Compound Assignment
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lambda-functions">
-     2.1.4 Lambda Functions
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dictionaries">
-   2.2 Dictionaries
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#set">
-   2.3 Set
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#python-modules">
-   2.4 Python Modules
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#os-module">
-     2.4.1
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       os
-      </span>
-     </code>
-     Module
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#itertools-module">
-     2.4.2
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       itertools
-      </span>
-     </code>
-     Module
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#random-module">
-     2.4.3
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       random
-      </span>
-     </code>
-     Module
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#zipping-and-enumeration">
-   2.5 Zipping and Enumeration
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zipping">
-     2.5.1 Zipping
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#enumeration">
-     2.5.2 Enumeration
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#encoding-numbers">
-   2.6 Encoding Numbers
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#advanced-functions">
-   2.7 Advanced Functions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#variable-positional-arguments">
-     2.7.1 Variable Positional Arguments
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#variable-keyword-arguments">
-     2.7.2 Variable Keyword Arguments
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#recursive-functions">
-     2.7.3 Recursive Functions
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#error-handling">
-   2.8 Error Handling
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#types-of-errors">
-     2.8.1 Types of Errors
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#nameerror">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         NameError
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#syntaxerror">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         SyntaxError
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#typeerror">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         TypeError
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#valueerror">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         ValueError
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#zerodivisionerror">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         ZeroDivisionError
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#indentationerror">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         IndentationError
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#indexerror-and-keyerror">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         IndexError
-        </span>
-       </code>
-       and
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         KeyError
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#deprecationwarning">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         DeprecationWarning
-        </span>
-       </code>
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#workout-around-errors-with-try-and-except">
-     2.8.2 Workout Around Errors with
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       try
-      </span>
-     </code>
-     and
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       except
-      </span>
-     </code>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#further-reading">
-   Further Reading
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 2: Intermediate Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntactic-sugar">2.1 Syntactic Sugar</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#augmented-assignment">2.1.1 Augmented Assignment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-comprehension">2.1.2 List Comprehension</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compound-assignment">2.1.3 Compound Assignment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda-functions">2.1.4 Lambda Functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">2.2 Dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set">2.3 Set</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-modules">2.4 Python Modules</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#os-module">2.4.1 <code class="docutils literal notranslate"><span class="pre">os</span></code> Module</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#itertools-module">2.4.2 <code class="docutils literal notranslate"><span class="pre">itertools</span></code> Module</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-module">2.4.3 <code class="docutils literal notranslate"><span class="pre">random</span></code> Module</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zipping-and-enumeration">2.5 Zipping and Enumeration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zipping">2.5.1 Zipping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enumeration">2.5.2 Enumeration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding-numbers">2.6 Encoding Numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-functions">2.7 Advanced Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-positional-arguments">2.7.1 Variable Positional Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-keyword-arguments">2.7.2 Variable Keyword Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-functions">2.7.3 Recursive Functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-handling">2.8 Error Handling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-errors">2.8.1 Types of Errors</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nameerror"><code class="docutils literal notranslate"><span class="pre">NameError</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#syntaxerror"><code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#typeerror"><code class="docutils literal notranslate"><span class="pre">TypeError</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#valueerror"><code class="docutils literal notranslate"><span class="pre">ValueError</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#zerodivisionerror"><code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#indentationerror"><code class="docutils literal notranslate"><span class="pre">IndentationError</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#indexerror-and-keyerror"><code class="docutils literal notranslate"><span class="pre">IndexError</span></code> and <code class="docutils literal notranslate"><span class="pre">KeyError</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#deprecationwarning"><code class="docutils literal notranslate"><span class="pre">DeprecationWarning</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workout-around-errors-with-try-and-except">2.8.2 Workout Around Errors with <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further Reading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
-  <div class="tex2jax_ignore mathjax_ignore section" id="chapter-2-intermediate-python">
-<span id="id1"></span><h1>Chapter 2: Intermediate Python<a class="headerlink" href="#chapter-2-intermediate-python" title="Permalink to this headline">#</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-2-intermediate-python">
+<span id="id1"></span><h1>Chapter 2: Intermediate Python<a class="headerlink" href="#chapter-2-intermediate-python" title="Permalink to this heading">#</a></h1>
 <p>The contents of this chapter are intended for those who wish to dive deeper into the Python programming language. Many of the topics herein are <em>not</em> strictly required for most subsequent chapters but will make you more efficient and effective as a Python programmer. Items from this chapter are occasionally used in subsequent chapters, but you should still be able to follow along without having read this chapter. If you are in a rush, you can bypass this chapter and circle back as needed. The sections and sometimes subsections of this chapter may also be read in any order or as needed.</p>
-<div class="section" id="syntactic-sugar">
-<span id="id2"></span><h2>2.1 Syntactic Sugar<a class="headerlink" href="#syntactic-sugar" title="Permalink to this headline">#</a></h2>
+<section id="syntactic-sugar">
+<span id="id2"></span><h2>2.1 Syntactic Sugar<a class="headerlink" href="#syntactic-sugar" title="Permalink to this heading">#</a></h2>
 <p id="index-0"><em>Syntactic sugar</em> is a nickname given to any part of a programming language that does not extend the capabilities of the language. If any of these features were suddenly removed from the language, the language would still be just as capable, but the advantage of anything labeled “syntactic sugar” is that it makes the code quicker/shorter to write or easier to read. Below are a few examples from the Python language that you are likely to come across and find useful.</p>
-<div class="section" id="augmented-assignment">
-<span id="id3"></span><h3>2.1.1 Augmented Assignment<a class="headerlink" href="#augmented-assignment" title="Permalink to this headline">#</a></h3>
+<section id="augmented-assignment">
+<span id="id3"></span><h3>2.1.1 Augmented Assignment<a class="headerlink" href="#augmented-assignment" title="Permalink to this heading">#</a></h3>
 <p>Augmented assignment is a simple example of syntactic sugar that allows the user to modify the value assigned to a variable. If we want to increase a value by one, we can recursively assign the variable to itself plus one as shown below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -921,35 +436,35 @@ title="Print to PDF"
 </div>
 <p>Augmented assignment can also be used with addition, subtraction, multiplication, and division as shown in Table 1.</p>
 <p><strong>Table 1</strong> Augmented Assignment</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:center head"><p>Augmented Assignment</p></th>
-<th class="text-align:center head"><p>Regular Assignment</p></th>
-<th class="text-align:left head"><p>Description</p></th>
+<tr class="row-odd"><th class="head text-center"><p>Augmented Assignment</p></th>
+<th class="head text-center"><p>Regular Assignment</p></th>
+<th class="head text-left"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+=</span> <span class="pre">a</span></code></p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">a</span></code></p></td>
-<td class="text-align:left"><p>Increments the value</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+=</span> <span class="pre">a</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">a</span></code></p></td>
+<td class="text-left"><p>Increments the value</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-=</span> <span class="pre">a</span></code></p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">-</span> <span class="pre">a</span></code></p></td>
-<td class="text-align:left"><p>Decrements the value</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-=</span> <span class="pre">a</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">-</span> <span class="pre">a</span></code></p></td>
+<td class="text-left"><p>Decrements the value</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*=</span> <span class="pre">a</span></code></p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">*</span> <span class="pre">a</span></code></p></td>
-<td class="text-align:left"><p>Multiplies the value</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*=</span> <span class="pre">a</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">*</span> <span class="pre">a</span></code></p></td>
+<td class="text-left"><p>Multiplies the value</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">/=</span> <span class="pre">a</span></code></p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">/</span> <span class="pre">a</span></code></p></td>
-<td class="text-align:left"><p>Divides the value</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">/=</span> <span class="pre">a</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">/</span> <span class="pre">a</span></code></p></td>
+<td class="text-left"><p>Divides the value</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="list-comprehension">
-<span id="id4"></span><h3>2.1.2 List Comprehension<a class="headerlink" href="#list-comprehension" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="list-comprehension">
+<span id="id4"></span><h3>2.1.2 List Comprehension<a class="headerlink" href="#list-comprehension" title="Permalink to this heading">#</a></h3>
 <p id="index-1">At this point, you may have noticed that it is fairly common to generate a list populated with a series of numbers. If the values are evenly spaced integers, simply use the <code class="docutils literal notranslate"><span class="pre">range()</span></code> function and covert it to a list using <code class="docutils literal notranslate"><span class="pre">list()</span></code>. In all other scenarios, you will need to create an empty list, use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to calculate the values, and <code class="docutils literal notranslate"><span class="pre">append</span></code> the values to the list as they are generated. Below is an example of generating a list of squares of all integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 9 using this method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -974,13 +489,13 @@ title="Print to PDF"
 </div>
 </div>
 <p>This whole process can be compressed down into a single line by expressing the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop in square brackets resulting in the following. This is known as <em>list comprehension</em>.</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Python also supports analogous code structures for creating other objects such as <em>tuple comprehension</em> and <em>dictionary comprehension</em> which will not be covered here.</p>
 </div>
-</div>
+</aside>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">integer</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">integer</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
@@ -1009,9 +524,9 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="compound-assignment">
-<span id="id5"></span><h3>2.1.3 Compound Assignment<a class="headerlink" href="#compound-assignment" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="compound-assignment">
+<span id="id5"></span><h3>2.1.3 Compound Assignment<a class="headerlink" href="#compound-assignment" title="Permalink to this heading">#</a></h3>
 <p>At the beginning of a program or calculations, it is often necessary to populate a series of variables with values. Each variable may get its own line in the code, and if there are numerous variables, this can clutter your code. An alternative is to assign multiple variables in the same assignment as shown below with atomic masses of the first three elements.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1053,9 +568,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="lambda-functions">
-<span id="id6"></span><h3>2.1.4 Lambda Functions<a class="headerlink" href="#lambda-functions" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="lambda-functions">
+<span id="id6"></span><h3>2.1.4 Lambda Functions<a class="headerlink" href="#lambda-functions" title="Permalink to this heading">#</a></h3>
 <span class="target" id="index-2"></span><p id="index-3">The <em>lambda function</em> is an anonymous function for generating simple Python functions. Their value is that they can be used to generate functions in fewer lines of code than the standard <code class="docutils literal notranslate"><span class="pre">def</span></code> statement, and they do not necessarily need to be assigned to a variable… hence the anonymous part. The latter is useful in applications that require a Python function but the user does not want to clutter the namespace by assigning it to a variable or take the time to define a function normally. The lambda function is defined as shown below with the variable immediately after the lambda statement as the independent variable in the function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1133,10 +648,10 @@ title="Print to PDF"
 </div>
 </div>
 <p>The first value in the returned tuple is the result of the integration, and the second value is the estimated uncertainty. Therefore, the particle has about a 30.6% probability of being found in the region of 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 0.4. Performing this same calculation by defining the function with <code class="docutils literal notranslate"><span class="pre">def</span></code> is shown below. This requires more lines of code than a lambda expression.</p>
-</div>
-</div>
-<div class="section" id="dictionaries">
-<span id="id7"></span><h2>2.2 Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="dictionaries">
+<span id="id7"></span><h2>2.2 Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this heading">#</a></h2>
 <p id="index-4">Python <em>dictionaries</em> are a multi-element Python object type that connects keys and values analogous to the way a real dictionary connects a word (the key) with a definition (the value). These are also known as <em>associative arrays</em>. Dictionaries allow the user to access the stored values using a key without knowing anything about order of items in the dictionary. One way to think of a dictionary is an object full of variables and assigned values. For example, if we are looking to write a scrip to calculate the molecular weight of a compound based on its molecular formula, we would need access to the atomic mass of each element based on the elemental symbol. Here the key is the symbol and the value is the atomic mass. It looks something like a list with curly brackets and each item is a <code class="docutils literal notranslate"><span class="pre">key:value</span></code> pair separated by a colon. Below is an example of a dictionary containing the atomic masses of the first ten elements on the periodic table.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1247,9 +762,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="set">
-<span id="id8"></span><h2>2.3 Set<a class="headerlink" href="#set" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="set">
+<span id="id8"></span><h2>2.3 Set<a class="headerlink" href="#set" title="Permalink to this heading">#</a></h2>
 <p id="index-5">Sets are another Python object type you may encounter and use on occasions. These are multi-element objects similar to lists with the key difference that each element can appear only once in the set. This may be useful in applications where code is taking stock of what is present. For example, if we are taking inventory of the chemical stockroom to know which chemical compounds are on hand for experiments, the names of the compounds can be stored in a set. If more than one bottle of a compound is present in the stockroom, the set only contains the name once because we are only concerned with what is available, not how many are available. A set looks like a list except curly brackets are used instead of square brackets.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1260,13 +775,13 @@ title="Print to PDF"
 </div>
 </div>
 <p>We can add additional items to the set using the <code class="docutils literal notranslate"><span class="pre">add()</span></code> set method.</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The method is called <code class="docutils literal notranslate"><span class="pre">add()</span></code> and not <code class="docutils literal notranslate"><span class="pre">append()</span></code> as is used for lists because unlike lists, sets do not preserve the order of items contained within them.</p>
 </div>
-</div>
+</aside>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compounds</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;calcium chloride&#39;</span><span class="p">)</span>
@@ -1350,104 +865,104 @@ title="Print to PDF"
 </div>
 </div>
 <p><strong>Table 2</strong> Python Set Operators</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:center head"><p>Operator</p></th>
-<th class="text-align:center head"><p>Name</p></th>
-<th class="text-align:left head"><p>Description</p></th>
-<th class="text-align:left head"><p></p></th>
+<tr class="row-odd"><th class="head text-center"><p>Operator</p></th>
+<th class="head text-center"><p>Name</p></th>
+<th class="head text-left"><p>Description</p></th>
+<th class="head text-left"><p></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code></p></td>
-<td class="text-align:center"><p>Intersection</p></td>
-<td class="text-align:left"><p>Returns items in both sets</p></td>
-<td class="text-align:left"><p><img alt="" src="../../_images/intersection.png" /></p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code></p></td>
+<td class="text-center"><p>Intersection</p></td>
+<td class="text-left"><p>Returns items in both sets</p></td>
+<td class="text-left"><p><img alt="" src="../../_images/intersection.png" /></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
-<td class="text-align:center"><p>Difference</p></td>
-<td class="text-align:left"><p>Returns items in the first set minus common items in both sets</p></td>
-<td class="text-align:left"><p><img alt="" src="../../_images/difference.png" /></p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
+<td class="text-center"><p>Difference</p></td>
+<td class="text-left"><p>Returns items in the first set minus common items in both sets</p></td>
+<td class="text-left"><p><img alt="" src="../../_images/difference.png" /></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code>|</code></p></td>
-<td class="text-align:center"><p>Union</p></td>
-<td class="text-align:left"><p>Merges both sets; redundancies are removed automatically</p></td>
-<td class="text-align:left"><p><img alt="" src="../../_images/union.png" /></p></td>
+<tr class="row-even"><td class="text-center"><p><code>|</code></p></td>
+<td class="text-center"><p>Union</p></td>
+<td class="text-left"><p>Merges both sets; redundancies are removed automatically</p></td>
+<td class="text-left"><p><img alt="" src="../../_images/union.png" /></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">^</span></code></p></td>
-<td class="text-align:center"><p>Symmetric Difference</p></td>
-<td class="text-align:left"><p>Merges both sets minus items in common (i.e., “exclusive or”)</p></td>
-<td class="text-align:left"><p><img alt="" src="../../_images/exclusion.png" /></p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">^</span></code></p></td>
+<td class="text-center"><p>Symmetric Difference</p></td>
+<td class="text-left"><p>Merges both sets minus items in common (i.e., “exclusive or”)</p></td>
+<td class="text-left"><p><img alt="" src="../../_images/exclusion.png" /></p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="python-modules">
-<span id="id9"></span><h2>2.4 Python Modules<a class="headerlink" href="#python-modules" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="python-modules">
+<span id="id9"></span><h2>2.4 Python Modules<a class="headerlink" href="#python-modules" title="Permalink to this heading">#</a></h2>
 <p id="index-6">Remember from the last chapter that a <em>module</em> is a collection of functions and data with a common theme. You have already seen the <code class="docutils literal notranslate"><span class="pre">math</span></code> module in <a class="reference internal" href="../chapter_01/chap_01_notebook.html#id5"><span class="std std-ref">section 1.1.3</span></a>, but Python also contains a number of other native modules that come with every installation of Python. Table 3 lists a few common examples, but there are certainly many others worth exploring. You are encouraged to visit the Python website and explore other modules. This section will introduce a few useful modules with some examples of their uses.</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>See <a class="reference external" href="https://docs.python.org/3/py-modindex.html">https://docs.python.org/3/py-modindex.html</a> for a more complete listing and descriptions of built-in Python modules.</p>
 </div>
-</div>
+</aside>
 <p><strong>Table 3</strong> Some Useful Python Modules</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:center head"><p>Name</p></th>
-<th class="text-align:left head"><p>Description</p></th>
+<tr class="row-odd"><th class="head text-center"><p>Name</p></th>
+<th class="head text-left"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">os</span></code></p></td>
-<td class="text-align:left"><p>Provides access to your computer file system</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">os</span></code></p></td>
+<td class="text-left"><p>Provides access to your computer file system</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">itertools</span></code></p></td>
-<td class="text-align:left"><p>Iterator and combinatorics tools</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">itertools</span></code></p></td>
+<td class="text-left"><p>Iterator and combinatorics tools</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">random</span></code></p></td>
-<td class="text-align:left"><p>Functions for pseudorandom number generation</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">random</span></code></p></td>
+<td class="text-left"><p>Functions for pseudorandom number generation</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code></p></td>
-<td class="text-align:left"><p>Handling of date and time information</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code></p></td>
+<td class="text-left"><p>Handling of date and time information</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">csv</span></code></p></td>
-<td class="text-align:left"><p>For writing and reading CSV files</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">csv</span></code></p></td>
+<td class="text-left"><p>For writing and reading CSV files</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">pickle</span></code></p></td>
-<td class="text-align:left"><p>Preserves Python objects on the file system</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">pickle</span></code></p></td>
+<td class="text-left"><p>Preserves Python objects on the file system</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">timeit</span></code></p></td>
-<td class="text-align:left"><p>Times the execution of code</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">timeit</span></code></p></td>
+<td class="text-left"><p>Times the execution of code</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">audioop</span></code></p></td>
-<td class="text-align:left"><p>Tools for reading and working with audio files</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">audioop</span></code></p></td>
+<td class="text-left"><p>Tools for reading and working with audio files</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">statistics</span></code></p></td>
-<td class="text-align:left"><p>Statistics functions</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">statistics</span></code></p></td>
+<td class="text-left"><p>Statistics functions</p></td>
 </tr>
 </tbody>
 </table>
-<div class="section" id="os-module">
-<span id="id10"></span><h3>2.4.1 <code class="docutils literal notranslate"><span class="pre">os</span></code> Module<a class="headerlink" href="#os-module" title="Permalink to this headline">#</a></h3>
+<section id="os-module">
+<span id="id10"></span><h3>2.4.1 <code class="docutils literal notranslate"><span class="pre">os</span></code> Module<a class="headerlink" href="#os-module" title="Permalink to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">os</span></code> module provides access to the files and directories (i.e., folders) on your computer. Up to this point, we have been opening files that are in the same directory as the Jupyter notebook, so Jupyter has no difficulty finding the files. However, if you ever want to open a file somewhere else on your computer or open multiple files, this module is particularly useful. Below you will learn to use the os module to open files in non-local directories (i.e., not the directory your Jupyter notebook is in) and to open an entire folder of files.</p>
 <p><strong>Table 4</strong> Select os Module Functions</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:center head"><p>Function</p></th>
-<th class="text-align:left head"><p>Description</p></th>
+<tr class="row-odd"><th class="head text-center"><p>Function</p></th>
+<th class="head text-left"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">os.chdir()</span></code></p></td>
-<td class="text-align:left"><p>Changes the current working directory to the path provide</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">os.chdir()</span></code></p></td>
+<td class="text-left"><p>Changes the current working directory to the path provide</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">os.getcwd()</span></code></p></td>
-<td class="text-align:left"><p>Returns the current working directory path</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">os.getcwd()</span></code></p></td>
+<td class="text-left"><p>Returns the current working directory path</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">os.listdir()</span></code></p></td>
-<td class="text-align:left"><p>Returns a list of all files in the current or indicated directory</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">os.listdir()</span></code></p></td>
+<td class="text-left"><p>Returns a list of all files in the current or indicated directory</p></td>
 </tr>
 </tbody>
 </table>
@@ -1470,9 +985,9 @@ title="Print to PDF"
 </pre></div>
 </div>
 <p>The code above goes through every file on the computer desktop, and if the file name ends in “csv”, Python imports and prints the contents. Checking the file extension is an important step even if you have a folder that you believe only contains CSV files. This is because folders on many computers contain invisible files for use by the computer operating system. The user usually cannot see them, but Python can and will generate an error if it tries to open it as a CSV file. Checking the file extension ensures that Python only tries to open the CSV files.</p>
-</div>
-<div class="section" id="itertools-module">
-<span id="id11"></span><h3>2.4.2 <code class="docutils literal notranslate"><span class="pre">itertools</span></code> Module<a class="headerlink" href="#itertools-module" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="itertools-module">
+<span id="id11"></span><h3>2.4.2 <code class="docutils literal notranslate"><span class="pre">itertools</span></code> Module<a class="headerlink" href="#itertools-module" title="Permalink to this heading">#</a></h3>
 <p>The itertools modules contains an assortment of tools for looping over data in an efficient manner. There are a number of functions that are good to know from this module, but we will focus on the combinatorics functions <code class="docutils literal notranslate"><span class="pre">combinations()</span></code> and <code class="docutils literal notranslate"><span class="pre">permutations()</span></code>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">combinations(collection,</span> <span class="pre">n)</span></code> function generates all n-sized combinations of elements from a collection such as a list, tuple, or range object. With <code class="docutils literal notranslate"><span class="pre">combinations()</span></code>, order does not matter, so <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2)</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">1)</span></code>.  In the below code, the <code class="docutils literal notranslate"><span class="pre">combinations()</span></code> functions generates all pairs of elements from numbers.</p>
 <div class="cell docutils container">
@@ -1490,19 +1005,19 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;itertools.combinations at 0x7fd639a66c70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;itertools.combinations at 0x12be8a2a0&gt;
 </pre></div>
 </div>
 </div>
 </div>
 <p>So what just happened? Instead of returning a list, it returned a <em>combinations object</em>. You do not need to know much about these except that they can be converted into lists or iterated over to extract their elements, and they are single use. Once you have iterated over them, they need to be generated again if you need them again.</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><code class="docutils literal notranslate"><span class="pre">combinations()</span></code> is a type of function called a <em>generator</em>. It only generates values on demand in an effort to reduce the memory usage. This is similar to the <code class="docutils literal notranslate"><span class="pre">range()</span></code> function.</p>
 </div>
-</div>
+</aside>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
@@ -1560,32 +1075,32 @@ title="Print to PDF"
 </div>
 </div>
 <p>Notice how (0, 2) and (2, 0) are both present in the permutations while only one is listed in the combinations.</p>
-</div>
-<div class="section" id="random-module">
-<span id="id12"></span><h3>2.4.3 <code class="docutils literal notranslate"><span class="pre">random</span></code> Module<a class="headerlink" href="#random-module" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="random-module">
+<span id="id12"></span><h3>2.4.3 <code class="docutils literal notranslate"><span class="pre">random</span></code> Module<a class="headerlink" href="#random-module" title="Permalink to this heading">#</a></h3>
 <p id="index-8">The <code class="docutils literal notranslate"><span class="pre">random</span></code> module provides a selection of functions for generating random values. Random values can be integers or floats and can be generated from a variety of ranges and distributions. A selection of common functions from the <code class="docutils literal notranslate"><span class="pre">random</span></code> module are shown in Table 5. We will not go into much detail here as random value generation is covered in significantly more detail at the end of chapter 4. One key limitation of the <code class="docutils literal notranslate"><span class="pre">random</span></code> module is that the functions typically only generate a single value at a time. If you want multiple random values, you need to either use a loop or use the random value functions from NumPy presented in chapter 4.</p>
 <p><strong>Table 5</strong> Functions from random Module</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:center head"><p>Function</p></th>
-<th class="text-align:left head"><p>Description</p></th>
+<tr class="row-odd"><th class="head text-center"><p>Function</p></th>
+<th class="head text-left"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">random.random()</span></code></p></td>
-<td class="text-align:left"><p>Generates a value from [0, 1)</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">random.random()</span></code></p></td>
+<td class="text-left"><p>Generates a value from [0, 1)</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">random.uniform(x,</span> <span class="pre">y)</span></code></p></td>
-<td class="text-align:left"><p>Generates a float from the range [x, y) with a uniform probability</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">random.uniform(x,</span> <span class="pre">y)</span></code></p></td>
+<td class="text-left"><p>Generates a float from the range [x, y) with a uniform probability</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">random.randrange(x,</span> <span class="pre">y)</span></code></p></td>
-<td class="text-align:left"><p>Generates an integer from the provided range [x, y)</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">random.randrange(x,</span> <span class="pre">y)</span></code></p></td>
+<td class="text-left"><p>Generates an integer from the provided range [x, y)</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">random.choice()</span></code></p></td>
-<td class="text-align:left"><p>Randomly selects an item from a list, tuple, or other multi-element object</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">random.choice()</span></code></p></td>
+<td class="text-left"><p>Randomly selects an item from a list, tuple, or other multi-element object</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">random.shuffle()</span></code></p></td>
-<td class="text-align:left"><p>Shuffles a multi-element object</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">random.shuffle()</span></code></p></td>
+<td class="text-left"><p>Shuffles a multi-element object</p></td>
 </tr>
 </tbody>
 </table>
@@ -1598,7 +1113,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3163558225865777
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.734314467059721
 </pre></div>
 </div>
 </div>
@@ -1610,7 +1125,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
 </div>
@@ -1624,15 +1139,15 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3, 5, 1, 4, 2, 6]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 3, 1, 5, 6, 4]
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="zipping-and-enumeration">
-<span id="id13"></span><h2>2.5 Zipping and Enumeration<a class="headerlink" href="#zipping-and-enumeration" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="zipping-and-enumeration">
+<span id="id13"></span><h2>2.5 Zipping and Enumeration<a class="headerlink" href="#zipping-and-enumeration" title="Permalink to this heading">#</a></h2>
 <p>There are times when it is neccesary to iterate over two lists simultaneously. For example, let us say we have a list of the atomic numbers (<code class="docutils literal notranslate"><span class="pre">AN</span></code>) and a list of approximate atomic masses (<code class="docutils literal notranslate"><span class="pre">mass</span></code>) of the most abundant isotopes for the first six elements on the periodic table.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1643,8 +1158,8 @@ title="Print to PDF"
 </div>
 </div>
 <p>If we want to calculate the number of neutrons in each isotope, we need to subtract each atomic number (equal to the number of protons) from the atomic mass. To accomplish this, it would be helpful to iterate over both lists simultaneously. Below are a couple methods of doing this.</p>
-<div class="section" id="zipping">
-<span id="id14"></span><h3>2.5.1 Zipping<a class="headerlink" href="#zipping" title="Permalink to this headline">#</a></h3>
+<section id="zipping">
+<span id="id14"></span><h3>2.5.1 Zipping<a class="headerlink" href="#zipping" title="Permalink to this heading">#</a></h3>
 <p id="index-9">The simplest way to iterate over two lists simultaneously is to combine both lists into a single, iterable object and iterate over it once. The <code class="docutils literal notranslate"><span class="pre">zip()</span></code> function does exactly this by merging two lists or tuples, like a zipper on a jacket, into something like a nested list of lists. However, instead of returning a list or tuple, the <code class="docutils literal notranslate"><span class="pre">zip()</span></code> function returns a single-use zip object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1681,9 +1196,9 @@ title="Print to PDF"
 </div>
 </div>
 <p>If the two lists are of different length, <code class="docutils literal notranslate"><span class="pre">zip()</span></code> stops at the end of the shorter list and returns a zip object with a length of the shorter list.</p>
-</div>
-<div class="section" id="enumeration">
-<span id="id15"></span><h3>2.5.2 Enumeration<a class="headerlink" href="#enumeration" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="enumeration">
+<span id="id15"></span><h3>2.5.2 Enumeration<a class="headerlink" href="#enumeration" title="Permalink to this heading">#</a></h3>
 <p id="index-10">A close relative to <code class="docutils literal notranslate"><span class="pre">zip()</span></code> is the <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> function. Instead of zipping  two lists or tuples together, it zips a list or tuple to the index values for that list. Similar to <code class="docutils literal notranslate"><span class="pre">zip()</span></code>, it returns a one-time use iterable object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1730,63 +1245,63 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="encoding-numbers">
-<span id="id16"></span><h2>2.6 Encoding Numbers<a class="headerlink" href="#encoding-numbers" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="encoding-numbers">
+<span id="id16"></span><h2>2.6 Encoding Numbers<a class="headerlink" href="#encoding-numbers" title="Permalink to this heading">#</a></h2>
 <p id="index-11">During most of your work in Python, you do not need to think about how and where the values are stored as Python handles this for you. If you assign a number to a variable, Python will determine how to properly store this information. However, there are instances where you will need to understand a little about how numbers are encoded such as in gray scale images (chapter 7).</p>
 <p>Numbers on your computer are stored in <em>binary</em> which is a base two numbering system. That is, instead of using digits from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 9 to describe a number, only 0 and 1 are used.</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Standard numbers used by humans are a base-ten because we describe values using combinations of ten digits (0, 1, 2, 3, 4, 5, 6, 7, 8, and 9). Once we get to 9, the digit returns to 0 and a 1 is placed to the left. In a binary numbering system, we use only 0 and 1 to describe values. Analogously, once we get to 1, the digit returns to 0 and a 1 is placed to the left. Therefore, “10” is two in binary.</p>
 </div>
-</div>
+</aside>
 <p>When a number is stored in memory, a fixed block of zeros/ones are allocated to storing this information, and depending upon the size or precision of the number to be stored, this block may need to be larger or smaller. By convention, the blocks are typically 8, 16, 32, 64, or 128 bits (i.e., zeros or ones) in size.  Table 6 lists a few examples with the terms used by Python.</p>
 <p><strong>Table 6</strong> Python Data Types</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:center head"><p>Data Type</p></th>
-<th class="text-align:left head"><p>Description</p></th>
+<tr class="row-odd"><th class="head text-center"><p>Data Type</p></th>
+<th class="head text-left"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
-<td class="text-align:left"><p>Integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td class="text-left"><p>Integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">uint16</span></code></p></td>
-<td class="text-align:left"><p>Integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 65535</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">uint16</span></code></p></td>
+<td class="text-left"><p>Integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 65535</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">uint32</span></code></p></td>
-<td class="text-align:left"><p>Integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 4294967295</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">uint32</span></code></p></td>
+<td class="text-left"><p>Integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 4294967295</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">int8</span></code></p></td>
-<td class="text-align:left"><p>Integers from -128 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 127</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">int8</span></code></p></td>
+<td class="text-left"><p>Integers from -128 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 127</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">int16</span></code></p></td>
-<td class="text-align:left"><p>Integers from -32768 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 32767</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">int16</span></code></p></td>
+<td class="text-left"><p>Integers from -32768 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 32767</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">int32</span></code></p></td>
-<td class="text-align:left"><p>Integers from -2147483648 <span class="math notranslate nohighlight">\(\rightarrow\)</span>  2147483647</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">int32</span></code></p></td>
+<td class="text-left"><p>Integers from -2147483648 <span class="math notranslate nohighlight">\(\rightarrow\)</span>  2147483647</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
-<td class="text-align:left"><p>Singe-precision floating-point numbers</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td class="text-left"><p>Singe-precision floating-point numbers</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
-<td class="text-align:left"><p>Double-precision floating-point numbers</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<td class="text-left"><p>Double-precision floating-point numbers</p></td>
 </tr>
 </tbody>
 </table>
 <p>Probably the simplest way to encode a number is an unsigned 8-bit integer. The “unsigned” means that is cannot have a negative sign while the “8-bit” means it can use eight zeros and ones to describe the number. For example, if we want to encode the number 3, it is 00000011. Even if not all the bits are strictly required, they have been allotted for the storage of this value, and with 8 bits, we can encode numbers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255 (i.e., 00000000 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 11111111). If we want to encode any larger numbers, a longer block of bits such as 16 or 32 will need to be allotted.</p>
 <p>To encode a negative integers, signed integers are required. The key difference between a signed and unsigned integer is that unsigned are always positive while signed can describe positive and negative values by using the first bit to describe the sign. The first bit is 0 for a positive and 1 for a negative number. Because the first bit is reserved for sign, a signed integer can describe values of only half the magnitude as an unsigned integer of the same bit length. For example, an 8-bit signed integer can describe values from -128 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 127. All combinations of zeros/ones that start with a 0 define positive values from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 127 while all combinations of zeros/ones that start with a 1 define values from -128 <span class="math notranslate nohighlight">\(\rightarrow\)</span> -1. That is, 10000000 equals -128 while 11111111 describes -1.</p>
 <p>For non-integer values, we need floats. The number of bits used to describe a float dictates the precision of the value… or rather is the number of decimal places the float extends. The various types listed above support both positive and negative values, and the more bits, the more precision they offer.</p>
-</div>
-<div class="section" id="advanced-functions">
-<span id="id17"></span><h2>2.7 Advanced Functions<a class="headerlink" href="#advanced-functions" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="advanced-functions">
+<span id="id17"></span><h2>2.7 Advanced Functions<a class="headerlink" href="#advanced-functions" title="Permalink to this heading">#</a></h2>
 <p id="index-12">Section 1.9 describes positional arguments and keyword arguments as two methods for providing functions with information and instructions, but thus far, these methods have only allowed the function to take a predetermined numbers of arguments. While some flexibility is offered by the ability to set default keyword arguments that users have the option of overriding or leaving as the default, there is still a limit on the number of parameters in the function. What do we do when we need to write a function that takes an unspecified number of arguments? This section provides two approaches to solving this problem.</p>
-<div class="section" id="variable-positional-arguments">
-<span id="id18"></span><h3>2.7.1 Variable Positional Arguments<a class="headerlink" href="#variable-positional-arguments" title="Permalink to this headline">#</a></h3>
+<section id="variable-positional-arguments">
+<span id="id18"></span><h3>2.7.1 Variable Positional Arguments<a class="headerlink" href="#variable-positional-arguments" title="Permalink to this heading">#</a></h3>
 <p>As a possible use case, it is common practice in lab to purify a solid compound by recrystallization, and chemists will often harvest multiple crops of crystals from the same solution to get the highest possible yield. If we want to write a function that returns the percent yield of a synthesized compound using the theoretical yield and the yields of each recrystallization crop, we are faced with the challenge of not knowing how many crops to expect. One solution is a var-positional argument.</p>
 <p>The <em>var-positional argument</em> (often *<em>arg</em>), is a positional argument that accepts variable numbers of inputs. The arguments are then stored as a local tuple in the function attached to the <code class="docutils literal notranslate"><span class="pre">arg</span></code> variable. Even though it is extremely common in examples to see people use <code class="docutils literal notranslate"><span class="pre">arg</span></code> as the variable, you may use any non-reserved variable you like as long as you precede it with an asterisk in the function definition. For example, a function for calculating the percent yield is shown below with <code class="docutils literal notranslate"><span class="pre">g_theor</span></code> as the theoretical yield in grams and <code class="docutils literal notranslate"><span class="pre">g_crops</span></code> as the var-positional parameter storing the mass of each crop of crystals in grams.</p>
 <div class="cell docutils container">
@@ -1824,9 +1339,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="variable-keyword-arguments">
-<span id="id19"></span><h3>2.7.2 Variable Keyword Arguments<a class="headerlink" href="#variable-keyword-arguments" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="variable-keyword-arguments">
+<span id="id19"></span><h3>2.7.2 Variable Keyword Arguments<a class="headerlink" href="#variable-keyword-arguments" title="Permalink to this heading">#</a></h3>
 <p>Similarly, an unspecified number of keyword arguments can also be accepted by a Python function using <em>var-keyword arguments</em>. In this case, the user not only dictates the number of arguments but also picks the variable names. The user-defined variables and values are stored in a local dictionary as key:value pairs. As an example, we can write a function that calculates the molar mass of a compounds based on the number and type of elements it contains. It is certainly possible to write a function with every chemical element as a keyword argument, but this gets absurd with so many chemical elements to choose from. Instead, we can use a var-keyword parameter as demonstrated below. The var-keyword argument is indicated with a <code class="docutils literal notranslate"><span class="pre">**</span></code> before the variable name. The function below is only designed to work with the first nine elements for brevity.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1856,9 +1371,9 @@ title="Print to PDF"
 </div>
 </div>
 <p>The user experience would be the same if we wrote the function to accept keyword arguments with default values of zero, but it is sometimes more convenient for the person writing the code to design the function to accept var-keyword arguments.</p>
-</div>
-<div class="section" id="recursive-functions">
-<span id="id20"></span><h3>2.7.3 Recursive Functions<a class="headerlink" href="#recursive-functions" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="recursive-functions">
+<span id="id20"></span><h3>2.7.3 Recursive Functions<a class="headerlink" href="#recursive-functions" title="Permalink to this heading">#</a></h3>
 <p id="index-13">Functions can call other functions. This is probably not surprising as we have already seen functions call <code class="docutils literal notranslate"><span class="pre">math.sqrt()</span></code> and <code class="docutils literal notranslate"><span class="pre">append()</span></code>, but what may be surprising is that Python allows a function to call itself. This is known as a <em>recursive function</em>.</p>
 <p>If we want to write a function that calculates the remaining mass of radioactive materials after a given number of half-lives, this can be accomplished using a <code class="docutils literal notranslate"><span class="pre">for</span></code> or <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, but it can also be accomplished recursively. We start by having the function divide the provided mass (<code class="docutils literal notranslate"><span class="pre">mass</span></code>) in half and then decrement the number of half-lives (<code class="docutils literal notranslate"><span class="pre">hl</span></code>) by one. This is the core component of the function. If <code class="docutils literal notranslate"><span class="pre">hl</span></code> is zero, the function is done and returns the mass. If not, the function calls itself again with the remaining mass and number of half-lives. This is the recursive part. The second time the function is run, the mass is again halved and the half-lives decremented by one, and the number of half-lives is again checked.</p>
 <div class="cell docutils container">
@@ -1908,13 +1423,13 @@ title="Print to PDF"
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>If you cannot guarantee that the inputs for your code will conform to certain requirements (e.g., be an integer), it is wise to do checks at the start of your code. This is especially true if the input or data for your code comes from people other than the author of the code.</p>
 </div>
-</div>
+</aside>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">half_life</span><span class="p">(</span><span class="n">mass</span><span class="p">,</span> <span class="n">hl</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
@@ -1953,53 +1468,53 @@ title="Print to PDF"
 </div>
 <p>While getting an error message is not what anyone likes to see, this is a good thing. It is better for the code to generate an error and not work than to run away uncontrollably or return an incorrect answer.</p>
 <p>As a final note on recursive functions, you may have noticed that you could just as easily have accomplished the above task with a <code class="docutils literal notranslate"><span class="pre">while</span></code> or <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. Recursive functions can usually be avoided, but once in a while a recursive function will substantially simplify your code. It is a good technique to have in your back pocket for the moment you need it, but you will not likely use them often.</p>
-</div>
-</div>
-<div class="section" id="error-handling">
-<span id="id21"></span><h2>2.8 Error Handling<a class="headerlink" href="#error-handling" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="error-handling">
+<span id="id21"></span><h2>2.8 Error Handling<a class="headerlink" href="#error-handling" title="Permalink to this heading">#</a></h2>
 <p id="index-14">It doesn’t take long to realize that error messages are an inevitable part of computer programming, so it is helpful to know what the different type of errors messages mean and how to deal with them. This section provides a quick overview of major types of error messages and how to get Python to work past them when appropriate.</p>
-<div class="section" id="types-of-errors">
-<span id="id22"></span><h3>2.8.1 Types of Errors<a class="headerlink" href="#types-of-errors" title="Permalink to this headline">#</a></h3>
+<section id="types-of-errors">
+<span id="id22"></span><h3>2.8.1 Types of Errors<a class="headerlink" href="#types-of-errors" title="Permalink to this heading">#</a></h3>
 <p>Whenever you encounter an error message, it includes the type of error followed by more details. There are numberous types of errors, but there are a few errors types that are more prevalent and worth being familar with. Below is a short list of some of these common error types.</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:center head"><p>Type of Error</p></th>
-<th class="text-align:left head"><p>Description</p></th>
+<tr class="row-odd"><th class="head text-center"><p>Type of Error</p></th>
+<th class="head text-left"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">NameError</span></code></p></td>
-<td class="text-align:left"><p>A variable or name being used has not been defined</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">NameError</span></code></p></td>
+<td class="text-left"><p>A variable or name being used has not been defined</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code></p></td>
-<td class="text-align:left"><p>Invalide syntax in code</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code></p></td>
+<td class="text-left"><p>Invalide syntax in code</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">TypeError</span></code></p></td>
-<td class="text-align:left"><p>Incorrect object type is being used</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">TypeError</span></code></p></td>
+<td class="text-left"><p>Incorrect object type is being used</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">ValueError</span></code></p></td>
-<td class="text-align:left"><p>A value is being used that is not accepted by a function or for a particular application</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">ValueError</span></code></p></td>
+<td class="text-left"><p>A value is being used that is not accepted by a function or for a particular application</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code></p></td>
-<td class="text-align:left"><p>Attempting to divide by zero</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code></p></td>
+<td class="text-left"><p>Attempting to divide by zero</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">IndentationError</span></code></p></td>
-<td class="text-align:left"><p>Invalid indentations are present</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">IndentationError</span></code></p></td>
+<td class="text-left"><p>Invalid indentations are present</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">IndexError</span></code></p></td>
-<td class="text-align:left"><p>Invalid index or indicies are being used</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">IndexError</span></code></p></td>
+<td class="text-left"><p>Invalid index or indicies are being used</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">KeyError</span></code></p></td>
-<td class="text-align:left"><p>Invalid key(s) for a dictionary or DataFrame are present</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">KeyError</span></code></p></td>
+<td class="text-left"><p>Invalid key(s) for a dictionary or DataFrame are present</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">DeprecationWarning</span></code></p></td>
-<td class="text-align:left"><p>Code uses a function or feature that will change in a future version</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">DeprecationWarning</span></code></p></td>
+<td class="text-left"><p>Code uses a function or feature that will change in a future version</p></td>
 </tr>
 </tbody>
 </table>
 <p>Examples and a futher details of each of thease are provided below.</p>
-<div class="section" id="nameerror">
-<h4><code class="docutils literal notranslate"><span class="pre">NameError</span></code><a class="headerlink" href="#nameerror" title="Permalink to this headline">#</a></h4>
+<section id="nameerror">
+<h4><code class="docutils literal notranslate"><span class="pre">NameError</span></code><a class="headerlink" href="#nameerror" title="Permalink to this heading">#</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">NameError</span></code> means the code uses a variable or function name that does not exist because it has not been defined. This is often the result of mistyping a variable name but can have other causes like running code cells in a Jupyter notebook without first running neccesary earlier code cells. If you just opened a Jupyter notebook, it is often worth selecting <strong>Run</strong> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <strong>Run All Cells</strong> from the top menu to ensure the latter doesn’t happen.</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
@@ -2010,7 +1525,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1776</span><span class="o">/</span><span class="mf">2125787354.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">zy</span><span class="o">/</span><span class="mi">7</span><span class="n">y6kpdbx6p1ffrp1vtxy3ttc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1030</span><span class="o">/</span><span class="mf">2125787354.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;root&#39; is not defined
@@ -2018,9 +1533,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="syntaxerror">
-<h4><code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code><a class="headerlink" href="#syntaxerror" title="Permalink to this headline">#</a></h4>
+</section>
+<section id="syntaxerror">
+<h4><code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code><a class="headerlink" href="#syntaxerror" title="Permalink to this heading">#</a></h4>
 <p>A programming language’s syntax is the set of rules that dictate how the code is formated,  the appropriate symbols, valid values and variables, etc… It’s all the rules that we’ve been learning about in the past couple of chapters. A <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> indicates that your code violated one of these rules. To be helpful, the error message shows the line of code with the invalid syntax and points to where in the line the problem seems to be occuring.</p>
 <p>In the first example below, the error occured because <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> is not a valid operator in Python.</p>
 <div class="cell tag_raises-exception docutils container">
@@ -2030,7 +1545,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/cw/g8p9ghtd3_7b10t_kws_b86h0000gp/T/ipykernel_1776/2186603431.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/zy/7y6kpdbx6p1ffrp1vtxy3ttc0000gn/T/ipykernel_1030/2186603431.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
 <span class="g g-Whitespace">    </span><span class="mi">5</span> <span class="o">&lt;&gt;</span> <span class="mi">6</span>
       <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
@@ -2046,17 +1561,17 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/cw/g8p9ghtd3_7b10t_kws_b86h0000gp/T/ipykernel_1776/848242794.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/zy/7y6kpdbx6p1ffrp1vtxy3ttc0000gn/T/ipykernel_1030/848242794.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
 <span class="g g-Whitespace">    </span><span class="mi">5</span><span class="n">sdq</span> <span class="o">=</span> <span class="mi">52</span>
-     <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
+    <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid decimal literal
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="typeerror">
-<h4><code class="docutils literal notranslate"><span class="pre">TypeError</span></code><a class="headerlink" href="#typeerror" title="Permalink to this headline">#</a></h4>
+</section>
+<section id="typeerror">
+<h4><code class="docutils literal notranslate"><span class="pre">TypeError</span></code><a class="headerlink" href="#typeerror" title="Permalink to this heading">#</a></h4>
 <p>A <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> occurs when using the wrong object type for a particular function or application. For example, Python cannot take the absolute value of the letter, so this generates a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>.</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
@@ -2067,7 +1582,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1776</span><span class="o">/</span><span class="mf">2284501298.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">zy</span><span class="o">/</span><span class="mi">7</span><span class="n">y6kpdbx6p1ffrp1vtxy3ttc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1030</span><span class="o">/</span><span class="mf">2284501298.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">abs</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
 
 <span class="ne">TypeError</span>: bad operand type for abs(): &#39;str&#39;
@@ -2085,7 +1600,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1776</span><span class="o">/</span><span class="mf">3042216965.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">zy</span><span class="o">/</span><span class="mi">7</span><span class="n">y6kpdbx6p1ffrp1vtxy3ttc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1030</span><span class="o">/</span><span class="mf">3042216965.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">5</span>
 
 <span class="ne">TypeError</span>: &#39;&gt;&#39; not supported between instances of &#39;list&#39; and &#39;int&#39;
@@ -2093,9 +1608,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="valueerror">
-<h4><code class="docutils literal notranslate"><span class="pre">ValueError</span></code><a class="headerlink" href="#valueerror" title="Permalink to this headline">#</a></h4>
+</section>
+<section id="valueerror">
+<h4><code class="docutils literal notranslate"><span class="pre">ValueError</span></code><a class="headerlink" href="#valueerror" title="Permalink to this heading">#</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> is somewhat similar to a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> execept in this case it indicates that a numerical value is not valid or appropriate for a particular function. Some functions require that their arguments be within a certain range such as the <code class="docutils literal notranslate"><span class="pre">math.sqrt()</span></code> which does not accept negative numbers. As a result, taking the square root of -1 with this function generates a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
@@ -2107,7 +1622,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1776</span><span class="o">/</span><span class="mf">4172608794.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">zy</span><span class="o">/</span><span class="mi">7</span><span class="n">y6kpdbx6p1ffrp1vtxy3ttc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1030</span><span class="o">/</span><span class="mf">4172608794.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">math</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
@@ -2116,9 +1631,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="zerodivisionerror">
-<h4><code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code><a class="headerlink" href="#zerodivisionerror" title="Permalink to this headline">#</a></h4>
+</section>
+<section id="zerodivisionerror">
+<h4><code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code><a class="headerlink" href="#zerodivisionerror" title="Permalink to this heading">#</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code> error is what the name says - the code attempted to divide by zero.</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
@@ -2129,7 +1644,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1776</span><span class="o">/</span><span class="mf">2293179708.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">zy</span><span class="o">/</span><span class="mi">7</span><span class="n">y6kpdbx6p1ffrp1vtxy3ttc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1030</span><span class="o">/</span><span class="mf">2293179708.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="mi">4</span> <span class="o">/</span> <span class="mi">0</span>
 
 <span class="ne">ZeroDivisionError</span>: division by zero
@@ -2137,9 +1652,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="indentationerror">
-<h4><code class="docutils literal notranslate"><span class="pre">IndentationError</span></code><a class="headerlink" href="#indentationerror" title="Permalink to this headline">#</a></h4>
+</section>
+<section id="indentationerror">
+<h4><code class="docutils literal notranslate"><span class="pre">IndentationError</span></code><a class="headerlink" href="#indentationerror" title="Permalink to this heading">#</a></h4>
 <p>Python does not care about spaces except those at the start of a line as these spaces or indentations have meaning. In the example below, the <code class="docutils literal notranslate"><span class="pre">print(x)</span></code> should be indented below the the start of the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, so it generates an <code class="docutils literal notranslate"><span class="pre">IndentationError</span></code>.</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
@@ -2149,17 +1664,17 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/cw/g8p9ghtd3_7b10t_kws_b86h0000gp/T/ipykernel_1776/963956298.py&quot;</span><span class="gt">, line </span><span class="mi">2</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/zy/7y6kpdbx6p1ffrp1vtxy3ttc0000gn/T/ipykernel_1030/963956298.py&quot;</span><span class="gt">, line </span><span class="mi">2</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="o">^</span>
-<span class="ne">IndentationError</span>: expected an indented block
+<span class="ne">IndentationError</span>: expected an indented block after &#39;for&#39; statement on line 1
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="indexerror-and-keyerror">
-<h4><code class="docutils literal notranslate"><span class="pre">IndexError</span></code> and <code class="docutils literal notranslate"><span class="pre">KeyError</span></code><a class="headerlink" href="#indexerror-and-keyerror" title="Permalink to this headline">#</a></h4>
+</section>
+<section id="indexerror-and-keyerror">
+<h4><code class="docutils literal notranslate"><span class="pre">IndexError</span></code> and <code class="docutils literal notranslate"><span class="pre">KeyError</span></code><a class="headerlink" href="#indexerror-and-keyerror" title="Permalink to this heading">#</a></h4>
 <p>When indexing a composite object like a list, an index value that is outside the range results in an <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>. In the list below, the indicies run from <code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">4</span></code>, so using an index of <code class="docutils literal notranslate"><span class="pre">5</span></code> returns an <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>.</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
@@ -2171,7 +1686,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1776</span><span class="o">/</span><span class="mf">1098396888.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">zy</span><span class="o">/</span><span class="mi">7</span><span class="n">y6kpdbx6p1ffrp1vtxy3ttc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1030</span><span class="o">/</span><span class="mf">1098396888.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">lst</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
 
@@ -2203,7 +1718,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1776</span><span class="o">/</span><span class="mf">1242611454.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">zy</span><span class="o">/</span><span class="mi">7</span><span class="n">y6kpdbx6p1ffrp1vtxy3ttc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1030</span><span class="o">/</span><span class="mf">1242611454.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">elements</span><span class="p">[</span><span class="s1">&#39;N&#39;</span><span class="p">]</span>
 
 <span class="ne">KeyError</span>: &#39;N&#39;
@@ -2211,9 +1726,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="deprecationwarning">
-<h4><code class="docutils literal notranslate"><span class="pre">DeprecationWarning</span></code><a class="headerlink" href="#deprecationwarning" title="Permalink to this headline">#</a></h4>
+</section>
+<section id="deprecationwarning">
+<h4><code class="docutils literal notranslate"><span class="pre">DeprecationWarning</span></code><a class="headerlink" href="#deprecationwarning" title="Permalink to this heading">#</a></h4>
 <p>A <code class="docutils literal notranslate"><span class="pre">DeprecationWarning</span></code> occurs when code uses a feature that will be removed or changed in a future release of Python or a third-party library. This error does not stop your code and is a friendly heads up that your code may not work in the future.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -2223,10 +1738,10 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="workout-around-errors-with-try-and-except">
-<span id="id23"></span><h3>2.8.2 Workout Around Errors with <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code><a class="headerlink" href="#workout-around-errors-with-try-and-except" title="Permalink to this headline">#</a></h3>
+</section>
+</section>
+<section id="workout-around-errors-with-try-and-except">
+<span id="id23"></span><h3>2.8.2 Workout Around Errors with <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code><a class="headerlink" href="#workout-around-errors-with-try-and-except" title="Permalink to this heading">#</a></h3>
 <span class="target" id="index-15"></span><p id="index-16">While this may seem like a bad idea at first glance, there are times when you may want Python to not come to a grinding halt in the face of an error. One common situation is when importing a large number of data files from different sources. Not every data source may have formatted data or files the same, and some files may be malformed or there may be other unexpected edge cases. To get Python to not stop at an error message, you can use a <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code> block.</p>
 <p>The general structure of a <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code> block is to include the code you origionally intend to run under the <code class="docutils literal notranslate"><span class="pre">try</span></code> statement, and under the following <code class="docutils literal notranslate"><span class="pre">except</span></code> statement, include what Python should do in the event of a specific error. The general structure looks like the following.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
@@ -2257,7 +1772,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">cw</span><span class="o">/</span><span class="n">g8p9ghtd3_7b10t_kws_b86h0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1776</span><span class="o">/</span><span class="mf">609664091.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">zy</span><span class="o">/</span><span class="mi">7</span><span class="n">y6kpdbx6p1ffrp1vtxy3ttc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1030</span><span class="o">/</span><span class="mf">609664091.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> 
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">sqr_nums</span><span class="p">:</span>
 <span class="ne">----&gt; </span><span class="mi">5</span>     <span class="n">sqr_root</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>
@@ -2339,21 +1854,21 @@ title="Print to PDF"
 </div>
 </div>
 <p>So when should you use <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code> versus <code class="docutils literal notranslate"><span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span></code>? If you anticipate excepts to occur frequently, <code class="docutils literal notranslate"><span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span></code> is likley to be more efficient, but if exceptions are rare, it may be more efficient to use <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code>.</p>
-</div>
-</div>
-<div class="section" id="further-reading">
-<h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="further-reading">
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
 <p>The official Python website is the ultimate authority for documentation on the Python programming language and is well written. There are also numerous books available on the subject both free and otherwise. Below are a few examples. There is an abundance of other free resources such as YouTube videos and <a class="reference external" href="https://stackoverflow.com/">https://stackoverflow.com/</a> boards for people looking for more information.</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Python Documentation Page. <a class="reference external" href="https://www.python.org/doc/">https://www.python.org/doc/</a> (free resource)</p></li>
 <li><p>Reitz, K.; Schlusser, T. <em>The Hitchider’s Guide to Python: Best Practices for Development</em>, O’Reilly: Sebastopol, CA, 2016.</p></li>
 <li><p>Downey, Allen B. <em>Think Python</em> Green Tea Press 2012. <a class="reference external" href="http://greenteapress.com/wp/think-dsp/">http://greenteapress.com/wp/think-dsp/</a>. (free resource)</p></li>
 </ol>
-</div>
-<div class="section" id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <p>Complete the following exercises in a Jupyter notebook. Any data file(s) refered to in the problems can be found in the <a class="reference external" href="https://github.com/weisscharlesj/SciCompforChemists/tree/master/notebooks">data</a> folder in the same directory as this chapter’s Jupyter notebook. Alternatively, you can download a zip file of the data for this chapter from <a class="reference external" href="https://github.com/weisscharlesj/data_SciCompforChem">here</a> by selecting the appropriate chapter file and then clicking the <strong>Download</strong> button.</p>
-<ol>
+<ol class="arabic">
 <li><p>Generate a list containing the natural logs of integers from 2 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 23 (including 23) using <code class="docutils literal notranslate"><span class="pre">append</span></code> and then again using using <a class="reference internal" href="#id4"><span class="std std-ref"><em>list comprehension</em></span></a>.</p></li>
 <li><p>Write a function, using <a class="reference internal" href="#id3"><span class="std std-ref"><em>augmented assignment</em></span></a>, that takes in a starting <em>xyz</em> coordinates of an atom along with how much the atom should translate along each axis and returns the final coordinates. The docstring for this function is below.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">trans</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
@@ -2422,8 +1937,8 @@ What is the theoretical mean for this data set?</p>
 </div>
 </li>
 </ol>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2437,7 +1952,7 @@ What is the theoretical mean for this data set?</p>
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./notebooks/chapter_02"
         },
         predefinedOutput: true
@@ -2445,53 +1960,151 @@ What is the theoretical mean for this data set?</p>
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../chapter_01/chap_01_notebook.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Chapter 1: Basic Python</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../chapter_01/chap_01_notebook.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 1: Basic Python</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="../chapter_03/chap_03_notebook.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="../chapter_03/chap_03_notebook.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Chapter 3: Plotting with Matplotlib</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Charles J. Weiss<br/>
-  
-      &copy; Copyright 2017-2022.<br/>
-    <div class="extra_footer">
-      Scientific Computing for Chemists with Python is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
-    </div>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntactic-sugar">2.1 Syntactic Sugar</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#augmented-assignment">2.1.1 Augmented Assignment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-comprehension">2.1.2 List Comprehension</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compound-assignment">2.1.3 Compound Assignment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda-functions">2.1.4 Lambda Functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">2.2 Dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set">2.3 Set</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-modules">2.4 Python Modules</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#os-module">2.4.1 <code class="docutils literal notranslate"><span class="pre">os</span></code> Module</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#itertools-module">2.4.2 <code class="docutils literal notranslate"><span class="pre">itertools</span></code> Module</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-module">2.4.3 <code class="docutils literal notranslate"><span class="pre">random</span></code> Module</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zipping-and-enumeration">2.5 Zipping and Enumeration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zipping">2.5.1 Zipping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enumeration">2.5.2 Enumeration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding-numbers">2.6 Encoding Numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-functions">2.7 Advanced Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-positional-arguments">2.7.1 Variable Positional Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-keyword-arguments">2.7.2 Variable Keyword Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-functions">2.7.3 Recursive Functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-handling">2.8 Error Handling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-errors">2.8.1 Types of Errors</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nameerror"><code class="docutils literal notranslate"><span class="pre">NameError</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#syntaxerror"><code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#typeerror"><code class="docutils literal notranslate"><span class="pre">TypeError</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#valueerror"><code class="docutils literal notranslate"><span class="pre">ValueError</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#zerodivisionerror"><code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#indentationerror"><code class="docutils literal notranslate"><span class="pre">IndentationError</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#indexerror-and-keyerror"><code class="docutils literal notranslate"><span class="pre">IndexError</span></code> and <code class="docutils literal notranslate"><span class="pre">KeyError</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#deprecationwarning"><code class="docutils literal notranslate"><span class="pre">DeprecationWarning</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workout-around-errors-with-try-and-except">2.8.2 Workout Around Errors with <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further Reading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Charles J. Weiss
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2017-2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Scientific Computing for Chemists with Python is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

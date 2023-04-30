@@ -1,47 +1,59 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chapter 11: Nuclear Magnetic Resonance with NMRglue &#8212; Scientific Computing for Chemists with Python</title>
-    
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    <title>Chapter 11: Nuclear Magnetic Resonance with NMRglue &#8212; Scientific Computing for Chemists with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -51,61 +63,93 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/chapter_11/chap_11_notebook';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Chapter 12: Machine Learning using Scikit-Learn" href="../chapter_12/chap_12_notebook.html" />
     <link rel="prev" title="Chapter 10: Plotting with Seaborn" href="../chapter_10/chap_10_notebook.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/logo.svg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Scientific Computing for Chemists with Python</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -115,429 +159,213 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_00/chap_00_notebook.html">
-   Chapter 0: Python &amp; Jupyter Notebooks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_01/chap_01_notebook.html">
-   Chapter 1: Basic Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_02/chap_02_notebook.html">
-   Chapter 2: Intermediate Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_03/chap_03_notebook.html">
-   Chapter 3: Plotting with Matplotlib
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_04/chap_04_notebook.html">
-   Chapter 4: NumPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_05/chap_05_notebook.html">
-   Chapter 5: Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_06/chap_06_notebook.html">
-   Chapter 6: Signal &amp; Noise
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_07/chap_07_notebook.html">
-   Chapter 7: Image Processing &amp; Analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_08/chap_08_notebook.html">
-   Chapter 8: Mathematics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_09/chap_09_notebook.html">
-   Chapter 9: Simulations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_10/chap_10_notebook.html">
-   Chapter 10: Plotting with Seaborn
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Chapter 11: Nuclear Magnetic Resonance with NMRglue
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_12/chap_12_notebook.html">
-   Chapter 12: Machine Learning using Scikit-Learn
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_13/chap_13.html">
-   Chapter 13: Command Line &amp; Spyder
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_14/chap_14_notebook.html">
-   Chapter 14: Optimization and Root Finding
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../genindex.html">
-   Index
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_00/chap_00_notebook.html">Chapter 0: Python &amp; Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_01/chap_01_notebook.html">Chapter 1: Basic Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_02/chap_02_notebook.html">Chapter 2: Intermediate Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_03/chap_03_notebook.html">Chapter 3: Plotting with Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_04/chap_04_notebook.html">Chapter 4: NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_05/chap_05_notebook.html">Chapter 5: Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_06/chap_06_notebook.html">Chapter 6: Signal &amp; Noise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_07/chap_07_notebook.html">Chapter 7: Image Processing &amp; Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_08/chap_08_notebook.html">Chapter 8: Mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_09/chap_09_notebook.html">Chapter 9: Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_10/chap_10_notebook.html">Chapter 10: Plotting with Seaborn</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 11: Nuclear Magnetic Resonance with NMRglue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_12/chap_12_notebook.html">Chapter 12: Machine Learning using Scikit-Learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_13/chap_13_notebook.html">Chapter 13: Command Line &amp; Spyder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_14/chap_14_notebook.html">Chapter 14: Optimization and Root Finding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org/">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/notebooks/chapter_11/chap_11_notebook.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
-</div>
+  
+  <div id="rtd-footer-container"></div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/chapter_11/chap_11_notebook.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button"
+   title="Open an issue"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-<a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/chapter_11/chap_11_notebook.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="bottom"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-lightbulb"></i>
   </span>
 
 </a>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/notebooks/chapter_11/chap_11_notebook.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/chapter_11/chap_11_notebook.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-
-      </li>
+</li>
+      
+      
+      
       
       <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
   </span>
 
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#nmr-processing">
-   11.1 NMR Processing
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#importing-data-with-nmrglue">
-   11.2 Importing Data with NMRglue
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fourier-transforming-data">
-   11.3 Fourier Transforming Data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#phasing-data">
-   11.4 Phasing Data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#autophasing">
-     11.4.1 Autophasing
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#manual-phasing">
-     11.4.2 Manual Phasing
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#chemical-shift">
-   11.5 Chemical Shift
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#generate-the-x-axis">
-     11.5.1 Generate the X-Axis
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#referencing-the-data">
-     11.5.2 Referencing the Data
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#integration">
-   11.6 Integration
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#peak-picking">
-   11.7 Peak Picking
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#further-reading">
-   Further Reading
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Chapter 11: Nuclear Magnetic Resonance with NMRglue</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#nmr-processing">
-   11.1 NMR Processing
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#importing-data-with-nmrglue">
-   11.2 Importing Data with NMRglue
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fourier-transforming-data">
-   11.3 Fourier Transforming Data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#phasing-data">
-   11.4 Phasing Data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#autophasing">
-     11.4.1 Autophasing
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#manual-phasing">
-     11.4.2 Manual Phasing
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#chemical-shift">
-   11.5 Chemical Shift
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#generate-the-x-axis">
-     11.5.1 Generate the X-Axis
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#referencing-the-data">
-     11.5.2 Referencing the Data
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#integration">
-   11.6 Integration
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#peak-picking">
-   11.7 Peak Picking
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#further-reading">
-   Further Reading
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 11: Nuclear Magnetic Resonance with NMRglue</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nmr-processing">11.1 NMR Processing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-data-with-nmrglue">11.2 Importing Data with NMRglue</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transforming-data">11.3 Fourier Transforming Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phasing-data">11.4 Phasing Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autophasing">11.4.1 Autophasing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manual-phasing">11.4.2 Manual Phasing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chemical-shift">11.5 Chemical Shift</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-the-x-axis">11.5.1 Generate the X-Axis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#referencing-the-data">11.5.2 Referencing the Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integration">11.6 Integration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#peak-picking">11.7 Peak Picking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further Reading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
-  <div class="tex2jax_ignore mathjax_ignore section" id="chapter-11-nuclear-magnetic-resonance-with-nmrglue">
-<span id="id1"></span><h1>Chapter 11: Nuclear Magnetic Resonance with NMRglue<a class="headerlink" href="#chapter-11-nuclear-magnetic-resonance-with-nmrglue" title="Permalink to this headline">#</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-11-nuclear-magnetic-resonance-with-nmrglue">
+<span id="id1"></span><h1>Chapter 11: Nuclear Magnetic Resonance with NMRglue<a class="headerlink" href="#chapter-11-nuclear-magnetic-resonance-with-nmrglue" title="Permalink to this heading">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 </div>
 <p>Nuclear magnetic resonance (NMR) spectroscopy is one of the most common and powerful analytical methods used in modern chemistry. Up to this point, we having been primarily dealing with text-based data files - that is, files that can be opened with a text editor and still contain human comprehensible information. If you open most files that come out of an NMR instrument in a text editor, it will look more like gibberish than anything a human should be able to read. This is because they are <em>binary</em> files; they are written in computer language rather than human language.</p>
@@ -555,45 +383,45 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<div class="section" id="nmr-processing">
-<span id="id2"></span><h2>11.1 NMR Processing<a class="headerlink" href="#nmr-processing" title="Permalink to this headline">#</a></h2>
+<section id="nmr-processing">
+<span id="id2"></span><h2>11.1 NMR Processing<a class="headerlink" href="#nmr-processing" title="Permalink to this heading">#</a></h2>
 <p id="index-0">The general procedure for collecting NMR data is to excite a given type of NMR-active nuclei with a radio-frequency pulse and allow them to relax. As they precess, their rotation leads to a voltage oscillation in the instrument at characteristic frequencies, and the spectrometer records these oscillations as a <em>free induction decay (fid)</em> depicted below (Figure 1, left). It is the frequency of these oscillations that we are interested in because they are informative to a trained chemist as to the chemical environment of the nuclei. One challenge is that all the different signals from each of the nuclei are stacked on top of each other making it difficult to distinguish one from the other or to determine the wave frequency. This is similar to the problem of a computer discerning a single instrument in an entire orchestra playing at once. Fortunately, there is a mathematical equation called the Fourier transform that converts the above <em>fid</em> into a graph showing all of the different frequencies (Figure 1, right). This is what is known as converting the <em>time domain</em> to the <em>frequency domain</em>.</p>
 <p><img alt="" src="../../_images/fid.svg" /></p>
 <p><strong>Figure 1</strong> Raw NMR spectroscopy data is converted from the time domain (left) to the frequency domains (right) using a Fourier transform.</p>
 <p>The general steps for dealing with NMR spectroscopic data in Python are outlined below.</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Load the fid data into a NumPy array using NMRglue</p></li>
 <li><p>Fourier transform the data to the frequency domain</p></li>
 <li><p>Phase the spectrum</p></li>
 <li><p>Reference the spectrum</p></li>
 <li><p>Measure the chemical shifts and integrals of the peaks</p></li>
 </ol>
-</div>
-<div class="section" id="importing-data-with-nmrglue">
-<span id="id3"></span><h2>11.2 Importing Data with NMRglue<a class="headerlink" href="#importing-data-with-nmrglue" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="importing-data-with-nmrglue">
+<span id="id3"></span><h2>11.2 Importing Data with NMRglue<a class="headerlink" href="#importing-data-with-nmrglue" title="Permalink to this heading">#</a></h2>
 <p id="index-1">The importing of data using NMRglue is performed by the read function from one of the submodules shown in Table 1. Additional modules can be found in the <a class="reference external" href="https://nmrglue.readthedocs.io/en/latest/tutorial.html">NMRglue documention</a>. The choice of module is dictated by the data file type.</p>
 <p><strong>Table 1</strong> Examples of NMRglue Modules</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:center head"><p>Module</p></th>
-<th class="text-align:left head"><p>Description</p></th>
+<tr class="row-odd"><th class="head text-center"><p>Module</p></th>
+<th class="head text-left"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">bruker</span></code></p></td>
-<td class="text-align:left"><p>Bruker data as a single file</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">bruker</span></code></p></td>
+<td class="text-left"><p>Bruker data as a single file</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">pipe</span></code></p></td>
-<td class="text-align:left"><p>Pipe data as a single file with an <code class="docutils literal notranslate"><span class="pre">.fid</span></code> extension</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">pipe</span></code></p></td>
+<td class="text-left"><p>Pipe data as a single file with an <code class="docutils literal notranslate"><span class="pre">.fid</span></code> extension</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">sparky</span></code></p></td>
-<td class="text-align:left"><p>Sparky NMR file format with .ucsf extension</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">sparky</span></code></p></td>
+<td class="text-left"><p>Sparky NMR file format with .ucsf extension</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">varian</span></code></p></td>
-<td class="text-align:left"><p>Varian/Agilent data as a folder of data with an .fid extension</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">varian</span></code></p></td>
+<td class="text-left"><p>Varian/Agilent data as a folder of data with an .fid extension</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">jcampdx</span></code></p></td>
-<td class="text-align:left"><p>JCAMP-DX files with .dx or .jdx extensions</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">jcampdx</span></code></p></td>
+<td class="text-left"><p>JCAMP-DX files with .dx or .jdx extensions</p></td>
 </tr>
 </tbody>
 </table>
@@ -613,13 +441,13 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The data used in this demo was already Fourier transformed on the spectrometer, so the following cell reverses this process for demo purposed. Some spectrometers automatically Fourier transform the data while others do not.</p>
 </div>
-</div>
+</aside>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reversed the Fourier transform for demo purposes being as this data </span>
@@ -656,57 +484,57 @@ title="Print to PDF"
 </div>
 <p>The universal dictionary is a nested dictionary. The first key is <code class="docutils literal notranslate"><span class="pre">ndim</span></code> which provides the number of dimensions in the NMR spectrum. Most NMR spectra are one dimensional, but two dimensional is also fairly common. Subsequent key(s) are for each dimension in the NMR spectrum with the value as a nested dictionary of metadata. Because the data for the above spectrum is one-dimensional, there is only one nested dictionary. Table 2 below provides a description of each piece of metadata contained in the universal dictionary.</p>
 <p><strong>Table 2</strong> <code class="docutils literal notranslate"><span class="pre">udic</span></code> Dictionary Keys for Single Dimensions*</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:center head"><p>Key</p></th>
-<th class="text-align:left head"><p>Description</p></th>
-<th class="text-align:left head"><p>Data Type</p></th>
+<tr class="row-odd"><th class="head text-center"><p>Key</p></th>
+<th class="head text-left"><p>Description</p></th>
+<th class="head text-left"><p>Data Type</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">car</span></code></p></td>
-<td class="text-align:left"><p>Carrier frequency (Hz)</p></td>
-<td class="text-align:left"><p>Float</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">car</span></code></p></td>
+<td class="text-left"><p>Carrier frequency (Hz)</p></td>
+<td class="text-left"><p>Float</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">complex</span></code></p></td>
-<td class="text-align:left"><p>Indicates if the data contain complex values</p></td>
-<td class="text-align:left"><p>Boolean</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">complex</span></code></p></td>
+<td class="text-left"><p>Indicates if the data contain complex values</p></td>
+<td class="text-left"><p>Boolean</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">encoding</span></code></p></td>
-<td class="text-align:left"><p>Encoding format</p></td>
-<td class="text-align:left"><p>String</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">encoding</span></code></p></td>
+<td class="text-left"><p>Encoding format</p></td>
+<td class="text-left"><p>String</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">freq</span></code></p></td>
-<td class="text-align:left"><p>Indicates if the data are in the frequency domain</p></td>
-<td class="text-align:left"><p>Boolean</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">freq</span></code></p></td>
+<td class="text-left"><p>Indicates if the data are in the frequency domain</p></td>
+<td class="text-left"><p>Boolean</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">label</span></code></p></td>
-<td class="text-align:left"><p>Observed nucleus</p></td>
-<td class="text-align:left"><p>String</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">label</span></code></p></td>
+<td class="text-left"><p>Observed nucleus</p></td>
+<td class="text-left"><p>String</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">obs</span></code></p></td>
-<td class="text-align:left"><p>Observed frequency (MHz)</p></td>
-<td class="text-align:left"><p>Float</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">obs</span></code></p></td>
+<td class="text-left"><p>Observed frequency (MHz)</p></td>
+<td class="text-left"><p>Float</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">size</span></code></p></td>
-<td class="text-align:left"><p>Number of data points in spectrum</p></td>
-<td class="text-align:left"><p>Integer</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">size</span></code></p></td>
+<td class="text-left"><p>Number of data points in spectrum</p></td>
+<td class="text-left"><p>Integer</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">sw</span></code></p></td>
-<td class="text-align:left"><p>Spectral width (Hz)</p></td>
-<td class="text-align:left"><p>Float</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">sw</span></code></p></td>
+<td class="text-left"><p>Spectral width (Hz)</p></td>
+<td class="text-left"><p>Float</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">time</span></code></p></td>
-<td class="text-align:left"><p>Indicates if the data are in the time domain**</p></td>
-<td class="text-align:left"><p>Boolean</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">time</span></code></p></td>
+<td class="text-left"><p>Indicates if the data are in the time domain**</p></td>
+<td class="text-left"><p>Boolean</p></td>
 </tr>
 </tbody>
 </table>
 <p>* That is, it is assumed that we are looking at single dimensions from the NMR data, so for example, we are looking at <code class="docutils literal notranslate"><span class="pre">udic[0]</span></code>.</p>
 <p>** Being that the data must be in either the frequency or time domain, the <code class="docutils literal notranslate"><span class="pre">freq</span></code> and <code class="docutils literal notranslate"><span class="pre">time</span></code> keywords effectively provide the same information.</p>
-</div>
-<div class="section" id="fourier-transforming-data">
-<span id="id4"></span><h2>11.3 Fourier Transforming Data<a class="headerlink" href="#fourier-transforming-data" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="fourier-transforming-data">
+<span id="id4"></span><h2>11.3 Fourier Transforming Data<a class="headerlink" href="#fourier-transforming-data" title="Permalink to this heading">#</a></h2>
 <p id="index-2">When the data is first imported, it is often in the time domain. You can confirm this by checking that the <code class="docutils literal notranslate"><span class="pre">time</span></code> value in the <code class="docutils literal notranslate"><span class="pre">udic</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> like below.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">udic</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;time&#39;</span><span class="p">]</span>
 </pre></div>
@@ -721,10 +549,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fce9c0f5e80&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1271ab760&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/chap_11_notebook_14_1.svg" src="../../_images/chap_11_notebook_14_1.svg" /></div>
+<img alt="../../_images/dfe254803afccbacc6e0fdfc5a74c7d42bb3bd3386ab4c372050bcb6437b3712.svg" src="../../_images/dfe254803afccbacc6e0fdfc5a74c7d42bb3bd3386ab4c372050bcb6437b3712.svg" /></div>
 </div>
 <p>To convert the data to the frequency domain, we will use the fast Fourier transform function (<code class="docutils literal notranslate"><span class="pre">fft</span></code>) from the <code class="docutils literal notranslate"><span class="pre">fft</span></code> SciPy module. NMRglue also contains Fourier transform functions, but we will use SciPy here. The plot below inverts the <em>x</em>-axis with</p>
 <div class="cell docutils container">
@@ -745,17 +573,17 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/chap_11_notebook_17_0.svg" src="../../_images/chap_11_notebook_17_0.svg" /></div>
+<img alt="../../_images/fd4e69c5fe6bfa474f66804510a5eb3d2aaad1165958311a44ad4d214588bc33.svg" src="../../_images/fd4e69c5fe6bfa474f66804510a5eb3d2aaad1165958311a44ad4d214588bc33.svg" /></div>
 </div>
 <p>When you plot the Fourier transformed data, you may get a <code class="docutils literal notranslate"><span class="pre">ComplexWarning</span></code> error message because the Fourier transform will return complex values (i.e., values with real and imaginary components). To only work with the real components, use the <code class="docutils literal notranslate"><span class="pre">.real</span></code> method as is done above. The plot now looks more like an NMR spectrum, but most of the resonances are out of phase. The next step is to phase the spectrum.</p>
-</div>
-<div class="section" id="phasing-data">
-<span id="id5"></span><h2>11.4 Phasing Data<a class="headerlink" href="#phasing-data" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="phasing-data">
+<span id="id5"></span><h2>11.4 Phasing Data<a class="headerlink" href="#phasing-data" title="Permalink to this heading">#</a></h2>
 <p>Phasing is the post-processing procedure for making all peaks point upward as shown in Figure 2. There is more to it than taking the absolute value as that would not always generate a single peak, so NMRglue contains a series of functions for phasing spectra.</p>
 <p><img alt="" src="../../_images/phasing.svg" /></p>
 <p><strong>Figure 2</strong> Phasing an NMR spectrum results in all the signals pointing in the positive direction.</p>
-<div class="section" id="autophasing">
-<span id="id6"></span><h3>11.4.1 Autophasing<a class="headerlink" href="#autophasing" title="Permalink to this headline">#</a></h3>
+<section id="autophasing">
+<span id="id6"></span><h3>11.4.1 Autophasing<a class="headerlink" href="#autophasing" title="Permalink to this heading">#</a></h3>
 <p>The simplest method to phase your NMR spectrum is to allow the autophasing function to handle it for you. Below is the function which takes the data and the phasing algorithm as the arguments.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ng</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">proc_autophase</span><span class="o">.</span><span class="n">autops</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">algorithm</span><span class="p">)</span>
 </pre></div>
@@ -786,12 +614,12 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/chap_11_notebook_21_0.svg" src="../../_images/chap_11_notebook_21_0.svg" /></div>
+<img alt="../../_images/2b66008ee94f5701ecb1af56344dbd8de5266fe027cdf8d2e5fd190560c3ec11.svg" src="../../_images/2b66008ee94f5701ecb1af56344dbd8de5266fe027cdf8d2e5fd190560c3ec11.svg" /></div>
 </div>
 <p>You should try both algorithms to see which works best for you. The above spectrum is the result of the <code class="docutils literal notranslate"><span class="pre">acme</span></code> autophasing algorithm which is close but still slightly off. If neither of the provided autophasing algorithms work for you, you will need to instead manually phase the NMR spectrum as discussed below.</p>
-</div>
-<div class="section" id="manual-phasing">
-<span id="id7"></span><h3>11.4.2 Manual Phasing<a class="headerlink" href="#manual-phasing" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="manual-phasing">
+<span id="id7"></span><h3>11.4.2 Manual Phasing<a class="headerlink" href="#manual-phasing" title="Permalink to this heading">#</a></h3>
 <p>Manually phasing the NMR spectrum is a two-step process. First, you need to call the <code class="docutils literal notranslate"><span class="pre">manual_ps</span> <span class="pre">phasing()</span></code> function and adjust the <code class="docutils literal notranslate"><span class="pre">p0</span></code> and <code class="docutils literal notranslate"><span class="pre">p1</span></code> sliders until the spectrum appears phased.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span>  <span class="c1"># exists inline plotting</span>
 <span class="n">p0</span><span class="p">,</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">ng</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">proc_autophase</span><span class="o">.</span><span class="n">manual_ps</span><span class="p">(</span><span class="n">fdata</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
@@ -810,13 +638,13 @@ title="Print to PDF"
 </pre></div>
 </div>
 <p>You can then plot the <code class="docutils literal notranslate"><span class="pre">phased_data</span></code> to get your NMR spectrum with all the peaks pointing upward.</p>
-</div>
-</div>
-<div class="section" id="chemical-shift">
-<span id="id8"></span><h2>11.5 Chemical Shift<a class="headerlink" href="#chemical-shift" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="chemical-shift">
+<span id="id8"></span><h2>11.5 Chemical Shift<a class="headerlink" href="#chemical-shift" title="Permalink to this heading">#</a></h2>
 <p>Even though the NMR spectrum is now phased, it is unlikely to be properly <em>referenced</em>. That is, the peaks are not currently located at the correct <em>chemical shift</em>. Referencing is often performed by knowing the accepted chemical shifts of the solvent resonances or an internal standard (e.g., tetramethylsilane, TMS) and adjusting the spectrum by a correction factor. Currently, we are plotting our data against the index of each data point, so first we need to create a frequency scaled <em>x</em>-axis as an array followed by adjusting the location of the spectrum so that it is properly referenced.</p>
-<div class="section" id="generate-the-x-axis">
-<span id="id9"></span><h3>11.5.1 Generate the X-Axis<a class="headerlink" href="#generate-the-x-axis" title="Permalink to this headline">#</a></h3>
+<section id="generate-the-x-axis">
+<span id="id9"></span><h3>11.5.1 Generate the X-Axis<a class="headerlink" href="#generate-the-x-axis" title="Permalink to this heading">#</a></h3>
 <p>The <em>x</em>-axis is the frequency scale, so this axis is sometimes presented in hertz (Hz). However, because the frequency of NMR resonances depends upon the instrument field strength, the same sample will exhibit different frequencies in different instruments. To make the frequency axis independent of the spectrometer field strength, NMR spectra are often presented on a <em>ppm scale</em> which is the ratio of the observed chemical shift (Hz) versus a standard over the spectrometer frequency (MHz) at which that particular nucleus is observed.</p>
 <div class="math notranslate nohighlight">
 \[ ppm = \frac{Observed \, Frequency \, (Hz)}{Spectrometer \, Frequency \, (MHz)} \]</div>
@@ -851,25 +679,25 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/chap_11_notebook_29_0.svg" src="../../_images/chap_11_notebook_29_0.svg" /></div>
+<img alt="../../_images/87f8748405ed57e3c00fc34a475f485ed55f04e968ac4b292df9b5eadce6c63f.svg" src="../../_images/87f8748405ed57e3c00fc34a475f485ed55f04e968ac4b292df9b5eadce6c63f.svg" /></div>
 </div>
 <p>Alternatively, NMRglue contains an object called a <em>unit conversion object</em> that can be created and used to convert between ppm, Hz, and point index values for any position in an NMR spectrum. To create a unit unit conversion object, use the <code class="docutils literal notranslate"><span class="pre">make_uc()</span></code> function which takes two arguments  – the dictionary, <code class="docutils literal notranslate"><span class="pre">dic</span></code>, and the original data array, <code class="docutils literal notranslate"><span class="pre">data</span></code>, generated from reading the NMR file in section 11.2.</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you are using a different NMR file format than pipe, change <code class="docutils literal notranslate"><span class="pre">pipe</span></code> to the appropriate format from Table 1.</p>
 </div>
-</div>
+</aside>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">unit_conv</span> <span class="o">=</span> <span class="n">ng</span><span class="o">.</span><span class="n">pipe</span><span class="o">.</span><span class="n">make_uc</span><span class="p">(</span><span class="n">dic</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>   
 
 <span class="n">ppm</span> <span class="o">=</span> <span class="n">unit_conv</span><span class="o">.</span><span class="n">ppm_scale</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>The last line of the above code generates an array of ppm values required for the x-axis to plot the NMR data. The following example uses the ppm scale generated by doing the math ourselves.</p>
-</div>
-<div class="section" id="referencing-the-data">
-<span id="id10"></span><h3>11.5.2 Referencing the Data<a class="headerlink" href="#referencing-the-data" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="referencing-the-data">
+<span id="id10"></span><h3>11.5.2 Referencing the Data<a class="headerlink" href="#referencing-the-data" title="Permalink to this heading">#</a></h3>
 <p>In the above spectrum, the small resonance at 2.58 ppm is internal TMS (tetramethylsilane) standard which should be located at 0.00 ppm. The temptation is to subtract 2.58 ppm from the x-axis, but the spectrum is not simply moved over but instead is rolled. That is, as the spectrum is moved, some of it disappears off one end and reappears on the other (Figure 3).</p>
 <p><img alt="" src="../../_images/rolling.svg" /></p>
 <p><strong>Figure 3</strong> Referencing an NMR spectrum is performing by rolling it until the peaks reside at the correct shifts. As a signal falls of one end of the spectrum, it reappears at the other end.</p>
@@ -902,13 +730,13 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/chap_11_notebook_33_0.svg" src="../../_images/chap_11_notebook_33_0.svg" /></div>
+<img alt="../../_images/de9c5ad48ea230a0c5bcc4d07244bf04f9bdd2661fc78d1c9c9fd46d2230fca6.svg" src="../../_images/de9c5ad48ea230a0c5bcc4d07244bf04f9bdd2661fc78d1c9c9fd46d2230fca6.svg" /></div>
 </div>
 <p>If you want to narrow the plot to where the resonances are located, you can use the <code class="docutils literal notranslate"><span class="pre">plt.xlim(8,0)</span></code> function. Notice that 8 is first to indicate that the plot is from 8 ppm <span class="math notranslate nohighlight">\(\rightarrow\)</span> 0 ppm. The use of <code class="docutils literal notranslate"><span class="pre">plt.xlim(8,0)</span></code> removes the need to use <code class="docutils literal notranslate"><span class="pre">plt.gca().invert_xaxis()</span></code> to flip the <em>x</em>-axis.</p>
-</div>
-</div>
-<div class="section" id="integration">
-<span id="id11"></span><h2>11.6 Integration<a class="headerlink" href="#integration" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="integration">
+<span id="id11"></span><h2>11.6 Integration<a class="headerlink" href="#integration" title="Permalink to this heading">#</a></h2>
 <p>Integration of the area under the peaks can be performed using either integration functions from the <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code> module or though NMRglue’s integration function(s). Because the integration function in NMRglue supports limit values in the ppm scale, it is probably the most convenient and is demonstrated below.</p>
 <p>The integration is performed using the <code class="docutils literal notranslate"><span class="pre">integrate()</span></code> function below where <code class="docutils literal notranslate"><span class="pre">data</span></code> is your NMR data as a NumPy array, the <code class="docutils literal notranslate"><span class="pre">conv_obj</span></code> is an NMRglue unit conversion object (see <a class="reference internal" href="#id9"><span class="std std-ref">section 11.5.1</span></a>), and limits is a list or array of limits for integration.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ng</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">integration</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">conv_obj</span><span class="p">,</span> <span class="n">limits</span><span class="p">)</span>
@@ -942,7 +770,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/chap_11_notebook_38_0.svg" src="../../_images/chap_11_notebook_38_0.svg" /></div>
+<img alt="../../_images/cda1cb43787631cd29d13e8af52b9d5cae24b6fbb4ffa5ca6e84f3f8ce7f8d39.svg" src="../../_images/cda1cb43787631cd29d13e8af52b9d5cae24b6fbb4ffa5ca6e84f3f8ce7f8d39.svg" /></div>
 </div>
 <p>The limits are in ppm, so take a look at the spectrum above and decide where you want to put the integration limits. An NMR spectrum with the chosen integration limits are shown above as vertical red lines.</p>
 <p>Now to integrate our NMR spectrum.</p>
@@ -973,9 +801,9 @@ title="Print to PDF"
 </div>
 </div>
 <p>The spectrum above is the <span class="math notranslate nohighlight">\(^1\)</span>H NMR of ethylbenzene in CDCl<span class="math notranslate nohighlight">\(_3\)</span> which has five aromatic protons, and the other two resonances should have three and two protons. If we do some math to make the integrations total to ten protons and round to the nearest integer, we get 5:3:2. There is a small amount of error likely due to the solvent resonance (CHCl<span class="math notranslate nohighlight">\(_3\)</span>, 7.27 ppm) being included in the integration of the aromatic protons.</p>
-</div>
-<div class="section" id="peak-picking">
-<span id="id12"></span><h2>11.7 Peak Picking<a class="headerlink" href="#peak-picking" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="peak-picking">
+<span id="id12"></span><h2>11.7 Peak Picking<a class="headerlink" href="#peak-picking" title="Permalink to this heading">#</a></h2>
 <p>Another piece of information that is commonly extracted from NMR spectra is the chemical shift of the resonances. Similar to integration, SciPy contains functions such as <code class="docutils literal notranslate"><span class="pre">scipy.signal.argrelmax()</span></code> that can find peaks in spectra, but again, NMRglue contains a function, below, designed for the task of locating peaks in NMR spectra.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ng</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">peakpick</span><span class="o">.</span><span class="n">pick</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">pthres</span><span class="o">=</span><span class="p">)</span>
 </pre></div>
@@ -994,10 +822,14 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7fce9c85cfa0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x1277393f0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_11_notebook_45_1.svg" src="../../_images/chap_11_notebook_45_1.svg" /></div>
+<img alt="../../_images/9cfa0df187358a523bdfc2188962ea1ef9bb82661ab56b2262d489a76dfdbc90.svg" src="../../_images/9cfa0df187358a523bdfc2188962ea1ef9bb82661ab56b2262d489a76dfdbc90.svg" /></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ng.analysis.peakpick.pick()</span></code> does not currently work with NumPy versions 1.24 and later. If this is a function you use, downgrade your version of NumPy to 1.23 or earlier.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1047,30 +879,30 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/chap_11_notebook_49_0.svg" src="../../_images/chap_11_notebook_49_0.svg" /></div>
+<img alt="../../_images/d55425af98e9a003dfe6db6898172984fe31ae4a2c309039ac60a8d88f12d428.svg" src="../../_images/d55425af98e9a003dfe6db6898172984fe31ae4a2c309039ac60a8d88f12d428.svg" /></div>
 </div>
 <p>We can plot the NMR spectrum with these chemical shifts marked with vertical dotted lines shown below. Looks like it did a pretty good job locating the resonances! If NMRglue fails to properly identify the peaks, there are a number of parameters described in the <a class="reference external" href="https://nmrglue.readthedocs.io/en/latest/reference/generated/nmrglue.analysis.peakpick.pick.html#nmrglue.analysis.peakpick.pick">NMRglue documentation</a> that can be adjusted.</p>
-</div>
-<div class="section" id="further-reading">
-<h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h2>
-<ol class="simple">
+</section>
+<section id="further-reading">
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
 <li><p>NMRglue Website. <a class="reference external" href="https://www.nmrglue.com/">https://www.nmrglue.com/</a> (free resource)</p></li>
 <li><p>NMRglue Documentation Page. <a class="reference external" href="https://www.nmrglue.com/">http://nmrglue.readthedocs.io/en/latest/tutorial.html</a> (free resource)</p></li>
 <li><p>J.J. Helmus, C.P. Jaroniec, Nmrglue: An open source Python package for the analysis of multidimensional NMR data, J. Biomol. NMR 2013, 55, 355-367, <a class="reference external" href="http://dx.doi.org/10.1007/s10858-013-9718-x">http://dx.doi.org/10.1007/s10858-013-9718-x</a>. (paper on nmrglue)</p></li>
 </ol>
-</div>
-<div class="section" id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <p>Complete the following exercises in a Jupyter notebook and NMRglue library. Any data file(s) refered to in the problems can be found in the <a class="reference external" href="https://github.com/weisscharlesj/SciCompforChemists/tree/master/notebooks">data</a> folder in the same directory as this chapter’s Jupyter notebook. Alternatively, you can download a zip file of the data for this chapter from <a class="reference external" href="https://github.com/weisscharlesj/data_SciCompforChem">here</a> by selecting the appropriate chapter file and then clicking the <strong>Download</strong> button.</p>
-<ol>
+<ol class="arabic">
 <li><p>Open the 1H NMR spectrum of ethanol, <strong>EtOH_1H_NMR.fid</strong>, taken in CDCl<span class="math notranslate nohighlight">\(_3\)</span> with TMS using NMRglue. Use the <code class="docutils literal notranslate"><span class="pre">pipe</span></code> module.</p>
 <p>a) Plot the resulting spectrum and be sure to properly reference it if not done already.</p>
 <p>b) Integrate the methyl (CH<span class="math notranslate nohighlight">\(_3\)</span>) versus the methylene (-CH<span class="math notranslate nohighlight">\(_2\)</span>-) resonances and calculate the ratio.</p>
 </li>
 <li><p>Open the <span class="math notranslate nohighlight">\(^1\)</span>H and <span class="math notranslate nohighlight">\(^{13}\)</span>C NMR spectra of 2-ethyl-1-hexanol, <strong>2-ethyl-1-hexanol_1H_NMR_CDCl3.fid</strong> and <strong>2-ethyl-1-hexanol_13C_NMR_CDCl3.fid</strong>, in CDCl<span class="math notranslate nohighlight">\(_3\)</span> with TMS and plot them on a ppm scale. Be sure to properly phase and reference the spectra if not done already. Use the <code class="docutils literal notranslate"><span class="pre">pipe</span></code> module.</p></li>
 </ol>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1084,7 +916,7 @@ title="Print to PDF"
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./notebooks/chapter_11"
         },
         predefinedOutput: true
@@ -1092,53 +924,124 @@ title="Print to PDF"
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../chapter_10/chap_10_notebook.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Chapter 10: Plotting with Seaborn</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../chapter_10/chap_10_notebook.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 10: Plotting with Seaborn</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="../chapter_12/chap_12_notebook.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="../chapter_12/chap_12_notebook.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Chapter 12: Machine Learning using Scikit-Learn</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Charles J. Weiss<br/>
-  
-      &copy; Copyright 2017-2022.<br/>
-    <div class="extra_footer">
-      Scientific Computing for Chemists with Python is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
-    </div>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nmr-processing">11.1 NMR Processing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-data-with-nmrglue">11.2 Importing Data with NMRglue</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transforming-data">11.3 Fourier Transforming Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phasing-data">11.4 Phasing Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autophasing">11.4.1 Autophasing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manual-phasing">11.4.2 Manual Phasing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chemical-shift">11.5 Chemical Shift</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-the-x-axis">11.5.1 Generate the X-Axis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#referencing-the-data">11.5.2 Referencing the Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integration">11.6 Integration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#peak-picking">11.7 Peak Picking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further Reading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Charles J. Weiss
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2017-2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Scientific Computing for Chemists with Python is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

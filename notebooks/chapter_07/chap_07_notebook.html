@@ -1,47 +1,59 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chapter 7: Image Processing &amp; Analysis &#8212; Scientific Computing for Chemists with Python</title>
-    
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    <title>Chapter 7: Image Processing &amp; Analysis &#8212; Scientific Computing for Chemists with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -51,61 +63,93 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/chapter_07/chap_07_notebook';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Chapter 8: Mathematics" href="../chapter_08/chap_08_notebook.html" />
     <link rel="prev" title="Chapter 6: Signal &amp; Noise" href="../chapter_06/chap_06_notebook.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/logo.svg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Scientific Computing for Chemists with Python</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -115,463 +159,218 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_00/chap_00_notebook.html">
-   Chapter 0: Python &amp; Jupyter Notebooks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_01/chap_01_notebook.html">
-   Chapter 1: Basic Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_02/chap_02_notebook.html">
-   Chapter 2: Intermediate Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_03/chap_03_notebook.html">
-   Chapter 3: Plotting with Matplotlib
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_04/chap_04_notebook.html">
-   Chapter 4: NumPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_05/chap_05_notebook.html">
-   Chapter 5: Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_06/chap_06_notebook.html">
-   Chapter 6: Signal &amp; Noise
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Chapter 7: Image Processing &amp; Analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_08/chap_08_notebook.html">
-   Chapter 8: Mathematics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_09/chap_09_notebook.html">
-   Chapter 9: Simulations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_10/chap_10_notebook.html">
-   Chapter 10: Plotting with Seaborn
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_11/chap_11_notebook.html">
-   Chapter 11: Nuclear Magnetic Resonance with NMRglue
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_12/chap_12_notebook.html">
-   Chapter 12: Machine Learning using Scikit-Learn
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_13/chap_13.html">
-   Chapter 13: Command Line &amp; Spyder
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter_14/chap_14_notebook.html">
-   Chapter 14: Optimization and Root Finding
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../genindex.html">
-   Index
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_00/chap_00_notebook.html">Chapter 0: Python &amp; Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_01/chap_01_notebook.html">Chapter 1: Basic Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_02/chap_02_notebook.html">Chapter 2: Intermediate Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_03/chap_03_notebook.html">Chapter 3: Plotting with Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_04/chap_04_notebook.html">Chapter 4: NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_05/chap_05_notebook.html">Chapter 5: Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_06/chap_06_notebook.html">Chapter 6: Signal &amp; Noise</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 7: Image Processing &amp; Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_08/chap_08_notebook.html">Chapter 8: Mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_09/chap_09_notebook.html">Chapter 9: Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_10/chap_10_notebook.html">Chapter 10: Plotting with Seaborn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_11/chap_11_notebook.html">Chapter 11: Nuclear Magnetic Resonance with NMRglue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_12/chap_12_notebook.html">Chapter 12: Machine Learning using Scikit-Learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_13/chap_13_notebook.html">Chapter 13: Command Line &amp; Spyder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_14/chap_14_notebook.html">Chapter 14: Optimization and Root Finding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org/">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/notebooks/chapter_07/chap_07_notebook.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
-</div>
+  
+  <div id="rtd-footer-container"></div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/chapter_07/chap_07_notebook.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button"
+   title="Open an issue"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-<a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/chapter_07/chap_07_notebook.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="bottom"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-lightbulb"></i>
   </span>
 
 </a>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/notebooks/chapter_07/chap_07_notebook.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/chapter_07/chap_07_notebook.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-
-      </li>
+</li>
+      
+      
+      
       
       <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
   </span>
 
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#basic-image-structure">
-   7.1 Basic Image Structure
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#loading-images">
-     7.1.1 Loading Images
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#color-images">
-     7.1.2 Color Images
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#external-images">
-     7.1.3 External Images
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#colormaps">
-     7.1.4 Colormaps
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#saving-images">
-     7.1.5 Saving Images
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#basic-image-manipulation">
-   7.2 Basic Image Manipulation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#colors">
-     7.2.1 Colors
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#encoding">
-     7.2.2 Encoding
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#image-contrast">
-     7.2.3 Image Contrast
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#scikit-image-examples">
-   7.3 Scikit-Image Examples
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#blob-detection">
-     7.3.1 Blob Detection
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#entropy-analysis">
-     7.3.2 Entropy Analysis
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#eccentricity">
-     7.3.3 Eccentricity
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#further-reading">
-   Further Reading
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Chapter 7: Image Processing & Analysis</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#basic-image-structure">
-   7.1 Basic Image Structure
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#loading-images">
-     7.1.1 Loading Images
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#color-images">
-     7.1.2 Color Images
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#external-images">
-     7.1.3 External Images
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#colormaps">
-     7.1.4 Colormaps
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#saving-images">
-     7.1.5 Saving Images
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#basic-image-manipulation">
-   7.2 Basic Image Manipulation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#colors">
-     7.2.1 Colors
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#encoding">
-     7.2.2 Encoding
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#image-contrast">
-     7.2.3 Image Contrast
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#scikit-image-examples">
-   7.3 Scikit-Image Examples
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#blob-detection">
-     7.3.1 Blob Detection
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#entropy-analysis">
-     7.3.2 Entropy Analysis
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#eccentricity">
-     7.3.3 Eccentricity
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#further-reading">
-   Further Reading
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 7: Image Processing & Analysis</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-image-structure">7.1 Basic Image Structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-images">7.1.1 Loading Images</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color-images">7.1.2 Color Images</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#external-images">7.1.3 External Images</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#colormaps">7.1.4 Colormaps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-images">7.1.5 Saving Images</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-image-manipulation">7.2 Basic Image Manipulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#colors">7.2.1 Colors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding">7.2.2 Encoding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-contrast">7.2.3 Image Contrast</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scikit-image-examples">7.3 Scikit-Image Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blob-detection">7.3.1 Blob Detection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entropy-analysis">7.3.2 Entropy Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eccentricity">7.3.3 Eccentricity</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further Reading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
-  <div class="tex2jax_ignore mathjax_ignore section" id="chapter-7-image-processing-analysis">
-<span id="id1"></span><h1>Chapter 7: Image Processing &amp; Analysis<a class="headerlink" href="#chapter-7-image-processing-analysis" title="Permalink to this headline">#</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-7-image-processing-analysis">
+<span id="id1"></span><h1>Chapter 7: Image Processing &amp; Analysis<a class="headerlink" href="#chapter-7-image-processing-analysis" title="Permalink to this heading">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 </div>
 <p>Images are a major data format in chemistry and other sciences. They can be electron microscope images of a surface, photos of a reaction, or images from fluorescence microscopy. Image processing and analysis can be performed using software like Photoshop or <a class="reference external" href="https://www.gimp.org/">GIMP</a>, but this can be tedious and subjective when done manually. A better alternative is to have software automate the entire process to provide consistent, precise, and objective processing of images and taking measurements of their features.</p>
@@ -589,66 +388,66 @@ title="Print to PDF"
 </pre></div>
 </div>
 <p><strong>Table 1</strong> Scikit-Image Modules</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:center head"><p>Module</p></th>
-<th class="text-align:left head"><p>Description</p></th>
+<tr class="row-odd"><th class="head text-center"><p>Module</p></th>
+<th class="head text-left"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">color</span></code></p></td>
-<td class="text-align:left"><p>Coverts images between color spaces</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">color</span></code></p></td>
+<td class="text-left"><p>Coverts images between color spaces</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">data</span></code></p></td>
-<td class="text-align:left"><p>Provides sample images</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">data</span></code></p></td>
+<td class="text-left"><p>Provides sample images</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">draw</span></code></p></td>
-<td class="text-align:left"><p>Generates coordinates of geometric shapes</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">draw</span></code></p></td>
+<td class="text-left"><p>Generates coordinates of geometric shapes</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">exposure</span></code></p></td>
-<td class="text-align:left"><p>Examines and modifies image exposure levels</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">exposure</span></code></p></td>
+<td class="text-left"><p>Examines and modifies image exposure levels</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">external.tifffile</span></code></p></td>
-<td class="text-align:left"><p>Handles reading, writing, and visualizing TIFF files</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">external.tifffile</span></code></p></td>
+<td class="text-left"><p>Handles reading, writing, and visualizing TIFF files</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">feature</span></code></p></td>
-<td class="text-align:left"><p>Feature detection and calculation</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">feature</span></code></p></td>
+<td class="text-left"><p>Feature detection and calculation</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">filters</span></code></p></td>
-<td class="text-align:left"><p>Contains various image filters and functions for calculating threshold values</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">filters</span></code></p></td>
+<td class="text-left"><p>Contains various image filters and functions for calculating threshold values</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">filters.rank</span></code></p></td>
-<td class="text-align:left"><p>Returns localized measurements in the image.</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">filters.rank</span></code></p></td>
+<td class="text-left"><p>Returns localized measurements in the image.</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">graph</span></code></p></td>
-<td class="text-align:left"><p>Finds optimized paths across the image</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">graph</span></code></p></td>
+<td class="text-left"><p>Finds optimized paths across the image</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">io</span></code></p></td>
-<td class="text-align:left"><p>Supports reading and writing images and contains a function for displaying images</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">io</span></code></p></td>
+<td class="text-left"><p>Supports reading and writing images and contains a function for displaying images</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">measure</span></code></p></td>
-<td class="text-align:left"><p>Performs a variety of measurements and calculations on or between two images</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">measure</span></code></p></td>
+<td class="text-left"><p>Performs a variety of measurements and calculations on or between two images</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">morphology</span></code></p></td>
-<td class="text-align:left"><p>Generates objects of a specified morphology</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">morphology</span></code></p></td>
+<td class="text-left"><p>Generates objects of a specified morphology</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">novice</span></code></p></td>
-<td class="text-align:left"><p>Provides simple image functions for beginners</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">novice</span></code></p></td>
+<td class="text-left"><p>Provides simple image functions for beginners</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">restoration</span></code></p></td>
-<td class="text-align:left"><p>Includes image restoration tools</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">restoration</span></code></p></td>
+<td class="text-left"><p>Includes image restoration tools</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">segmentation</span></code></p></td>
-<td class="text-align:left"><p>Identifies boundaries in an image</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">segmentation</span></code></p></td>
+<td class="text-left"><p>Identifies boundaries in an image</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">transform</span></code></p></td>
-<td class="text-align:left"><p>Performs image transformations including scaling and image rotation</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">transform</span></code></p></td>
+<td class="text-left"><p>Performs image transformations including scaling and image rotation</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">util</span></code></p></td>
-<td class="text-align:left"><p>Converts images into different encodings (e.g., floats to integers) and other modifications such as inverting the image values and adding random noise to an image</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">util</span></code></p></td>
+<td class="text-left"><p>Converts images into different encodings (e.g., floats to integers) and other modifications such as inverting the image values and adding random noise to an image</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">viewer</span></code></p></td>
-<td class="text-align:left"><p>Image viewer tools</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">viewer</span></code></p></td>
+<td class="text-left"><p>Image viewer tools</p></td>
 </tr>
 </tbody>
 </table>
@@ -665,13 +464,13 @@ title="Print to PDF"
 </div>
 </div>
 <p>Despite the power and utility of the scikit-image library, there is a significant amount of image processing and analysis that can be performed using NumPy functionality. This is especially true being that scikit-image imports/stores images as NumPy arrays.</p>
-<div class="section" id="basic-image-structure">
-<span id="id2"></span><h2>7.1 Basic Image Structure<a class="headerlink" href="#basic-image-structure" title="Permalink to this headline">#</a></h2>
+<section id="basic-image-structure">
+<span id="id2"></span><h2>7.1 Basic Image Structure<a class="headerlink" href="#basic-image-structure" title="Permalink to this heading">#</a></h2>
 <p id="index-1">Most images are <em>raster</em> images, which are essentially a grid of pixels where each location on the grid is a number describing that pixel. If the image is a grayscale image, these values represent how light or dark each pixel is; and if it is a color image, the value(s) at each location describe the color. Figure 1 shows a grayscale photo of a flask containing crystals, with a 10 <span class="math notranslate nohighlight">\(\times\)</span> 10 pixel excerpt showing the brightness values from the photo. While there is another major class of images known as <em>vector</em> images, we will restrict ourself to dealing with rastor images in this chapter as primary scientific data tend to be rastor images.</p>
 <p><img alt="" src="../../_images/image_data_graphic.png" /></p>
 <p><strong>Figure 1</strong> An excerpts of values from a grayscale image showing values representing the brightness of each pixel.</p>
-<div class="section" id="loading-images">
-<span id="id3"></span><h3>7.1.1 Loading Images<a class="headerlink" href="#loading-images" title="Permalink to this headline">#</a></h3>
+<section id="loading-images">
+<span id="id3"></span><h3>7.1.1 Loading Images<a class="headerlink" href="#loading-images" title="Permalink to this heading">#</a></h3>
 <p id="index-2">The scikit-image library includes a <code class="docutils literal notranslate"><span class="pre">data</span></code> module containing a series of images for the user to experiment with. To display images in the notebook, use the <code class="docutils literal notranslate"><span class="pre">io.imshow()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">io</span></code> module. Each image in the <code class="docutils literal notranslate"><span class="pre">data</span></code> module has a function for fetching the image, and you can find a complete list of images/functions in the <code class="docutils literal notranslate"><span class="pre">data</span></code> module by typing <code class="docutils literal notranslate"><span class="pre">help(data)</span></code>. We will open and view the image of a lunar surface using the <code class="docutils literal notranslate"><span class="pre">data.moon()</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -681,10 +480,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fa8a2131340&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x10d118850&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_07_notebook_8_1.svg" src="../../_images/chap_07_notebook_8_1.svg" /></div>
+<img alt="../../_images/fc5ddd5e38e0bd46fe4d22df2bb561dba3af17927643f1ea665b58fb589a1068.svg" src="../../_images/fc5ddd5e38e0bd46fe4d22df2bb561dba3af17927643f1ea665b58fb589a1068.svg" /></div>
 </div>
 <p>If we take a closer look at the data contained inside the lunar surface image, we find a two-dimensional NumPy array filled with integers ranging from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255.</p>
 <div class="cell docutils container">
@@ -714,14 +513,14 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fa8a23d75b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x10d1ebf70&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_07_notebook_12_1.svg" src="../../_images/chap_07_notebook_12_1.svg" /></div>
+<img alt="../../_images/43649cd8b136569462d0f5dffd39dee977c905fecd4139c1df9c2d8d47025fdb.svg" src="../../_images/43649cd8b136569462d0f5dffd39dee977c905fecd4139c1df9c2d8d47025fdb.svg" /></div>
 </div>
-</div>
-<div class="section" id="color-images">
-<span id="id4"></span><h3>7.1.2 Color Images<a class="headerlink" href="#color-images" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="color-images">
+<span id="id4"></span><h3>7.1.2 Color Images<a class="headerlink" href="#color-images" title="Permalink to this heading">#</a></h3>
 <p id="index-3">Color images are slightly more complicated to represent because all colors cannot be represented by single integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255. Probably the most popular way to digitally encode colors is <em>RGB</em> which describes every color as a combination of red, green, and blue (Figure 2). These are also known as <em>color channels</em>, and this is typically how computer monitors display colors. If you look close enough at the screen, which may require a magnifying glass for high resolution displays, you can see that every pixel is really made up of three lights: a red, a green, and a blue. Ther perceived color is a mixture or blend of the red, green, and blue values. Being that every pixel now has three values to describe it, a NumPy array that defines a color image is three dimensional. The first two dimensions are the height and width of the image, and the third dimension contains values from each of the three color channels.</p>
 <p><img alt="" src="../../_images/image_data_graphic_color.png" /></p>
 <p><strong>Figure 2</strong> An excerpts of the red, green, and blue color channels for a small portion of a color image. The values in each channel represent the brightness of that color in each pixel.</p>
@@ -736,10 +535,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fa89f061640&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x10d285690&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_07_notebook_14_1.svg" src="../../_images/chap_07_notebook_14_1.svg" /></div>
+<img alt="../../_images/186389b06d09a25a3abe5e41b70a453fcea63f9d766f7cde56cb99601dae971f.svg" src="../../_images/186389b06d09a25a3abe5e41b70a453fcea63f9d766f7cde56cb99601dae971f.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -809,14 +608,14 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fa89f14e0a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x10d320460&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_07_notebook_17_1.svg" src="../../_images/chap_07_notebook_17_1.svg" /></div>
+<img alt="../../_images/d76b29f453d02ab795c481fbb3be407363161b63ca34a8c156e4a26e91bcbfb3.svg" src="../../_images/d76b29f453d02ab795c481fbb3be407363161b63ca34a8c156e4a26e91bcbfb3.svg" /></div>
 </div>
-</div>
-<div class="section" id="external-images">
-<span id="id5"></span><h3>7.1.3 External Images<a class="headerlink" href="#external-images" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="external-images">
+<span id="id5"></span><h3>7.1.3 External Images<a class="headerlink" href="#external-images" title="Permalink to this heading">#</a></h3>
 <p>Alternatively, images can be loaded from an external source using the <code class="docutils literal notranslate"><span class="pre">io.imread()</span></code> function provided by scikit-image. This function requires one argument to tell scikit-image which image the user wants to load. If your Jupyter notebook is in the same directory as the image you want to load, you can simply input the full file name, including the extension, as a string. Otherwise, you will need to include the full path to the file in addition to the name. Below an image showing a flask full of [Ni(CH<span class="math notranslate nohighlight">\(_3\)</span>CN)<span class="math notranslate nohighlight">\(_6\)</span>][BF<span class="math notranslate nohighlight">\(_4\)</span>]<span class="math notranslate nohighlight">\(_2\)</span> crystals is read into Python.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -826,10 +625,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fa8a2262070&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x10d3867d0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_07_notebook_19_1.svg" src="../../_images/chap_07_notebook_19_1.svg" /></div>
+<img alt="../../_images/b24934e8c1156e8c2ccfdb2f40ce877bbfe211313d3cbc080fb169aac46ebe24.svg" src="../../_images/b24934e8c1156e8c2ccfdb2f40ce877bbfe211313d3cbc080fb169aac46ebe24.svg" /></div>
 </div>
 <p>If we look at the array for the flask image below, you will notice that this is a three-dimensional array with four color channels. This can happen in some file types such as Portable Network Graphics (PNG) where a fourth <em>alpha color channel</em> is supported making the coding RGBA. This channel measures opacity… that is, how non-transparent a pixel is. All of the pixels in this image are fully opaque which is represented by all <code class="docutils literal notranslate"><span class="pre">255</span></code>. If the image was fully transparent, the third values would be all zeros, and anything in between would be translucent. PNG images support an alpha channel as do many image formats, but JPG/JPEG images do not support this feature.</p>
 <div class="cell docutils container">
@@ -892,9 +691,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="colormaps">
-<span id="id6"></span><h3>7.1.4 Colormaps<a class="headerlink" href="#colormaps" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="colormaps">
+<span id="id6"></span><h3>7.1.4 Colormaps<a class="headerlink" href="#colormaps" title="Permalink to this heading">#</a></h3>
 <p>So far, we having been displaying images using the scikit-image <code class="docutils literal notranslate"><span class="pre">io.imshow()</span></code> function which is intended specifically for images. Matplotlib also provides a <code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code> function that does roughly the same thing but with some important differences. Below is the red color channel from the hubble image displayed using the <code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code> function. The first thing you probably notice about the image is that the colors are likely not what you expected because when matplotlib deals with a NumPy array, it treats it as generic data, not an image. The human mind does not effectively handle data on this scale, so to make it easier for humans to interpret, matplotlib maps the values to colors according the colormap on the right. By default, the colormap <em>viridis</em> is used, but there are many other colormaps available to choose from in matplotlib.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -905,10 +704,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7fa8a2a9f220&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x10d413f10&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_07_notebook_23_1.svg" src="../../_images/chap_07_notebook_23_1.svg" /></div>
+<img alt="../../_images/7ec9dfb07ea40e930eb7a92ca17bd78febbeb75a198e51664e91d71584c784c0.svg" src="../../_images/7ec9dfb07ea40e930eb7a92ca17bd78febbeb75a198e51664e91d71584c784c0.svg" /></div>
 </div>
 <p>To change colormaps, input the name of a different colormap as a string in the optional <code class="docutils literal notranslate"><span class="pre">cmap</span></code> argument (e.g., <code class="docutils literal notranslate"><span class="pre">plt.imshow(hubble[:,:,0],</span> <span class="pre">cmap='magma')</span></code>). See <a class="reference external" href="https://matplotlib.org/examples/color/colormaps_reference.html">https://matplotlib.org/examples/color/colormaps_reference.html</a> for a list of available colormaps. It is strongly encouraged to use one of the <em>perceptually uniform</em> colormaps because they are more accurately interpreted by humans and also show up as a smooth, interpretable gradient when printed on a black-and-white printer. Below is the display of the Hubble image red channel using the <code class="docutils literal notranslate"><span class="pre">Reds</span></code> colormap.</p>
 <div class="cell docutils container">
@@ -918,21 +717,21 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fa8a31885e0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x10d4b7c10&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_07_notebook_25_1.svg" src="../../_images/chap_07_notebook_25_1.svg" /></div>
+<img alt="../../_images/4f81768525d284533ba9fcd8f9cb91d6db301e915bc779578b2b5e22d7911749.svg" src="../../_images/4f81768525d284533ba9fcd8f9cb91d6db301e915bc779578b2b5e22d7911749.svg" /></div>
 </div>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>To reverse the direction of any matplotlib colormap, include an <code class="docutils literal notranslate"><span class="pre">_r</span></code> after the colormap name. For example, in the above example with the <code class="docutils literal notranslate"><span class="pre">Reds</span></code> colormap, the larger the value, the more red the pixel representing the value becomes. If you use <code class="docutils literal notranslate"><span class="pre">Reds_r</span></code>, the larger the value, the <em>less</em> red the pixel representing the value becomes.</p>
 </div>
-</div>
-</div>
-<div class="section" id="saving-images">
-<span id="id7"></span><h3>7.1.5 Saving Images<a class="headerlink" href="#saving-images" title="Permalink to this headline">#</a></h3>
+</aside>
+</section>
+<section id="saving-images">
+<span id="id7"></span><h3>7.1.5 Saving Images<a class="headerlink" href="#saving-images" title="Permalink to this heading">#</a></h3>
 <span class="target" id="index-4"></span><p id="index-5">After processing an image, it is sometimes helpful to save the image to disk for records, reports, and presentations. Being that the images are ndarrays, the <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> function works just fine if executed in the same Jupyter cell as the <code class="docutils literal notranslate"><span class="pre">io.imshow()</span></code> function. Alternatively, scikit-image provides an image saving function <code class="docutils literal notranslate"><span class="pre">io.imsave(file_name,</span> <span class="pre">array)</span></code> that operates similarly as <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> except with a couple image-specific arguments. One key difference is that <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> does not take an array argument but instead assumes you want the recently displayed image saved while <code class="docutils literal notranslate"><span class="pre">io.imsave(file_name,</span> <span class="pre">array)</span></code> takes an array and can save an image even if it has not been displayed in the Jupyter notebook. Check the directory containing the Jupyter notebook, and there should be a new file titled <em>new_image.png</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -941,33 +740,33 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="basic-image-manipulation">
-<span id="id8"></span><h2>7.2 Basic Image Manipulation<a class="headerlink" href="#basic-image-manipulation" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="basic-image-manipulation">
+<span id="id8"></span><h2>7.2 Basic Image Manipulation<a class="headerlink" href="#basic-image-manipulation" title="Permalink to this heading">#</a></h2>
 <p>The scikit-image library along with NumPy also provide a variety of basic image manipulation functions such as adjusting the color, managing how the data is numerically represented, and establishing threshold cutoff values.</p>
-<div class="section" id="colors">
-<span id="id9"></span><h3>7.2.1 Colors<a class="headerlink" href="#colors" title="Permalink to this headline">#</a></h3>
+<section id="colors">
+<span id="id9"></span><h3>7.2.1 Colors<a class="headerlink" href="#colors" title="Permalink to this heading">#</a></h3>
 <p>There are numerous ways to represent colors in digital data. The RGB color space is undoubtably one of the most popular color spaces, but there are others that you may encounter such as HSV (hue, saturation, value) or XYZ. Scikit-image provides functions in the <code class="docutils literal notranslate"><span class="pre">color</span></code> module for easily converting between these color spaces, and Table 2 lists some common functions. See the <a class="reference external" href="https://scikit-image.org/">scikit-image website</a> for a more complete list.</p>
 <p><strong>Table 2</strong> Common Functions from the <code class="docutils literal notranslate"><span class="pre">color</span></code> Module</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:center head"><p>Function</p></th>
-<th class="text-align:left head"><p>Description</p></th>
+<tr class="row-odd"><th class="head text-center"><p>Function</p></th>
+<th class="head text-left"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">color.rgb2gray()</span></code></p></td>
-<td class="text-align:left"><p>Coverts from RGB to grayscale</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">color.rgb2gray()</span></code></p></td>
+<td class="text-left"><p>Coverts from RGB to grayscale</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">color.gray2rgb()</span></code></p></td>
-<td class="text-align:left"><p>Coverts grayscale to RGB; by just replicating the gray values into three color channels</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">color.gray2rgb()</span></code></p></td>
+<td class="text-left"><p>Coverts grayscale to RGB; by just replicating the gray values into three color channels</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">color.hsv2rbg()</span></code></p></td>
-<td class="text-align:left"><p>HSV to RGB conversion</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">color.hsv2rbg()</span></code></p></td>
+<td class="text-left"><p>HSV to RGB conversion</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">color.xyz2rgb()</span></code></p></td>
-<td class="text-align:left"><p>XYZ to RGB conversion</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">color.xyz2rgb()</span></code></p></td>
+<td class="text-left"><p>XYZ to RGB conversion</p></td>
 </tr>
 </tbody>
 </table>
@@ -997,36 +796,36 @@ title="Print to PDF"
 </div>
 </div>
 <p>You will notice that scikit-image takes a three-dimensional data structure, the third dimension being the color channels, and converted it to a two-dimensional, grayscale structure as expected. One detail that may strike you as different is that the values are decimals. Up to this point, grayscale images were represented as two-dimensional arrays of integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255. There is no rule that says lightness and darkness values need to be represented as integers. Above, they are presented as floats from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1. This brings us to the next topic of encoding values.</p>
-</div>
-<div class="section" id="encoding">
-<span id="id10"></span><h3>7.2.2 Encoding<a class="headerlink" href="#encoding" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="encoding">
+<span id="id10"></span><h3>7.2.2 Encoding<a class="headerlink" href="#encoding" title="Permalink to this heading">#</a></h3>
 <p id="index-6"><em>Encoding</em> is how the values are presented in the image array. The two most common are integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255 or floats from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1. However, there are other ranges outlined in Table 3. Though you may have never encounter some, it is good to be aware that they exist in case you need to deal with them. The difference between signed integers (<code class="docutils literal notranslate"><span class="pre">int</span></code>) and unsigned integers (<code class="docutils literal notranslate"><span class="pre">uint</span></code>) is that unsigned integers are only positive integers starting with zero while signed integers are both positive and negative centered approximately around zero. The approximate part is because there are equal numbers of positive and negative integers, and being that zero is a positive integer, zero is not the exact center. To determine what the range of values is for an image, scikit-image provides the function <code class="docutils literal notranslate"><span class="pre">skimage.dtype.limits()</span></code>.</p>
 <p>Scikit-image also provides some convenient functions for converting to various value ranges described in Table 3. These functions are not contained in a module, so you will need to just do an <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">skimage</span></code> to get access to them, which was done at the start of this chapter. The one format that probably needs commenting on is the Boolean format. In this encoding, every pixel is a <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> value, which is equivalent to saying <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">0</span></code>. This is for black-and-white images where each pixel is one of two possible values.</p>
 <p><strong>Table 3</strong> Scikit-Image Functions for Converting Data Types</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:center head"><p>Functions</p></th>
-<th class="text-align:left head"><p>Description</p></th>
+<tr class="row-odd"><th class="head text-center"><p>Functions</p></th>
+<th class="head text-left"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">skimage.img_as_ubyte()</span></code></p></td>
-<td class="text-align:left"><p>Converts to integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">skimage.img_as_ubyte()</span></code></p></td>
+<td class="text-left"><p>Converts to integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">skimage.img_as_uint()</span></code></p></td>
-<td class="text-align:left"><p>Converts to integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 65535</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">skimage.img_as_uint()</span></code></p></td>
+<td class="text-left"><p>Converts to integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 65535</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">skimage.img_as_int()</span></code></p></td>
-<td class="text-align:left"><p>Converts to integers from -32768 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 32767</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">skimage.img_as_int()</span></code></p></td>
+<td class="text-left"><p>Converts to integers from -32768 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 32767</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">akimage.img_as_bool()</span></code></p></td>
-<td class="text-align:left"><p>Converts to boolean (i.e., <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>) format</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">akimage.img_as_bool()</span></code></p></td>
+<td class="text-left"><p>Converts to boolean (i.e., <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>) format</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">skimage.img_as_float32()</span></code></p></td>
-<td class="text-align:left"><p>Converts to floats from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1 with 32-bit precision</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">skimage.img_as_float32()</span></code></p></td>
+<td class="text-left"><p>Converts to floats from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1 with 32-bit precision</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">skimage.img_as_float64()</span></code> or <code class="docutils literal notranslate"><span class="pre">img_as_float</span></code></p></td>
-<td class="text-align:left"><p>Converts to floats from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1 with 64-bit precision</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">skimage.img_as_float64()</span></code> or <code class="docutils literal notranslate"><span class="pre">img_as_float</span></code></p></td>
+<td class="text-left"><p>Converts to floats from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1 with 64-bit precision</p></td>
 </tr>
 </tbody>
 </table>
@@ -1055,9 +854,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="image-contrast">
-<span id="id11"></span><h3>7.2.3 Image Contrast<a class="headerlink" href="#image-contrast" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="image-contrast">
+<span id="id11"></span><h3>7.2.3 Image Contrast<a class="headerlink" href="#image-contrast" title="Permalink to this heading">#</a></h3>
 <p id="index-7">Before trying to extract certain types of information or identify features in an image, it is sometimes helpful to first increase the contrast of an image. There are a number of ways of doing this including thresholding and modification of the image histogram. Some approaches can be performed using NumPy array manipulation, but scikit-image also provides convenient functions designed for these task.</p>
 <p><em>Thresholding</em> can be used to generate a black-and-white image (i.e., not grayscale) by converting gray values at or below a brightness threshold to black and above the threshold to white. The threshold can be set manually or by an algorithm that chooses an optimal value customized to each image. We will start with manually setting a threshold. The grayscale image generated from <code class="docutils literal notranslate"><span class="pre">rgb2gray()</span></code> is encoded with floats from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1, so a threshold of 0.65 is chosen using trial-and-error. A black-and-white image is then generated as a Boolean. The resulting black-and-white image is shown below.</p>
 <div class="cell docutils container">
@@ -1069,10 +868,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fa8a30f6490&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x10d56e770&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_07_notebook_36_1.svg" src="../../_images/chap_07_notebook_36_1.svg" /></div>
+<img alt="../../_images/03e781f94c5c0f1d1f6c4b4f74683cd322b6f3a4c3e5460de3dc0ddcd370addf.svg" src="../../_images/03e781f94c5c0f1d1f6c4b4f74683cd322b6f3a4c3e5460de3dc0ddcd370addf.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1083,49 +882,49 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fa8a3ae9550&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x10d5d6fb0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_07_notebook_37_1.svg" src="../../_images/chap_07_notebook_37_1.svg" /></div>
+<img alt="../../_images/675e93ae5aff4af1d6245a60e750670aebabac880bf5b806333e513e44ef71b6.svg" src="../../_images/675e93ae5aff4af1d6245a60e750670aebabac880bf5b806333e513e44ef71b6.svg" /></div>
 </div>
 <p>The appropriate threshold may vary from image to image, so manually setting a value is sometimes not practical. Scikit-image provides a number of functions in the filters module for automatically choosing a threshold show below in Table 4. If you are not sure which of the functions below to use, there is a <code class="docutils literal notranslate"><span class="pre">try_all_filters()</span></code> function in the filters module that will try seven of them and plot the results for easy comparison.</p>
 <p><strong>Table 4</strong> Threshold Functions from the <code class="docutils literal notranslate"><span class="pre">filters</span></code> Module</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:center head"><p>Functions</p></th>
-<th class="text-align:left head"><p>Description*</p></th>
+<tr class="row-odd"><th class="head text-center"><p>Functions</p></th>
+<th class="head text-left"><p>Description*</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">filters.threshold_isodata()</span></code></p></td>
-<td class="text-align:left"><p>Threshold value from ISODATA method</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">filters.threshold_isodata()</span></code></p></td>
+<td class="text-left"><p>Threshold value from ISODATA method</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">filters.threshold_li()</span></code></p></td>
-<td class="text-align:left"><p>Threshold value from Li’s minimum cross entropy method</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">filters.threshold_li()</span></code></p></td>
+<td class="text-left"><p>Threshold value from Li’s minimum cross entropy method</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">filters.threshold_local()</span></code></p></td>
-<td class="text-align:left"><p>Threshold mask (array) from local neighborhoods</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">filters.threshold_local()</span></code></p></td>
+<td class="text-left"><p>Threshold mask (array) from local neighborhoods</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">filters.threshold_mean()</span></code></p></td>
-<td class="text-align:left"><p>Threshold value from mean grayscale value</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">filters.threshold_mean()</span></code></p></td>
+<td class="text-left"><p>Threshold value from mean grayscale value</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">filters.threshold_minimum()</span></code></p></td>
-<td class="text-align:left"><p>Threshold value from minimum method</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">filters.threshold_minimum()</span></code></p></td>
+<td class="text-left"><p>Threshold value from minimum method</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">filters.threshold_niblack()</span></code></p></td>
-<td class="text-align:left"><p>Threshold mask (array) from the Niblack method</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">filters.threshold_niblack()</span></code></p></td>
+<td class="text-left"><p>Threshold mask (array) from the Niblack method</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">filters.threshold_otsu()</span></code></p></td>
-<td class="text-align:left"><p>Threshold value from Otsu’s method</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">filters.threshold_otsu()</span></code></p></td>
+<td class="text-left"><p>Threshold value from Otsu’s method</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">filters.threshold_sauvola()</span></code></p></td>
-<td class="text-align:left"><p>Threshold mask (array) from Sauvola method</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">filters.threshold_sauvola()</span></code></p></td>
+<td class="text-left"><p>Threshold mask (array) from Sauvola method</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">filters.threshold_triangle()</span></code></p></td>
-<td class="text-align:left"><p>Threshold value from triangle method</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">filters.threshold_triangle()</span></code></p></td>
+<td class="text-left"><p>Threshold value from triangle method</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">filters.threshold_yen()</span></code></p></td>
-<td class="text-align:left"><p>Threshold value from Yen method</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">filters.threshold_yen()</span></code></p></td>
+<td class="text-left"><p>Threshold value from Yen method</p></td>
 </tr>
 </tbody>
 </table>
@@ -1156,7 +955,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Counts&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_07_notebook_41_1.svg" src="../../_images/chap_07_notebook_41_1.svg" /></div>
+<img alt="../../_images/09f37e40dfd556c4517a659a0b05d9e6e2651fc0aa55823e8dd1549a540e6f83.svg" src="../../_images/09f37e40dfd556c4517a659a0b05d9e6e2651fc0aa55823e8dd1549a540e6f83.svg" /></div>
 </div>
 <p>This is a plot of how many of each type of brightness value is present in the image. There are practically no pixels in the image that are black (value 0) or completely white (value 255), but there are two main collections of gray values. The contrast of this image can be increased by performing histogram equalization, which spreads these values out more evenly. The <code class="docutils literal notranslate"><span class="pre">exposure</span></code> module provides an <code class="docutils literal notranslate"><span class="pre">equalize_hist()</span></code> function for this task.</p>
 <div class="cell docutils container">
@@ -1167,10 +966,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fa8a5eb1340&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x16bdbb700&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_07_notebook_43_1.svg" src="../../_images/chap_07_notebook_43_1.svg" /></div>
+<img alt="../../_images/60e12cce6eaa4720c5315dee898d8736a0a4b7aad72f448296107221a50c35c4.svg" src="../../_images/60e12cce6eaa4720c5315dee898d8736a0a4b7aad72f448296107221a50c35c4.svg" /></div>
 </div>
 <p>Histogram equalization does not produce a black-and-white image, but it does make the dark values darker and the light values lighter. If we look at the histogram for this image, it will be more even as shown below.</p>
 <div class="cell docutils container">
@@ -1186,15 +985,15 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Counts&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/chap_07_notebook_45_1.svg" src="../../_images/chap_07_notebook_45_1.svg" /></div>
+<img alt="../../_images/e555abb6550f7e038378ecb40347fa564f8f8b57c32daf25b73d6e48ddb961ec.svg" src="../../_images/e555abb6550f7e038378ecb40347fa564f8f8b57c32daf25b73d6e48ddb961ec.svg" /></div>
 </div>
-</div>
-</div>
-<div class="section" id="scikit-image-examples">
-<span id="id12"></span><h2>7.3 Scikit-Image Examples<a class="headerlink" href="#scikit-image-examples" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="scikit-image-examples">
+<span id="id12"></span><h2>7.3 Scikit-Image Examples<a class="headerlink" href="#scikit-image-examples" title="Permalink to this heading">#</a></h2>
 <p>The scikit-image library contains numerous functions for performing various scientific analyses… so many that they cannot be comprehensively covered here. Below is a selection of some interesting examples that are relevant to science including counting objects in images, entropy analysis, and measuring eccentricity of objects. The examples below use mostly synthetic data to represent various data you might encounter in the lab. Real data can be easily extracted from publications but are not used here for copyright reasons.</p>
-<div class="section" id="blob-detection">
-<span id="id13"></span><h3>7.3.1 Blob Detection<a class="headerlink" href="#blob-detection" title="Permalink to this headline">#</a></h3>
+<section id="blob-detection">
+<span id="id13"></span><h3>7.3.1 Blob Detection<a class="headerlink" href="#blob-detection" title="Permalink to this heading">#</a></h3>
 <p id="index-8">A classic problem that translates across many scientific fields is to count spots in a photograph. A biologist may need to quantifying the number of bacteria colonies in a petrie dish over the course of an experiment, while an astronomer may want to count the number of stars in a large cluster. In chemistry, this problem may occur as a need to quantify the number of nanoparticles in a photograph or using the locations to calculate the average distances between the particles.</p>
 <p>The good news is that the scikit-image library provides three functions that will take a photograph and return an array of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(z\)</span> coordinates indicating where the blobs are located in the image. If all you care about is the number of blobs, simply find the length of the returned array. There are three functions listed below which include Laplacian of Gaussian (LoG), Difference of Gaussian (DoG), and Determinant of Hessian (DoH). The LoG algorithm is the most accurate but the slowest while the DoH algorithm is the fastest. These functions only accept two-dimensional images, so if it is a color image, you will need to either convert it to grayscale or select a single color channel to work with.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">skimage</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">blob_log</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="p">)</span>
@@ -1212,10 +1011,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fa8915ee460&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x16beb32e0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_07_notebook_47_1.svg" src="../../_images/chap_07_notebook_47_1.svg" /></div>
+<img alt="../../_images/cfbabe499842163c849b825878bc2615fa982cd194921b19958e2a0d2b6b905a.svg" src="../../_images/cfbabe499842163c849b825878bc2615fa982cd194921b19958e2a0d2b6b905a.svg" /></div>
 </div>
 <p>An image of black dots on a white background is imported above, but the blob detection algorithms work best with light colors on a dark background. We will invert the image below by subtracting the values from the maximum value or using the <code class="docutils literal notranslate"><span class="pre">color.rgb2gray()</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dots_inverted</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">rgb2gray</span><span class="p">(</span><span class="mi">255</span> <span class="o">-</span> <span class="n">dots</span><span class="p">)</span>
@@ -1233,10 +1032,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fa8919119d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x16da16ec0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_07_notebook_49_1.svg" src="../../_images/chap_07_notebook_49_1.svg" /></div>
+<img alt="../../_images/ac3fd264a0d0dac73ef6bc9d01ae0bd35a1ba6097a2f5f99c547f0f7fbd5be29.svg" src="../../_images/ac3fd264a0d0dac73ef6bc9d01ae0bd35a1ba6097a2f5f99c547f0f7fbd5be29.svg" /></div>
 </div>
 <p>To detect the blobs, we will use the <code class="docutils literal notranslate"><span class="pre">blob_dog()</span></code> function as demonstrated below. The function allows for a <code class="docutils literal notranslate"><span class="pre">threshold</span></code> argument to be set to adjust the sensitivity of the algorithm in finding blobs. A lower threshold results in smaller or less intense blobs included in the returned array.</p>
 <div class="cell docutils container">
@@ -1248,18 +1047,18 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1096.        ,  847.        ,   42.94967296],
-       [ 565.        ,  453.        ,   42.94967296],
-       [ 892.        , 1097.        ,   42.94967296],
-       [ 980.        ,  283.        ,   42.94967296],
-       [ 391.        , 1346.        ,   26.8435456 ],
-       [ 251.        ,  219.        ,   26.8435456 ],
-       [1021.        , 1534.        ,   26.8435456 ],
-       [ 596.        ,  949.        ,   26.8435456 ],
-       [ 531.        , 1632.        ,   26.8435456 ],
-       [ 120.        ,  877.        ,   26.8435456 ],
-       [ 258.        , 1308.        ,   26.8435456 ],
-       [ 383.        ,  888.        ,   26.8435456 ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1096.       ,  847.       ,   26.8435456],
+       [ 565.       ,  453.       ,   26.8435456],
+       [ 892.       , 1097.       ,   26.8435456],
+       [ 980.       ,  283.       ,   26.8435456],
+       [1021.       , 1534.       ,   16.777216 ],
+       [ 596.       ,  949.       ,   16.777216 ],
+       [ 531.       , 1632.       ,   16.777216 ],
+       [ 120.       ,  877.       ,   16.777216 ],
+       [ 258.       , 1308.       ,   16.777216 ],
+       [ 383.       ,  888.       ,   16.777216 ],
+       [ 391.       , 1346.       ,   26.8435456],
+       [ 251.       ,  219.       ,   26.8435456]])
 </pre></div>
 </div>
 </div>
@@ -1273,10 +1072,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fa89160a790&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x16e0bb220&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/chap_07_notebook_53_1.svg" src="../../_images/chap_07_notebook_53_1.svg" /></div>
+<img alt="../../_images/f5477d51df344d23783dc5b906859c2d0f88e1635047b5158436facccd2b1541.svg" src="../../_images/f5477d51df344d23783dc5b906859c2d0f88e1635047b5158436facccd2b1541.svg" /></div>
 </div>
 <p>To find the number of spots, determine length of the array using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> Pythong function or using .</p>
 <div class="cell docutils container">
@@ -1291,9 +1090,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="entropy-analysis">
-<span id="id14"></span><h3>7.3.2 Entropy Analysis<a class="headerlink" href="#entropy-analysis" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="entropy-analysis">
+<span id="id14"></span><h3>7.3.2 Entropy Analysis<a class="headerlink" href="#entropy-analysis" title="Permalink to this heading">#</a></h3>
 <p id="index-9">The term <em>entropy</em> outside of the physical sciences is used to represent a quantification of disorder or irregularity. In image analysis, this disorder is the amount of pixel (brightness or color) variation within a region of the image. As you will see below, entropy is the highest near the boundaries and in noisy areas of a photograph. This makes an entropy analysis useful for edge detection, checking for image quality, and detecting alterations to an image.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">filters.rank</span></code> modules contains the entropy function shown below. It works by going through the image pixel-by-pixel and calculating the entropy in the neighborhood. The <em>neighborhood</em> is the area around each pixel. An entropy value is recored in the new array at each location and can be plotted to generate an entropy map. The entropy function takes two required arguments: the image (<code class="docutils literal notranslate"><span class="pre">img</span></code>) and a description of the neighborhood called a <em>structured element</em> (<code class="docutils literal notranslate"><span class="pre">selem</span></code>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">filters</span><span class="o">.</span><span class="n">rank</span><span class="o">.</span><span class="n">entropy</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">selem</span><span class="p">)</span>
@@ -1335,22 +1134,22 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7fa85c2effd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x16e4af400&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_07_notebook_59_1.svg" src="../../_images/chap_07_notebook_59_1.svg" /></div>
+<img alt="../../_images/f2d7dbb744ffd0bc35317315fa7a2d71a0ad567ad7a8f5038619b5a068f02a13.svg" src="../../_images/f2d7dbb744ffd0bc35317315fa7a2d71a0ad567ad7a8f5038619b5a068f02a13.svg" /></div>
 </div>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The step above for converting the image repesentation from floats to integers is not strictly required, but the <code class="docutils literal notranslate"><span class="pre">entropy()</span></code> function will generate a loss of precision warning if you do not.</p>
 </div>
-</div>
+</aside>
 <p>Examination of the image shows that there is an increase in entropy near the edges of the features in the image as expected. There are two regions (blue) that contain unusually low entropy. If you look back at the original image, these regions are comparatively homogeneous in color.</p>
-</div>
-<div class="section" id="eccentricity">
-<span id="id15"></span><h3>7.3.3 Eccentricity<a class="headerlink" href="#eccentricity" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="eccentricity">
+<span id="id15"></span><h3>7.3.3 Eccentricity<a class="headerlink" href="#eccentricity" title="Permalink to this heading">#</a></h3>
 <p><em>Eccentricity</em> is the measurement of how non-circular an object is. It runs from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1 with zero being a perfect circle and large values representing more eccentric objects. This can be useful for quantifying the shape of nanoparticles or droplets of liquid. The <code class="docutils literal notranslate"><span class="pre">measure</span></code> module from scikit-image provides an easy method of measuring eccentricity. First, let us first import an image of ovals for an example. Alternatively, you are welcome to use the <code class="docutils literal notranslate"><span class="pre">coins</span></code> image from the <code class="docutils literal notranslate"><span class="pre">data</span></code> module, but this will require some preprocessing such as increasing the contrast.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1360,10 +1159,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fa85bf684c0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x16e5673a0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_07_notebook_63_1.svg" src="../../_images/chap_07_notebook_63_1.svg" /></div>
+<img alt="../../_images/527b81461e8ed7669ec800da51fa230a3363f1afc998dfc4bda1ebbbce411eb0.svg" src="../../_images/527b81461e8ed7669ec800da51fa230a3363f1afc998dfc4bda1ebbbce411eb0.svg" /></div>
 </div>
 <p>The main function for measuring eccentricity is the <code class="docutils literal notranslate"><span class="pre">regionsprops()</span></code> function, but this function by itself cannot find the objects. Luckily, there is another function in the <code class="docutils literal notranslate"><span class="pre">measure</span></code> module called <code class="docutils literal notranslate"><span class="pre">label()</span></code> that will do exactly this, and this function requires the regions to be light with dark backgrounds. The following inverts the light and dark and also truncates the alpha channel from the RGBA image.</p>
 <div class="cell docutils container">
@@ -1374,10 +1173,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fa85c13dbb0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1774aa6e0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/chap_07_notebook_65_1.svg" src="../../_images/chap_07_notebook_65_1.svg" /></div>
+<img alt="../../_images/0aa8b5abf51a0c4f029282faec4e512541316ee92ae46fe1dd250e4384c6af82.svg" src="../../_images/0aa8b5abf51a0c4f029282faec4e512541316ee92ae46fe1dd250e4384c6af82.svg" /></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">regionsprops()</span></code> function returns the properties on the two ovals in a list of lists. The first list corresponds to the first object and so on. Each list contains an extensive collection of properties, so it is worth visiting the scikit-image website to see the complete documentation. We are only concerned with eccentricity right now, so we can access the eccentricity of the first object with <code class="docutils literal notranslate"><span class="pre">props[0].eccentricity</span></code>, which gives a value of about 0.95 for the first object while the second object has a much lower values of about 0.40. This makes sense being that the first object is very eccentric while the second object is much more circular.</p>
 <div class="cell docutils container">
@@ -1396,7 +1195,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9469273936534165
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9469273936534166
 </pre></div>
 </div>
 </div>
@@ -1408,25 +1207,25 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.39666071911271933
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.39666071911271866
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="further-reading">
-<h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="further-reading">
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
 <p>The scikit-image library with NumPy are likely all you will need for a vast majority of your scientific image processing, and the scikit-image project webpage is an excellent course of information and examples. The gallery page is particularly worth checking out as it provides a large number of examples highlighting the library’s capabilities. In the event there is an edge case the scikit-image cannot do, the pillow library may be of some use. Pillow provides more fundamental image processing functionality such as extracting metadata from the original file.</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Scikit-image Website. <a class="reference external" href="http://scikit-image.org/">http://scikit-image.org/</a> (free resource)</p></li>
 <li><p>Pillow Documentation Page. <a class="reference external" href="https://pillow.readthedocs.io/en/stable/">https://pillow.readthedocs.io/en/stable/</a> (free resource)</p></li>
 </ol>
-</div>
-<div class="section" id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <p>Complete the following exercises in a Jupyter notebook. Any data file(s) refered to in the problems can be found in the <a class="reference external" href="https://github.com/weisscharlesj/SciCompforChemists/tree/master/notebooks">data</a> folder in the same directory as this chapter’s Jupyter notebook. Alternatively, you can download a zip file of the data for this chapter from <a class="reference external" href="https://github.com/weisscharlesj/data_SciCompforChem">here</a> by selecting the appropriate chapter file and then clicking the <strong>Download</strong> button.</p>
-<ol>
+<ol class="arabic">
 <li><p>Import the image titled <strong>NaK_THF.jpg</strong> using scikit-image.</p>
 <p>a) Convert the image to grayscale using a scikit-image function.</p>
 <p>b) Save the grayscale image using the <code class="docutils literal notranslate"><span class="pre">io</span></code> module.</p>
@@ -1448,8 +1247,8 @@ title="Print to PDF"
 <li><p>The image <strong>test_tube_altered.png</strong> has been altered using photo editing software. Generate and plot an entropy map of the image to identify the altered regions.</p></li>
 <li><p>Steganography is the practice of hiding information in an image or digital file to avoid detection. The file <strong>hidden_img.png</strong> was created by combining an image with pseudorandom noise to mask the original image. Perform an entropy analysis on the image to reveal the original image. You may need to adjust the size of the selection element (<code class="docutils literal notranslate"><span class="pre">selem</span></code>) to detect the hidden image.</p></li>
 </ol>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1463,7 +1262,7 @@ title="Print to PDF"
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./notebooks/chapter_07"
         },
         predefinedOutput: true
@@ -1471,53 +1270,129 @@ title="Print to PDF"
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../chapter_06/chap_06_notebook.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Chapter 6: Signal &amp; Noise</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../chapter_06/chap_06_notebook.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 6: Signal &amp; Noise</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="../chapter_08/chap_08_notebook.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="../chapter_08/chap_08_notebook.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Chapter 8: Mathematics</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Charles J. Weiss<br/>
-  
-      &copy; Copyright 2017-2022.<br/>
-    <div class="extra_footer">
-      Scientific Computing for Chemists with Python is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
-    </div>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-image-structure">7.1 Basic Image Structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-images">7.1.1 Loading Images</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color-images">7.1.2 Color Images</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#external-images">7.1.3 External Images</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#colormaps">7.1.4 Colormaps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-images">7.1.5 Saving Images</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-image-manipulation">7.2 Basic Image Manipulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#colors">7.2.1 Colors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding">7.2.2 Encoding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-contrast">7.2.3 Image Contrast</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scikit-image-examples">7.3 Scikit-Image Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blob-detection">7.3.1 Blob Detection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entropy-analysis">7.3.2 Entropy Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eccentricity">7.3.3 Eccentricity</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further Reading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Charles J. Weiss
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2017-2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Scientific Computing for Chemists with Python is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
