@@ -549,10 +549,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1271ab760&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1288ab760&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/dfe254803afccbacc6e0fdfc5a74c7d42bb3bd3386ab4c372050bcb6437b3712.svg" src="../../_images/dfe254803afccbacc6e0fdfc5a74c7d42bb3bd3386ab4c372050bcb6437b3712.svg" /></div>
+<img alt="../../_images/39b51b0bb9e5d33daaee3e656e84aa77c5f90c6da71315572e27bda7e61d4c23.svg" src="../../_images/39b51b0bb9e5d33daaee3e656e84aa77c5f90c6da71315572e27bda7e61d4c23.svg" /></div>
 </div>
 <p>To convert the data to the frequency domain, we will use the fast Fourier transform function (<code class="docutils literal notranslate"><span class="pre">fft</span></code>) from the <code class="docutils literal notranslate"><span class="pre">fft</span></code> SciPy module. NMRglue also contains Fourier transform functions, but we will use SciPy here. The plot below inverts the <em>x</em>-axis with</p>
 <div class="cell docutils container">
@@ -573,7 +573,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/fd4e69c5fe6bfa474f66804510a5eb3d2aaad1165958311a44ad4d214588bc33.svg" src="../../_images/fd4e69c5fe6bfa474f66804510a5eb3d2aaad1165958311a44ad4d214588bc33.svg" /></div>
+<img alt="../../_images/72e53c949826ad8a70ddaa1ef9ba50376b7fed7bbbeeb1c92e9d302ba655da23.svg" src="../../_images/72e53c949826ad8a70ddaa1ef9ba50376b7fed7bbbeeb1c92e9d302ba655da23.svg" /></div>
 </div>
 <p>When you plot the Fourier transformed data, you may get a <code class="docutils literal notranslate"><span class="pre">ComplexWarning</span></code> error message because the Fourier transform will return complex values (i.e., values with real and imaginary components). To only work with the real components, use the <code class="docutils literal notranslate"><span class="pre">.real</span></code> method as is done above. The plot now looks more like an NMR spectrum, but most of the resonances are out of phase. The next step is to phase the spectrum.</p>
 </section>
@@ -614,7 +614,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2b66008ee94f5701ecb1af56344dbd8de5266fe027cdf8d2e5fd190560c3ec11.svg" src="../../_images/2b66008ee94f5701ecb1af56344dbd8de5266fe027cdf8d2e5fd190560c3ec11.svg" /></div>
+<img alt="../../_images/994bb834baa74ca7c4f1e767deb2123c642b9ebb48988ce5c9d4968d9fdbb5d0.svg" src="../../_images/994bb834baa74ca7c4f1e767deb2123c642b9ebb48988ce5c9d4968d9fdbb5d0.svg" /></div>
 </div>
 <p>You should try both algorithms to see which works best for you. The above spectrum is the result of the <code class="docutils literal notranslate"><span class="pre">acme</span></code> autophasing algorithm which is close but still slightly off. If neither of the provided autophasing algorithms work for you, you will need to instead manually phase the NMR spectrum as discussed below.</p>
 </section>
@@ -679,7 +679,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/87f8748405ed57e3c00fc34a475f485ed55f04e968ac4b292df9b5eadce6c63f.svg" src="../../_images/87f8748405ed57e3c00fc34a475f485ed55f04e968ac4b292df9b5eadce6c63f.svg" /></div>
+<img alt="../../_images/99a4114a7730cc36663fae2f7e83da4752b2e766008ab72c6a2d1d8a7d17e6e6.svg" src="../../_images/99a4114a7730cc36663fae2f7e83da4752b2e766008ab72c6a2d1d8a7d17e6e6.svg" /></div>
 </div>
 <p>Alternatively, NMRglue contains an object called a <em>unit conversion object</em> that can be created and used to convert between ppm, Hz, and point index values for any position in an NMR spectrum. To create a unit unit conversion object, use the <code class="docutils literal notranslate"><span class="pre">make_uc()</span></code> function which takes two arguments  – the dictionary, <code class="docutils literal notranslate"><span class="pre">dic</span></code>, and the original data array, <code class="docutils literal notranslate"><span class="pre">data</span></code>, generated from reading the NMR file in section 11.2.</p>
 <aside class="margin sidebar">
@@ -730,7 +730,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/de9c5ad48ea230a0c5bcc4d07244bf04f9bdd2661fc78d1c9c9fd46d2230fca6.svg" src="../../_images/de9c5ad48ea230a0c5bcc4d07244bf04f9bdd2661fc78d1c9c9fd46d2230fca6.svg" /></div>
+<img alt="../../_images/a78cd5034f33ccdd0b79716410d3b317be78621ee8e71f3b35a861c1cdd3e09d.svg" src="../../_images/a78cd5034f33ccdd0b79716410d3b317be78621ee8e71f3b35a861c1cdd3e09d.svg" /></div>
 </div>
 <p>If you want to narrow the plot to where the resonances are located, you can use the <code class="docutils literal notranslate"><span class="pre">plt.xlim(8,0)</span></code> function. Notice that 8 is first to indicate that the plot is from 8 ppm <span class="math notranslate nohighlight">\(\rightarrow\)</span> 0 ppm. The use of <code class="docutils literal notranslate"><span class="pre">plt.xlim(8,0)</span></code> removes the need to use <code class="docutils literal notranslate"><span class="pre">plt.gca().invert_xaxis()</span></code> to flip the <em>x</em>-axis.</p>
 </section>
@@ -770,7 +770,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/cda1cb43787631cd29d13e8af52b9d5cae24b6fbb4ffa5ca6e84f3f8ce7f8d39.svg" src="../../_images/cda1cb43787631cd29d13e8af52b9d5cae24b6fbb4ffa5ca6e84f3f8ce7f8d39.svg" /></div>
+<img alt="../../_images/dbd5af1f54544646d8f3259a9cd536b7a146d11c3a6ee4d8273775eb825ab21b.svg" src="../../_images/dbd5af1f54544646d8f3259a9cd536b7a146d11c3a6ee4d8273775eb825ab21b.svg" /></div>
 </div>
 <p>The limits are in ppm, so take a look at the spectrum above and decide where you want to put the integration limits. An NMR spectrum with the chosen integration limits are shown above as vertical red lines.</p>
 <p>Now to integrate our NMR spectrum.</p>
@@ -822,10 +822,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x1277393f0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x128d393f0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/9cfa0df187358a523bdfc2188962ea1ef9bb82661ab56b2262d489a76dfdbc90.svg" src="../../_images/9cfa0df187358a523bdfc2188962ea1ef9bb82661ab56b2262d489a76dfdbc90.svg" /></div>
+<img alt="../../_images/a08716b5c338f1c1fb5dfb32bdb0fbf3f8c8a61f8f044c8d3f2a904ea28e3d9b.svg" src="../../_images/a08716b5c338f1c1fb5dfb32bdb0fbf3f8c8a61f8f044c8d3f2a904ea28e3d9b.svg" /></div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -879,7 +879,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d55425af98e9a003dfe6db6898172984fe31ae4a2c309039ac60a8d88f12d428.svg" src="../../_images/d55425af98e9a003dfe6db6898172984fe31ae4a2c309039ac60a8d88f12d428.svg" /></div>
+<img alt="../../_images/1b9aa2a02258c1cef99c9b38010a1216c7410dc7f5268d053041acf57f6c11c1.svg" src="../../_images/1b9aa2a02258c1cef99c9b38010a1216c7410dc7f5268d053041acf57f6c11c1.svg" /></div>
 </div>
 <p>We can plot the NMR spectrum with these chemical shifts marked with vertical dotted lines shown below. Looks like it did a pretty good job locating the resonances! If NMRglue fails to properly identify the peaks, there are a number of parameters described in the <a class="reference external" href="https://nmrglue.readthedocs.io/en/latest/reference/generated/nmrglue.analysis.peakpick.pick.html#nmrglue.analysis.peakpick.pick">NMRglue documentation</a> that can be adjusted.</p>
 </section>
