@@ -366,7 +366,7 @@ document.write(`
 <span id="id1"></span><h1>Chapter 14: Optimization and Root Finding<a class="headerlink" href="#chapter-14-optimization-and-root-finding" title="Permalink to this heading">#</a></h1>
 <span class="target" id="index-0"></span><p id="index-1"><em>Optimization</em> is the process of improving something to the extent that it cannot be reasonably improved any further. This often involves maximizing desirable attributes and/or minimizing those that are undesirable, so finding the maximum and minimum are common optimization goals. While you may or may not have previously worked <em>directly</em> with optimization, you almost certainly have used it as part of a larger application or task such as energy minimization of a molecule, regression analysis, or a number of machine learning algorithms.</p>
 <p>In optimization tasks, we often find ourselves searching for the maximum or minimum of a given mathematical function. If we, for example, seek to minimize a function <span class="math notranslate nohighlight">\(f(a,b)\)</span>, our goal is to find values for input variables <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> to generate the smallest possible output from the function <span class="math notranslate nohighlight">\(f\)</span>. One approach is to manually try different input values until you get the smallest possible output, but this kind of tedious and time-consuming task is best left to computers. The <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module contains a number of tools for performing optimizations of mathematical functions. The goal of this chapter is to introduce the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module and apply it to chemical applications. This chapter does not go into the deeper theory behind optimization, such as specific algorithms. For those interested in some of the deeper theory of optimization, see the <a class="reference internal" href="#fr14"><span class="std std-ref">Further Reading</span></a> section.</p>
-<p>Before we begin, we first need to address how we measure what is “best”? For this, we use a <em>cost function</em>, also known as an <em>objective function</em>, which is a mathematical function that takes in features and returns a value that is a measure of “goodness.” If we were a company that is trying to maximize our profits, the objective function would likely be some mathematical equation that calculates our net profit. Optimization of a molecule’s conformation involves minimizing the energy, so the objective function here is the function that calculates the energy of the molecule based on the attributes like bond angles and lengths. In the examples below, each of the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> functions takes as its first argument an objective function in the form of a Python function.</p>
+<p>Before we begin, we first need to address how we measure what is “best”? For this, we use a <em>cost function</em>, also known as an <em>objective function</em> or <em>criterion</em>, which is a mathematical function that takes in features and returns a value that is a measure of “goodness.” If we were a company that is trying to maximize our profits, the objective function would likely be some mathematical equation that calculates our net profit. Optimization of a molecule’s conformation involves minimizing the energy, so the objective function here is the function that calculates the energy of the molecule based on the attributes like bond angles and lengths. In the examples below, each of the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> functions takes as its first argument an objective function in the form of a Python function.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">obj_func</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -377,7 +377,6 @@ document.write(`
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
@@ -490,10 +489,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x136864e50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x129b65330&gt;
 </pre></div>
 </div>
-<img alt="../../_images/9f7e64543c53792177b8b59f6ca452558d5b0a6a8aaa7b90114c81e7d9ff6954.svg" src="../../_images/9f7e64543c53792177b8b59f6ca452558d5b0a6a8aaa7b90114c81e7d9ff6954.svg" /></div>
+<img alt="../../_images/e4723295780894ccd1d3e27af0147cfce239e4217c3c3fa15f9a99164be105f8.svg" src="../../_images/e4723295780894ccd1d3e27af0147cfce239e4217c3c3fa15f9a99164be105f8.svg" /></div>
 </div>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -533,7 +532,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Probability Density&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/3d02424f637dd994f7bb303bb100d76cca97cb9cad80fe2fb762b9a659b39b74.svg" src="../../_images/3d02424f637dd994f7bb303bb100d76cca97cb9cad80fe2fb762b9a659b39b74.svg" /></div>
+<img alt="../../_images/6ded70f6bc923a3dab02607eb50931175c91ba772265f84e747b6862544059df.svg" src="../../_images/6ded70f6bc923a3dab02607eb50931175c91ba772265f84e747b6862544059df.svg" /></div>
 </div>
 <p>There are multiple ways to make the function negative like including a negative sign in the Python function definition. Our Python function has already been created, so below we will make the radial probability density negative using a <code class="docutils literal notranslate"><span class="pre">lambda</span></code> function (see <a class="reference internal" href="../chapter_02/chap_02_notebook.html#id6"><span class="std std-ref">section 2.1.4</span></a> for review on lambda functions).</p>
 <div class="cell docutils container">
@@ -593,10 +592,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x146c5e680&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x13fc4f430&gt;
 </pre></div>
 </div>
-<img alt="../../_images/8d3415de865001c38a1698bdefe9033962e7e21698d10df83ffce833c8cb4bf4.svg" src="../../_images/8d3415de865001c38a1698bdefe9033962e7e21698d10df83ffce833c8cb4bf4.svg" /></div>
+<img alt="../../_images/a8cd54bfbf827753881c4e40ea72071b3b1082084dc81ee9b6c585386b7221df.svg" src="../../_images/a8cd54bfbf827753881c4e40ea72071b3b1082084dc81ee9b6c585386b7221df.svg" /></div>
 </div>
 </section>
 <section id="multivarient-minimization">
@@ -717,7 +716,7 @@ document.write(`
 <span class="target" id="index-6"></span><p id="index-7">An common application of optimization is fitting an equation to a series of data points such as a linear regression. While linear regression also  happens to have an analytical solution demonstrated in <a class="reference internal" href="../chapter_08/chap_08_notebook.html#id15"><span class="std std-ref">section 8.3.3</span></a>, we will solve it here using optimization. In the figure below, a regression line (solid orange) runs through the data points. The <em>residuals</em> are the difference between the regression line and the data points (green vertical dotted lines). The goal of linear regression is to generate a regression line that minimizes these residuals.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/c9aaf4615617409e5a9453dd70414341968504e88b5581fd8795c1bc5b61b538.svg" src="../../_images/c9aaf4615617409e5a9453dd70414341968504e88b5581fd8795c1bc5b61b538.svg" /></div>
+<img alt="../../_images/95263365a62086c72cdf9ee7541578c73457dac088ce4db89c68c9189636fd9d.svg" src="../../_images/95263365a62086c72cdf9ee7541578c73457dac088ce4db89c68c9189636fd9d.svg" /></div>
 </div>
 <p><strong>Figure 1</strong> An example of a line of best fit (solid orange) running through data points (blue) with residuals (green dashed) shown as the difference on the <span class="math notranslate nohighlight">\(y\)</span>-axis between the data point and linear regression.</p>
 <p id="index-8">One of the major questions in regression is how do we measure the quality of the fit. We could in principle use the total absolute sum of the residuals, known as the <em>lease absolute deviation</em> cost or objective function, but the commonly accepted objective function for fitting equations to data is <em>mean square error (MSE)</em> function. This is the average of the square of the difference between the equation’s predictions and the actual data points, or another way of wording this is MSE is the average square residual of the fit line. The MSE equation is shown below where <span class="math notranslate nohighlight">\(f_i\)</span> is the <em>y</em>-value from the regression line, <span class="math notranslate nohighlight">\(y_i\)</span> is the data point <em>y</em>-value, and <span class="math notranslate nohighlight">\(N\)</span> is the number of data points.</p>
@@ -829,7 +828,8 @@ document.write(`
 
 <span class="n">points</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">conc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">points</span><span class="p">)</span>
-<span class="n">rate</span> <span class="o">=</span> <span class="n">frate</span><span class="p">(</span><span class="n">conc</span><span class="p">,</span> <span class="n">k1</span><span class="p">,</span> <span class="n">kr1</span><span class="p">,</span> <span class="n">k2</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">points</span><span class="p">)</span><span class="o">/</span><span class="mi">40000</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">rate</span> <span class="o">=</span> <span class="n">frate</span><span class="p">(</span><span class="n">conc</span><span class="p">,</span> <span class="n">k1</span><span class="p">,</span> <span class="n">kr1</span><span class="p">,</span> <span class="n">k2</span><span class="p">)</span> <span class="o">+</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">points</span><span class="p">)</span><span class="o">/</span><span class="mi">40000</span>
 </pre></div>
 </div>
 </div>
@@ -846,7 +846,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Rate, M/s&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/9c5235c8df18e1dfa9e030596d564b06df921544a9f083c9b12034d197f9028d.svg" src="../../_images/9c5235c8df18e1dfa9e030596d564b06df921544a9f083c9b12034d197f9028d.svg" /></div>
+<img alt="../../_images/050893d70f30573ab2a366fd9e1c29d8c637c1eced9506f9ad9fa66c627380b3.svg" src="../../_images/050893d70f30573ab2a366fd9e1c29d8c637c1eced9506f9ad9fa66c627380b3.svg" /></div>
 </div>
 <p>Now that we have our data, we can fit it to the theoretical equation to extract the rate constants.</p>
 <div class="cell docutils container">
@@ -857,7 +857,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.2212841 , 0.48435293, 4.51564708])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.22558323, 0.50705095, 4.49294907])
 </pre></div>
 </div>
 </div>
@@ -878,10 +878,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x14794bbb0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x168857df0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/771e17199c2be7d79c290903fe11992ee23538b118ebb89c2a2a9458f95e0ac2.svg" src="../../_images/771e17199c2be7d79c290903fe11992ee23538b118ebb89c2a2a9458f95e0ac2.svg" /></div>
+<img alt="../../_images/88c49ddbc8638b31b2a3bf02a8a7da0aee79938d167c457011113444a43ab0d1.svg" src="../../_images/88c49ddbc8638b31b2a3bf02a8a7da0aee79938d167c457011113444a43ab0d1.svg" /></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -907,7 +907,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.21696215, 0.47292192, 4.49784928])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.21309944, 0.48085692, 4.48897566])
 </pre></div>
 </div>
 </div>
@@ -966,10 +966,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x147b23fd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1688fffd0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/956845bcfd1f2837415a5eeea82b908f304f981e008d85022f6c3d04f229c17c.svg" src="../../_images/956845bcfd1f2837415a5eeea82b908f304f981e008d85022f6c3d04f229c17c.svg" /></div>
+<img alt="../../_images/91ede5357012a37ea25924459437d0f34575cfb5dfbdb13a2781e5c7b2f35515.svg" src="../../_images/91ede5357012a37ea25924459437d0f34575cfb5dfbdb13a2781e5c7b2f35515.svg" /></div>
 </div>
 <p>Next, we will use the absorbances for each pure dye sample to find the molar absorptivities using Beer’s law. The path length, <span class="math notranslate nohighlight">\(b\)</span>, in this instrument is 1 cm, and the concentrations are in molarity.</p>
 <div class="cell docutils container">
@@ -1064,7 +1064,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;$\\psi$&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/4bdcd770e96c102f5aec0409a384c1465d1c290165d8edc22ba421e9eac55c57.svg" src="../../_images/4bdcd770e96c102f5aec0409a384c1465d1c290165d8edc22ba421e9eac55c57.svg" /></div>
+<img alt="../../_images/66e7dc7a49695bed78edb4a51049d754027d1503e125914ac30bd82b205f3cb0.svg" src="../../_images/66e7dc7a49695bed78edb4a51049d754027d1503e125914ac30bd82b205f3cb0.svg" /></div>
 </div>
 <p>The function has two nodes, so our <code class="docutils literal notranslate"><span class="pre">bracket=</span></code> values will determine which we will end up
 solving for.</p>
@@ -1118,10 +1118,10 @@ solving for.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x147c4b820&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x168a99de0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/6d728d08fc57961f8c0fee64cb4d701174d99978792f5e0a36743befbc8e5c9f.svg" src="../../_images/6d728d08fc57961f8c0fee64cb4d701174d99978792f5e0a36743befbc8e5c9f.svg" /></div>
+<img alt="../../_images/950f5dfde990733ab10473193620c81d5500c01f8aaf8e166523639ba555f331.svg" src="../../_images/950f5dfde990733ab10473193620c81d5500c01f8aaf8e166523639ba555f331.svg" /></div>
 </div>
 <p>The two dots above show the location of the two roots for this function which clearly are located on the nodes of the wave function.</p>
 </section>

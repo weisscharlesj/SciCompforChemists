@@ -383,7 +383,6 @@ The sections in this chapter are broken down by types of machine learning. There
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
@@ -498,7 +497,7 @@ The sections in this chapter are broken down by types of machine learning. There
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/de358dc985586ecb4d37465e3dffa0b1cf66f7f06ff5b1394188c0546c11dd92.svg" src="../../_images/de358dc985586ecb4d37465e3dffa0b1cf66f7f06ff5b1394188c0546c11dd92.svg" /></div>
+<img alt="../../_images/125c13987d22f14ec7149d2a89ed1a47f62da0e66e235f47b74d4b03497b5b89.svg" src="../../_images/125c13987d22f14ec7149d2a89ed1a47f62da0e66e235f47b74d4b03497b5b89.svg" /></div>
 </div>
 </section>
 <section id="train-test-split">
@@ -526,8 +525,6 @@ The sections in this chapter are broken down by types of machine learning. There
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell tag_remove-input docutils container">
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -613,7 +610,7 @@ The sections in this chapter are broken down by types of machine learning. There
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;True bp, K&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/4c46456160341110e5fb6fa7237a357a5ba282eb79a0d7159f0a4f81bd3176f0.svg" src="../../_images/4c46456160341110e5fb6fa7237a357a5ba282eb79a0d7159f0a4f81bd3176f0.svg" /></div>
+<img alt="../../_images/dc37a9b41b2d2ad0aa9912bbb07d7ff605a94f992fb93004a9c595034299df5a.svg" src="../../_images/dc37a9b41b2d2ad0aa9912bbb07d7ff605a94f992fb93004a9c595034299df5a.svg" /></div>
 </div>
 <p>This is a substantial improvement from using only the molecular weight to make predictions! If the above code is run again, the results will likely vary because the <code class="docutils literal notranslate"><span class="pre">train_test_split()</span></code> function randomly splits the data set, so each time the above code is run, the algorithm is trained and tested on different portions of the original data set.</p>
 </section>
@@ -643,8 +640,6 @@ The sections in this chapter are broken down by types of machine learning. There
 </div>
 </div>
 </div>
-<div class="cell tag_remove-input docutils container">
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">splitter</span> <span class="o">=</span> <span class="n">ShuffleSplit</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
@@ -667,7 +662,7 @@ The sections in this chapter are broken down by types of machine learning. There
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.96833682, 0.95735755, 0.93523996, 0.93894485, 0.94120102])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.97611796, 0.96610905, 0.96025729, 0.98017779, 0.88312582])
 </pre></div>
 </div>
 </div>
@@ -680,7 +675,7 @@ The sections in this chapter are broken down by types of machine learning. There
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9482160382715227
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.953157579575404
 </pre></div>
 </div>
 </div>
@@ -762,8 +757,8 @@ The sections in this chapter are broken down by types of machine learning. There
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-896.38931056, 1097.23193211,  -31.8191013 ,   11.16606064,
-        -12.00872412,   13.9091081 ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-974.01559949, 1172.19357026,  -32.83725835,   10.8040396 ,
+        -15.65690588,   13.48878196])
 </pre></div>
 </div>
 </div>
@@ -814,11 +809,10 @@ The sections in this chapter are broken down by types of machine learning. There
 </div>
 </div>
 <p>Now that we have our data, the classification process is similar to the regression example above: first perform a train/test split, initiate the model, train the model, and then test it.</p>
-<div class="cell tag_remove-input docutils container">
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">features</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -834,8 +828,8 @@ The sections in this chapter are broken down by types of machine learning. There
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 0, 0, 0, 0, 2, 1, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0,
-       1, 2, 0, 1, 0, 2, 2, 0, 2])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0,
+       1, 2, 0, 0, 0, 2, 2, 0, 2])
 </pre></div>
 </div>
 </div>
@@ -848,7 +842,7 @@ The sections in this chapter are broken down by types of machine learning. There
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7419354838709677
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6774193548387096
 </pre></div>
 </div>
 </div>
@@ -873,7 +867,7 @@ The sections in this chapter are broken down by types of machine learning. There
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[11,  0,  1],
-       [ 1,  4,  0],
+       [ 3,  2,  0],
        [ 6,  0,  8]])
 </pre></div>
 </div>
@@ -894,7 +888,7 @@ The sections in this chapter are broken down by types of machine learning. There
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(50.722222222222214, 0.5, &#39;Predicted Value&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/2d529d679695a232c65919c97ab122fb853cac077ec61317570ed59b0d34de60.svg" src="../../_images/2d529d679695a232c65919c97ab122fb853cac077ec61317570ed59b0d34de60.svg" /></div>
+<img alt="../../_images/2f1ff8600559f77f84cb6e7780836766ebf38540de380b110759d71fafbe3a18.svg" src="../../_images/2f1ff8600559f77f84cb6e7780836766ebf38540de380b110759d71fafbe3a18.svg" /></div>
 </div>
 <p>Every value in the diagonal has the same predicted category as the true value, making them correct predictions, whereas anything off diagonal are incorrect predictions. For example, the bottom left corner shows that six instance were predicted as category 2 but really belong to category 0. Examination of the confusion matrix shows that the most common erroneous prediction is a category 0. This could be due to, for example, the fact that alcohols and amines both tend to have degrees of unsaturation of zero in this data set.</p>
 </section>
@@ -1063,10 +1057,10 @@ The sections in this chapter are broken down by types of machine learning. There
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x133c75ab0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x157a17ac0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/e13813fc9d545b6e0a48e5c9e281131dd602476a530c89cfb3e99d4bba28a451.svg" src="../../_images/e13813fc9d545b6e0a48e5c9e281131dd602476a530c89cfb3e99d4bba28a451.svg" /></div>
+<img alt="../../_images/55abf0518e0a2bacf9560af330ab9489f965793aae7389361955e9e96710c5f9.svg" src="../../_images/55abf0518e0a2bacf9560af330ab9489f965793aae7389361955e9e96710c5f9.svg" /></div>
 </div>
 <p>We can see that the three categories of wine all form cohesive clusters with class 0 and 2 being well resolved and class 1 exhibiting slight overlap with the other two classes of wine. This suggests that we should have better luck distinguishing between class 0 and 2 than between these two classes and class 1.</p>
 </section>
@@ -1081,20 +1075,18 @@ The sections in this chapter are broken down by types of machine learning. There
 </div>
 </div>
 </div>
-<div class="cell tag_remove-input docutils container">
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">cluster_std</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">cluster_std</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x133d10190&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x157af0850&gt;
 </pre></div>
 </div>
-<img alt="../../_images/bcbe424a60e9a7b1fbe64c4309e03743f37e12f71dba972163373a7fdcb125bc.svg" src="../../_images/bcbe424a60e9a7b1fbe64c4309e03743f37e12f71dba972163373a7fdcb125bc.svg" /></div>
+<img alt="../../_images/953bdef94c39f8cf5b7471abd4bf7afd4794d20b4c59d3bb85f79e3c2b95a2d1.svg" src="../../_images/953bdef94c39f8cf5b7471abd4bf7afd4794d20b4c59d3bb85f79e3c2b95a2d1.svg" /></div>
 </div>
 <p>We can see three distinct clusters with the cluster on the bottom being more distinct than the two at the top. Also notice that the scales of the two features are different by roughly a factor of two. Before we can use this data, we will need to normalize the scale of both features as clustering algorithms are sensitive to scale. For this task, we will use the <code class="docutils literal notranslate"><span class="pre">StandardScaler()</span></code> function introduced in <a class="reference internal" href="#id16"><span class="std std-ref">section 12.2.5</span></a>.</p>
 <div class="cell docutils container">
@@ -1148,10 +1140,10 @@ The sections in this chapter are broken down by types of machine learning. There
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x136559db0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x157be34c0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/efc4dbad2001809f6da49cf00dd32153d8b087eac106cf25c1e83fb4f6d0525a.svg" src="../../_images/efc4dbad2001809f6da49cf00dd32153d8b087eac106cf25c1e83fb4f6d0525a.svg" /></div>
+<img alt="../../_images/85ae05f0cb7650d525510ba97295e71ade8982619932f6b23a0415c086bc6fa8.svg" src="../../_images/85ae05f0cb7650d525510ba97295e71ade8982619932f6b23a0415c086bc6fa8.svg" /></div>
 </div>
 </section>
 <section id="blind-signal-separation">
@@ -1160,7 +1152,7 @@ The sections in this chapter are broken down by types of machine learning. There
 <p>To demonstrate this process, we will use infrared (IR) spectroscopy data containing mixtures of acetone, cyclohexane, toluene, and methanol in random ratios. Below are plots of four mixtures. We can see that, for example, the bands at ~3400 cm<span class="math notranslate nohighlight">\(^{-1}\)</span> and ~1000 cm<span class="math notranslate nohighlight">\(^{-1}\)</span> increase together suggesting that they originate from the same compound; this type of information can be used to discriminate which band belongs to which compound. However, instead of doing this manually, we can allow the machine learning algorithms to pick apart the spectra, and even better yet, yield complete spectra of each component.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/e1e7f8579e0c34164fde0e4bd6fd25e444ea58134a9df752689b4bbe781f8355.svg" src="../../_images/e1e7f8579e0c34164fde0e4bd6fd25e444ea58134a9df752689b4bbe781f8355.svg" /></div>
+<img alt="../../_images/b5d0f2525885ff505acae4df63b491c0b31720fc9beac0a72fadec223e2ac7e5.svg" src="../../_images/b5d0f2525885ff505acae4df63b491c0b31720fc9beac0a72fadec223e2ac7e5.svg" /></div>
 </div>
 <p>For this task, we will use the <em>independent component analysis (ICA)</em> function called <code class="docutils literal notranslate"><span class="pre">fastICA()</span></code> available in scikit-learn. The process parallels the other unsupervised learning processes above of first training the algorithm using the <code class="docutils literal notranslate"><span class="pre">fit()</span></code> method followed by transforming the data using the <code class="docutils literal notranslate"><span class="pre">transform()</span></code> method. First we will load the data from the files and stack them into an array called <code class="docutils literal notranslate"><span class="pre">S_mix</span></code> where each column contains the data from a spectrum. For comparison purposes, we will also load IR spectra of each pure component into an array called <code class="docutils literal notranslate"><span class="pre">S_pure</span></code>. Normally we would not have spectra of pure components, hence the “blind” in blind singal seperation, but this is just an example.</p>
 <p>The code below also grabs a copy of the wavenumbers (<code class="docutils literal notranslate"><span class="pre">wn</span></code>) for plotting purposes later on. The last 300 data points of the sprectra in this example are also being clipped off becasue they are a low signal high noise region of the spectra which reduces the effectiveness of the seperation.</p>
@@ -1249,7 +1241,7 @@ The sections in this chapter are broken down by types of machine learning. There
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/477e4b9466694ac7a5ed0aca9353e7592aa7ef5c12a7427ee26ddf077029c1c6.svg" src="../../_images/477e4b9466694ac7a5ed0aca9353e7592aa7ef5c12a7427ee26ddf077029c1c6.svg" /></div>
+<img alt="../../_images/c76b89683fb78ef52ad28a0f1b0f847cf3e360f12d7ceb2a59428209a3956843.svg" src="../../_images/c76b89683fb78ef52ad28a0f1b0f847cf3e360f12d7ceb2a59428209a3956843.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1270,7 +1262,7 @@ The sections in this chapter are broken down by types of machine learning. There
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/17302888c3f44e733009ed1bc2bb1016b0b7486595d56206e58393a7aea481df.svg" src="../../_images/17302888c3f44e733009ed1bc2bb1016b0b7486595d56206e58393a7aea481df.svg" /></div>
+<img alt="../../_images/c6f599fdaee495f185e7e6d9006c0b81c896bdd41215c6ac02190d13464eac3d.svg" src="../../_images/c6f599fdaee495f185e7e6d9006c0b81c896bdd41215c6ac02190d13464eac3d.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1291,7 +1283,7 @@ The sections in this chapter are broken down by types of machine learning. There
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/35d9d0fd226dde8b5da8b1c2ef0892a4cec9ee29fd19f6d9dcbff94fcd1da9c9.svg" src="../../_images/35d9d0fd226dde8b5da8b1c2ef0892a4cec9ee29fd19f6d9dcbff94fcd1da9c9.svg" /></div>
+<img alt="../../_images/7f9aa6d84d4cf089f479853030fa0f5e88b5b808130f8814f6c822717865154b.svg" src="../../_images/7f9aa6d84d4cf089f479853030fa0f5e88b5b808130f8814f6c822717865154b.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1312,7 +1304,7 @@ The sections in this chapter are broken down by types of machine learning. There
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3f4dabb497481bb1cd8c852cd4832de9c151b9eeba44d3bf9d8034f97580b2ab.svg" src="../../_images/3f4dabb497481bb1cd8c852cd4832de9c151b9eeba44d3bf9d8034f97580b2ab.svg" /></div>
+<img alt="../../_images/cd1d82487f1f1b6df2fcc022c3680c1b579fb0014fd69fdaff33a6708a0d899a.svg" src="../../_images/cd1d82487f1f1b6df2fcc022c3680c1b579fb0014fd69fdaff33a6708a0d899a.svg" /></div>
 </div>
 <p>Overall, the fastICA algorithm did a decent job - sometimes even impressive job of picking out small features, but there are some discrepancies between the extracted and pure IR spectra. The first is that there are peaks that extend above the extracted spectra. A transmittance over 100% is not possible, but the algorithm does not know this. The <em>y</em>-axis scales of the extracted IR spectra also do not match the percent transmittance. While it is not shown here, sometimes the extracted components are also upside down. This is because the mixtures are assumed to be weighted sums of the components, and a component can be negative. If this bothers you, there is a related BSS algorithm called <em>non-negative matrix factorization (NMF)</em> supported in scikit-learn which requires each component to be non-negative. Finally, you may notice that there is a broad feature at around 3400 cm<span class="math notranslate nohighlight">\(^{-1}\)</span> in the acetone extracted component that is not in the pure compound. This is an O-H stretch from the methanol IR spectrum showing up in the acetone spectrum. This may be the result of hydrogen-bonding between methanol and acetone shifting the O-H band breaking down the assumption that the spectra of mixtures are purely additive.</p>
 </section>
