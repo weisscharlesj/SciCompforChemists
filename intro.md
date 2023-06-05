@@ -41,7 +41,7 @@ One of the goals of this book is to provide a streamlined introduction to Python
 
 ## Chapter and Exercise Data
 
-Any data file(s) refered to in the chapters or end-of-chapter exercises can be found in the [data](https://github.com/weisscharlesj/SciCompforChemists/tree/master/notebooks) folder in the same directory as this chapter's Jupyter notebook. Alternatively, you can download a zip file of the data for this chapter from [here](https://github.com/weisscharlesj/data_SciCompforChem) by selecting the appropriate chapter file and then clicking the **Download** button.
+Any data file(s) refered to in the chapters or end-of-chapter exercises can be found in the [data](https://github.com/weisscharlesj/SciCompforChemists/tree/master/notebooks) folder in the same directory as the chapter's Jupyter notebook. Alternatively, you can download a zip file of the data for this chapter from [here](https://github.com/weisscharlesj/data_SciCompforChem) by selecting the appropriate chapter file and then clicking the **Download** button. The latter option is recommended for those who do not use Git or GitHub.
 
 ## Exercise Answers
 
@@ -56,19 +56,19 @@ The code in this version of the book has been most recently tested with the foll
 - Python – 3.10.8
 - NumPy – 1.24.3
 - SciPy – 1.10.1
-- Pandas – 2.0.0
+- Pandas – 2.0.2
 - Matplotlib – 3.7.1
 - Seaborn – 0.12.2
-- Scikit-image – 0.20.0
+- Scikit-image – 0.21.0
 - Scikit-learn – 1.2.2
-- Sympy - 1.11.1
+- Sympy - 1.12
 - NMRglue – 0.9
 - Spyder – 5.4.2
 
 
 ## Acknowledgements
 
-This book took a substantial time to write along with the time and effort in developing the curriculum, and I have had a number of people encouraging me along the way. I would like to thank the Department of Chemistry at Wabash College and Department of Chemistry and Biochemistry at Augustana University for being supportive of the development of this course and curriculum. I would also like to thank my students for their feedback and enthusiasm for this topic and for testing out the early versions of this book. I am thankful to family for their support and patience as I performed endless edits and proofreading. Finally, thank you to the following people for proof reading or reporting errors. Reports of additional errors are welcome on GitHub or in an [email](https://www.augie.edu/directory).
+This book took a substantial time to write along with the time and effort in developing the curriculum. Thank you to those who supported and encouraged me along the way. Finally, thank you to the following people for proof reading or reporting errors. Reports of additional errors are welcome on GitHub or in an [email](https://www.augie.edu/directory).
 
 - Wesley A. Deutscher helping collect some example data
 - M. Roarke Tollar providing feedback and reporting typos in chapters 0 and 1
