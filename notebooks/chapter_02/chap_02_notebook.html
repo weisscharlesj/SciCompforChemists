@@ -174,7 +174,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../chapter_12/chap_12_notebook.html">Chapter 12: Machine Learning using Scikit-Learn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_13/chap_13_notebook.html">Chapter 13: Command Line &amp; Spyder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_14/chap_14_notebook.html">Chapter 14: Optimization and Root Finding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
 </ul>
 
     </div>
@@ -1037,13 +1037,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;itertools.combinations at 0x119dd89f0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;itertools.combinations at 0x1178478d0&gt;
 </pre></div>
 </div>
 </div>
 </div>
 <p>So what just happened? Instead of returning a list, it returned a <em>combinations object</em>. You do not need to know much about these except that they can be converted into lists or iterated over to extract their elements, and they are single use. Once you have iterated over them, they need to be generated again if you need them again.</p>
-<aside class="margin sidebar">
+<aside class="margin sidebar" id="index-8">
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1110,7 +1110,7 @@ document.write(`
 </section>
 <section id="random-module">
 <span id="id12"></span><h3>2.4.3 <code class="docutils literal notranslate"><span class="pre">random</span></code> Module<a class="headerlink" href="#random-module" title="Permalink to this heading">#</a></h3>
-<p id="index-8">The <code class="docutils literal notranslate"><span class="pre">random</span></code> module provides a selection of functions for generating random values. Random values can be integers or floats and can be generated from a variety of ranges and distributions. A selection of common functions from the <code class="docutils literal notranslate"><span class="pre">random</span></code> module are shown in Table 5. We will not go into much detail here as random value generation is covered in significantly more detail at the end of chapter 4. One key limitation of the <code class="docutils literal notranslate"><span class="pre">random</span></code> module is that the functions typically only generate a single value at a time. If you want multiple random values, you need to either use a loop or use the random value functions from NumPy presented in chapter 4.</p>
+<p id="index-9">The <code class="docutils literal notranslate"><span class="pre">random</span></code> module provides a selection of functions for generating random values. Random values can be integers or floats and can be generated from a variety of ranges and distributions. A selection of common functions from the <code class="docutils literal notranslate"><span class="pre">random</span></code> module are shown in Table 5. We will not go into much detail here as random value generation is covered in significantly more detail at the end of chapter 4. One key limitation of the <code class="docutils literal notranslate"><span class="pre">random</span></code> module is that the functions typically only generate a single value at a time. If you want multiple random values, you need to either use a loop or use the random value functions from NumPy presented in chapter 4.</p>
 <p><strong>Table 5</strong> Functions from random Module</p>
 <table class="table">
 <thead>
@@ -1145,7 +1145,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.042358044557608165
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.39542409260771816
 </pre></div>
 </div>
 </div>
@@ -1157,7 +1157,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
 </pre></div>
 </div>
 </div>
@@ -1171,7 +1171,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[6, 1, 3, 4, 2, 5]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 3, 2, 5, 4, 6]
 </pre></div>
 </div>
 </div>
@@ -1192,7 +1192,7 @@ document.write(`
 <p>If we want to calculate the number of neutrons in each isotope, we need to subtract each atomic number (equal to the number of protons) from the atomic mass. To accomplish this, it would be helpful to iterate over both lists simultaneously. Below are a couple methods of doing this.</p>
 <section id="zipping">
 <span id="id14"></span><h3>2.5.1 Zipping<a class="headerlink" href="#zipping" title="Permalink to this heading">#</a></h3>
-<p id="index-9">The simplest way to iterate over two lists simultaneously is to combine both lists into a single, iterable object and iterate over it once. The <code class="docutils literal notranslate"><span class="pre">zip()</span></code> function does exactly this by merging two lists or tuples, like a zipper on a jacket, into something like a nested list of lists. However, instead of returning a list or tuple, the <code class="docutils literal notranslate"><span class="pre">zip()</span></code> function returns a single-use zip object.</p>
+<p id="index-10">The simplest way to iterate over two lists simultaneously is to combine both lists into a single, iterable object and iterate over it once. The <code class="docutils literal notranslate"><span class="pre">zip()</span></code> function does exactly this by merging two lists or tuples, like a zipper on a jacket, into something like a nested list of lists. However, instead of returning a list or tuple, the <code class="docutils literal notranslate"><span class="pre">zip()</span></code> function returns a single-use zip object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zipped</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">AN</span><span class="p">,</span> <span class="n">mass</span><span class="p">)</span>
@@ -1231,7 +1231,7 @@ document.write(`
 </section>
 <section id="enumeration">
 <span id="id15"></span><h3>2.5.2 Enumeration<a class="headerlink" href="#enumeration" title="Permalink to this heading">#</a></h3>
-<p id="index-10">A close relative to <code class="docutils literal notranslate"><span class="pre">zip()</span></code> is the <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> function. Instead of zipping  two lists or tuples together, it zips a list or tuple to the index values for that list. Similar to <code class="docutils literal notranslate"><span class="pre">zip()</span></code>, it returns a one-time use iterable object.</p>
+<p id="index-11">A close relative to <code class="docutils literal notranslate"><span class="pre">zip()</span></code> is the <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> function. Instead of zipping  two lists or tuples together, it zips a list or tuple to the index values for that list. Similar to <code class="docutils literal notranslate"><span class="pre">zip()</span></code>, it returns a one-time use iterable object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="o">=</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">mass</span><span class="p">)</span>
@@ -1281,7 +1281,7 @@ document.write(`
 </section>
 <section id="encoding-numbers">
 <span id="id16"></span><h2>2.6 Encoding Numbers<a class="headerlink" href="#encoding-numbers" title="Permalink to this heading">#</a></h2>
-<p id="index-11">During most of your work in Python, you do not need to think about how and where the values are stored as Python handles this for you. If you assign a number to a variable, Python will determine how to properly store this information. However, there are instances where you will need to understand a little about how numbers are encoded such as in gray scale images (chapter 7).</p>
+<p id="index-12">During most of your work in Python, you do not need to think about how and where the values are stored as Python handles this for you. If you assign a number to a variable, Python will determine how to properly store this information. However, there are instances where you will need to understand a little about how numbers are encoded such as in gray scale images (chapter 7).</p>
 <p>Numbers on your computer are stored in <em>binary</em> which is a base two numbering system. That is, instead of using digits from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 9 to describe a number, only 0 and 1 are used.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -1331,7 +1331,7 @@ document.write(`
 </section>
 <section id="advanced-functions">
 <span id="id17"></span><h2>2.7 Advanced Functions<a class="headerlink" href="#advanced-functions" title="Permalink to this heading">#</a></h2>
-<p id="index-12">Section 1.9 describes positional arguments and keyword arguments as two methods for providing functions with information and instructions, but thus far, these methods have only allowed the function to take a predetermined numbers of arguments. While some flexibility is offered by the ability to set default keyword arguments that users have the option of overriding or leaving as the default, there is still a limit on the number of parameters in the function. What do we do when we need to write a function that takes an unspecified number of arguments? This section provides two approaches to solving this problem.</p>
+<p id="index-13">Section 1.9 describes positional arguments and keyword arguments as two methods for providing functions with information and instructions, but thus far, these methods have only allowed the function to take a predetermined numbers of arguments. While some flexibility is offered by the ability to set default keyword arguments that users have the option of overriding or leaving as the default, there is still a limit on the number of parameters in the function. What do we do when we need to write a function that takes an unspecified number of arguments? This section provides two approaches to solving this problem.</p>
 <section id="variable-positional-arguments">
 <span id="id18"></span><h3>2.7.1 Variable Positional Arguments<a class="headerlink" href="#variable-positional-arguments" title="Permalink to this heading">#</a></h3>
 <p>As a possible use case, it is common practice in lab to purify a solid compound by recrystallization, and chemists will often harvest multiple crops of crystals from the same solution to get the highest possible yield. If we want to write a function that returns the percent yield of a synthesized compound using the theoretical yield and the yields of each recrystallization crop, we are faced with the challenge of not knowing how many crops to expect. One solution is a var-positional argument.</p>
@@ -1406,7 +1406,7 @@ document.write(`
 </section>
 <section id="recursive-functions">
 <span id="id20"></span><h3>2.7.3 Recursive Functions<a class="headerlink" href="#recursive-functions" title="Permalink to this heading">#</a></h3>
-<p id="index-13">Functions can call other functions. This is probably not surprising as we have already seen functions call <code class="docutils literal notranslate"><span class="pre">math.sqrt()</span></code> and <code class="docutils literal notranslate"><span class="pre">append()</span></code>, but what may be surprising is that Python allows a function to call itself. This is known as a <em>recursive function</em>.</p>
+<p id="index-14">Functions can call other functions. This is probably not surprising as we have already seen functions call <code class="docutils literal notranslate"><span class="pre">math.sqrt()</span></code> and <code class="docutils literal notranslate"><span class="pre">append()</span></code>, but what may be surprising is that Python allows a function to call itself. This is known as a <em>recursive function</em>.</p>
 <p>If we want to write a function that calculates the remaining mass of radioactive materials after a given number of half-lives, this can be accomplished using a <code class="docutils literal notranslate"><span class="pre">for</span></code> or <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, but it can also be accomplished recursively. We start by having the function divide the provided mass (<code class="docutils literal notranslate"><span class="pre">mass</span></code>) in half and then decrement the number of half-lives (<code class="docutils literal notranslate"><span class="pre">hl</span></code>) by one. This is the core component of the function. If <code class="docutils literal notranslate"><span class="pre">hl</span></code> is zero, the function is done and returns the mass. If not, the function calls itself again with the remaining mass and number of half-lives. This is the recursive part. The second time the function is run, the mass is again halved and the half-lives decremented by one, and the number of half-lives is again checked.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1504,7 +1504,7 @@ document.write(`
 </section>
 <section id="error-handling">
 <span id="id21"></span><h2>2.8 Error Handling<a class="headerlink" href="#error-handling" title="Permalink to this heading">#</a></h2>
-<p id="index-14">It doesn’t take long to realize that error messages are an inevitable part of computer programming, so it is helpful to know what the different type of errors messages mean and how to deal with them. This section provides a quick overview of major types of error messages and how to get Python to work past them when appropriate.</p>
+<p id="index-15">It doesn’t take long to realize that error messages are an inevitable part of computer programming, so it is helpful to know what the different type of errors messages mean and how to deal with them. This section provides a quick overview of major types of error messages and how to get Python to work past them when appropriate.</p>
 <section id="types-of-errors">
 <span id="id22"></span><h3>2.8.1 Types of Errors<a class="headerlink" href="#types-of-errors" title="Permalink to this heading">#</a></h3>
 <p>Whenever you encounter an error message, it includes the type of error followed by more details. There are numberous types of errors, but there are a few errors types that are more prevalent and worth being familar with. Below is a short list of some of these common error types.</p>
@@ -1557,7 +1557,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">zy</span><span class="o">/</span><span class="mi">7</span><span class="n">y6kpdbx6p1ffrp1vtxy3ttc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1810</span><span class="o">/</span><span class="mf">2125787354.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">zy</span><span class="o">/</span><span class="mi">7</span><span class="n">y6kpdbx6p1ffrp1vtxy3ttc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_2028</span><span class="o">/</span><span class="mf">2125787354.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;root&#39; is not defined
@@ -1577,7 +1577,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/zy/7y6kpdbx6p1ffrp1vtxy3ttc0000gn/T/ipykernel_1810/2186603431.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/zy/7y6kpdbx6p1ffrp1vtxy3ttc0000gn/T/ipykernel_2028/2186603431.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
 <span class="g g-Whitespace">    </span><span class="mi">5</span> <span class="o">&lt;&gt;</span> <span class="mi">6</span>
       <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
@@ -1593,7 +1593,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/zy/7y6kpdbx6p1ffrp1vtxy3ttc0000gn/T/ipykernel_1810/848242794.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/zy/7y6kpdbx6p1ffrp1vtxy3ttc0000gn/T/ipykernel_2028/848242794.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
 <span class="g g-Whitespace">    </span><span class="mi">5</span><span class="n">sdq</span> <span class="o">=</span> <span class="mi">52</span>
     <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid decimal literal
@@ -1614,7 +1614,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">zy</span><span class="o">/</span><span class="mi">7</span><span class="n">y6kpdbx6p1ffrp1vtxy3ttc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1810</span><span class="o">/</span><span class="mf">2284501298.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">zy</span><span class="o">/</span><span class="mi">7</span><span class="n">y6kpdbx6p1ffrp1vtxy3ttc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_2028</span><span class="o">/</span><span class="mf">2284501298.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">abs</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
 
 <span class="ne">TypeError</span>: bad operand type for abs(): &#39;str&#39;
@@ -1632,7 +1632,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">zy</span><span class="o">/</span><span class="mi">7</span><span class="n">y6kpdbx6p1ffrp1vtxy3ttc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1810</span><span class="o">/</span><span class="mf">3042216965.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">zy</span><span class="o">/</span><span class="mi">7</span><span class="n">y6kpdbx6p1ffrp1vtxy3ttc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_2028</span><span class="o">/</span><span class="mf">3042216965.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">5</span>
 
 <span class="ne">TypeError</span>: &#39;&gt;&#39; not supported between instances of &#39;list&#39; and &#39;int&#39;
@@ -1654,7 +1654,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">zy</span><span class="o">/</span><span class="mi">7</span><span class="n">y6kpdbx6p1ffrp1vtxy3ttc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1810</span><span class="o">/</span><span class="mf">4172608794.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">zy</span><span class="o">/</span><span class="mi">7</span><span class="n">y6kpdbx6p1ffrp1vtxy3ttc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_2028</span><span class="o">/</span><span class="mf">4172608794.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">math</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
@@ -1676,7 +1676,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">zy</span><span class="o">/</span><span class="mi">7</span><span class="n">y6kpdbx6p1ffrp1vtxy3ttc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1810</span><span class="o">/</span><span class="mf">2293179708.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">zy</span><span class="o">/</span><span class="mi">7</span><span class="n">y6kpdbx6p1ffrp1vtxy3ttc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_2028</span><span class="o">/</span><span class="mf">2293179708.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="mi">4</span> <span class="o">/</span> <span class="mi">0</span>
 
 <span class="ne">ZeroDivisionError</span>: division by zero
@@ -1696,7 +1696,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/zy/7y6kpdbx6p1ffrp1vtxy3ttc0000gn/T/ipykernel_1810/963956298.py&quot;</span><span class="gt">, line </span><span class="mi">2</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/zy/7y6kpdbx6p1ffrp1vtxy3ttc0000gn/T/ipykernel_2028/963956298.py&quot;</span><span class="gt">, line </span><span class="mi">2</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="o">^</span>
 <span class="ne">IndentationError</span>: expected an indented block after &#39;for&#39; statement on line 1
@@ -1718,7 +1718,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">zy</span><span class="o">/</span><span class="mi">7</span><span class="n">y6kpdbx6p1ffrp1vtxy3ttc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1810</span><span class="o">/</span><span class="mf">1098396888.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">zy</span><span class="o">/</span><span class="mi">7</span><span class="n">y6kpdbx6p1ffrp1vtxy3ttc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_2028</span><span class="o">/</span><span class="mf">1098396888.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">lst</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
 
@@ -1750,7 +1750,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">zy</span><span class="o">/</span><span class="mi">7</span><span class="n">y6kpdbx6p1ffrp1vtxy3ttc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1810</span><span class="o">/</span><span class="mf">1242611454.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">zy</span><span class="o">/</span><span class="mi">7</span><span class="n">y6kpdbx6p1ffrp1vtxy3ttc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_2028</span><span class="o">/</span><span class="mf">1242611454.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">elements</span><span class="p">[</span><span class="s1">&#39;N&#39;</span><span class="p">]</span>
 
 <span class="ne">KeyError</span>: &#39;N&#39;
@@ -1774,7 +1774,7 @@ document.write(`
 </section>
 <section id="workout-around-errors-with-try-and-except">
 <span id="id23"></span><h3>2.8.2 Workout Around Errors with <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code><a class="headerlink" href="#workout-around-errors-with-try-and-except" title="Permalink to this heading">#</a></h3>
-<span class="target" id="index-15"></span><p id="index-16">While this may seem like a bad idea at first glance, there are times when you may want Python to not come to a grinding halt in the face of an error. One common situation is when importing a large number of data files from different sources. Not every data source may have formatted data or files the same, and some files may be malformed or there may be other unexpected edge cases. To get Python to not stop at an error message, you can use a <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code> block.</p>
+<span class="target" id="index-16"></span><p id="index-17">While this may seem like a bad idea at first glance, there are times when you may want Python to not come to a grinding halt in the face of an error. One common situation is when importing a large number of data files from different sources. Not every data source may have formatted data or files the same, and some files may be malformed or there may be other unexpected edge cases. To get Python to not stop at an error message, you can use a <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code> block.</p>
 <p>The general structure of a <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code> block is to include the code you origionally intend to run under the <code class="docutils literal notranslate"><span class="pre">try</span></code> statement, and under the following <code class="docutils literal notranslate"><span class="pre">except</span></code> statement, include what Python should do in the event of a specific error. The general structure looks like the following.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="n">regular</span> <span class="n">code</span>
@@ -1804,7 +1804,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">zy</span><span class="o">/</span><span class="mi">7</span><span class="n">y6kpdbx6p1ffrp1vtxy3ttc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1810</span><span class="o">/</span><span class="mf">609664091.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">zy</span><span class="o">/</span><span class="mi">7</span><span class="n">y6kpdbx6p1ffrp1vtxy3ttc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_2028</span><span class="o">/</span><span class="mf">609664091.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> 
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">sqr_nums</span><span class="p">:</span>
 <span class="ne">----&gt; </span><span class="mi">5</span>     <span class="n">sqr_root</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>
