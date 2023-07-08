@@ -1729,7 +1729,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:1: SyntaxWarning: &quot;is&quot; with a literal. Did you mean &quot;==&quot;?
 &lt;&gt;:1: SyntaxWarning: &quot;is&quot; with a literal. Did you mean &quot;==&quot;?
-/var/folders/zy/7y6kpdbx6p1ffrp1vtxy3ttc0000gn/T/ipykernel_2021/1557232650.py:1: SyntaxWarning: &quot;is&quot; with a literal. Did you mean &quot;==&quot;?
+/var/folders/zy/7y6kpdbx6p1ffrp1vtxy3ttc0000gn/T/ipykernel_2468/1557232650.py:1: SyntaxWarning: &quot;is&quot; with a literal. Did you mean &quot;==&quot;?
   8 is 8.0
 </pre></div>
 </div>
@@ -2658,8 +2658,6 @@ S
 <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
-    
-<span class="c1"># and continues until x is smaller than 10...</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">while</span></code> loops is not as common as the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop and should be used with caution. This is because it is not difficult to have what is known as a <em>faulty termination condition</em> resulting in the code executing indefinitely… or until you manually stop Python or Python crashes because it ran out of memory. This happens because the termination condition is never met resulting in a runaway process.</p>
@@ -2753,7 +2751,7 @@ S
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/zy/7y6kpdbx6p1ffrp1vtxy3ttc0000gn/T/ipykernel_2021/2693538935.py&quot;</span><span class="gt">, line </span><span class="mi">4</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">128</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
     <span class="k">else</span><span class="p">:</span>
          <span class="o">^</span>
 <span class="ne">SyntaxError</span>: incomplete input
@@ -2792,6 +2790,16 @@ S
 <p>Unless otherwise indicated, Python searches for the file in the same directory (folder) as the Jupyter notebook. If the file is not in this directory, be sure to provide a path to the file. For more advanced techniques on navigating your file system, see <a class="reference internal" href="../chapter_02/chap_02_notebook.html#id10"><span class="std std-ref">section 2.4.1</span></a>.</p>
 </div>
 </aside>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>One major difference between running the software installed on your own computer and Google Colab is that if you want Colab to be able to interact with data or images files on your Google Drive, you need to include the three extra lines of code shown below at the top of your notebook. The first two lines grant the notebook access to read/write files on your Google Drive while the third line (<code class="docutils literal notranslate"><span class="pre">%cd</span> <span class="pre">/content/drive/My</span> <span class="pre">Drive/project</span></code>) points your notebook to where your files are located. The path should reflect the location of the folder containing your notebook and data files. For example, if your notebook is contained in a folder titled <code class="docutils literal notranslate"><span class="pre">project</span></code> on Google Drive, the path will be <code class="docutils literal notranslate"><span class="pre">/content/drive/My</span> <span class="pre">Drive/project</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+
+<span class="o">%</span><span class="n">cd</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">drive</span><span class="o">/</span><span class="n">My</span> <span class="n">Drive</span><span class="o">/</span><span class="n">project</span>
+</pre></div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/squares.csv&#39;</span><span class="p">)</span>
@@ -3203,7 +3211,7 @@ number, square
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">zy</span><span class="o">/</span><span class="mi">7</span><span class="n">y6kpdbx6p1ffrp1vtxy3ttc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_2021</span><span class="o">/</span><span class="mf">3161387801.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">153</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">d</span>
 
 <span class="ne">NameError</span>: name &#39;d&#39; is not defined
@@ -3263,7 +3271,7 @@ number, square
 <span id="id42"></span><h3>1.9.4 Arguments<a class="headerlink" href="#arguments" title="Permalink to this heading">#</a></h3>
 <p>Functions take in data through <em>arguments</em> placed in the parentheses after the function name. Different functions take different numbers and types of arguments from as few as zero to potentially dozes of arguments. Function arguments are also sometimes optional. Some functions allow the user to add extra data or change the functions behavior through arguments.</p>
 <p>The first type of argument is a <em>positional argument</em>. This is an argument that is required to be in a specific position inside the parentheses. For example, the function below takes in the number of protons and neutrons, respectively, and outputs the isotope name. This function is only written for the first ten elements on the periodic table.</p>
-<div class="cell docutils container">
+<div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">isotope</span><span class="p">(</span><span class="n">protons</span><span class="p">,</span> <span class="n">neutrons</span><span class="p">):</span>
     <span class="n">elements</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;He&#39;</span><span class="p">,</span> <span class="s1">&#39;Li&#39;</span><span class="p">,</span> <span class="s1">&#39;Be&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;O&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;Ne&#39;</span><span class="p">)</span>
@@ -3369,7 +3377,7 @@ number, square
 <span id="id43"></span><h3>1.9.5 Docstrings<a class="headerlink" href="#docstrings" title="Permalink to this heading">#</a></h3>
 <p id="index-30">The final component of a function is the docstring. Strictly speaking, this is not necessary for a function to work and is sometimes left out for simple functions, but it is a good habit to include them. This is especially true if you are creating the function for a much larger project or passing it to other people. A <em>docstring</em> is a string placed at the top a function definition describing what the function does, what types of data it takes, and what is returned at the end of the function. Traditionally, docstrings are enclosed in triple quotes. The first line of the docstring describes what type of data goes in the function and what comes out. In the <code class="docutils literal notranslate"><span class="pre">distance()</span></code> function above, our function takes in a pair of lists or tuples and outputs a single value, so the first line may look something like this.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">coords1</span><span class="p">,</span> <span class="n">coords2</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;(list/tuple, list/tuple) -&gt; float</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;(list/tuple, list/tuple) -&gt; float</span>
 <span class="sd">    &#39;&#39;&#39;</span>
 </pre></div>
 </div>
@@ -3377,7 +3385,7 @@ number, square
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">coords1</span><span class="p">,</span> <span class="n">coords2</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;(list/tuple, list/tuple) -&gt; float</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;(list/tuple, list/tuple) -&gt; float</span>
 <span class="sd">    Takes in the xyz coordinates as lists or tuples for </span>
 <span class="sd">    two atoms and returns the distance between them.</span>
 <span class="sd">    </span>
@@ -3532,7 +3540,7 @@ number, square
 </li>
 <li><p>Complete a function started below that calculates the rate of a single-step chemical reaction nA → P using the differential rate law (Rate = k[A]<span class="math notranslate nohighlight">\(^n\)</span>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rate</span><span class="p">(</span><span class="n">A0</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39; (concentration(M), k = 1.0, n = 1) → rate (M/s)</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; (concentration(M), k = 1.0, n = 1) → rate (M/s)</span>
 <span class="sd">    Takes in the concentration of A (M), the rate constant (k), </span>
 <span class="sd">    and the order (n) and returns the rate (M/s)</span>
 <span class="sd">    &#39;&#39;&#39;</span>   
