@@ -1,7 +1,6 @@
 ![periodic table of software](pt_scipy.svg)
 
-# Scientific Computing for Chemists with Python
-### A chemist’s introduction to programming in Python with chemical applications
+# Scientific Computing for Chemists with Python - A Chemist’s Introduction to Programming in Python with Chemical Applications
 
 *Scientific computing* utilizes computers to aid in scientific tasks such as data processing and digital simulations among others. The well-developed field of computational chemistry is part of scientific computing and focuses on utilzing computings to simulate chemical phenomena and calculate properties. However, there is less focus in the field of chemistry on the data processing side of computing, so this book strives to fill this void by introducing the reader to tools and methods for processing, visualizing, and analyzing chemical data. The tools employed in this book are the powerful and popular combination of Jupyter notebooks and the Python programming language. No background beyond first-year college chemistry and occasionally some very basic spectroscopy is assumed, so this book starts with a brief primer on Jupyter notebooks in chapter 0 and computer programming with Python in chapter 1 and chapter 2. If you already have background in these tools, feel free to skip ahead. Python and Jupyter were chosen for a variety of reasons including that they are:
 
@@ -55,9 +54,9 @@ While great efforts have gone into ensuring that all the code in this book works
 The code in this version of the book has been most recently tested with the following software versions unless otherwise noted but will likely work with other versions.
 
 - Python – 3.10.11
-- NumPy – 1.25
+- NumPy – 1.25.2
 - SciPy – 1.11.1
-- Pandas – 2.0.2
+- Pandas – 2.0.3
 - Matplotlib – 3.7.2
 - Seaborn – 0.12.2
 - Scikit-image – 0.21.0
@@ -65,6 +64,8 @@ The code in this version of the book has been most recently tested with the foll
 - Sympy - 1.12
 - NMRglue – 0.9
 - Spyder – 5.4.2
+- Biopython - 1.81
+- RDKit - 2023.3.2
 
 
 ## Acknowledgements

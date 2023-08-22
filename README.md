@@ -11,9 +11,10 @@ A chapter outline is provided below. The book starts with a streamlined introduc
 
 This book is periodically updated to fix typos, account for new software versions, and add new content. The most recent version can be viewed using the link above or downloaded or forked above along with Jupyter notebooks containing all code in the book. Reports of errors and information on how people are using this book are always welcome.
 
-Answer keys to exercises are available to instructors upon request by [emailing](https://www.augie.edu/directory) me using your school email address to request a copy.
+The book and all files/materials included with it are copyright © 2017-2023 Charles J. Weiss and are released under under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license unless otherwise noted.
 
-The book and all files/materials included with it are copyright © 2017-2023 Charles J. Weiss and are released under under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
+Answer keys to exercises are available to **instructors** upon request by [emailing](https://www.augie.edu/directory) me using your school email address to request a copy. The answer keys are © Charles J. Weiss and are **not** released under a Creative Commons license.
+
 
 * Chapter 0: Python & Jupyter Notebooks
 * Chapter 1: Basic Python
