@@ -1,6 +1,6 @@
 # Scientific Computing for Chemists with Python
 
-### A chemist’s introduction to programming in Python and chemical applications
+### An Introduction to Programming in Python for Chemists with Chemical Applications
 
 
 The following is the textbook used for the Scientific Computing Chemists course intended to teach chemists and chemistry students basic computer programming in Python and Jupyter Notebooks and advanced tools for processing, visualization, and analysis of digital data. 
@@ -31,6 +31,8 @@ Answer keys to exercises are available to **instructors** upon request by [email
 * Chapter 12: Machine Learning using Scikit-Learn
 * Chapter 13: Command Line & Spyder
 * Chapter 14: Optimization and Root Finding
+* Chapter 15: RDKit
+* Chapter 16: Bioinformations with Biopython
 
 ## Interested in Using This Book for Your Course?
 
