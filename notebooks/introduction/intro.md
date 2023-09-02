@@ -73,6 +73,7 @@ The code in this version of the book has been most recently tested with the foll
 - NMRglue – 0.9
 - Spyder – 5.4.2
 - Biopython - 1.81
+- Nglview - 3.0.6
 - RDKit - 2023.3.2
 
 
