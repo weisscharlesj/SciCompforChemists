@@ -1,0 +1,1 @@
+All protein structure data files in this chapter came from the RCSB Database (https://www.rcsb.org/). See https://www.rcsb.org/pages/policies for information on the license for these data.
