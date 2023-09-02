@@ -174,6 +174,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../chapter_12/chap_12_notebook.html">Chapter 12: Machine Learning using Scikit-Learn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_13/chap_13_notebook.html">Chapter 13: Command Line &amp; Spyder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_14/chap_14_notebook.html">Chapter 14: Optimization and Root Finding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_15/chap_15_notebook.html">Chapter 15: Cheminformatics with RDKit <font color="C51E3A"> (BETA) </font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_16/chap_16_notebook.html">Chapter 16: Bioinformations with Biopython <font color="C51E3A"> (BETA) </font></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
 </ul>
 
@@ -420,7 +422,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">split</span><span class="p">(</span><span class="n">peaks</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="mi">400</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;(list, int, float, freq=num) -&gt; list</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;(list, int, float, freq=num) -&gt; list</span>
 <span class="sd">    Takes in a list of peak ppm values for a single </span>
 <span class="sd">    resonance(peaks),the number of identical neighboring </span>
 <span class="sd">    protons(n), the coupling constant (J) in Hz, and the </span>
@@ -479,7 +481,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/12884bfb3277f78293f7976a7dbde311a155006b005aa987c6d50c885be03009.svg" src="../../_images/12884bfb3277f78293f7976a7dbde311a155006b005aa987c6d50c885be03009.svg" /></div>
+<img alt="../../_images/e7141018e0d875ac5d447a4ff6109ac24b1380f5b645baf22a778b6c85923d24.svg" src="../../_images/e7141018e0d875ac5d447a4ff6109ac24b1380f5b645baf22a778b6c85923d24.svg" /></div>
 </div>
 <p>If there are multiple inequivalent groups of neighboring proton, this often results in more complex splitting patters due to additional protons and additional coupling constants. This can be simulated by nesting the <code class="docutils literal notranslate"><span class="pre">split()</span></code> function and providing the different coupling constants. Below, we simulate a splitting pattern for a proton coupled with two protons with J = 9.8 Hz and another proton with J = 10.8. This generates a doublet of triplets.</p>
 <div class="cell docutils container">
@@ -491,7 +493,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/17159d5ab68de4931089b34caeac5e38444d710de2f23c8ee4da541802712e5c.svg" src="../../_images/17159d5ab68de4931089b34caeac5e38444d710de2f23c8ee4da541802712e5c.svg" /></div>
+<img alt="../../_images/4e89fddcc01a0d3c427f186368e12973f8b775cb20addac0c3f28c723b75f2b7.svg" src="../../_images/4e89fddcc01a0d3c427f186368e12973f8b775cb20addac0c3f28c723b75f2b7.svg" /></div>
 </div>
 </section>
 <section id="single-step-stepwise-chemical-kinetics">
@@ -540,7 +542,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d578e9cb26ff930cdb629ee697a3f308f44f2460ea88220bc78d8077c1306df4.svg" src="../../_images/d578e9cb26ff930cdb629ee697a3f308f44f2460ea88220bc78d8077c1306df4.svg" /></div>
+<img alt="../../_images/87a16e8b258263d78645b905304df93588709be4480d56d56d83fadef8da02f9.svg" src="../../_images/87a16e8b258263d78645b905304df93588709be4480d56d56d83fadef8da02f9.svg" /></div>
 </div>
 <p>We can overlay this plot with the theoretical values using the integrated first-order rate law below.</p>
 <div class="cell docutils container">
@@ -567,7 +569,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ce737bcd3e747cb0cb2f67440d7316d046e879c4b53f009f37eac85c7d5dbda2.svg" src="../../_images/ce737bcd3e747cb0cb2f67440d7316d046e879c4b53f009f37eac85c7d5dbda2.svg" /></div>
+<img alt="../../_images/19e4108cd4eac015da604235de9a71249c11182fcaa1480ac243409b5a6b55c8.svg" src="../../_images/19e4108cd4eac015da604235de9a71249c11182fcaa1480ac243409b5a6b55c8.svg" /></div>
 </div>
 <p>The theoretical equation and simulation results are in good agreement. A closer inspection of the two shows a slight discrepancy between the two which is most noticeable earlier in the simulation. This is because the simulation only adjusts the rate every second while the theoretical equation can be thought of as recalculating the rate for infinitely small increments. A more accurate method of performing kinetic simulations is presented in <a class="reference internal" href="#id6"><span class="std std-ref">section 9.1.4</span></a>.</p>
 </section>
@@ -619,7 +621,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2704bac11d42e540ea5c31397ef948e39f5cbc6c3488d5ff22e072c348a86be2.svg" src="../../_images/2704bac11d42e540ea5c31397ef948e39f5cbc6c3488d5ff22e072c348a86be2.svg" /></div>
+<img alt="../../_images/e96983482849a6f21391ef90a72baaceec82f702f5f9481777cff15b75f34fa0.svg" src="../../_images/e96983482849a6f21391ef90a72baaceec82f702f5f9481777cff15b75f34fa0.svg" /></div>
 </div>
 <p>A word of caution regarding the above simulations - if the rate constants are increased enough, oscillating behavior and negative concentrations will be observed… the latter of which is clearly wrong. This is because the simulation fails to recalculation the rates fast enough for the simulation, but this can be remedied by decreasing the step size.</p>
 </section>
@@ -673,7 +675,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3b3d521706ceeecb9b994ee774f88ca86e6af75c067545f6888872203eda9582.svg" src="../../_images/3b3d521706ceeecb9b994ee774f88ca86e6af75c067545f6888872203eda9582.svg" /></div>
+<img alt="../../_images/427f6bc2171aabb72de218614b45ea89b1644b87ced9e11c545fe9a09664b848.svg" src="../../_images/427f6bc2171aabb72de218614b45ea89b1644b87ced9e11c545fe9a09664b848.svg" /></div>
 </div>
 </section>
 </section>
@@ -735,7 +737,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3d5db8273a275ab034dca5d4635f562a811c59811e849e1cebae77abe4f622ee.svg" src="../../_images/3d5db8273a275ab034dca5d4635f562a811c59811e849e1cebae77abe4f622ee.svg" /></div>
+<img alt="../../_images/8efc13bbbb0a2606c62edebc31c61fceba4dd56371db10312fb99dac8a3c9f5b.svg" src="../../_images/8efc13bbbb0a2606c62edebc31c61fceba4dd56371db10312fb99dac8a3c9f5b.svg" /></div>
 </div>
 <p>The simulation and theoretical model are in good but not perfect agreement. The deviation is a result of the simulation using random numbers and only simulating a relatively small number of molecules. If this simulation were run with increasingly larger number of molecules, the results are expected to converge on the theoretical prediction.</p>
 </section>
@@ -818,7 +820,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0de6b0c0a29b31eb929f24fc780097f4373180304e769556e8905297ca215f86.svg" src="../../_images/0de6b0c0a29b31eb929f24fc780097f4373180304e769556e8905297ca215f86.svg" /></div>
+<img alt="../../_images/0839876d01f3a44c17561034d2e1fba14c6597e36465971102544135b3ce7752.svg" src="../../_images/0839876d01f3a44c17561034d2e1fba14c6597e36465971102544135b3ce7752.svg" /></div>
 </div>
 <p>The results of the simulation show a polymer strand winding around in a seemingly random fashion. If we rerun the above simulation, a different looking polymer conformation will be generated.</p>
 </section>

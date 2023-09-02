@@ -174,6 +174,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../chapter_12/chap_12_notebook.html">Chapter 12: Machine Learning using Scikit-Learn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_13/chap_13_notebook.html">Chapter 13: Command Line &amp; Spyder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_14/chap_14_notebook.html">Chapter 14: Optimization and Root Finding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_15/chap_15_notebook.html">Chapter 15: Cheminformatics with RDKit <font color="C51E3A"> (BETA) </font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_16/chap_16_notebook.html">Chapter 16: Bioinformations with Biopython <font color="C51E3A"> (BETA) </font></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
 </ul>
 
@@ -580,7 +582,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/86168e443414a5d44aaf8f799a268be2dcd90661afea674beb604939b01cfca5.svg" src="../../_images/86168e443414a5d44aaf8f799a268be2dcd90661afea674beb604939b01cfca5.svg" /></div>
+<img alt="../../_images/c9edccf531b6bf4740b7462eca24e93ed8ac47ce0934f54000e353b3d86166ee.svg" src="../../_images/c9edccf531b6bf4740b7462eca24e93ed8ac47ce0934f54000e353b3d86166ee.svg" /></div>
 </div>
 <p>To convert the data to the frequency domain, we will use the fast Fourier transform function (<code class="docutils literal notranslate"><span class="pre">fft</span></code>) from the <code class="docutils literal notranslate"><span class="pre">fft</span></code> SciPy module. NMRglue also contains Fourier transform functions, but we will use SciPy here. The plot below inverts the <em>x</em>-axis with</p>
 <div class="cell docutils container">
@@ -601,7 +603,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c32c79a3f4901caff84a230d1a198a7d8be8064f45707a0eb12fe7b4acbfc7dc.svg" src="../../_images/c32c79a3f4901caff84a230d1a198a7d8be8064f45707a0eb12fe7b4acbfc7dc.svg" /></div>
+<img alt="../../_images/54222fd99013b14807092ad1ce03f379708ab655f414cabd261f379a19a0b26f.svg" src="../../_images/54222fd99013b14807092ad1ce03f379708ab655f414cabd261f379a19a0b26f.svg" /></div>
 </div>
 <p>When you plot the Fourier transformed data, you may get a <code class="docutils literal notranslate"><span class="pre">ComplexWarning</span></code> error message because the Fourier transform will return complex values (i.e., values with real and imaginary components). To only work with the real components, use the <code class="docutils literal notranslate"><span class="pre">.real</span></code> method as is done above. The plot now looks more like an NMR spectrum, but most of the resonances are out of phase. The next step is to phase the spectrum.</p>
 </section>
@@ -642,7 +644,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b4707392a2b89ddfa091093f82f4512631fa39d31d86021ce699926099933c5e.svg" src="../../_images/b4707392a2b89ddfa091093f82f4512631fa39d31d86021ce699926099933c5e.svg" /></div>
+<img alt="../../_images/a7a4ae24878888a07abd3ffc3e81f80347e82e7761be965bf925ccec705ae848.svg" src="../../_images/a7a4ae24878888a07abd3ffc3e81f80347e82e7761be965bf925ccec705ae848.svg" /></div>
 </div>
 <p>You should try both algorithms to see which works best for you. The above spectrum is the result of the <code class="docutils literal notranslate"><span class="pre">acme</span></code> autophasing algorithm which is close but still slightly off. If neither of the provided autophasing algorithms work for you, you will need to instead manually phase the NMR spectrum as discussed below.</p>
 </section>
@@ -707,7 +709,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/78eca32278cb702a13b094b9495f93d5901dc09d9130bdb3a86dfdac50b60475.svg" src="../../_images/78eca32278cb702a13b094b9495f93d5901dc09d9130bdb3a86dfdac50b60475.svg" /></div>
+<img alt="../../_images/0888403ab45f4b97e7d36c80e8f8c6a44dde571d378b394cc736718bca16ddb6.svg" src="../../_images/0888403ab45f4b97e7d36c80e8f8c6a44dde571d378b394cc736718bca16ddb6.svg" /></div>
 </div>
 <p>Alternatively, NMRglue contains an object called a <em>unit conversion object</em> that can be created and used to convert between ppm, Hz, and point index values for any position in an NMR spectrum. To create a unit unit conversion object, use the <code class="docutils literal notranslate"><span class="pre">make_uc()</span></code> function which takes two arguments  – the dictionary, <code class="docutils literal notranslate"><span class="pre">dic</span></code>, and the original data array, <code class="docutils literal notranslate"><span class="pre">data</span></code>, generated from reading the NMR file in section 11.2.</p>
 <aside class="margin sidebar">
@@ -758,7 +760,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/57f081feb9d0387190956361e7a330818ca41f38307a110045c5aaa9554b81ff.svg" src="../../_images/57f081feb9d0387190956361e7a330818ca41f38307a110045c5aaa9554b81ff.svg" /></div>
+<img alt="../../_images/c1605c227a108341d33bd98fa4dbfb0bc3d202b10e34c4ecf7b09cb984a9a9e3.svg" src="../../_images/c1605c227a108341d33bd98fa4dbfb0bc3d202b10e34c4ecf7b09cb984a9a9e3.svg" /></div>
 </div>
 <p>If you want to narrow the plot to where the resonances are located, you can use the <code class="docutils literal notranslate"><span class="pre">plt.xlim(8,0)</span></code> function. Notice that 8 is first to indicate that the plot is from 8 ppm <span class="math notranslate nohighlight">\(\rightarrow\)</span> 0 ppm. The use of <code class="docutils literal notranslate"><span class="pre">plt.xlim(8,0)</span></code> removes the need to use <code class="docutils literal notranslate"><span class="pre">plt.gca().invert_xaxis()</span></code> to flip the <em>x</em>-axis.</p>
 </section>
@@ -798,7 +800,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b7b75fa45142805b101024c810de93ed99506f64812df6b5511067118f344396.svg" src="../../_images/b7b75fa45142805b101024c810de93ed99506f64812df6b5511067118f344396.svg" /></div>
+<img alt="../../_images/ff7c6731973f5ec1c1988af939176fde7234ceab3c71b36224e429a507467a4b.svg" src="../../_images/ff7c6731973f5ec1c1988af939176fde7234ceab3c71b36224e429a507467a4b.svg" /></div>
 </div>
 <p>The limits are in ppm, so take a look at the spectrum above and decide where you want to put the integration limits. An NMR spectrum with the chosen integration limits are shown above as vertical red lines.</p>
 <p>Now to integrate our NMR spectrum.</p>
@@ -850,11 +852,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/81497fa4d95bb648227afb8894820d26b9ce9f29fb06a763c028fa0c428669a5.svg" src="../../_images/81497fa4d95bb648227afb8894820d26b9ce9f29fb06a763c028fa0c428669a5.svg" /></div>
+<img alt="../../_images/c30182de219346a3569d09d4aa7ca814c1b8cd865706a733d9290b3b1e4ca1da.svg" src="../../_images/c30182de219346a3569d09d4aa7ca814c1b8cd865706a733d9290b3b1e4ca1da.svg" /></div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">ng.analysis.peakpick.pick()</span></code> does not currently work with NumPy versions 1.24 and later. If this is a function you use, downgrade your version of NumPy to 1.23 or earlier.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ng.analysis.peakpick.pick()</span></code> does not currently work with NumPy versions 1.24 and later. If this is a function you use, consider downgrading your version of NumPy to 1.23 or earlier until the fix is pushed out.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -904,7 +906,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1ae1e7354f18620048f75890371838e31605e6199d80a8b7b050a17947bf1084.svg" src="../../_images/1ae1e7354f18620048f75890371838e31605e6199d80a8b7b050a17947bf1084.svg" /></div>
+<img alt="../../_images/d8fb342a6e301d5775854aba571b6f05bbc22610997a43e3eee6f57a55a34309.svg" src="../../_images/d8fb342a6e301d5775854aba571b6f05bbc22610997a43e3eee6f57a55a34309.svg" /></div>
 </div>
 <p>We can plot the NMR spectrum with these chemical shifts marked with vertical dotted lines shown below. Looks like it did a pretty good job locating the resonances! If NMRglue fails to properly identify the peaks, there are a number of parameters described in the <a class="reference external" href="https://nmrglue.readthedocs.io/en/latest/reference/generated/nmrglue.analysis.peakpick.pick.html#nmrglue.analysis.peakpick.pick">NMRglue documentation</a> that can be adjusted.</p>
 </section>
@@ -922,7 +924,7 @@ document.write(`
 <ol class="arabic">
 <li><p>Open the 1H NMR spectrum of ethanol, <strong>EtOH_1H_NMR.fid</strong>, taken in CDCl<span class="math notranslate nohighlight">\(_3\)</span> with TMS using NMRglue. Use the <code class="docutils literal notranslate"><span class="pre">pipe</span></code> module.</p>
 <p>a) Plot the resulting spectrum and be sure to properly reference it if not done already.</p>
-<p>b) Integrate the methyl (CH<span class="math notranslate nohighlight">\(_3\)</span>) versus the methylene (-CH<span class="math notranslate nohighlight">\(_2\)</span>-) resonances and calculate the ratio.</p>
+<p>b) Integrate the methyl (-CH<span class="math notranslate nohighlight">\(_3\)</span>) versus the methylene (-CH<span class="math notranslate nohighlight">\(_2\)</span>-) resonances and calculate the ratio.</p>
 </li>
 <li><p>Open the <span class="math notranslate nohighlight">\(^1\)</span>H and <span class="math notranslate nohighlight">\(^{13}\)</span>C NMR spectra of 2-ethyl-1-hexanol, <strong>2-ethyl-1-hexanol_1H_NMR_CDCl3.fid</strong> and <strong>2-ethyl-1-hexanol_13C_NMR_CDCl3.fid</strong>, in CDCl<span class="math notranslate nohighlight">\(_3\)</span> with TMS and plot them on a ppm scale. Be sure to properly phase and reference the spectra if not done already. Use the <code class="docutils literal notranslate"><span class="pre">pipe</span></code> module.</p></li>
 </ol>

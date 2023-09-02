@@ -1,5 +1,8 @@
 # Scientific Computing for Chemists with Python
 
+### An Introduction to Programming in Python for Chemists with Chemical Applications
+
+
 The following is the textbook used for the Scientific Computing Chemists course intended to teach chemists and chemistry students basic computer programming in Python and Jupyter Notebooks and advanced tools for processing, visualization, and analysis of digital data. 
 
 ## [Read Scientific Computing for Chemists with Python (Jupyter Book)](https://weisscharlesj.github.io/SciCompforChemists/)
@@ -8,9 +11,10 @@ A chapter outline is provided below. The book starts with a streamlined introduc
 
 This book is periodically updated to fix typos, account for new software versions, and add new content. The most recent version can be viewed using the link above or downloaded or forked above along with Jupyter notebooks containing all code in the book. Reports of errors and information on how people are using this book are always welcome.
 
-Answer keys to exercises are available to instructors upon request by [emailing](https://www.augie.edu/directory) me using your school email address to request a copy.
+The book and all files/materials included with it are copyright © 2017-2023 Charles J. Weiss and are released under under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license unless otherwise noted.
 
-The book and all files/materials included with it are copyright © 2017-2023 Charles J. Weiss and are released under under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
+Answer keys to exercises are available to **instructors** upon request by [emailing](https://www.augie.edu/directory) me using your school email address to request a copy. The answer keys are © Charles J. Weiss and are **not** released under a Creative Commons license.
+
 
 * Chapter 0: Python & Jupyter Notebooks
 * Chapter 1: Basic Python
@@ -27,6 +31,8 @@ The book and all files/materials included with it are copyright © 2017-2023 Cha
 * Chapter 12: Machine Learning using Scikit-Learn
 * Chapter 13: Command Line & Spyder
 * Chapter 14: Optimization and Root Finding
+* Chapter 15: RDKit
+* Chapter 16: Bioinformations with Biopython
 
 ## Interested in Using This Book for Your Course?
 

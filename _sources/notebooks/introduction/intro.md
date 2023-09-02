@@ -2,7 +2,9 @@
 
 # Scientific Computing for Chemists with Python
 
-*Scientific computing* utilizes computers to aid in scientific tasks such as data processing and digital simulations among others. The well-developed field of computational chemistry is part of scientific computing and focuses on utilzing computings to simulate chemical phenomena and calculate properties. However, there is less focus in the field of chemistry on the data processing side of computing, so this book strives to fill this void by introducing the reader to tools and methods for processing, visualizing, and analyzing chemical data. The tools employed in this book are the powerful and popular combination of Jupyter notebooks and the Python programming language. No background beyond first-year college chemistry and occasionally some very basic spectroscopy is assumed, so this book starts with a brief primer on Jupyter notebooks in chapter 0 and computer programming with Python in chapter 1 and chapter 2. If you already have background in these tools, feel free to skip ahead. Python and Jupyter were chosen for a variety of reasons including that they are:
+***An Introduction to Programming in Python for Chemists with Chemical Applications***
+
+*Scientific computing* utilizes computers to aid in scientific tasks such as data processing and digital simulations among others. The well-developed field of computational chemistry is part of scientific computing and focuses on utilzing computings to simulate chemical phenomena and calculate properties. However, there is less focus in the field of chemistry on the data processing side of computing, so this book strives to fill this void by introducing the reader to tools and methods for processing, visualizing, and analyzing chemical data. The tools employed in this book are the powerful and popular combination of Jupyter notebooks and the Python programming language. No background beyond first-year college chemistry and occasionally some very basic spectroscopy (for advanced chapters) is assumed, so this book starts with a brief primer on Jupyter notebooks in chapter 0 and computer programming with Python in chapter 1 and chapter 2. If you already have background in these tools, feel free to skip ahead. Python and Jupyter were chosen for a variety of reasons including that they are:
 
 - Relatively easy to use and learn
 - Powerful and well-suited for solving chemical problems
@@ -15,7 +17,11 @@ Learning to use a number of popular Python scientific libraries to solve chemica
 
 ## Organization of Book
 
-This book is organized in order of more fundamental topics first, but not every earlier chapter is a prerequisite for all subsequent chapters. Chapter 0 provides a quick introduction to the Jupyter notebook and chapters 1-2 provide background on the Python programming language. Anyone who already knows Python can skim or skip past these two chapters. Chapter 3 introduces plotting and visualization, and chapter 4 covers the NumPy library. Both of these chapters are used heavily in this book and should not be bypassed. The pandas library is covered in chapter 5 which is used in some subsequent chapters, but not all. This library adds functionality and extra ease-of-use to NumPy. Anyone looking to streamline their schedule could skip this chapter, but be aware that it is heavily utilized in chapters 10 and 12. However, chapters 10 and 12 should be largely readable by someone who is not familiar with pandas or at least has read sections 5.1-5.2. Chapters beyond chapter 5 are mostly applications or cover libraries for very specific applications such as image processing or machine learning. Chapters 6-14 are designed to be modular, so after getting through chapters 0-5, these subsequent chapters can be covered in any order depending up the reader's needs and interests. Below is a listing with brief descriptions of the chapters.
+This book is organized in order of more fundamental topics first, but not every earlier chapter is a prerequisite for all subsequent chapters. Chapter 0 provides a quick introduction to the Jupyter notebook and chapters 1-2 provide background on the Python programming language. Anyone who already knows Python can skim or skip past these two chapters. Chapter 3 introduces plotting and visualization, and chapter 4 covers the NumPy library. Both of these chapters are used heavily in this book and should not be bypassed. The pandas library is covered in chapter 5 which is used in some subsequent chapters, but not all. This library adds functionality and extra ease-of-use to NumPy. Anyone looking to streamline their schedule could skip this chapter, but be aware that it is heavily utilized in chapters 10 and 12. However, chapters 10 and 12 should be largely readable by someone who is not familiar with pandas or at least has read sections 5.1-5.2. Chapters beyond chapter 5 are mostly applications or cover libraries for very specific applications such as image processing or machine learning. Chapters 6-16 are designed to be modular, so after getting through chapters 0-5, these subsequent chapters can be covered in any order depending up the reader's needs and interests. 
+
+![progress through chapters](chapter_progression.svg)
+
+Below is a listing with brief descriptions of the chapters.
 
 | Chapter Number | Description |
 |:-----:  | :---------- |
@@ -34,6 +40,8 @@ This book is organized in order of more fundamental topics first, but not every 
 |Chapter 12| Machine learning using the scikit-learn library |
 |Chapter 13| Writing Python scripts using Spyder and running them from the command line |
 |Chapter 14| Using functions from the `scipy.optimize` module to perform minimizations, curve fitting, and root finding |
+|Chapter 15| Cheminformatics with RDKit |
+|Chapter 16| Bioinformatics with Biopython and Nglview |
 
 
 One of the goals of this book is to provide a streamlined introduction to Python and its scientific libraries in order to allow the reader to start applying these new skills to chemistry as quickly as possible. As a result, not all topics covered in a typical computer science course on Python are included here. Instead, the most relevant topics to chemistry are covered along with a selection of scientific libraries not likely taught in most Python courses. Another difference between this book and a typical computer science course on Python is that many computer science courses would have students write and save code as text files and run them from the command line. In contrast, this book assumes that the reader is running his or her code in a Jupyter notebook, as described in chapter 0, which is an ideal environment for scientific data analysis. The Jupyter notebook provides immediate feedback to the user, convenient graphical outputs, is shareable, and is simpler to use than running Python scripts from the command line. For those students who wish to continue on to run Python scripts from the command line, chapter 13 provides a brief introduction to this process. In an effort to make this text usable in a wide range of courses, there is little in-depth analysis of the data. This book instead focuses more on how to work with the data and leaves the analysis to the individual instructors.
@@ -54,16 +62,18 @@ While great efforts have gone into ensuring that all the code in this book works
 The code in this version of the book has been most recently tested with the following software versions unless otherwise noted but will likely work with other versions.
 
 - Python – 3.10.11
-- NumPy – 1.25
+- NumPy – 1.25.2
 - SciPy – 1.11.1
-- Pandas – 2.0.2
-- Matplotlib – 3.7.1
+- Pandas – 2.0.3
+- Matplotlib – 3.7.2
 - Seaborn – 0.12.2
 - Scikit-image – 0.21.0
 - Scikit-learn – 1.3.0
 - Sympy - 1.12
 - NMRglue – 0.9
 - Spyder – 5.4.2
+- Biopython - 1.81
+- RDKit - 2023.3.2
 
 
 ## Acknowledgements

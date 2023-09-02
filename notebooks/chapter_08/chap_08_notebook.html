@@ -174,6 +174,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../chapter_12/chap_12_notebook.html">Chapter 12: Machine Learning using Scikit-Learn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_13/chap_13_notebook.html">Chapter 13: Command Line &amp; Spyder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_14/chap_14_notebook.html">Chapter 14: Optimization and Root Finding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_15/chap_15_notebook.html">Chapter 15: Cheminformatics with RDKit <font color="C51E3A"> (BETA) </font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_16/chap_16_notebook.html">Chapter 16: Bioinformations with Biopython <font color="C51E3A"> (BETA) </font></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
 </ul>
 
@@ -556,17 +558,17 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;real&#39;: True,
- &#39;hermitian&#39;: True,
- &#39;extended_real&#39;: True,
- &#39;commutative&#39;: True,
- &#39;finite&#39;: True,
  &#39;imaginary&#39;: False,
- &#39;infinite&#39;: False,
+ &#39;hermitian&#39;: True,
  &#39;complex&#39;: True,
+ &#39;finite&#39;: True,
+ &#39;extended_real&#39;: True,
+ &#39;infinite&#39;: False,
+ &#39;commutative&#39;: True,
  &#39;nonnegative&#39;: True,
- &#39;extended_negative&#39;: False,
  &#39;negative&#39;: False,
- &#39;extended_nonnegative&#39;: True}
+ &#39;extended_nonnegative&#39;: True,
+ &#39;extended_negative&#39;: False}
 </pre></div>
 </div>
 </div>
@@ -1078,7 +1080,7 @@ document.write(`
 \[ S_8(s) + 4 \, O_2(g) \rightarrow SO_2(g) \quad \Delta H_1 = -3160 kJ \]</div>
 <div class="math notranslate nohighlight">
 \[ 2 \, SO_2(g) + O_2(g) \rightarrow 2 \, SO_3(g) \quad \Delta H_2 = -196 kJ \]</div>
-<p>Using Hess’s law, we need to multiply the subreactions 1 and 2 by coefficients and add them together to generate the overall net reaction. Remember that reversing a reaction results in reversing the sign of reaction enthalpy, so it’s the same as multiplying by -1. We can represent this calculation using matrices show below where r<span class="math notranslate nohighlight">\(_1\)</span> and r<span class="math notranslate nohighlight">\(_2\)</span> are the coefficients for each subreaction. The values in each row of the first matrix are the number of SO<span class="math notranslate nohighlight">\(_2\)</span>, SO<span class="math notranslate nohighlight">\(_3\)</span>, O<span class="math notranslate nohighlight">\(_2\)</span>, and S<span class="math notranslate nohighlight">\(_8\)</span> molecules, respectively, in the two subreactions, and the numbers in the last matrix are the numbers of the same molecules in the net reaction. The gray molecular formulas in the equation below are not part of the equation but rather are simply a label for clarity. You may notice that the coefficients in the balance equations on the reactant side are negative while products are positive. This allows us keep track of the side they are on.</p>
+<p id="index-12">Using Hess’s law, we need to multiply the subreactions 1 and 2 by coefficients and add them together to generate the overall net reaction. Remember that reversing a reaction results in reversing the sign of reaction enthalpy, so it’s the same as multiplying by -1. We can represent this calculation using matrices show below where r<span class="math notranslate nohighlight">\(_1\)</span> and r<span class="math notranslate nohighlight">\(_2\)</span> are the coefficients for each subreaction. The values in each row of the first matrix are the number of SO<span class="math notranslate nohighlight">\(_2\)</span>, SO<span class="math notranslate nohighlight">\(_3\)</span>, O<span class="math notranslate nohighlight">\(_2\)</span>, and S<span class="math notranslate nohighlight">\(_8\)</span> molecules, respectively, in the two subreactions, and the numbers in the last matrix are the numbers of the same molecules in the net reaction. The gray molecular formulas in the equation below are not part of the equation but rather are simply a label for clarity. You may notice that the coefficients in the balance equations on the reactant side are negative while products are positive. This allows us keep track of the side they are on.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} \begin{array}{ccc} \color{gray} {SO_2} \\ \color{gray} {SO_3} \\ \color{gray}{O_2} \\ \color{gray}{S_8} \end{array}
 \left[ \begin{array}{ccc} 0 &amp; -2 \\ 8 &amp; 2 \\ -12 &amp; -1 \\ -1 &amp; 0 \end{array} \right]
@@ -1163,7 +1165,7 @@ document.write(`
 <p>The normal equation used in this section is really just the Moore-Penrose pseudoinverse and is used here as a demonstration of performing matrix calculations.</p>
 </div>
 </aside>
-<span class="target" id="index-12"></span><p id="index-13">Finding the line of best fit through data points can be accomplished by least-square minimization. What we are essentially looking for is an equation of the form <span class="math notranslate nohighlight">\(y = mx + b\)</span> that is as close as possible to the data points, and the mean square error determines what qualifies as “close.” If we rewrite this problem in matrix or array form, it will look like the following for a series of four point (<span class="math notranslate nohighlight">\(x_n\)</span>, <span class="math notranslate nohighlight">\(y_n\)</span>) on a two-dimensional plane. The first array contains a column of ones to multiply with b, so for the first row, we get <span class="math notranslate nohighlight">\(mx_0 + b = y_0\)</span>.</p>
+<span class="target" id="index-13"></span><p id="index-14">Finding the line of best fit through data points can be accomplished by least-square minimization. What we are essentially looking for is an equation of the form <span class="math notranslate nohighlight">\(y = mx + b\)</span> that is as close as possible to the data points, and the mean square error determines what qualifies as “close.” If we rewrite this problem in matrix or array form, it will look like the following for a series of four point (<span class="math notranslate nohighlight">\(x_n\)</span>, <span class="math notranslate nohighlight">\(y_n\)</span>) on a two-dimensional plane. The first array contains a column of ones to multiply with b, so for the first row, we get <span class="math notranslate nohighlight">\(mx_0 + b = y_0\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} \left[ \begin{array}{cc} x_0 &amp; 1 \\ x_1 &amp; 1 \\ x_2 &amp; 1 \\ x_3 &amp; 1 \end{array} \right]
 \cdot
@@ -1282,12 +1284,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/76fc0ea822c12cd9d022aa3b047a803cc7673eb5d420d9323b0218995bf1e95e.svg" src="../../_images/76fc0ea822c12cd9d022aa3b047a803cc7673eb5d420d9323b0218995bf1e95e.svg" /></div>
+<img alt="../../_images/5bf08fa470a8f6515eb22b0fd4b1469a1540e7950cd854974d5b33af66fa8f98.svg" src="../../_images/5bf08fa470a8f6515eb22b0fd4b1469a1540e7950cd854974d5b33af66fa8f98.svg" /></div>
 </div>
 </section>
 <section id="balancing-chemical-equations">
 <span id="id16"></span><h3>8.3.4 Balancing Chemical Equations<a class="headerlink" href="#balancing-chemical-equations" title="Permalink to this heading">#</a></h3>
-<p id="index-14">Matricies can also be used to balance chemical equations as shown below where <span class="math notranslate nohighlight">\(x_1\)</span> through <span class="math notranslate nohighlight">\(x_4\)</span> are the coefficients for the balanced chemical equation.</p>
+<p id="index-15">Matricies can also be used to balance chemical equations as shown below where <span class="math notranslate nohighlight">\(x_1\)</span> through <span class="math notranslate nohighlight">\(x_4\)</span> are the coefficients for the balanced chemical equation.</p>
 <div class="math notranslate nohighlight">
 \[ x_1 C_3H_{8} + x_2 O_2 \rightarrow x_3 CO_2 + x_4 H_2O \]</div>
 <p>We can then describe the number of carbon, hydrogen, and oxygen atoms in each compound using 3 <span class="math notranslate nohighlight">\(\times\)</span> 1 matricies <span class="math notranslate nohighlight">\(\left[ \begin{array}{c} C \\ H \\ O \end{array} \right]\)</span> as shown below.</p>
@@ -1365,7 +1367,7 @@ document.write(`
 </section>
 <section id="eigenvalues-and-eigenvectors">
 <span id="id17"></span><h3>8.3.5 Eigenvalues and Eigenvectors<a class="headerlink" href="#eigenvalues-and-eigenvectors" title="Permalink to this heading">#</a></h3>
-<span class="target" id="index-15"></span><span class="target" id="index-16"></span><span class="target" id="index-17"></span><p id="index-18">This section covers using <code class="docutils literal notranslate"><span class="pre">np.linalg</span></code> to calculate <em>eigenvalues</em> and <em>eigenvectors</em> which is useful in quantum mechanics among other applications. This topic will not be utilized later in this book, so feel free to skip over this section if you have no interest in this topic.</p>
+<span class="target" id="index-16"></span><span class="target" id="index-17"></span><span class="target" id="index-18"></span><p id="index-19">This section covers using <code class="docutils literal notranslate"><span class="pre">np.linalg</span></code> to calculate <em>eigenvalues</em> and <em>eigenvectors</em> which is useful in quantum mechanics among other applications. This topic will not be utilized later in this book, so feel free to skip over this section if you have no interest in this topic.</p>
 <p>For a square matrix <span class="math notranslate nohighlight">\(A\)</span>, there can exist a scalar <span class="math notranslate nohighlight">\(\lambda\)</span> and vector <span class="math notranslate nohighlight">\(V\)</span> that satisfy the following equation.</p>
 <div class="math notranslate nohighlight">
 \[ AV = \lambda V \]</div>
@@ -1385,9 +1387,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([5., 1.]),
- array([[ 0.4472136 , -0.4472136 ],
-        [ 0.89442719,  0.89442719]]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>EigResult(eigenvalues=array([5., 1.]), eigenvectors=array([[ 0.4472136 , -0.4472136 ],
+       [ 0.89442719,  0.89442719]]))
 </pre></div>
 </div>
 </div>
@@ -1404,9 +1405,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0.+1.j, 0.-1.j]),
- array([[0.70710678+0.j        , 0.70710678-0.j        ],
-        [0.        -0.70710678j, 0.        +0.70710678j]]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>EigResult(eigenvalues=array([0.+1.j, 0.-1.j]), eigenvectors=array([[0.70710678+0.j        , 0.70710678-0.j        ],
+       [0.        -0.70710678j, 0.        +0.70710678j]]))
 </pre></div>
 </div>
 </div>
@@ -1415,7 +1415,7 @@ document.write(`
 </section>
 <section id="calculus">
 <span id="id18"></span><h2>8.4 Calculus<a class="headerlink" href="#calculus" title="Permalink to this heading">#</a></h2>
-<p id="index-19">SymPy and SciPy both contain functionality for performing calculus operations. We will start with SymPy for the symbolic math and switch over to SciPy for the strictly numerical work in <a class="reference internal" href="#id21"><span class="std std-ref">section 8.4.3</span></a>. In this section, we will be working with the radial density functions (<span class="math notranslate nohighlight">\(\psi\)</span>) for hydrogen atomic orbitals. The squares of these functions (<span class="math notranslate nohighlight">\(\psi ^2\)</span>) provide the probability of finding an electron with respect to distance from the nucleus. While these equations are available in various textbooks, SymPy provides a <code class="docutils literal notranslate"><span class="pre">physics</span></code> module with a <code class="docutils literal notranslate"><span class="pre">R_nl()</span></code> function for generating these equations based on the principle (<em>n</em>) quantum number, angular (<em>l</em>) quantum number, and the atomic number (<em>Z</em>). For example, to generate the function for the 2p orbital of hydrogen, <em>n</em> = 2, <em>l</em> = 1, and <em>Z</em> = 1.</p>
+<p id="index-20">SymPy and SciPy both contain functionality for performing calculus operations. We will start with SymPy for the symbolic math and switch over to SciPy for the strictly numerical work in <a class="reference internal" href="#id21"><span class="std std-ref">section 8.4.3</span></a>. In this section, we will be working with the radial density functions (<span class="math notranslate nohighlight">\(\psi\)</span>) for hydrogen atomic orbitals. The squares of these functions (<span class="math notranslate nohighlight">\(\psi ^2\)</span>) provide the probability of finding an electron with respect to distance from the nucleus. While these equations are available in various textbooks, SymPy provides a <code class="docutils literal notranslate"><span class="pre">physics</span></code> module with a <code class="docutils literal notranslate"><span class="pre">R_nl()</span></code> function for generating these equations based on the principle (<em>n</em>) quantum number, angular (<em>l</em>) quantum number, and the atomic number (<em>Z</em>). For example, to generate the function for the 2p orbital of hydrogen, <em>n</em> = 2, <em>l</em> = 1, and <em>Z</em> = 1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy.physics.hydrogen</span> <span class="kn">import</span> <span class="n">R_nl</span>
@@ -1465,7 +1465,7 @@ document.write(`
 </div>
 <section id="differentiation">
 <span id="id19"></span><h3>8.4.1 Differentiation<a class="headerlink" href="#differentiation" title="Permalink to this heading">#</a></h3>
-<p id="index-20">SymPy can take the derivative of mathematical expression using the <code class="docutils literal notranslate"><span class="pre">sympy.diff()</span></code> function.  This function requires a mathematical expression, the variable with respect the derivative is taken from, and the degree. The default behavior is to take the first derivative if a degree is not specified.</p>
+<p id="index-21">SymPy can take the derivative of mathematical expression using the <code class="docutils literal notranslate"><span class="pre">sympy.diff()</span></code> function.  This function requires a mathematical expression, the variable with respect the derivative is taken from, and the degree. The default behavior is to take the first derivative if a degree is not specified.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">deg</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1501,13 +1501,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/47ac4c1a0312902e1140897a5b27d120b9d3e581edfa8a45f72df6361b090666.svg" src="../../_images/47ac4c1a0312902e1140897a5b27d120b9d3e581edfa8a45f72df6361b090666.svg" /></div>
+<img alt="../../_images/893bc6765ea71d0307c3dce0e13354ebef0a25e09872a3ec28e8a1d979f93ad8.svg" src="../../_images/893bc6765ea71d0307c3dce0e13354ebef0a25e09872a3ec28e8a1d979f93ad8.svg" /></div>
 </div>
 <p>The radius is in Bohrs (<span class="math notranslate nohighlight">\(a_0\)</span>) which is equal to approximately 0.53 angstroms.</p>
 </section>
 <section id="integration-of-functions">
 <span id="id20"></span><h3>8.4.2 Integration of Functions<a class="headerlink" href="#integration-of-functions" title="Permalink to this heading">#</a></h3>
-<p id="index-21">SymPy can also integrate expressions using the <code class="docutils literal notranslate"><span class="pre">sympy.integrate()</span></code> function which takes the mathematical expression and the variable plus integration range in the form of a tuple. If the integration range is omitted, then SymPy will return a symbolic expression.</p>
+<p id="index-22">SymPy can also integrate expressions using the <code class="docutils literal notranslate"><span class="pre">sympy.integrate()</span></code> function which takes the mathematical expression and the variable plus integration range in the form of a tuple. If the integration range is omitted, then SymPy will return a symbolic expression.</p>
 <p>The normalized (i.e., totals to one) density function is the squared wave function times <span class="math notranslate nohighlight">\(r^2\)</span> (i.e, <span class="math notranslate nohighlight">\(\psi ^2 r^2\)</span>). We can use this to determine the probability of finding an electron in a particular range of distances from the radius. Below, we integrate from the nucleus to the radius of maximum density.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1609,7 +1609,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4f6b3c938a4e6b13d4be27a3e70dc87be6f3414c55ac8c57f624c937f292ad79.svg" src="../../_images/4f6b3c938a4e6b13d4be27a3e70dc87be6f3414c55ac8c57f624c937f292ad79.svg" /></div>
+<img alt="../../_images/cb984d33268c1a282cbcd2de0efc54ed037856554ee1ff3aaf909694180101eb.svg" src="../../_images/cb984d33268c1a282cbcd2de0efc54ed037856554ee1ff3aaf909694180101eb.svg" /></div>
 </div>
 <p>Above is a plot of the peaks with respect to the index values (not ppm). To integrate under each of the triplet peaks, first we need the index values for the edges of each peak. Below is a list, <code class="docutils literal notranslate"><span class="pre">i</span></code>, that provides reasonable boundaries, and a plot is below with these edges marked in orange squares.</p>
 <div class="cell docutils container">
@@ -1623,7 +1623,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/13d9f1d28620483444c22e8d5ce1ef9d84f30b47168a2d23f054b60dab58efd0.svg" src="../../_images/13d9f1d28620483444c22e8d5ce1ef9d84f30b47168a2d23f054b60dab58efd0.svg" /></div>
+<img alt="../../_images/080566aa6cfb574b3962de8d5c295a0243acf576852668bce1681f10512260a8.svg" src="../../_images/080566aa6cfb574b3962de8d5c295a0243acf576852668bce1681f10512260a8.svg" /></div>
 </div>
 <p>Integrations under sampled data do not include the values between data points, so these regions are estimated based on assumptions. The <code class="docutils literal notranslate"><span class="pre">trapz()</span></code> function assumes that any data point between known points lies directly between the known data points (i.e., linear interpolation) as shown below by the blue lines.</p>
 <div class="cell tag_remove-output docutils container">
@@ -1646,7 +1646,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/da0cdcfd01ddfb805f649bd3912ce478bf2595395b9a4f62cc3b16fe8773fea2.svg" src="../../_images/da0cdcfd01ddfb805f649bd3912ce478bf2595395b9a4f62cc3b16fe8773fea2.svg" /></div>
+<img alt="../../_images/88f205dcf5d0f1201f949974a796f0bc4d4fb8c5dda7d42c2ad755ee56d6afb8.svg" src="../../_images/88f205dcf5d0f1201f949974a796f0bc4d4fb8c5dda7d42c2ad755ee56d6afb8.svg" /></div>
 </div>
 <p>Alternatively, the <code class="docutils literal notranslate"><span class="pre">simps()</span></code> function uses the <em>Simpson’s rule</em> which estimates the data between known points using quadratic interpolation shown below.</p>
 <div class="cell docutils container">
@@ -1662,7 +1662,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4d963b9ca9ada4acd8a44d4b5b334d4752232dc253149a1c141a1bda1c4cd0ca.svg" src="../../_images/4d963b9ca9ada4acd8a44d4b5b334d4752232dc253149a1c141a1bda1c4cd0ca.svg" /></div>
+<img alt="../../_images/10115fd015f418dc27b0cf961399e05825cf1ec91f7c4627a55440a35e197e56.svg" src="../../_images/10115fd015f418dc27b0cf961399e05825cf1ec91f7c4627a55440a35e197e56.svg" /></div>
 </div>
 <p>Both functions take the <code class="docutils literal notranslate"><span class="pre">y</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span></code> values in this order. Below, the trapezoidal method is employed.</p>
 <div class="cell docutils container">
@@ -1692,7 +1692,7 @@ document.write(`
 <p>For example, the following is a first-order chemical reaction with starting material, A, and product, P.</p>
 <div class="math notranslate nohighlight">
 \[ A \rightarrow P \]</div>
-<p id="index-22">The decay of a radioactive isotope is an example of a first-order reaction because the rate of decay is proportional to the amount of A. First-order reaction rates are described by</p>
+<p id="index-23">The decay of a radioactive isotope is an example of a first-order reaction because the rate of decay is proportional to the amount of A. First-order reaction rates are described by</p>
 <div class="math notranslate nohighlight">
 \[ Rate = \frac{d[A]}{dt} = -k[A] \]</div>
 <p>where [A] is the concentration (M) of A, <span class="math notranslate nohighlight">\(k\)</span> is the rate constant (1/s), and rate is the change in [A] versus time (M/s). The <code class="docutils literal notranslate"><span class="pre">odeint()</span></code> function below takes a differential equation in the form of a Python function, <code class="docutils literal notranslate"><span class="pre">func</span></code>, the initial values for A, <code class="docutils literal notranslate"><span class="pre">A0</span></code>, and a list or array of the times,<code class="docutils literal notranslate"><span class="pre">t</span></code>, to calculate the [A] .</p>
@@ -1733,7 +1733,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/cbb02bf632459158f1ed6c034784a74fa3cad16775d27e01dd0a55cfdb0f2184.svg" src="../../_images/cbb02bf632459158f1ed6c034784a74fa3cad16775d27e01dd0a55cfdb0f2184.svg" /></div>
+<img alt="../../_images/d8b87e2f5846290252237c1b277d61d9c25c64deb9156ee3e0dc6130f1d07831.svg" src="../../_images/d8b87e2f5846290252237c1b277d61d9c25c64deb9156ee3e0dc6130f1d07831.svg" /></div>
 </div>
 <p>This approach to kinetic simulations can be adapted to even more complex reactions which are demonstrated in <a class="reference internal" href="../chapter_09/chap_09_notebook.html#id6"><span class="std std-ref">section 9.1.4</span></a>.</p>
 </section>
@@ -1802,6 +1802,7 @@ Hint: Assume this is an isolated system, so q<span class="math notranslate nohig
 C_2 = \left[ \begin{array}{ccc} -1 &amp; 0 &amp; 0 \\ 0 &amp; -1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{array} \right]
 \end{split}\]</div>
 </li>
+<li><p>Using dot product math, write your own linear regression function that accepts the <em>x</em> and <em>y</em> coordinates of data points as separate arrays and returns the slope and intercept of a line of best fit.</p></li>
 </ol>
 </section>
 </section>
