@@ -1,0 +1,1 @@
+The individual logos within the pt_scipy.svg are the property of their respective projects. The inclusion of these logos in this periodic table graphic is mearly to bring attention to these projects and their value to the scientific Python ecosystem and does not indicate any endorsement or association by the project.
