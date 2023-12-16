@@ -70,7 +70,7 @@ The code in this version of the book has been most recently tested with the foll
 - Scikit-image – 0.21.0
 - Scikit-learn – 1.3.0
 - Sympy - 1.12
-- NMRglue – 0.9
+- NMRglue – 0.10
 - Spyder – 5.4.2
 - Biopython - 1.81
 - Nglview - 3.0.6
