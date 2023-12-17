@@ -64,13 +64,13 @@ The code in this version of the book has been most recently tested with the foll
 - Python – 3.10.11
 - NumPy – 1.25.2
 - SciPy – 1.11.2
-- Pandas – 2.0.3
-- Matplotlib – 3.7.2
-- Seaborn – 0.12.2
+- Pandas – 2.1.4
+- Matplotlib – 3.8.2
+- Seaborn – 0.13.0
 - Scikit-image – 0.21.0
 - Scikit-learn – 1.3.0
 - Sympy - 1.12
-- NMRglue – 0.9
+- NMRglue – 0.10
 - Spyder – 5.4.2
 - Biopython - 1.81
 - Nglview - 3.0.6
@@ -90,3 +90,4 @@ This book took a substantial time to write along with the time and effort in dev
 - Patrick Coppock providing feedback
 - Zachary M. Schulte for providing feedback and reporting typos in chapter 14
 - Yuthana Tantirungrotechai for reporting errors in chapter 6
+- @Avalanchian for reporting error in chapter 10 data/elements_data.csv file
