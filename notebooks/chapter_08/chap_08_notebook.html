@@ -558,17 +558,17 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;real&#39;: True,
- &#39;commutative&#39;: True,
- &#39;hermitian&#39;: True,
- &#39;infinite&#39;: False,
+ &#39;finite&#39;: True,
  &#39;complex&#39;: True,
  &#39;extended_real&#39;: True,
  &#39;imaginary&#39;: False,
- &#39;finite&#39;: True,
+ &#39;hermitian&#39;: True,
+ &#39;commutative&#39;: True,
+ &#39;infinite&#39;: False,
  &#39;nonnegative&#39;: True,
  &#39;negative&#39;: False,
- &#39;extended_negative&#39;: False,
- &#39;extended_nonnegative&#39;: True}
+ &#39;extended_nonnegative&#39;: True,
+ &#39;extended_negative&#39;: False}
 </pre></div>
 </div>
 </div>
@@ -762,11 +762,11 @@ document.write(`
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p></p></th>
-<th class="head text-center"><p>2 NH3</p></th>
+<th class="head text-center"><p>2 NH<span class="math notranslate nohighlight">\(_3\)</span></p></th>
 <th class="head text-center"><p><span class="math notranslate nohighlight">\(\rightleftharpoons\)</span></p></th>
-<th class="head text-center"><p>3 H2 (g)</p></th>
+<th class="head text-center"><p>3 H<span class="math notranslate nohighlight">\(_2\)</span> (g)</p></th>
 <th class="head text-center"><p>+</p></th>
-<th class="head text-left"><p>N2 (g)</p></th>
+<th class="head text-left"><p>N<span class="math notranslate nohighlight">\(_2\)</span> (g)</p></th>
 </tr>
 </thead>
 <tbody>
@@ -775,7 +775,7 @@ document.write(`
 <td class="text-center"><p></p></td>
 <td class="text-center"><p>0.60 M</p></td>
 <td class="text-center"><p></p></td>
-<td class="text-left"><p>0.80 M</p></td>
+<td class="text-left"><p>0.00 M</p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p>Change, <span class="math notranslate nohighlight">\(\Delta\)</span></p></td>
 <td class="text-center"><p>-2x</p></td>
@@ -789,17 +789,17 @@ document.write(`
 <td class="text-center"><p></p></td>
 <td class="text-center"><p>0.60 + 3x</p></td>
 <td class="text-center"><p></p></td>
-<td class="text-left"><p>0.80 + x</p></td>
+<td class="text-left"><p>x</p></td>
 </tr>
 </tbody>
 </table>
 <div class="math notranslate nohighlight">
-\[ K_c = 3.44 = \frac{[N_2][H_2]^3}{[NH_3]^2} = \frac{(0.80 + x)(0.60 + 3x)^3}{(0.60 - 2x)^2}  \]</div>
-<p>To expand the right portion of the equation, we can use the <code class="docutils literal notranslate"><span class="pre">expand()</span></code> method. Notice that variable <code class="docutils literal notranslate"><span class="pre">x</span></code> has been constrained to real and nonnegative values because imaginary and negative concentrations make no physical sense.</p>
+\[ K_c = 3.44 = \frac{[N_2][H_2]^3}{[NH_3]^2} = \frac{(x)(0.60 + 3x)^3}{(0.60 - 2x)^2}  \]</div>
+<p>To expand the right portion of the equation, we can use the <code class="docutils literal notranslate"><span class="pre">expand()</span></code> method. Notice that the variable <code class="docutils literal notranslate"><span class="pre">x</span></code> has been constrained below to real (<code class="docutils literal notranslate"><span class="pre">real=True</span></code>) and nonnegative (<code class="docutils literal notranslate"><span class="pre">nonnegative=True</span></code>) values here. This is because in this example, <code class="docutils literal notranslate"><span class="pre">x</span></code> is one of the equilibrium concentrations, so imaginary and negative values would make no physical sense. These constraints may not be appropriate for other examples.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">nonnegative</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">expr</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.80</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">0.60</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span> <span class="o">/</span> <span class="p">(</span><span class="mf">0.60</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">expr</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">0.60</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span> <span class="o">/</span> <span class="p">(</span><span class="mf">0.60</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
 </pre></div>
 </div>
 </div>
@@ -812,10 +812,10 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{27 x^{4}}{4 x^{2} - 2.4 x + 0.36} + \frac{37.8 x^{3}}{4 x^{2} - 2.4 x + 0.36} + \frac{16.2 x^{2}}{4 x^{2} - 2.4 x + 0.36} + \frac{2.808 x}{4 x^{2} - 2.4 x + 0.36} + \frac{0.1728}{4 x^{2} - 2.4 x + 0.36}\]</div>
+\[\displaystyle \frac{27 x^{4}}{4 x^{2} - 2.4 x + 0.36} + \frac{16.2 x^{3}}{4 x^{2} - 2.4 x + 0.36} + \frac{3.24 x^{2}}{4 x^{2} - 2.4 x + 0.36} + \frac{0.216 x}{4 x^{2} - 2.4 x + 0.36}\]</div>
 </div>
 </div>
-<p>This is probably not what you were expecting or hoping for. The polynomial has been expanded for the numerator and denominator, but the result is still a fraction. We can instruct SymPy to simplify the results.</p>
+<p>This is probably not what you were expecting or hoping for. The polynomial has been expanded, but the result is still a fraction. We can instruct SymPy to simplify the results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">sympy</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">expr</span><span class="p">))</span>
@@ -824,7 +824,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{27 x^{4} + 37.8 x^{3} + 16.2 x^{2} + 2.808 x + 0.1728}{4 x^{2} - 2.4 x + 0.36}\]</div>
+\[\displaystyle \frac{x \left(27 x^{3} + 16.2 x^{2} + 3.24 x + 0.216\right)}{4 x^{2} - 2.4 x + 0.36}\]</div>
 </div>
 </div>
 <p>This is much better. Ultimately, we want to solve for <span class="math notranslate nohighlight">\(x\)</span>, but the <code class="docutils literal notranslate"><span class="pre">solve()</span></code> function requires an expression that equals zero. We can achieve this by subtracting 3.44.</p>
@@ -835,12 +835,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.0916567216237442]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.170006841512893]
 </pre></div>
 </div>
 </div>
 </div>
-<p>If the variable <code class="docutils literal notranslate"><span class="pre">x</span></code> was not constrained to real and nonnegative values, a fourth-order polynomial would return four solutions, with only one making physical sense for concentrations. Because we did constrain <code class="docutils literal notranslate"><span class="pre">x</span></code>, the <code class="docutils literal notranslate"><span class="pre">solve()</span></code> function conveniently only returns 0.09166.</p>
+<p>If the variable <code class="docutils literal notranslate"><span class="pre">x</span></code> was <em>not</em> constrained to real and nonnegative values, a fourth-order polynomial would return four solutions, with only one making physical sense. Because we did constrain <code class="docutils literal notranslate"><span class="pre">x</span></code>, the <code class="docutils literal notranslate"><span class="pre">solve()</span></code> function conveniently only returns 0.17.</p>
 </section>
 <section id="substitutions">
 <span id="id11"></span><h3>8.2.5 Substitutions<a class="headerlink" href="#substitutions" title="Permalink to this heading">#</a></h3>
@@ -1284,7 +1284,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3ea221cf5e053fb5d36e18df3a8714bd180d3d7151955ba5ca4953b502fec78d.svg" src="../../_images/3ea221cf5e053fb5d36e18df3a8714bd180d3d7151955ba5ca4953b502fec78d.svg" /></div>
+<img alt="../../_images/d6ccdb032505a4e009305036c6165afddef3d2e3169725770af8fa5fe65bf0cf.svg" src="../../_images/d6ccdb032505a4e009305036c6165afddef3d2e3169725770af8fa5fe65bf0cf.svg" /></div>
 </div>
 </section>
 <section id="balancing-chemical-equations">
@@ -1363,7 +1363,7 @@ document.write(`
 </div>
 <p>This means that the integer coefficients for the balanced chemical equation are <span class="math notranslate nohighlight">\(x_1\)</span>=1, <span class="math notranslate nohighlight">\(x_2\)</span>=5, <span class="math notranslate nohighlight">\(x_3\)</span>=3, and <span class="math notranslate nohighlight">\(x_4\)</span>=4.</p>
 <div class="math notranslate nohighlight">
-\[ C_3H_{8} + 5 O_2 \rightarrow 3 CO_2 + 4 H_2O \]</div>
+\[ C_3H_{8} + 5\, O_2 \rightarrow 3\, CO_2 + 4\, H_2O \]</div>
 </section>
 <section id="eigenvalues-and-eigenvectors">
 <span id="id17"></span><h3>8.3.5 Eigenvalues and Eigenvectors<a class="headerlink" href="#eigenvalues-and-eigenvectors" title="Permalink to this heading">#</a></h3>
@@ -1501,7 +1501,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/350a82fcf29c756a1f438fa67a2ea13c5ef6f52be93cd8abccd30eb576fdc71d.svg" src="../../_images/350a82fcf29c756a1f438fa67a2ea13c5ef6f52be93cd8abccd30eb576fdc71d.svg" /></div>
+<img alt="../../_images/0b4fc4807c7f7e8273ab075500b1e9af5d1309f90a65a41ca69088e7632c6861.svg" src="../../_images/0b4fc4807c7f7e8273ab075500b1e9af5d1309f90a65a41ca69088e7632c6861.svg" /></div>
 </div>
 <p>The radius is in Bohrs (<span class="math notranslate nohighlight">\(a_0\)</span>) which is equal to approximately 0.53 angstroms.</p>
 </section>
@@ -1609,7 +1609,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6b005cea756c50a7d6c79892a226a0fc1a5d6a3200ae767275f2cad05d9e08cd.svg" src="../../_images/6b005cea756c50a7d6c79892a226a0fc1a5d6a3200ae767275f2cad05d9e08cd.svg" /></div>
+<img alt="../../_images/e5483cd83902195464fcb71f73c4e4afee99a1dfd79fa74a4d942c2274e7ac34.svg" src="../../_images/e5483cd83902195464fcb71f73c4e4afee99a1dfd79fa74a4d942c2274e7ac34.svg" /></div>
 </div>
 <p>Above is a plot of the peaks with respect to the index values (not ppm). To integrate under each of the triplet peaks, first we need the index values for the edges of each peak. Below is a list, <code class="docutils literal notranslate"><span class="pre">i</span></code>, that provides reasonable boundaries, and a plot is below with these edges marked in orange squares.</p>
 <div class="cell docutils container">
@@ -1623,7 +1623,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b0b9b3b2fd31049dac80bb8e0c301cb505e4881a6891a61eafbc0c0ee7a4cb7b.svg" src="../../_images/b0b9b3b2fd31049dac80bb8e0c301cb505e4881a6891a61eafbc0c0ee7a4cb7b.svg" /></div>
+<img alt="../../_images/237325700f720f507b26be89c615bfef3d0aa524d4c9ec5359cd524aabc0f9f8.svg" src="../../_images/237325700f720f507b26be89c615bfef3d0aa524d4c9ec5359cd524aabc0f9f8.svg" /></div>
 </div>
 <p>Integrations under sampled data do not include the values between data points, so these regions are estimated based on assumptions. The <code class="docutils literal notranslate"><span class="pre">trapz()</span></code> function assumes that any data point between known points lies directly between the known data points (i.e., linear interpolation) as shown below by the blue lines.</p>
 <div class="cell tag_remove-output docutils container">
@@ -1646,7 +1646,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/10ecf2cfa740d52233c23b66d91407b3b2af0fcb15242fbab55a264fcbe4bc41.svg" src="../../_images/10ecf2cfa740d52233c23b66d91407b3b2af0fcb15242fbab55a264fcbe4bc41.svg" /></div>
+<img alt="../../_images/c259505b7a303b602ecde111fd1c51233e5f4f4689183c0797a5d8e6efc47221.svg" src="../../_images/c259505b7a303b602ecde111fd1c51233e5f4f4689183c0797a5d8e6efc47221.svg" /></div>
 </div>
 <p>Alternatively, the <code class="docutils literal notranslate"><span class="pre">simps()</span></code> function uses the <em>Simpson’s rule</em> which estimates the data between known points using quadratic interpolation shown below.</p>
 <div class="cell docutils container">
@@ -1662,7 +1662,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6cdd578ed859505b1a3c755a79494b16d70f81210e3d8087c09b138b2f3551a0.svg" src="../../_images/6cdd578ed859505b1a3c755a79494b16d70f81210e3d8087c09b138b2f3551a0.svg" /></div>
+<img alt="../../_images/3d66f94d4b48ef3e68211a940e8965065f14d92ae71e9651e525f698e664f4fe.svg" src="../../_images/3d66f94d4b48ef3e68211a940e8965065f14d92ae71e9651e525f698e664f4fe.svg" /></div>
 </div>
 <p>Both functions take the <code class="docutils literal notranslate"><span class="pre">y</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span></code> values in this order. Below, the trapezoidal method is employed.</p>
 <div class="cell docutils container">
@@ -1680,6 +1680,10 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0401881535
 1.529880057
 0.5834871775
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/zy/7y6kpdbx6p1ffrp1vtxy3ttc0000gn/T/ipykernel_1680/1668359012.py:6: DeprecationWarning: &#39;scipy.integrate.trapz&#39; is deprecated in favour of &#39;scipy.integrate.trapezoid&#39; and will be removed in SciPy 1.14.0
+  print(trapz(y, x))
 </pre></div>
 </div>
 </div>
@@ -1733,7 +1737,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9872d268e47824607c45559a67897c0c49939f2085e3f9ae8b0104ee75ce34c3.svg" src="../../_images/9872d268e47824607c45559a67897c0c49939f2085e3f9ae8b0104ee75ce34c3.svg" /></div>
+<img alt="../../_images/7a2c2724e008b1edd576423bee716b8f598b72d93bdb1a72e926be5b3179be05.svg" src="../../_images/7a2c2724e008b1edd576423bee716b8f598b72d93bdb1a72e926be5b3179be05.svg" /></div>
 </div>
 <p>This approach to kinetic simulations can be adapted to even more complex reactions which are demonstrated in <a class="reference internal" href="../chapter_09/chap_09_notebook.html#id6"><span class="std std-ref">section 9.1.4</span></a>.</p>
 </section>
@@ -1929,7 +1933,7 @@ By Charles J. Weiss
     
   <p class="copyright">
     
-      © Copyright 2017-2023.
+      © Copyright 2017-2024.
       <br/>
     
   </p>
