@@ -7,11 +7,11 @@ The following is the textbook used for the Scientific Computing Chemists course 
 
 ## [Read Scientific Computing for Chemists with Python (Jupyter Book)](https://weisscharlesj.github.io/SciCompforChemists/)
 
-A chapter outline is provided below. The book starts with a streamlined introduction to Python for chemists followed by introducing powerful computing tools and numerous applications to chemistry. This book assumes that the student or reader has no prior programming experience and has at least one year of undergraduate chemistry background and some very basic spectroscopy/spectrometry (i.e., NMR, IR, UV-vis, and GC/MS) background. All software used (e.g., Python, NumPy, SciPy, etc...) is free and open source software and runs on macOS, Windows, and Linux.
+A chapter outline is provided below. The book starts with a streamlined introduction to Python for chemists followed by introducing powerful computing tools and numerous applications to chemistry. This book assumes that the student or reader has no prior programming experience and has at least one year of undergraduate chemistry background and ideally some very basic spectroscopy/spectrometry (i.e., NMR, IR, UV-vis, and GC/MS) background. All software used (e.g., Python, NumPy, SciPy, etc...) is free and open source software and runs on macOS, Windows, and Linux.
 
-This book is periodically updated to fix typos, account for new software versions, and add new content. The most recent version can be viewed using the link above or downloaded or forked above along with Jupyter notebooks containing all code in the book. Reports of errors and information on how people are using this book are always welcome.
+This book is periodically updated to fix typos, account for new software versions, and add new content. The most recent version can be viewed using the link above, downloaded, or forked above along with Jupyter notebooks containing all code in the book. Reports of errors and information on how people are using this book are always welcome.
 
-The book is copyright © 2017-2023 Charles J. Weiss is are released under under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). All files with or associated with the book are also copyright and released under the CC BY-NC-SA 4.0 license unless otherwise noted (see README.txt files for more information).
+The book is copyright © 2017-2024 Charles J. Weiss and is released under under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). All files with or associated with the book are also copyright and released under the CC BY-NC-SA 4.0 license unless otherwise noted (see README.txt files for more information).
 
 Answer keys to exercises are available to **instructors** upon request by [emailing](https://www.augie.edu/directory) me using your school email address to request a copy. The answer keys are © Charles J. Weiss and are **not** released under a Creative Commons license.
 
