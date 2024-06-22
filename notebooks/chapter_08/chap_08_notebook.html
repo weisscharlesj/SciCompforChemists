@@ -174,7 +174,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../chapter_12/chap_12_notebook.html">Chapter 12: Machine Learning using Scikit-Learn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_13/chap_13_notebook.html">Chapter 13: Command Line &amp; Spyder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_14/chap_14_notebook.html">Chapter 14: Optimization and Root Finding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter_15/chap_15_notebook.html">Chapter 15: RDKit for Cheminformatics <font color="C51E3A"> (BETA) </font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_15/chap_15_notebook.html">Chapter 15: Cheminformatics with RDKit <font color="C51E3A"> (BETA) </font></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_16/chap_16_notebook.html">Chapter 16: Bioinformatics with Biopython and Nglview <font color="C51E3A"> (BETA) </font></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
 </ul>
@@ -558,17 +558,17 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;real&#39;: True,
+ &#39;infinite&#39;: False,
+ &#39;imaginary&#39;: False,
+ &#39;extended_real&#39;: True,
+ &#39;hermitian&#39;: True,
  &#39;finite&#39;: True,
  &#39;complex&#39;: True,
- &#39;extended_real&#39;: True,
- &#39;imaginary&#39;: False,
- &#39;hermitian&#39;: True,
  &#39;commutative&#39;: True,
- &#39;infinite&#39;: False,
  &#39;nonnegative&#39;: True,
- &#39;negative&#39;: False,
  &#39;extended_nonnegative&#39;: True,
- &#39;extended_negative&#39;: False}
+ &#39;extended_negative&#39;: False,
+ &#39;negative&#39;: False}
 </pre></div>
 </div>
 </div>
@@ -1080,9 +1080,9 @@ document.write(`
 \[ S_8(s) + 4 \, O_2(g) \rightarrow SO_2(g) \quad \Delta H_1 = -3160 kJ \]</div>
 <div class="math notranslate nohighlight">
 \[ 2 \, SO_2(g) + O_2(g) \rightarrow 2 \, SO_3(g) \quad \Delta H_2 = -196 kJ \]</div>
-<p id="index-12">Using Hess’s law, we need to multiply the subreactions 1 and 2 by coefficients and add them together to generate the overall net reaction. Remember that reversing a reaction results in reversing the sign of reaction enthalpy, so it’s the same as multiplying by -1. We can represent this calculation using matrices show below where r<span class="math notranslate nohighlight">\(_1\)</span> and r<span class="math notranslate nohighlight">\(_2\)</span> are the coefficients for each subreaction. The values in each row of the first matrix are the number of SO<span class="math notranslate nohighlight">\(_2\)</span>, SO<span class="math notranslate nohighlight">\(_3\)</span>, O<span class="math notranslate nohighlight">\(_2\)</span>, and S<span class="math notranslate nohighlight">\(_8\)</span> molecules, respectively, in the two subreactions, and the numbers in the last matrix are the numbers of the same molecules in the net reaction. The gray molecular formulas in the equation below are not part of the equation but rather are simply a label for clarity. You may notice that the coefficients in the balance equations on the reactant side are negative while products are positive. This allows us keep track of the side they are on.</p>
+<p id="index-12">Using Hess’s law, we need to multiply the subreactions 1 and 2 by coefficients and add them together to generate the overall net reaction. Remember that reversing a reaction results in reversing the sign of reaction enthalpy, so it’s the same as multiplying by -1. We can represent this calculation using matrices show below where r<span class="math notranslate nohighlight">\(_1\)</span> and r<span class="math notranslate nohighlight">\(_2\)</span> are the coefficients for each subreaction. The values in each row of the first matrix are the number of SO<span class="math notranslate nohighlight">\(_2\)</span>, SO<span class="math notranslate nohighlight">\(_3\)</span>, O<span class="math notranslate nohighlight">\(_2\)</span>, and S<span class="math notranslate nohighlight">\(_8\)</span> molecules, respectively, in the two subreactions, and the numbers in the last matrix are the numbers of the same molecules in the net reaction. The gray molecular formulas in the equation below are not part of the equation but rather are simply labels for clarity. You may notice that the coefficients in the balance equations on the reactant side are negative while products are positive. This allows us keep track of the side they are on.</p>
 <div class="math notranslate nohighlight">
-\[\begin{split} \begin{array}{ccc} \color{gray} {SO_2} \\ \color{gray} {SO_3} \\ \color{gray}{O_2} \\ \color{gray}{S_8} \end{array}
+\[\begin{split} \begin{array}{ccc} \color{gray} {SO_2 \rightarrow} \\ \color{gray} {SO_3 \rightarrow} \\ \color{gray}{O_2 \rightarrow} \\ \color{gray}{S_8 \rightarrow} \end{array}
 \left[ \begin{array}{ccc} 0 &amp; -2 \\ 8 &amp; 2 \\ -12 &amp; -1 \\ -1 &amp; 0 \end{array} \right]
 \cdot
 \left[ \begin{array}{c} r_1 \\ r_2 \end{array} \right]
@@ -1284,7 +1284,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d6ccdb032505a4e009305036c6165afddef3d2e3169725770af8fa5fe65bf0cf.svg" src="../../_images/d6ccdb032505a4e009305036c6165afddef3d2e3169725770af8fa5fe65bf0cf.svg" /></div>
+<img alt="../../_images/99c42979e50db1cf825f05088918829ff44970f2fb9b2f1254f82717a78bdf3f.svg" src="../../_images/99c42979e50db1cf825f05088918829ff44970f2fb9b2f1254f82717a78bdf3f.svg" /></div>
 </div>
 </section>
 <section id="balancing-chemical-equations">
@@ -1501,7 +1501,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0b4fc4807c7f7e8273ab075500b1e9af5d1309f90a65a41ca69088e7632c6861.svg" src="../../_images/0b4fc4807c7f7e8273ab075500b1e9af5d1309f90a65a41ca69088e7632c6861.svg" /></div>
+<img alt="../../_images/1984eea615b8bd359555f700fcfc597559a27fb71c09876562a7ecb82ce1d6ff.svg" src="../../_images/1984eea615b8bd359555f700fcfc597559a27fb71c09876562a7ecb82ce1d6ff.svg" /></div>
 </div>
 <p>The radius is in Bohrs (<span class="math notranslate nohighlight">\(a_0\)</span>) which is equal to approximately 0.53 angstroms.</p>
 </section>
@@ -1609,7 +1609,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e5483cd83902195464fcb71f73c4e4afee99a1dfd79fa74a4d942c2274e7ac34.svg" src="../../_images/e5483cd83902195464fcb71f73c4e4afee99a1dfd79fa74a4d942c2274e7ac34.svg" /></div>
+<img alt="../../_images/027dcfc819b9e0dbc834313c504a5ecab260434dffe368124fabab06f6f89309.svg" src="../../_images/027dcfc819b9e0dbc834313c504a5ecab260434dffe368124fabab06f6f89309.svg" /></div>
 </div>
 <p>Above is a plot of the peaks with respect to the index values (not ppm). To integrate under each of the triplet peaks, first we need the index values for the edges of each peak. Below is a list, <code class="docutils literal notranslate"><span class="pre">i</span></code>, that provides reasonable boundaries, and a plot is below with these edges marked in orange squares.</p>
 <div class="cell docutils container">
@@ -1623,56 +1623,34 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/237325700f720f507b26be89c615bfef3d0aa524d4c9ec5359cd524aabc0f9f8.svg" src="../../_images/237325700f720f507b26be89c615bfef3d0aa524d4c9ec5359cd524aabc0f9f8.svg" /></div>
+<img alt="../../_images/032c612d78c7b9b3520a9d65c826e2af55b995684b79be064cb8222f63013087.svg" src="../../_images/032c612d78c7b9b3520a9d65c826e2af55b995684b79be064cb8222f63013087.svg" /></div>
 </div>
-<p>Integrations under sampled data do not include the values between data points, so these regions are estimated based on assumptions. The <code class="docutils literal notranslate"><span class="pre">trapz()</span></code> function assumes that any data point between known points lies directly between the known data points (i.e., linear interpolation) as shown below by the blue lines.</p>
-<div class="cell tag_remove-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">nmr</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">nmr</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
-<span class="n">xnew</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">49</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xnew</span><span class="p">,</span> <span class="n">t</span><span class="p">(</span><span class="n">xnew</span><span class="p">),</span> <span class="s1">&#39;C0-&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nmr</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">nmr</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;C1.&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Trapezoidal Integration&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
+<p>Integrations under sampled data do not include the values between data points, so these regions are estimated based on assumptions. The <code class="docutils literal notranslate"><span class="pre">trapezoid()</span></code> function assumes that any data point between known points lies directly between the known data points (i.e., linear interpolation) as shown below by the blue lines.</p>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/c259505b7a303b602ecde111fd1c51233e5f4f4689183c0797a5d8e6efc47221.svg" src="../../_images/c259505b7a303b602ecde111fd1c51233e5f4f4689183c0797a5d8e6efc47221.svg" /></div>
+<img alt="../../_images/7920f03fa412437ed87be9a6f665ac7ac34015892a646b74689089e2528d719f.svg" src="../../_images/7920f03fa412437ed87be9a6f665ac7ac34015892a646b74689089e2528d719f.svg" /></div>
 </div>
-<p>Alternatively, the <code class="docutils literal notranslate"><span class="pre">simps()</span></code> function uses the <em>Simpson’s rule</em> which estimates the data between known points using quadratic interpolation shown below.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">nmr</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">nmr</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;quadratic&#39;</span><span class="p">)</span>
-<span class="n">xnew</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">49</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xnew</span><span class="p">,</span> <span class="n">s</span><span class="p">(</span><span class="n">xnew</span><span class="p">),</span> <span class="s1">&#39;C0-&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nmr</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">nmr</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;C1.&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Simppson</span><span class="se">\&#39;</span><span class="s1">s Integration&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
+<p>Alternatively, the <code class="docutils literal notranslate"><span class="pre">simpson()</span></code> function uses the <em>Simpson’s rule</em> which estimates the data between known points using quadratic interpolation shown below.</p>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/3d66f94d4b48ef3e68211a940e8965065f14d92ae71e9651e525f698e664f4fe.svg" src="../../_images/3d66f94d4b48ef3e68211a940e8965065f14d92ae71e9651e525f698e664f4fe.svg" /></div>
+<img alt="../../_images/4c1bc3ded817d25b177dd4bc36c978ddc10f435bc701dc41d087aa69cd43a4b4.svg" src="../../_images/4c1bc3ded817d25b177dd4bc36c978ddc10f435bc701dc41d087aa69cd43a4b4.svg" /></div>
 </div>
-<p>Both functions take the <code class="docutils literal notranslate"><span class="pre">y</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span></code> values in this order. Below, the trapezoidal method is employed.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As of Scipy 1.14, the former <code class="docutils literal notranslate"><span class="pre">trapz()</span></code> and <code class="docutils literal notranslate"><span class="pre">simps()</span></code> functions have been replaced by <code class="docutils literal notranslate"><span class="pre">trapezoid()</span></code> and <code class="docutils literal notranslate"><span class="pre">simpson()</span></code>, respectively.</p>
+</div>
+</aside>
+<p>Both functions take the <code class="docutils literal notranslate"><span class="pre">y</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span></code> values in this order. Below, the trapezoidal approach is employed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">trapz</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">trapezoid</span>
 
 <span class="k">for</span> <span class="n">peak</span> <span class="ow">in</span> <span class="n">i</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">nmr</span><span class="p">[</span><span class="n">peak</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">peak</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">]</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">nmr</span><span class="p">[</span><span class="n">peak</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">peak</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">trapz</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">trapezoid</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1680,10 +1658,6 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0401881535
 1.529880057
 0.5834871775
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/zy/7y6kpdbx6p1ffrp1vtxy3ttc0000gn/T/ipykernel_1680/1668359012.py:6: DeprecationWarning: &#39;scipy.integrate.trapz&#39; is deprecated in favour of &#39;scipy.integrate.trapezoid&#39; and will be removed in SciPy 1.14.0
-  print(trapz(y, x))
 </pre></div>
 </div>
 </div>
@@ -1737,7 +1711,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7a2c2724e008b1edd576423bee716b8f598b72d93bdb1a72e926be5b3179be05.svg" src="../../_images/7a2c2724e008b1edd576423bee716b8f598b72d93bdb1a72e926be5b3179be05.svg" /></div>
+<img alt="../../_images/513a20427e6d59b833d8499b14242f85fc518fa22144775be897f3834cecf0a1.svg" src="../../_images/513a20427e6d59b833d8499b14242f85fc518fa22144775be897f3834cecf0a1.svg" /></div>
 </div>
 <p>This approach to kinetic simulations can be adapted to even more complex reactions which are demonstrated in <a class="reference internal" href="../chapter_09/chap_09_notebook.html#id6"><span class="std std-ref">section 9.1.4</span></a>.</p>
 </section>
