@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Chapter 12: Machine Learning using Scikit-Learn &#8212; Scientific Computing for Chemists with Python</title>
   
@@ -15,52 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/chapter_12/chap_12_notebook';</script>
@@ -77,19 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -111,12 +111,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -131,9 +139,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../introduction/intro.html">
+  
   
   
   
@@ -143,12 +155,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../_static/logo.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Scientific Computing for Chemists with Python - Home"/>
+    <script>document.write(`<img src="../../_static/logo.svg" class="logo__image only-dark" alt="Scientific Computing for Chemists with Python - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -174,8 +197,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 12: Machine Learning using Scikit-Learn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_13/chap_13_notebook.html">Chapter 13: Command Line &amp; Spyder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_14/chap_14_notebook.html">Chapter 14: Optimization and Root Finding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter_15/chap_15_notebook.html">Chapter 15: RDKit for Cheminformatics <font color="C51E3A"> (BETA) </font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter_16/chap_16_notebook.html">Chapter 16: Bioinformatics with Biopython and Nglview <font color="C51E3A"> (BETA) </font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_15/chap_15_notebook.html">Chapter 15: Cheminformatics with RDKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_16/chap_16_notebook.html">Chapter 16: Bioinformatics with Biopython and Nglview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
 </ul>
 
@@ -192,7 +215,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -201,14 +224,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -330,26 +353,28 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -401,10 +426,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="chapter-12-machine-learning-using-scikit-learn">
-<span id="id1"></span><h1>Chapter 12: Machine Learning using Scikit-Learn<a class="headerlink" href="#chapter-12-machine-learning-using-scikit-learn" title="Permalink to this heading">#</a></h1>
+<span id="id1"></span><h1>Chapter 12: Machine Learning using Scikit-Learn<a class="headerlink" href="#chapter-12-machine-learning-using-scikit-learn" title="Link to this heading">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 </div>
 <p id="index-0">Machine learning is a hot topic with popular applications in driverless cars, internet search engines, and data analysis among many others. Numerous fields are utilizing machine learning, and chemistry is certainly no exception with papers using machine learning methods being published regularly. There is a considerable amount of hype around the topic along with debate about whether the field will live up to this hype. However, there is little doubt that machine learning is making a significant impact and is a powerful tool when used properly.</p>
@@ -422,11 +447,11 @@ The sections in this chapter are broken down by types of machine learning. There
 </div>
 </div>
 <section id="supervised-learning">
-<span id="id2"></span><h2>12.1 Supervised Learning<a class="headerlink" href="#supervised-learning" title="Permalink to this heading">#</a></h2>
+<span id="id2"></span><h2>12.1 Supervised Learning<a class="headerlink" href="#supervised-learning" title="Link to this heading">#</a></h2>
 <p id="index-2"><em>Supervised learning</em> is where the machine learning algorithms are provided with both feature and target information with the goal of developing a model to predict targets based on the features. When the supervised machine learning predictions are looking to categorize an item like a photo or type of metal complex, it is known as <em>classification</em>; and when the predictions are seeking a numerical value from a continuous range, it is a <em>regression</em> problem. Some machine learning algorithms are designed for only classification or only regression while others can do either.</p>
 <p>There are numerous algorithms for supervised learning; below are simple examples employing some well known and common algorithms. For a more in-depth coverage of the different machine learning algorithms and scikit-learn, see the <a class="reference internal" href="#fr12"><span class="std std-ref">Further Reading</span></a> section at the end of this chapter.</p>
 <section id="features-and-information">
-<span id="id3"></span><h3>12.1.1 Features and Information<a class="headerlink" href="#features-and-information" title="Permalink to this heading">#</a></h3>
+<span id="id3"></span><h3>12.1.1 Features and Information<a class="headerlink" href="#features-and-information" title="Link to this heading">#</a></h3>
 <p>The file titled <em>ROH_data.csv</em> contains information on over seventy simple alcohols (i.e., a single -OH with no other non-hydrocarbon function groups) including their boiling points. Our goal is to generate a function or algorithm to predict the boiling points of the alcohols based on the information on the alcohols, so here the target is the boiling point and features are the other information about the alcohols.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -531,11 +556,12 @@ The sections in this chapter are broken down by types of machine learning. There
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e6d60d3110869f6418974642b02c935ca751eec04b48f8da23a32251a7f9c047.svg" src="../../_images/e6d60d3110869f6418974642b02c935ca751eec04b48f8da23a32251a7f9c047.svg" /></div>
+<img alt="../../_images/8f403dc9ee27b91252d82204965e61748130484c51adb639f84824680352ac32.svg" src="../../_images/8f403dc9ee27b91252d82204965e61748130484c51adb639f84824680352ac32.svg" />
+</div>
 </div>
 </section>
 <section id="train-test-split">
-<span id="id4"></span><h3>12.1.2 Train Test Split<a class="headerlink" href="#train-test-split" title="Permalink to this heading">#</a></h3>
+<span id="id4"></span><h3>12.1.2 Train Test Split<a class="headerlink" href="#train-test-split" title="Link to this heading">#</a></h3>
 <p>Whenever training a machine learning model to make predictions, it is important to evaluate the accuracy of the predictions. It is unfair to test an algorithm on data it has already seen, so before training a model, first split the data set into a training subset and testing subset. It is also important to shuffle the data set before splitting it as many data sets are at least partially ordered. The alcohol data set is roughly in order of molecular weight, so if an algorithm is trained on the first three-quarters of the data set and then tested on the last quarter, training occurs on smaller alcohols and testing on larger alcohols. This could result in poorer predictions as the machine learning algorithm is not familiar with the trends of larger alcohols. The good news is that scikit-learn provides a built-in function for shuffling and splitting the data set known as <code class="docutils literal notranslate"><span class="pre">train_test_split()</span></code>. The arguments are the features, target, and the fraction of the data set to be used for testing. Below, a quarter of the data set is allotted for testing (<code class="docutils literal notranslate"><span class="pre">test_size=0.25</span></code>).</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -578,7 +604,7 @@ The sections in this chapter are broken down by types of machine learning. There
 </aside>
 </section>
 <section id="training-a-linear-regression-model">
-<span id="id5"></span><h3>12.1.3 Training a Linear Regression Model<a class="headerlink" href="#training-a-linear-regression-model" title="Permalink to this heading">#</a></h3>
+<span id="id5"></span><h3>12.1.3 Training a Linear Regression Model<a class="headerlink" href="#training-a-linear-regression-model" title="Link to this heading">#</a></h3>
 <p id="index-3">Now for some machine learning using a very simple <em>linear regression</em> model. This model treats the target value as a linear combination or weighted sum of the features where <span class="math notranslate nohighlight">\(x\)</span> are the features and <span class="math notranslate nohighlight">\(w\)</span> are the weights.</p>
 <div class="math notranslate nohighlight">
 \[ target = w_0x_0 + w_1x_1 + w_2x_2 + w_3x_3 + w_4x_4 + w_5x_5 + ... \]</div>
@@ -1014,7 +1040,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LinearRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;LinearRegression<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.linear_model.LinearRegression.html">?<span>Documentation for LinearRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>LinearRegression()</pre></div> </div></div></div></div></div></div>
+</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LinearRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;LinearRegression<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.linear_model.LinearRegression.html">?<span>Documentation for LinearRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>LinearRegression()</pre></div> </div></div></div></div></div></div>
 </div>
 <p>Finally, the trained model can make predictions using the <code class="docutils literal notranslate"><span class="pre">predict()</span></code> method.</p>
 <div class="cell docutils container">
@@ -1045,12 +1071,13 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/85b87cfee1729ec1f97e9196a8197d0cc9b8b3c22b5dec51ccecd0499b571788.svg" src="../../_images/85b87cfee1729ec1f97e9196a8197d0cc9b8b3c22b5dec51ccecd0499b571788.svg" /></div>
+<img alt="../../_images/899dac85f05d0aa2f56091cfeb1733c0da8b5b24f890abf57c09fefba04f7fa1.svg" src="../../_images/899dac85f05d0aa2f56091cfeb1733c0da8b5b24f890abf57c09fefba04f7fa1.svg" />
+</div>
 </div>
 <p>This is a substantial improvement from using only the molecular weight to make predictions! If the above code is run again, the results will likely vary because the <code class="docutils literal notranslate"><span class="pre">train_test_split()</span></code> function randomly splits the data set, so each time the above code is run, the algorithm is trained and tested on different portions of the original data set.</p>
 </section>
 <section id="model-evaluation">
-<span id="id6"></span><h3>12.1.4 Model Evaluation<a class="headerlink" href="#model-evaluation" title="Permalink to this heading">#</a></h3>
+<span id="id6"></span><h3>12.1.4 Model Evaluation<a class="headerlink" href="#model-evaluation" title="Link to this heading">#</a></h3>
 <p>It is important to evaluate the effectiveness of trained machine learning models before rolling them out for widespread use, and scikit-learn provides multiple built-in functions to help in this task. The first is the <code class="docutils literal notranslate"><span class="pre">score()</span></code> method. Instead of making predictions using the testing features and then plotting the predictions against the known values, the <code class="docutils literal notranslate"><span class="pre">score()</span></code> method takes in the testing features and target values and returns the <span class="math notranslate nohighlight">\(r^2\)</span>. The closer the <span class="math notranslate nohighlight">\(r^2\)</span> value is to 1, the better the predictions are.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1097,7 +1124,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.99133601, 0.95100991, 0.87237496, 0.93744267, 0.85046841])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.95982841, 0.88485515, 0.97157555, 0.97043331, 0.95443328])
 </pre></div>
 </div>
 </div>
@@ -1110,14 +1137,14 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.920526393989874
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9482251411180013
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="linear-models-and-coefficients">
-<span id="id7"></span><h3>12.1.5 Linear Models and Coefficients<a class="headerlink" href="#linear-models-and-coefficients" title="Permalink to this heading">#</a></h3>
+<span id="id7"></span><h3>12.1.5 Linear Models and Coefficients<a class="headerlink" href="#linear-models-and-coefficients" title="Link to this heading">#</a></h3>
 <p>Recall that the linear model calculates the boiling point based on a weighted sum of the features, so it can be informative to know the weights to see which features are the most influential in making the predictions. The <code class="docutils literal notranslate"><span class="pre">LinearRegression()</span></code> method contains the attribute <code class="docutils literal notranslate"><span class="pre">coef_</span></code> which provides these coefficients in a NumPy array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1137,7 +1164,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p>These coefficients correspond to molecular weight, number of carbons, degree, whether or not it is aliphatic, average aryl position, and whether or not it is cyclic, respectively. While some coefficients are larger than others, we cannot yet distinguish which features are more important than the others because the values for each feature occur in different ranges. This is because the coefficients are not only proportional to the predictive value of a feature but also inversely proportional to the magnitude of feature values. For example, while the molecular mass has greater predictive value than the degree, the degree has a larger coefficient because it occurs in a smaller range (1 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 3) than the molecular weights (32.04 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 186.33 g/mol).</p>
 <p>To address this issue, the scikit-learn <code class="docutils literal notranslate"><span class="pre">sklearn.preprocess</span></code> module provides a selection of functions for scaling the features to the same range. Three common feature scaling functions are described in Table 1, but others are detailed on the scikit-learn website.</p>
 <p><strong>Table 1</strong> Preprocessing Data Scaling Functions</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Scaler</p></th>
 <th class="head text-left"><p>Description</p></th>
@@ -1155,6 +1182,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </tr>
 </tbody>
 </table>
+</div>
 <p>For this data, we will use the <code class="docutils literal notranslate"><span class="pre">MinMaxScaler()</span></code> with the default scaling of values from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1. This process parallels the fit/predict procedure above except that instead of predicting the target, the algorithm transforms it. That is, first the algorithm learns about the data using the <code class="docutils literal notranslate"><span class="pre">fit()</span></code> method followed by scaling the data using the <code class="docutils literal notranslate"><span class="pre">transform()</span></code> method. Once the scaling model is trained, it can be used to scale any new data by the same amount as the original data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1587,7 +1615,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LinearRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;LinearRegression<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.linear_model.LinearRegression.html">?<span>Documentation for LinearRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>LinearRegression()</pre></div> </div></div></div></div></div></div>
+</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LinearRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;LinearRegression<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.linear_model.LinearRegression.html">?<span>Documentation for LinearRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>LinearRegression()</pre></div> </div></div></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1596,8 +1624,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-979.18905524, 1179.51809825,  -35.49367768,    8.71111608,
-        -18.82368304,   11.70892751])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1292.45482136,  1482.82881975,   -30.78412798,    12.37923092,
+         -30.06218673,     8.75904378])
 </pre></div>
 </div>
 </div>
@@ -1605,13 +1633,13 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p>It is quite clear from the coefficients that the molecular weight and number of carbons are both by far the most important features to predicting the boiling points of alcohols. This makes chemical sense being that larger molecules have greater London dispersion forces thus increasing the boiling points.</p>
 </section>
 <section id="classification-using-random-forests">
-<span id="id8"></span><h3>12.1.6 Classification using Random Forests<a class="headerlink" href="#classification-using-random-forests" title="Permalink to this heading">#</a></h3>
+<span id="id8"></span><h3>12.1.6 Classification using Random Forests<a class="headerlink" href="#classification-using-random-forests" title="Link to this heading">#</a></h3>
 <p id="index-5">Classification involves sorting items into discrete categories such as sorting alcohols, aldehydes/ketones, and amines by type based on features. Scikit-learn provides a number of algorithms designed for this type of task. One method is known as a <em>decision tree</em> (Figure 2, left) which sorts items into categories based on a series of conditions. For example, it might first sort chemicals based on which have degrees of unsaturation greater than zero because these are most likely to be the aldehydes and ketones. It will then take the samples with zero degrees of unsaturation, which are the alcohols and amines, and separate them through another condition based on other information about the chemical compounds. Decision trees are relatively simple and easily interpreted, but they tend not to perform particularly well in practice. An extension of the decision tree is the <em>random forest</em> (Figure 2, right) which trains a larger number of decision trees using different subsets of the training data resulting in large numbers of different decision trees. Each decision tree is used to predict the category, and the final prediction is based on the majority prediction of all the trees. Random forests tend to be more accurate than a single decision tree because even if every tree is only slightly better than random at making an accurate prediction, large numbers of decision trees have a much higher probability of making a correct prediction because of the law of large numbers.</p>
 <p><img alt="" src="../../_images/tree_and_forest.svg" /></p>
 <p><strong>Figure 2</strong> An illustration of a single decision tree (left) and a random forest (right) composed of numerous decision trees generated with different subsections of data.</p>
 </section>
 <section id="classify-chemical-compounds">
-<span id="id9"></span><h3>12.1.7 Classify Chemical Compounds<a class="headerlink" href="#classify-chemical-compounds" title="Permalink to this heading">#</a></h3>
+<span id="id9"></span><h3>12.1.7 Classify Chemical Compounds<a class="headerlink" href="#classify-chemical-compounds" title="Link to this heading">#</a></h3>
 <p>To demonstrate classification, we will use a small data set containing 122 monofunctional organic compounds from three different categories: alcohols (category 0), ketones/aldehydes (category 1), and amines (category 2). The features provided are the molecular weight, number of carbons, boiling point, whether it is cyclic, whether it is aromatic, and the unsaturation number. All the data is represented numerically, so the data is ready to be used.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1667,7 +1695,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 0, 0, 0, 0, 2, 1, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0,
        1, 2, 0, 1, 0, 2, 2, 0, 2])
 </pre></div>
 </div>
@@ -1681,14 +1709,14 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7096774193548387
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7419354838709677
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="confusion-matrix">
-<span id="id10"></span><h3>12.1.8 Confusion Matrix<a class="headerlink" href="#confusion-matrix" title="Permalink to this heading">#</a></h3>
+<span id="id10"></span><h3>12.1.8 Confusion Matrix<a class="headerlink" href="#confusion-matrix" title="Link to this heading">#</a></h3>
 <p id="index-6">The above score shows that the predictions are about 74% accurate. However, with three possible categories, this number does not tell the whole story because it does not inform us as to where the errors are occurring. For this, we will use a <em>confusion matrix</em> which is a grid of predicted categories versus true categories.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1706,7 +1734,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[11,  0,  1],
-       [ 2,  3,  0],
+       [ 1,  4,  0],
        [ 6,  0,  8]])
 </pre></div>
 </div>
@@ -1724,20 +1752,21 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ced5131074b45958e69444e80ac9a3862691ca205d550eda2b790b2360cd94ad.svg" src="../../_images/ced5131074b45958e69444e80ac9a3862691ca205d550eda2b790b2360cd94ad.svg" /></div>
+<img alt="../../_images/c2bb2a97d6ea5e696d518b89c4f7c97810efbb8e18fe7988befcd1c8908240b2.svg" src="../../_images/c2bb2a97d6ea5e696d518b89c4f7c97810efbb8e18fe7988befcd1c8908240b2.svg" />
+</div>
 </div>
 <p>Every value in the diagonal has the same predicted category as the true value, making them correct predictions, whereas anything off diagonal are incorrect predictions. For example, the bottom left corner shows that six instance were predicted as category 2 but really belong to category 0. Examination of the confusion matrix shows that the most common erroneous prediction is a category 0. This could be due to, for example, the fact that alcohols and amines both tend to have degrees of unsaturation of zero in this data set.</p>
 </section>
 </section>
 <section id="unsupervised-learning">
-<span id="id11"></span><h2>12.2 Unsupervised Learning<a class="headerlink" href="#unsupervised-learning" title="Permalink to this heading">#</a></h2>
+<span id="id11"></span><h2>12.2 Unsupervised Learning<a class="headerlink" href="#unsupervised-learning" title="Link to this heading">#</a></h2>
 <p id="index-7">Another major class of machine learning is <em>unsupervised learning</em> where no target value is provided to the machine learning algorithm. Unsupervised learning seeks to find patterns in the data instead of making predictions. One form of unsupervised problem is <em>dimensionality reduction</em> where the number of features is condensed down to typically two or three features while maintaining as much information as possible. Another unsupervised learning task is <em>clustering</em> where the algorithm attempts to group similar items in a data set. Because no target label is available, the algorithm does not know what each group contains; it only knows that the data fall into a pattern of cohesive groups. <em>Blind signal separation (BSS)</em> is a third unsupervised task introduced below where the algorithm attempts at pulling apart mixed signals into its components without knowledge of the components. One application of BSS is extracting the spectra of pure compounds from spectra containing a mixture of chemical compounds.</p>
 <section id="dimensional-reduction">
-<span id="id12"></span><h3>12.2.1 Dimensional Reduction<a class="headerlink" href="#dimensional-reduction" title="Permalink to this heading">#</a></h3>
+<span id="id12"></span><h3>12.2.1 Dimensional Reduction<a class="headerlink" href="#dimensional-reduction" title="Link to this heading">#</a></h3>
 <p id="index-8">We will first address dimensionality reduction which typically condenses features down to two or three dimensions because it is often used in the visualization complex data. To demonstrate this task, we will use scikit-learn’s <code class="docutils literal notranslate"><span class="pre">datasets</span></code> module which contains data sets along with data-generating functions. We will use the wine classification data set that includes 178 samples of three different types of wines which we will classify based on features such as alcohol content, hue, malic acid, etc…</p>
 </section>
 <section id="load-wine-data-set">
-<span id="id13"></span><h3>12.2.2 Load Wine Data Set<a class="headerlink" href="#load-wine-data-set" title="Permalink to this heading">#</a></h3>
+<span id="id13"></span><h3>12.2.2 Load Wine Data Set<a class="headerlink" href="#load-wine-data-set" title="Link to this heading">#</a></h3>
 <p>To load the wine data set, we first need to import the <code class="docutils literal notranslate"><span class="pre">load_wine()</span></code> function and then call the function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1816,7 +1845,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </section>
 <section id="reduce-dimensionality-of-wine-data-set">
-<span id="id14"></span><h3>12.2.3 Reduce Dimensionality of Wine Data Set<a class="headerlink" href="#reduce-dimensionality-of-wine-data-set" title="Permalink to this heading">#</a></h3>
+<span id="id14"></span><h3>12.2.3 Reduce Dimensionality of Wine Data Set<a class="headerlink" href="#reduce-dimensionality-of-wine-data-set" title="Link to this heading">#</a></h3>
 <p>Below is a list of thirteen features in the wine data set which is too many to represent in a single plot, so it needs to be paired down to two or three.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1893,13 +1922,14 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/eeef5b3728cab4a48dc14028b3b9f50f7ce91c21d6546eef0ab5e9921f3889f1.svg" src="../../_images/eeef5b3728cab4a48dc14028b3b9f50f7ce91c21d6546eef0ab5e9921f3889f1.svg" /></div>
+<img alt="../../_images/caeb8e5a7b3d1c960587164e02c53e9bf70f55a5d98148a7de623bd4e189c995.svg" src="../../_images/caeb8e5a7b3d1c960587164e02c53e9bf70f55a5d98148a7de623bd4e189c995.svg" />
+</div>
 </div>
 <p>We can see that the three categories of wine all form cohesive clusters with class 0 and 2 being well resolved and class 1 exhibiting slight overlap with the other two classes of wine. This suggests that we should have better luck distinguishing between class 0 and 2 than between these two classes and class 1.</p>
 </section>
 <section id="clustering">
-<span id="id15"></span><h3>12.2.4 Clustering<a class="headerlink" href="#clustering" title="Permalink to this heading">#</a></h3>
-<span class="target" id="index-9"></span><p id="index-10">Clustering involves grouping similar items in a data set, and this can be performed with a number of algorithms including <em>k</em>-means, agglomerative clustering, and Density Based Spacial Clustering Application with Noise (DBSCAN) among others. This process is somewhat similar to classification except that no labels are provided, so the algorithm does not know anything about the groups and must rely on the similarity of samples. Here we will use the DBSCAN clustering algorithm. This algorithm works by assigning items in a data set as <em>core</em> data points if they are within a minimum distance (<code class="docutils literal notranslate"><span class="pre">eps</span></code>) of a minimum number of other samples in a data set (<code class="docutils literal notranslate"><span class="pre">min_samples</span></code>). Clusters are built around these core data points, and any data point not within <code class="docutils literal notranslate"><span class="pre">eps</span></code> distance from a core data point is designated as <em>noise</em>, which means it is not assigned to any cluster. The larger the minimum distance and smaller minimum number of samples, the fewer clusters that are likely to be predicted by DBSCAN. One notable attribute of this algorithm versus some of the others mentioned above is that DBSCAN does not require the user to provide a requested number of clusters; it determines the number of clusters based on the other parameters mentioned above.</p>
+<span id="id15"></span><h3>12.2.4 Clustering<a class="headerlink" href="#clustering" title="Link to this heading">#</a></h3>
+<p id="index-10"><span id="index-9"></span>Clustering involves grouping similar items in a data set, and this can be performed with a number of algorithms including <em>k</em>-means, agglomerative clustering, and Density Based Spacial Clustering Application with Noise (DBSCAN) among others. This process is somewhat similar to classification except that no labels are provided, so the algorithm does not know anything about the groups and must rely on the similarity of samples. Here we will use the DBSCAN clustering algorithm. This algorithm works by assigning items in a data set as <em>core</em> data points if they are within a minimum distance (<code class="docutils literal notranslate"><span class="pre">eps</span></code>) of a minimum number of other samples in a data set (<code class="docutils literal notranslate"><span class="pre">min_samples</span></code>). Clusters are built around these core data points, and any data point not within <code class="docutils literal notranslate"><span class="pre">eps</span></code> distance from a core data point is designated as <em>noise</em>, which means it is not assigned to any cluster. The larger the minimum distance and smaller minimum number of samples, the fewer clusters that are likely to be predicted by DBSCAN. One notable attribute of this algorithm versus some of the others mentioned above is that DBSCAN does not require the user to provide a requested number of clusters; it determines the number of clusters based on the other parameters mentioned above.</p>
 <p>To demonstrate clustering, we will generate a random, synthetic data set using the <code class="docutils literal notranslate"><span class="pre">make_blob()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">sklearn.datasets</span></code> module. This function takes a number of arguments including the number of samples (<code class="docutils literal notranslate"><span class="pre">n_samples</span></code>), number of features (<code class="docutils literal notranslate"><span class="pre">n_features</span></code>), number of clusters (<code class="docutils literal notranslate"><span class="pre">centers</span></code>), and the standard deviation of the clusters (<code class="docutils literal notranslate"><span class="pre">cluster_std</span></code>). We will only generate two features to make this example easy to visualize. The output of <code class="docutils literal notranslate"><span class="pre">make_blobs()</span></code> is a NumPy array containing the features (<code class="docutils literal notranslate"><span class="pre">X</span></code>) and a second NumPy array containing the labels (<code class="docutils literal notranslate"><span class="pre">y</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1916,7 +1946,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b787f92301cdc62bde29b11e4ad9fc44b921fb07fa441e4486b522d0d007e6cf.svg" src="../../_images/b787f92301cdc62bde29b11e4ad9fc44b921fb07fa441e4486b522d0d007e6cf.svg" /></div>
+<img alt="../../_images/cc660b585f1860c48f9fe41e98986023e174f9abb335ffabe1d7ef2ccecd1ead.svg" src="../../_images/cc660b585f1860c48f9fe41e98986023e174f9abb335ffabe1d7ef2ccecd1ead.svg" />
+</div>
 </div>
 <p>We can see three distinct clusters with the cluster on the bottom being more distinct than the two at the top. Also notice that the scales of the two features are different by roughly a factor of two. Before we can use this data, we will need to normalize the scale of both features as clustering algorithms are sensitive to scale. For this task, we will use the <code class="docutils literal notranslate"><span class="pre">StandardScaler()</span></code> function introduced in <a class="reference internal" href="#id16"><span class="std std-ref">section 12.2.5</span></a>.</p>
 <div class="cell docutils container">
@@ -2341,7 +2372,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</style><div id="sk-container-id-3" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>DBSCAN(eps=0.4)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" checked><label for="sk-estimator-id-3" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;DBSCAN<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.cluster.DBSCAN.html">?<span>Documentation for DBSCAN</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>DBSCAN(eps=0.4)</pre></div> </div></div></div></div></div></div>
+</style><div id="sk-container-id-3" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>DBSCAN(eps=0.4)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" checked><label for="sk-estimator-id-3" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;DBSCAN<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.cluster.DBSCAN.html">?<span>Documentation for DBSCAN</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>DBSCAN(eps=0.4)</pre></div> </div></div></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2374,16 +2405,18 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/944392f91059aa3fb450be68af8192106748ef68fa0ea88a6e5224d0ba371619.svg" src="../../_images/944392f91059aa3fb450be68af8192106748ef68fa0ea88a6e5224d0ba371619.svg" /></div>
+<img alt="../../_images/902dcf41996b5a9270b702f8bd65d99f706da2d10330967fa7f76b51ba9c71cc.svg" src="../../_images/902dcf41996b5a9270b702f8bd65d99f706da2d10330967fa7f76b51ba9c71cc.svg" />
+</div>
 </div>
 </section>
 <section id="blind-signal-separation">
-<span id="id16"></span><h3>12.2.5 Blind Signal Separation<a class="headerlink" href="#blind-signal-separation" title="Permalink to this heading">#</a></h3>
+<span id="id16"></span><h3>12.2.5 Blind Signal Separation<a class="headerlink" href="#blind-signal-separation" title="Link to this heading">#</a></h3>
 <p id="index-11">Blind signal (or source) separation (BSS) is the processes of separating independent component signals from a mixed signal. One application is in chemical spectroscopy where a spectrum may include signals from multiple chemical compounds in a mixture. If we provide the BSS algorithm multiple spectra of chemical mixtures where each mixture contains varying amounts of each chemical, the BSS algorithm should be able to separate the signals for each chemical component.</p>
 <p>To demonstrate this process, we will use infrared (IR) spectroscopy data containing mixtures of acetone, cyclohexane, toluene, and methanol in random ratios. Below are plots of four mixtures. We can see that, for example, the bands at ~3400 cm<span class="math notranslate nohighlight">\(^{-1}\)</span> and ~1000 cm<span class="math notranslate nohighlight">\(^{-1}\)</span> increase together suggesting that they originate from the same compound; this type of information can be used to discriminate which band belongs to which compound. However, instead of doing this manually, we can allow the machine learning algorithms to pick apart the spectra, and even better yet, yield complete spectra of each component.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/16332cffb258e46c291fd736a5b07f0310ba886642ff21fd7d53441eb5e0e4a6.svg" src="../../_images/16332cffb258e46c291fd736a5b07f0310ba886642ff21fd7d53441eb5e0e4a6.svg" /></div>
+<img alt="../../_images/2a6a8aaf86d711dd6af0bd2fc80fb43fc88af4d37ceb2b2c16df865273a9d4b0.svg" src="../../_images/2a6a8aaf86d711dd6af0bd2fc80fb43fc88af4d37ceb2b2c16df865273a9d4b0.svg" />
+</div>
 </div>
 <p>For this task, we will use the <em>independent component analysis (ICA)</em> function called <code class="docutils literal notranslate"><span class="pre">fastICA()</span></code> available in scikit-learn. The process parallels the other unsupervised learning processes above of first training the algorithm using the <code class="docutils literal notranslate"><span class="pre">fit()</span></code> method followed by transforming the data using the <code class="docutils literal notranslate"><span class="pre">transform()</span></code> method. First we will load the data from the files and stack them into an array called <code class="docutils literal notranslate"><span class="pre">S_mix</span></code> where each column contains the data from a spectrum. For comparison purposes, we will also load IR spectra of each pure component into an array called <code class="docutils literal notranslate"><span class="pre">S_pure</span></code>. Normally we would not have spectra of pure components, hence the “blind” in blind singal seperation, but this is just an example.</p>
 <p>The code below also grabs a copy of the wavenumbers (<code class="docutils literal notranslate"><span class="pre">wn</span></code>) for plotting purposes later on. The last 300 data points of the sprectra in this example are also being clipped off becasue they are a low signal high noise region of the spectra which reduces the effectiveness of the seperation.</p>
@@ -2472,7 +2505,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f4619c3c7da7b1484df5764d92c828c8dcc2251113fae4c7d190266f7a25790d.svg" src="../../_images/f4619c3c7da7b1484df5764d92c828c8dcc2251113fae4c7d190266f7a25790d.svg" /></div>
+<img alt="../../_images/5c41c551091c0ae5b542b3496795e5f20cb1db321211d0e605032681d061da1b.svg" src="../../_images/5c41c551091c0ae5b542b3496795e5f20cb1db321211d0e605032681d061da1b.svg" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2493,7 +2527,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/dcda804d10481ba7b09dacf9f0d724276ef5586fa701e0323bb7d193ec3bca14.svg" src="../../_images/dcda804d10481ba7b09dacf9f0d724276ef5586fa701e0323bb7d193ec3bca14.svg" /></div>
+<img alt="../../_images/cd16313a7c0447fe13b87aebe355c6989168618ed1f7d64d3f741ac43e1328b6.svg" src="../../_images/cd16313a7c0447fe13b87aebe355c6989168618ed1f7d64d3f741ac43e1328b6.svg" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2514,7 +2549,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1a33c795d1750444c384df1b0506e6df3cb82dc3441bca1f44c30b1a2666186e.svg" src="../../_images/1a33c795d1750444c384df1b0506e6df3cb82dc3441bca1f44c30b1a2666186e.svg" /></div>
+<img alt="../../_images/95ab133e8ca29c700a4daa2bb2a03e7268f65a24b11b9dab50a094cd6cef3bc7.svg" src="../../_images/95ab133e8ca29c700a4daa2bb2a03e7268f65a24b11b9dab50a094cd6cef3bc7.svg" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2535,28 +2571,49 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3c727e65fdc092ccde06cd8043799b22337fc0177a0d13efcd4c974961ff62db.svg" src="../../_images/3c727e65fdc092ccde06cd8043799b22337fc0177a0d13efcd4c974961ff62db.svg" /></div>
+<img alt="../../_images/4b945df9f9d5135ee38eea425d0a69f580e48c2a451c48d651d2c1ed9ebadb1d.svg" src="../../_images/4b945df9f9d5135ee38eea425d0a69f580e48c2a451c48d651d2c1ed9ebadb1d.svg" />
+</div>
 </div>
 <p>Overall, the fastICA algorithm did a decent job - sometimes even impressive job of picking out small features, but there are some discrepancies between the extracted and pure IR spectra. The first is that there are peaks that extend above the extracted spectra. A transmittance over 100% is not possible, but the algorithm does not know this. The <em>y</em>-axis scales of the extracted IR spectra also do not match the percent transmittance. While it is not shown here, sometimes the extracted components are also upside down. This is because the mixtures are assumed to be weighted sums of the components, and a component can be negative. If this bothers you, there is a related BSS algorithm called <em>non-negative matrix factorization (NMF)</em> supported in scikit-learn which requires each component to be non-negative. Finally, you may notice that there is a broad feature at around 3400 cm<span class="math notranslate nohighlight">\(^{-1}\)</span> in the acetone extracted component that is not in the pure compound. This is an O-H stretch from the methanol IR spectrum showing up in the acetone spectrum. This may be the result of hydrogen-bonding between methanol and acetone shifting the O-H band breaking down the assumption that the spectra of mixtures are purely additive.</p>
 </section>
 </section>
 <section id="final-notes">
-<span id="id17"></span><h2>12.3 Final Notes<a class="headerlink" href="#final-notes" title="Permalink to this heading">#</a></h2>
+<span id="id17"></span><h2>12.3 Final Notes<a class="headerlink" href="#final-notes" title="Link to this heading">#</a></h2>
 <p>There is a saying that there is no task so simple it cannot be done wrong, and machine learning is no exception. Machine learning, like any tool, can be used incorrectly leading to erroneous or error-prone results. One particular source of error in machine learning is making predictions outside the scope of the training data set. That is, if we train an algorithm to predict the boiling points using aliphatic alcohols, there is no reason to expect that the algorithm should be able to accurately predict the boiling points of aromatic alcohols. Another risk in machine learning is overtraining an algorithm. Some algorithms provide numerous parameters which customize the behavior, and these parameters are often used to optimize the accuracy of the predictions. The parameters can be over optimized for the training data so that the algorithm then performs worse in predicts for non-training data. This is known as <em>overtraining</em> the algorithm. In all of the excitement about how powerful and useful machine learning is, we should always keep the sources of error in mind and always remember that just because a machine learning algorithm makes a prediction does not make it true.</p>
 </section>
 <section id="further-reader">
-<span id="fr12"></span><h2>Further Reader<a class="headerlink" href="#further-reader" title="Permalink to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>Scikit-Learn Website. <a class="reference external" href="https://scikit-learn.org/stable/">https://scikit-learn.org/stable/</a> This is a great resource both on using scikit-learn and about machine learning algorithms implemented within (free resource)</p></li>
-<li><p>VanderPlas, J. Python data Science Handbook: Essential Tools for Working with Data, 1st ed.; O’Reilly: Sebastopol, CA, 2017, chapter 5. A free, online version available is available by the author at <a class="github reference external" href="https://github.com/jakevdp/PythonDataScienceHandbook">jakevdp/PythonDataScienceHandbook</a> (free resource)</p></li>
-<li><p>Müller, A. C.; Guido, S. Introduction to Machine Learning with Python: A Guide for Data Scientists, O’Reilly: Sebastopol, CA, 2016. This book is general introduction to machine learning using scikit-learn and discusses many of the algorithms.</p></li>
-<li><p>Géron, A. Hands-On Machine Learning with Scikit-Learn and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems, 1st ed.; O’Reilly: Sebastopol, CA 2017. This book provides a deeper discussion into the algorithms behind machine learning and provides an introduction into both scikit-learn and TensorFlow. A newer addition is also available that also provides an introduction to the keras machine learning library.</p></li>
-<li><p>Nallon,E. C.; Schnee, V. P.; Bright, C.; Polcha, M. P.; Li, Q. Chemical Discrimination with an Unmodified Graphene Chemical Sensor. <em>ACS Sens.</em> <strong>2016,</strong> 1, 26−31. This is a relatively approachable article that applies scikit-learn to a chemical problem using both supervised and unsupervised techniques. <a class="reference external" href="https://doi.org/10.1021/acssensors.5b00029">https://doi.org/10.1021/acssensors.5b00029</a></p></li>
-<li><p>Chen, J.; Wang, X. Z. A New Approach to Near-Infrared Spectral Data Analysis Using Independent Component Analysis. <em>J. Chem. Inf. Comput. Sci.</em> <strong>2001,</strong> 41, 992-1001. This article provides extra background on how <a class="reference internal" href="#id14"><span class="std std-ref">principle component analysis (PCA)</span></a> and <a class="reference internal" href="#id16"><span class="std std-ref">independant component analysis (ICA)</span></a> work, among other topics, and apply ICA to analyzing chemical mixtures using near-infrared spectroscopy. <a class="reference external" href="https://doi.org/10.1021/ci0004053">https://doi.org/10.1021/ci0004053</a></p></li>
+<span id="fr12"></span><h2>Further Reader<a class="headerlink" href="#further-reader" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p>Scikit-Learn Website. <a class="reference external" href="https://scikit-learn.org/stable/">https://scikit-learn.org/stable/</a></p>
+<blockquote>
+<div><p>This is a great resource both on using scikit-learn and about machine learning algorithms implemented within (free resource)</p>
+</div></blockquote>
+</li>
+<li><p>VanderPlas, J. Python data Science Handbook: Essential Tools for Working with Data, 1st ed.; O’Reilly: Sebastopol, CA, 2017, chapter 5. Freely available from the author at <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/">https://jakevdp.github.io/PythonDataScienceHandbook/</a> (free resource)</p></li>
+<li><p>Müller, A. C.; Guido, S. <em>Introduction to Machine Learning with Python: A Guide for Data Scientists</em>, O’Reilly: Sebastopol, CA, 2016. -</p>
+<blockquote>
+<div><p>This book is general introduction to machine learning using scikit-learn and discusses many of the algorithms.</p>
+</div></blockquote>
+</li>
+<li><p>Géron, A. Hands-On Machine Learning with Scikit-Learn and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems, 1st ed.; O’Reilly: Sebastopol, CA 2017.</p>
+<blockquote>
+<div><p>This book provides a deeper discussion into the algorithms behind machine learning and provides an introduction into both scikit-learn and TensorFlow. A newer addition is also available that also provides an introduction to the keras machine learning library. The math is relatively approachable for someone without a strong math background, and the math can be glossed over if need be.</p>
+</div></blockquote>
+</li>
+<li><p>Nallon,E. C.; Schnee, V. P.; Bright, C.; Polcha, M. P.; Li, Q. Chemical Discrimination with an Unmodified Graphene Chemical Sensor. <em>ACS Sens.</em> <strong>2016,</strong> 1, 26−31.</p>
+<blockquote>
+<div><p>This is a relatively approachable article that applies scikit-learn to a chemical problem using both supervised and unsupervised techniques. <a class="reference external" href="https://doi.org/10.1021/acssensors.5b00029">https://doi.org/10.1021/acssensors.5b00029</a></p>
+</div></blockquote>
+</li>
+<li><p>Chen, J.; Wang, X. Z. A New Approach to Near-Infrared Spectral Data Analysis Using Independent Component Analysis. <em>J. Chem. Inf. Comput. Sci.</em> <strong>2001,</strong> 41, 992-1001.</p>
+<blockquote>
+<div><p>This article provides extra background on how <a class="reference internal" href="#id14"><span class="std std-ref">principle component analysis (PCA)</span></a> and <a class="reference internal" href="#id16"><span class="std std-ref">independant component analysis (ICA)</span></a> work, among other topics, and apply ICA to analyzing chemical mixtures using near-infrared spectroscopy. <a class="reference external" href="https://doi.org/10.1021/ci0004053">https://doi.org/10.1021/ci0004053</a></p>
+</div></blockquote>
+</li>
 </ol>
 </section>
 <section id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <p>Complete the following exercises in a Jupyter notebook and scikit-learn library. Any data file(s) refered to in the problems can be found in the <a class="reference external" href="https://github.com/weisscharlesj/SciCompforChemists/tree/master/notebooks">data</a> folder in the same directory as this chapter’s Jupyter notebook. Alternatively, you can download a zip file of the data for this chapter from <a class="reference external" href="https://github.com/weisscharlesj/data_SciCompforChem">here</a> by selecting the appropriate chapter file and then clicking the <strong>Download</strong> button.</p>
 <ol class="arabic">
 <li><p>Import the data file <strong>ROH_data.csv</strong> containing data on simple alcohols and train a random forest algorithm to predict whether or not an alcohol is aliphatic. Remember to split the data set using <code class="docutils literal notranslate"><span class="pre">train_test_split()</span></code> and evaluate the quality of the predictions.</p></li>
@@ -2583,27 +2640,26 @@ the data points using color to represent each cluster.</p>
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "scicompchem-env"
         },
         kernelOptions: {
-            name: "python3",
+            name: "scicompchem-env",
             path: "./notebooks/chapter_12"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'scicompchem-env'</script>
 
                 </article>
               
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../chapter_11/chap_11_notebook.html"
@@ -2623,10 +2679,7 @@ the data points using color to represent each cluster.</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -2634,6 +2687,7 @@ the data points using color to represent each cluster.</p>
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -2684,6 +2738,7 @@ By Charles J. Weiss
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2017-2024.
@@ -2713,8 +2768,8 @@ By Charles J. Weiss
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

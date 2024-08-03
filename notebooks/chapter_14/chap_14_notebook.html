@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Chapter 14: Optimization and Root Finding &#8212; Scientific Computing for Chemists with Python</title>
   
@@ -15,58 +14,55 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/chapter_14/chap_14_notebook';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Chapter 15: RDKit for Cheminformatics (BETA)" href="../chapter_15/chap_15_notebook.html" />
+    <link rel="next" title="Chapter 15: Cheminformatics with RDKit" href="../chapter_15/chap_15_notebook.html" />
     <link rel="prev" title="Chapter 13: Command Line &amp; Spyder" href="../chapter_13/chap_13_notebook.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -77,19 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -111,12 +111,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -131,9 +139,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../introduction/intro.html">
+  
   
   
   
@@ -143,12 +155,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../_static/logo.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Scientific Computing for Chemists with Python - Home"/>
+    <script>document.write(`<img src="../../_static/logo.svg" class="logo__image only-dark" alt="Scientific Computing for Chemists with Python - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -174,8 +197,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../chapter_12/chap_12_notebook.html">Chapter 12: Machine Learning using Scikit-Learn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_13/chap_13_notebook.html">Chapter 13: Command Line &amp; Spyder</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 14: Optimization and Root Finding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter_15/chap_15_notebook.html">Chapter 15: RDKit for Cheminformatics <font color="C51E3A"> (BETA) </font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter_16/chap_16_notebook.html">Chapter 16: Bioinformatics with Biopython and Nglview <font color="C51E3A"> (BETA) </font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_15/chap_15_notebook.html">Chapter 15: Cheminformatics with RDKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_16/chap_16_notebook.html">Chapter 16: Bioinformatics with Biopython and Nglview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
 </ul>
 
@@ -192,7 +215,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -201,14 +224,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -330,26 +353,28 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -394,11 +419,11 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="chapter-14-optimization-and-root-finding">
-<span id="id1"></span><h1>Chapter 14: Optimization and Root Finding<a class="headerlink" href="#chapter-14-optimization-and-root-finding" title="Permalink to this heading">#</a></h1>
-<span class="target" id="index-0"></span><p id="index-1"><em>Optimization</em> is the process of improving something to the extent that it cannot be reasonably improved any further. This often involves maximizing desirable attributes and/or minimizing those that are undesirable, so finding the maximum and minimum are common optimization goals. While you may or may not have previously worked <em>directly</em> with optimization, you almost certainly have used it as part of a larger application or task such as energy minimization of a molecule, regression analysis, or a number of machine learning algorithms.</p>
+<span id="id1"></span><h1>Chapter 14: Optimization and Root Finding<a class="headerlink" href="#chapter-14-optimization-and-root-finding" title="Link to this heading">#</a></h1>
+<p id="index-1"><span id="index-0"></span><em>Optimization</em> is the process of improving something to the extent that it cannot be reasonably improved any further. This often involves maximizing desirable attributes and/or minimizing those that are undesirable, so finding the maximum and minimum are common optimization goals. While you may or may not have previously worked <em>directly</em> with optimization, you almost certainly have used it as part of a larger application or task such as energy minimization of a molecule, regression analysis, or a number of machine learning algorithms.</p>
 <p>In optimization tasks, we often find ourselves searching for the maximum or minimum of a given mathematical function. If we, for example, seek to minimize a function <span class="math notranslate nohighlight">\(f(a,b)\)</span>, our goal is to find values for input variables <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> to generate the smallest possible output from the function <span class="math notranslate nohighlight">\(f\)</span>. One approach is to manually try different input values until you get the smallest possible output, but this kind of tedious and time-consuming task is best left to computers. The <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module contains a number of tools for performing optimizations of mathematical functions. The goal of this chapter is to introduce the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module and apply it to chemical applications. This chapter does not go into the deeper theory behind optimization, such as specific algorithms. For those interested in some of the deeper theory of optimization, see the <a class="reference internal" href="#fr14"><span class="std std-ref">Further Reading</span></a> section.</p>
 <p>Before we begin, we first need to address how we measure what is “best”? For this, we use a <em>cost function</em>, also known as an <em>objective function</em> or <em>criterion</em>, which is a mathematical function that takes in features and returns a value that is a measure of “goodness.” If we were a company that is trying to maximize our profits, the objective function would likely be some mathematical equation that calculates our net profit. Optimization of a molecule’s conformation involves minimizing the energy, so the objective function here is the function that calculates the energy of the molecule based on the attributes like bond angles and lengths. In the examples below, each of the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> functions takes as its first argument an objective function in the form of a Python function.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">obj_func</span><span class="p">)</span>
@@ -416,10 +441,10 @@ document.write(`
 </div>
 </div>
 <section id="minimization">
-<span id="id2"></span><h2>14.1 Minimization<a class="headerlink" href="#minimization" title="Permalink to this heading">#</a></h2>
+<span id="id2"></span><h2>14.1 Minimization<a class="headerlink" href="#minimization" title="Link to this heading">#</a></h2>
 <p id="index-2">The first task we will look at is minimization, and for this, <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> has two related functions <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize()</span></code> and <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize_scalar()</span></code>. Both functions minimize the provided function, but the difference is in the number of independent variables that the objective function takes. A function with only one independent variable, <span class="math notranslate nohighlight">\(f(a)\)</span>, is known as <em>univariant</em> while a function that takes multiple independent variables, <span class="math notranslate nohighlight">\(f(a,b,...)\)</span>, is known as <em>multivariant</em>. The <code class="docutils literal notranslate"><span class="pre">minimize()</span></code> function can minimize either multivariant and univariant functions while <code class="docutils literal notranslate"><span class="pre">minimize_scalar()</span></code> can only accept univariant objective functions.</p>
 <section id="univariant-minimization">
-<span id="id3"></span><h3>14.1.1 Univariant Minimization<a class="headerlink" href="#univariant-minimization" title="Permalink to this heading">#</a></h3>
+<span id="id3"></span><h3>14.1.1 Univariant Minimization<a class="headerlink" href="#univariant-minimization" title="Link to this heading">#</a></h3>
 <p>If we are trying to minimize a function with a single independent variable, the <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize_scalar()</span></code> is likely a good choice. As a simple example, we will find the radius of minimal energy for two xenon atoms using the Lennard-Jones equation below which describes the potential energy with respect to the distance, <span class="math notranslate nohighlight">\(r\)</span>, between the two atoms. In this example, <span class="math notranslate nohighlight">\(\sigma\)</span> = 4.10 angstroms and <span class="math notranslate nohighlight">\(\epsilon\)</span> = 1.77 kJ/mol.</p>
 <div class="math notranslate nohighlight">
 \[ PE = 4 \epsilon \left[ \left(\frac{\sigma}{r}\right)^{12} - \left(\frac{\sigma}{r}\right)^6 \right] \]</div>
@@ -523,7 +548,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/652d0cd9af1ad4e65b2de9834c130727773b54d4388d4f4870ed816035a2f87a.svg" src="../../_images/652d0cd9af1ad4e65b2de9834c130727773b54d4388d4f4870ed816035a2f87a.svg" /></div>
+<img alt="../../_images/4917ee6b58cef130f73e407aefc659029d7f5313383bdb3f08e9e57d4f20e21a.svg" src="../../_images/4917ee6b58cef130f73e407aefc659029d7f5313383bdb3f08e9e57d4f20e21a.svg" />
+</div>
 </div>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -538,7 +564,7 @@ document.write(`
 </div>
 </section>
 <section id="minimization-for-maximization">
-<span id="id4"></span><h3>14.1.2 Minimization for Maximization<a class="headerlink" href="#minimization-for-maximization" title="Permalink to this heading">#</a></h3>
+<span id="id4"></span><h3>14.1.2 Minimization for Maximization<a class="headerlink" href="#minimization-for-maximization" title="Link to this heading">#</a></h3>
 <p id="index-3">The SciPy library does not contain any maximization functions, but maximization functions are not really necessary as minimizing the negative of a function provides the maximum. For example, below we have the radial probability function for the hydrogen 3s orbital. For convenience, the SymPy library’s <code class="docutils literal notranslate"><span class="pre">sympy.physics</span></code> module is used to generate the 3s radial function (<span class="math notranslate nohighlight">\(\psi\)</span>, <code class="docutils literal notranslate"><span class="pre">psi</span></code>) as a Python function. For this maximization example, let’s find the radius of maximum probability for the electron. The normalized probability can be calculated by <span class="math notranslate nohighlight">\(\psi ^2 r^2\)</span> where <span class="math notranslate nohighlight">\(r\)</span> is the distance from the nucleus.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -560,7 +586,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c77f91939271c2f91b4716f03ebad0224e5ce257bf23e5fff3ffcafaf2c476f3.svg" src="../../_images/c77f91939271c2f91b4716f03ebad0224e5ce257bf23e5fff3ffcafaf2c476f3.svg" /></div>
+<img alt="../../_images/448190ab5ccc8b59f5fec44ef2c0b464f64e03d77200891cfe039549f8d3bbbf.svg" src="../../_images/448190ab5ccc8b59f5fec44ef2c0b464f64e03d77200891cfe039549f8d3bbbf.svg" />
+</div>
 </div>
 <p>There are multiple ways to make the function negative like including a negative sign in the Python function definition. Our Python function has already been created, so below we will make the radial probability density negative using a <code class="docutils literal notranslate"><span class="pre">lambda</span></code> function (see <a class="reference internal" href="../chapter_02/chap_02_notebook.html#id6"><span class="std std-ref">section 2.1.4</span></a> for review on lambda functions).</p>
 <div class="cell docutils container">
@@ -620,11 +647,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/82324984b6c45a6b872bfbdc4c3fa86a98ad9ee8498647fec908e27d1d24faa8.svg" src="../../_images/82324984b6c45a6b872bfbdc4c3fa86a98ad9ee8498647fec908e27d1d24faa8.svg" /></div>
+<img alt="../../_images/79d01299237d02dc2fad5cd644c2115928e84802c0e8ba922276ba9e662cb4d7.svg" src="../../_images/79d01299237d02dc2fad5cd644c2115928e84802c0e8ba922276ba9e662cb4d7.svg" />
+</div>
 </div>
 </section>
 <section id="multivarient-minimization">
-<span id="id5"></span><h3>14.1.3 Multivarient Minimization<a class="headerlink" href="#multivarient-minimization" title="Permalink to this heading">#</a></h3>
+<span id="id5"></span><h3>14.1.3 Multivarient Minimization<a class="headerlink" href="#multivarient-minimization" title="Link to this heading">#</a></h3>
 <p id="index-5">One of the key minimization functions in the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module is the <code class="docutils literal notranslate"><span class="pre">minimize()</span></code> function which is capable of minimizing multiple variables simultaneously. This function requires at least two arguments, the objective function and initial guesses for each value as a list or tuple.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">obj_func</span><span class="p">,</span> <span class="p">(</span><span class="n">guess</span><span class="p">))</span>
 </pre></div>
@@ -737,11 +765,12 @@ document.write(`
 </section>
 </section>
 <section id="fitting-equations-to-data">
-<span id="id6"></span><h2>14.2 Fitting Equations to Data<a class="headerlink" href="#fitting-equations-to-data" title="Permalink to this heading">#</a></h2>
-<span class="target" id="index-6"></span><p id="index-7">An common application of optimization is fitting an equation to a series of data points such as a linear regression. While linear regression also  happens to have an analytical solution demonstrated in <a class="reference internal" href="../chapter_08/chap_08_notebook.html#id15"><span class="std std-ref">section 8.3.3</span></a>, we will solve it here using optimization. In the figure below, a regression line (solid orange) runs through the data points. The <em>residuals</em> are the difference between the regression line and the data points (green vertical dotted lines). The goal of linear regression is to generate a regression line that minimizes these residuals.</p>
+<span id="id6"></span><h2>14.2 Fitting Equations to Data<a class="headerlink" href="#fitting-equations-to-data" title="Link to this heading">#</a></h2>
+<p id="index-7"><span id="index-6"></span>An common application of optimization is fitting an equation to a series of data points such as a linear regression. While linear regression also  happens to have an analytical solution demonstrated in <a class="reference internal" href="../chapter_08/chap_08_notebook.html#id15"><span class="std std-ref">section 8.3.3</span></a>, we will solve it here using optimization. In the figure below, a regression line (solid orange) runs through the data points. The <em>residuals</em> are the difference between the regression line and the data points (green vertical dotted lines). The goal of linear regression is to generate a regression line that minimizes these residuals.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/ceb98fdd32e91a556d64e8eddc97abff7cd9ca40ab97ff5a3ecca8321e28784d.svg" src="../../_images/ceb98fdd32e91a556d64e8eddc97abff7cd9ca40ab97ff5a3ecca8321e28784d.svg" /></div>
+<img alt="../../_images/ddaa8c6f4a9d60d0da5f318f03f98d783e15d9d62cd92cde5c926bea2aa28c4a.svg" src="../../_images/ddaa8c6f4a9d60d0da5f318f03f98d783e15d9d62cd92cde5c926bea2aa28c4a.svg" />
+</div>
 </div>
 <p><strong>Figure 1</strong> An example of a line of best fit (solid orange) running through data points (blue) with residuals (green dashed) shown as the difference on the <span class="math notranslate nohighlight">\(y\)</span>-axis between the data point and linear regression.</p>
 <p id="index-8">One of the major questions in regression is how do we measure the quality of the fit. We could in principle use the total absolute sum of the residuals, known as the <em>lease absolute deviation</em> cost or objective function, but the commonly accepted objective function for fitting equations to data is <em>mean square error (MSE)</em> function. This is the average of the square of the difference between the equation’s predictions and the actual data points, or another way of wording this is MSE is the average square residual of the fit line. The MSE equation is shown below where <span class="math notranslate nohighlight">\(f_i\)</span> is the <em>y</em>-value from the regression line, <span class="math notranslate nohighlight">\(y_i\)</span> is the data point <em>y</em>-value, and <span class="math notranslate nohighlight">\(N\)</span> is the number of data points.</p>
@@ -749,7 +778,7 @@ document.write(`
 \[ MSE = \frac{1}{N} \sum_{i=1}^{N}{(f_i - y_i)^2} \]</div>
 <p>There are two general types of regression: linear regression and nonlinear regression. The key difference is that the former fits data to a linear equation (or plane or hyperplane for higher dimensions) while the latter fits data to nonlinear equations.</p>
 <section id="linear-equations">
-<span id="id7"></span><h3>14.2.1 Linear Equations<a class="headerlink" href="#linear-equations" title="Permalink to this heading">#</a></h3>
+<span id="id7"></span><h3>14.2.1 Linear Equations<a class="headerlink" href="#linear-equations" title="Link to this heading">#</a></h3>
 <p id="index-9">There are numerous examples of linear equations in chemistry, and often when equations are nonlinear, they can be rearranged into a linear form. One classic example of a linear trend is the absorption of light being passed through a solution of colored analyte (i.e., material being quantified) with respect to the concentration of the analyte. This is related by Beer’s law shown below where <span class="math notranslate nohighlight">\(A\)</span> is absorption, <span class="math notranslate nohighlight">\(\epsilon\)</span> is the molar absorptivity constant for a particular analyte, <span class="math notranslate nohighlight">\(b\)</span> is path length of the sample, and <span class="math notranslate nohighlight">\(C\)</span> is the concentration of analyte.</p>
 <div class="math notranslate nohighlight">
 \[ A = \epsilon bC \]</div>
@@ -759,7 +788,7 @@ document.write(`
 <p>By measuring the absorbance of multiple samples of analyte at known concentrations, the absorbance can be plotted with respect to concentration, and the slope of the linear trend is the molar absorptivity, <span class="math notranslate nohighlight">\(\epsilon\)</span>.</p>
 <p>As our sample data, let’s again use the copper cuprizone data we saw in chapter 8.</p>
 <p><strong>Table 1</strong> Beer-Lambert Law Data for Copper Cuprizone</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Concentration (10<span class="math notranslate nohighlight">\(^{-6}\)</span> M)</p></th>
 <th class="head text-center"><p>Absorbance</p></th>
@@ -786,6 +815,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0e-06</span><span class="p">,</span> <span class="mf">3.0e-06</span><span class="p">,</span> <span class="mf">6.0e-06</span><span class="p">,</span> <span class="mf">1.5e-05</span><span class="p">,</span> <span class="mf">2.5e-05</span><span class="p">,</span> <span class="mf">3.5e-05</span><span class="p">])</span>
@@ -824,8 +854,8 @@ document.write(`
 <p>According to the <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> function, the slope is 1.55 <span class="math notranslate nohighlight">\(\times\)</span> 10<span class="math notranslate nohighlight">\(^4\)</span> cm<span class="math notranslate nohighlight">\(^{-1}\)</span>M<span class="math notranslate nohighlight">\(^{-1}\)</span> while the <em>y</em>-intercept is -5.45 <span class="math notranslate nohighlight">\(\times\)</span> 10<span class="math notranslate nohighlight">\(^{-6}\)</span>.</p>
 </section>
 <section id="nonlinear-regression">
-<span id="id8"></span><h3>14.2.2 Nonlinear Regression<a class="headerlink" href="#nonlinear-regression" title="Permalink to this heading">#</a></h3>
-<span class="target" id="index-10"></span><span class="target" id="index-11"></span><p id="index-12">Optimization can also be used to find the best fit for nonlinear data based off of a theoretical equation. One application of nonlinear fitting is to fit data to a theoretical rate law as a means of determining one or more rate constants in the equation. For this, we will again use the <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module.</p>
+<span id="id8"></span><h3>14.2.2 Nonlinear Regression<a class="headerlink" href="#nonlinear-regression" title="Link to this heading">#</a></h3>
+<p id="index-12"><span id="index-11"></span><span id="index-10"></span>Optimization can also be used to find the best fit for nonlinear data based off of a theoretical equation. One application of nonlinear fitting is to fit data to a theoretical rate law as a means of determining one or more rate constants in the equation. For this, we will again use the <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module.</p>
 <p>To demonstrate this process, let’s consider the two-step reaction of A + B <span class="math notranslate nohighlight">\(\rightarrow\)</span> P catalyzed by a metal catalyst M.</p>
 <div class="math notranslate nohighlight">
 \[ M + A \underset{k_{r1}}{\stackrel{k_1}{\rightleftharpoons}} MA \]</div>
@@ -868,7 +898,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/37548f4ca64bcaecee3de8ad86c6f2f518fed5b0454edd7c98893c5b212252e6.svg" src="../../_images/37548f4ca64bcaecee3de8ad86c6f2f518fed5b0454edd7c98893c5b212252e6.svg" /></div>
+<img alt="../../_images/1b71b03b00563267c7be5cc27a8de360c76405c4dbba835ccc838c1d9d32e4b8.svg" src="../../_images/1b71b03b00563267c7be5cc27a8de360c76405c4dbba835ccc838c1d9d32e4b8.svg" />
+</div>
 </div>
 <p>Now that we have our data, we can fit it to the theoretical equation to extract the rate constants.</p>
 <div class="cell docutils container">
@@ -879,7 +910,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.22558323, 0.50705095, 4.49294907])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.22558323, 0.50705095, 4.49294906])
 </pre></div>
 </div>
 </div>
@@ -900,7 +931,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/352bf5ce8385d3152d9d33625c858c14c56acbf9f264e976a0f86ab048f247f1.svg" src="../../_images/352bf5ce8385d3152d9d33625c858c14c56acbf9f264e976a0f86ab048f247f1.svg" /></div>
+<img alt="../../_images/cdbf3bad7d75c16a48109ad2044ff62e43a16adc423fb96d0bd7763f2cee103c.svg" src="../../_images/cdbf3bad7d75c16a48109ad2044ff62e43a16adc423fb96d0bd7763f2cee103c.svg" />
+</div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -926,7 +958,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.21309944, 0.48085692, 4.48897566])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.21309944, 0.48078873, 4.48833906])
 </pre></div>
 </div>
 </div>
@@ -939,7 +971,7 @@ document.write(`
 </div>
 </section>
 <section id="mixed-analyte-example">
-<span id="id9"></span><h3>14.2.3 Mixed Analyte Example<a class="headerlink" href="#mixed-analyte-example" title="Permalink to this heading">#</a></h3>
+<span id="id9"></span><h3>14.2.3 Mixed Analyte Example<a class="headerlink" href="#mixed-analyte-example" title="Link to this heading">#</a></h3>
 <p id="index-13">Below is an additional example where we use optimization to determine the concentrations of three different dyes mixed together and analyzed by UV-Vis spectroscopy. This example was inspired by a <em>Journal of Chemical Education</em> article by <a class="reference external" href="https://doi.org/10.1021/acs.jchemed.9b00421">Jesse Maccione, Joseph Welch, and Emily C. Heider</a>. By Beer’s law, the absorbance (A) of an analyte is the product of the molar absoptivity constant (<span class="math notranslate nohighlight">\(\epsilon\)</span>) for that analyte, the path length in cm (<span class="math notranslate nohighlight">\(b\)</span>), and concentration (<span class="math notranslate nohighlight">\(C\)</span>).</p>
 <div class="math notranslate nohighlight">
 \[ A = \epsilon bC \]</div>
@@ -985,7 +1017,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a4798e0a86af02aed04fe8d9419cc0270bcdec2fe46770331eda46fae59ff280.svg" src="../../_images/a4798e0a86af02aed04fe8d9419cc0270bcdec2fe46770331eda46fae59ff280.svg" /></div>
+<img alt="../../_images/ac121b04c9db3d78652fd5d88c3672162471f19e864cbc72f318a201c1251240.svg" src="../../_images/ac121b04c9db3d78652fd5d88c3672162471f19e864cbc72f318a201c1251240.svg" />
+</div>
 </div>
 <p>Next, we will use the absorbances for each pure dye sample to find the molar absorptivities using Beer’s law. The path length, <span class="math notranslate nohighlight">\(b\)</span>, in this instrument is 1 cm, and the concentrations are in molarity.</p>
 <div class="cell docutils container">
@@ -1045,7 +1078,7 @@ document.write(`
 </section>
 </section>
 <section id="root-finding">
-<span id="id10"></span><h2>14.3 Root Finding<a class="headerlink" href="#root-finding" title="Permalink to this heading">#</a></h2>
+<span id="id10"></span><h2>14.3 Root Finding<a class="headerlink" href="#root-finding" title="Link to this heading">#</a></h2>
 <p id="index-14">Root finding is the process of determining where a function equals zero, <span class="math notranslate nohighlight">\(f(a,b,...) = 0\)</span>. Being that any equation can be rearranged to equal zero, this is a versatile way of solving an equation. If the function is univariant, <span class="math notranslate nohighlight">\(f(a)=0\)</span>, this task may sometimes seem trivial even without optimization algorithms, but as the complexity of the equation or number of variables increases, using optimization algorithms can be beneficial.</p>
 <p>Like the minimization functions above, there are two related versions of the root finding functions: <code class="docutils literal notranslate"><span class="pre">scipy.optimize.root()</span></code> and <code class="docutils literal notranslate"><span class="pre">scipy.optimize.root_scalar()</span></code>. The key difference is that the <code class="docutils literal notranslate"><span class="pre">root()</span></code> function can solve for both univariant and multivariant functions while <code class="docutils literal notranslate"><span class="pre">root_scalar()</span></code> can only solve for univariant functions. Both functions require a function, <code class="docutils literal notranslate"><span class="pre">func</span></code>, to find the root of, and <code class="docutils literal notranslate"><span class="pre">root()</span></code> function also requires an initial guess, <code class="docutils literal notranslate"><span class="pre">x0</span></code>. The <code class="docutils literal notranslate"><span class="pre">root_scalar()</span></code> function also allows for an optional range of values that bracket the root, <code class="docutils literal notranslate"><span class="pre">bracket=</span></code> to be provides by the user.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x0</span><span class="p">)</span>
@@ -1077,7 +1110,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8868e1aed7501bf57861cb79d7d3ec2636064cff3b720c56bad4d490cdd2d116.svg" src="../../_images/8868e1aed7501bf57861cb79d7d3ec2636064cff3b720c56bad4d490cdd2d116.svg" /></div>
+<img alt="../../_images/3df6c2fda109fd25569e2d5d4a54925da2a87499f2bc4358573e7a8dd8d25754.svg" src="../../_images/3df6c2fda109fd25569e2d5d4a54925da2a87499f2bc4358573e7a8dd8d25754.svg" />
+</div>
 </div>
 <p>The function has two nodes, so our <code class="docutils literal notranslate"><span class="pre">bracket=</span></code> values will determine which we will end up
 solving for.</p>
@@ -1133,21 +1167,22 @@ solving for.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c4bd8d58ca41438d14d7dbaad11991bf14bc586f1838caa7840a5b7ada50d680.svg" src="../../_images/c4bd8d58ca41438d14d7dbaad11991bf14bc586f1838caa7840a5b7ada50d680.svg" /></div>
+<img alt="../../_images/3ce4ba83783d8c07e7866aa8d061640830bce0e4d0fbd93ca4b3657e8a7642d5.svg" src="../../_images/3ce4ba83783d8c07e7866aa8d061640830bce0e4d0fbd93ca4b3657e8a7642d5.svg" />
+</div>
 </div>
 <p>The two dots above show the location of the two roots for this function which clearly are located on the nodes of the wave function.</p>
 </section>
 <section id="further-reading">
-<span id="fr14"></span><h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
+<span id="fr14"></span><h2>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module user guide. <a class="reference external" href="https://docs.scipy.org/doc/scipy/tutorial/optimize.html">https://docs.scipy.org/doc/scipy/tutorial/optimize.html</a> (free resource)</p></li>
 <li><p>Watt, J.; Borhani, R.; Katsaggelos, A. K. Machine Learning Refined: Foundations, Algorithms, and Applications; 2nd ed.; Cambridge University Press, 2020, pp 21-124. These chapters are a good introduction to optimization algorithms.</p></li>
 </ol>
 </section>
 <section id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <p>Solve the following problems using Python in a Jupyter notebook and functions from the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module. Any data file(s) refered to in the problems can be found in the <a class="reference external" href="https://github.com/weisscharlesj/SciCompforChemists/tree/master/notebooks">data</a> folder in the same directory as this chapter’s Jupyter notebook. Alternatively, you can download a zip file of the data for this chapter from <a class="reference external" href="https://github.com/weisscharlesj/data_SciCompforChem">here</a> by selecting the appropriate chapter file and then clicking the <strong>Download</strong> button.</p>
-<span class="target" id="index-15"></span><ol class="arabic" id="index-16">
+<span id="index-15"></span><ol class="arabic" id="index-16">
 <li><p>A warm or hot object emits radiation in a range of wavelengths described by Plank’s law shown below where B is radiance, <span class="math notranslate nohighlight">\(\lambda\)</span> is frequency of radiation, <span class="math notranslate nohighlight">\(c\)</span> is the speed of light, <span class="math notranslate nohighlight">\(h\)</span> is Plank’s constant, <span class="math notranslate nohighlight">\(k\)</span> is Boltzmann’s constant, and <span class="math notranslate nohighlight">\(T\)</span> is temperature of the object in K.</p>
 <div class="math notranslate nohighlight">
 \[ B(\lambda) = \frac{2hc^2}{\lambda^5} \frac{1}{e^{\frac{hc}{\lambda kT}}-1} \]</div>
@@ -1161,7 +1196,7 @@ solving for.</p>
 <li><p>A sealed piston contains 0.32 moles of helium gas at 298 K. Determine the value of <span class="math notranslate nohighlight">\(R\)</span> by performing a nonlinear fit on the data below with the <code class="docutils literal notranslate"><span class="pre">optimize.curve_fit()</span></code> function and the ideal gas law.</p>
 <div class="math notranslate nohighlight" id="index-17">
 \[ P = \frac{nRT}{V} \]</div>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Volume (L)</p></th>
 <th class="head text-center"><p>Pressure (atm)</p></th>
@@ -1191,11 +1226,12 @@ solving for.</p>
 </tr>
 </tbody>
 </table>
+</div>
 </li>
 <li><p>Below is the theoretical kinetic rate law for a chemical reaction of A <span class="math notranslate nohighlight">\(\rightarrow\)</span> P catalyzed by 0.001 M of a metal catalyst C. The table includes kinetic data for the rate, concentration of A, and the uncertainty in rate. Use the <code class="docutils literal notranslate"><span class="pre">optimize.curve_fit()</span></code> function to determine values for <span class="math notranslate nohighlight">\(k_1\)</span> and <span class="math notranslate nohighlight">\(K_{eq}\)</span>. Plot the data below with an overlay of calculated values using the constants that you determined to show that they are reasonable values.</p>
 <div class="math notranslate nohighlight">
 \[ Rate = \frac{k_1K_{eq}[A][C]}{1 + K_{eq}[A]} \]</div>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Rate, M/s</p></th>
 <th class="head text-center"><p>[A], M</p></th>
@@ -1237,6 +1273,7 @@ solving for.</p>
 </tr>
 </tbody>
 </table>
+</div>
 </li>
 <li id="index-18"><p>One method of solving acid-base equilibrium concentrations is through polynomials as demonstrated by <a class="reference external" href="https://doi.org/10.1021/ed081p758">F. Bamdad</a>. Below is a third-degree polynomial from the equilibria resulting from placing hydrocyanic acid (HCN) in water where <span class="math notranslate nohighlight">\(x\)</span> is the concentration of hydronium, <em>K</em><span class="math notranslate nohighlight">\(_a\)</span> is the acid equilibrium constant, <em>K</em><span class="math notranslate nohighlight">\(_w\)</span> is equilibrium constant for the autoionization of water, and [HCN]<span class="math notranslate nohighlight">\(_0\)</span> is the initial concentration of hydrocyanic acid. Solve for the concentration of hydronium using a root finding algorithm in the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module assuming [HCN]<span class="math notranslate nohighlight">\(_0\)</span> = 6.8 <span class="math notranslate nohighlight">\(\times\)</span> 10<span class="math notranslate nohighlight">\(^{-6}\)</span> M and K<span class="math notranslate nohighlight">\(_a\)</span> = 6.2 <span class="math notranslate nohighlight">\(\times\)</span> 10<span class="math notranslate nohighlight">\(^{-10}\)</span>.</p>
 <div class="math notranslate nohighlight">
@@ -1260,27 +1297,26 @@ solving for.</p>
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "scicompchem-env"
         },
         kernelOptions: {
-            name: "python3",
+            name: "scicompchem-env",
             path: "./notebooks/chapter_14"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'scicompchem-env'</script>
 
                 </article>
               
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../chapter_13/chap_13_notebook.html"
@@ -1296,14 +1332,11 @@ solving for.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Chapter 15: RDKit for Cheminformatics <font color = C51E3A> (BETA) </font></p>
+        <p class="prev-next-title">Chapter 15: Cheminformatics with RDKit</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1311,6 +1344,7 @@ solving for.</p>
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1354,6 +1388,7 @@ By Charles J. Weiss
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2017-2024.
@@ -1383,8 +1418,8 @@ By Charles J. Weiss
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

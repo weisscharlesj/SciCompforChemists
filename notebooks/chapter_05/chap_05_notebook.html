@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Chapter 5: Pandas &#8212; Scientific Computing for Chemists with Python</title>
   
@@ -15,52 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/chapter_05/chap_05_notebook';</script>
@@ -77,19 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -111,12 +111,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -131,9 +139,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../introduction/intro.html">
+  
   
   
   
@@ -143,12 +155,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../_static/logo.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Scientific Computing for Chemists with Python - Home"/>
+    <script>document.write(`<img src="../../_static/logo.svg" class="logo__image only-dark" alt="Scientific Computing for Chemists with Python - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -174,8 +197,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../chapter_12/chap_12_notebook.html">Chapter 12: Machine Learning using Scikit-Learn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_13/chap_13_notebook.html">Chapter 13: Command Line &amp; Spyder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_14/chap_14_notebook.html">Chapter 14: Optimization and Root Finding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter_15/chap_15_notebook.html">Chapter 15: RDKit for Cheminformatics <font color="C51E3A"> (BETA) </font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter_16/chap_16_notebook.html">Chapter 16: Bioinformatics with Biopython and Nglview <font color="C51E3A"> (BETA) </font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_15/chap_15_notebook.html">Chapter 15: Cheminformatics with RDKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_16/chap_16_notebook.html">Chapter 16: Bioinformatics with Biopython and Nglview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
 </ul>
 
@@ -192,7 +215,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -201,14 +224,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -330,26 +353,28 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -406,10 +431,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="chapter-5-pandas">
-<span id="id1"></span><h1>Chapter 5: Pandas<a class="headerlink" href="#chapter-5-pandas" title="Permalink to this heading">#</a></h1>
+<span id="id1"></span><h1>Chapter 5: Pandas<a class="headerlink" href="#chapter-5-pandas" title="Link to this heading">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 </div>
 <p>While NumPy is the foundation of much of the SciPy ecosystem and provides very capable ndarray objects, it has a few shortcomings. The first is that NumPy arrays cannot hold different types of objects in a single array. For example, if we attempt to convert the following list containing integers, floats, and strings into an array, NumPy coverts all elements into strings as a way of making the object types uniform.</p>
@@ -445,10 +470,10 @@ document.write(`
 <p>A data scientist named Wes McKinney created the pandas library which provides a wealth of additional tools for working with data, and possibly the most endearing feature, the ability to call data based on labels. Data columns and rows can contain human-readable labels that are used to access the data. Pandas still supports accessing data using indices if the user wishes to go that route, but the user can now access data without knowing which column it is in as long as the user knows the column label.</p>
 <p>By popular convention, the pandas library is imported with the <code class="docutils literal notranslate"><span class="pre">pd</span> <span class="pre">alias</span></code>, which is used here. This chapter also assumes the following imports.</p>
 <section id="basic-pandas-objects">
-<span id="id2"></span><span id="index-0"></span><h2>5.1 Basic Pandas Objects<a class="headerlink" href="#basic-pandas-objects" title="Permalink to this heading">#</a></h2>
+<span id="id2"></span><span id="index-0"></span><h2>5.1 Basic Pandas Objects<a class="headerlink" href="#basic-pandas-objects" title="Link to this heading">#</a></h2>
 <p>To support the wealth of features, pandas uses its own objects to hold data called a Series and a DataFrame, which are built on NumPy arrays. Because they are built on NumPy, many of the NumPy functions (e.g., <code class="docutils literal notranslate"><span class="pre">np.mean()</span></code>) work on pandas objects. The key difference between the a Series and DataFrame is that a Series is one-dimensional while a DataFrame is two-dimensional. Unlike a NumPy array, pandas objects have fixed dimensionality. There is a three-dimensional object called a <em>Panel</em>, but this will not be covered here as it is not often used.</p>
 <section id="series">
-<span id="id3"></span><h3>5.1.1 Series<a class="headerlink" href="#series" title="Permalink to this heading">#</a></h3>
+<span id="id3"></span><h3>5.1.1 Series<a class="headerlink" href="#series" title="Link to this heading">#</a></h3>
 <p id="index-1">While the pandas <em>Series</em> is restricted to being a single dimension, it can be as long as necessary to hold the data. A Series containing the atomic masses of the first five elements on the periodic table is generated below using the <code class="docutils literal notranslate"><span class="pre">pd.Series()</span></code> function. This function is always capitalized.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -549,7 +574,7 @@ dtype: float64
 </div>
 </section>
 <section id="dataframe">
-<span id="id4"></span><h3>5.1.2 DataFrame<a class="headerlink" href="#dataframe" title="Permalink to this heading">#</a></h3>
+<span id="id4"></span><h3>5.1.2 DataFrame<a class="headerlink" href="#dataframe" title="Link to this heading">#</a></h3>
 <p id="index-2">Most data you will find yourself working with will be best placed in a two-dimensional pandas object called a <em>DataFrame</em> which is always written with two capital letters. The DataFrame is similar to a Series except that now there are also columns with names. The columns can be accessed by column names and rows can be accesses by indices. You might think of a DataFrame as a collection of Series objects. Below, a DataFrame is constructed to hold the names, atomic numbers, masses, and ionization energies of the first five elements.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -719,7 +744,7 @@ Name: Li, dtype: object
 </div>
 <p>A summary of the methods of indexing pandas Series and DataFrames is presented below in Table 1.</p>
 <p><strong>Table 1</strong> Summary of Pandas Indexing</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Index Method</p></th>
 <th class="head text-left"><p>Description</p></th>
@@ -746,13 +771,14 @@ Name: Li, dtype: object
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="reading-writing-data">
-<span id="id5"></span><h2>5.2 Reading/Writing Data<a class="headerlink" href="#reading-writing-data" title="Permalink to this heading">#</a></h2>
-<span class="target" id="index-3"></span><p id="index-4">Similar to NumPy, pandas contains multiple, convenient functions for reading/writing data directly to and from its own object types, and each function is suited to a specific file format. This includes CSV, HTML, JSON, SQL, Excel, and HDF5 files <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html">among others</a>.</p>
+<span id="id5"></span><h2>5.2 Reading/Writing Data<a class="headerlink" href="#reading-writing-data" title="Link to this heading">#</a></h2>
+<p id="index-4"><span id="index-3"></span>Similar to NumPy, pandas contains multiple, convenient functions for reading/writing data directly to and from its own object types, and each function is suited to a specific file format. This includes CSV, HTML, JSON, SQL, Excel, and HDF5 files <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html">among others</a>.</p>
 <p><strong>Table 2</strong> Import/Export Functions in Pandas</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Function</p></th>
 <th class="head text-left"><p>Description</p></th>
@@ -776,11 +802,19 @@ Name: Li, dtype: object
 </tr>
 </tbody>
 </table>
+</div>
 <section id="general-purpose-delimited-file-reader">
-<span id="id6"></span><h3>5.2.1 General-Purpose Delimited File Reader<a class="headerlink" href="#general-purpose-delimited-file-reader" title="Permalink to this heading">#</a></h3>
-<p>Before we start with more well-defined file formats, pandas provides a general purpose file reader <code class="docutils literal notranslate"><span class="pre">pd.read_table()</span></code>. This function imports text files where lines represent rows and the data in each row is separated by characters or spaces. The user can designate what character(s) separate the data by using the <code class="docutils literal notranslate"><span class="pre">delimiter</span></code> or <code class="docutils literal notranslate"><span class="pre">sep</span></code> arguments (they do the same thing),  or as an easy way of breaking up data based on spaces, set the  <code class="docutils literal notranslate"><span class="pre">delim_whitespaces</span></code> equal to <code class="docutils literal notranslate"><span class="pre">True</span></code>. The function also includes a series of other arguments listed below in Table 3.</p>
+<span id="id6"></span><h3>5.2.1 General-Purpose Delimited File Reader<a class="headerlink" href="#general-purpose-delimited-file-reader" title="Link to this heading">#</a></h3>
+<p>Before we start with more well-defined file formats, pandas provides a general purpose file reader <code class="docutils literal notranslate"><span class="pre">pd.read_table()</span></code>. This function imports text files where lines represent rows and the data in each row is separated by characters or spaces. The user can designate what character(s) separate the data by using the <code class="docutils literal notranslate"><span class="pre">delimiter</span></code> or <code class="docutils literal notranslate"><span class="pre">sep</span></code> arguments (they do the same thing). To set a space as a delimiter,  use <code class="docutils literal notranslate"><span class="pre">sep=\s+</span></code>. The function also includes a series of other arguments listed below in Table 3.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">delim_whitespace=</span></code> argument has been depricated and will be removed from pandas as some point. Use <code class="docutils literal notranslate"><span class="pre">sep=\s+</span></code> instead.</p>
+</div>
+</aside>
 <p><strong>Table 3</strong> More <code class="docutils literal notranslate"><span class="pre">pd.read_table()</span></code> Arguments</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Argument</p></th>
 <th class="head text-left"><p>Description</p></th>
@@ -805,14 +839,12 @@ Name: Li, dtype: object
 <tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
 <td class="text-left"><p>Row number to use for a data header; also accepts None if no header is provided in the file</p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">delim_whitespace</span></code></p></td>
-<td class="text-left"><p>Boolean argument indicating that data is separated by white space; default is <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
-</tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">skipinitialspace</span></code></p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">skipinitialspace</span></code></p></td>
 <td class="text-left"><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, skips white space after delimiter</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 <p>As an example, we can use this function to read a calculated PDB file of benzene and extract the <span class="math notranslate nohighlight">\(xyz\)</span> coordinates for each atom. This particular file type, shown below, is <a class="reference external" href="http://www.wwpdb.org/documentation/file-format">strictly formatted based on the position in a line</a>, but being that all the data columns here have spaces between them, we can use space delimitation by setting  <code class="docutils literal notranslate"><span class="pre">delim_whitespace=True</span></code>. Because the data do not start until the third line and we do not need the last thirteen lines of the file, we should exclude these rows. We set <code class="docutils literal notranslate"><span class="pre">header=None</span></code> because we do not want the function to treat the first line of data as a header or data label.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>HEADER 
 REMARK 
@@ -845,7 +877,7 @@ END
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">benz</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;data/benzene.pdb&#39;</span><span class="p">,</span> <span class="n">delim_whitespace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">benz</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;data/benzene.pdb&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> 
                      <span class="n">skiprows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">skipfooter</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
                      <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;python&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1027,7 +1059,7 @@ END
 <p>The <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> data are in columns 5, 6, and 7, respectively and can be extracted by indexing as discussed in <a class="reference internal" href="#id4"><span class="std std-ref">section 5.1.2</span></a>.</p>
 </section>
 <section id="comma-separated-values-files">
-<span id="id7"></span><h3>5.2.2 Comma Separated Values Files<a class="headerlink" href="#comma-separated-values-files" title="Permalink to this heading">#</a></h3>
+<span id="id7"></span><h3>5.2.2 Comma Separated Values Files<a class="headerlink" href="#comma-separated-values-files" title="Link to this heading">#</a></h3>
 <p>Pandas provides a collection of more format-specific functions for reading/writing files. The most popular is possibly the CSV file because it is simple and many scientific instruments support exporting data in this format. To import a CSV file, we will use the <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> function. This function is very similar to the <code class="docutils literal notranslate"><span class="pre">read_table()</span></code> function except that a default value for the separator/delimiter is set to a comma. To create a CSV file, use the <code class="docutils literal notranslate"><span class="pre">to_csv()</span></code> method which at a minimum requires the file name and a pandas object with the data.</p>
 <p>We can write the above chemical element data assembled in <a class="reference internal" href="#id2"><span class="std std-ref">section 5.1</span></a> as shown below. Because we are starting from a pandas object and are using a pandas method, the <code class="docutils literal notranslate"><span class="pre">df.to_csv()</span></code> format is used where df is a DataFrame.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;elements.csv&#39;</span><span class="p">)</span>
@@ -1118,7 +1150,7 @@ IE,13.6,24.6,5.4,9.3,8.3
 </div>
 </section>
 <section id="excel-notebook-files">
-<span id="id8"></span><h3>5.2.3 Excel Notebook Files<a class="headerlink" href="#excel-notebook-files" title="Permalink to this heading">#</a></h3>
+<span id="id8"></span><h3>5.2.3 Excel Notebook Files<a class="headerlink" href="#excel-notebook-files" title="Link to this heading">#</a></h3>
 <p>Pandas provides another useful function that imports Excel notebook files (i.e., <em>.xls</em> or <em>.xlsx</em>). Excel files are a specialized file type that requires the support of additional libraries, known as dependancies, that pandas does not install by default. A list of these dependancies is provided on the <a class="reference external" href="https://pandas.pydata.org/docs/getting_started/install.html#dependencies">pandas website</a>. You can either install each dependency yourself, or pandas provides a shortcut (for pandas version 2.0.0 and later) of <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&quot;pandas[excel]&quot;</span></code> that is run in the Terminal window (see <a class="reference internal" href="../chapter_00/chap_00_notebook.html#id3"><span class="std std-ref">section 0.2</span></a> for Terminal instructions). However, please check the <a class="reference external" href="https://pandas.pydata.org/docs/getting_started/install.html#dependencies">pandas website</a> for the full and most current instructions as things may have changed. Because Excel files can contain multiple sheets, this function is a little more complicated to use. The simplest way to import an Excel file is to use <code class="docutils literal notranslate"><span class="pre">pd.read_excel()</span></code> and provide it with the Excel file name.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -1371,7 +1403,7 @@ IE,13.6,24.6,5.4,9.3,8.3
 </div>
 </section>
 <section id="computer-clipboard">
-<span id="id9"></span><h3>5.2.4 Computer Clipboard<a class="headerlink" href="#computer-clipboard" title="Permalink to this heading">#</a></h3>
+<span id="id9"></span><h3>5.2.4 Computer Clipboard<a class="headerlink" href="#computer-clipboard" title="Link to this heading">#</a></h3>
 <p>Pandas will also accept data from the computer’s copy and paste clipboard. Start by highlighting some data from a webpage or a spreadsheet, select copy. This is typically located under the Edit menu of most software applications. Alternatively, you can type Command + C on a macOS or Control + C on Windows and Linux. Finally, use the <code class="docutils literal notranslate"><span class="pre">pd.read_clipboard()</span></code> function to convert it to a pandas DataFrame.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_clipboard</span><span class="p">()</span>
 </pre></div>
@@ -1380,10 +1412,10 @@ IE,13.6,24.6,5.4,9.3,8.3
 </section>
 </section>
 <section id="examining-data-with-pandas">
-<span id="id10"></span><h2>5.3 Examining Data with Pandas<a class="headerlink" href="#examining-data-with-pandas" title="Permalink to this heading">#</a></h2>
+<span id="id10"></span><h2>5.3 Examining Data with Pandas<a class="headerlink" href="#examining-data-with-pandas" title="Link to this heading">#</a></h2>
 <p>Once you load data into pandas, you will likely want to get an idea of what the data look like before you proceed to calculations and in-depth analyses. This section covers a few methods provided in pandas to gain a preliminary understanding of your data.</p>
 <section id="descriptive-functions">
-<span id="id11"></span><h3>5.3.1 Descriptive Functions<a class="headerlink" href="#descriptive-functions" title="Permalink to this heading">#</a></h3>
+<span id="id11"></span><h3>5.3.1 Descriptive Functions<a class="headerlink" href="#descriptive-functions" title="Link to this heading">#</a></h3>
 <p id="index-5">Pandas provides a few simple functions to view and describe new data. The first two are <code class="docutils literal notranslate"><span class="pre">head()</span></code> and <code class="docutils literal notranslate"><span class="pre">tail()</span></code> which allow you to see the top and bottom of the DataFrame, respectively. These are particularly useful when dealing with very large DataFrames. Below, a DataFrame containing random values in an even, normal, and poisson distribution (<span class="math notranslate nohighlight">\(\lambda\)</span> = 3.0) demonstrates these functions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1651,14 +1683,15 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/213ea13ade9b9433a6d183befcf28e3bedb99f3e0eeb24c628c711a52ab7feeb.svg" src="../../_images/213ea13ade9b9433a6d183befcf28e3bedb99f3e0eeb24c628c711a52ab7feeb.svg" /></div>
+<img alt="../../_images/72d1603808cdd2b7ba26006300f555a7fea205ddf27fd6a178f25acf2260fd48.svg" src="../../_images/72d1603808cdd2b7ba26006300f555a7fea205ddf27fd6a178f25acf2260fd48.svg" />
+</div>
 </div>
 </section>
 <section id="broadcasted-mathematical-operations">
-<span id="id12"></span><h3>5.3.2 Broadcasted Mathematical Operations<a class="headerlink" href="#broadcasted-mathematical-operations" title="Permalink to this heading">#</a></h3>
+<span id="id12"></span><h3>5.3.2 Broadcasted Mathematical Operations<a class="headerlink" href="#broadcasted-mathematical-operations" title="Link to this heading">#</a></h3>
 <p>Because pandas is built upon NumPy arrays, mathematical operations are propagated through Series and DataFrames. The user is able to use NumPy methods on pandas objects, and there are a number of other mathematical operations to chose from such as those listed below.</p>
 <p><strong>Table 4</strong> Broadcasted Pandas Methods</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Function</p></th>
 <th class="head text-left"><p>Description</p></th>
@@ -1700,6 +1733,7 @@ Name: count, dtype: int64
 </tr>
 </tbody>
 </table>
+</div>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
@@ -1710,10 +1744,10 @@ Name: count, dtype: int64
 </section>
 </section>
 <section id="modifying-dataframes">
-<span id="id13"></span><h2>5.4 Modifying DataFrames<a class="headerlink" href="#modifying-dataframes" title="Permalink to this heading">#</a></h2>
+<span id="id13"></span><h2>5.4 Modifying DataFrames<a class="headerlink" href="#modifying-dataframes" title="Link to this heading">#</a></h2>
 <p>Now that you are able to generate DataFrames, it is useful to be able to modify them as you clean your data or perform calculations. This can be done through methods such as assignment, dropping rows and columns, and combining DataFrames or Series.</p>
 <section id="insert-columns-via-assignment">
-<span id="id14"></span><h3>5.4.1 Insert Columns via Assignment<a class="headerlink" href="#insert-columns-via-assignment" title="Permalink to this heading">#</a></h3>
+<span id="id14"></span><h3>5.4.1 Insert Columns via Assignment<a class="headerlink" href="#insert-columns-via-assignment" title="Link to this heading">#</a></h3>
 <p id="index-6">Possibly the easiest method of adding a new column is through assignment. If a nonexistent column is called and assigned values, instead of returning an error, pandas creates a new column with the given name and populates it with the data. For example, the <code class="docutils literal notranslate"><span class="pre">elements</span></code> DataFrame below does not contain a carbon column, so the column is added when assigned to a Series with the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1861,7 +1895,7 @@ Name: count, dtype: int64
 </div>
 </section>
 <section id="automatic-alignment">
-<span id="id15"></span><h3>5.4.2 Automatic Alignment<a class="headerlink" href="#automatic-alignment" title="Permalink to this heading">#</a></h3>
+<span id="id15"></span><h3>5.4.2 Automatic Alignment<a class="headerlink" href="#automatic-alignment" title="Link to this heading">#</a></h3>
 <p>Another important feature of pandas is the ability to automatically align data based on labels. In the above example, carbon is added to the DataFrame with the name, atomic number, atomic mass, and ionization energy in the same order as in the DataFrame. What happens if the new data is not in the correct order? If we are using NumPy, this would require additional effort on the part of the user to reorder the data. However, if each value is labeled, pandas will see to it that they are placed in the correct location.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1965,7 +1999,7 @@ dtype: object
 <p>The new column of nitrogen data has been added to <code class="docutils literal notranslate"><span class="pre">elements</span></code> with all pieces of data residing in the correct row.</p>
 </section>
 <section id="dropping-columns">
-<span id="id16"></span><h3>5.4.3 Dropping Columns<a class="headerlink" href="#dropping-columns" title="Permalink to this heading">#</a></h3>
+<span id="id16"></span><h3>5.4.3 Dropping Columns<a class="headerlink" href="#dropping-columns" title="Link to this heading">#</a></h3>
 <p id="index-7">When cleaning up data, you may wish to drop a column or row. Pandas provides the <code class="docutils literal notranslate"><span class="pre">drop()</span></code> method for this purpose. It requires the name of the column or row to be dropped, and by default, it assumes a row, <code class="docutils literal notranslate"><span class="pre">axis=0</span></code>, is to be dropped. If you want to drop a column, change the axis using the <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> argument. Below, the hydrogen column is dropped from the elements DataFrame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2114,7 +2148,7 @@ dtype: object
 <p id="index-8">There is a similar function <code class="docutils literal notranslate"><span class="pre">pd.dropna()</span></code> that drops columns or rows from a DataFrame that contain <code class="docutils literal notranslate"><span class="pre">nan</span></code> values. This is commonly used to remove incomplete data from a data set. The <code class="docutils literal notranslate"><span class="pre">pd.dropna()</span></code> function behaves very similarily to the <code class="docutils literal notranslate"><span class="pre">pd.drop()</span></code> function including the <code class="docutils literal notranslate"><span class="pre">inplace=</span></code> and <code class="docutils literal notranslate"><span class="pre">axis=</span></code> arguments.</p>
 </section>
 <section id="merge">
-<span id="id17"></span><h3>5.4.4 Merge<a class="headerlink" href="#merge" title="Permalink to this heading">#</a></h3>
+<span id="id17"></span><h3>5.4.4 Merge<a class="headerlink" href="#merge" title="Link to this heading">#</a></h3>
 <p id="index-9">To merge multiple DataFrames, pandas provides a <code class="docutils literal notranslate"><span class="pre">merge()</span></code> method. Similar to above, the <code class="docutils literal notranslate"><span class="pre">merge()</span></code> function will properly align data, but because DataFrames have multiple columns and index values to choose from, the <code class="docutils literal notranslate"><span class="pre">merge()</span></code> function can align data based on any of these values. The default behavior for <code class="docutils literal notranslate"><span class="pre">merge()</span></code> is to check for common columns between the two DataFrames and align the data based on those columns. As an example, below are two DataFrames containing data from various chemical compounds.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2444,7 +2478,7 @@ dtype: object
 </div>
 </section>
 <section id="concatenation">
-<span id="id18"></span><h3>5.4.5 Concatenation<a class="headerlink" href="#concatenation" title="Permalink to this heading">#</a></h3>
+<span id="id18"></span><h3>5.4.5 Concatenation<a class="headerlink" href="#concatenation" title="Link to this heading">#</a></h3>
 <p id="index-10">Concatenation is the process of splicing two DataFrames along a given axis. This is different from the <code class="docutils literal notranslate"><span class="pre">merge()</span></code> method above in that <code class="docutils literal notranslate"><span class="pre">merge()</span></code> merges and aligns common data between the two DataFrames while <code class="docutils literal notranslate"><span class="pre">pd.concat()</span></code> blindly appends one DataFrame to another. As an example, imagine two lab groups measure the densities of magnesium, aluminum, titanium, and iron and load their results into DataFrames below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2713,20 +2747,20 @@ dtype: object
 </section>
 </section>
 <section id="further-reading">
-<h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
 <p>For further resources on the pandas library, see the following. The value of the pandas website cannot be emphasized enough as it contains a large quantity of high quality documentation and illustrative examples on using pandas for data analysis and processing.</p>
 <ol class="arabic simple">
 <li><p>Pandas Website. <a class="reference external" href="http://pandas.pydata.org/">http://pandas.pydata.org/</a> (free resource)</p></li>
-<li><p>VanderPlas, J. Python data Science Handbook: Essential Tools for Working with Data, 1st ed.; O’Reilly: Sebastopol, CA, 2017, chapter 3. A free, online version is available by the author at <a class="github reference external" href="https://github.com/jakevdp/PythonDataScienceHandbook">jakevdp/PythonDataScienceHandbook</a> (free resource)</p></li>
+<li><p>VanderPlas, J. Python data Science Handbook: Essential Tools for Working with Data, 1st ed.; O’Reilly: Sebastopol, CA, 2017, chapter 3. Freely available from the author at <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/">https://jakevdp.github.io/PythonDataScienceHandbook/</a> (free resource)</p></li>
 <li><p>McKinney, W. Python for Data Analysis: Data Wrangling with Pandas, NumPy, and Ipython, 2nd ed.; O’Reilly: Sebastopol, CA, 2018.</p></li>
 </ol>
 </section>
 <section id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <p>Complete the following exercises in a Jupyter notebook using the pandas library. Avoid using <code class="docutils literal notranslate"><span class="pre">for</span></code> loops unless absolutely necessary. Any data file(s) refered to in the problems can be found in the <a class="reference external" href="https://github.com/weisscharlesj/SciCompforChemists/tree/master/notebooks">data</a> folder in the same directory as this chapter’s Jupyter notebook. Alternatively, you can download a zip file of the data for this chapter from <a class="reference external" href="https://github.com/weisscharlesj/data_SciCompforChem">here</a> by selecting the appropriate chapter file and then clicking the <strong>Download</strong> button.</p>
 <ol class="arabic">
 <li><p>Below is a table containing the melting points and boiling points of multiple common chemical solvents.</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Solvent</p></th>
 <th class="head text-center"><p>bp</p></th>
@@ -2764,6 +2798,7 @@ dtype: object
 </tr>
 </tbody>
 </table>
+</div>
 <p>a) Create a Series containing the boiling points of the above solvents with the solvent names as the indices. Call the Series to look up the boiling point of ethanol.</p>
 <p>b) Create a DataFrame that contains both the boiling points and melting points with the solvent names as the indices. Call the DataFrame to look up the melting point of benzene.</p>
 <p>c) Access the boiling point of pentane in the DataFrame from part b using numerical indices.</p>
@@ -2801,27 +2836,26 @@ dtype: object
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "scicompchem-env"
         },
         kernelOptions: {
-            name: "python3",
+            name: "scicompchem-env",
             path: "./notebooks/chapter_05"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'scicompchem-env'</script>
 
                 </article>
               
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../chapter_04/chap_04_notebook.html"
@@ -2841,10 +2875,7 @@ dtype: object
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -2852,6 +2883,7 @@ dtype: object
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -2907,6 +2939,7 @@ By Charles J. Weiss
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2017-2024.
@@ -2936,8 +2969,8 @@ By Charles J. Weiss
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

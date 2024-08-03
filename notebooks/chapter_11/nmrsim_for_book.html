@@ -1,0 +1,761 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>11.8 Simulating NMR with nmrsim &#8212; Scientific Computing for Chemists with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/chapter_11/nmrsim_for_book';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../introduction/intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../introduction/intro.html">
+                    Scientific Computing for Chemists with Python
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_00/chap_00_notebook.html">Chapter 0: Python &amp; Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_01/chap_01_notebook.html">Chapter 1: Basic Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_02/chap_02_notebook.html">Chapter 2: Intermediate Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_03/chap_03_notebook.html">Chapter 3: Plotting with Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_04/chap_04_notebook.html">Chapter 4: NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_05/chap_05_notebook.html">Chapter 5: Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_06/chap_06_notebook.html">Chapter 6: Signal &amp; Noise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_07/chap_07_notebook.html">Chapter 7: Image Processing &amp; Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_08/chap_08_notebook.html">Chapter 8: Mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_09/chap_09_notebook.html">Chapter 9: Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_10/chap_10_notebook.html">Chapter 10: Plotting with Seaborn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap_11_notebook.html">Chapter 11: Nuclear Magnetic Resonance with NMRglue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_12/chap_12_notebook.html">Chapter 12: Machine Learning using Scikit-Learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_13/chap_13_notebook.html">Chapter 13: Command Line &amp; Spyder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_14/chap_14_notebook.html">Chapter 14: Optimization and Root Finding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_15/chap_15_notebook.html">Chapter 15: Cheminformatics with RDKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_16/chap_16_notebook.html">Chapter 16: Bioinformatics with Biopython and Nglview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/weisscharlesj/SciCompforChemists" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/weisscharlesj/SciCompforChemists/issues/new?title=Issue%20on%20page%20%2Fnotebooks/chapter_11/nmrsim_for_book.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/chapter_11/nmrsim_for_book.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>11.8 Simulating NMR with nmrsim</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">11.8 Simulating NMR with nmrsim</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-second-order-resonances">Simulate Second-Order Resonances</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-nmr-simulations">Dynamic NMR Simulations</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="simulating-nmr-with-nmrsim">
+<span id="id1"></span><h1>11.8 Simulating NMR with nmrsim<a class="headerlink" href="#simulating-nmr-with-nmrsim" title="Permalink to this heading">#</a></h1>
+<p>nmrsim is a Python package for simulating NMR spectra based on information such as the chemical shifts, coupling constants, and number of coupling nuclei. The package is capable of simulating individual first-order and second-order splitting patterns or along with enitre NMR spectra. It can also simulate dynamic NMR casued by nuclei rapidly exchanging. nmrsim is <a class="reference external" href="https://nmrsim.readthedocs.io/en/latest/installation.html">installable using <code class="docutils literal notranslate"><span class="pre">pip</span></code></a>. The package has a few key functions listed below (Table 3) for simulating first-order multiples, spin systems, and spectra. The <code class="docutils literal notranslate"><span class="pre">Multiplet()</span></code> function is used to simulate a single, first-order resonance such as a 1:2:1 triplet or a doublet-of-doublets while the <code class="docutils literal notranslate"><span class="pre">SpinSystem()</span></code> function simulates two resonance signals belonging to pairs of coupled nuclei. The <code class="docutils literal notranslate"><span class="pre">Spectrum()</span></code> function can generate entire spectra by combinding the resonances generated by the other functions.</p>
+<p><strong>Table 3</strong> Select nmrsim First-Order Simulation Functions</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Function</p></th>
+<th class="head text-left"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">Multiplet()</span></code></p></td>
+<td class="text-left"><p>Simulates a single, first-order multiple</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">SpinSystem()</span></code></p></td>
+<td class="text-left"><p>Simulates sets of multiplets generated by coupled (first- or second-order) nuclei</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">Spectrum()</span></code></p></td>
+<td class="text-left"><p>Simulates first-order spectra</p></td>
+</tr>
+</tbody>
+</table>
+<p>As an example, we can simulate a the signal of methylene (i.e., -CH<span class="math notranslate nohighlight">\(_2\)</span>-) protons in CH<span class="math notranslate nohighlight">\(_3\)</span>-CH<span class="math notranslate nohighlight">\(_2\)</span>-CH-. Let us assume that the methyl/metylene protons have coupling constants of <em>J</em> = 7.8 Hz the methine/methylene protons have a coupling constant of <em>J</em> = 6.1 Hz. First, we need to import the <code class="docutils literal notranslate"><span class="pre">Multiplet()</span></code> function along with the <code class="docutils literal notranslate"><span class="pre">mplplot()</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nmrsim</span> <span class="kn">import</span> <span class="n">Multiplet</span>
+<span class="kn">from</span> <span class="nn">nmrsim.plt</span> <span class="kn">import</span> <span class="n">mplplot</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Multiplet()</span></code> fuction takes the resonance frequency in Hz (<code class="docutils literal notranslate"><span class="pre">v</span></code>) as the first positional argument followed by the intensity (<code class="docutils literal notranslate"><span class="pre">I</span></code>) of the resonance signal. This can simply be the number of nuclei the signal represents and is only really important when generating entire spectra with multiple singals so that signals that represent more nuclei have a larger area. Finally, a list of tuples, list of lists, or 2D array containing coupling constants in Hz (<code class="docutils literal notranslate"><span class="pre">J</span></code>) and number of coupling nuclei (<code class="docutils literal notranslate"><span class="pre">n_nuc</span></code>) pairs.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Multiplet</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="p">[(</span><span class="n">J</span><span class="p">,</span> <span class="n">n_nuc</span><span class="p">),</span> <span class="p">(</span><span class="n">J</span><span class="p">,</span> <span class="n">n_nuc</span><span class="p">)])</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Multiplet()</span></code> function generates a Multiplet object which can produce a peak list using the <code class="docutils literal notranslate"><span class="pre">peaklist()</span></code> method. The peak list is simply a list of tuples with (<code class="docutils literal notranslate"><span class="pre">v</span></code>, <code class="docutils literal notranslate"><span class="pre">I</span></code>) pairs for each peak in the multiplet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mult</span> <span class="o">=</span> <span class="n">Multiplet</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[(</span><span class="mf">7.8</span><span class="p">,</span> <span class="mi">3</span><span class="p">),(</span><span class="mf">6.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+<span class="n">mult</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nmrsim._classes.Multiplet at 0x13f4c68d0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mult_peaks</span> <span class="o">=</span> <span class="n">mult</span><span class="o">.</span><span class="n">peaklist</span><span class="p">()</span>
+<span class="n">mult_peaks</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(485.25000000000006, 0.125),
+ (491.3500000000001, 0.125),
+ (493.05, 0.375),
+ (499.15000000000003, 0.375),
+ (500.84999999999997, 0.375),
+ (506.95, 0.375),
+ (508.6499999999999, 0.125),
+ (514.7499999999999, 0.125)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we need to visualize this data. For this, nmrsim provides multiple plotting functions built off of matplotlib. We will focus on the <code class="docutils literal notranslate"><span class="pre">mplplot()</span></code> function which accepts the peaklist and generates the line shapes for the actual peaks.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mplplot</span><span class="p">(</span><span class="n">peaklist</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y_min</span><span class="o">=-</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">y_max</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">),</span> <span class="n">points</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span> 
+</pre></div>
+</div>
+<p>There are a number of optional, keyword arguments such as line width (<code class="docutils literal notranslate"><span class="pre">w</span></code>), <em>y</em>-axis limits (<code class="docutils literal notranslate"><span class="pre">y_min</span></code> and <code class="docutils literal notranslate"><span class="pre">y_max</span></code>), <em>x</em>-axis limits (<code class="docutils literal notranslate"><span class="pre">limits</span></code>), and number of points in the multiplet (<code class="docutils literal notranslate"><span class="pre">points</span></code>). If the splitting pattern does not look quite right, consider increasing the number of points as undersampling can lead to anomalous looking signals. The <code class="docutils literal notranslate"><span class="pre">mplplot()</span></code> function will return the <em>x-</em> and <em>y</em>-coordinates for the plot. To suppres this, either end the line with a <code class="docutils literal notranslate"><span class="pre">;</span></code> or give it a pair of variables to store these data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">freq</span><span class="p">,</span> <span class="n">intens</span> <span class="o">=</span> <span class="n">mplplot</span><span class="p">(</span><span class="n">mult_peaks</span><span class="p">,</span> <span class="n">y_max</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x13f110ad0&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/536e9363e9e6b836ab7852f745883e779572a36ad175a0b64784e730d74cf5b4.png" src="../../_images/536e9363e9e6b836ab7852f745883e779572a36ad175a0b64784e730d74cf5b4.png" />
+</div>
+</div>
+<p>Below is the same splitting patters with the line width tripled.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mplplot</span><span class="p">(</span><span class="n">mult_peaks</span><span class="p">,</span> <span class="n">y_max</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">3</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x13f4e1550&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/4659a90d719c9c3a508623cf94735b0d74ef812bae210bc438440c05b687df65.png" src="../../_images/4659a90d719c9c3a508623cf94735b0d74ef812bae210bc438440c05b687df65.png" />
+</div>
+</div>
+<p>As another option, we can overlay the multiplet with lines showing the exact chemical shift and intensity ratio of each peak. This can be done either using your plotting library of choice or using the <code class="docutils literal notranslate"><span class="pre">mplplot_stick()</span></code> function in nmrsim. Below the intensity of the stem plot is reduced by a fifth to keep the lines inside the blue splitting pattern.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peaks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">mult_peaks</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">intens</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">peaks</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">peaks</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="n">linefmt</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">basefmt</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">markerfmt</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;StemContainer object of 3 artists&gt;
+</pre></div>
+</div>
+<img alt="../../_images/349f1fdfac9bcf1b5c5354cf265e67fddeaed012af03f3c26d11f3ef959ae5b1.png" src="../../_images/349f1fdfac9bcf1b5c5354cf265e67fddeaed012af03f3c26d11f3ef959ae5b1.png" />
+</div>
+</div>
+<p>Entire NMR spectra can be simulated from the component resonance signals -  eithe Multiplet or SpinSystem objects. Down below, we simulate the signals for the methyl, ethyl, and -OH for ethanol with a <em>J</em>=7.3 Hz. Because the -OH peaks is broader due to exhange, the width of the resonance is increased by setting <code class="docutils literal notranslate"><span class="pre">w=3</span></code>. The three resonances are then combined into a single spectrum using the <code class="docutils literal notranslate"><span class="pre">Spectrum()</span></code> function which accepts the resonances in a list and also optionally accepts minimum (<code class="docutils literal notranslate"><span class="pre">vmin=</span></code>) and maximum (<code class="docutils literal notranslate"><span class="pre">vmax</span></code>) frequency ranges for the spectrum in Hz.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A spectrum can also be created by adding the resonance signals together with the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator like below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">spec</span> <span class="o">=</span> <span class="n">methyl</span> <span class="o">+</span> <span class="n">ethyl</span> <span class="o">+</span> <span class="n">OH</span>
+</pre></div>
+</div>
+</div>
+</aside>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nmrsim</span> <span class="kn">import</span> <span class="n">Spectrum</span>
+
+<span class="c1"># create resonances</span>
+<span class="n">methyl</span> <span class="o">=</span> <span class="n">Multiplet</span><span class="p">(</span><span class="mi">492</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[(</span><span class="mf">7.3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>
+<span class="n">ethyl</span> <span class="o">=</span> <span class="n">Multiplet</span><span class="p">(</span><span class="mi">1480</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[(</span><span class="mf">7.3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)])</span>
+<span class="n">OH</span> <span class="o">=</span> <span class="n">Multiplet</span><span class="p">(</span><span class="mi">1020</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">[],</span> <span class="n">w</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># build spectrum</span>
+<span class="n">spec</span> <span class="o">=</span> <span class="n">Spectrum</span><span class="p">([</span><span class="n">methyl</span><span class="p">,</span> <span class="n">ethyl</span><span class="p">,</span> <span class="n">OH</span><span class="p">],</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1600</span><span class="p">)</span>
+<span class="n">v_spec</span><span class="p">,</span> <span class="n">I_spec</span> <span class="o">=</span> <span class="n">spec</span><span class="o">.</span><span class="n">lineshape</span><span class="p">(</span><span class="n">points</span><span class="o">=</span><span class="mi">4000</span><span class="p">)</span>
+
+<span class="c1"># convert from Hz to ppm scale on a 400 MHz spectrometer</span>
+<span class="n">v_spec_ppm</span> <span class="o">=</span> <span class="n">v_spec</span> <span class="o">/</span> <span class="mi">400</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v_spec_ppm</span><span class="p">,</span> <span class="n">I_spec</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Chemical Shift, ppm&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_xaxis</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/2d275cbcfce0ef19eb16f7e1be36db97a8f90ec6e2531749fb7e07ff3a87d4b8.png" src="../../_images/2d275cbcfce0ef19eb16f7e1be36db97a8f90ec6e2531749fb7e07ff3a87d4b8.png" />
+</div>
+</div>
+<p>The simulation even exhibits the second-order roofing effect where coupled resonances ‘lean’ towards each other.</p>
+</section>
+<section id="simulate-second-order-resonances">
+<h1>Simulate Second-Order Resonances<a class="headerlink" href="#simulate-second-order-resonances" title="Permalink to this heading">#</a></h1>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The SpinSystem() function can also simulate second-order signals by setting <code class="docutils literal notranslate"><span class="pre">second_order=False</span></code>.</p>
+</div>
+</aside>
+<p>nmrsim is capable of simulating second-order splitting patterns using the following functions (Table 4). The names of the function are based on the Pople nomation where letters adjanced to each other in the alphabet represent resonances that are near each other in a spectrum (e.g., A and B), letters far apart in the alphabet represent resonances further part in the spectrum (e.g., A and X), the same letter is used to represent chemically equivalent nuclei, and primes are used to differentiate chemical equivalent nuclei that are magnetically inequivalent (e.g., A and A’).</p>
+<p><strong>Table 4</strong> Second-Order Simulation Functions</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Function</p></th>
+<th class="head text-left"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">AB()</span></code></p></td>
+<td class="text-left"><p>Simulates an AB system</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">AB2()</span></code></p></td>
+<td class="text-left"><p>Simulates an AB<span class="math notranslate nohighlight">\(_2\)</span> system</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">ABX()</span></code></p></td>
+<td class="text-left"><p>Simulates an ABX system</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">ABX3()</span></code></p></td>
+<td class="text-left"><p>Simulates an AB<span class="math notranslate nohighlight">\(_3\)</span> system</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">AAXX()</span></code></p></td>
+<td class="text-left"><p>Simulates an AA’XX’ system</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">AABB()</span></code></p></td>
+<td class="text-left"><p>Simulates an AA’BB’ system</p></td>
+</tr>
+</tbody>
+</table>
+<p>These functions typically accept the coupling constants (e.g., <code class="docutils literal notranslate"><span class="pre">Jab=</span></code>), the distance between the two nuclei (e.g., <code class="docutils literal notranslate"><span class="pre">Vab=</span></code>), and the chemical shift of the signal (center) in Hz (<code class="docutils literal notranslate"><span class="pre">Vcentr=</span></code>). As a demonstration, below we will simulate an AB spin system where the two nuclei are coupled with <em>J</em>=10.0 Hz and separation between the two signals of 9.0 Hz.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nmrsim.discrete</span> <span class="kn">import</span> <span class="n">AB</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">AB</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1918</span><span class="p">)</span>
+<span class="n">mplplot</span><span class="p">(</span><span class="n">res</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x1495a5a50&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/44272efbfdf9d4c2d8616a0cd7e04fb066b0887bd50a47afb7422028c57e222f.png" src="../../_images/44272efbfdf9d4c2d8616a0cd7e04fb066b0887bd50a47afb7422028c57e222f.png" />
+</div>
+</div>
+<p>If we increase the distance between the two nuclei to 30.0 Hz, no only do the two signals become futhure apart, but the second-order character (unevenness) decreases. It is important to note that when measuring the distance between the two second-order signals like this, the center of a doublet with uneven heights is not the center of the doublet but rather a weighted average frequencies of the two peaks. This means the chemical shift of a doublet is closer to the larger of the two peaks in the doublet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">AB</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">1918</span><span class="p">)</span>
+<span class="n">mplplot</span><span class="p">(</span><span class="n">res</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x1496218d0&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/fc0fd3d2af9062691c2e30b924125140634e0e5a707451b7cbd04be9f768a579.png" src="../../_images/fc0fd3d2af9062691c2e30b924125140634e0e5a707451b7cbd04be9f768a579.png" />
+</div>
+</div>
+</section>
+<section id="dynamic-nmr-simulations">
+<h1>Dynamic NMR Simulations<a class="headerlink" href="#dynamic-nmr-simulations" title="Permalink to this heading">#</a></h1>
+<p>Some nuclei in molecules can exchange with each other at observable rates. At lower temperatures, the signals of the two exchanging nuclei will be distinct and reasonably sharp because the exchange is relatively slow. As the temperature is increased, the exchanges becomes more rapid causing the two signals to broaden and become closer until they merge into a single peak and eventually sharpen. There are two dynamic NMR functions in the nmrsim.dnmr module: the <code class="docutils literal notranslate"><span class="pre">dnmr_two_singlets()</span></code> function simuluate two exchanging nuclei that are not coupling with each other while the <code class="docutils literal notranslate"><span class="pre">dnmr_AB()</span></code> function simulates two nuclei that couple with each other. Below we will simulate two non-coupled, singlet signals exchaning with either other. The requires aregument are the frequencies of the two nuclei during slow exchange (<code class="docutils literal notranslate"><span class="pre">va</span></code> and <code class="docutils literal notranslate"><span class="pre">vb</span></code>), the exchange rate in Hz (<code class="docutils literal notranslate"><span class="pre">k</span></code>), the half-height width of the peaks as slow exchange (<code class="docutils literal notranslate"><span class="pre">wa</span></code> and <code class="docutils literal notranslate"><span class="pre">wb</span></code>), and the fraction of the nulei in position <em>a</em> (<code class="docutils literal notranslate"><span class="pre">pa</span></code>). Optionally, you can specificy the frequencye limits for the generated line shape (<code class="docutils literal notranslate"><span class="pre">limints=</span></code>) and number of data point in the data (<code class="docutils literal notranslate"><span class="pre">points=</span></code>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="n">dnmr_two_singlets</span><span class="p">(</span><span class="n">va</span><span class="p">,</span> <span class="n">vb</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">wa</span><span class="p">,</span> <span class="n">wb</span><span class="p">,</span> <span class="n">pa</span><span class="p">,</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">),</span> <span class="n">point</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nmrsim.dnmr</span> <span class="kn">import</span> <span class="n">dnmr_two_singlets</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="n">dnmr_two_singlets</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">450</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">I</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x149623e90&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/20f2167d4e9bf720658653ab2c30cae987937ecf3fc89f8516a70bef347a0e60.png" src="../../_images/20f2167d4e9bf720658653ab2c30cae987937ecf3fc89f8516a70bef347a0e60.png" />
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/chapter_11"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">11.8 Simulating NMR with nmrsim</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-second-order-resonances">Simulate Second-Order Resonances</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-nmr-simulations">Dynamic NMR Simulations</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Charles J. Weiss
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2017-2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Scientific Computing for Chemists with Python is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Chapter 7: Image Processing &amp; Analysis &#8212; Scientific Computing for Chemists with Python</title>
   
@@ -15,52 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/chapter_07/chap_07_notebook';</script>
@@ -77,19 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -111,12 +111,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -131,9 +139,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../introduction/intro.html">
+  
   
   
   
@@ -143,12 +155,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../_static/logo.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Scientific Computing for Chemists with Python - Home"/>
+    <script>document.write(`<img src="../../_static/logo.svg" class="logo__image only-dark" alt="Scientific Computing for Chemists with Python - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -174,8 +197,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../chapter_12/chap_12_notebook.html">Chapter 12: Machine Learning using Scikit-Learn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_13/chap_13_notebook.html">Chapter 13: Command Line &amp; Spyder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_14/chap_14_notebook.html">Chapter 14: Optimization and Root Finding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter_15/chap_15_notebook.html">Chapter 15: RDKit for Cheminformatics <font color="C51E3A"> (BETA) </font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter_16/chap_16_notebook.html">Chapter 16: Bioinformatics with Biopython and Nglview <font color="C51E3A"> (BETA) </font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_15/chap_15_notebook.html">Chapter 15: Cheminformatics with RDKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_16/chap_16_notebook.html">Chapter 16: Bioinformatics with Biopython and Nglview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
 </ul>
 
@@ -192,7 +215,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -201,14 +224,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -330,26 +353,28 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -401,10 +426,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="chapter-7-image-processing-analysis">
-<span id="id1"></span><h1>Chapter 7: Image Processing &amp; Analysis<a class="headerlink" href="#chapter-7-image-processing-analysis" title="Permalink to this heading">#</a></h1>
+<span id="id1"></span><h1>Chapter 7: Image Processing &amp; Analysis<a class="headerlink" href="#chapter-7-image-processing-analysis" title="Link to this heading">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 </div>
 <p>Images are a major data format in chemistry and other sciences. They can be electron microscope images of a surface, photos of a reaction, or images from fluorescence microscopy. Image processing and analysis can be performed using software like Photoshop or <a class="reference external" href="https://www.gimp.org/">GIMP</a>, but this can be tedious and subjective when done manually. A better alternative is to have software automate the entire process to provide consistent, precise, and objective processing of images and taking measurements of their features.</p>
@@ -422,7 +447,7 @@ document.write(`
 </pre></div>
 </div>
 <p><strong>Table 1</strong> Scikit-Image Modules</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Module</p></th>
 <th class="head text-left"><p>Description</p></th>
@@ -485,6 +510,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 <p>This chapter assumes the following imports. Because we will be doing some plotting, this includes the following matplotlib import and that inline plotting is enabled. In addition, there are functions inside scikit-image that are not in a module, so we also need to <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">skimage</span></code> as well.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -498,12 +524,12 @@ document.write(`
 </div>
 <p>Despite the power and utility of the scikit-image library, there is a significant amount of image processing and analysis that can be performed using NumPy functionality. This is especially true being that scikit-image imports/stores images as NumPy arrays.</p>
 <section id="basic-image-structure">
-<span id="id2"></span><h2>7.1 Basic Image Structure<a class="headerlink" href="#basic-image-structure" title="Permalink to this heading">#</a></h2>
+<span id="id2"></span><h2>7.1 Basic Image Structure<a class="headerlink" href="#basic-image-structure" title="Link to this heading">#</a></h2>
 <p id="index-1">Most images are <em>raster</em> images, which are essentially a grid of pixels where each location on the grid is a number describing that pixel. If the image is a grayscale image, these values represent how light or dark each pixel is; and if it is a color image, the value(s) at each location describe the color. Figure 1 shows a grayscale photo of a flask containing crystals, with a 10 <span class="math notranslate nohighlight">\(\times\)</span> 10 pixel excerpt showing the brightness values from the photo. While there is another major class of images known as <em>vector</em> images, we will restrict ourself to dealing with rastor images in this chapter as primary scientific data tend to be rastor images.</p>
 <p><img alt="" src="../../_images/image_data_graphic.png" /></p>
 <p><strong>Figure 1</strong> An excerpts of values from a grayscale image showing values representing the brightness of each pixel.</p>
 <section id="loading-images">
-<span id="id3"></span><h3>7.1.1 Loading Images<a class="headerlink" href="#loading-images" title="Permalink to this heading">#</a></h3>
+<span id="id3"></span><h3>7.1.1 Loading Images<a class="headerlink" href="#loading-images" title="Link to this heading">#</a></h3>
 <p id="index-2">The scikit-image library includes a <code class="docutils literal notranslate"><span class="pre">data</span></code> module containing a series of images for the user to experiment with. To display images in the notebook, use the <code class="docutils literal notranslate"><span class="pre">io.imshow()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">io</span></code> module. Each image in the <code class="docutils literal notranslate"><span class="pre">data</span></code> module has a function for fetching the image, and you can find a complete list of images/functions in the <code class="docutils literal notranslate"><span class="pre">data</span></code> module by typing <code class="docutils literal notranslate"><span class="pre">help(data)</span></code>. We will open and view the image of a lunar surface using the <code class="docutils literal notranslate"><span class="pre">data.moon()</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -513,7 +539,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e490598de260cbba8e766165df41d97546d859f3152d089452004d292218d646.svg" src="../../_images/e490598de260cbba8e766165df41d97546d859f3152d089452004d292218d646.svg" /></div>
+<img alt="../../_images/59fa9b194a6e7f31bac2866976053748a9a2e24c27f59400b8f9670a4d13400d.svg" src="../../_images/59fa9b194a6e7f31bac2866976053748a9a2e24c27f59400b8f9670a4d13400d.svg" />
+</div>
 </div>
 <p>If we take a closer look at the data contained inside the lunar surface image, we find a two-dimensional NumPy array filled with integers ranging from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255.</p>
 <div class="cell docutils container">
@@ -543,11 +570,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/796f1e6003e67fd9e0998bab52489f3bf80de528c3ff1e578c5283b381f084b4.svg" src="../../_images/796f1e6003e67fd9e0998bab52489f3bf80de528c3ff1e578c5283b381f084b4.svg" /></div>
+<img alt="../../_images/53e956abacf2f05ac4c479b53ff16286b8fe7ab6c9328ab2d6eed02368798f4c.svg" src="../../_images/53e956abacf2f05ac4c479b53ff16286b8fe7ab6c9328ab2d6eed02368798f4c.svg" />
+</div>
 </div>
 </section>
 <section id="color-images">
-<span id="id4"></span><h3>7.1.2 Color Images<a class="headerlink" href="#color-images" title="Permalink to this heading">#</a></h3>
+<span id="id4"></span><h3>7.1.2 Color Images<a class="headerlink" href="#color-images" title="Link to this heading">#</a></h3>
 <p id="index-3">Color images are slightly more complicated to represent because all colors cannot be represented by single integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255. Probably the most popular way to digitally encode colors is <em>RGB</em> which describes every color as a combination of red, green, and blue (Figure 2). These are also known as <em>color channels</em>, and this is typically how computer monitors display colors. If you look close enough at the screen, which may require a magnifying glass for high resolution displays, you can see that every pixel is really made up of three lights: a red, a green, and a blue. Ther perceived color is a mixture or blend of the red, green, and blue values. Being that every pixel now has three values to describe it, a NumPy array that defines a color image is three dimensional. The first two dimensions are the height and width of the image, and the third dimension contains values from each of the three color channels.</p>
 <p><img alt="" src="../../_images/image_data_graphic_color.png" /></p>
 <p><strong>Figure 2</strong> An excerpts of the red, green, and blue color channels for a small portion of a color image. The values in each channel represent the brightness of that color in each pixel.</p>
@@ -562,7 +590,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0b438b86c117685f2f4bf8bbfc3d9b13414c2a63a570434728ea57f89e20cfb0.svg" src="../../_images/0b438b86c117685f2f4bf8bbfc3d9b13414c2a63a570434728ea57f89e20cfb0.svg" /></div>
+<img alt="../../_images/92acdf4abb0315547fcad350ec047a3c151ea3edd2b02d223809b17582ad353b.svg" src="../../_images/92acdf4abb0315547fcad350ec047a3c151ea3edd2b02d223809b17582ad353b.svg" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -632,11 +661,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d4a031584af3a00740e7cc1363fcc85706be39cba7c1d92536fa0433f04ff831.svg" src="../../_images/d4a031584af3a00740e7cc1363fcc85706be39cba7c1d92536fa0433f04ff831.svg" /></div>
+<img alt="../../_images/3d952452894cc6ad480b0aca9a061b3f325771aca1e8fa391480a1f90a5c6cf4.svg" src="../../_images/3d952452894cc6ad480b0aca9a061b3f325771aca1e8fa391480a1f90a5c6cf4.svg" />
+</div>
 </div>
 </section>
 <section id="external-images">
-<span id="id5"></span><h3>7.1.3 External Images<a class="headerlink" href="#external-images" title="Permalink to this heading">#</a></h3>
+<span id="id5"></span><h3>7.1.3 External Images<a class="headerlink" href="#external-images" title="Link to this heading">#</a></h3>
 <p>Alternatively, images can be loaded from an external source using the <code class="docutils literal notranslate"><span class="pre">io.imread()</span></code> function provided by scikit-image. This function requires one argument to tell scikit-image which image the user wants to load. If your Jupyter notebook is in the same directory as the image you want to load, you can simply input the full file name, including the extension, as a string. Otherwise, you will need to include the full path to the file in addition to the name. Below an image showing a flask full of [Ni(CH<span class="math notranslate nohighlight">\(_3\)</span>CN)<span class="math notranslate nohighlight">\(_6\)</span>][BF<span class="math notranslate nohighlight">\(_4\)</span>]<span class="math notranslate nohighlight">\(_2\)</span> crystals is read into Python.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -646,7 +676,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ad8ae4e868478223b320f558bd8fdc1d3fb96c09d7e7efb6c610218b97aec2ae.svg" src="../../_images/ad8ae4e868478223b320f558bd8fdc1d3fb96c09d7e7efb6c610218b97aec2ae.svg" /></div>
+<img alt="../../_images/776a7297af239886d7cae4040008c01257de6259309dd8ef89c817a00e36ebef.svg" src="../../_images/776a7297af239886d7cae4040008c01257de6259309dd8ef89c817a00e36ebef.svg" />
+</div>
 </div>
 <p>If we look at the array for the flask image below, you will notice that this is a three-dimensional array with four color channels. This can happen in some file types such as Portable Network Graphics (PNG) where a fourth <em>alpha color channel</em> is supported making the coding RGBA. This channel measures opacity… that is, how non-transparent a pixel is. All of the pixels in this image are fully opaque which is represented by all <code class="docutils literal notranslate"><span class="pre">255</span></code>. If the image was fully transparent, the third values would be all zeros, and anything in between would be translucent. PNG images support an alpha channel as do many image formats, but JPG/JPEG images do not support this feature.</p>
 <div class="cell docutils container">
@@ -711,7 +742,7 @@ document.write(`
 </div>
 </section>
 <section id="colormaps">
-<span id="id6"></span><h3>7.1.4 Colormaps<a class="headerlink" href="#colormaps" title="Permalink to this heading">#</a></h3>
+<span id="id6"></span><h3>7.1.4 Colormaps<a class="headerlink" href="#colormaps" title="Link to this heading">#</a></h3>
 <p>So far, we having been displaying images using the scikit-image <code class="docutils literal notranslate"><span class="pre">io.imshow()</span></code> function which is intended specifically for images. Matplotlib also provides a <code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code> function that does roughly the same thing but with some important differences. Below is the red color channel from the hubble image displayed using the <code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code> function. The first thing you probably notice about the image is that the colors are likely not what you expected because when matplotlib deals with a NumPy array, it treats it as generic data, not an image. The human mind does not effectively handle data on this scale, so to make it easier for humans to interpret, matplotlib maps the values to colors according the colormap on the right. By default, the colormap <em>viridis</em> is used, but there are many other colormaps available to choose from in matplotlib.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -722,7 +753,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/81f27c6d702ae7a56fb8441c1a03b994d7b2154c3feaf83c66b6ca88a8e40fcd.svg" src="../../_images/81f27c6d702ae7a56fb8441c1a03b994d7b2154c3feaf83c66b6ca88a8e40fcd.svg" /></div>
+<img alt="../../_images/5aa5a4b2c3fc2c52eb76b5c41822788707cd68e407895a8ffe82cdf6e0f95dcb.svg" src="../../_images/5aa5a4b2c3fc2c52eb76b5c41822788707cd68e407895a8ffe82cdf6e0f95dcb.svg" />
+</div>
 </div>
 <p>To change colormaps, input the name of a different colormap as a string in the optional <code class="docutils literal notranslate"><span class="pre">cmap</span></code> argument (e.g., <code class="docutils literal notranslate"><span class="pre">plt.imshow(hubble[:,:,0],</span> <span class="pre">cmap='magma')</span></code>). See <a class="reference external" href="https://matplotlib.org/examples/color/colormaps_reference.html">https://matplotlib.org/examples/color/colormaps_reference.html</a> for a list of available colormaps. It is strongly encouraged to use one of the <em>perceptually uniform</em> colormaps because they are more accurately interpreted by humans and also show up as a smooth, interpretable gradient when printed on a black-and-white printer. Below is the display of the Hubble image red channel using the <code class="docutils literal notranslate"><span class="pre">Reds</span></code> colormap.</p>
 <div class="cell docutils container">
@@ -732,7 +764,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f6415c592eb93c115eecd9ffccb07b47c347b3b9303c13e3e1d17db05c2dfc8f.svg" src="../../_images/f6415c592eb93c115eecd9ffccb07b47c347b3b9303c13e3e1d17db05c2dfc8f.svg" /></div>
+<img alt="../../_images/096c7a6217fa03c2c4f57730678ab0fba62c7ca414f3e69008c2cce7559b55c2.svg" src="../../_images/096c7a6217fa03c2c4f57730678ab0fba62c7ca414f3e69008c2cce7559b55c2.svg" />
+</div>
 </div>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -743,8 +776,8 @@ document.write(`
 </aside>
 </section>
 <section id="saving-images">
-<span id="id7"></span><h3>7.1.5 Saving Images<a class="headerlink" href="#saving-images" title="Permalink to this heading">#</a></h3>
-<span class="target" id="index-4"></span><p id="index-5">After processing an image, it is sometimes helpful to save the image to disk for records, reports, and presentations. Being that the images are ndarrays, the <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> function works just fine if executed in the same Jupyter cell as the <code class="docutils literal notranslate"><span class="pre">io.imshow()</span></code> function. Alternatively, scikit-image provides an image saving function <code class="docutils literal notranslate"><span class="pre">io.imsave(file_name,</span> <span class="pre">array)</span></code> that operates similarly as <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> except with a couple image-specific arguments. One key difference is that <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> does not take an array argument but instead assumes you want the recently displayed image saved while <code class="docutils literal notranslate"><span class="pre">io.imsave(file_name,</span> <span class="pre">array)</span></code> takes an array and can save an image even if it has not been displayed in the Jupyter notebook. Check the directory containing the Jupyter notebook, and there should be a new file titled <em>new_image.png</em>.</p>
+<span id="id7"></span><h3>7.1.5 Saving Images<a class="headerlink" href="#saving-images" title="Link to this heading">#</a></h3>
+<p id="index-5"><span id="index-4"></span>After processing an image, it is sometimes helpful to save the image to disk for records, reports, and presentations. Being that the images are ndarrays, the <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> function works just fine if executed in the same Jupyter cell as the <code class="docutils literal notranslate"><span class="pre">io.imshow()</span></code> function. Alternatively, scikit-image provides an image saving function <code class="docutils literal notranslate"><span class="pre">io.imsave(file_name,</span> <span class="pre">array)</span></code> that operates similarly as <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> except with a couple image-specific arguments. One key difference is that <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> does not take an array argument but instead assumes you want the recently displayed image saved while <code class="docutils literal notranslate"><span class="pre">io.imsave(file_name,</span> <span class="pre">array)</span></code> takes an array and can save an image even if it has not been displayed in the Jupyter notebook. Check the directory containing the Jupyter notebook, and there should be a new file titled <em>new_image.png</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">io</span><span class="o">.</span><span class="n">imsave</span><span class="p">(</span><span class="s1">&#39;new_img.png&#39;</span><span class="p">,</span> <span class="n">hubble</span><span class="p">)</span>
@@ -755,13 +788,13 @@ document.write(`
 </section>
 </section>
 <section id="basic-image-manipulation">
-<span id="id8"></span><h2>7.2 Basic Image Manipulation<a class="headerlink" href="#basic-image-manipulation" title="Permalink to this heading">#</a></h2>
+<span id="id8"></span><h2>7.2 Basic Image Manipulation<a class="headerlink" href="#basic-image-manipulation" title="Link to this heading">#</a></h2>
 <p>The scikit-image library along with NumPy also provide a variety of basic image manipulation functions such as adjusting the color, managing how the data is numerically represented, and establishing threshold cutoff values.</p>
 <section id="colors">
-<span id="id9"></span><h3>7.2.1 Colors<a class="headerlink" href="#colors" title="Permalink to this heading">#</a></h3>
+<span id="id9"></span><h3>7.2.1 Colors<a class="headerlink" href="#colors" title="Link to this heading">#</a></h3>
 <p>There are numerous ways to represent colors in digital data. The RGB color space is undoubtably one of the most popular color spaces, but there are others that you may encounter such as HSV (hue, saturation, value) or XYZ. Scikit-image provides functions in the <code class="docutils literal notranslate"><span class="pre">color</span></code> module for easily converting between these color spaces, and Table 2 lists some common functions. See the <a class="reference external" href="https://scikit-image.org/">scikit-image website</a> for a more complete list.</p>
 <p><strong>Table 2</strong> Common Functions from the <code class="docutils literal notranslate"><span class="pre">color</span></code> Module</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Function</p></th>
 <th class="head text-left"><p>Description</p></th>
@@ -782,6 +815,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hubble_gray</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">rgb2gray</span><span class="p">(</span><span class="n">hubble</span><span class="p">)</span>
@@ -810,11 +844,11 @@ document.write(`
 <p>You will notice that scikit-image takes a three-dimensional data structure, the third dimension being the color channels, and converted it to a two-dimensional, grayscale structure as expected. One detail that may strike you as different is that the values are decimals. Up to this point, grayscale images were represented as two-dimensional arrays of integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255. There is no rule that says lightness and darkness values need to be represented as integers. Above, they are presented as floats from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1. This brings us to the next topic of encoding values.</p>
 </section>
 <section id="encoding">
-<span id="id10"></span><h3>7.2.2 Encoding<a class="headerlink" href="#encoding" title="Permalink to this heading">#</a></h3>
+<span id="id10"></span><h3>7.2.2 Encoding<a class="headerlink" href="#encoding" title="Link to this heading">#</a></h3>
 <p id="index-6"><em>Encoding</em> is how the values are presented in the image array. The two most common are integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255 or floats from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1. However, there are other ranges outlined in Table 3. Though you may have never encounter some, it is good to be aware that they exist in case you need to deal with them. The difference between signed integers (<code class="docutils literal notranslate"><span class="pre">int</span></code>) and unsigned integers (<code class="docutils literal notranslate"><span class="pre">uint</span></code>) is that unsigned integers are only positive integers starting with zero while signed integers are both positive and negative centered approximately around zero. The approximate part is because there are equal numbers of positive and negative integers, and being that zero is a positive integer, zero is not the exact center. To determine what the range of values is for an image, scikit-image provides the function <code class="docutils literal notranslate"><span class="pre">skimage.dtype.limits()</span></code>.</p>
 <p>Scikit-image also provides some convenient functions for converting to various value ranges described in Table 3. These functions are not contained in a module, so you will need to just do an <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">skimage</span></code> to get access to them, which was done at the start of this chapter. The one format that probably needs commenting on is the Boolean format. In this encoding, every pixel is a <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> value, which is equivalent to saying <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">0</span></code>. This is for black-and-white images where each pixel is one of two possible values.</p>
 <p><strong>Table 3</strong> Scikit-Image Functions for Converting Data Types</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Functions</p></th>
 <th class="head text-left"><p>Description</p></th>
@@ -841,6 +875,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">skimage</span><span class="o">.</span><span class="n">dtype_limits</span><span class="p">(</span><span class="n">hubble_gray</span><span class="p">)</span>
@@ -868,7 +903,7 @@ document.write(`
 </div>
 </section>
 <section id="image-contrast">
-<span id="id11"></span><h3>7.2.3 Image Contrast<a class="headerlink" href="#image-contrast" title="Permalink to this heading">#</a></h3>
+<span id="id11"></span><h3>7.2.3 Image Contrast<a class="headerlink" href="#image-contrast" title="Link to this heading">#</a></h3>
 <p id="index-7">Before trying to extract certain types of information or identify features in an image, it is sometimes helpful to first increase the contrast of an image. There are a number of ways of doing this including thresholding and modification of the image histogram. Some approaches can be performed using NumPy array manipulation, but scikit-image also provides convenient functions designed for these task.</p>
 <p><em>Thresholding</em> can be used to generate a black-and-white image (i.e., not grayscale) by converting gray values at or below a brightness threshold to black and above the threshold to white. The threshold can be set manually or by an algorithm that chooses an optimal value customized to each image. We will start with manually setting a threshold. The grayscale image generated from <code class="docutils literal notranslate"><span class="pre">rgb2gray()</span></code> is encoded with floats from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1, so a threshold of 0.65 is chosen using trial-and-error. A black-and-white image is then generated as a Boolean. The resulting black-and-white image is shown below.</p>
 <div class="cell docutils container">
@@ -880,7 +915,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/fddc7b9c1b5e3057a50fcebb624570d10e294ce8cc7667e9cc3f2a384f2df002.svg" src="../../_images/fddc7b9c1b5e3057a50fcebb624570d10e294ce8cc7667e9cc3f2a384f2df002.svg" /></div>
+<img alt="../../_images/8b80f6ec33628a93105aaa079eb67ee47a494d16685e4961789cf480dc4bcc32.svg" src="../../_images/8b80f6ec33628a93105aaa079eb67ee47a494d16685e4961789cf480dc4bcc32.svg" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -891,11 +927,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3b2fb062727559fe46898e27d0e2e705c8f86c0caa5915f97e4c57f79fc632fd.svg" src="../../_images/3b2fb062727559fe46898e27d0e2e705c8f86c0caa5915f97e4c57f79fc632fd.svg" /></div>
+<img alt="../../_images/302a1db356ce2d31485d2f07c26f818475ea5c0fd7bf35d9425a3ffe2e908f34.svg" src="../../_images/302a1db356ce2d31485d2f07c26f818475ea5c0fd7bf35d9425a3ffe2e908f34.svg" />
+</div>
 </div>
 <p>The appropriate threshold may vary from image to image, so manually setting a value is sometimes not practical. Scikit-image provides a number of functions in the filters module for automatically choosing a threshold show below in Table 4. If you are not sure which of the functions below to use, there is a <code class="docutils literal notranslate"><span class="pre">try_all_filters()</span></code> function in the filters module that will try seven of them and plot the results for easy comparison.</p>
 <p><strong>Table 4</strong> Threshold Functions from the <code class="docutils literal notranslate"><span class="pre">filters</span></code> Module</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Functions</p></th>
 <th class="head text-left"><p>Description*</p></th>
@@ -934,6 +971,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 <p>*Threshold value functions provides a single threshold value while threshold masks provides arrays of values the size of the image. They are used in the same fashion except that the latter provides a per-pixel threshold.</p>
 <p>Below, we can see the Otsu filter being demonstrated.</p>
 <div class="cell tag_remove-output docutils container">
@@ -958,7 +996,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/41371a1e6596b0b7a891a7e954dbf29ca052e7a596e47763da31dc78fb7d50cc.svg" src="../../_images/41371a1e6596b0b7a891a7e954dbf29ca052e7a596e47763da31dc78fb7d50cc.svg" /></div>
+<img alt="../../_images/a0da0c51f467747bc8319cd79f2798765adcc66dd9281c9877d70a6bb119b720.svg" src="../../_images/a0da0c51f467747bc8319cd79f2798765adcc66dd9281c9877d70a6bb119b720.svg" />
+</div>
 </div>
 <p>This is a plot of how many of each type of brightness value is present in the image. There are practically no pixels in the image that are black (value 0) or completely white (value 255), but there are two main collections of gray values. The contrast of this image can be increased by performing histogram equalization, which spreads these values out more evenly. The <code class="docutils literal notranslate"><span class="pre">exposure</span></code> module provides an <code class="docutils literal notranslate"><span class="pre">equalize_hist()</span></code> function for this task.</p>
 <div class="cell docutils container">
@@ -969,7 +1008,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/91ce80dc2d55b6b6ac7333cf826e3e87eec9454dd1afb1086205d92bbca6b1ae.svg" src="../../_images/91ce80dc2d55b6b6ac7333cf826e3e87eec9454dd1afb1086205d92bbca6b1ae.svg" /></div>
+<img alt="../../_images/415671b1645b0464217207c50fff366fa90d034bce3af3e60675550c4c78b12d.svg" src="../../_images/415671b1645b0464217207c50fff366fa90d034bce3af3e60675550c4c78b12d.svg" />
+</div>
 </div>
 <p>Histogram equalization does not produce a black-and-white image, but it does make the dark values darker and the light values lighter. If we look at the histogram for this image, it will be more even as shown below.</p>
 <div class="cell docutils container">
@@ -982,15 +1022,16 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3ada54b396d44d65d7c183312f378c69ccc9e5140fd92020c80bb9c1a7fc080a.svg" src="../../_images/3ada54b396d44d65d7c183312f378c69ccc9e5140fd92020c80bb9c1a7fc080a.svg" /></div>
+<img alt="../../_images/906e789923db97bf2f212757a243014aa4b011f0413c7dc182df5051cb4d5776.svg" src="../../_images/906e789923db97bf2f212757a243014aa4b011f0413c7dc182df5051cb4d5776.svg" />
+</div>
 </div>
 </section>
 </section>
 <section id="scikit-image-examples">
-<span id="id12"></span><h2>7.3 Scikit-Image Examples<a class="headerlink" href="#scikit-image-examples" title="Permalink to this heading">#</a></h2>
+<span id="id12"></span><h2>7.3 Scikit-Image Examples<a class="headerlink" href="#scikit-image-examples" title="Link to this heading">#</a></h2>
 <p>The scikit-image library contains numerous functions for performing various scientific analyses… so many that they cannot be comprehensively covered here. Below is a selection of some interesting examples that are relevant to science including counting objects in images, entropy analysis, and measuring eccentricity of objects. The examples below use mostly synthetic data to represent various data you might encounter in the lab. Real data can be easily extracted from publications but are not used here for copyright reasons.</p>
 <section id="blob-detection">
-<span id="id13"></span><h3>7.3.1 Blob Detection<a class="headerlink" href="#blob-detection" title="Permalink to this heading">#</a></h3>
+<span id="id13"></span><h3>7.3.1 Blob Detection<a class="headerlink" href="#blob-detection" title="Link to this heading">#</a></h3>
 <p id="index-8">A classic problem that translates across many scientific fields is to count spots in a photograph. A biologist may need to quantifying the number of bacteria colonies in a petrie dish over the course of an experiment, while an astronomer may want to count the number of stars in a large cluster. In chemistry, this problem may occur as a need to quantify the number of nanoparticles in a photograph or using the locations to calculate the average distances between the particles.</p>
 <p>The good news is that the scikit-image library provides three functions that will take a photograph and return an array of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(z\)</span> coordinates indicating where the blobs are located in the image. If all you care about is the number of blobs, simply find the length of the returned array. There are three functions listed below which include Laplacian of Gaussian (LoG), Difference of Gaussian (DoG), and Determinant of Hessian (DoH). The LoG algorithm is the most accurate but the slowest while the DoH algorithm is the fastest. These functions only accept two-dimensional images, so if it is a color image, you will need to either convert it to grayscale or select a single color channel to work with.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">skimage</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">blob_log</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="p">)</span>
@@ -1008,7 +1049,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d4e49205cf8d072898d5da6473cb178e5e706695821f337c1038e705bcd449a1.svg" src="../../_images/d4e49205cf8d072898d5da6473cb178e5e706695821f337c1038e705bcd449a1.svg" /></div>
+<img alt="../../_images/b2b05cce28906bd56e2226fdd032c0618d77d9c07517cd39dc70290db41d42bc.svg" src="../../_images/b2b05cce28906bd56e2226fdd032c0618d77d9c07517cd39dc70290db41d42bc.svg" />
+</div>
 </div>
 <p>An image of black dots on a white background is imported above, but the blob detection algorithms work best with light colors on a dark background. We will invert the image below by subtracting the values from the maximum value or using the <code class="docutils literal notranslate"><span class="pre">color.rgb2gray()</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dots_inverted</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">rgb2gray</span><span class="p">(</span><span class="mi">255</span> <span class="o">-</span> <span class="n">dots</span><span class="p">)</span>
@@ -1026,7 +1068,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/052c1cacc88cb50a6df82b2bdc3735ab35bd425108e7c186974ed6254ed2370b.svg" src="../../_images/052c1cacc88cb50a6df82b2bdc3735ab35bd425108e7c186974ed6254ed2370b.svg" /></div>
+<img alt="../../_images/ed18ca8579e357c921b0167ac1d3110c2e02420acdc06e99e689506c0c14a6b7.svg" src="../../_images/ed18ca8579e357c921b0167ac1d3110c2e02420acdc06e99e689506c0c14a6b7.svg" />
+</div>
 </div>
 <p>To detect the blobs, we will use the <code class="docutils literal notranslate"><span class="pre">blob_dog()</span></code> function as demonstrated below. The function allows for a <code class="docutils literal notranslate"><span class="pre">threshold</span></code> argument to be set to adjust the sensitivity of the algorithm in finding blobs. A lower threshold results in smaller or less intense blobs included in the returned array.</p>
 <div class="cell docutils container">
@@ -1063,7 +1106,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/781a142935df7e84d3467e6751ccd30cbab4426613367e2df74968ea28ae9d67.svg" src="../../_images/781a142935df7e84d3467e6751ccd30cbab4426613367e2df74968ea28ae9d67.svg" /></div>
+<img alt="../../_images/46d57877c6cb5a41e6301d8a2e0bbf08173ba1355e37ffbad358598f75ec6cf3.svg" src="../../_images/46d57877c6cb5a41e6301d8a2e0bbf08173ba1355e37ffbad358598f75ec6cf3.svg" />
+</div>
 </div>
 <p>To find the number of spots, determine length of the array using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> Pythong function or using .</p>
 <div class="cell docutils container">
@@ -1080,7 +1124,7 @@ document.write(`
 </div>
 </section>
 <section id="entropy-analysis">
-<span id="id14"></span><h3>7.3.2 Entropy Analysis<a class="headerlink" href="#entropy-analysis" title="Permalink to this heading">#</a></h3>
+<span id="id14"></span><h3>7.3.2 Entropy Analysis<a class="headerlink" href="#entropy-analysis" title="Link to this heading">#</a></h3>
 <p id="index-9">The term <em>entropy</em> outside of the physical sciences is used to represent a quantification of disorder or irregularity. In image analysis, this disorder is the amount of pixel (brightness or color) variation within a region of the image. As you will see below, entropy is the highest near the boundaries and in noisy areas of a photograph. This makes an entropy analysis useful for edge detection, checking for image quality, and detecting alterations to an image.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">filters.rank</span></code> modules contains the entropy function shown below. It works by going through the image pixel-by-pixel and calculating the entropy in the neighborhood. The <em>neighborhood</em> is the area around each pixel. An entropy value is recored in the new array at each location and can be plotted to generate an entropy map. The entropy function takes two required arguments: the image (<code class="docutils literal notranslate"><span class="pre">img</span></code>) and a description of the neighborhood called a <em>structured element</em> (<code class="docutils literal notranslate"><span class="pre">selem</span></code>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">filters</span><span class="o">.</span><span class="n">rank</span><span class="o">.</span><span class="n">entropy</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">selem</span><span class="p">)</span>
@@ -1122,7 +1166,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/28aeaf5f73d5ff5fec4cfc7c2263a3c035ea6debcd8716715c7757b856c231d2.svg" src="../../_images/28aeaf5f73d5ff5fec4cfc7c2263a3c035ea6debcd8716715c7757b856c231d2.svg" /></div>
+<img alt="../../_images/cf77c69268ec5d01592b77c6d88c54697bcffe340d1d810b81f65f478cb6453f.svg" src="../../_images/cf77c69268ec5d01592b77c6d88c54697bcffe340d1d810b81f65f478cb6453f.svg" />
+</div>
 </div>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -1134,7 +1179,7 @@ document.write(`
 <p>Examination of the image shows that there is an increase in entropy near the edges of the features in the image as expected. There are two regions (blue) that contain unusually low entropy. If you look back at the original image, these regions are comparatively homogeneous in color.</p>
 </section>
 <section id="eccentricity">
-<span id="id15"></span><h3>7.3.3 Eccentricity<a class="headerlink" href="#eccentricity" title="Permalink to this heading">#</a></h3>
+<span id="id15"></span><h3>7.3.3 Eccentricity<a class="headerlink" href="#eccentricity" title="Link to this heading">#</a></h3>
 <p><em>Eccentricity</em> is the measurement of how non-circular an object is. It runs from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1 with zero being a perfect circle and large values representing more eccentric objects. This can be useful for quantifying the shape of nanoparticles or droplets of liquid. The <code class="docutils literal notranslate"><span class="pre">measure</span></code> module from scikit-image provides an easy method of measuring eccentricity. First, let us first import an image of ovals for an example. Alternatively, you are welcome to use the <code class="docutils literal notranslate"><span class="pre">coins</span></code> image from the <code class="docutils literal notranslate"><span class="pre">data</span></code> module, but this will require some preprocessing such as increasing the contrast.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1144,7 +1189,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9127b89f28e7c12175e45128d4c8d69c2b92bf255f85977a71e679737f18f228.svg" src="../../_images/9127b89f28e7c12175e45128d4c8d69c2b92bf255f85977a71e679737f18f228.svg" /></div>
+<img alt="../../_images/0f28840b338eafb4f017d2ffc46f80af1d926f147a24529c6f9d014f660de8c4.svg" src="../../_images/0f28840b338eafb4f017d2ffc46f80af1d926f147a24529c6f9d014f660de8c4.svg" />
+</div>
 </div>
 <p>The main function for measuring eccentricity is the <code class="docutils literal notranslate"><span class="pre">regionsprops()</span></code> function, but this function by itself cannot find the objects. Luckily, there is another function in the <code class="docutils literal notranslate"><span class="pre">measure</span></code> module called <code class="docutils literal notranslate"><span class="pre">label()</span></code> that will do exactly this, and this function requires the regions to be light with dark backgrounds. The following inverts the light and dark and also truncates the alpha channel from the RGBA image.</p>
 <div class="cell docutils container">
@@ -1155,7 +1201,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b6b4c792cae3b4d9e9147d90ec67ad9bbd5cb1cf07959b0ff28038ee62ad35fe.svg" src="../../_images/b6b4c792cae3b4d9e9147d90ec67ad9bbd5cb1cf07959b0ff28038ee62ad35fe.svg" /></div>
+<img alt="../../_images/5636c14f300e81a4703a3046d3210fefae981e8e344dc44b588e40bb88eaea15.svg" src="../../_images/5636c14f300e81a4703a3046d3210fefae981e8e344dc44b588e40bb88eaea15.svg" />
+</div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">regionsprops()</span></code> function returns the properties on the two ovals in a list of lists. The first list corresponds to the first object and so on. Each list contains an extensive collection of properties, so it is worth visiting the scikit-image website to see the complete documentation. We are only concerned with eccentricity right now, so we can access the eccentricity of the first object with <code class="docutils literal notranslate"><span class="pre">props[0].eccentricity</span></code>, which gives a value of about 0.95 for the first object while the second object has a much lower values of about 0.40. This makes sense being that the first object is very eccentric while the second object is much more circular.</p>
 <div class="cell docutils container">
@@ -1194,15 +1241,16 @@ document.write(`
 </section>
 </section>
 <section id="further-reading">
-<h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
 <p>The scikit-image library with NumPy are likely all you will need for a vast majority of your scientific image processing, and the scikit-image project webpage is an excellent course of information and examples. The gallery page is particularly worth checking out as it provides a large number of examples highlighting the library’s capabilities. In the event there is an edge case the scikit-image cannot do, the pillow library may be of some use. Pillow provides more fundamental image processing functionality such as extracting metadata from the original file.</p>
 <ol class="arabic simple">
 <li><p>Scikit-image Website. <a class="reference external" href="http://scikit-image.org/">http://scikit-image.org/</a> (free resource)</p></li>
 <li><p>Pillow Documentation Page. <a class="reference external" href="https://pillow.readthedocs.io/en/stable/">https://pillow.readthedocs.io/en/stable/</a> (free resource)</p></li>
+<li><p>Tanimoto, S. L. <em>An Interdisciplinary Introduction to Image Processing: Pixels, Numbers, and Programs</em> MIT Press: Cambridge, MA, 2012.</p></li>
 </ol>
 </section>
 <section id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <p>Complete the following exercises in a Jupyter notebook. Any data file(s) refered to in the problems can be found in the <a class="reference external" href="https://github.com/weisscharlesj/SciCompforChemists/tree/master/notebooks">data</a> folder in the same directory as this chapter’s Jupyter notebook. Alternatively, you can download a zip file of the data for this chapter from <a class="reference external" href="https://github.com/weisscharlesj/data_SciCompforChem">here</a> by selecting the appropriate chapter file and then clicking the <strong>Download</strong> button.</p>
 <ol class="arabic">
 <li><p>Import the image titled <strong>NaK_THF.jpg</strong> using scikit-image.</p>
@@ -1238,27 +1286,26 @@ document.write(`
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "scicompchem-env"
         },
         kernelOptions: {
-            name: "python3",
+            name: "scicompchem-env",
             path: "./notebooks/chapter_07"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'scicompchem-env'</script>
 
                 </article>
               
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../chapter_06/chap_06_notebook.html"
@@ -1278,10 +1325,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1289,6 +1333,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1339,6 +1384,7 @@ By Charles J. Weiss
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2017-2024.
@@ -1368,8 +1414,8 @@ By Charles J. Weiss
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
