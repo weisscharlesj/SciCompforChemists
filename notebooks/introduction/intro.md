@@ -61,21 +61,21 @@ While great efforts have gone into ensuring that all the code in this book works
 
 The code in this version of the book has been most recently tested with the following software versions unless otherwise noted but will likely work with other versions.
 
-- Python – 3.10.11
-- Jupyterlab - 4.1.5
+- Python – 3.11.4
+- Jupyterlab - 4.2.4
 - NumPy – 1.26.4
-- SciPy – 1.12.0
-- Pandas – 2.1.4
-- Matplotlib – 3.8.3
+- SciPy – 1.14.0
+- Pandas – 2.2.2
+- Matplotlib – 3.9.1
 - Seaborn – 0.13.2
-- Scikit-image – 0.22.0
-- Scikit-learn – 1.4.1
-- Sympy - 1.12
+- Scikit-image – 0.24.0
+- Scikit-learn – 1.5.1
+- Sympy - 1.13.1
 - NMRglue – 0.10
 - Spyder – 5.4.2
-- Biopython - 1.83
+- Biopython - 1.84
 - Nglview - 3.0.6
-- RDKit - 2023.3.3
+- RDKit - 2024.3.3
 
 
 ## Acknowledgements
@@ -93,3 +93,4 @@ This book took a substantial time to write along with the time and effort in dev
 - Yuthana Tantirungrotechai for reporting errors in chapter 6
 - @Avalanchian for reporting error in chapter 10 data/elements_data.csv file
 - Matthew A. Kubasik for reporting an error in chapter 8
+- Geoffrey M. Sametz for help on learning nmrsim
