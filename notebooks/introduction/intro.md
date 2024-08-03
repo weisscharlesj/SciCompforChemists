@@ -93,4 +93,4 @@ This book took a substantial time to write along with the time and effort in dev
 - Yuthana Tantirungrotechai for reporting errors in chapter 6
 - @Avalanchian for reporting error in chapter 10 data/elements_data.csv file
 - Matthew A. Kubasik for reporting an error in chapter 8
-- Geoffrey M. Sametz for help on learning nmrsim
+- Geoffrey M. Sametz for help with nmrsim
