@@ -463,13 +463,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> 
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> 
 <span class="n">x</span>
 </pre></div>
 </div>
@@ -533,13 +527,8 @@ document.write(`
 <span class="k">for</span> <span class="n">integer</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
     <span class="n">sqr</span> <span class="o">=</span> <span class="n">integer</span><span class="o">**</span><span class="mi">2</span>
     <span class="n">squares</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sqr</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">squares</span>
+
+<span class="n">squares</span>
 </pre></div>
 </div>
 </div>
@@ -621,7 +610,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Therefore, the above assignments are an equivalent of the following code.</p>
+<p>Therefore, the above assignments are an equivalent to the following code.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">He</span><span class="p">,</span> <span class="n">Li</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.01</span><span class="p">,</span> <span class="mf">4.00</span><span class="p">,</span> <span class="mf">5.39</span><span class="p">)</span>
@@ -632,7 +621,7 @@ document.write(`
 </section>
 <section id="lambda-functions">
 <span id="id6"></span><h3>2.1.4 Lambda Functions<a class="headerlink" href="#lambda-functions" title="Link to this heading">#</a></h3>
-<p id="index-3"><span id="index-2"></span>The <em>lambda function</em> is an anonymous function for generating simple Python functions. Their value is that they can be used to generate functions in fewer lines of code than the standard <code class="docutils literal notranslate"><span class="pre">def</span></code> statement, and they do not necessarily need to be assigned to a variable… hence the anonymous part. The latter is useful in applications that require a Python function but the user does not want to clutter the namespace by assigning it to a variable or take the time to define a function normally. The lambda function is defined as shown below with the variable immediately after the lambda statement as the independent variable in the function.</p>
+<p id="index-3"><span id="index-2"></span>The <em>lambda function</em> is an anonymous function for generating simple Python functions. Their value is that they can be used to generate functions in fewer lines of code than the standard <code class="docutils literal notranslate"><span class="pre">def</span></code> statement, and they do not necessarily need to be assigned to a variable, hence the anonymous part. This is useful in applications that require a Python function but the user does not want to clutter the namespace by assigning it to a variable or take the time to define a function normally. The lambda function is defined as shown below with the variable immediately after the lambda statement as the independent variable in the function. In other words, the variable to the left of the <code class="docutils literal notranslate"><span class="pre">:</span></code> is the variable that goes in the parentheses in a normal function definition, and everthing to the right of the <code class="docutils literal notranslate"><span class="pre">:</span></code> is what is indented in a normal function definition.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
@@ -665,7 +654,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>As an example looking ahead to chapter 8, the <code class="docutils literal notranslate"><span class="pre">quad()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code> module is a general-purpose method for integrating the area under mathematical functions. Along with the upper and lower limits, the integration functions require a mathematical function in the form of a Python function (i.e., not just a mathematical expression). This would ordinarily require a formally-defined Python function, but it is often more convenient to use a lambda function as a single use Python function as shown below. In the following example, we use integration to find the probability of finding a particle in the lowest state between 0 and 0.4 in a box of length 1 by performing the following integration.</p>
+<p>As an example looking ahead to chapter 8, the <code class="docutils literal notranslate"><span class="pre">quad()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code> module is a general-purpose method for integrating the area under mathematical functions. Along with the upper and lower limits, the <code class="docutils literal notranslate"><span class="pre">quad()</span></code> function requires a mathematical function in the form of a Python function (i.e., not just a mathematical expression). This would ordinarily require a formally defined Python function, but it is often more convenient to use a lambda function as a single use Python function as shown below. In the following example, we use integration to find the probability of finding a particle in the lowest state between 0 and 0.4 in a box of length 1 by performing the following integration.</p>
 <div class="math notranslate nohighlight">
 \[ p = 2 \int_0^{0.4} sin^2(\pi x) \]</div>
 <div class="cell tag_remove-output docutils container">
@@ -688,6 +677,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>The first value in the returned tuple is the result of the integration, and the second value is the estimated uncertainty. Therefore, the particle has about a 30.6% probability of being found in the region of 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 0.4. Performing this same calculation by defining the function with <code class="docutils literal notranslate"><span class="pre">def</span></code> is shown below. This requires more lines of code than a lambda expression.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">particle_box</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -708,7 +698,6 @@ document.write(`
 </div>
 </div>
 </div>
-<p>The first value in the returned tuple is the result of the integration, and the second value is the estimated uncertainty. Therefore, the particle has about a 30.6% probability of being found in the region of 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 0.4. Performing this same calculation by defining the function with <code class="docutils literal notranslate"><span class="pre">def</span></code> is shown below. This requires more lines of code than a lambda expression.</p>
 </section>
 </section>
 <section id="dictionaries">
@@ -823,17 +812,12 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Not only can dictionaries be used to store data used in calculations, such as atomic masses, they can also be used to store changing data as we perform calculations or operations. For example, let’s say we want to count how often each base (i.e., A, T, C, and G) appears in the following DNA sequence <code class="docutils literal notranslate"><span class="pre">DNA</span></code>. For this, we create a dictionary <code class="docutils literal notranslate"><span class="pre">dna_bases</span></code> to hold the totals for each base and add one to each value as we iterate along the DNA sequence.</p>
+<p>Not only can dictionaries be used to store data for calculations, such as atomic masses, they can also be used to store changing data as we perform calculations or operations. For example, let’s say we want to count how often each base (i.e., A, T, C, and G) appears in the following DNA sequence <code class="docutils literal notranslate"><span class="pre">DNA</span></code>. For this, we create a dictionary <code class="docutils literal notranslate"><span class="pre">dna_bases</span></code> to hold the totals for each base and add one to each value as we iterate along the DNA sequence.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DNA</span> <span class="o">=</span> <span class="s1">&#39;GGGCTCCATTGTCTGCCCGGGCCGGGTGTAGTCTAAGGTT&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dna_bases</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+
+<span class="n">dna_bases</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
 <span class="k">for</span> <span class="n">base</span> <span class="ow">in</span> <span class="n">DNA</span><span class="p">:</span>
     <span class="n">dna_bases</span><span class="p">[</span><span class="n">base</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
 
@@ -1072,7 +1056,7 @@ document.write(`
         <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The code above goes through every file on the computer desktop, and if the file name ends in “csv”, Python imports and prints the contents. Checking the file extension is an important step even if you have a folder that you believe only contains CSV files. This is because folders on many computers contain invisible files for use by the computer operating system. The user usually cannot see them, but Python can and will generate an error if it tries to open it as a CSV file. Checking the file extension ensures that Python only tries to open the CSV files.</p>
+<p>The code above goes through every file on the computer desktop, and if the file name ends in “csv”, Python imports and prints the contents. Checking the file extension is an important step even if you have a folder that you believe only contains CSV files. This is because folders on many computers contain invisible files for use by the computer operating system. The user usually cannot see them, but Python can and will generate an error if it tries to open it as a CSV file. Checking the file extension ensures that Python only tries to open the actual CSV files. See <a class="reference internal" href="../chapter_12/chap_12_notebook.html#id16"><span class="std std-ref">section 12.2.5</span></a> for an example of this.</p>
 </section>
 <section id="itertools-module">
 <span id="id11"></span><h3>2.4.2 <code class="docutils literal notranslate"><span class="pre">itertools</span></code> Module<a class="headerlink" href="#itertools-module" title="Link to this heading">#</a></h3>
@@ -1081,19 +1065,14 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">itertools</span>
+
 <span class="n">numbers</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;itertools.combinations at 0x11c609b70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;itertools.combinations at 0x11260d7b0&gt;
 </pre></div>
 </div>
 </div>
@@ -1129,7 +1108,7 @@ document.write(`
 </div>
 </div>
 <p>Each combination is returned in a tuple, and if the combination object is converted to a list, it would be a list of tuples.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">permutations()</span></code> function is very similar to combinations(), except with <code class="docutils literal notranslate"><span class="pre">permutations()</span></code>, order matters. Therefore, <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">1)</span></code> and <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2)</span></code> are inequivalent. This is especially important in probability and statistics. Permutations of a group of items can be generated just like in the combinations examples above.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">permutations()</span></code> function is very similar to <code class="docutils literal notranslate"><span class="pre">combinations()</span></code>, except with <code class="docutils literal notranslate"><span class="pre">permutations()</span></code>, order matters. Therefore, <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">1)</span></code> and <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2)</span></code> are inequivalent. This is especially important in probability and statistics. Permutations of a group of items can be generated just like in the combinations example above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">permutations</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
@@ -1202,7 +1181,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6308530891495515
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.040720259344949494
 </pre></div>
 </div>
 </div>
@@ -1214,7 +1193,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
 </pre></div>
 </div>
 </div>
@@ -1228,7 +1207,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3, 5, 4, 1, 6, 2]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[6, 4, 1, 2, 5, 3]
 </pre></div>
 </div>
 </div>
@@ -1338,7 +1317,7 @@ document.write(`
 </section>
 <section id="encoding-numbers">
 <span id="id16"></span><h2>2.6 Encoding Numbers<a class="headerlink" href="#encoding-numbers" title="Link to this heading">#</a></h2>
-<p id="index-12">During most of your work in Python, you do not need to think about how and where the values are stored as Python handles this for you. If you assign a number to a variable, Python will determine how to properly store this information. However, there are instances where you will need to understand a little about how numbers are encoded such as in gray scale images (chapter 7).</p>
+<p id="index-12">During most of your work in Python, you do not need to think about how and where the values are stored because Python handles this for you. If you assign a number to a variable, Python will determine how to properly store this information. However, there are instances where you will need to understand a little about how numbers are encoded such as in gray scale images (chapter 7).</p>
 <p>Numbers on your computer are stored in <em>binary</em> which is a base two numbering system. That is, instead of using digits from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 9 to describe a number, only 0 and 1 are used.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -1416,7 +1395,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Interestingly, depending upon how you write the internals of the function, the var-positional argument is not strictly necessary for the function to work. In this case, because <code class="docutils literal notranslate"><span class="pre">sum()</span></code> function returns <code class="docutils literal notranslate"><span class="pre">0</span></code> if no arguments are passed to it, the <code class="docutils literal notranslate"><span class="pre">per_yield()</span></code> function still works with no error returned.</p>
+<p>Interestingly, depending upon how you write the internals of the function, the var-positional argument is not strictly necessary for the function to work. In this case, because the <code class="docutils literal notranslate"><span class="pre">sum()</span></code> function returns <code class="docutils literal notranslate"><span class="pre">0</span></code> if no arguments are passed to it, the <code class="docutils literal notranslate"><span class="pre">per_yield()</span></code> function still works with no error returned.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">per_yield</span><span class="p">(</span><span class="mf">1.32</span><span class="p">)</span>
@@ -1617,7 +1596,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">58</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">54</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;root&#39; is not defined
@@ -1637,7 +1616,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">59</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">55</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="g g-Whitespace">    </span><span class="mi">5</span> <span class="o">&lt;&gt;</span> <span class="mi">6</span>
       <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
@@ -1653,7 +1632,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">60</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">56</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="g g-Whitespace">    </span><span class="mi">5</span><span class="n">sdq</span> <span class="o">=</span> <span class="mi">52</span>
     <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid decimal literal
@@ -1674,7 +1653,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">61</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">57</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">abs</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
 
 <span class="ne">TypeError</span>: bad operand type for abs(): &#39;str&#39;
@@ -1692,7 +1671,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">62</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">58</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">5</span>
 
 <span class="ne">TypeError</span>: &#39;&gt;&#39; not supported between instances of &#39;list&#39; and &#39;int&#39;
@@ -1714,7 +1693,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">63</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">59</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">math</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
@@ -1736,7 +1715,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">64</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">60</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="mi">4</span> <span class="o">/</span> <span class="mi">0</span>
 
 <span class="ne">ZeroDivisionError</span>: division by zero
@@ -1756,7 +1735,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">65</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">61</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="o">^</span>
 <span class="ne">IndentationError</span>: expected an indented block after &#39;for&#39; statement on line 1
@@ -1778,7 +1757,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">66</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">62</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">lst</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
 
@@ -1810,7 +1789,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">68</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">64</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">elements</span><span class="p">[</span><span class="s1">&#39;N&#39;</span><span class="p">]</span>
 
 <span class="ne">KeyError</span>: &#39;N&#39;
@@ -1864,7 +1843,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">70</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">66</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">sqr_root</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">sqr_nums</span><span class="p">:</span>
 <span class="ne">----&gt; </span><span class="mi">5</span>     <span class="n">sqr_root</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>
@@ -1945,16 +1924,17 @@ document.write(`
 </div>
 </div>
 </div>
-<p>So when should you use <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code> versus <code class="docutils literal notranslate"><span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span></code>? If you anticipate excepts to occur frequently, <code class="docutils literal notranslate"><span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span></code> is likley to be more efficient, but if exceptions are rare, it may be more efficient to use <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code>.</p>
+<p>So when should you use <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code> versus <code class="docutils literal notranslate"><span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span></code>? If you anticipate exceptions to occur frequently, <code class="docutils literal notranslate"><span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span></code> is likley to be more efficient, but if exceptions are rare, it may be more efficient to use <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code>.</p>
 </section>
 <section id="raising-exceptions">
 <span id="id24"></span><h3>2.8.3 Raising Exceptions<a class="headerlink" href="#raising-exceptions" title="Link to this heading">#</a></h3>
 <p id="index-19"><span id="index-18"></span>One thing worse than code not running is code running and producing incorrect outputs. At least when code fails to run, the user knows something is wrong whereas code that fails silently can lull the user into false conclusions. It is a prudent pratice in coding to include checks that important conditions are met, and when these conditions are not met, the code should stop and produce an error known as <em>raising an exception</em>.  To include checks in your code, you can use a condition with a <code class="docutils literal notranslate"><span class="pre">raise</span></code> statement followed by some form of error from Table 7 and an error message. The more specific you can be in your error type and message, the better.</p>
-<p>As an example, we will write a function below which quantifies the differences between two DNA sequences. The <em>Hamming distance</em> is one possible metric for detemining how different two sequences are and is simply the number of locations where two sequences <em>of the same length</em> are different. For example, <code class="docutils literal notranslate"><span class="pre">AATGC</span></code> and <code class="docutils literal notranslate"><span class="pre">AATGT</span></code> have a Hamming distance of 1 because they are identical except for the last base position. Because it is critical that the two DNA sequences be the same length, this should be checked before any furthur calculations, and if the sequences have different lengths, the function should not proceed and provide a helpful error message. Becuase the two sequences have the wrong number of bases, this qualifies as a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> (see <a class="reference internal" href="#id22"><span class="std std-ref">Table 7</span></a>). Inside the parentheses behind <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>, a more detailed message can and should be provided.</p>
+<p>As an example, we will write a function below which quantifies the differences between two DNA sequences. The <em>Hamming distance</em> is one possible metric for detemining how different two sequences are and is simply the number of locations where two sequences <em>of the same length</em> are different. For example, <code class="docutils literal notranslate"><span class="pre">AATGC</span></code> and <code class="docutils literal notranslate"><span class="pre">AATGT</span></code> have a Hamming distance of 1 because they are identical except for the last base position. Because it is critical that the two DNA sequences be the same length, this should be checked before any furthur calculations, and if the sequences have different lengths, the function should not proceed and provide a helpful error message.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq1</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq2</span><span class="p">):</span>
     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Sequences must be of equal length&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Becuase the two sequences have the wrong number of bases, this qualifies as a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> (see <a class="reference internal" href="#id22"><span class="std std-ref">Table 7</span></a>). Inside the parentheses behind <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>, a more detailed message can and should be provided.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dna1</span> <span class="o">=</span> <span class="s1">&#39;AACCT&#39;</span>
@@ -2004,10 +1984,10 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">78</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">74</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">hamming</span><span class="p">(</span><span class="n">dna2</span><span class="p">,</span> <span class="n">dna3</span><span class="p">)</span>
 
-<span class="nn">Cell In[76], line 4,</span> in <span class="ni">hamming</span><span class="nt">(seq1, seq2)</span>
+<span class="nn">Cell In[72], line 4,</span> in <span class="ni">hamming</span><span class="nt">(seq1, seq2)</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">hamming</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span> <span class="n">seq2</span><span class="p">):</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq1</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq2</span><span class="p">):</span>
 <span class="ne">----&gt; </span><span class="mi">4</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Sequences must be of equal length&#39;</span><span class="p">)</span>

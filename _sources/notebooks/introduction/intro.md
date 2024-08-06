@@ -63,7 +63,7 @@ The code in this version of the book has been most recently tested with the foll
 
 - Python – 3.11.4
 - Jupyterlab - 4.2.4
-- NumPy – 1.26.4
+- NumPy – 2.0.1
 - SciPy – 1.14.0
 - Pandas – 2.2.2
 - Matplotlib – 3.9.1
@@ -75,7 +75,7 @@ The code in this version of the book has been most recently tested with the foll
 - Spyder – 5.4.2
 - Biopython - 1.84
 - Nglview - 3.0.6
-- RDKit - 2024.3.3
+- RDKit - 2024.3.4
 
 
 ## Acknowledgements
