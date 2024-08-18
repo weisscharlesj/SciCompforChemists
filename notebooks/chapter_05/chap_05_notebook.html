@@ -437,7 +437,7 @@ document.write(`
 <span id="id1"></span><h1>Chapter 5: Pandas<a class="headerlink" href="#chapter-5-pandas" title="Link to this heading">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 </div>
-<p>While NumPy is the foundation of much of the SciPy ecosystem and provides very capable ndarray objects, it has a few shortcomings. The first is that NumPy arrays cannot hold different types of objects in a single array. For example, if we attempt to convert the following list containing integers, floats, and strings into an array, NumPy coverts all elements into strings as a way of making the object types uniform.</p>
+<p>While NumPy is the foundation of much of the SciPy ecosystem and provides very capable ndarray objects, it has a few missing features. The first is that NumPy arrays cannot hold different types of objects in a single array. For example, if we attempt to convert the following list containing integers, floats, and strings into an array, NumPy coverts all elements into strings as a way of making the object types uniform.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;four&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;six&#39;</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">]</span>
@@ -458,7 +458,10 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<p>The second shortcoming is that NumPy arrays do not support labels in the data. That is, columns cannot have labels describing what they contain like you might see in a well constructed spreadsheet. This burdens the user to keep track of which column contains what information. Finally, while NumPy contains a wealth of basic tools for working with data, there are still many operations that it does not support like grouping data based on the value of a particular column or the ability to merge two data sets with automatic alignment of analogous data.</p>
+<p>To fill in these missing features, the pandas library provides a wealth of additional tools on top of NumPy for working with data, and possibly the most endearing feature, the ability to call data based on labels. That is, data columns and rows can contain human-readable labels that are used to access the data. Pandas still supports accessing data using indices if the user wishes to go that route, but the user can now access data without knowing which column it is in as long as the user knows the column label.</p>
+<p>By popular convention, the pandas library is imported with the <code class="docutils literal notranslate"><span class="pre">pd</span> <span class="pre">alias</span></code>, which is used here. This chapter also assumes the following imports.</p>
+<div class="cell docutils container" id="index-0">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -466,12 +469,9 @@ document.write(`
 </div>
 </div>
 </div>
-<p>The second shortcoming is that NumPy arrays do not support labels in the data. That is, columns cannot have labels describing what they contain like you might see in a well constructed spreadsheet. This burdens the user to keep track of which column contains what information. Finally, while NumPy contains a wealth of basic tools for working with data, there are still many operations that it does not support like grouping data based on the value of a particular column or the ability to merge two data sets with automatic alignment of analogous data.</p>
-<p>A data scientist named Wes McKinney created the pandas library which provides a wealth of additional tools for working with data, and possibly the most endearing feature, the ability to call data based on labels. Data columns and rows can contain human-readable labels that are used to access the data. Pandas still supports accessing data using indices if the user wishes to go that route, but the user can now access data without knowing which column it is in as long as the user knows the column label.</p>
-<p>By popular convention, the pandas library is imported with the <code class="docutils literal notranslate"><span class="pre">pd</span> <span class="pre">alias</span></code>, which is used here. This chapter also assumes the following imports.</p>
 <section id="basic-pandas-objects">
-<span id="id2"></span><span id="index-0"></span><h2>5.1 Basic Pandas Objects<a class="headerlink" href="#basic-pandas-objects" title="Link to this heading">#</a></h2>
-<p>To support the wealth of features, pandas uses its own objects to hold data called a Series and a DataFrame, which are built on NumPy arrays. Because they are built on NumPy, many of the NumPy functions (e.g., <code class="docutils literal notranslate"><span class="pre">np.mean()</span></code>) work on pandas objects. The key difference between the a Series and DataFrame is that a Series is one-dimensional while a DataFrame is two-dimensional. Unlike a NumPy array, pandas objects have fixed dimensionality. There is a three-dimensional object called a <em>Panel</em>, but this will not be covered here as it is not often used.</p>
+<span id="id2"></span><h2>5.1 Basic Pandas Objects<a class="headerlink" href="#basic-pandas-objects" title="Link to this heading">#</a></h2>
+<p>To support the wealth of features, pandas uses its own objects to hold data called a Series and a DataFrame, which are built on NumPy arrays. Because they are built on NumPy, many of the NumPy functions (e.g., <code class="docutils literal notranslate"><span class="pre">np.mean()</span></code>) work on pandas objects. The key difference between the Series and DataFrame is that a Series is one-dimensional while a DataFrame is two-dimensional. Unlike a NumPy array, pandas objects have fixed dimensionality. There is a three-dimensional object called a <em>Panel</em>, but this will not be covered here as it is not often used.</p>
 <section id="series">
 <span id="id3"></span><h3>5.1.1 Series<a class="headerlink" href="#series" title="Link to this heading">#</a></h3>
 <p id="index-1">While the pandas <em>Series</em> is restricted to being a single dimension, it can be as long as necessary to hold the data. A Series containing the atomic masses of the first five elements on the periodic table is generated below using the <code class="docutils literal notranslate"><span class="pre">pd.Series()</span></code> function. This function is always capitalized.</p>
@@ -493,7 +493,7 @@ dtype: float64
 </div>
 </div>
 </div>
-<p>The right column is the actual data in the Series while the values on the left are the assigned indices for each value in the Series. The index column is not part of the dimensionality of the Series; it is metadata (i.e., data about the data).</p>
+<p>The right column is the actual data in the Series while the values on the left are the assigned indices for each value in the Series. The index column is not part of the dimensionality of the Series; it is metadata (i.e., data about the data). Think of the numbers as the row labels you would see in a traditional spreadsheet software application.</p>
 <p>Consistent with list, tuples, and ndarrays, values in a Series can be accessed using indexing with square brackets as demonstrated below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -502,16 +502,16 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.94
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(6.94)
 </pre></div>
 </div>
 </div>
 </div>
-<p>Unlike other multi-element objects seen so far, data in a Series can be accessed using indices different from the default (i.e., 0, 1, 2, etc…) values. That is, custom indices can be assigned using the index argument shown below.</p>
+<p>Unlike other multi-element objects seen so far, data in a Series can be accessed using indices different from the default (i.e., 0, 1, 2, etc…) values. That is, custom row labels can be assigned using the <code class="docutils literal notranslate"><span class="pre">index=</span></code> argument shown below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;He&#39;</span><span class="p">,</span> <span class="s1">&#39;Li&#39;</span><span class="p">,</span> <span class="s1">&#39;Be&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
-<span class="n">mass2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">1.01</span><span class="p">,</span><span class="mf">4.00</span><span class="p">,</span><span class="mf">6.94</span><span class="p">,</span><span class="mf">9.01</span><span class="p">,</span><span class="mf">10.81</span><span class="p">],</span> <span class="n">index</span><span class="p">)</span>
+<span class="n">mass2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">1.01</span><span class="p">,</span><span class="mf">4.00</span><span class="p">,</span><span class="mf">6.94</span><span class="p">,</span><span class="mf">9.01</span><span class="p">,</span><span class="mf">10.81</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">)</span>
 <span class="n">mass2</span>
 </pre></div>
 </div>
@@ -535,12 +535,24 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(4.0)
 </pre></div>
 </div>
 </div>
 </div>
 <p>The indices can be accessed by using <code class="docutils literal notranslate"><span class="pre">mass2.index</span></code>. Series indices can also be modified after a Series has been created by using <code class="docutils literal notranslate"><span class="pre">.index</span></code> and assignment as demonstrated below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mass2</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;H&#39;, &#39;He&#39;, &#39;Li&#39;, &#39;Be&#39;, &#39;B&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mass</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span><span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;He&#39;</span><span class="p">,</span> <span class="s1">&#39;Li&#39;</span><span class="p">,</span> <span class="s1">&#39;Be&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">]</span>
@@ -567,7 +579,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.94
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(6.94)
 </pre></div>
 </div>
 </div>
@@ -677,7 +689,7 @@ Name: Li, dtype: object
 </div>
 </div>
 <p>Essentially what we get out of a column is a Series with the indices shown on the lefthand side.</p>
-<p>To indicate a row, instead use the <code class="docutils literal notranslate"><span class="pre">loc[]</span></code> method. We again get a Series with indices derived from the column names in the source DataFrame. This Series can be placed in a variable and indexed just like in section <a class="reference internal" href="#id3"><span class="std std-ref">5.1.1</span></a>.</p>
+<p>To indicate a row, instead use the <code class="docutils literal notranslate"><span class="pre">loc[]</span></code> method. We again get a Series with indices derived from the column names in the source DataFrame. This Series can be placed in a variable and indexed just like in <a class="reference internal" href="#id3"><span class="std std-ref">section 5.1.1</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;IE&#39;</span><span class="p">]</span>
@@ -795,7 +807,7 @@ Name: Li, dtype: object
 <td class="text-left"><p>Imports/Exports data from/to an HDF5 file</p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">read_clipboard()</span></code> and <code class="docutils literal notranslate"><span class="pre">to_clipboard()</span></code></p></td>
-<td class="text-left"><p>Transfers data to/from the clipboard* to a Series or DataFrame</p></td>
+<td class="text-left"><p>Transfers data to/from the clipboard to a Series or DataFrame</p></td>
 </tr>
 <tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">read_excel()</span></code> and <code class="docutils literal notranslate"><span class="pre">to_excel()</span></code></p></td>
 <td class="text-left"><p>Reads/writes an Excel file</p></td>
@@ -828,7 +840,7 @@ Name: Li, dtype: object
 <td class="text-left"><p>Data separator; default is tab</p></td>
 </tr>
 <tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">skiprows</span></code></p></td>
-<td class="text-left"><p>Number of rows in file to skip before reading data</p></td>
+<td class="text-left"><p>Number of rows at the top of the file to skip before reading data</p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">skipfooter</span></code></p></td>
 <td class="text-left"><p>Number of rows at the bottom of the file to skip</p></td>
@@ -845,7 +857,7 @@ Name: Li, dtype: object
 </tbody>
 </table>
 </div>
-<p>As an example, we can use this function to read a calculated PDB file of benzene and extract the <span class="math notranslate nohighlight">\(xyz\)</span> coordinates for each atom. This particular file type, shown below, is <a class="reference external" href="http://www.wwpdb.org/documentation/file-format">strictly formatted based on the position in a line</a>, but being that all the data columns here have spaces between them, we can use space delimitation by setting  <code class="docutils literal notranslate"><span class="pre">delim_whitespace=True</span></code>. Because the data do not start until the third line and we do not need the last thirteen lines of the file, we should exclude these rows. We set <code class="docutils literal notranslate"><span class="pre">header=None</span></code> because we do not want the function to treat the first line of data as a header or data label.</p>
+<p>As an example, we can use this function to read a calculated PDB file of benzene and extract the <span class="math notranslate nohighlight">\(xyz\)</span> coordinates for each atom. This particular file type, shown below, is <a class="reference external" href="http://www.wwpdb.org/documentation/file-format">strictly formatted based on the position in a line</a>, but being that all the data columns here have spaces between them, we can use space delimitation by setting  <code class="docutils literal notranslate"><span class="pre">sep=\s+</span></code>. Because the data do not start until the third line and we do not need the last thirteen lines of the file, we should exclude these rows. We set <code class="docutils literal notranslate"><span class="pre">header=None</span></code> because we do not want the function to treat the first line of data as a header or data label.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>HEADER 
 REMARK 
 HETATM    1  H   UNK  0001       0.000   0.000  -0.020 
@@ -880,13 +892,7 @@ END
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">benz</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;data/benzene.pdb&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> 
                      <span class="n">skiprows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">skipfooter</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
                      <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;python&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">benz</span>
+<span class="n">benz</span>
 </pre></div>
 </div>
 </div>
@@ -1683,7 +1689,7 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/72d1603808cdd2b7ba26006300f555a7fea205ddf27fd6a178f25acf2260fd48.svg" src="../../_images/72d1603808cdd2b7ba26006300f555a7fea205ddf27fd6a178f25acf2260fd48.svg" />
+<img alt="../../_images/e94e388f1750b9c7339119ee01fb0f15522ca4c621c82c8ef598b7b7ec20d338.svg" src="../../_images/e94e388f1750b9c7339119ee01fb0f15522ca4c621c82c8ef598b7b7ec20d338.svg" />
 </div>
 </div>
 </section>
