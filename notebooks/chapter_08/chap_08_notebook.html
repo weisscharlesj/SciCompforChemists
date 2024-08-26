@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -52,7 +52,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -181,13 +181,17 @@
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Computing with Python</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../chapter_00/chap_00_notebook.html">Chapter 0: Python &amp; Jupyter Notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_01/chap_01_notebook.html">Chapter 1: Basic Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_02/chap_02_notebook.html">Chapter 2: Intermediate Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_03/chap_03_notebook.html">Chapter 3: Plotting with Matplotlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_04/chap_04_notebook.html">Chapter 4: NumPy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_05/chap_05_notebook.html">Chapter 5: Pandas</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computing Applications</span></p>
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../chapter_06/chap_06_notebook.html">Chapter 6: Signal &amp; Noise</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_07/chap_07_notebook.html">Chapter 7: Image Processing &amp; Analysis</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 8: Mathematics</a></li>
@@ -199,6 +203,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../chapter_14/chap_14_notebook.html">Chapter 14: Optimization and Root Finding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_15/chap_15_notebook.html">Chapter 15: Cheminformatics with RDKit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_16/chap_16_notebook.html">Chapter 16: Bioinformatics with Biopython and Nglview</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">End Matter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendix_00/appendix_00_notebook.html">Appendix 01: Ipython Widgets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
 </ul>
 
@@ -583,17 +591,17 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;real&#39;: True,
+ &#39;infinite&#39;: False,
  &#39;complex&#39;: True,
+ &#39;commutative&#39;: True,
+ &#39;extended_real&#39;: True,
  &#39;hermitian&#39;: True,
  &#39;imaginary&#39;: False,
  &#39;finite&#39;: True,
- &#39;infinite&#39;: False,
- &#39;commutative&#39;: True,
- &#39;extended_real&#39;: True,
  &#39;nonnegative&#39;: True,
- &#39;extended_nonnegative&#39;: True,
  &#39;negative&#39;: False,
- &#39;extended_negative&#39;: False}
+ &#39;extended_negative&#39;: False,
+ &#39;extended_nonnegative&#39;: True}
 </pre></div>
 </div>
 </div>
@@ -1161,8 +1169,8 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 1., -4.]),
- array([1.64597328e-31]),
- 2,
+ array([1.85454492e-31]),
+ np.int32(2),
  array([14.58924398,  2.27023349]))
 </pre></div>
 </div>
@@ -1179,7 +1187,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2375.9999999999995
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(-2375.9999999999995)
 </pre></div>
 </div>
 </div>
@@ -1315,7 +1323,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6c9edb5ffd9fd0f5535e008fccb518fbe0d95c5023d081632fc03691c8163f4e.svg" src="../../_images/6c9edb5ffd9fd0f5535e008fccb518fbe0d95c5023d081632fc03691c8163f4e.svg" />
+<img alt="../../_images/48a3d9d91b28ae3ad4b669ac7e7680b7ce784ad1c11b37ba39362b3c9900f7e5.svg" src="../../_images/48a3d9d91b28ae3ad4b669ac7e7680b7ce784ad1c11b37ba39362b3c9900f7e5.svg" />
 </div>
 </div>
 </section>
@@ -1490,7 +1498,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.07948602207520471
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.07948602207520471)
 </pre></div>
 </div>
 </div>
@@ -1533,7 +1541,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3d88644fa6b6ca627136c211add5c6bf529f7fe06aa2caee92fedcb7f054c8d9.svg" src="../../_images/3d88644fa6b6ca627136c211add5c6bf529f7fe06aa2caee92fedcb7f054c8d9.svg" />
+<img alt="../../_images/cae09adb403ee7c756c1ca98bfd5a9c0efe42bd132769e3028521a6602d0c5e6.svg" src="../../_images/cae09adb403ee7c756c1ca98bfd5a9c0efe42bd132769e3028521a6602d0c5e6.svg" />
 </div>
 </div>
 <p>The radius is in Bohrs (<span class="math notranslate nohighlight">\(a_0\)</span>) which is equal to approximately 0.53 angstroms.</p>
@@ -1642,7 +1650,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/59ce497d92c300bacf9150cbbbadb40ece2002da8578542ceb78a5104ad950a8.svg" src="../../_images/59ce497d92c300bacf9150cbbbadb40ece2002da8578542ceb78a5104ad950a8.svg" />
+<img alt="../../_images/4051ee125755eb726b25d71aa764b61bc3c5ed7af94d959dcd2dac1632b7015c.svg" src="../../_images/4051ee125755eb726b25d71aa764b61bc3c5ed7af94d959dcd2dac1632b7015c.svg" />
 </div>
 </div>
 <p>Above is a plot of the peaks with respect to the index values (not ppm). To integrate under each of the triplet peaks, first we need the index values for the edges of each peak. Below is a list, <code class="docutils literal notranslate"><span class="pre">i</span></code>, that provides reasonable boundaries, and a plot is below with these edges marked in orange squares.</p>
@@ -1657,19 +1665,19 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/abae62479ccc47c418c2f3d6214c0e9373936278cfaf7e8d67b588a931ee66d5.svg" src="../../_images/abae62479ccc47c418c2f3d6214c0e9373936278cfaf7e8d67b588a931ee66d5.svg" />
+<img alt="../../_images/ae00537fec08c73304237c46c81cf730cec9fce350a9796394da0e3b2231f742.svg" src="../../_images/ae00537fec08c73304237c46c81cf730cec9fce350a9796394da0e3b2231f742.svg" />
 </div>
 </div>
 <p>Integrations under sampled data do not include the values between data points, so these regions are estimated based on assumptions. The <code class="docutils literal notranslate"><span class="pre">trapezoid()</span></code> function assumes that any data point between known points lies directly between the known data points (i.e., linear interpolation) as shown below by the blue lines.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/c1467e0ef4af345ca9eb7214eaa896c37cfc4f87a6e3aead6d5b24ac0f6ec3ac.svg" src="../../_images/c1467e0ef4af345ca9eb7214eaa896c37cfc4f87a6e3aead6d5b24ac0f6ec3ac.svg" />
+<img alt="../../_images/a200e27abd5c2a4b77fb313aade28e076db3b189e29e0fb559efc9cb84b00207.svg" src="../../_images/a200e27abd5c2a4b77fb313aade28e076db3b189e29e0fb559efc9cb84b00207.svg" />
 </div>
 </div>
 <p>Alternatively, the <code class="docutils literal notranslate"><span class="pre">simpson()</span></code> function uses the <em>Simpson’s rule</em> which estimates the data between known points using quadratic interpolation shown below.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/5d398eff1201b28b97a656dd26c3303b875da7924e22886c8b90310e777ddf40.svg" src="../../_images/5d398eff1201b28b97a656dd26c3303b875da7924e22886c8b90310e777ddf40.svg" />
+<img alt="../../_images/b829b2893797f235d974586d0aeb828c406a224b62e6bea2aa44dca3d3fec0eb.svg" src="../../_images/b829b2893797f235d974586d0aeb828c406a224b62e6bea2aa44dca3d3fec0eb.svg" />
 </div>
 </div>
 <aside class="margin sidebar">
@@ -1748,7 +1756,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e44aa3b8004990e8536e712c94b2a01e9791725eaa23889cf21e13c7e732d65a.svg" src="../../_images/e44aa3b8004990e8536e712c94b2a01e9791725eaa23889cf21e13c7e732d65a.svg" />
+<img alt="../../_images/d300834a1f04f70aa65bf27e7204f4134461ecb353fcd6f700406d87b4b1eb07.svg" src="../../_images/d300834a1f04f70aa65bf27e7204f4134461ecb353fcd6f700406d87b4b1eb07.svg" />
 </div>
 </div>
 <p>This approach to kinetic simulations can be adapted to even more complex reactions which are demonstrated in <a class="reference internal" href="../chapter_09/chap_09_notebook.html#id6"><span class="std std-ref">section 9.1.4</span></a>.</p>

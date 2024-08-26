@@ -1,0 +1,69 @@
+Traceback (most recent call last):
+  File "/Users/cerberus/miniconda3/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/cerberus/miniconda3/lib/python3.11/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cerberus/miniconda3/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cerberus/miniconda3/lib/python3.11/asyncio/base_events.py", line 653, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/cerberus/miniconda3/lib/python3.11/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/Users/cerberus/miniconda3/lib/python3.11/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/cerberus/miniconda3/lib/python3.11/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+interact_manual(plot_fid, nu=(1,10,1), T2=(1,5, 0.5));
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+Cell [0;32mIn[10], line 1[0m
+[0;32m----> 1[0m [43minteract_manual[49m[43m([49m[43mplot_fid[49m[43m,[49m[43m [49m[43mnu[49m[38;5;241;43m=[39;49m[43m([49m[38;5;241;43m1[39;49m[43m,[49m[38;5;241;43m10[39;49m[43m,[49m[38;5;241;43m1[39;49m[43m)[49m[43m,[49m[43m [49m[43mT2[49m[38;5;241;43m=[39;49m[43m([49m[38;5;241;43m1[39;49m[43m,[49m[38;5;241;43m5[39;49m[43m,[49m[43m [49m[38;5;241;43m0.5[39;49m[43m)[49m[43m)[49m;
+
+File [0;32m~/miniconda3/envs/scicompchem-env/lib/python3.11/site-packages/ipywidgets/widgets/interaction.py:511[0m, in [0;36m_InteractFactory.__call__[0;34m(self, _InteractFactory__interact_f, **kwargs)[0m
+[1;32m    503[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m
+[1;32m    505[0m [38;5;66;03m# positional arg support in: https://gist.github.com/8851331[39;00m
+[1;32m    506[0m [38;5;66;03m# Handle the cases 1 and 2[39;00m
+[1;32m    507[0m [38;5;66;03m# 1. interact(f, **kwargs)[39;00m
+[1;32m    508[0m [38;5;66;03m# 2. @interact[39;00m
+[1;32m    509[0m [38;5;66;03m#    def f(*args, **kwargs):[39;00m
+[1;32m    510[0m [38;5;66;03m#        ...[39;00m
+[0;32m--> 511[0m w [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mwidget[49m[43m([49m[43mf[49m[43m)[49m
+[1;32m    512[0m [38;5;28;01mtry[39;00m:
+[1;32m    513[0m     f[38;5;241m.[39mwidget [38;5;241m=[39m w
+
+File [0;32m~/miniconda3/envs/scicompchem-env/lib/python3.11/site-packages/ipywidgets/widgets/interaction.py:427[0m, in [0;36m_InteractFactory.widget[0;34m(self, f)[0m
+[1;32m    411[0m [38;5;28;01mdef[39;00m [38;5;21mwidget[39m([38;5;28mself[39m, f):
+[1;32m    412[0m [38;5;250m    [39m[38;5;124;03m"""[39;00m
+[1;32m    413[0m [38;5;124;03m    Return an interactive function widget for the given function.[39;00m
+[1;32m    414[0m 
+[0;32m   (...)[0m
+[1;32m    425[0m [38;5;124;03m        The function to which the interactive widgets are tied.[39;00m
+[1;32m    426[0m [38;5;124;03m    """[39;00m
+[0;32m--> 427[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mcls[49m[43m([49m[43mf[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mopts[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mkwargs[49m[43m)[49m
+
+File [0;32m~/miniconda3/envs/scicompchem-env/lib/python3.11/site-packages/ipywidgets/widgets/interaction.py:172[0m, in [0;36minteractive.__init__[0;34m(self, _interactive__interact_f, _interactive__options, **kwargs)[0m
+[1;32m    169[0m [38;5;28mself[39m[38;5;241m.[39mmanual_name [38;5;241m=[39m __options[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mmanual_name[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mRun Interact[39m[38;5;124m"[39m)
+[1;32m    170[0m [38;5;28mself[39m[38;5;241m.[39mauto_display [38;5;241m=[39m __options[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mauto_display[39m[38;5;124m"[39m, [38;5;28;01mFalse[39;00m)
+[0;32m--> 172[0m new_kwargs [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mfind_abbreviations[49m[43m([49m[43mkwargs[49m[43m)[49m
+[1;32m    173[0m [38;5;66;03m# Before we proceed, let's make sure that the user has passed a set of args+kwargs[39;00m
+[1;32m    174[0m [38;5;66;03m# that will lead to a valid call of the function. This protects against unspecified[39;00m
+[1;32m    175[0m [38;5;66;03m# and doubly-specified arguments.[39;00m
+[1;32m    176[0m [38;5;28;01mtry[39;00m:
+
+File [0;32m~/miniconda3/envs/scicompchem-env/lib/python3.11/site-packages/ipywidgets/widgets/interaction.py:272[0m, in [0;36minteractive.find_abbreviations[0;34m(self, kwargs)[0m
+[1;32m    270[0m     [38;5;28;01mfor[39;00m name, value, default [38;5;129;01min[39;00m _yield_abbreviations_for_parameter(param, kwargs):
+[1;32m    271[0m         [38;5;28;01mif[39;00m value [38;5;129;01mis[39;00m empty:
+[0;32m--> 272[0m             [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124m'[39m[38;5;124mcannot find widget or abbreviation for argument: [39m[38;5;132;01m{!r}[39;00m[38;5;124m'[39m[38;5;241m.[39mformat(name))
+[1;32m    273[0m         new_kwargs[38;5;241m.[39mappend((name, value, default))
+[1;32m    274[0m [38;5;28;01mreturn[39;00m new_kwargs
+
+[0;31mValueError[0m: cannot find widget or abbreviation for argument: 'limits'
+
