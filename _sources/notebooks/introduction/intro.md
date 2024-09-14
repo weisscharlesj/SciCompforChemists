@@ -71,11 +71,13 @@ The code in this version of the book has been most recently tested with the foll
 - Scikit-image – 0.24.0
 - Scikit-learn – 1.5.1
 - Sympy - 1.13.1
-- NMRglue – 0.10
+- nmrglue – 0.10
+- nmrsim - 0.6 
 - Spyder – 5.4.2
 - Biopython - 1.84
 - Nglview - 3.0.6
 - RDKit - 2024.3.4
+- pybaselines - 1.1.0
 
 
 ## Acknowledgements
