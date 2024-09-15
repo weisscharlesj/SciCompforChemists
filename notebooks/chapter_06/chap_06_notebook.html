@@ -489,7 +489,7 @@ document.write(`
 </tbody>
 </table>
 </div>
-<p>In contrast to NumPy, each module from SciPy needs to be imported individually, so <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">scipy</span></code> is not going help you much. Instead, you need to do the following to import a module.</p>
+<p>Unlike NumPy, many of the functions in SciPy are stored in modules, so each module from SciPy needs to be imported individually or listed when calling the function. It is common to see specific SciPy modules imported as shown below.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">module</span>
 </pre></div>
 </div>
@@ -530,7 +530,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d719cec804a7659095e99ac8322bfae15ab30f8ef49c4f82e62023b1cdbb462d.svg" src="../../_images/d719cec804a7659095e99ac8322bfae15ab30f8ef49c4f82e62023b1cdbb462d.svg" />
+<img alt="../../_images/d19b989fc158dca03c2dd2ea80828dca945ae6b4a39563b84da7e9e29d14aa90.svg" src="../../_images/d19b989fc158dca03c2dd2ea80828dca945ae6b4a39563b84da7e9e29d14aa90.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -550,7 +550,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5b97521d683aedc7f2748e398b3c94b88eb80f716c9a3dde5581d9de2a31db01.svg" src="../../_images/5b97521d683aedc7f2748e398b3c94b88eb80f716c9a3dde5581d9de2a31db01.svg" />
+<img alt="../../_images/c62387ce9f63d256595ecf659260106a27cfda1be6751e08c1ea6883a31adfba.svg" src="../../_images/c62387ce9f63d256595ecf659260106a27cfda1be6751e08c1ea6883a31adfba.svg" />
 </div>
 </div>
 <p>NMR resonances are positive peaks while IR stretches are represented here as negative peaks, so we can find the largest features in both spectra by finding the maximum value in the NMR spectrum and the smallest value in the IR spectrum.</p>
@@ -641,7 +641,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/34f2a6ede1698f1f8cd2ef5d17b0a7de22939064e85e858e6972ad0a5bdcd093.svg" src="../../_images/34f2a6ede1698f1f8cd2ef5d17b0a7de22939064e85e858e6972ad0a5bdcd093.svg" />
+<img alt="../../_images/279ba81d3a26a5b7f01c7c59fd6e5239a65b76885de49133f4f434b4ce2229e9.svg" src="../../_images/279ba81d3a26a5b7f01c7c59fd6e5239a65b76885de49133f4f434b4ce2229e9.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -655,7 +655,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/404cf0de35607c0702cf2b5923fee881fea99fd047a7149ef4ae50509876ce40.svg" src="../../_images/404cf0de35607c0702cf2b5923fee881fea99fd047a7149ef4ae50509876ce40.svg" />
+<img alt="../../_images/1d1bb3d9525e0c56fec4607c0498056d983379020f1db0b6e4f987dea966c731.svg" src="../../_images/1d1bb3d9525e0c56fec4607c0498056d983379020f1db0b6e4f987dea966c731.svg" />
 </div>
 </div>
 <p>Both of these functions find the <em>global extremes</em> (or <em>global extrema</em>). If all you need is the largest feature in a spectrum, this works just fine. To find multiple features, we will need to find the local extrema addressed in the following section.</p>
@@ -694,7 +694,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f30264aeb2cc2f0fde76ceb58e5afc50b0ee905211313c4b8db2703baacda878.svg" src="../../_images/f30264aeb2cc2f0fde76ceb58e5afc50b0ee905211313c4b8db2703baacda878.svg" />
+<img alt="../../_images/dfb1a8581a0916e5569aa91bac82ce49eb7a8240207156f000ad617788479124.svg" src="../../_images/dfb1a8581a0916e5569aa91bac82ce49eb7a8240207156f000ad617788479124.svg" />
 </div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">argrelmax()</span></code> function may at times identify an edge or a point in a flat region as a local maximum because there is nothing larger near it. There are multiple ways to mitigate these erroneous peaks. First, we can increase the window for which the function checks to see if a point is the largest value in its neighborhood. Unfortunately, making the window too large can also prevent the identification of multiple extrema near each other. The second mitigation is to change the function’s mode from the default <code class="docutils literal notranslate"><span class="pre">'clip'</span></code> to <code class="docutils literal notranslate"><span class="pre">'wrap'</span></code>. This makes the function treat the data as wrapped around on itself instead of stopping at the edge. That is, both edges of the data are treated as being connected. This makes it more likely that an extrema value is in the neighborhood. Finally, the user can filter the returned for values that correspond to peaks above a certain height value. Below is an example of filtering values based on a height. The window below is intentionally narrowed so that the <code class="docutils literal notranslate"><span class="pre">argrelmax()</span></code> function returns too many values for demonstration purposes.</p>
@@ -845,10 +845,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x107c6eed0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x10c17fd10&gt;
 </pre></div>
 </div>
-<img alt="../../_images/a13310f40c08535ffd06cd72edf73562a36b419bf9479fa52309cbf4635f0c20.svg" src="../../_images/a13310f40c08535ffd06cd72edf73562a36b419bf9479fa52309cbf4635f0c20.svg" />
+<img alt="../../_images/e8d42137e0ef06804a88d20579462d29028f87e67fee793b8f9bdb8e2a986470.svg" src="../../_images/e8d42137e0ef06804a88d20579462d29028f87e67fee793b8f9bdb8e2a986470.svg" />
 </div>
 </div>
 <p>When using keyword arguments, the <code class="docutils literal notranslate"><span class="pre">find_peaks()</span></code> function returns the values used by the keyword arguments in the dictionary. For example, because we used the <code class="docutils literal notranslate"><span class="pre">height=</span></code> argument, the heights are returned.</p>
@@ -900,10 +900,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x112222c90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x10d69ec90&gt;
 </pre></div>
 </div>
-<img alt="../../_images/b28fb7d8e266bf5f8943310557aba3b46a5f2da841bfc038f7a3f59b77a642d4.svg" src="../../_images/b28fb7d8e266bf5f8943310557aba3b46a5f2da841bfc038f7a3f59b77a642d4.svg" />
+<img alt="../../_images/d4c4952ea95c143675341e441a07b8210c317d8fe68199ba1c9c60f1b6c39701.svg" src="../../_images/d4c4952ea95c143675341e441a07b8210c317d8fe68199ba1c9c60f1b6c39701.svg" />
 </div>
 </div>
 </section>
@@ -935,7 +935,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5b760c443bedddf0d280644506241aed6c1185d7462fd6ec879ca345a4e7f356.svg" src="../../_images/5b760c443bedddf0d280644506241aed6c1185d7462fd6ec879ca345a4e7f356.svg" />
+<img alt="../../_images/82eab6e4ed89467604361fafb87112ca5d79fe2e412d05654dac1cb58324d0da.svg" src="../../_images/82eab6e4ed89467604361fafb87112ca5d79fe2e412d05654dac1cb58324d0da.svg" />
 </div>
 </div>
 <p>We will use NumPy to calculate the slope using the <code class="docutils literal notranslate"><span class="pre">np.diff()</span></code> function which calculates the differential of a user defined order (<code class="docutils literal notranslate"><span class="pre">n</span></code>). Because the slope is the <em>dy/dx</em> between every pair of adjacent points, the resulting slope data is one data point shorter than the original data. This is important when plotting the data because the length of the x and y values must be the same.</p>
@@ -960,7 +960,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/44f388723ff5ae3fdf15d4d99f2f6946b5b1ad41dac1e0133ede845368321846.svg" src="../../_images/44f388723ff5ae3fdf15d4d99f2f6946b5b1ad41dac1e0133ede845368321846.svg" />
+<img alt="../../_images/dc77fc9ff15a89e2c9b071e994be39dae086afd9c4eea5ac3446b125100d0e52.svg" src="../../_images/dc77fc9ff15a89e2c9b071e994be39dae086afd9c4eea5ac3446b125100d0e52.svg" />
 </div>
 </div>
 <p>Because the inflection point in the center of the data has a negative slope, we will need to find the minimum slope. This may not always be the case with other data.</p>
@@ -973,7 +973,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/971dae8fbaa8174b4454aa49ee04cc97571e66e587f462a03b156c1fe3016a4f.svg" src="../../_images/971dae8fbaa8174b4454aa49ee04cc97571e66e587f462a03b156c1fe3016a4f.svg" />
+<img alt="../../_images/35ee5a7dd9266b1c3843c5987d6e6b30aee9ee55d7434e2ec18cef06dab0ca99.svg" src="../../_images/35ee5a7dd9266b1c3843c5987d6e6b30aee9ee55d7434e2ec18cef06dab0ca99.svg" />
 </div>
 </div>
 </section>
@@ -995,7 +995,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0b58d53ae17253279500b33ae8c24dee7e6761fc8217ec764fa6ac64e23df797.svg" src="../../_images/0b58d53ae17253279500b33ae8c24dee7e6761fc8217ec764fa6ac64e23df797.svg" />
+<img alt="../../_images/c809beb0ca8de3a32022a851d52c9b2cb45a96944b06dcd369722630eaaaa4d1.svg" src="../../_images/c809beb0ca8de3a32022a851d52c9b2cb45a96944b06dcd369722630eaaaa4d1.svg" />
 </div>
 </div>
 <section id="unweighted-average">
@@ -1014,7 +1014,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8ed40e32d271f7079b5d8dc0c91fe818acf41af208a38df377c3c34bfb9254ac.svg" src="../../_images/8ed40e32d271f7079b5d8dc0c91fe818acf41af208a38df377c3c34bfb9254ac.svg" />
+<img alt="../../_images/a34bcd7b749f0254f772a6df9ac8d09ad57cc271fa9ca03d5b0fce2ee5aa2714.svg" src="../../_images/a34bcd7b749f0254f772a6df9ac8d09ad57cc271fa9ca03d5b0fce2ee5aa2714.svg" />
 </div>
 </div>
 <p>The data are smoothed relative to the original data, but there is still a considerable amount of noise present.</p>
@@ -1035,7 +1035,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9d608287bd91d2eaa173307d9b6f2ae077c098769d7cadcc08dc6f5d1ca7df37.svg" src="../../_images/9d608287bd91d2eaa173307d9b6f2ae077c098769d7cadcc08dc6f5d1ca7df37.svg" />
+<img alt="../../_images/397f0cad47b3c5fa46d4ca5697c6f16a4eab883aae91d132bb56eada9b12b5c1.svg" src="../../_images/397f0cad47b3c5fa46d4ca5697c6f16a4eab883aae91d132bb56eada9b12b5c1.svg" />
 </div>
 </div>
 <p>The triangular smooth results in a smoother data set than the rectangular smooth. This is not surprising as applying the triangular smooth above is mathematically equivalent to applying the rectangular smooth twice.</p>
@@ -1053,7 +1053,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4df07bf3cf277630582214758bc9aa20445cab49bb737eada7a9fcbb7c27f968.svg" src="../../_images/4df07bf3cf277630582214758bc9aa20445cab49bb737eada7a9fcbb7c27f968.svg" />
+<img alt="../../_images/f883dcc43608f76d66e0802b2bea43d6b886173361a2b4c961a47354be051ab5.svg" src="../../_images/f883dcc43608f76d66e0802b2bea43d6b886173361a2b4c961a47354be051ab5.svg" />
 </div>
 </div>
 </section>
@@ -1079,7 +1079,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/20820fe21144e413354d3ffbb906fddbb8821179df62883cac46873ef5b97f35.svg" src="../../_images/20820fe21144e413354d3ffbb906fddbb8821179df62883cac46873ef5b97f35.svg" />
+<img alt="../../_images/9c8f6879349a260d9c5a71e2a752bf5e3ee31a3aaa57465d45c3320b355a6ecf.svg" src="../../_images/9c8f6879349a260d9c5a71e2a752bf5e3ee31a3aaa57465d45c3320b355a6ecf.svg" />
 </div>
 </div>
 <p>The Savitzky–Golay filter appears to have done a decent job removing the noise. Despite there being some remaining noise and other artifacts in the CV, the denoised CV makes it significantly easier to locate the maxima and minima in this example.</p>
@@ -1108,7 +1108,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/28dfdfa0696813aee8c0976c7b6007d76f5d0eb2d3db3a393589bc86b5ecba2d.svg" src="../../_images/28dfdfa0696813aee8c0976c7b6007d76f5d0eb2d3db3a393589bc86b5ecba2d.svg" />
+<img alt="../../_images/67ae890e3a09b5b7368e2525f29fed85698ebced84b49a7f9f736a7d58e86287.svg" src="../../_images/67ae890e3a09b5b7368e2525f29fed85698ebced84b49a7f9f736a7d58e86287.svg" />
 </div>
 </div>
 <p>SciPy contains an entire module called <code class="docutils literal notranslate"><span class="pre">fft</span></code> dedicated to Fourier transforms and reverse Fourier transforms. We will use the basic <code class="docutils literal notranslate"><span class="pre">fft()</span></code> function for our synthetic data which returns a mixture of real and imaginary values. For plotting, we will simply look at the real component of the result using <code class="docutils literal notranslate"><span class="pre">.real</span></code>.</p>
@@ -1130,7 +1130,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/856b71bb3c6a6426b3996384a7a99aa1ed83300cd77588defe037a739017c4c9.svg" src="../../_images/856b71bb3c6a6426b3996384a7a99aa1ed83300cd77588defe037a739017c4c9.svg" />
+<img alt="../../_images/96a68267bdb5060f81eb0d254ce445a5c8e92bb45679e5eda3aadba6bce60c5e.svg" src="../../_images/96a68267bdb5060f81eb0d254ce445a5c8e92bb45679e5eda3aadba6bce60c5e.svg" />
 </div>
 </div>
 <p>Only the first half of the Fourier transform output is plotted above because the second half is a mirror image of the first. A single peak at 62.0 Hz is present from our signal. The rest of the baseline of the plot is not smooth because there is noise present at a variety of frequencies. It is important to note that the erratic variations in the baseline of the frequency plot is not the noise itself but more like a histogram of all the frequencies present in the original data.</p>
@@ -1156,7 +1156,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/63cd09d797f3861ea895660fb1811e69f561646d1cbde00666d15f99a887c28a.svg" src="../../_images/63cd09d797f3861ea895660fb1811e69f561646d1cbde00666d15f99a887c28a.svg" />
+<img alt="../../_images/707b6753626f4796e1c90fce2dbb437318a7554356faf86eebd3d8e00fe41221.svg" src="../../_images/707b6753626f4796e1c90fce2dbb437318a7554356faf86eebd3d8e00fe41221.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1166,7 +1166,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/80c8f029c09af2c5d3ffdd7487c06f64ca6fd944cf64aad41e6ad9c9787b6462.svg" src="../../_images/80c8f029c09af2c5d3ffdd7487c06f64ca6fd944cf64aad41e6ad9c9787b6462.svg" />
+<img alt="../../_images/b7d03c675690474674017a312faf0a993e9e19a452bb05f1404156541f9bc1ac.svg" src="../../_images/b7d03c675690474674017a312faf0a993e9e19a452bb05f1404156541f9bc1ac.svg" />
 </div>
 </div>
 <section id="linear-regression">
@@ -1199,7 +1199,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9b2f4ae56dc62a6d9f0d72aa2a56d0f23825935d56f111e315a5bef5f866f6d5.svg" src="../../_images/9b2f4ae56dc62a6d9f0d72aa2a56d0f23825935d56f111e315a5bef5f866f6d5.svg" />
+<img alt="../../_images/747994679218c5e02e4479afc182879b19c9315f16554b57e8c58cfbebe10db3.svg" src="../../_images/747994679218c5e02e4479afc182879b19c9315f16554b57e8c58cfbebe10db3.svg" />
 </div>
 </div>
 <p>We can also obtain the statistics for our fit using the <code class="docutils literal notranslate"><span class="pre">linregress()</span></code> function from the SciPy <code class="docutils literal notranslate"><span class="pre">stats</span></code> module. Note that this does not return the <span class="math notranslate nohighlight">\(r^2\)</span> value but instead the <span class="math notranslate nohighlight">\(r\)</span>-value which can be squared to generate the <span class="math notranslate nohighlight">\(r^2\)</span> value.</p>
@@ -1258,7 +1258,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/52ce62686511ba771c880fbe40fa6a40ebc7bdc98cdaee057adaedb418225b02.svg" src="../../_images/52ce62686511ba771c880fbe40fa6a40ebc7bdc98cdaee057adaedb418225b02.svg" />
+<img alt="../../_images/e1a76086153f929082f23c65facde4f9d65facc26c2e30e5707d4dbc6d016237.svg" src="../../_images/e1a76086153f929082f23c65facde4f9d65facc26c2e30e5707d4dbc6d016237.svg" />
 </div>
 </div>
 </section>
@@ -1363,7 +1363,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9150bb0ee831a21028bc1e51479a364d25d3f046ed62c60d2b139c4d6ff0edd7.svg" src="../../_images/9150bb0ee831a21028bc1e51479a364d25d3f046ed62c60d2b139c4d6ff0edd7.svg" />
+<img alt="../../_images/0d8a4eb6b17388f309939a65300f168055f38a44b3b95ac4465c6089736cc3df.svg" src="../../_images/0d8a4eb6b17388f309939a65300f168055f38a44b3b95ac4465c6089736cc3df.svg" />
 </div>
 </div>
 <p>To interpolate this one-dimensional function, we will use the <code class="docutils literal notranslate"><span class="pre">interp1d()</span></code> method from SciPy. Along with the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> values, <code class="docutils literal notranslate"><span class="pre">interp1d()</span></code> requires a mode of interpolation using the kind keyword which can include the items listed in Table 3.</p>
@@ -1415,7 +1415,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3a0c362cd8796bed135ac1832b6b675171c05bedfe14f9bc2466c2477185d7ed.svg" src="../../_images/3a0c362cd8796bed135ac1832b6b675171c05bedfe14f9bc2466c2477185d7ed.svg" />
+<img alt="../../_images/0540dcb1820cb02699e2fbc3ed75cd0caa3cf60081b978e872c19f86b5224d1d.svg" src="../../_images/0540dcb1820cb02699e2fbc3ed75cd0caa3cf60081b978e872c19f86b5224d1d.svg" />
 </div>
 </div>
 </section>
@@ -1438,7 +1438,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6552e97e21c58b8e1650af2254e1949b609daf2b38a778fce7bf471248b098d9.svg" src="../../_images/6552e97e21c58b8e1650af2254e1949b609daf2b38a778fce7bf471248b098d9.svg" />
+<img alt="../../_images/48e3c02bb0343cf09c6f1e37a273eca6947be72942f4cf1e6c3628a51b5ec957.svg" src="../../_images/48e3c02bb0343cf09c6f1e37a273eca6947be72942f4cf1e6c3628a51b5ec957.svg" />
 </div>
 </div>
 <p>To identify a baseline, we will use the <code class="docutils literal notranslate"><span class="pre">Baseline</span></code> module of pybaselines imported below. The first step is to create a baseline fitter object which accepts the <em>x</em>-axis data from your spectrum.</p>
@@ -1476,7 +1476,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/527596cfc9b2cb8a34d74b2bf9b0be65c27b4a23c0b7a845e6f96f0163838e04.svg" src="../../_images/527596cfc9b2cb8a34d74b2bf9b0be65c27b4a23c0b7a845e6f96f0163838e04.svg" />
+<img alt="../../_images/f59c0db979f89cf0f88408ebb871e1dfa781b9a4bbe5d1b39eda44ba45be824b.svg" src="../../_images/f59c0db979f89cf0f88408ebb871e1dfa781b9a4bbe5d1b39eda44ba45be824b.svg" />
 </div>
 </div>
 <p>Finally, we will subtract the baseline from the original data. The good news is that the baseline fitter generated the baseline as a NumPy array with the same size as the original data, so subtraction is a matter of subtracting one array from another.</p>
@@ -1492,7 +1492,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/19eaf39d82dbcd4124d192a34737d0a429694bf9adcfde6e139c035661d8a919.svg" src="../../_images/19eaf39d82dbcd4124d192a34737d0a429694bf9adcfde6e139c035661d8a919.svg" />
+<img alt="../../_images/510c8e2319985ebdc539dd03594e906dd3d7edf8bb941b9ffcbe2dafeb075cc7.svg" src="../../_images/510c8e2319985ebdc539dd03594e906dd3d7edf8bb941b9ffcbe2dafeb075cc7.svg" />
 </div>
 </div>
 </section>
