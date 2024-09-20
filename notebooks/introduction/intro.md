@@ -96,3 +96,4 @@ This book took a substantial time to write along with the time and effort in dev
 - @Avalanchian for reporting error in chapter 10 data/elements_data.csv file
 - Matthew A. Kubasik for reporting an error in chapter 8
 - Geoffrey M. Sametz for help with nmrsim
+- Ryan Schulte for reporting typos
