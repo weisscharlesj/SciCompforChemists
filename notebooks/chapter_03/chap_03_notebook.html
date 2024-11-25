@@ -16,17 +16,19 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
@@ -36,10 +38,11 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -66,6 +69,7 @@
     <link rel="prev" title="Chapter 2: Intermediate Python" href="../chapter_02/chap_02_notebook.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -81,19 +85,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -101,7 +94,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -109,8 +101,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -126,7 +118,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -156,21 +149,17 @@
     
     
     <img src="../../_static/logo.svg" class="logo__image only-light" alt="Scientific Computing for Chemists with Python - Home"/>
-    <script>document.write(`<img src="../../_static/logo.svg" class="logo__image only-dark" alt="Scientific Computing for Chemists with Python - Home"/>`);</script>
+    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Scientific Computing for Chemists with Python - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -362,24 +351,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -507,10 +488,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x107ddb610&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1062314c0&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/a1ca2702fe9a125081c467b2555f5bd015121306de79d07cd690e20eb4b4fe68.svg" src="../../_images/a1ca2702fe9a125081c467b2555f5bd015121306de79d07cd690e20eb4b4fe68.svg" />
+<img alt="../../_images/e8684ebffc6140ae047a59116147d25c0d6211eaf26fd862d9052072f0fd63c4.svg" src="../../_images/e8684ebffc6140ae047a59116147d25c0d6211eaf26fd862d9052072f0fd63c4.svg" />
 </div>
 </div>
 <aside class="margin sidebar">
@@ -648,7 +629,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b43a66879c0d8e68af134faa92c08576de928354fd3560308a3455b69259d7b6.svg" src="../../_images/b43a66879c0d8e68af134faa92c08576de928354fd3560308a3455b69259d7b6.svg" />
+<img alt="../../_images/fc74ce3996e128b93eb766f69cfe4eb9bdf095246b7cc61402a3ec57e12ef989.svg" src="../../_images/fc74ce3996e128b93eb766f69cfe4eb9bdf095246b7cc61402a3ec57e12ef989.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -659,7 +640,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d3e02e88ce829ffb38eb41a20fe28927ced3ca20bf077cbd1f48331d49d42047.svg" src="../../_images/d3e02e88ce829ffb38eb41a20fe28927ced3ca20bf077cbd1f48331d49d42047.svg" />
+<img alt="../../_images/9ee79d60a632c02b5e8859e3a9165db3ff6a9a94a6d8bc02bbfdfa021cc538cd.svg" src="../../_images/9ee79d60a632c02b5e8859e3a9165db3ff6a9a94a6d8bc02bbfdfa021cc538cd.svg" />
 </div>
 </div>
 </section>
@@ -675,7 +656,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/77f85516504f84ae14da3330012afa5cb6af9499f6409ce0cebad97ff6527119.svg" src="../../_images/77f85516504f84ae14da3330012afa5cb6af9499f6409ce0cebad97ff6527119.svg" />
+<img alt="../../_images/e81876b553b373351844b1d953204d53ac0d4bf09543d5da9384a1cba9c60092.svg" src="../../_images/e81876b553b373351844b1d953204d53ac0d4bf09543d5da9384a1cba9c60092.svg" />
 </div>
 </div>
 <p id="index-5">In the event you want a title at the top of your plots, you can add one using the <code class="docutils literal notranslate"><span class="pre">plt.title()</span></code> argument. To add symbols to the axes, this can be done using Latex commands which are used below, but discussion of Latex is beyond the scope of this chapter.</p>
@@ -683,13 +664,13 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">psi_3s</span><span class="p">,</span> <span class="s1">&#39;go-&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Radius, Bohrs&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Wave Function, $\Psi$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Wave Function, $</span><span class="se">\\</span><span class="s1">Psi$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;3S Radial Wave Function&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/cbf6a5aa6319eeb395cfcde6fe3b4f0d768da8f95e0a2e8fa8d3801c7ece519b.svg" src="../../_images/cbf6a5aa6319eeb395cfcde6fe3b4f0d768da8f95e0a2e8fa8d3801c7ece519b.svg" />
+<img alt="../../_images/db19278cde939df13b0c40a7f210c2c00027e4b9b94eaad45a8d5b17397f2529.svg" src="../../_images/db19278cde939df13b0c40a7f210c2c00027e4b9b94eaad45a8d5b17397f2529.svg" />
 </div>
 </div>
 <aside class="margin sidebar">
@@ -708,13 +689,13 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">psi_3s</span><span class="p">,</span> <span class="s1">&#39;go-&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Radius, Bohrs&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Wave Function, $\Psi$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Wave Function, $</span><span class="se">\\</span><span class="s1">Psi$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;3S Radial Wave Function&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8d3d7eec4f177145167fd66a6d2972c734a8f22d11121769139a2365cea6b9da.svg" src="../../_images/8d3d7eec4f177145167fd66a6d2972c734a8f22d11121769139a2365cea6b9da.svg" />
+<img alt="../../_images/f7083f7b3ec4b6f17bf673d00516dec5bcb8cb327f7d67eb98b25a5dc30fc827.svg" src="../../_images/f7083f7b3ec4b6f17bf673d00516dec5bcb8cb327f7d67eb98b25a5dc30fc827.svg" />
 </div>
 </div>
 </section>
@@ -729,7 +710,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/56f8727c5406eba5c50d59cd296bbfb2c20283bbebe17e49a40bbf7c38aa1a43.svg" src="../../_images/56f8727c5406eba5c50d59cd296bbfb2c20283bbebe17e49a40bbf7c38aa1a43.svg" />
+<img alt="../../_images/183646942398e963035d96814c3a1471d2fa5725a1b14c20f84df592a78388ba.svg" src="../../_images/183646942398e963035d96814c3a1471d2fa5725a1b14c20f84df592a78388ba.svg" />
 </div>
 </div>
 <aside class="margin sidebar">
@@ -765,7 +746,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/847941ec08eae2d4b521e90c6381673e54d8ea9dff56d80de1bc82b1d8fcb459.svg" src="../../_images/847941ec08eae2d4b521e90c6381673e54d8ea9dff56d80de1bc82b1d8fcb459.svg" />
+<img alt="../../_images/a7127065e9960734193fe4f9dcb1a4a3d87d1256c238cc5493189955a7127567.svg" src="../../_images/a7127065e9960734193fe4f9dcb1a4a3d87d1256c238cc5493189955a7127567.svg" />
 </div>
 </div>
 <p>The bar plot characteristics can be adjusted like most other types of plots in matplotlib. The main arguments you will probably want to adjust are color and width, but some other arguments are provided in Table 5. The color arguments are consistent with the <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> colors from earlier. The error bar arguments can take either a single value to display homogenous error bars on all data points or can take a multi-element object (e.g., a list or tuple) containing the different margins of uncertainty for each data point.</p>
@@ -822,7 +803,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5c54e4ec4c8a798aac93c8e776c0d3f52188d5113d6cf2806c24c62858300ce5.svg" src="../../_images/5c54e4ec4c8a798aac93c8e776c0d3f52188d5113d6cf2806c24c62858300ce5.svg" />
+<img alt="../../_images/862be68667364c48ed53a3ffb3d591b18aadf0cc1cf3c7ae7633bc42cc3864e3.svg" src="../../_images/862be68667364c48ed53a3ffb3d591b18aadf0cc1cf3c7ae7633bc42cc3864e3.svg" />
 </div>
 </div>
 <p>In the example above, the alcohol content is represented on the <span class="math notranslate nohighlight">\(x\)</span>-axis, the alkalinity is represented on the <span class="math notranslate nohighlight">\(y\)</span>-axis, and the proline content is shown using the color of the markers. The spectrum of colors that represent the values is called the <em>colormap</em>, and this can be changed using an optional <code class="docutils literal notranslate"><span class="pre">cmap=</span></code> argument. See the <a class="reference external" href="https://matplotlib.org/3.5.1/tutorials/colors/colormaps.html">matplotlib colormap page</a> for a list of available colormaps.</p>
@@ -846,7 +827,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f98f9675296fabd0031c3a5ae92c9ed9d433bc52e86b5fea6e64fae1b1d87ccc.svg" src="../../_images/f98f9675296fabd0031c3a5ae92c9ed9d433bc52e86b5fea6e64fae1b1d87ccc.svg" />
+<img alt="../../_images/7bc58c0e2a94d927f6cdb779391b85913deeab05fbe92d1706ee13dcf9017421.svg" src="../../_images/7bc58c0e2a94d927f6cdb779391b85913deeab05fbe92d1706ee13dcf9017421.svg" />
 </div>
 </div>
 <p id="index-12"><span id="index-11"></span>As an additional example, we can generate a plot of nuclide atomic numbers versus the number of neutrons and color the markers with the log of the half-life, in years, of each nuclide.</p>
@@ -881,13 +862,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/aaba33bf4ff0b53f652ad3a168d710e7a14ee654dfe7169a061f1ed45abdb5eb.svg" src="../../_images/aaba33bf4ff0b53f652ad3a168d710e7a14ee654dfe7169a061f1ed45abdb5eb.svg" />
+<img alt="../../_images/d4f5b19dec673d069b0665bd6dcd08ec35c4b2094f177ff970a226abe184e9f9.svg" src="../../_images/d4f5b19dec673d069b0665bd6dcd08ec35c4b2094f177ff970a226abe184e9f9.svg" />
 </div>
 </div>
 <p>One of the issues we encounter in the above plot is that the range of half-lives is large with relatively few points in the extreme ends. We can see this in the histogram plot of these log half-life values shown below (see <a class="reference internal" href="#id11"><span class="std std-ref">section 3.2.3</span></a>).</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/1d784704f370475fa56334084e25b27a270ecfe363ea93c901c05e39e882d8ca.svg" src="../../_images/1d784704f370475fa56334084e25b27a270ecfe363ea93c901c05e39e882d8ca.svg" />
+<img alt="../../_images/9f88b63cbbe726ccbfcd5e364409123e86d247e72d05ee07f7cd3a572473dec0.svg" src="../../_images/9f88b63cbbe726ccbfcd5e364409123e86d247e72d05ee07f7cd3a572473dec0.svg" />
 </div>
 </div>
 <p>In order to prevent the few values at the extremes from effectively washing out the color and making it difficult to see the differences, we can use the <code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code> arguments <code class="docutils literal notranslate"><span class="pre">vmax=</span></code> and <code class="docutils literal notranslate"><span class="pre">vmin=</span></code> to narrow the colormap range like shown below. By doing this, any values above the <code class="docutils literal notranslate"><span class="pre">vmax=</span></code> value will be a fixed color, and any values below the <code class="docutils literal notranslate"><span class="pre">vmin=</span></code> value with be a fixed color.</p>
@@ -903,7 +884,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/516e4f8139d3fa85d6377432a576edb8d93d50e4abb1c337cb04b661ce34869b.svg" src="../../_images/516e4f8139d3fa85d6377432a576edb8d93d50e4abb1c337cb04b661ce34869b.svg" />
+<img alt="../../_images/66c86bff13d374ab2507d59e805e1a2cd2de66f81cc6377e357bfbbb0e7fe0fe.svg" src="../../_images/66c86bff13d374ab2507d59e805e1a2cd2de66f81cc6377e357bfbbb0e7fe0fe.svg" />
 </div>
 </div>
 </section>
@@ -923,7 +904,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/24aba8e876efd8e7d3236ce1b0217eb4a28d2158f73830a9a9f8ff58f7cf6efd.svg" src="../../_images/24aba8e876efd8e7d3236ce1b0217eb4a28d2158f73830a9a9f8ff58f7cf6efd.svg" />
+<img alt="../../_images/4a9542ee74da0a52f34999dc869b5b31c6eb1f1e363633d84d2d87ecc91fd40e.svg" src="../../_images/4a9542ee74da0a52f34999dc869b5b31c6eb1f1e363633d84d2d87ecc91fd40e.svg" />
 </div>
 </div>
 <p>From the plot above, we can see that a large number of heat capacities reside in the area of 0.1-0.5 J/g<span class="math notranslate nohighlight">\(\cdot^o\)</span>C and none fall in the 0.6-0.8 J/g<span class="math notranslate nohighlight">\(\cdot^o\)</span>C range.</p>
@@ -937,7 +918,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9ff1c8da9d81d60bee4a0ecb077dcaa33866c4e823d5a740cfbe8b1b62a2dfca.svg" src="../../_images/9ff1c8da9d81d60bee4a0ecb077dcaa33866c4e823d5a740cfbe8b1b62a2dfca.svg" />
+<img alt="../../_images/10773d0b6982c30a41ae74c9f0c1079bf7d7266842de576f175508d5d702cd8c.svg" src="../../_images/10773d0b6982c30a41ae74c9f0c1079bf7d7266842de576f175508d5d702cd8c.svg" />
 </div>
 </div>
 <p>Providing the histogram function bin edges offers far more control to the user, but writing out a list can be tedious. As an alternative, the histogram function also accepts bin edges as <code class="docutils literal notranslate"><span class="pre">range()</span></code> objects. Unfortunately, Python’s built-in <code class="docutils literal notranslate"><span class="pre">range()</span></code> function only generates values with integer steps. As an alternative, you can use list comprehension from chapter 2 or use NumPy’s <code class="docutils literal notranslate"><span class="pre">np.arange()</span></code> function from <a class="reference internal" href="../chapter_04/chap_04_notebook.html#id5"><span class="std std-ref">section 4.1.3</span></a> which does allow non-integer step sizes.</p>
@@ -955,7 +936,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/be3ece8bf09f35dbbe6bcfc001170e468462c771e5d77247b3a79ebd90be11a4.svg" src="../../_images/be3ece8bf09f35dbbe6bcfc001170e468462c771e5d77247b3a79ebd90be11a4.svg" />
+<img alt="../../_images/8bfb3ecba167fa444214d75769f77be8925ca643d2798e5bf82dcd774c6f9321.svg" src="../../_images/8bfb3ecba167fa444214d75769f77be8925ca643d2798e5bf82dcd774c6f9321.svg" />
 </div>
 </div>
 <div class="cell docutils container" id="index-16">
@@ -972,7 +953,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c1f661ca9c21776ccddf37202b6cf6715b84ba2546a0a04efabfe4200f67d82c.svg" src="../../_images/c1f661ca9c21776ccddf37202b6cf6715b84ba2546a0a04efabfe4200f67d82c.svg" />
+<img alt="../../_images/1e6f3325fb7825a40f16ab654047925776e4faec40f2d09e7d65bd9a3370d1d6.svg" src="../../_images/1e6f3325fb7825a40f16ab654047925776e4faec40f2d09e7d65bd9a3370d1d6.svg" />
 </div>
 </div>
 <div class="cell docutils container" id="index-17">
@@ -987,7 +968,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/856bc600ebf3b4d8528fa4b49525025f9a87a3e2272be7ece1dedf9d03c9c61b.svg" src="../../_images/856bc600ebf3b4d8528fa4b49525025f9a87a3e2272be7ece1dedf9d03c9c61b.svg" />
+<img alt="../../_images/b67f149cc3ad73c917701b07038ae6c04fbff75ec3e09cc39d523374307600fd.svg" src="../../_images/b67f149cc3ad73c917701b07038ae6c04fbff75ec3e09cc39d523374307600fd.svg" />
 </div>
 </div>
 <div class="cell docutils container" id="index-18">
@@ -1002,7 +983,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/882af5d8b9966520542fe46f7a41aa0e7d53736afbf732b09d855c45782245e3.svg" src="../../_images/882af5d8b9966520542fe46f7a41aa0e7d53736afbf732b09d855c45782245e3.svg" />
+<img alt="../../_images/d7e4c04d88588d4ab6e55d002331a2b8af9cf467ba18041ba70ca9183eccd82f.svg" src="../../_images/d7e4c04d88588d4ab6e55d002331a2b8af9cf467ba18041ba70ca9183eccd82f.svg" />
 </div>
 </div>
 </section>
@@ -1032,7 +1013,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7d9aadb87d9d734fbfaf7dae552046595bc912d19b6c2e442685ae22ffe67d54.svg" src="../../_images/7d9aadb87d9d734fbfaf7dae552046595bc912d19b6c2e442685ae22ffe67d54.svg" />
+<img alt="../../_images/4d846ec99dd3cfdb00fd87424d782102431fe3f41b811bd0110fa1a9a00dc4f2.svg" src="../../_images/4d846ec99dd3cfdb00fd87424d782102431fe3f41b811bd0110fa1a9a00dc4f2.svg" />
 </div>
 </div>
 <p>The second approach is to include both sets of data in the same plotting command as is shown below. Matplotlib will assume that each new non-keyword is a new set of data and that the positional arguments are associated with the most recent data.</p>
@@ -1046,7 +1027,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c529e50d4c1844d596eb5ee3d077634ef35a62a983d19b9cb3b2d9fdfed47c28.svg" src="../../_images/c529e50d4c1844d596eb5ee3d077634ef35a62a983d19b9cb3b2d9fdfed47c28.svg" />
+<img alt="../../_images/9e8187147b5721e47f5488cace8e1bd1a4688a07139ebc99d99020aa06414e0a.svg" src="../../_images/9e8187147b5721e47f5488cace8e1bd1a4688a07139ebc99d99020aa06414e0a.svg" />
 </div>
 </div>
 <p>In the second plot above, <code class="docutils literal notranslate"><span class="pre">r</span></code>, <code class="docutils literal notranslate"><span class="pre">psi_3s</span></code>, <code class="docutils literal notranslate"><span class="pre">'bo'</span></code> are the data and style for the first set of data while <code class="docutils literal notranslate"><span class="pre">r</span></code>, <code class="docutils literal notranslate"><span class="pre">psi_3p</span></code>,<code class="docutils literal notranslate"><span class="pre">'r^'</span></code> are the data and plotting style for the second.</p>
@@ -1062,7 +1043,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8e5c661ac16c8aef41d2d668e2266e706fae376c6ed0d751e5b58248b1dc768b.svg" src="../../_images/8e5c661ac16c8aef41d2d668e2266e706fae376c6ed0d751e5b58248b1dc768b.svg" />
+<img alt="../../_images/0573fa890c454cbf397158e7dad8c6043e612adc4fcf19d552c120e988db2107.svg" src="../../_images/0573fa890c454cbf397158e7dad8c6043e612adc4fcf19d552c120e988db2107.svg" />
 </div>
 </div>
 </section>
@@ -1091,7 +1072,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b67c90bb088ec22eda65a743b2469a14ca335418eee19c8b1e491243351178a7.svg" src="../../_images/b67c90bb088ec22eda65a743b2469a14ca335418eee19c8b1e491243351178a7.svg" />
+<img alt="../../_images/6bd7bcebb41300ba2c4150eea81f2368e4b5a0dd9dd17ae4b68863fb4abf8d1e.svg" src="../../_images/6bd7bcebb41300ba2c4150eea81f2368e4b5a0dd9dd17ae4b68863fb4abf8d1e.svg" />
 </div>
 </div>
 <p>If you don’t like dimensions of your plot, you can still change them using a <code class="docutils literal notranslate"><span class="pre">figsize=(width,</span> <span class="pre">height)</span></code> argument in <code class="docutils literal notranslate"><span class="pre">figure()</span></code> function like the following.</p>
@@ -1114,7 +1095,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b6be86391171e6a3733efe818f7a525033d6b44fc78a917f33ab560a57389dcb.svg" src="../../_images/b6be86391171e6a3733efe818f7a525033d6b44fc78a917f33ab560a57389dcb.svg" />
+<img alt="../../_images/b70981b461e7dc33bb05069e229fa9fc194e0581a932a2a700ed01365634837c.svg" src="../../_images/b70981b461e7dc33bb05069e229fa9fc194e0581a932a2a700ed01365634837c.svg" />
 </div>
 </div>
 <p>The values in the <code class="docutils literal notranslate"><span class="pre">plt.subplot()</span></code> command may seem redundant. Why are the dimensions for the figure repeatedly defined instead of just once? The answer is that subplots with different dimensions can be created in the same figure (Figure 1). In this example, the top subplot dimension is created as if though it is the first subplot in a 2 <span class="math notranslate nohighlight">\(\times\)</span> 1 figure. The bottom two subplot dimensions are created as if they are the third and fourth subplots in a 2 <span class="math notranslate nohighlight">\(\times\)</span> 2 figure.</p>
@@ -1140,28 +1121,28 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">psi</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="mi">180</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="mi">180</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$\phi, degrees$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$\psi, degrees$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">phi, degrees$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">psi, degrees$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ramachandran Plot&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">phi</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$\phi, degrees$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">phi, degrees$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;$\phi \, Angles$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">phi , Angles$&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">psi</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$\psi, degrees$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">psi, degrees$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;$\psi \, Angles$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">psi , Angles$&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/28fc05662afd44c333b35b8efe632a3d71701b980553858bdc6e9bd9bc87b0ad.svg" src="../../_images/28fc05662afd44c333b35b8efe632a3d71701b980553858bdc6e9bd9bc87b0ad.svg" />
+<img alt="../../_images/07d58bfb18566172ec47a8150c8eddec304fdf1b8fcfc089f631ddf8169fa0ff.svg" src="../../_images/07d58bfb18566172ec47a8150c8eddec304fdf1b8fcfc089f631ddf8169fa0ff.svg" />
 </div>
 </div>
 <aside class="margin sidebar">
@@ -1198,7 +1179,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d258cbdd49082095f50ec034b449b9c383116dde9a252fc38abbe38323cc7570.svg" src="../../_images/d258cbdd49082095f50ec034b449b9c383116dde9a252fc38abbe38323cc7570.svg" />
+<img alt="../../_images/76be1cfbb2e4abeac11cf7f30bce3c3f59c5adaa7549f4643027b9b34a4b2941.svg" src="../../_images/76be1cfbb2e4abeac11cf7f30bce3c3f59c5adaa7549f4643027b9b34a4b2941.svg" />
 </div>
 </div>
 </section>
@@ -1231,7 +1212,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8fa34829e59f416756f9e813d4427846204a96a71711d9dbbcc17ac418d32a69.svg" src="../../_images/8fa34829e59f416756f9e813d4427846204a96a71711d9dbbcc17ac418d32a69.svg" />
+<img alt="../../_images/8a884beb521c229ac8da44c4f25f2efd244642483d68a93cbfe469aef93abb58.svg" src="../../_images/8a884beb521c229ac8da44c4f25f2efd244642483d68a93cbfe469aef93abb58.svg" />
 </div>
 </div>
 </section>
@@ -1274,10 +1255,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x127c04dd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x15805fc20&gt;
 </pre></div>
 </div>
-<img alt="../../_images/b65511da37f56d3da8a1b4b22129b0b3903065adf99d2eda809c605fe8964cb3.svg" src="../../_images/b65511da37f56d3da8a1b4b22129b0b3903065adf99d2eda809c605fe8964cb3.svg" />
+<img alt="../../_images/7cba452f0e865028618b4f69244f1bf2f565cbe54bc87a8cb49d7f66233a84f2.svg" src="../../_images/7cba452f0e865028618b4f69244f1bf2f565cbe54bc87a8cb49d7f66233a84f2.svg" />
 </div>
 </div>
 <p>As a more chemical example, we can plot the standing waves for a 2D particle in a box by the following equation where <span class="math notranslate nohighlight">\(n_x\)</span> and <span class="math notranslate nohighlight">\(n_y\)</span> are the principle quantum numbers along each axis and <span class="math notranslate nohighlight">\(L\)</span> is the length of the box.</p>
@@ -1312,7 +1293,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c7a1cfddf4691161c39f4677b7e8256262ef2d8c64d3cfb5949106b7193abad0.svg" src="../../_images/c7a1cfddf4691161c39f4677b7e8256262ef2d8c64d3cfb5949106b7193abad0.svg" />
+<img alt="../../_images/36b7c861a98d892ade6fc1f2c84edf5e3232ad74075babde6d87b78e910da202.svg" src="../../_images/36b7c861a98d892ade6fc1f2c84edf5e3232ad74075babde6d87b78e910da202.svg" />
 </div>
 </div>
 <p>You are encouraged to increase the values for <span class="math notranslate nohighlight">\(n_x\)</span> and <span class="math notranslate nohighlight">\(n_y\)</span> and see how the surface plot changes.</p>
@@ -1326,7 +1307,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/135e4c401289ec0dc3ba7d586f12c812d04e383c01da91026d17d61844dd4777.svg" src="../../_images/135e4c401289ec0dc3ba7d586f12c812d04e383c01da91026d17d61844dd4777.svg" />
+<img alt="../../_images/428b71ecb7798d90f913a909530b0d44a65306d2b4dcccac61100341866e8ed6.svg" src="../../_images/428b71ecb7798d90f913a909530b0d44a65306d2b4dcccac61100341866e8ed6.svg" />
 </div>
 </div>
 </section>
@@ -1370,7 +1351,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Z axis&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/1193a46ff40adb5896d3d92649172f1394c93c2d8cd60712d4b839863deac29d.svg" src="../../_images/1193a46ff40adb5896d3d92649172f1394c93c2d8cd60712d4b839863deac29d.svg" />
+<img alt="../../_images/662133ba2b0670b90fe7864640dea7d4af6d5ca67560b550f0702260adfd1d55.svg" src="../../_images/662133ba2b0670b90fe7864640dea7d4af6d5ca67560b550f0702260adfd1d55.svg" />
 </div>
 </div>
 </section>
@@ -1396,7 +1377,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0aa32be2212450558d55ba3cc7b3704d22774f83309457586893136d7e60d69d.svg" src="../../_images/0aa32be2212450558d55ba3cc7b3704d22774f83309457586893136d7e60d69d.svg" />
+<img alt="../../_images/ee46a5bfa4e33b4a100649c2499274fa8adc8e540f0ba7435b742ec80c9946e9.svg" src="../../_images/ee46a5bfa4e33b4a100649c2499274fa8adc8e540f0ba7435b742ec80c9946e9.svg" />
 </div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">plt.hexbin()</span></code> function in its basic form is like the <code class="docutils literal notranslate"><span class="pre">plt.hist2d()</span></code> function except that the bins are hexagons instead of rectangles.</p>
@@ -1409,7 +1390,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/83482f253145f74488a7af0c7c6b3ad09af30a895469a04f78b3befe61ec6234.svg" src="../../_images/83482f253145f74488a7af0c7c6b3ad09af30a895469a04f78b3befe61ec6234.svg" />
+<img alt="../../_images/b59189dd33450543fdfecc41a81d0718c70b61adb59575ce8fd146408c666c2b.svg" src="../../_images/b59189dd33450543fdfecc41a81d0718c70b61adb59575ce8fd146408c666c2b.svg" />
 </div>
 </div>
 </section>
@@ -1441,7 +1422,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7aeddce2421884cceeb03c3f34b8452db268af0e2cd57d07854847b645704278.svg" src="../../_images/7aeddce2421884cceeb03c3f34b8452db268af0e2cd57d07854847b645704278.svg" />
+<img alt="../../_images/4f85bde13b4b0be3cc1f5146e628418f0d46f9aeaf2dc3cf38f7232be7d58e04.svg" src="../../_images/4f85bde13b4b0be3cc1f5146e628418f0d46f9aeaf2dc3cf38f7232be7d58e04.svg" />
 </div>
 </div>
 <p>We can also generate a contour plot where the space between the lines is filled using the <code class="docutils literal notranslate"><span class="pre">plt.contourf()</span></code> function. The “f” is for “filled”.</p>
@@ -1453,7 +1434,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/46d5495c8b277b8636121bf076d61545357292a0ab2bb9efcf23826f5c577fe7.svg" src="../../_images/46d5495c8b277b8636121bf076d61545357292a0ab2bb9efcf23826f5c577fe7.svg" />
+<img alt="../../_images/ba27ffef388d2558122e469524bddb6d06ea724a12253315e50b2fe2b95d80a7.svg" src="../../_images/ba27ffef388d2558122e469524bddb6d06ea724a12253315e50b2fe2b95d80a7.svg" />
 </div>
 </div>
 <p>If the data are in <span class="math notranslate nohighlight">\(xyz\)</span> coordinate format, we will instead use the <code class="docutils literal notranslate"><span class="pre">plt.tricontour()</span></code> or <code class="docutils literal notranslate"><span class="pre">plt.tricontourf()</span></code> functions as demonstrated below with COSY NMR data of quinine.</p>
@@ -1472,7 +1453,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/cd563fa32946cc76faaf6d45e93500211e38f0164c3d89936d75e94f87013dfc.svg" src="../../_images/cd563fa32946cc76faaf6d45e93500211e38f0164c3d89936d75e94f87013dfc.svg" />
+<img alt="../../_images/b58d03b534b0491e96add3ec6ded3afcb90b927875586849d0ea9a05d380259e.svg" src="../../_images/b58d03b534b0491e96add3ec6ded3afcb90b927875586849d0ea9a05d380259e.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1486,7 +1467,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5572e8ea6ba626174a137d114b87ffc9444c8e59e2852334d4b0db54364ea2d2.svg" src="../../_images/5572e8ea6ba626174a137d114b87ffc9444c8e59e2852334d4b0db54364ea2d2.svg" />
+<img alt="../../_images/366ff5c98a5d05b8a469953a3d1e83cde518c611527e9146802a24bf69359eef.svg" src="../../_images/366ff5c98a5d05b8a469953a3d1e83cde518c611527e9146802a24bf69359eef.svg" />
 </div>
 </div>
 <p>As a final example, it is possible to merge a contour plot with a line plot. This is useful for representing 2D NMR spectra such as COSY NMR where the COSY NMR data is represented by the contour plot while the <span class="math notranslate nohighlight">\(^1\)</span>H NMR spectrum is located on the margins of the contour plot. Below, a function <code class="docutils literal notranslate"><span class="pre">plot_2d_nmr()</span></code> is defined (in collapsed cell) to generate such a plot.</p>
@@ -1577,7 +1558,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9e2b8ff9d1284ee98fd3d7ac94eeb062e474ba236e33c2b7cabb7a1872ac8ecd.svg" src="../../_images/9e2b8ff9d1284ee98fd3d7ac94eeb062e474ba236e33c2b7cabb7a1872ac8ecd.svg" />
+<img alt="../../_images/d4a91f84b7802314039a10aef9c1e0f73fff08b7781bf7482cc8879c6b0c6357.svg" src="../../_images/d4a91f84b7802314039a10aef9c1e0f73fff08b7781bf7482cc8879c6b0c6357.svg" />
 </div>
 </div>
 </section>
@@ -1726,7 +1707,8 @@ You will need to look up the values which should be available in most general ch
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1820,8 +1802,8 @@ By Charles J. Weiss
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>

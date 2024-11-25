@@ -1,0 +1,63 @@
+Traceback (most recent call last):
+  File "/Users/cerberus/opt/miniconda3/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/cerberus/opt/miniconda3/lib/python3.12/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cerberus/opt/miniconda3/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cerberus/opt/miniconda3/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/cerberus/opt/miniconda3/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/Users/cerberus/opt/miniconda3/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/cerberus/opt/miniconda3/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+prot = nv.show_file('3hpb.pdb')
+prot
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+Cell [0;32mIn[47], line 1[0m
+[0;32m----> 1[0m prot [38;5;241m=[39m [43mnv[49m[38;5;241;43m.[39;49m[43mshow_file[49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43m3hpb.pdb[39;49m[38;5;124;43m'[39;49m[43m)[49m
+[1;32m      2[0m prot
+
+File [0;32m~/opt/miniconda3/envs/scicompchem-env/lib/python3.12/site-packages/nglview/show.py:246[0m, in [0;36mshow_file[0;34m(path, **kwargs)[0m
+[1;32m    244[0m [38;5;28;01melse[39;00m:
+[1;32m    245[0m     view [38;5;241m=[39m NGLWidget()
+[0;32m--> 246[0m     [43mview[49m[38;5;241;43m.[39;49m[43madd_component[49m[43m([49m[43mpath[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[1;32m    247[0m [38;5;28;01mreturn[39;00m view
+
+File [0;32m~/opt/miniconda3/envs/scicompchem-env/lib/python3.12/site-packages/nglview/widget.py:1216[0m, in [0;36mNGLWidget.add_component[0;34m(self, filename, **kwargs)[0m
+[1;32m   1213[0m     [38;5;28;01mif[39;00m package_name [38;5;129;01min[39;00m BACKENDS:
+[1;32m   1214[0m         filename [38;5;241m=[39m BACKENDS[package_name](filename)
+[0;32m-> 1216[0m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_load_data[49m[43m([49m[43mfilename[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[1;32m   1217[0m [38;5;66;03m# assign an ID[39;00m
+[1;32m   1218[0m [38;5;28mself[39m[38;5;241m.[39m_ngl_component_ids[38;5;241m.[39mappend([38;5;28mstr[39m(uuid[38;5;241m.[39muuid4()))
+
+File [0;32m~/opt/miniconda3/envs/scicompchem-env/lib/python3.12/site-packages/nglview/widget.py:1254[0m, in [0;36mNGLWidget._load_data[0;34m(self, obj, **kwargs)[0m
+[1;32m   1251[0m blob [38;5;241m=[39m fh[38;5;241m.[39mread(force_buffer[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
+[1;32m   1252[0m passing_buffer [38;5;241m=[39m [38;5;28;01mTrue[39;00m
+[0;32m-> 1254[0m [38;5;28;01mif[39;00m [43mfh[49m[38;5;241;43m.[39;49m[43mext[49m [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m [38;5;129;01mand[39;00m passing_buffer:
+[1;32m   1255[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124m'[39m[38;5;124mmust provide extension[39m[38;5;124m'[39m)
+[1;32m   1257[0m kwargs2[[38;5;124m'[39m[38;5;124mext[39m[38;5;124m'[39m] [38;5;241m=[39m fh[38;5;241m.[39mext
+
+File [0;32m~/opt/miniconda3/envs/scicompchem-env/lib/python3.12/site-packages/nglview/utils/py_utils.py:242[0m, in [0;36mFileManager.ext[0;34m(self)[0m
+[1;32m    239[0m [38;5;28;01melse[39;00m:
+[1;32m    240[0m     [38;5;28;01mif[39;00m [38;5;28mhasattr[39m([38;5;28mself[39m[38;5;241m.[39msrc, [38;5;124m'[39m[38;5;124mread[39m[38;5;124m'[39m) [38;5;129;01mor[39;00m ([38;5;129;01mnot[39;00m [38;5;28mself[39m[38;5;241m.[39mis_filename
+[1;32m    241[0m                                      [38;5;129;01mand[39;00m [38;5;129;01mnot[39;00m [38;5;28mself[39m[38;5;241m.[39mis_url):
+[0;32m--> 242[0m         [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(
+[1;32m    243[0m             [38;5;124m"[39m[38;5;124myou must provide file extension if using file-like object or text content[39m[38;5;124m"[39m
+[1;32m    244[0m         )
+[1;32m    245[0m     [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mis_compressed:
+[1;32m    246[0m         [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39msrc[38;5;241m.[39msplit([38;5;124m'[39m[38;5;124m.[39m[38;5;124m'[39m)[[38;5;241m-[39m[38;5;241m2[39m]
+
+[0;31mValueError[0m: you must provide file extension if using file-like object or text content
+
