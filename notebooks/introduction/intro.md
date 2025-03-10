@@ -97,3 +97,4 @@ This book took a substantial time to write along with the time and effort in dev
 - Matthew A. Kubasik for reporting an error in chapter 8
 - Geoffrey M. Sametz for help with nmrsim
 - Ryan Schulte for reporting typos
+- Robert Belford for reports typos
