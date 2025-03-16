@@ -428,6 +428,12 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raising-exceptions">2.8.3 Raising Exceptions</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime-module">2.9 <code class="docutils literal notranslate"><span class="pre">datetime</span></code> Module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#date-and-time-data">2.9.1 Date and Time Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changes-in-date-and-time">2.9.2 Changes in Date and Time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-date-and-time-information">2.9.3 Extracting Date and Time Information</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further Reading</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
 </ul>
@@ -1062,7 +1068,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;itertools.combinations at 0x10ae3b970&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;itertools.combinations at 0x106697920&gt;
 </pre></div>
 </div>
 </div>
@@ -1171,7 +1177,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.35429885202410705
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8065941117359702
 </pre></div>
 </div>
 </div>
@@ -1183,7 +1189,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
 </pre></div>
 </div>
 </div>
@@ -1197,7 +1203,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 6, 5, 4, 3, 2]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 6, 3, 5, 1, 2]
 </pre></div>
 </div>
 </div>
@@ -1991,6 +1997,346 @@
 </div>
 </section>
 </section>
+<section id="datetime-module">
+<span id="id25"></span><h2>2.9 <code class="docutils literal notranslate"><span class="pre">datetime</span></code> Module<a class="headerlink" href="#datetime-module" title="Link to this heading">#</a></h2>
+<p>It is often neccesary to know when data were collected such as in chemical kinetics. This information may be stored in the file itself or as a timestamp at the end of the file name. Not only is it neccesary to extract this date and time information, it is often also neccesary to calculate the times since the start of the experiment or between data points. This section covers Python’s native <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module useful for working with date and time information and extracting this information from files. The four object types covered here are listed in <strong>Table 8</strong>. The first three tell us when the data were collected while the third, <code class="docutils literal notranslate"><span class="pre">timedelta</span></code>, tells us the amount of time between two times or dates.</p>
+<p><strong>Table 8</strong> Common <code class="docutils literal notranslate"><span class="pre">datetime</span></code> Objects</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Object Type</p></th>
+<th class="head text-left"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">date</span></code></p></td>
+<td class="text-left"><p>Contains date informaing ignoring time</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">time</span></code></p></td>
+<td class="text-left"><p>Contains time informaing ignoring date</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code></p></td>
+<td class="text-left"><p>Contains date and time information</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">timedelta</span></code></p></td>
+<td class="text-left"><p>Contains change in date and time informatin</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We assume here that the data collection occured in one timezone and not across leap years. If this is not the case, see the <a class="reference external" href="https://docs.python.org/3/library/datetime.html">Python datetime documentation</a> for dealing with these added complexities.</p>
+</div>
+</aside>
+<p>We will start with what these objects are and how to work with them followed by how to use <code class="docutils literal notranslate"><span class="pre">datetime</span></code> to extract date and time information from data files. First, we need to import the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="date-and-time-data">
+<span id="id26"></span><h3>2.9.1 Date and Time Data<a class="headerlink" href="#date-and-time-data" title="Link to this heading">#</a></h3>
+<p>The datetime module often stores date and time information in a <code class="docutils literal notranslate"><span class="pre">datetime</span></code>object. A <code class="docutils literal notranslate"><span class="pre">datetime</span></code> object can be created multiple ways such as explicitely indicating a specific date and time using the <code class="docutils literal notranslate"><span class="pre">datetime()</span></code> method. For example, below we indicate noon on Pi Day 2025. The <code class="docutils literal notranslate"><span class="pre">datetime()</span></code> method takes the year, month, day, hour, minutes, seconds, and microseconds as optional positional arguments in this order.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">hour</span><span class="p">,</span> <span class="n">minutes</span><span class="p">,</span> <span class="n">seconds</span><span class="p">,</span> <span class="n">microseconds</span><span class="p">)</span> 
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pi_day</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2025</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> 
+<span class="n">pi_day</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 3, 14, 12, 0)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The date and time information can also be provided to <code class="docutils literal notranslate"><span class="pre">datetime()</span></code> using keyword arguments like below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mario_day</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2025</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">10</span> <span class="p">,</span><span class="n">hour</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">microsecond</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The current date and time can be accessed using the <code class="docutils literal notranslate"><span class="pre">now()</span></code> method for the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module. This function also accepts an optional timezone (<code class="docutils literal notranslate"><span class="pre">tz=</span></code>) argument (not discussed here). If no argument is provided, then <code class="docutils literal notranslate"><span class="pre">tz=None</span></code>. There is also a <code class="docutils literal notranslate"><span class="pre">datetime.datetime.today()</span></code> function that is equivalent to the <code class="docutils literal notranslate"><span class="pre">now()</span></code> function when no timezone is provided or <code class="docutils literal notranslate"><span class="pre">tz=None</span></code>. The <code class="docutils literal notranslate"><span class="pre">now()</span></code> function is recommended by the Python <a class="reference external" href="https://docs.python.org/3/library/datetime.html">Python datetime documentation</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="n">now</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 3, 16, 17, 54, 18, 824504)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The hours, minutes, seconds, and microseconds can be accessed individually using the <code class="docutils literal notranslate"><span class="pre">hour</span></code>, <code class="docutils literal notranslate"><span class="pre">minute</span></code>, <code class="docutils literal notranslate"><span class="pre">second</span></code>, and <code class="docutils literal notranslate"><span class="pre">microsecond</span></code> attributes, respectively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">now</span><span class="o">.</span><span class="n">hour</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17
+</pre></div>
+</div>
+</div>
+</div>
+<p>A <code class="docutils literal notranslate"><span class="pre">datetime</span></code> object can be modified in place using the <code class="docutils literal notranslate"><span class="pre">replace</span></code> method like below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">now</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">hour</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 3, 16, 3, 54, 18, 824504)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The datetime module also has a <code class="docutils literal notranslate"><span class="pre">time</span></code> object that is similar to the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> object except that it restricts itself to time information. The <code class="docutils literal notranslate"><span class="pre">time()</span></code> function used to create a <code class="docutils literal notranslate"><span class="pre">time</span></code> object accepts the time as optional positional arguments.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="n">hour</span><span class="p">,</span> <span class="n">minutes</span><span class="p">,</span> <span class="n">seconds</span><span class="p">,</span> <span class="n">microseconds</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">32</span><span class="p">)</span>
+<span class="n">time</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.time(5, 3, 32)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Like <code class="docutils literal notranslate"><span class="pre">datetime</span></code> objects, the hours, minutes, seconds, and microseconds can be accessed individually or modified in place.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time</span><span class="o">.</span><span class="n">second</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">second</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.time(5, 3, 42)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="changes-in-date-and-time">
+<span id="id27"></span><h3>2.9.2 Changes in Date and Time<a class="headerlink" href="#changes-in-date-and-time" title="Link to this heading">#</a></h3>
+<p>The differences between two <code class="docutils literal notranslate"><span class="pre">datetime</span></code> objects can also be calculated by subtracting the two objects. The result is returned as a <code class="docutils literal notranslate"><span class="pre">timedelta</span></code>object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta</span> <span class="o">=</span> <span class="n">pi_day</span> <span class="o">-</span> <span class="n">mario_day</span>
+<span class="n">delta</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.timedelta(days=4, seconds=13800)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The days or seconds in the <code class="docutils literal notranslate"><span class="pre">timedelta</span></code> object can be accessed using the <code class="docutils literal notranslate"><span class="pre">days</span></code> or <code class="docutils literal notranslate"><span class="pre">seconds</span></code> attributes, respectively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta</span><span class="o">.</span><span class="n">days</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta</span><span class="o">.</span><span class="n">seconds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13800
+</pre></div>
+</div>
+</div>
+</div>
+<p>To condense a <code class="docutils literal notranslate"><span class="pre">timedelta</span></code> into seconds, use the <code class="docutils literal notranslate"><span class="pre">total_seconds()</span></code> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>359400.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="extracting-date-and-time-information">
+<span id="id28"></span><h3>2.9.3 Extracting Date and Time Information<a class="headerlink" href="#extracting-date-and-time-information" title="Link to this heading">#</a></h3>
+<p>Extracting date and time from a file or file name can be accomplished using the ‘string-parsed time’ <code class="docutils literal notranslate"><span class="pre">strptime()</span></code> function and formatting codes shown below. Additional codes can be found on the <a class="reference external" href="https://docs.python.org/3/library/datetime.html#format-codes">Python webstie</a>.</p>
+<p><strong>Table 2</strong> Formatting Codes for Parsing Date and Time Strings</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head text-left"><p>Example</p></th>
+<th class="head text-left"><p>Description</p></th>
+<th class="head text-left"><p>Length</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>%y</p></td>
+<td class="text-left"><p>01</p></td>
+<td class="text-left"><p>Year without centurty</p></td>
+<td class="text-left"><p>Two digits</p></td>
+</tr>
+<tr class="row-odd"><td><p>%Y</p></td>
+<td class="text-left"><p>2001</p></td>
+<td class="text-left"><p>Year with century</p></td>
+<td class="text-left"><p>Four digits</p></td>
+</tr>
+<tr class="row-even"><td><p>%b</p></td>
+<td class="text-left"><p>Jan</p></td>
+<td class="text-left"><p>Month abbreviation</p></td>
+<td class="text-left"><p>Three letters</p></td>
+</tr>
+<tr class="row-odd"><td><p>%B</p></td>
+<td class="text-left"><p>January</p></td>
+<td class="text-left"><p>Month full name</p></td>
+<td class="text-left"><p>Varies</p></td>
+</tr>
+<tr class="row-even"><td><p>%m</p></td>
+<td class="text-left"><p>01</p></td>
+<td class="text-left"><p>Month as zero padded number</p></td>
+<td class="text-left"><p>Two digits</p></td>
+</tr>
+<tr class="row-odd"><td><p>%d</p></td>
+<td class="text-left"><p>05</p></td>
+<td class="text-left"><p>Day of the month with zero padding</p></td>
+<td class="text-left"><p>Two digits</p></td>
+</tr>
+<tr class="row-even"><td><p>%H</p></td>
+<td class="text-left"><p>14</p></td>
+<td class="text-left"><p>Hour in 24 hour time with zero padding</p></td>
+<td class="text-left"><p>Two digits</p></td>
+</tr>
+<tr class="row-odd"><td><p>%p</p></td>
+<td class="text-left"><p>AM</p></td>
+<td class="text-left"><p>AM or PM</p></td>
+<td class="text-left"><p>Two letters</p></td>
+</tr>
+<tr class="row-even"><td><p>%I</p></td>
+<td class="text-left"><p>02</p></td>
+<td class="text-left"><p>Hour in 12 hour time with zero padding</p></td>
+<td class="text-left"><p>Two digits</p></td>
+</tr>
+<tr class="row-odd"><td><p>%M</p></td>
+<td class="text-left"><p>16</p></td>
+<td class="text-left"><p>Minute with zero padding</p></td>
+<td class="text-left"><p>Two digits</p></td>
+</tr>
+<tr class="row-even"><td><p>%S</p></td>
+<td class="text-left"><p>09</p></td>
+<td class="text-left"><p>Second with zero padding</p></td>
+<td class="text-left"><p>Two digits</p></td>
+</tr>
+<tr class="row-odd"><td><p>%f</p></td>
+<td class="text-left"><p>090000</p></td>
+<td class="text-left"><p>Microseconds with zero padding</p></td>
+<td class="text-left"><p>Six digits</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>These codes will allow you to parse strings into the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module by prividing the <code class="docutils literal notranslate"><span class="pre">strptime()</span></code> function with both the string from the data file and a description of how the date and time information is organized. For example, below is a file where the collection time is included in the file name as hour, minues, seconds separated by hyphens.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_name_1</span> <span class="o">=</span> <span class="s1">&#39;Absorbance_12-03-48.txt&#39;</span> 
+<span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">file_name_1</span><span class="p">[</span><span class="o">-</span><span class="mi">12</span><span class="p">:</span><span class="o">-</span><span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;%H-%M-%S&#39;</span><span class="p">)</span>
+<span class="n">timestamp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(1900, 1, 1, 12, 3, 48)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Because the date (i.e., year, month, and day) information were not provided, default values of January 1, 1900 is chosen for the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> object. If you only want the date or time information, you can access them using the <code class="docutils literal notranslate"><span class="pre">date()</span></code> or <code class="docutils literal notranslate"><span class="pre">time()</span></code> functions, respectively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">timestamp</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.date(1900, 1, 1)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">timestamp</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.time(12, 3, 48)
+</pre></div>
+</div>
+</div>
+</div>
+<p>If the values are not formatted like Python assumes, a little extra effort may be required. For example, below the time is formatted at hours-minutes-seconds-microseconds, but microseconds is not represented as six digits with zero padding like Python assumed. To deal with this, the microseconds are sliced out of the file name and added to the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> object using the <code class="docutils literal notranslate"><span class="pre">replace()</span></code> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_name_2</span> <span class="o">=</span> <span class="s1">&#39;glucose_Absorbance_12-03-48-215.txt&#39;</span>
+
+<span class="n">time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">file_name_2</span><span class="p">[</span><span class="o">-</span><span class="mi">16</span><span class="p">:</span><span class="o">-</span><span class="mi">8</span><span class="p">],</span> <span class="s1">&#39;%H-%M-%S&#39;</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">microsecond</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">file_name_2</span><span class="p">[</span><span class="o">-</span><span class="mi">7</span><span class="p">:</span><span class="o">-</span><span class="mi">4</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(1900, 1, 1, 12, 3, 48, 215)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 <section id="further-reading">
 <h2>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
 <p>The official Python website is the ultimate authority for documentation on the Python programming language and is well written. There are also numerous books available on the subject both free and otherwise. Below are a few examples. There is an abundance of other free resources such as YouTube videos and <a class="reference external" href="https://stackoverflow.com/">https://stackoverflow.com/</a> boards for people looking for more information.</p>
@@ -2192,6 +2538,12 @@ What is the theoretical mean for this data set?</p>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workout-around-errors-with-try-and-except">2.8.2 Workout Around Errors with <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raising-exceptions">2.8.3 Raising Exceptions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime-module">2.9 <code class="docutils literal notranslate"><span class="pre">datetime</span></code> Module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#date-and-time-data">2.9.1 Date and Time Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changes-in-date-and-time">2.9.2 Changes in Date and Time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-date-and-time-information">2.9.3 Extracting Date and Time Information</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further Reading</a></li>
