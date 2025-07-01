@@ -12,6 +12,8 @@ execute:
   execute_notebooks: auto
   timeout: 10
 
+only_build_toc_files: true
+
 # Set max run time for a cell
 execute:
   timeout: 100
@@ -20,6 +22,13 @@ execute:
 latex:
   latex_documents:
     targetname: book.tex
+
+# Set default to light mode
+sphinx:
+  recursive_update: true
+  config:
+    html_context:
+      default_mode: light
 
 # Add a bibtex file so that we can create citations
 #bibtex_bibfiles:
