@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../" >
+<html lang="en" data-content_root="../../" data-theme="light">
 
   <head>
     <meta charset="utf-8" />
@@ -13,8 +13,8 @@
   
   
   <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   <!-- 
     this give us a css class that will be invisible only if js is disabled 
@@ -73,7 +73,7 @@
   </head>
   
   
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
 
   
   
@@ -144,8 +144,6 @@
   
   
     
-    
-      
     
     
     <img src="../../_static/logo.svg" class="logo__image only-light" alt="Scientific Computing for Chemists with Python - Home"/>
@@ -428,7 +426,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raising-exceptions">2.8.3 Raising Exceptions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime-module">2.9 <code class="docutils literal notranslate"><span class="pre">datetime</span></code> Module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#date-and-time-information">2.9 Date and Time Information</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#date-and-time-data">2.9.1 Date and Time Data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changes-in-date-and-time">2.9.2 Changes in Date and Time</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-date-and-time-information">2.9.3 Extracting Date and Time Information</a></li>
@@ -663,7 +661,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">quad</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">quad</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -677,7 +675,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">particle_box</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
 </pre></div>
 </div>
 </div>
@@ -991,7 +989,7 @@
 <td class="text-left"><p>Functions for pseudorandom number generation</p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code></p></td>
-<td class="text-left"><p>Handling of date and time information</p></td>
+<td class="text-left"><p>Handling of date and time information (see <a class="reference internal" href="#id25"><span class="std std-ref">section 2.9</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">csv</span></code></p></td>
 <td class="text-left"><p>For writing and reading CSV files</p></td>
@@ -1068,7 +1066,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;itertools.combinations at 0x106697920&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;itertools.combinations at 0x108bb21b0&gt;
 </pre></div>
 </div>
 </div>
@@ -1177,7 +1175,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8065941117359702
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6541614765634367
 </pre></div>
 </div>
 </div>
@@ -1189,7 +1187,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
 </pre></div>
 </div>
 </div>
@@ -1203,7 +1201,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 6, 3, 5, 1, 2]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 1, 2, 6, 5, 3]
 </pre></div>
 </div>
 </div>
@@ -1997,8 +1995,8 @@
 </div>
 </section>
 </section>
-<section id="datetime-module">
-<span id="id25"></span><h2>2.9 <code class="docutils literal notranslate"><span class="pre">datetime</span></code> Module<a class="headerlink" href="#datetime-module" title="Link to this heading">#</a></h2>
+<section id="date-and-time-information">
+<span id="id25"></span><h2>2.9 Date and Time Information<a class="headerlink" href="#date-and-time-information" title="Link to this heading">#</a></h2>
 <p>It is often neccesary to know when data were collected such as in chemical kinetics. This information may be stored in the file itself or as a timestamp at the end of the file name. Not only is it neccesary to extract this date and time information, it is often also neccesary to calculate the times since the start of the experiment or between data points. This section covers Python’s native <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module useful for working with date and time information and extracting this information from files. The four object types covered here are listed in <strong>Table 8</strong>. The first three tell us when the data were collected while the third, <code class="docutils literal notranslate"><span class="pre">timedelta</span></code>, tells us the amount of time between two times or dates.</p>
 <p><strong>Table 8</strong> Common <code class="docutils literal notranslate"><span class="pre">datetime</span></code> Objects</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -2074,7 +2072,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 3, 16, 17, 54, 18, 824504)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 7, 1, 12, 25, 29, 623141)
 </pre></div>
 </div>
 </div>
@@ -2087,7 +2085,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12
 </pre></div>
 </div>
 </div>
@@ -2100,7 +2098,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 3, 16, 3, 54, 18, 824504)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 7, 1, 3, 25, 29, 623141)
 </pre></div>
 </div>
 </div>
@@ -2111,7 +2109,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">32</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
 <span class="n">time</span>
 </pre></div>
 </div>
@@ -2540,7 +2538,7 @@ What is the theoretical mean for this data set?</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raising-exceptions">2.8.3 Raising Exceptions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime-module">2.9 <code class="docutils literal notranslate"><span class="pre">datetime</span></code> Module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#date-and-time-information">2.9 Date and Time Information</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#date-and-time-data">2.9.1 Date and Time Data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changes-in-date-and-time">2.9.2 Changes in Date and Time</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-date-and-time-information">2.9.3 Extracting Date and Time Information</a></li>

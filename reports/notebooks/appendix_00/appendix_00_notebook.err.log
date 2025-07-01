@@ -1,142 +1,31 @@
 Traceback (most recent call last):
-  File "/Users/cerberus/opt/miniconda3/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/Users/cerberus/opt/miniconda3/envs/scicompchem-env/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/Users/cerberus/opt/miniconda3/lib/python3.12/site-packages/nbclient/client.py", line 1314, in execute
+  File "/Users/cerberus/opt/miniconda3/envs/scicompchem-env/lib/python3.12/site-packages/nbclient/client.py", line 1314, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/cerberus/opt/miniconda3/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+  File "/Users/cerberus/opt/miniconda3/envs/scicompchem-env/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
     return loop.run_until_complete(inner)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/cerberus/opt/miniconda3/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+  File "/Users/cerberus/opt/miniconda3/envs/scicompchem-env/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
     return future.result()
            ^^^^^^^^^^^^^^^
-  File "/Users/cerberus/opt/miniconda3/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+  File "/Users/cerberus/opt/miniconda3/envs/scicompchem-env/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "/Users/cerberus/opt/miniconda3/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+  File "/Users/cerberus/opt/miniconda3/envs/scicompchem-env/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/Users/cerberus/opt/miniconda3/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+  File "/Users/cerberus/opt/miniconda3/envs/scicompchem-env/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import matplotlib.pyplot as plt
-import numpy as np
-
-from nmrsim import Multiplet
-from nmrsim.plt import mplplot
-
-from ipywidgets import interact, interact_manual, FloatSlider, FloatRangeSlider, RadioButtons, fixed
+interact(plot_fid, nu=2, T2=5);
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mImportError[0m                               Traceback (most recent call last)
-Cell [0;32mIn[2], line 4[0m
-[1;32m      1[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m [38;5;28;01mas[39;00m [38;5;21;01mplt[39;00m
-[1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
-[0;32m----> 4[0m [38;5;28;01mfrom[39;00m [38;5;21;01mnmrsim[39;00m [38;5;28;01mimport[39;00m Multiplet
-[1;32m      5[0m [38;5;28;01mfrom[39;00m [38;5;21;01mnmrsim[39;00m[38;5;21;01m.[39;00m[38;5;21;01mplt[39;00m [38;5;28;01mimport[39;00m mplplot
-[1;32m      7[0m [38;5;28;01mfrom[39;00m [38;5;21;01mipywidgets[39;00m [38;5;28;01mimport[39;00m interact, interact_manual, FloatSlider, FloatRangeSlider, RadioButtons, fixed
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[4], line 1[0m
+[0;32m----> 1[0m [43minteract[49m(plot_fid, nu[38;5;241m=[39m[38;5;241m2[39m, T2[38;5;241m=[39m[38;5;241m5[39m);
 
-File [0;32m~/opt/miniconda3/envs/scicompchem-env/lib/python3.12/site-packages/nmrsim/__init__.py:63[0m
-[1;32m      1[0m [38;5;124;03m"""[39;00m
-[1;32m      2[0m [38;5;124;03mnmrsim[39;00m
-[1;32m      3[0m [38;5;124;03m======[39;00m
-[0;32m   (...)[0m
-[1;32m     60[0m 
-[1;32m     61[0m [38;5;124;03m"""[39;00m
-[0;32m---> 63[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_classes[39;00m [38;5;28;01mimport[39;00m Multiplet, SpinSystem, Spectrum  [38;5;66;03m# noqa: F401[39;00m
-[1;32m     65[0m __version__ [38;5;241m=[39m [38;5;124m"[39m[38;5;124m0.6.0[39m[38;5;124m"[39m
-[1;32m     67[0m [38;5;66;03m# When Python 5.7 sunsets, consider the following for dynamic versioning:[39;00m
-[1;32m     68[0m [38;5;66;03m# __version__ = __import__('importlib.metadata').metadata.version(__package__)[39;00m
-
-File [0;32m~/opt/miniconda3/envs/scicompchem-env/lib/python3.12/site-packages/nmrsim/_classes.py:11[0m
-[1;32m      9[0m [38;5;28;01mfrom[39;00m [38;5;21;01mnmrsim[39;00m[38;5;21;01m.[39;00m[38;5;21;01mfirstorder[39;00m [38;5;28;01mimport[39;00m first_order_spin_system, multiplet
-[1;32m     10[0m [38;5;28;01mfrom[39;00m [38;5;21;01mnmrsim[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmath[39;00m [38;5;28;01mimport[39;00m reduce_peaks, add_lorentzians
-[0;32m---> 11[0m [38;5;28;01mfrom[39;00m [38;5;21;01mnmrsim[39;00m[38;5;21;01m.[39;00m[38;5;21;01mqm[39;00m [38;5;28;01mimport[39;00m qm_spinsystem
-[1;32m     12[0m [38;5;28;01mfrom[39;00m [38;5;21;01mnmrsim[39;00m[38;5;21;01m.[39;00m[38;5;21;01m_utils[39;00m [38;5;28;01mimport[39;00m low_high
-[1;32m     14[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_descriptors[39;00m [38;5;28;01mimport[39;00m Number, Couplings
-
-File [0;32m~/opt/miniconda3/envs/scicompchem-env/lib/python3.12/site-packages/nmrsim/qm.py:53[0m
-[1;32m     50[0m     [38;5;28;01mimport[39;00m [38;5;21;01mimportlib_resources[39;00m [38;5;28;01mas[39;00m [38;5;21;01mresources[39;00m
-[1;32m     52[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m  [38;5;66;03m# noqa: E402[39;00m
-[0;32m---> 53[0m [38;5;28;01mimport[39;00m [38;5;21;01msparse[39;00m  [38;5;66;03m# noqa: E402[39;00m
-[1;32m     55[0m [38;5;28;01mimport[39;00m [38;5;21;01mnmrsim[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbin[39;00m  [38;5;66;03m# noqa: E402[39;00m
-[1;32m     56[0m [38;5;28;01mfrom[39;00m [38;5;21;01mnmrsim[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmath[39;00m [38;5;28;01mimport[39;00m normalize_peaklist  [38;5;66;03m# noqa: E402[39;00m
-
-File [0;32m~/opt/miniconda3/envs/scicompchem-env/lib/python3.12/site-packages/sparse/__init__.py:77[0m
-[1;32m     74[0m [38;5;28;01mfrom[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mimport[39;00m power [38;5;28;01mas[39;00m [38;5;28mpow[39m
-[1;32m     75[0m [38;5;28;01mfrom[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mimport[39;00m right_shift [38;5;28;01mas[39;00m bitwise_right_shift
-[0;32m---> 77[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_common[39;00m [38;5;28;01mimport[39;00m (
-[1;32m     78[0m     SparseArray,
-[1;32m     79[0m     [38;5;28mabs[39m,
-[1;32m     80[0m     [38;5;28mall[39m,
-[1;32m     81[0m     [38;5;28many[39m,
-[1;32m     82[0m     asarray,
-[1;32m     83[0m     asnumpy,
-[1;32m     84[0m     astype,
-[1;32m     85[0m     broadcast_arrays,
-[1;32m     86[0m     broadcast_to,
-[1;32m     87[0m     concat,
-[1;32m     88[0m     concatenate,
-[1;32m     89[0m     dot,
-[1;32m     90[0m     einsum,
-[1;32m     91[0m     empty,
-[1;32m     92[0m     empty_like,
-[1;32m     93[0m     equal,
-[1;32m     94[0m     eye,
-[1;32m     95[0m     full,
-[1;32m     96[0m     full_like,
-[1;32m     97[0m     isfinite,
-[1;32m     98[0m     isinf,
-[1;32m     99[0m     isnan,
-[1;32m    100[0m     matmul,
-[1;32m    101[0m     [38;5;28mmax[39m,
-[1;32m    102[0m     mean,
-[1;32m    103[0m     [38;5;28mmin[39m,
-[1;32m    104[0m     moveaxis,
-[1;32m    105[0m     nonzero,
-[1;32m    106[0m     ones,
-[1;32m    107[0m     ones_like,
-[1;32m    108[0m     outer,
-[1;32m    109[0m     pad,
-[1;32m    110[0m     permute_dims,
-[1;32m    111[0m     prod,
-[1;32m    112[0m     reshape,
-[1;32m    113[0m     [38;5;28mround[39m,
-[1;32m    114[0m     squeeze,
-[1;32m    115[0m     stack,
-[1;32m    116[0m     std,
-[1;32m    117[0m     [38;5;28msum[39m,
-[1;32m    118[0m     tensordot,
-[1;32m    119[0m     zeros,
-[1;32m    120[0m     zeros_like,
-[1;32m    121[0m )
-[1;32m    122[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_compressed[39;00m [38;5;28;01mimport[39;00m GCXS
-[1;32m    123[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_coo[39;00m [38;5;28;01mimport[39;00m COO, as_coo
-
-File [0;32m~/opt/miniconda3/envs/scicompchem-env/lib/python3.12/site-packages/sparse/_common.py:8[0m
-[1;32m      5[0m [38;5;28;01mfrom[39;00m [38;5;21;01mitertools[39;00m [38;5;28;01mimport[39;00m chain
-[1;32m      6[0m [38;5;28;01mfrom[39;00m [38;5;21;01moperator[39;00m [38;5;28;01mimport[39;00m index, mul
-[0;32m----> 8[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumba[39;00m
-[1;32m      9[0m [38;5;28;01mfrom[39;00m [38;5;21;01mnumba[39;00m [38;5;28;01mimport[39;00m literal_unroll
-[1;32m     11[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
-
-File [0;32m~/opt/miniconda3/envs/scicompchem-env/lib/python3.12/site-packages/numba/__init__.py:59[0m
-[1;32m     54[0m             msg [38;5;241m=[39m ([38;5;124m"[39m[38;5;124mNumba requires SciPy version 1.0 or greater. Got SciPy [39m[38;5;124m"[39m
-[1;32m     55[0m                    [38;5;124mf[39m[38;5;124m"[39m[38;5;132;01m{[39;00mscipy[38;5;241m.[39m__version__[38;5;132;01m}[39;00m[38;5;124m.[39m[38;5;124m"[39m)
-[1;32m     56[0m             [38;5;28;01mraise[39;00m [38;5;167;01mImportError[39;00m(msg)
-[0;32m---> 59[0m [43m_ensure_critical_deps[49m[43m([49m[43m)[49m
-[1;32m     60[0m [38;5;66;03m# END DO NOT MOVE[39;00m
-[1;32m     61[0m [38;5;66;03m# ---------------------- WARNING WARNING WARNING ----------------------------[39;00m
-[1;32m     64[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_version[39;00m [38;5;28;01mimport[39;00m get_versions
-
-File [0;32m~/opt/miniconda3/envs/scicompchem-env/lib/python3.12/site-packages/numba/__init__.py:45[0m, in [0;36m_ensure_critical_deps[0;34m()[0m
-[1;32m     42[0m [38;5;28;01mif[39;00m numpy_version [38;5;241m>[39m ([38;5;241m2[39m, [38;5;241m0[39m):
-[1;32m     43[0m     msg [38;5;241m=[39m ([38;5;124mf[39m[38;5;124m"[39m[38;5;124mNumba needs NumPy 2.0 or less. Got NumPy [39m[38;5;124m"[39m
-[1;32m     44[0m            [38;5;124mf[39m[38;5;124m"[39m[38;5;132;01m{[39;00mnumpy_version[[38;5;241m0[39m][38;5;132;01m}[39;00m[38;5;124m.[39m[38;5;132;01m{[39;00mnumpy_version[[38;5;241m1[39m][38;5;132;01m}[39;00m[38;5;124m.[39m[38;5;124m"[39m)
-[0;32m---> 45[0m     [38;5;28;01mraise[39;00m [38;5;167;01mImportError[39;00m(msg)
-[1;32m     47[0m [38;5;28;01mtry[39;00m:
-[1;32m     48[0m     [38;5;28;01mimport[39;00m [38;5;21;01mscipy[39;00m
-
-[0;31mImportError[0m: Numba needs NumPy 2.0 or less. Got NumPy 2.1.
+[0;31mNameError[0m: name 'interact' is not defined
 
