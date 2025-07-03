@@ -606,14 +606,14 @@
 <p>We can also view the data by plotting with matplotlib.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig0</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">ax0</span> <span class="o">=</span> <span class="n">fig0</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig0</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax0</span> <span class="o">=</span> <span class="n">fig0</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">real</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/85be061067fb66f960c09bb3cd44f25149e52a7540b5431050897b0319e126c2.svg" src="../../_images/85be061067fb66f960c09bb3cd44f25149e52a7540b5431050897b0319e126c2.svg" />
+<img alt="../../_images/3407f65f170350b3231fee8942bab5ac7d324ca425a48aced818e02d46e28d37.svg" src="../../_images/3407f65f170350b3231fee8942bab5ac7d324ca425a48aced818e02d46e28d37.svg" />
 </div>
 </div>
 <p>To convert the data to the frequency domain, we will use the fast Fourier transform function (<code class="docutils literal notranslate"><span class="pre">fft</span></code>) from the <code class="docutils literal notranslate"><span class="pre">fft</span></code> SciPy module. nmrglue also contains Fourier transform functions, but we will use SciPy here. The plot below inverts the <em>x</em>-axis with <code class="docutils literal notranslate"><span class="pre">plt.gca().invert_xaxis()</span></code> to conform to NMR plotting convensions.</p>
@@ -627,15 +627,15 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig1</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig1</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fdata</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_xaxis</span><span class="p">()</span> <span class="c1"># reverses direction of x-axis to conform to NMR plotting norms</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/dfaecf69990613a80aca23bfe59c7d56af16e1e82305974c44b77fa27ec513f1.svg" src="../../_images/dfaecf69990613a80aca23bfe59c7d56af16e1e82305974c44b77fa27ec513f1.svg" />
+<img alt="../../_images/b7396bf5372ce3d5a18eb04c9732102334b27e76551365a378417d13daa97cab.svg" src="../../_images/b7396bf5372ce3d5a18eb04c9732102334b27e76551365a378417d13daa97cab.svg" />
 </div>
 </div>
 <p>When you plot the Fourier transformed data, you may get a <code class="docutils literal notranslate"><span class="pre">ComplexWarning</span></code> error message because the Fourier transform will return complex values (i.e., values with real and imaginary components). To only work with the real components, use the <code class="docutils literal notranslate"><span class="pre">.real</span></code> method as is done above. The plot now looks more like an NMR spectrum, but most of the resonances are out of phase. The next step is to phase the spectrum.</p>
@@ -654,7 +654,7 @@
 <p>The permitted phasing algorithms can be either <code class="docutils literal notranslate"><span class="pre">acme</span></code> or <code class="docutils literal notranslate"><span class="pre">peak_minima</span></code>. It is important to feed the <code class="docutils literal notranslate"><span class="pre">autops()</span></code> function the data array with <em>both</em> the real and imaginary components.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phased_data</span> <span class="o">=</span> <span class="n">ng</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">proc_autophase</span><span class="o">.</span><span class="n">autops</span><span class="p">(</span><span class="n">fdata</span><span class="p">,</span><span class="s1">&#39;acme&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phased_data</span> <span class="o">=</span> <span class="n">ng</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">proc_autophase</span><span class="o">.</span><span class="n">autops</span><span class="p">(</span><span class="n">fdata</span><span class="p">,</span> <span class="s1">&#39;acme&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -669,15 +669,15 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig2</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig2</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phased_data</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_xaxis</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/496f33bb7ea03714f4896a320697c5a8f06f4f595ea769b8d6cf704437dedb52.svg" src="../../_images/496f33bb7ea03714f4896a320697c5a8f06f4f595ea769b8d6cf704437dedb52.svg" />
+<img alt="../../_images/3572ec0e68736fdb3ff0a72e45effb435d63dd1b049eaabdba4ed198329c11ed.svg" src="../../_images/3572ec0e68736fdb3ff0a72e45effb435d63dd1b049eaabdba4ed198329c11ed.svg" />
 </div>
 </div>
 <p>You should try both algorithms to see which works best for you. The above spectrum is the result of the <code class="docutils literal notranslate"><span class="pre">acme</span></code> autophasing algorithm which is close but still slightly off. If neither of the provided autophasing algorithms work for you, you will need to instead manually phase the NMR spectrum as discussed below.</p>
@@ -743,7 +743,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3a3de2db95fda39b496047f6a64cd26e2a2c085cb0cbe5e72be39dc5ec08c150.svg" src="../../_images/3a3de2db95fda39b496047f6a64cd26e2a2c085cb0cbe5e72be39dc5ec08c150.svg" />
+<img alt="../../_images/9d70ac9f3eff4b2ce2a0dbcce3c4930069f0f00319be1cd03413cc306c36b68c.svg" src="../../_images/9d70ac9f3eff4b2ce2a0dbcce3c4930069f0f00319be1cd03413cc306c36b68c.svg" />
 </div>
 </div>
 <p>Alternatively, nmrglue contains an object called a <em>unit conversion object</em> that can be created and used to convert between ppm, Hz, and point index values for any position in an NMR spectrum. To create a unit conversion object, use the <code class="docutils literal notranslate"><span class="pre">make_uc()</span></code> function which takes two arguments  – the dictionary, <code class="docutils literal notranslate"><span class="pre">dic</span></code>, and the original data array, <code class="docutils literal notranslate"><span class="pre">data</span></code>, generated from reading the NMR file in section 11.2.</p>
@@ -772,8 +772,8 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phased_data_rev</span> <span class="o">=</span> <span class="n">phased_data</span><span class="o">.</span><span class="n">real</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
-<span class="n">fig5</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">ax5</span> <span class="o">=</span> <span class="n">fig5</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">fig5</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax5</span> <span class="o">=</span> <span class="n">fig5</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">ax5</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ppm_scale</span><span class="p">,</span> <span class="n">phased_data_rev</span><span class="p">)</span>
 <span class="n">ax5</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Chemical Shift, ppm&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_xaxis</span><span class="p">()</span>
@@ -781,7 +781,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d8886e4fe83a4bd6182131e83b65c1377d9cd2b01ba8a439d09e048ef3db1e4d.svg" src="../../_images/d8886e4fe83a4bd6182131e83b65c1377d9cd2b01ba8a439d09e048ef3db1e4d.svg" />
+<img alt="../../_images/624511a0d7c7c7b2c28ffc186fb5d8bd2efa5219df7116f56f506eb6f244e6d1.svg" src="../../_images/624511a0d7c7c7b2c28ffc186fb5d8bd2efa5219df7116f56f506eb6f244e6d1.svg" />
 </div>
 </div>
 <p>The following example uses the ppm scale generated by the unit conversion object.</p>
@@ -812,18 +812,18 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig6</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">ax6</span> <span class="o">=</span> <span class="n">fig6</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig6</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax6</span> <span class="o">=</span> <span class="n">fig6</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">ax6</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ppm_scale</span><span class="p">,</span> <span class="n">data_ref</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
 <span class="n">ax6</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Chemical Shift, ppm&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">0.2</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6f08cc8c9c92cd69578487b26a53a3c8794874a468448c3a9ed9de22e523f72a.svg" src="../../_images/6f08cc8c9c92cd69578487b26a53a3c8794874a468448c3a9ed9de22e523f72a.svg" />
+<img alt="../../_images/6c7c5767e858e93b3d605dd03068badc90f7662f91026acecf05a3f630fd48eb.svg" src="../../_images/6c7c5767e858e93b3d605dd03068badc90f7662f91026acecf05a3f630fd48eb.svg" />
 </div>
 </div>
 <p>If you want to narrow the plot to where the resonances are located, you can use the <code class="docutils literal notranslate"><span class="pre">plt.xlim(8,0)</span></code> function. Notice that 8 is first to indicate that the plot is from 8 ppm <span class="math notranslate nohighlight">\(\rightarrow\)</span> 0 ppm. The use of <code class="docutils literal notranslate"><span class="pre">plt.xlim(8,0)</span></code> removes the need to use <code class="docutils literal notranslate"><span class="pre">plt.gca().invert_xaxis()</span></code> to flip the <em>x</em>-axis.</p>
@@ -852,19 +852,19 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig7</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">ax7</span> <span class="o">=</span> <span class="n">fig7</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig7</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax7</span> <span class="o">=</span> <span class="n">fig7</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">ax7</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ppm_scale</span><span class="p">,</span> <span class="n">data_ref</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
 <span class="n">ax7</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Chemical Shift, ppm&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">0.2</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">lim</span> <span class="ow">in</span> <span class="n">limits</span><span class="o">.</span><span class="n">flatten</span><span class="p">():</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">lim</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2ff45ff3c9bfc8d370f7d2205aec6462350ce87ab7c66ebc5f1f542f8bb1abc4.svg" src="../../_images/2ff45ff3c9bfc8d370f7d2205aec6462350ce87ab7c66ebc5f1f542f8bb1abc4.svg" />
+<img alt="../../_images/1e01a86d02f5b68eae014370918004e288306934979e73ad6395fe15d29aa6db.svg" src="../../_images/1e01a86d02f5b68eae014370918004e288306934979e73ad6395fe15d29aa6db.svg" />
 </div>
 </div>
 <p>The limits are in ppm, so take a look at the spectrum above and decide where you want to put the integration limits. An NMR spectrum with the chosen integration limits are shown above as vertical red lines.</p>
@@ -919,18 +919,18 @@
 <p>There are numerous optional arguments for the peak picking function, but the two mandatory pieces of information required are the <code class="docutils literal notranslate"><span class="pre">data</span></code> array and a positive threshold (<code class="docutils literal notranslate"><span class="pre">pthres=</span></code>) above which any peak will be identified. Glancing at the spectrum below, all peaks are above 0.1 (green dotted line) and the baseline is below 0.1, so this seems like a reasonable threshold.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig8</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">ax8</span> <span class="o">=</span> <span class="n">fig8</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig8</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax8</span> <span class="o">=</span> <span class="n">fig8</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">ax8</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ppm_scale</span><span class="p">,</span> <span class="n">data_ref</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
 <span class="n">ax8</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Chemical Shift, ppm&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">0.2</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7a35c41dce7ff8d661f7bd09ebe77b87b2de9bcc63adf388510072597fa48a1b.svg" src="../../_images/7a35c41dce7ff8d661f7bd09ebe77b87b2de9bcc63adf388510072597fa48a1b.svg" />
+<img alt="../../_images/6bbe2130e55741ebb82e35c731609bceb103e4ebe5b1ce8c5829539554ab5a25.svg" src="../../_images/6bbe2130e55741ebb82e35c731609bceb103e4ebe5b1ce8c5829539554ab5a25.svg" />
 </div>
 </div>
 <div class="admonition note">
@@ -973,19 +973,19 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig9</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">ax9</span> <span class="o">=</span> <span class="n">fig9</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig9</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax9</span> <span class="o">=</span> <span class="n">fig9</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">ax9</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ppm_scale</span><span class="p">,</span> <span class="n">data_ref</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
 <span class="n">ax9</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Chemical Shift, ppm&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">0.2</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">peak_loc</span><span class="p">:</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/480e42468578dd6787acd6da83eaed266117537b7a70d9095119939a89b0de6a.svg" src="../../_images/480e42468578dd6787acd6da83eaed266117537b7a70d9095119939a89b0de6a.svg" />
+<img alt="../../_images/ee7c3ff2c1a457890e218868b95e2885666edb879fde170f2cd057bca50f5245.svg" src="../../_images/ee7c3ff2c1a457890e218868b95e2885666edb879fde170f2cd057bca50f5245.svg" />
 </div>
 </div>
 <p>We can plot the NMR spectrum with these chemical shifts marked with vertical dotted lines shown above. Looks like it did a pretty good job locating the resonances! If nmrglue fails to properly identify the peaks, there are a number of parameters described in the <a class="reference external" href="https://nmrglue.readthedocs.io/en/latest/reference/generated/nmrglue.analysis.peakpick.pick.html#nmrglue.analysis.peakpick.pick">nmrglue documentation</a> that can be adjusted.</p>
@@ -1044,7 +1044,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nmrsim._classes.Multiplet at 0x10d729eb0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nmrsim._classes.Multiplet at 0x11552daf0&gt;
 </pre></div>
 </div>
 </div>
@@ -1078,7 +1078,7 @@
 <p class="sidebar-title"></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>If the splitting pattern does not look quite right, consider increasing the number of points as undersampling can lead to anomalous looking signals.</p>
+<p>If the splitting pattern does not look quite right, consider increasing the number of points because undersampling can lead to anomalous looking signals.</p>
 </div>
 </aside>
 <div class="cell docutils container">
@@ -1088,10 +1088,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x10d72a150&gt;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x117b992e0&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/8919f0365f715ae438c8741727728bf2b23d088b061221acf4352cfc84693d0a.svg" src="../../_images/8919f0365f715ae438c8741727728bf2b23d088b061221acf4352cfc84693d0a.svg" />
+<img alt="../../_images/e4c0332ceecd58fe1091f55a80cb0f59df1f33cef055e46a9f0ce29234b28083.svg" src="../../_images/e4c0332ceecd58fe1091f55a80cb0f59df1f33cef055e46a9f0ce29234b28083.svg" />
 </div>
 </div>
 <p>Below is the same splitting pattern with the line width tripled.</p>
@@ -1102,10 +1102,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x10da17c80&gt;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x117bfa930&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/930404b7afed532957104e1b47620c49582fbee7da3858322bd01bfa34b97f4d.svg" src="../../_images/930404b7afed532957104e1b47620c49582fbee7da3858322bd01bfa34b97f4d.svg" />
+<img alt="../../_images/ef420a39566f38c73b088c5d1923002334fb02630ebe9e50c6662f21418e3d70.svg" src="../../_images/ef420a39566f38c73b088c5d1923002334fb02630ebe9e50c6662f21418e3d70.svg" />
 </div>
 </div>
 <p>As another option, we can overlay the multiplet with lines showing the exact chemical shift and intensity ratio of each peak. This can be done either using your plotting library of choice or using the <code class="docutils literal notranslate"><span class="pre">mplplot_stick()</span></code> function in nmrsim. Below the intensity of the stem plot is reduced by a fifth to keep the lines inside the blue splitting pattern.</p>
@@ -1122,7 +1122,7 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;StemContainer object of 3 artists&gt;
 </pre></div>
 </div>
-<img alt="../../_images/68211c4ee3fc2d982d2a274287aa9cf8570b9ed27fa0b08634571ed7fa758165.svg" src="../../_images/68211c4ee3fc2d982d2a274287aa9cf8570b9ed27fa0b08634571ed7fa758165.svg" />
+<img alt="../../_images/3dfa3b00ef7f2fc191776f56507b420a8919b52a7ca10530510de2e689cf0b44.svg" src="../../_images/3dfa3b00ef7f2fc191776f56507b420a8919b52a7ca10530510de2e689cf0b44.svg" />
 </div>
 </div>
 </section>
@@ -1152,7 +1152,7 @@
 <span class="c1"># convert from Hz to ppm scale on a 400 MHz spectrometer</span>
 <span class="n">v_spec_ppm</span> <span class="o">=</span> <span class="n">v_spec</span> <span class="o">/</span> <span class="mi">400</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v_spec_ppm</span><span class="p">,</span> <span class="n">I_spec</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Chemical Shift, ppm&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_xaxis</span><span class="p">()</span>
@@ -1160,7 +1160,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9012d51f6b5ebfef5f5e4a83253960e6bdb7299670d810e739382feee97759fc.svg" src="../../_images/9012d51f6b5ebfef5f5e4a83253960e6bdb7299670d810e739382feee97759fc.svg" />
+<img alt="../../_images/489ead3eb939477a8948d082d0a7a26b80d0c1403bfd81de1516357ceaae92a6.svg" src="../../_images/489ead3eb939477a8948d082d0a7a26b80d0c1403bfd81de1516357ceaae92a6.svg" />
 </div>
 </div>
 <p>The simulation even exhibits the second-order roofing effect where coupled resonances ‘lean’ towards each other.</p>
@@ -1215,10 +1215,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x10dd90410&gt;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x120078410&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/2f8012a428c8809bbd0ab03d69ddbdfb5f3ac519b51faf43bc65c1835ba82acd.svg" src="../../_images/2f8012a428c8809bbd0ab03d69ddbdfb5f3ac519b51faf43bc65c1835ba82acd.svg" />
+<img alt="../../_images/260b3639ee4d7c4dcc2a13c15c6da0b830a25adf4da7f02b60762661f328433e.svg" src="../../_images/260b3639ee4d7c4dcc2a13c15c6da0b830a25adf4da7f02b60762661f328433e.svg" />
 </div>
 </div>
 <p>If we increase the distance between the two nuclei to 30.0 Hz, not only do the two signals become futhure apart, but the second-order character, unevenness in this case, decreases. It is important to note that when measuring the distance between the two second-order signals like this, the center of a doublet with uneven heights is not the center of the doublet but rather a weighted frequency average of the two peaks based on intensities. This means the chemical shift of a doublet is closer to the larger of the two peaks in the doublet.</p>
@@ -1230,10 +1230,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x10dd45580&gt;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x12004d520&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/b53ac4fb4eceb7c2449b75f15aa1d4d85c07545d5f99f60b25fb86e9a6e3acdc.svg" src="../../_images/b53ac4fb4eceb7c2449b75f15aa1d4d85c07545d5f99f60b25fb86e9a6e3acdc.svg" />
+<img alt="../../_images/668d6cfcb9bf6b94596343b7a73f8e6fb53ba021829ae91850842540a2e71ada.svg" src="../../_images/668d6cfcb9bf6b94596343b7a73f8e6fb53ba021829ae91850842540a2e71ada.svg" />
 </div>
 </div>
 </section>
@@ -1259,10 +1259,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x10dddf560&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1200ae1e0&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/4aac8bc66d3fa8939372de6ed90720129c8d4c0dd39243f17c72dcca81ee12ad.svg" src="../../_images/4aac8bc66d3fa8939372de6ed90720129c8d4c0dd39243f17c72dcca81ee12ad.svg" />
+<img alt="../../_images/c8bb7d6380382c98e870f8d5a1accbd690f3056bbd00f2c561857e58360bb7f9.svg" src="../../_images/c8bb7d6380382c98e870f8d5a1accbd690f3056bbd00f2c561857e58360bb7f9.svg" />
 </div>
 </div>
 </section>

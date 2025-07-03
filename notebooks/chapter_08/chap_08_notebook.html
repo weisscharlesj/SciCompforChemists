@@ -526,7 +526,7 @@
 <p>There is no value attached to <code class="docutils literal notranslate"><span class="pre">x</span></code> as it is a symbol, so now it can be used to generate symbolic mathematical expressions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E</span> <span class="o">=</span> <span class="n">m</span><span class="o">*</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E</span> <span class="o">=</span> <span class="n">m</span> <span class="o">*</span> <span class="n">c</span><span class="o">**</span><span class="mi">2</span>
 </pre></div>
 </div>
 </div>
@@ -700,7 +700,7 @@
 <p id="index-2">When dealing with polynomials, expansion and factoring are common operations that can be tedious and time-consuming by hand. SymPy makes these quick and easy. For example, we can expand the expression <span class="math notranslate nohighlight">\((x - 1)(3x + 2)\)</span> as demonstrated below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -719,7 +719,7 @@
 <p>The process can be reversed by factoring the polynomial.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">factor</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">factor</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -734,7 +734,7 @@
 <p>SymPy may not always return a mathematical expression into the simplest form. Below is an expression with a simpler form, and if we feed this into SymPy, it is not automatically simplified.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">15</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">15</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -746,7 +746,7 @@
 <p>However, if we instruct SymPy to simplify the expression using the <code class="docutils literal notranslate"><span class="pre">simplify()</span></code> method, it will make a best attempt at finding a simpler form.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">simplify</span><span class="p">((</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">15</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">3</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">simplify</span><span class="p">((</span><span class="mi">3</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">15</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -761,7 +761,7 @@
 <p id="index-3">SymPy can also solve equations for an unknown variable using the <code class="docutils literal notranslate"><span class="pre">solve()</span></code> function. The function requires a single expression that is equal to zero. For example, the following solves for <span class="math notranslate nohighlight">\(x\)</span> in <span class="math notranslate nohighlight">\(x^2 + 1.4x – 5.76 = 0\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">1.4</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mf">5.76</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">1.4</span> <span class="o">*</span> <span class="n">x</span> <span class="o">-</span> <span class="mf">5.76</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -816,7 +816,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">nonnegative</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">expr</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">0.60</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span> <span class="o">/</span> <span class="p">(</span><span class="mf">0.60</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">expr</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">0.60</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span> <span class="o">/</span> <span class="p">(</span><span class="mf">0.60</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
 </pre></div>
 </div>
 </div>
@@ -1004,7 +1004,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">],</span>
-               <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+               <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span>  <span class="mi">1</span><span class="p">],</span>
                <span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">11</span><span class="p">,</span> <span class="mi">11</span><span class="p">]])</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">21</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="o">-</span><span class="mi">21</span><span class="p">])</span>
 </pre></div>
@@ -1296,14 +1296,14 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data Points&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ticklabel_format</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;sci&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">scilimits</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ticklabel_format</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;sci&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">scilimits</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Concentration, M&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Absorbance, au&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f5cfeb2e216753596c303e5e0d4dff2818c6c18f18fcc047c4180500f7a11ad4.svg" src="../../_images/f5cfeb2e216753596c303e5e0d4dff2818c6c18f18fcc047c4180500f7a11ad4.svg" />
+<img alt="../../_images/451b4cc364cd3b772ffbd41cfb94ffc3d5d7f53ec34d66114e9fb88dfc88e039.svg" src="../../_images/451b4cc364cd3b772ffbd41cfb94ffc3d5d7f53ec34d66114e9fb88dfc88e039.svg" />
 </div>
 </div>
 </section>
@@ -1512,7 +1512,7 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">solve()</span></code> function returns an array, so we need to index it to get the single value out. We can plot the radial density and the maximum density point to see if it worked.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">R</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mx</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">mx</span><span class="p">),</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Radius, $a_0$&#39;</span><span class="p">)</span>
@@ -1521,7 +1521,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/376f818f0498c6aabfc6d86c73b2c826a744d25c4c0a38b3fc20c688ff23b134.svg" src="../../_images/376f818f0498c6aabfc6d86c73b2c826a744d25c4c0a38b3fc20c688ff23b134.svg" />
+<img alt="../../_images/c5135b8980326d6a4b2b8d2187bd5cfc59b12cf5d2b0ef21d376b2599ac788bc.svg" src="../../_images/c5135b8980326d6a4b2b8d2187bd5cfc59b12cf5d2b0ef21d376b2599ac788bc.svg" />
 </div>
 </div>
 <p>The radius is in Bohrs (<span class="math notranslate nohighlight">\(a_0\)</span>) which is equal to approximately 0.53 angstroms.</p>
@@ -1532,7 +1532,7 @@
 <p>The normalized (i.e., totals to one) density function is the squared wave function times <span class="math notranslate nohighlight">\(r^2\)</span> (i.e, <span class="math notranslate nohighlight">\(\psi ^2 r^2\)</span>). We can use this to determine the probability of finding an electron in a particular range of distances from the radius. Below, we integrate from the nucleus to the radius of maximum density.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">R_21</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">r</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="n">mx</span><span class="p">))</span><span class="o">.</span><span class="n">evalf</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">R_21</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">r</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">mx</span><span class="p">))</span><span class="o">.</span><span class="n">evalf</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1544,7 +1544,7 @@
 <p>There is a 5.27% probability finding an electron between the nucleus and the radius of maximum probability. This is probably may be a bit surprising, but examination of the radial density plot reveals that the radius of maximum probabily is quite close to the nucleus with a significant amount of density beyond the maximum radius. Let’s see the probability of finding an electron between 0 and 10 Bohrs from the nucleus.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">R_21</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">r</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span><span class="o">.</span><span class="n">evalf</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">R_21</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">r</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span><span class="o">.</span><span class="n">evalf</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1625,12 +1625,12 @@
 <p>The imported data are stored in an array where the first column contains the index values and the second column contains the amplitudes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nmr</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">nmr</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;.-&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nmr</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">nmr</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;.-&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/acbc3b72a91f211d1771f13f9ff39537a7d33f8abfdc2d90285fd896f4cfe234.svg" src="../../_images/acbc3b72a91f211d1771f13f9ff39537a7d33f8abfdc2d90285fd896f4cfe234.svg" />
+<img alt="../../_images/99523d6f0e8a05c59265b5d3a894d74e8ee8fdaeaa462be56531a9069511422f.svg" src="../../_images/99523d6f0e8a05c59265b5d3a894d74e8ee8fdaeaa462be56531a9069511422f.svg" />
 </div>
 </div>
 <p>Above is a plot of the peaks with respect to the index values (not ppm). To integrate under each of the triplet peaks, first we need the index values for the edges of each peak. Below is a list, <code class="docutils literal notranslate"><span class="pre">i</span></code>, that provides reasonable boundaries, and a plot is below with these edges marked in orange squares.</p>
@@ -1645,19 +1645,19 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f289e7ff0ae0d39336130940fe7479de5d68d96bc25e96a41e1658603faeb1b1.svg" src="../../_images/f289e7ff0ae0d39336130940fe7479de5d68d96bc25e96a41e1658603faeb1b1.svg" />
+<img alt="../../_images/8b511310eaaa98f3f9443df84af83c36d9eeb42f287a88aa93bec681b63ec8f4.svg" src="../../_images/8b511310eaaa98f3f9443df84af83c36d9eeb42f287a88aa93bec681b63ec8f4.svg" />
 </div>
 </div>
 <p>Integrations under sampled data do not include the values between data points, so these regions are estimated based on assumptions. The <code class="docutils literal notranslate"><span class="pre">trapezoid()</span></code> function assumes that any data point between known points lies directly between the known data points (i.e., linear interpolation) as shown below by the blue lines.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/cc17dc1b03778b479924ab0fddc533d7e83fd4a9e2e48be0edb9acb03b050a1b.svg" src="../../_images/cc17dc1b03778b479924ab0fddc533d7e83fd4a9e2e48be0edb9acb03b050a1b.svg" />
+<img alt="../../_images/c7a0c489bd516b7bee98e24e0ac6325ff33f2cbbbe3d5ebf10cfb55164db25bd.svg" src="../../_images/c7a0c489bd516b7bee98e24e0ac6325ff33f2cbbbe3d5ebf10cfb55164db25bd.svg" />
 </div>
 </div>
 <p>Alternatively, the <code class="docutils literal notranslate"><span class="pre">simpson()</span></code> function uses the <em>Simpson’s rule</em> which estimates the data between known points using quadratic interpolation shown below.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/b3c03853cd4b9443691dee734f6bbe3d40b133f7893fe14b3e11767c8b9055f2.svg" src="../../_images/b3c03853cd4b9443691dee734f6bbe3d40b133f7893fe14b3e11767c8b9055f2.svg" />
+<img alt="../../_images/e01b26533aa808877bb2b119af29cd46620e001574c12aaf4bb6837e24a6f0bc.svg" src="../../_images/e01b26533aa808877bb2b119af29cd46620e001574c12aaf4bb6837e24a6f0bc.svg" />
 </div>
 </div>
 <aside class="margin sidebar">
@@ -1734,7 +1734,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># time(seconds)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>  <span class="c1"># time(seconds)</span>
 <span class="n">A0</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># starting concentration (molarity)</span>
 <span class="n">k</span> <span class="o">=</span> <span class="mf">0.1</span>  <span class="c1"># rate constant in 1/s</span>
 <span class="n">A_t</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">rate_1st</span><span class="p">,</span> <span class="n">A0</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
@@ -1755,7 +1755,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e174b28cc4fde098359f9ff51e7458bef247713c051c1f023d731b62ac88c023.svg" src="../../_images/e174b28cc4fde098359f9ff51e7458bef247713c051c1f023d731b62ac88c023.svg" />
+<img alt="../../_images/09f61870425eb2ee128d4dcb125b3c22050f10013f080a51672980c9863ae6c1.svg" src="../../_images/09f61870425eb2ee128d4dcb125b3c22050f10013f080a51672980c9863ae6c1.svg" />
 </div>
 </div>
 <p>This approach to kinetic simulations can be adapted to even more complex reactions which are demonstrated in <a class="reference internal" href="../chapter_09/chap_09_notebook.html#id6"><span class="std std-ref">section 9.1.4</span></a>.</p>
