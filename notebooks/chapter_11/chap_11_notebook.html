@@ -425,6 +425,10 @@
 <span id="id1"></span><h1>Chapter 11: Nuclear Magnetic Resonance with nmrglue and nmrsim<a class="headerlink" href="#chapter-11-nuclear-magnetic-resonance-with-nmrglue-and-nmrsim" title="Link to this heading">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 </div>
+<div class="admonition-notice admonition">
+<p class="admonition-title">Notice</p>
+<p>This chapter will be shifted back one chapter sometime in August 2025.</p>
+</div>
 <p>Nuclear magnetic resonance (NMR) spectroscopy is one of the most common and powerful analytical methods used in modern chemistry. Up to this point, we having been primarily dealing with text-based data files - that is, files that can be opened with a text editor and still contain human comprehendible information. If you open most files that come out of an NMR instrument in a text editor, it will look more like gibberish than anything a human should be able to read. This is because they are <em>binary</em> files - they are written in computer language rather than human language.</p>
 <p>We need a specialized module to be able to import and read these data, and luckily a Python library called nmrglue to does exactly this. The library contains modules for dealing with data from each of the major NMR spectroscopy file types which includes Bruker, Pipe, Sparky, and Varian. It does not read JEOL files, but as of this writing, JEOL spectrometers support exporting data into at least one of the above file types supported by nmrglue and direct support for JEOL files is under development.</p>
 <p>In addition, it is also sometimes helpful to be able to simulate NMR spectra to confirm spectral parameters (e.g., coupling constants), visualize hypothetical spectra of splitting patterns, or fit the line shapes or splitting patterns of experimental data. The library nmrsim provides the ability to simulate NMR spectra including dynamic NMR and is introduced in <a class="reference internal" href="#id13"><span class="std std-ref">section 11.2</span></a>.</p>
@@ -614,7 +618,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2fcb2054adb4737ebcb38248d129858a5bb5cea732684127802ff073be1d819d.svg" src="../../_images/2fcb2054adb4737ebcb38248d129858a5bb5cea732684127802ff073be1d819d.svg" />
+<img alt="../../_images/39be52af859fddc1248efab87342691a54576df69e1aa71da81ba024d5197e68.svg" src="../../_images/39be52af859fddc1248efab87342691a54576df69e1aa71da81ba024d5197e68.svg" />
 </div>
 </div>
 <p>To convert the data to the frequency domain, we will use the fast Fourier transform function (<code class="docutils literal notranslate"><span class="pre">fft</span></code>) from the <code class="docutils literal notranslate"><span class="pre">fft</span></code> SciPy module. nmrglue also contains Fourier transform functions, but we will use SciPy here. The plot below inverts the <em>x</em>-axis with <code class="docutils literal notranslate"><span class="pre">plt.gca().invert_xaxis()</span></code> to conform to NMR plotting convensions.</p>
@@ -636,7 +640,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/49e6cff327e9e90faab8724b53f8bb8b70d6bac24d87839cc0c2052f259b1609.svg" src="../../_images/49e6cff327e9e90faab8724b53f8bb8b70d6bac24d87839cc0c2052f259b1609.svg" />
+<img alt="../../_images/cdaf6fdc2bcce1db0294edb90c1d5cb4edbef557fcc29a0e339c6d7baa375f3f.svg" src="../../_images/cdaf6fdc2bcce1db0294edb90c1d5cb4edbef557fcc29a0e339c6d7baa375f3f.svg" />
 </div>
 </div>
 <p>When you plot the Fourier transformed data, you may get a <code class="docutils literal notranslate"><span class="pre">ComplexWarning</span></code> error message because the Fourier transform will return complex values (i.e., values with real and imaginary components). To only work with the real components, use the <code class="docutils literal notranslate"><span class="pre">.real</span></code> method as is done above. The plot now looks more like an NMR spectrum, but most of the resonances are out of phase. The next step is to phase the spectrum.</p>
@@ -678,7 +682,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/79cda81b9f7fc76229559eade9baa32edff60f13828aecc9e9ca7dcc97866d36.svg" src="../../_images/79cda81b9f7fc76229559eade9baa32edff60f13828aecc9e9ca7dcc97866d36.svg" />
+<img alt="../../_images/10fb21c12434b1f608a37e81b0f911fe5d147801d34edee0a7214f5ffda91f7f.svg" src="../../_images/10fb21c12434b1f608a37e81b0f911fe5d147801d34edee0a7214f5ffda91f7f.svg" />
 </div>
 </div>
 <p>You should try both algorithms to see which works best for you. The above spectrum is the result of the <code class="docutils literal notranslate"><span class="pre">acme</span></code> autophasing algorithm which is close but still slightly off. If neither of the provided autophasing algorithms work for you, you will need to instead manually phase the NMR spectrum as discussed below.</p>
@@ -744,7 +748,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5bb2b12192c7741c792f8ea472b6651d3d5d459f9865fdd6726c2639913ca58d.svg" src="../../_images/5bb2b12192c7741c792f8ea472b6651d3d5d459f9865fdd6726c2639913ca58d.svg" />
+<img alt="../../_images/d260577740618c8a635c6a1f86dcb606997ea2a3b639985035ca581dbb937f58.svg" src="../../_images/d260577740618c8a635c6a1f86dcb606997ea2a3b639985035ca581dbb937f58.svg" />
 </div>
 </div>
 <p>Alternatively, nmrglue contains an object called a <em>unit conversion object</em> that can be created and used to convert between ppm, Hz, and point index values for any position in an NMR spectrum. To create a unit conversion object, use the <code class="docutils literal notranslate"><span class="pre">make_uc()</span></code> function which takes two arguments  – the dictionary, <code class="docutils literal notranslate"><span class="pre">dic</span></code>, and the original data array, <code class="docutils literal notranslate"><span class="pre">data</span></code>, generated from reading the NMR file in section 11.2.</p>
@@ -782,7 +786,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/18921c2323c0e8a825848283f4df81330cc0dceccf586ca1bef2464e2dc2144e.svg" src="../../_images/18921c2323c0e8a825848283f4df81330cc0dceccf586ca1bef2464e2dc2144e.svg" />
+<img alt="../../_images/c68c6c7b06a6de471d1bb05840d339c8827e9c60fccee85435b54ecc3a4965fd.svg" src="../../_images/c68c6c7b06a6de471d1bb05840d339c8827e9c60fccee85435b54ecc3a4965fd.svg" />
 </div>
 </div>
 <p>The following example uses the ppm scale generated by the unit conversion object.</p>
@@ -824,7 +828,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/fa77c3c293ec2974aa17d5ee922bb4c28c221f36b471fa71f3b22cda79fd34d1.svg" src="../../_images/fa77c3c293ec2974aa17d5ee922bb4c28c221f36b471fa71f3b22cda79fd34d1.svg" />
+<img alt="../../_images/f9b2e94472da3b31db54c6967679804823f704faa4d04055be346c14bc586191.svg" src="../../_images/f9b2e94472da3b31db54c6967679804823f704faa4d04055be346c14bc586191.svg" />
 </div>
 </div>
 <p>If you want to narrow the plot to where the resonances are located, you can use the <code class="docutils literal notranslate"><span class="pre">plt.xlim(8,0)</span></code> function. Notice that 8 is first to indicate that the plot is from 8 ppm <span class="math notranslate nohighlight">\(\rightarrow\)</span> 0 ppm. The use of <code class="docutils literal notranslate"><span class="pre">plt.xlim(8,0)</span></code> removes the need to use <code class="docutils literal notranslate"><span class="pre">plt.gca().invert_xaxis()</span></code> to flip the <em>x</em>-axis.</p>
@@ -865,7 +869,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e55973bc41b55c4129ede64d6c0f150b3128d33c501047086e3490c91142de5b.svg" src="../../_images/e55973bc41b55c4129ede64d6c0f150b3128d33c501047086e3490c91142de5b.svg" />
+<img alt="../../_images/d9c9c5a8001c2cd717cd28c4342c1d0a43110bbc8cbe67e3f120eaf97fb04b0c.svg" src="../../_images/d9c9c5a8001c2cd717cd28c4342c1d0a43110bbc8cbe67e3f120eaf97fb04b0c.svg" />
 </div>
 </div>
 <p>The limits are in ppm, so take a look at the spectrum above and decide where you want to put the integration limits. An NMR spectrum with the chosen integration limits are shown above as vertical red lines.</p>
@@ -931,7 +935,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d7f38604b238ff5bb028feb445f81b42c49820528b4c7af0e006eebb0686f5f9.svg" src="../../_images/d7f38604b238ff5bb028feb445f81b42c49820528b4c7af0e006eebb0686f5f9.svg" />
+<img alt="../../_images/935196df84dcdfdcb51c752df083223c648b2f8c87818ec6e62838eb172700c0.svg" src="../../_images/935196df84dcdfdcb51c752df083223c648b2f8c87818ec6e62838eb172700c0.svg" />
 </div>
 </div>
 <div class="admonition note">
@@ -986,7 +990,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/373f8054e7ac3411995652e9aafb3b8a7fc25a18a5cfcd34196bc3d65c361ec5.svg" src="../../_images/373f8054e7ac3411995652e9aafb3b8a7fc25a18a5cfcd34196bc3d65c361ec5.svg" />
+<img alt="../../_images/6da504f68f4d786c0b3799edb93334d8d5f7f4bb5378d3712ad905692d60bfe7.svg" src="../../_images/6da504f68f4d786c0b3799edb93334d8d5f7f4bb5378d3712ad905692d60bfe7.svg" />
 </div>
 </div>
 <p>We can plot the NMR spectrum with these chemical shifts marked with vertical dotted lines shown above. Looks like it did a pretty good job locating the resonances! If nmrglue fails to properly identify the peaks, there are a number of parameters described in the <a class="reference external" href="https://nmrglue.readthedocs.io/en/latest/reference/generated/nmrglue.analysis.peakpick.pick.html#nmrglue.analysis.peakpick.pick">nmrglue documentation</a> that can be adjusted.</p>
@@ -1045,7 +1049,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nmrsim._classes.Multiplet at 0x12855ff20&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nmrsim._classes.Multiplet at 0x1152d4dd0&gt;
 </pre></div>
 </div>
 </div>
@@ -1089,10 +1093,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x128c00fe0&gt;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x121ad99a0&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/28093e9baae5af146d658a26d710435e62a589ca3d7c708564771650d12fe86e.svg" src="../../_images/28093e9baae5af146d658a26d710435e62a589ca3d7c708564771650d12fe86e.svg" />
+<img alt="../../_images/0a43931037eb421ef929731eb2ab7c2f79c555e81e4464101398e2eea1f149f6.svg" src="../../_images/0a43931037eb421ef929731eb2ab7c2f79c555e81e4464101398e2eea1f149f6.svg" />
 </div>
 </div>
 <p>Below is the same splitting pattern with the line width tripled.</p>
@@ -1103,10 +1107,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x128c5e180&gt;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x121aafc20&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/46b41c9e342eec492bc1019eb9759347822bc97f09522ffb0892ad244aa43d58.svg" src="../../_images/46b41c9e342eec492bc1019eb9759347822bc97f09522ffb0892ad244aa43d58.svg" />
+<img alt="../../_images/0654588cb40dc836b232b9bcfd7b97833032d7c142d1ce101866cf6e9eb65dc0.svg" src="../../_images/0654588cb40dc836b232b9bcfd7b97833032d7c142d1ce101866cf6e9eb65dc0.svg" />
 </div>
 </div>
 <p>As another option, we can overlay the multiplet with lines showing the exact chemical shift and intensity ratio of each peak. This can be done either using your plotting library of choice or using the <code class="docutils literal notranslate"><span class="pre">mplplot_stick()</span></code> function in nmrsim. Below the intensity of the stem plot is reduced by a fifth to keep the lines inside the blue splitting pattern.</p>
@@ -1123,7 +1127,7 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;StemContainer object of 3 artists&gt;
 </pre></div>
 </div>
-<img alt="../../_images/3ebfee6cb5e33387cf1ccc0d3ef1f2a00004533f4219a9dda873f0f4af0ea538.svg" src="../../_images/3ebfee6cb5e33387cf1ccc0d3ef1f2a00004533f4219a9dda873f0f4af0ea538.svg" />
+<img alt="../../_images/18ba0671e43d4d90cf7f55b9c1e6c35bcb8454885ca5d6c1939d8d0da9ee440e.svg" src="../../_images/18ba0671e43d4d90cf7f55b9c1e6c35bcb8454885ca5d6c1939d8d0da9ee440e.svg" />
 </div>
 </div>
 </section>
@@ -1161,7 +1165,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/137ee7c4a31c291fe1f1a43b4d03fdfee31f01a8162487374a9d097afde0e6d1.svg" src="../../_images/137ee7c4a31c291fe1f1a43b4d03fdfee31f01a8162487374a9d097afde0e6d1.svg" />
+<img alt="../../_images/7bc82d0d17eda45aeb833951003fa933314854085b368c9d696c6b63d81dc80a.svg" src="../../_images/7bc82d0d17eda45aeb833951003fa933314854085b368c9d696c6b63d81dc80a.svg" />
 </div>
 </div>
 <p>The simulation even exhibits the second-order roofing effect where coupled resonances ‘lean’ towards each other.</p>
@@ -1216,10 +1220,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x128ff0080&gt;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x121e6f860&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/f83f80202e1c8a65273ab15e1b4b8b22f601771090f93c3a36f4d8a3c2cbef78.svg" src="../../_images/f83f80202e1c8a65273ab15e1b4b8b22f601771090f93c3a36f4d8a3c2cbef78.svg" />
+<img alt="../../_images/8990b422a9148790947224dd5f305f92da75052c5b9804d59d7349f0ed560d23.svg" src="../../_images/8990b422a9148790947224dd5f305f92da75052c5b9804d59d7349f0ed560d23.svg" />
 </div>
 </div>
 <p>If we increase the distance between the two nuclei to 30.0 Hz, not only do the two signals become futhure apart, but the second-order character, unevenness in this case, decreases. It is important to note that when measuring the distance between the two second-order signals like this, the center of a doublet with uneven heights is not the center of the doublet but rather a weighted frequency average of the two peaks based on intensities. This means the chemical shift of a doublet is closer to the larger of the two peaks in the doublet.</p>
@@ -1231,10 +1235,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x128d5cec0&gt;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x121aae840&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/e01d1060bc38857adb2ffdbb92744684042da9b6a1b51b7312a0200bff56eba5.svg" src="../../_images/e01d1060bc38857adb2ffdbb92744684042da9b6a1b51b7312a0200bff56eba5.svg" />
+<img alt="../../_images/96fa858a00757b67109ea90cb78690ecf8e9eb00a1b884fed3993d212d67edad.svg" src="../../_images/96fa858a00757b67109ea90cb78690ecf8e9eb00a1b884fed3993d212d67edad.svg" />
 </div>
 </div>
 </section>
@@ -1260,10 +1264,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x12903f800&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x121edbd40&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/50f2f66b18a5e84636c1865b7cfde0e546535ae469b1a16faf3e3d22a6218777.svg" src="../../_images/50f2f66b18a5e84636c1865b7cfde0e546535ae469b1a16faf3e3d22a6218777.svg" />
+<img alt="../../_images/f1f097150f9b838f541eba8846822b6ce359a3aa3ab049643fdb380dcd1b9848.svg" src="../../_images/f1f097150f9b838f541eba8846822b6ce359a3aa3ab049643fdb380dcd1b9848.svg" />
 </div>
 </div>
 </section>
