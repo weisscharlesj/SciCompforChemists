@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Appendix 2: datetime Module &#8212; Scientific Computing for Chemists with Python</title>
+    <title>Appendix 2: Visualizing Atomic Orbitals &#8212; Scientific Computing for Chemists with Python</title>
   
   
   
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -60,9 +60,13 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/appendix_02/appendix_02_notebook';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Index" href="../../genindex.html" />
+    <link rel="prev" title="Appendix 1: Remote Requests" href="../appendix_01/appendix_01_notebook.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -113,8 +117,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <dialog id="pst-primary-sidebar-modal"></dialog>
       <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
@@ -190,9 +192,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../chapter_16/chap_16_notebook.html">Chapter 16: Bioinformatics with Biopython and Nglview</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Back Matter</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../appendix_00/appendix_00_notebook.html">Appendix 0: Ipython Widgets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix_01/appendix_01_notebook.html">Appendix 1: Remote Requests</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Appendix 2: Visualizing Atomic Orbitals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
 </ul>
 
@@ -371,7 +374,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Appendix 2: datetime Module</h1>
+    <h1>Appendix 2: Visualizing Atomic Orbitals</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -381,9 +384,9 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#date-and-time-data">Date and Time Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changes-in-date-and-time">Changes in Date and Time</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-date-and-time-information">Extracting Date and Time Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radial-wavefunctions">Radial Wavefunctions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#angular-wavefunctions">Angular Wavefunctions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entire-wavefunction-psi">Entire Wavefunction - <span class="math notranslate nohighlight">\(\Psi\)</span></a></li>
 </ul>
             </nav>
         </div>
@@ -395,272 +398,544 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="appendix-2-datetime-module">
-<span id="appendix-02"></span><h1>Appendix 2: <code class="docutils literal notranslate"><span class="pre">datetime</span></code> Module<a class="headerlink" href="#appendix-2-datetime-module" title="Link to this heading">#</a></h1>
-<p>It is often neccesary to know when data were collected such as in chemical kinetics. This information may be stored in the file itself or as a timestamp at the end of the file name. Not only is it neccesary to extract this date and time information, it is often also neccesary to calculate the times since the start of the experiment or between data points. This appendix covers Python’s native <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module useful for working with date and time information and extracting this information from data. The three object types covered here are listed below. The first two tell us when the data were collected while the third, <code class="docutils literal notranslate"><span class="pre">timedelta</span></code>, tells us the amount of time between two times or dates.</p>
-<p><strong>Table 1</strong> Common <code class="docutils literal notranslate"><span class="pre">datetime</span></code> Objects</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head text-center"><p>Object Type</p></th>
-<th class="head text-left"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">date</span></code></p></td>
-<td class="text-left"><p>Contains date informaing ingnoring time</p></td>
-</tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code></p></td>
-<td class="text-left"><p>Contains date and time information</p></td>
-</tr>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">timedelta</span></code></p></td>
-<td class="text-left"><p>Contains change in date and time informatin</p></td>
-</tr>
-</tbody>
-</table>
+  <div class="cell tag_remove-input docutils container">
 </div>
-<aside class="margin sidebar">
-<p class="sidebar-title"></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>We assume here that the data collection occured in one timezone and not across leap years. If this is not the case, see the <a class="reference external" href="https://docs.python.org/3/library/datetime.html">Python datetime documentation</a> for dealing with these added complexities.</p>
+<section class="tex2jax_ignore mathjax_ignore" id="appendix-2-visualizing-atomic-orbitals">
+<span id="appendix-02"></span><h1>Appendix 2: Visualizing Atomic Orbitals<a class="headerlink" href="#appendix-2-visualizing-atomic-orbitals" title="Link to this heading">#</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This appendix is still being worked, may contain errors, and assumes a future version of SymPy for the <code class="docutils literal notranslate"><span class="pre">Z_lm()</span></code> function. This function has been temporarily defined in a code cell below to privde this feature until the next SymPy release.</p>
 </div>
-</aside>
-<aside class="margin sidebar">
-<p class="sidebar-title"></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>While there is a <code class="docutils literal notranslate"><span class="pre">time</span></code> object, it is not covered here because it is not supported by <code class="docutils literal notranslate"><span class="pre">timedelta</span></code>.</p>
-</div>
-</aside>
-<p>We will start with what these objects are and how to work with them followed by how to use <code class="docutils literal notranslate"><span class="pre">datetime</span></code> to extract date and time information from data files. First, we need to import the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module.</p>
+<p>The visualization of atomic obitals and orbital information is important enough topics in chemistry to warrent specific attention. This appendix focuses on different methods of visualizing various aspects of atomic orbitals and tools to assist in this task. This content is not included in the chapter on plotting with matplotlib because this appendix heavily utilizes various libraries such as SymPy, interact, and NumPy not yet introduced before Chapter 03.</p>
+<p>Atomic orbitals are described by a wavefunction, <span class="math notranslate nohighlight">\(\Psi (n, l, m)\)</span>, which is the product of the radial wavefunction, <span class="math notranslate nohighlight">\(R(n, l)\)</span>, and the angular wavefunction, <span class="math notranslate nohighlight">\(Y(l, m)\)</span>. Each atomic orbital has a different wavefunction <span class="math notranslate nohighlight">\(\Psi\)</span>, but they sometimes share common radial wavefunctions.</p>
+<div class="math notranslate nohighlight">
+\[ \Psi(n, l, m) = R(n, l)Y(l, m) \]</div>
+<p>The <strong>radial wavefunction</strong> depends upon the principal (n) and angular (<span class="math notranslate nohighlight">\(l\)</span>) quantum numbers and provides information about the wavefunction or electron probability at various distances from the nucleus. The radial wavefunction is independant of the direction. The <strong>angular wavefunction</strong> describes the <em>direction</em> of the orbital with respect to the spherical coordinate angles and depends upon the angular (<span class="math notranslate nohighlight">\(l\)</span>) and magnetic (<span class="math notranslate nohighlight">\(m\)</span> or <span class="math notranslate nohighlight">\(m_l\)</span>) quantum numbers. We will first visualize the radial and angular components individually before combining them into a more complete picture of atomic orbitals.</p>
+<p>We will use NumPy and matplotlib heavily in this chapter, and we will make heavy use of the SymPy library for convenient functions in its <a class="reference external" href="https://docs.sympy.org/latest/modules/physics/hydrogen.html">hydrogen model</a>. These are all imported below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section id="date-and-time-data">
-<h2>Date and Time Data<a class="headerlink" href="#date-and-time-data" title="Link to this heading">#</a></h2>
-<p>The datetime module stores date and time information in a <code class="docutils literal notranslate"><span class="pre">datetime</span></code>object. A <code class="docutils literal notranslate"><span class="pre">datetime</span></code> object can be created multiple ways such as explicitely indicating a specific date and time using the <code class="docutils literal notranslate"><span class="pre">datetime()</span></code> method. For example, below we indicate noon on Pi Day 2025. The <code class="docutils literal notranslate"><span class="pre">datetime()</span></code> method takes the year, month, day, hour, minutes, seconds, and microseconds as positional arguments in this order.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">hour</span><span class="p">,</span> <span class="n">minutes</span><span class="p">,</span> <span class="n">seconds</span><span class="p">,</span> <span class="n">microseconds</span><span class="p">)</span> 
-</pre></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pi_day</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2025</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> 
-</pre></div>
-</div>
-</div>
-</div>
-<p>The date and time information can also be provided to <code class="docutils literal notranslate"><span class="pre">datetime()</span></code> using keyword arguments like below.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mario_day</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2025</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">10</span> <span class="p">,</span><span class="n">hour</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">microsecond</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The current date and time can be accessed using the <code class="docutils literal notranslate"><span class="pre">now()</span></code> method for the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module. This function also accepts an optional timezone (<code class="docutils literal notranslate"><span class="pre">tz=</span></code>) argument. If no argument is provided, then <code class="docutils literal notranslate"><span class="pre">tz=None</span></code>. There is also a <code class="docutils literal notranslate"><span class="pre">datetime.datetime.today()</span></code> function that is equivalent to the <code class="docutils literal notranslate"><span class="pre">now()</span></code> function when no timezone is provided or <code class="docutils literal notranslate"><span class="pre">tz=None</span></code>. The <code class="docutils literal notranslate"><span class="pre">now()</span></code> function is preferred.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
-<span class="n">now</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 7, 1, 12, 13, 19, 852346)
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="changes-in-date-and-time">
-<h2>Changes in Date and Time<a class="headerlink" href="#changes-in-date-and-time" title="Link to this heading">#</a></h2>
-<p>The differences between two <code class="docutils literal notranslate"><span class="pre">datetime</span></code> objects can also be calculated by subtracting the two objects. The result is returned in a <code class="docutils literal notranslate"><span class="pre">timedelta</span></code>object.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta</span> <span class="o">=</span> <span class="n">pi_day</span> <span class="o">-</span> <span class="n">mario_day</span>
-<span class="n">delta</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.timedelta(days=4, seconds=13800)
-</pre></div>
-</div>
-</div>
-</div>
-<p>The days or seconds in the <code class="docutils literal notranslate"><span class="pre">timedelta</span></code> object can be accessed using the <code class="docutils literal notranslate"><span class="pre">days</span></code> or <code class="docutils literal notranslate"><span class="pre">seconds</span></code> attributes, respectively.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta</span><span class="o">.</span><span class="n">days</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta</span><span class="o">.</span><span class="n">seconds</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13800
-</pre></div>
-</div>
-</div>
-</div>
-<p>To condense a <code class="docutils literal notranslate"><span class="pre">timedelta</span></code> into seconds, use the <code class="docutils literal notranslate"><span class="pre">total_seconds()</span></code> method.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>359400.0
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="extracting-date-and-time-information">
-<h2>Extracting Date and Time Information<a class="headerlink" href="#extracting-date-and-time-information" title="Link to this heading">#</a></h2>
-<p>The extracting of the date and time from a file or file name can be accomplished using the ‘string-parsed time’ <code class="docutils literal notranslate"><span class="pre">strptime()</span></code> function and formatting codes shown below. Additional codes can be found on the <a class="reference external" href="https://docs.python.org/3/library/datetime.html#format-codes">Python webstie</a>.</p>
-<p><strong>Table 2</strong> Formatting Codes for Parsing Date and Time Strings</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Code</p></th>
-<th class="head text-left"><p>Example</p></th>
-<th class="head text-left"><p>Description</p></th>
-<th class="head text-left"><p>Length</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>%y</p></td>
-<td class="text-left"><p>01</p></td>
-<td class="text-left"><p>Year without centurty</p></td>
-<td class="text-left"><p>Two digits</p></td>
-</tr>
-<tr class="row-odd"><td><p>%Y</p></td>
-<td class="text-left"><p>2001</p></td>
-<td class="text-left"><p>Year with century</p></td>
-<td class="text-left"><p>Four digits</p></td>
-</tr>
-<tr class="row-even"><td><p>%b</p></td>
-<td class="text-left"><p>Jan</p></td>
-<td class="text-left"><p>Month abbreviation</p></td>
-<td class="text-left"><p>Three letters</p></td>
-</tr>
-<tr class="row-odd"><td><p>%B</p></td>
-<td class="text-left"><p>January</p></td>
-<td class="text-left"><p>Month full name</p></td>
-<td class="text-left"><p>Varies</p></td>
-</tr>
-<tr class="row-even"><td><p>%m</p></td>
-<td class="text-left"><p>01</p></td>
-<td class="text-left"><p>Month as zero padded number</p></td>
-<td class="text-left"><p>Two digits</p></td>
-</tr>
-<tr class="row-odd"><td><p>%d</p></td>
-<td class="text-left"><p>05</p></td>
-<td class="text-left"><p>Day of the month with zero padding</p></td>
-<td class="text-left"><p>Two digits</p></td>
-</tr>
-<tr class="row-even"><td><p>%H</p></td>
-<td class="text-left"><p>14</p></td>
-<td class="text-left"><p>Hour in 24 hour time with zero padding</p></td>
-<td class="text-left"><p>Two digits</p></td>
-</tr>
-<tr class="row-odd"><td><p>%p</p></td>
-<td class="text-left"><p>AM</p></td>
-<td class="text-left"><p>AM or PM</p></td>
-<td class="text-left"><p>Two letters</p></td>
-</tr>
-<tr class="row-even"><td><p>%I</p></td>
-<td class="text-left"><p>02</p></td>
-<td class="text-left"><p>Hour in 12 hour time with zero padding</p></td>
-<td class="text-left"><p>Two digits</p></td>
-</tr>
-<tr class="row-odd"><td><p>%M</p></td>
-<td class="text-left"><p>16</p></td>
-<td class="text-left"><p>Minute with zero padding</p></td>
-<td class="text-left"><p>Two digits</p></td>
-</tr>
-<tr class="row-even"><td><p>%S</p></td>
-<td class="text-left"><p>09</p></td>
-<td class="text-left"><p>Second with zero padding</p></td>
-<td class="text-left"><p>Two digits</p></td>
-</tr>
-<tr class="row-odd"><td><p>%f</p></td>
-<td class="text-left"><p>090000</p></td>
-<td class="text-left"><p>Microseconds with zero padding</p></td>
-<td class="text-left"><p>Six digits</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>These codes will allow you to parse strings into the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module by prividing the <code class="docutils literal notranslate"><span class="pre">strptime()</span></code> function with both the string from the data file and a description of how the date and time information is formatted. For example, below is a file where the collection time is included in the file name as hour, minues, seconds separated by hyphens.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_name_1</span> <span class="o">=</span> <span class="s1">&#39;Absorbance_12-03-48.txt&#39;</span> 
-<span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">file_name_1</span><span class="p">[</span><span class="o">-</span><span class="mi">12</span><span class="p">:</span><span class="o">-</span><span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;%H-%M-%S&#39;</span><span class="p">)</span>
-<span class="n">timestamp</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(1900, 1, 1, 12, 3, 48)
-</pre></div>
-</div>
-</div>
-</div>
-<p>Because the date (i.e., year, month, and day) information were not provided, default values of January 1, 1900 is chosen for the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> object. If you only want the date or time information, you can access them using the <code class="docutils literal notranslate"><span class="pre">date()</span></code> or <code class="docutils literal notranslate"><span class="pre">time()</span></code> functions, respectively.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">timestamp</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.date(1900, 1, 1)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">timestamp</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.time(12, 3, 48)
-</pre></div>
-</div>
-</div>
-</div>
-<p>If the values are not formatted like Python assumes, a little extra effort may be required. For example, below the time is formatted at hours-minutes-seconds-microseconds, but microseconds is not represented as six digits with zero padding like Python would like. To deal with this, the microseconds are sliced out of the file name and added to the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> object using the <code class="docutils literal notranslate"><span class="pre">replace()</span></code> method.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_name_2</span> <span class="o">=</span> <span class="s1">&#39;glucose_Absorbance_12-03-48-215.txt&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
 
-<span class="n">time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">file_name_2</span><span class="p">[</span><span class="o">-</span><span class="mi">16</span><span class="p">:</span><span class="o">-</span><span class="mi">8</span><span class="p">],</span> <span class="s1">&#39;%H-%M-%S&#39;</span><span class="p">)</span>
-<span class="n">time</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">microsecond</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">file_name_2</span><span class="p">[</span><span class="o">-</span><span class="mi">7</span><span class="p">:</span><span class="o">-</span><span class="mi">4</span><span class="p">]))</span>
+<span class="kn">import</span> <span class="nn">sympy</span>
+<span class="kn">from</span> <span class="nn">sympy.physics.hydrogen</span> <span class="kn">import</span> <span class="n">R_nl</span><span class="p">,</span> <span class="n">Psi_nlm</span> <span class="c1">#, Z_lm</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># delete this cell and replace with actual Z_lm after next SymPy release</span>
+<span class="kn">from</span> <span class="nn">sympy.functions.special.spherical_harmonics</span> <span class="kn">import</span> <span class="n">Znm</span>
+<span class="k">def</span> <span class="nf">Z_lm</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">phi</span><span class="p">,</span> <span class="n">theta</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Znm</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">phi</span><span class="p">)</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The SymPy library is introduced in <a class="reference internal" href="../chapter_08/chap_08_notebook.html#id1"><span class="std std-ref">Chapter 8</span></a> and provides mainly tools for symbolic mathematics along with other tools for wavefunctions, harmonic oscillators, biomechanics, etc.</p>
+</div>
+</aside>
+<section id="radial-wavefunctions">
+<h2>Radial Wavefunctions<a class="headerlink" href="#radial-wavefunctions" title="Link to this heading">#</a></h2>
+<p>Because the radial wavefunctions are independant of direction, they can be represented effectively on a simple 2D plot. The toughest part is coding the equations for every combination of n and <span class="math notranslate nohighlight">\(l\)</span>. The good news is that the SymPy library includes a function, <code class="docutils literal notranslate"><span class="pre">R_nl()</span></code>, in the <a class="reference external" href="https://docs.sympy.org/latest/modules/physics/hydrogen.html">Hydrogen Wavefunction</a> (<code class="docutils literal notranslate"><span class="pre">sympy.physics.hydrogen</span></code>) module that provides this functionality. This function takes the principle quantum number (n), angular quantum number (<span class="math notranslate nohighlight">\(l\)</span>), radius in Bohrs (r), and atomic number (Z). A Bohr equals about 52.9 pm.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">R_nl</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">Z</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can evaluate the function for any hydrogen-like atomic orbitals such as the 3p orbitals (n = 3 and <span class="math notranslate nohighlight">\(l\)</span> = 1) at 4.0 Bohrs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R_nl</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="n">Z</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(1900, 1, 1, 12, 3, 48, 215)
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 0.0173561901639985 \sqrt{6}\]</div>
+</div>
+</div>
+<p>SymPy prefers to return results in exact form, so it includes <span class="math notranslate nohighlight">\(\sqrt6\)</span> in this particular result. To get a float answer, use the <code class="docutils literal notranslate"><span class="pre">evalf()</span></code> method</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">evalf()</span></code> method can take an optional argument for the precision number such as <code class="docutils literal notranslate"><span class="pre">evalf(5)</span></code> for 5 digits of precision.</p>
+</div>
+</aside>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R_nl</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="n">Z</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">evalf</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 0.0425138097805085\]</div>
+</div>
+</div>
+<p>It might now be interesting to evaluate this radial function at a range of distances and plot them. This function does not support taking multiple radii, so you have two options below.</p>
+<ol class="arabic simple">
+<li><p>Iterate through a list or array of radii and evaluate this function one radius at a time.</p></li>
+<li><p>Convert the R_nl() function to a function that can accept an array using the <code class="docutils literal notranslate"><span class="pre">lambdify()</span></code> method.</p></li>
+</ol>
+<p>Both approaches are demonstrated below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first approach - interate through iterable</span>
+<span class="n">radii</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">R_eval</span> <span class="o">=</span> <span class="p">[</span><span class="n">R_nl</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">Z</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">radii</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">radii</span><span class="p">,</span> <span class="n">R_eval</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Distance from Nucleus (Bohrs)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Evaluated Radiable Wave&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/6280beed36f26d40391885123e99a4c4a7845a0a63472ec22bd478e7924c4624.svg" src="../../_images/6280beed36f26d40391885123e99a4c4a7845a0a63472ec22bd478e7924c4624.svg" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># second approach - lambdify</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="c1"># create SymPy symbol</span>
+
+<span class="c1"># create a numpy compatible function using lambdify</span>
+<span class="n">R_3p</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">lambdify</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">R_nl</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">Z</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">modules</span><span class="o">=</span><span class="s1">&#39;numpy&#39;</span><span class="p">)</span>
+<span class="n">radii</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">radii</span><span class="p">,</span> <span class="n">R_3p</span><span class="p">(</span><span class="n">radii</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Distance from Nucleus (Bohrs)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Evaluated Radiable Wave&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/c0f77e4345353cb5cd961e142d620375dddb7d31e65dac742e6b8f42d02ac780.svg" src="../../_images/c0f77e4345353cb5cd961e142d620375dddb7d31e65dac742e6b8f42d02ac780.svg" />
+</div>
+</div>
+<p>The electron <strong>probability density</strong> at any distance can be found by calculating <span class="math notranslate nohighlight">\(R^2r^2\)</span>, known as the <strong>radial distribution function</strong> where <span class="math notranslate nohighlight">\(R\)</span> is the radial wavefunction and <span class="math notranslate nohighlight">\(r\)</span> is the distance from the nucleus.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">radii</span><span class="p">,</span> <span class="n">R_3p</span><span class="p">(</span><span class="n">radii</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">radii</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Distance from Nucleus (Bohrs)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability Density&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/487a5f22a7c45912773a4c99b6ea87ef4584cac8190ed605e41390f126c47d2c.svg" src="../../_images/487a5f22a7c45912773a4c99b6ea87ef4584cac8190ed605e41390f126c47d2c.svg" />
+</div>
+</div>
+<p>The reason we mulitply the square of the radial wavefunction by <span class="math notranslate nohighlight">\(r^2\)</span> is to account for greater surface area of a sphere (<span class="math notranslate nohighlight">\(A_{sphere} = 4\pi r^2\)</span>) the furthur we get from the center. We are effectively carrying out the calculation depicted below. We divide the sphere surface area by 4<span class="math notranslate nohighlight">\(\pi\)</span> to normalize the probability over all space to equal one.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">radii</span><span class="p">,</span> <span class="n">R_3p</span><span class="p">(</span><span class="n">radii</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Radius, Bohrs&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;1s Orbital Radial Density&#39;</span><span class="p">)</span>
+
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">radii</span><span class="p">,</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">sympy</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">radii</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Radius, Bohrs&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Surface Area / 4$</span><span class="se">\\</span><span class="s1">pi$, Bohrs$^2$&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Sphere Surface Area Over 4$</span><span class="se">\\</span><span class="s1">pi$&#39;</span><span class="p">)</span>
+
+<span class="n">ax3</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">radii</span><span class="p">,</span> <span class="n">radii</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">R_3p</span><span class="p">(</span><span class="n">radii</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C2&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Radius, Bohrs&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Radial Probability&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;1s Orbital Radial Probability&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.31</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="s1">&#39;xx-large&#39;</span><span class="p">})</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.66</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="s1">&#39;xx-large&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.66, 0.5, &#39;=&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/acdd1f71a33ac4cbd4d2809c9109b50a975d7b11078caaf07ab376e49bb97346.svg" src="../../_images/acdd1f71a33ac4cbd4d2809c9109b50a975d7b11078caaf07ab376e49bb97346.svg" />
+</div>
+</div>
+<p>The probabily <span class="math notranslate nohighlight">\(R^2r^2\)</span> can be integrated using the <code class="docutils literal notranslate"><span class="pre">sympy.integrate()</span></code> function which accepts the function or mathematical expression to be integrated and a tuple that contains the variable, the min, and the max values. For example, we can integrate the <code class="docutils literal notranslate"><span class="pre">R_nl()</span></code> for the 2s orbital from 0 to 3.0 Bohrs like below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">R_nl</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">Z</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">))</span><span class="o">.</span><span class="n">evalf</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 0.473330547984585\]</div>
+</div>
+</div>
+<p>Let’s test that the radial distribution is normalized by integrating from zero to infinity.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">sympy.oo</span></code> is the SymPy variable for infinity.</p>
+</div>
+</aside>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">R_nl</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">Z</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">r</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sympy</span><span class="o">.</span><span class="n">oo</span><span class="p">))</span><span class="o">.</span><span class="n">evalf</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 1.0\]</div>
+</div>
+</div>
+</section>
+<section id="angular-wavefunctions">
+<h2>Angular Wavefunctions<a class="headerlink" href="#angular-wavefunctions" title="Link to this heading">#</a></h2>
+<p>The other component of <span class="math notranslate nohighlight">\(\Psi\)</span> is the angular wavefunctions which provides directional information about an orbital. The angular equations can be coded by hand or we can also use the <code class="docutils literal notranslate"><span class="pre">Y_lm()</span></code> or <code class="docutils literal notranslate"><span class="pre">Z_lm()</span></code> spherical harmonics wavefunctions from <code class="docutils literal notranslate"><span class="pre">sympy.physics.hydrogen</span></code> to assist us. The difference between these two functions is that <code class="docutils literal notranslate"><span class="pre">Y_lm()</span></code> may return a complex expression whereas <code class="docutils literal notranslate"><span class="pre">Z_lm()</span></code> will return the real-valued angular wavefunction. Because our goal is to visualize the wavefunctions, we will restrict outselves to the latter here. The angular wavefunction provides information in all directions, so we will plot this information in 3D.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The plot of angular wavefunction does not include the radial information so does not fully describe the shape of atomic orbitals. Do not interpret the angular plots below as the actual shape of atomic orbitals even though they resemble them.</p>
+</div>
+</aside>
+<p>There are multiple conventions for spherical coordinates. We will use the SciPy/SymPy convention of using theta (<span class="math notranslate nohighlight">\(\theta\)</span>) for the azmuthal (i.e., direction on <em>xy</em>-plane) and phi (<span class="math notranslate nohighlight">\(\phi\)</span>) as the polar angle (i.e., angle from the positive <em>z</em>-axis) for plotting the angular wavefunctions. Below, we plot the <span class="math notranslate nohighlight">\(d_{z^2}\)</span> orbital by coding the <a class="reference external" href="https://en.wikipedia.org/wiki/Table_of_spherical_harmonics#Real_spherical_harmonics">angular wavefunction expresion</a> by hand.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>See <a class="reference internal" href="../chapter_03/chap_03_notebook.html#id21"><span class="std std-ref">section 3.6.3</span></a> for guidance on plotting surfaces in 3D.</p>
+</div>
+</aside>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># generate mesh grid of theta and phi values</span>
+<span class="n">theta</span><span class="p">,</span> <span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">51</span><span class="p">),</span>
+                         <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">101</span><span class="p">))</span>
+
+<span class="c1"># convert angles to xyz values of a sphere, r = 1</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+
+<span class="c1"># multiply xyz values by angular wavefunction</span>
+<span class="n">dz2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">5</span> <span class="o">/</span> <span class="mi">16</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">dz2</span><span class="p">,</span> <span class="n">y</span> <span class="o">*</span> <span class="n">dz2</span><span class="p">,</span> <span class="n">z</span> <span class="o">*</span> <span class="n">dz2</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x-axis&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y-axis&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;z-axis&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span> <span class="c1"># sets aspect ratio to equal</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/5655a8e66284fe09e79842ed410ce5ef603f17ed5f64a1406bc8aea3c67a46f6.svg" src="../../_images/5655a8e66284fe09e79842ed410ce5ef603f17ed5f64a1406bc8aea3c67a46f6.svg" />
+</div>
+</div>
+<p>Alternatively, we can use the <code class="docutils literal notranslate"><span class="pre">Z_lm()</span></code> function from <code class="docutils literal notranslate"><span class="pre">sympy.physics.hydrogen</span></code> to generate the angular wavefunction based on the angular and magnetic quantum numbers.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Z_lm</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">phi</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>SymPy functions cannot calculate wavefunctions for an array of angles like NumPy functions can, but fortunately SymPy functions can be converted to NumPy function using the <code class="docutils literal notranslate"><span class="pre">lambdify()</span></code> method. Just provide the <code class="docutils literal notranslate"><span class="pre">lambdify()</span></code> method with a collection of argument variables for the wavefunction as SymPy symbols, the wavefunction, and <code class="docutils literal notranslate"><span class="pre">modules='numpy'</span></code>, and it returns a new function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from sympy.physics import Z_lm</span>
+
+<span class="n">theta</span><span class="p">,</span> <span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">51</span><span class="p">),</span>
+                         <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">101</span><span class="p">))</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+
+<span class="c1"># create a numpy function</span>
+<span class="n">p</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;p t&#39;</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">lambdify</span><span class="p">((</span><span class="n">p</span><span class="p">,</span> <span class="n">t</span><span class="p">),</span> <span class="n">Z_lm</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">t</span><span class="p">),</span> <span class="n">modules</span><span class="o">=</span><span class="s1">&#39;numpy&#39;</span><span class="p">)</span>
+
+<span class="c1"># multiply xyz values by wave angular wavefunction</span>
+<span class="n">f_pt</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">f_pt</span><span class="p">,</span> <span class="n">y</span> <span class="o">*</span> <span class="n">f_pt</span><span class="p">,</span> <span class="n">z</span> <span class="o">*</span> <span class="n">f_pt</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span> <span class="c1"># sets aspect ratio to equal</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span> <span class="c1"># turns off axes and background</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/0955b31229b93ea85ce43232e4222915eb0fea28a61b18d0b38007a41cd81a42.svg" src="../../_images/0955b31229b93ea85ce43232e4222915eb0fea28a61b18d0b38007a41cd81a42.svg" />
+</div>
+</div>
+<p>We can also visualize the angular component of wavefunctions in 2D using a <a class="reference internal" href="../chapter_03/chap_03_notebook.html#id12"><span class="std std-ref">polar plot</span></a>, but we can only visualize one angle at a time. Below we will visualize theta and leave phi fixed. Because we are only visualizing in 2D and not sweeping around the phi angles, we need to make theta go from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 2<span class="math notranslate nohighlight">\(\pi\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span>
+<span class="n">azmuth</span><span class="p">,</span> <span class="n">polar</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;azmuth polar&#39;</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">lambdify</span><span class="p">((</span><span class="n">polar</span><span class="p">,</span> <span class="n">azmuth</span><span class="p">),</span> <span class="n">Z_lm</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">polar</span><span class="p">,</span> <span class="n">azmuth</span><span class="p">),</span> <span class="n">modules</span><span class="o">=</span><span class="s1">&#39;numpy&#39;</span><span class="p">)</span>
+
+<span class="n">th</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">polar</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">th</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">th</span><span class="p">)))</span>
+<span class="c1"># orient 0 degrees to up/north</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_theta_zero_location</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/8711319fddaf904b2157e11cddccff0f88e92e5efbf02b1dc1056d45437c6895.svg" src="../../_images/8711319fddaf904b2157e11cddccff0f88e92e5efbf02b1dc1056d45437c6895.svg" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span>
+<span class="n">azmuth</span><span class="p">,</span> <span class="n">polar</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;azmuth polar&#39;</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">lambdify</span><span class="p">((</span><span class="n">polar</span><span class="p">,</span> <span class="n">azmuth</span><span class="p">),</span> <span class="n">Z_lm</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">polar</span><span class="p">,</span> <span class="n">azmuth</span><span class="p">),</span> <span class="n">modules</span><span class="o">=</span><span class="s1">&#39;numpy&#39;</span><span class="p">)</span>
+
+<span class="n">th</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">polar</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">th</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">th</span><span class="p">)))</span>
+<span class="c1"># orient 0 degrees to up/north</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_theta_zero_location</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/9f4fc430f9936e0c8f711b8a05b7423bb7cafeeaa993e5b0148a0c06d927a602.svg" src="../../_images/9f4fc430f9936e0c8f711b8a05b7423bb7cafeeaa993e5b0148a0c06d927a602.svg" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span>
+<span class="n">azmuth</span><span class="p">,</span> <span class="n">polar</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;azmuth polar&#39;</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">lambdify</span><span class="p">((</span><span class="n">polar</span><span class="p">,</span> <span class="n">azmuth</span><span class="p">),</span> <span class="n">Z_lm</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">polar</span><span class="p">,</span> <span class="n">azmuth</span><span class="p">),</span> <span class="n">modules</span><span class="o">=</span><span class="s1">&#39;numpy&#39;</span><span class="p">)</span>
+
+<span class="n">th</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">polar</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">th</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">th</span><span class="p">)))</span>
+<span class="c1"># orient 0 degrees to up/north</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_theta_zero_location</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/343265b35595069c0d07b636a9b1f95e8ca249d23be9b9e999dbf826e57f8278.svg" src="../../_images/343265b35595069c0d07b636a9b1f95e8ca249d23be9b9e999dbf826e57f8278.svg" />
+</div>
+</div>
+<p>The last orbital image is a <em>d</em>-orbital viewed from the side.</p>
+</section>
+<section id="entire-wavefunction-psi">
+<h2>Entire Wavefunction - <span class="math notranslate nohighlight">\(\Psi\)</span><a class="headerlink" href="#entire-wavefunction-psi" title="Link to this heading">#</a></h2>
+<p>Now we will visualize both angular and radial components together (<span class="math notranslate nohighlight">\(\Psi\)</span>) which is again the product of the radial, <span class="math notranslate nohighlight">\(R(n, l)\)</span> and angular, <span class="math notranslate nohighlight">\(Y(l, m)\)</span> wavefunctions.</p>
+<div class="math notranslate nohighlight">
+\[ \Psi(n, l, m) = R(n, l)Y(l, m) \]</div>
+<p>To obtain the entire wavefunction, <span class="math notranslate nohighlight">\(\Psi\)</span>, we can either multiply the radial and angular wavefunctions from the previous sections or use the SymPy <code class="docutils literal notranslate"><span class="pre">Psi_nlm()</span></code> function which makes this task a little more convenient. Orbitals technicaly have no edge, so there are multiple ways of representing orbitals including contour plots, isosurfaces, 90% surface plots, scatter plots, and translucent 3D plots. We will demonstrate the scatter and contour plots below.</p>
+<p>First, let’s take a look at the <code class="docutils literal notranslate"><span class="pre">Psi_nlm()</span></code> function which operates similarily to the other SymPy wavefunctions above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">azmuth</span><span class="p">,</span> <span class="n">polar</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;azmuth polar r&#39;</span><span class="p">)</span>
+<span class="n">wf</span> <span class="o">=</span> <span class="n">Psi_nlm</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">azmuth</span><span class="p">,</span> <span class="n">polar</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">lambdify</span><span class="p">((</span><span class="n">r</span><span class="p">,</span> <span class="n">azmuth</span><span class="p">,</span> <span class="n">polar</span><span class="p">),</span> <span class="n">wf</span> <span class="o">*</span> <span class="n">sympy</span><span class="o">.</span><span class="n">conjugate</span><span class="p">(</span><span class="n">wf</span><span class="p">),</span> <span class="n">modules</span><span class="o">=</span><span class="s1">&#39;numpy&#39;</span><span class="p">)</span>
+
+<span class="c1"># integrate normalized wavefunction over all area</span>
+<span class="n">sympy</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">Psi_nlm</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">azmuth</span><span class="p">,</span> <span class="n">polar</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">r</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sympy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">polar</span><span class="p">),</span> 
+                <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sympy</span><span class="o">.</span><span class="n">oo</span><span class="p">),</span> 
+                <span class="p">(</span><span class="n">azmuth</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">sympy</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span> 
+                <span class="p">(</span><span class="n">polar</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sympy</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 1\]</div>
+</div>
+</div>
+<p>Above, we integrate it over all space returning 1 which tells us that this function is normalized when we include <span class="math notranslate nohighlight">\(r^2sin(\theta)\)</span>.</p>
+<p>Now let’s visualize an orbital using a scatter plot. We will use a strategy previously reported in <a class="reference external" href="https://doi.org/10.1021/ed067p42"><em>J. Chem. Educ.,</em> <strong>1990,</strong> 67, 42-44</a> which includes the following steps.</p>
+<ol class="arabic simple">
+<li><p>Use a random number generator to produce a series of <em>xyz</em> or <em>xy</em> values depending upon dimensions</p></li>
+<li><p>Use the <em>xyz</em> or <em>xy</em> values above to calculate the <span class="math notranslate nohighlight">\(\theta\)</span>, <span class="math notranslate nohighlight">\(r\)</span>, and <span class="math notranslate nohighlight">\(\phi\)</span> values - $phi$ is only necceary if we are using <em>xyz</em></p></li>
+<li><p>Use the above radius and angles to calculate probabilities using the wavefunction</p></li>
+<li><p>Normalize the probabilities by dividing by the maximum probability value across all the data points</p></li>
+<li><p>If each normalized probability is above a random value from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1, it gets included in the scatter plot</p></li>
+</ol>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If plotting a <em>very</em> large number of data points, consider using <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> instead of <code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code> because the latter is slower and uses more memory due to its ability to individualize each marker in the plot.</p>
+</div>
+</aside>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2p orbital</span>
+
+<span class="c1"># create wavefunction as python function</span>
+<span class="n">azmuth</span><span class="p">,</span> <span class="n">polar</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;azmuth polar r&#39;</span><span class="p">)</span>
+<span class="n">wf</span> <span class="o">=</span> <span class="n">Psi_nlm</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">azmuth</span><span class="p">,</span> <span class="n">polar</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">lambdify</span><span class="p">((</span><span class="n">r</span><span class="p">,</span> <span class="n">azmuth</span><span class="p">,</span> <span class="n">polar</span><span class="p">),</span> <span class="n">wf</span> <span class="o">*</span> <span class="n">sympy</span><span class="o">.</span><span class="n">conjugate</span><span class="p">(</span><span class="n">wf</span><span class="p">),</span> <span class="n">modules</span><span class="o">=</span><span class="s1">&#39;numpy&#39;</span><span class="p">)</span>
+
+<span class="c1"># generate random coordinates</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+<span class="n">n_points</span> <span class="o">=</span> <span class="mi">1000000</span>
+<span class="n">rand</span> <span class="o">=</span> <span class="mi">20</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_points</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">-</span> <span class="mi">10</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">rand</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">rand</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">rand</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">polar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">y</span> <span class="o">/</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">azmuth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">z</span> <span class="o">/</span> <span class="n">r</span><span class="p">)</span>
+
+<span class="c1"># normalize and create mask</span>
+<span class="n">prob</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">azmuth</span><span class="p">,</span> <span class="n">polar</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">norm_prob</span> <span class="o">=</span> <span class="n">prob</span> <span class="o">/</span> <span class="n">prob</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">norm_prob</span> <span class="o">&gt;</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">n_points</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="s1">&#39;,&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/4b1f77f380e959a471100a358e0c1f1647ccee0a5b0b7f71f57b2d1fd6565554.svg" src="../../_images/4b1f77f380e959a471100a358e0c1f1647ccee0a5b0b7f71f57b2d1fd6565554.svg" />
+</div>
+</div>
+<p>The plot above makes the shape of the orbital look like the orbital lobes are almost conical, which is not what we typcially see in realistic orbital shape figures. This is an illusion because there are more data points visualized along the horizontal axis due to the orbital being thicker there. If we instead reduce the simulation to 2D (i.e., only <em>xy</em> plane), the orbital lobes appear rounder because we are visualizing a slice through the middle of the orbital.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2p oribtal</span>
+
+<span class="c1"># create wavefunction as python function</span>
+<span class="n">azmuth</span><span class="p">,</span> <span class="n">polar</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;azmuth polar r&#39;</span><span class="p">)</span>
+<span class="n">psi</span> <span class="o">=</span> <span class="n">Psi_nlm</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">polar</span><span class="p">)</span>
+<span class="n">psi_f</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">lambdify</span><span class="p">((</span><span class="n">r</span><span class="p">,</span> <span class="n">polar</span><span class="p">),</span> <span class="n">psi</span> <span class="o">*</span> <span class="n">sympy</span><span class="o">.</span><span class="n">conjugate</span><span class="p">(</span><span class="n">psi</span><span class="p">),</span> <span class="n">modules</span><span class="o">=</span><span class="s1">&#39;numpy&#39;</span><span class="p">)</span>
+
+<span class="c1"># generate random coordinates</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+<span class="n">n_points</span> <span class="o">=</span> <span class="mi">1000000</span>
+<span class="n">rand</span> <span class="o">=</span> <span class="mi">20</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_points</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="o">-</span> <span class="mi">10</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">rand</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">rand</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">polar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">y</span> <span class="o">/</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># normalize and create mask</span>
+<span class="n">wf</span> <span class="o">=</span> <span class="n">psi_f</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">polar</span><span class="p">)</span>
+<span class="n">prob</span> <span class="o">=</span> <span class="n">wf</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">norm_prob</span> <span class="o">=</span> <span class="n">prob</span> <span class="o">/</span> <span class="n">prob</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+<span class="n">mask</span> <span class="o">=</span> <span class="n">norm_prob</span> <span class="o">&gt;</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">n_points</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="s1">&#39;,&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/4f472176fa04d33c190943ecaaa419919a5397e2e93816bb45aa0ade5fb5b62f.svg" src="../../_images/4f472176fa04d33c190943ecaaa419919a5397e2e93816bb45aa0ade5fb5b62f.svg" />
+</div>
+</div>
+<p>We can visualize larger orbitals to see more nodes such as in the 3p orbital below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3p orbital</span>
+
+<span class="c1"># create wavefunction as python function</span>
+<span class="n">azmuth</span><span class="p">,</span> <span class="n">polar</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;azmuth polar r&#39;</span><span class="p">)</span>
+<span class="n">psi</span> <span class="o">=</span> <span class="n">Psi_nlm</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">polar</span><span class="p">)</span>
+<span class="n">psi_f</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">lambdify</span><span class="p">((</span><span class="n">r</span><span class="p">,</span> <span class="n">polar</span><span class="p">),</span> <span class="n">psi</span> <span class="o">*</span> <span class="n">sympy</span><span class="o">.</span><span class="n">conjugate</span><span class="p">(</span><span class="n">psi</span><span class="p">),</span> <span class="n">modules</span><span class="o">=</span><span class="s1">&#39;numpy&#39;</span><span class="p">)</span>
+
+<span class="c1"># generate random coordinates</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+<span class="n">n_points</span> <span class="o">=</span> <span class="mi">1000000</span>
+<span class="n">rand</span> <span class="o">=</span> <span class="mi">40</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_points</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="o">-</span> <span class="mi">20</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">rand</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">rand</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">polar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">y</span> <span class="o">/</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># normalize and create mask</span>
+<span class="n">wf</span> <span class="o">=</span> <span class="n">psi_f</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">polar</span><span class="p">)</span>
+<span class="n">prob</span> <span class="o">=</span> <span class="n">wf</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">norm_prob</span> <span class="o">=</span> <span class="n">prob</span> <span class="o">/</span> <span class="n">prob</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+<span class="n">mask</span> <span class="o">=</span> <span class="n">norm_prob</span> <span class="o">&gt;</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">n_points</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="s1">&#39;,&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/f3de5a5e72f0b3f90d40bcc843201efdc8d4c93e7c4ca3cea60b067e4259cfb9.svg" src="../../_images/f3de5a5e72f0b3f90d40bcc843201efdc8d4c93e7c4ca3cea60b067e4259cfb9.svg" />
+</div>
+</div>
+<p>A second way to visualize orbitals is through a contour plot. Here we calculate the probability in a mesh of locations and provide the <code class="docutils literal notranslate"><span class="pre">plt.countour()</span></code> function with the locations and probabilities.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span>
+                   <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
+
+<span class="c1"># create wavefunction as python function</span>
+<span class="n">azmuth</span><span class="p">,</span> <span class="n">polar</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;azmuth polar r&#39;</span><span class="p">)</span>
+<span class="n">wf</span> <span class="o">=</span> <span class="n">Psi_nlm</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">polar</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">lambdify</span><span class="p">((</span><span class="n">r</span><span class="p">,</span> <span class="n">polar</span><span class="p">),</span> <span class="n">wf</span> <span class="o">*</span> <span class="n">sympy</span><span class="o">.</span><span class="n">conjugate</span><span class="p">(</span><span class="n">wf</span><span class="p">),</span> <span class="n">modules</span><span class="o">=</span><span class="s1">&#39;numpy&#39;</span><span class="p">)</span>
+<span class="n">polar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">Y</span> <span class="o">/</span> <span class="n">X</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">X</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># calculate probability</span>
+<span class="n">prob</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">polar</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">prob</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mf">1e-9</span><span class="p">,</span> <span class="mf">3e-9</span><span class="p">,</span> <span class="mf">5e-9</span><span class="p">,</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="mf">5e-8</span><span class="p">,</span> <span class="mf">1e-7</span><span class="p">,</span> <span class="mf">3e-7</span><span class="p">,</span> <span class="mf">9e-7</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/02f96d1e3d0670fe3324523c60cbc91636d02a1cdc3db6348f47c3f089317bf7.svg" src="../../_images/02f96d1e3d0670fe3324523c60cbc91636d02a1cdc3db6348f47c3f089317bf7.svg" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span>
+                   <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
+
+<span class="c1"># create wavefunction as python function</span>
+<span class="n">azmuth</span><span class="p">,</span> <span class="n">polar</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;azmuth polar r&#39;</span><span class="p">)</span>
+<span class="n">wf</span> <span class="o">=</span> <span class="n">Psi_nlm</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">polar</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">lambdify</span><span class="p">((</span><span class="n">r</span><span class="p">,</span> <span class="n">polar</span><span class="p">),</span> <span class="n">wf</span> <span class="o">*</span> <span class="n">sympy</span><span class="o">.</span><span class="n">conjugate</span><span class="p">(</span><span class="n">wf</span><span class="p">),</span> <span class="n">modules</span><span class="o">=</span><span class="s1">&#39;numpy&#39;</span><span class="p">)</span>
+<span class="n">polar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">Y</span> <span class="o">/</span> <span class="n">X</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">X</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># calculate probability</span>
+<span class="n">prob</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">polar</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">prob</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mf">1e-9</span><span class="p">,</span> <span class="mf">3e-9</span><span class="p">,</span> <span class="mf">5e-9</span><span class="p">,</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="mf">5e-8</span><span class="p">,</span> <span class="mf">1e-7</span><span class="p">,</span> <span class="mf">3e-7</span><span class="p">,</span> <span class="mf">9e-7</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/7a9b1fc451a943f1a64aba184bd231f81a35eb22a7096c2d40c7dd675f2f0908.svg" src="../../_images/7a9b1fc451a943f1a64aba184bd231f81a35eb22a7096c2d40c7dd675f2f0908.svg" />
 </div>
 </div>
 </section>
@@ -696,6 +971,24 @@
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../appendix_01/appendix_01_notebook.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Appendix 1: Remote Requests</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../genindex.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Index</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -713,9 +1006,9 @@
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#date-and-time-data">Date and Time Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changes-in-date-and-time">Changes in Date and Time</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-date-and-time-information">Extracting Date and Time Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radial-wavefunctions">Radial Wavefunctions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#angular-wavefunctions">Angular Wavefunctions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entire-wavefunction-psi">Entire Wavefunction - <span class="math notranslate nohighlight">\(\Psi\)</span></a></li>
 </ul>
   </nav></div>
 
