@@ -450,10 +450,10 @@
 <span id="id1"></span><h1>Chapter 2: Intermediate Python<a class="headerlink" href="#chapter-2-intermediate-python" title="Link to this heading">#</a></h1>
 <p>The contents of this chapter are intended for those who wish to dive deeper into the Python programming language. Many of the topics herein are <em>not</em> strictly required for most subsequent chapters but will make you more efficient and effective as a Python programmer. Items from this chapter are occasionally used in subsequent chapters, but you should still be able to follow along without having read this chapter. If you are in a rush, you can bypass this chapter and circle back as needed. The sections and sometimes subsections of this chapter may also be read in any order or as needed.</p>
 <section id="syntactic-sugar">
-<span id="id2"></span><h2>2.1 Syntactic Sugar<a class="headerlink" href="#syntactic-sugar" title="Link to this heading">#</a></h2>
-<p id="index-0"><em>Syntactic sugar</em> is a nickname given to any part of a programming language that does not extend the capabilities of the language. If any of these features were suddenly removed from the language, the language would still be just as capable, but the advantage of anything labeled “syntactic sugar” is that it makes the code quicker/shorter to write or easier to read. Below are a few examples from the Python language that you are likely to come across and find useful.</p>
+<span id="id2"></span><span id="index-0"></span><h2>2.1 Syntactic Sugar<a class="headerlink" href="#syntactic-sugar" title="Link to this heading">#</a></h2>
+<p><em>Syntactic sugar</em> is a nickname given to any part of a programming language that does not extend the capabilities of the language. If any of these features were suddenly removed from the language, the language would still be just as capable, but the advantage of anything labeled “syntactic sugar” is that it makes the code quicker/shorter to write or easier to read. Below are a few examples from the Python language that you are likely to come across and find useful.</p>
 <section id="augmented-assignment">
-<span id="id3"></span><h3>2.1.1 Augmented Assignment<a class="headerlink" href="#augmented-assignment" title="Link to this heading">#</a></h3>
+<span id="id3"></span><span id="index-1"></span><h3>2.1.1 Augmented Assignment<a class="headerlink" href="#augmented-assignment" title="Link to this heading">#</a></h3>
 <p>Augmented assignment is a simple example of syntactic sugar that allows the user to modify the value assigned to a variable. If we want to increase a value by one, we can recursively assign the variable to itself plus one as shown below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -514,8 +514,8 @@
 </div>
 </section>
 <section id="list-comprehension">
-<span id="id4"></span><h3>2.1.2 List Comprehension<a class="headerlink" href="#list-comprehension" title="Link to this heading">#</a></h3>
-<p id="index-1">At this point, you may have noticed that it is fairly common to generate a list populated with a series of numbers. If the values are evenly spaced integers, simply use the <code class="docutils literal notranslate"><span class="pre">range()</span></code> function and coverts it to a list using <code class="docutils literal notranslate"><span class="pre">list()</span></code>. In all other scenarios, you will need to create an empty list, use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to calculate the values, and <code class="docutils literal notranslate"><span class="pre">append</span></code> the values to the list as they are generated. Below is an example of generating a list of squares of all integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 9 using this method.</p>
+<span id="id4"></span><span id="index-2"></span><h3>2.1.2 List Comprehension<a class="headerlink" href="#list-comprehension" title="Link to this heading">#</a></h3>
+<p>At this point, you may have noticed that it is fairly common to generate a list populated with a series of numbers. If the values are evenly spaced integers, simply use the <code class="docutils literal notranslate"><span class="pre">range()</span></code> function and coverts it to a list using <code class="docutils literal notranslate"><span class="pre">list()</span></code>. In all other scenarios, you will need to create an empty list, use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to calculate the values, and <code class="docutils literal notranslate"><span class="pre">append</span></code> the values to the list as they are generated. Below is an example of generating a list of squares of all integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 9 using this method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">[]</span>
@@ -534,13 +534,6 @@
 </div>
 </div>
 <p>This whole process can be condensed down into a single line using <em>list comprehension</em> demonstrated below.</p>
-<aside class="margin sidebar">
-<p class="sidebar-title"></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Python also supports analogous code structures for creating other objects such as <em>tuple comprehension</em> and <em>dictionary comprehension</em> which will not be covered here.</p>
-</div>
-</aside>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">integer</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">integer</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
@@ -571,7 +564,7 @@
 </div>
 </section>
 <section id="compound-assignment">
-<span id="id5"></span><h3>2.1.3 Compound Assignment<a class="headerlink" href="#compound-assignment" title="Link to this heading">#</a></h3>
+<span id="id5"></span><span id="index-3"></span><h3>2.1.3 Compound Assignment<a class="headerlink" href="#compound-assignment" title="Link to this heading">#</a></h3>
 <p>At the beginning of a program or calculations, it is often necessary to populate a series of variables with values. Each variable may get its own line in the code, and if there are numerous variables, this can clutter your code. An alternative is to assign multiple variables in the same assignment as shown below with atomic masses of the first three elements.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -615,8 +608,8 @@
 </div>
 </section>
 <section id="lambda-functions">
-<span id="id6"></span><h3>2.1.4 Lambda Functions<a class="headerlink" href="#lambda-functions" title="Link to this heading">#</a></h3>
-<p id="index-3"><span id="index-2"></span>The <em>lambda function</em> is an anonymous function for generating simple Python functions. Their value is that they can be used to generate functions in fewer lines of code than the standard <code class="docutils literal notranslate"><span class="pre">def</span></code> statement, and they do not necessarily need to be assigned to a variable, hence the anonymous part. This is useful in applications that require a Python function but the user does not want to clutter the namespace by assigning it to a variable or take the time to define a function normally. The lambda function is defined as shown below with the variable immediately after the lambda statement as the independent variable in the function. In other words, the variable to the left of the <code class="docutils literal notranslate"><span class="pre">:</span></code> is the variable that goes in the parentheses in a normal function definition, and everthing to the right of the <code class="docutils literal notranslate"><span class="pre">:</span></code> is what is indented in a normal function definition.</p>
+<span id="id6"></span><span id="index-5"></span><span id="index-4"></span><h3>2.1.4 Lambda Functions<a class="headerlink" href="#lambda-functions" title="Link to this heading">#</a></h3>
+<p>The <em>lambda function</em> is an anonymous function for generating simple Python functions. Their value is that they can be used to generate functions in fewer lines of code than the standard <code class="docutils literal notranslate"><span class="pre">def</span></code> statement, and they do not necessarily need to be assigned to a variable, hence the anonymous part. This is useful in applications that require a Python function but the user does not want to clutter the namespace by assigning it to a variable or take the time to define a function normally. The lambda function is defined as shown below with the variable immediately after the lambda statement as the independent variable in the function. In other words, the variable to the left of the <code class="docutils literal notranslate"><span class="pre">:</span></code> is the variable that goes in the parentheses in a normal function definition, and everthing to the right of the <code class="docutils literal notranslate"><span class="pre">:</span></code> is what is indented in a normal function definition.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
@@ -696,8 +689,8 @@
 </section>
 </section>
 <section id="dictionaries">
-<span id="id7"></span><h2>2.2 Dictionaries<a class="headerlink" href="#dictionaries" title="Link to this heading">#</a></h2>
-<p id="index-4">Python <em>dictionaries</em> are a multi-element Python object type that connects keys and values analogous to the way a real dictionary connects a word (the key) with a definition (the value). These are also known as <em>associative arrays</em>. Dictionaries allow the user to access the stored values using a key without knowing anything about order of items in the dictionary. One way to think of a dictionary is an object full of variables and assigned values. For example, if we are looking to write a script to calculate the molecular weight of a compound based on its molecular formula, we would need access to the atomic mass of each element based on the elemental symbol. Here the key is the symbol and the value is the atomic mass. It looks something like a list with curly brackets and each item is a <code class="docutils literal notranslate"><span class="pre">key:value</span></code> pair separated by a colon. Below is an example of a dictionary containing the atomic masses of the first ten elements on the periodic table.</p>
+<span id="id7"></span><span id="index-6"></span><h2>2.2 Dictionaries<a class="headerlink" href="#dictionaries" title="Link to this heading">#</a></h2>
+<p>Python <em>dictionaries</em> are a multi-element Python object type that connects keys and values analogous to the way a real dictionary connects a word (the key) with a definition (the value). These are also known as <em>associative arrays</em>. Dictionaries allow the user to access the stored values using a key without knowing anything about order of items in the dictionary. One way to think of a dictionary is an object full of variables and assigned values. For example, if we are looking to write a script to calculate the molecular weight of a compound based on its molecular formula, we would need access to the atomic mass of each element based on the elemental symbol. Here the key is the symbol and the value is the atomic mass. It looks something like a list with curly brackets and each item is a <code class="docutils literal notranslate"><span class="pre">key:value</span></code> pair separated by a colon. Below is an example of a dictionary containing the atomic masses of the first ten elements on the periodic table.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">AM</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span><span class="mf">1.01</span><span class="p">,</span> <span class="s1">&#39;He&#39;</span><span class="p">:</span><span class="mf">4.00</span><span class="p">,</span> <span class="s1">&#39;Li&#39;</span><span class="p">:</span><span class="mf">6.94</span><span class="p">,</span> <span class="s1">&#39;Be&#39;</span><span class="p">:</span><span class="mf">9.01</span><span class="p">,</span>
@@ -828,8 +821,8 @@
 </div>
 </section>
 <section id="set">
-<span id="id8"></span><h2>2.3 Set<a class="headerlink" href="#set" title="Link to this heading">#</a></h2>
-<p id="index-5">Sets are another Python object type you may encounter and use on occasions. These are multi-element objects similar to lists with the key difference that each element can appear only once in the set. This may be useful in applications where code is taking stock of what is present. For example, if we are taking inventory of the chemical stockroom to know which chemical compounds are on hand for experiments, the names of the compounds can be stored in a set. If more than one bottle of a compound is present in the stockroom, the set only contains the name once because we are only concerned with what is available, not how many are available. A set looks like a list except curly brackets are used instead of square brackets.</p>
+<span id="id8"></span><span id="index-7"></span><h2>2.3 Set<a class="headerlink" href="#set" title="Link to this heading">#</a></h2>
+<p>Sets are another Python object type you may encounter and use on occasions. These are multi-element objects similar to lists with the key difference that each element can appear only once in the set. This may be useful in applications where code is taking stock of what is present. For example, if we are taking inventory of the chemical stockroom to know which chemical compounds are on hand for experiments, the names of the compounds can be stored in a set. If more than one bottle of a compound is present in the stockroom, the set only contains the name once because we are only concerned with what is available, not how many are available. A set looks like a list except curly brackets are used instead of square brackets.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compounds</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ethanol&#39;</span><span class="p">,</span> <span class="s1">&#39;sodium chloride&#39;</span><span class="p">,</span> <span class="s1">&#39;water&#39;</span><span class="p">,</span>
@@ -963,8 +956,8 @@
 </div>
 </section>
 <section id="python-modules">
-<span id="id9"></span><h2>2.4 Python Modules<a class="headerlink" href="#python-modules" title="Link to this heading">#</a></h2>
-<p id="index-6">Remember from the last chapter that a <em>module</em> is a collection of functions and data with a common theme. You have already seen the <code class="docutils literal notranslate"><span class="pre">math</span></code> module in <a class="reference internal" href="../chapter_01/chap_01_notebook.html#id5"><span class="std std-ref">section 1.1.3</span></a>, but Python also contains a number of other native modules that come with every installation of Python. Table 3 lists a few common examples, but there are certainly many others worth exploring. You are encouraged to visit the Python website and explore other modules. This section will introduce a few useful modules with some examples of their uses.</p>
+<span id="id9"></span><span id="index-8"></span><h2>2.4 Python Modules<a class="headerlink" href="#python-modules" title="Link to this heading">#</a></h2>
+<p>Remember from the last chapter that a <em>module</em> is a collection of functions and data with a common theme. You have already seen the <code class="docutils literal notranslate"><span class="pre">math</span></code> module in <a class="reference internal" href="../chapter_01/chap_01_notebook.html#id5"><span class="std std-ref">section 1.1.3</span></a>, but Python also contains a number of other native modules that come with every installation of Python. Table 3 lists a few common examples, but there are certainly many others worth exploring. You are encouraged to visit the Python website and explore other modules. This section will introduce a few useful modules with some examples of their uses.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
@@ -1043,7 +1036,7 @@
 </pre></div>
 </div>
 <p>Another useful function from the os module is the <code class="docutils literal notranslate"><span class="pre">listdir()</span></code> method which lists all the files and directories in a folder. It is useful not only for determining the contents a folder but also for iterating through all the files in a folder. Imagine you have not just a single CSV file with data but an entire folder of similar CSV files that you need to import into Python. Instead of handling these files one at a time, you can have Python iterate through the folder and import each CSV file it finds. Below is a demonstration of importing and printing every CSV file on the computer desktop.</p>
-<div class="highlight-python notranslate" id="index-7"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate" id="index-9"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/Users/me/Desktop&#39;</span><span class="p">)</span> <span class="c1"># changes directory</span>
 <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;csv&#39;</span><span class="p">):</span> <span class="c1"># only open csv files</span>
@@ -1067,13 +1060,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;itertools.combinations at 0x10707d6c0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;itertools.combinations at 0x108853dd0&gt;
 </pre></div>
 </div>
 </div>
 </div>
 <p>So what just happened? Instead of returning a list, it returned a <em>combinations object</em>. You do not need to know much about these except that they can be converted into lists or iterated over to extract their elements, and they are single use. Once you have iterated over them, they need to be generated again if you need them again.</p>
-<aside class="margin sidebar" id="index-8">
+<aside class="margin sidebar" id="index-10">
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1139,8 +1132,8 @@
 <p>Notice how (0, 2) and (2, 0) are both present in the permutations while only one is listed in the combinations.</p>
 </section>
 <section id="random-module">
-<span id="id12"></span><h3>2.4.3 <code class="docutils literal notranslate"><span class="pre">random</span></code> Module<a class="headerlink" href="#random-module" title="Link to this heading">#</a></h3>
-<p id="index-9">The <code class="docutils literal notranslate"><span class="pre">random</span></code> module provides a selection of functions for generating random values. Random values can be integers or floats and can be generated from a variety of ranges and distributions. A selection of common functions from the <code class="docutils literal notranslate"><span class="pre">random</span></code> module are shown in Table 5. We will not go into much detail here as random value generation is covered in significantly more detail at the end of chapter 4. One key limitation of the <code class="docutils literal notranslate"><span class="pre">random</span></code> module is that the functions typically only generate a single value at a time. If you want multiple random values, you need to either use a loop or use the random value functions from NumPy presented in chapter 4.</p>
+<span id="id12"></span><span id="index-11"></span><h3>2.4.3 <code class="docutils literal notranslate"><span class="pre">random</span></code> Module<a class="headerlink" href="#random-module" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">random</span></code> module provides a selection of functions for generating random values. Random values can be integers or floats and can be generated from a variety of ranges and distributions. A selection of common functions from the <code class="docutils literal notranslate"><span class="pre">random</span></code> module are shown in Table 5. We will not go into much detail here as random value generation is covered in significantly more detail at the end of chapter 4. One key limitation of the <code class="docutils literal notranslate"><span class="pre">random</span></code> module is that the functions typically only generate a single value at a time. If you want multiple random values, you need to either use a loop or use the random value functions from NumPy presented in chapter 4.</p>
 <p><strong>Table 5</strong> Functions from random Module</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -1176,7 +1169,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9453884564141848
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5541668256280947
 </pre></div>
 </div>
 </div>
@@ -1188,7 +1181,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
 </pre></div>
 </div>
 </div>
@@ -1202,7 +1195,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 6, 5, 2, 3, 4]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 6, 1, 3, 4, 5]
 </pre></div>
 </div>
 </div>
@@ -1210,7 +1203,7 @@
 </section>
 </section>
 <section id="zipping-and-enumeration">
-<span id="id13"></span><h2>2.5 Zipping and Enumeration<a class="headerlink" href="#zipping-and-enumeration" title="Link to this heading">#</a></h2>
+<span id="id13"></span><span id="index-13"></span><span id="index-12"></span><h2>2.5 Zipping and Enumeration<a class="headerlink" href="#zipping-and-enumeration" title="Link to this heading">#</a></h2>
 <p>There are times when it is neccesary to iterate over two lists simultaneously. For example, let us say we have a list of the atomic numbers (<code class="docutils literal notranslate"><span class="pre">AN</span></code>) and a list of approximate atomic masses (<code class="docutils literal notranslate"><span class="pre">mass</span></code>) of the most abundant isotopes for the first six elements on the periodic table.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1223,7 +1216,7 @@
 <p>If we want to calculate the number of neutrons in each isotope, we need to subtract each atomic number (equal to the number of protons) from the atomic mass. To accomplish this, it would be helpful to iterate over both lists simultaneously. Below are a couple methods of doing this.</p>
 <section id="zipping">
 <span id="id14"></span><h3>2.5.1 Zipping<a class="headerlink" href="#zipping" title="Link to this heading">#</a></h3>
-<p id="index-10">The simplest way to iterate over two lists simultaneously is to combine both lists into a single, iterable object and iterate over it once. The <code class="docutils literal notranslate"><span class="pre">zip()</span></code> function does exactly this by merging two lists or tuples, like a zipper on a jacket, into something like a nested list of lists. However, instead of returning a list or tuple, the <code class="docutils literal notranslate"><span class="pre">zip()</span></code> function returns a single-use zip object.</p>
+<p id="index-14">The simplest way to iterate over two lists simultaneously is to combine both lists into a single, iterable object and iterate over it once. The <code class="docutils literal notranslate"><span class="pre">zip()</span></code> function does exactly this by merging two lists or tuples, like a zipper on a jacket, into something like a nested list of lists. However, instead of returning a list or tuple, the <code class="docutils literal notranslate"><span class="pre">zip()</span></code> function returns a single-use zip object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zipped</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">AN</span><span class="p">,</span> <span class="n">mass</span><span class="p">)</span>
@@ -1262,7 +1255,7 @@
 </section>
 <section id="enumeration">
 <span id="id15"></span><h3>2.5.2 Enumeration<a class="headerlink" href="#enumeration" title="Link to this heading">#</a></h3>
-<p id="index-11">A close relative to <code class="docutils literal notranslate"><span class="pre">zip()</span></code> is the <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> function. Instead of zipping  two lists or tuples together, it zips a list or tuple to the index values for that list. Similar to <code class="docutils literal notranslate"><span class="pre">zip()</span></code>, it returns a one-time use iterable object.</p>
+<p id="index-15">A close relative to <code class="docutils literal notranslate"><span class="pre">zip()</span></code> is the <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> function. Instead of zipping  two lists or tuples together, it zips a list or tuple to the index values for that list. Similar to <code class="docutils literal notranslate"><span class="pre">zip()</span></code>, it returns a one-time use iterable object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="o">=</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">mass</span><span class="p">)</span>
@@ -1311,8 +1304,8 @@
 </section>
 </section>
 <section id="encoding-numbers">
-<span id="id16"></span><h2>2.6 Encoding Numbers<a class="headerlink" href="#encoding-numbers" title="Link to this heading">#</a></h2>
-<p id="index-12">During most of your work in Python, you do not need to think about how and where the values are stored because Python handles this for you. If you assign a number to a variable, Python will determine how to properly store this information. However, there are instances where you will need to understand a little about how numbers are encoded such as in gray scale images (chapter 7).</p>
+<span id="id16"></span><span id="index-16"></span><h2>2.6 Encoding Numbers<a class="headerlink" href="#encoding-numbers" title="Link to this heading">#</a></h2>
+<p>During most of your work in Python, you do not need to think about how and where the values are stored because Python handles this for you. If you assign a number to a variable, Python will determine how to properly store this information. However, there are instances where you will need to understand a little about how numbers are encoded such as in gray scale images (chapter 7).</p>
 <p>Numbers on your computer are stored in <em>binary</em> which is a base two numbering system. That is, instead of using digits from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 9 to describe a number, only 0 and 1 are used.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -1362,8 +1355,8 @@
 <p>For non-integer values, we need floats. The number of bits used to describe a float dictates the precision of the value… or rather is the number of decimal places the float extends. The various types listed above support both positive and negative values, and the more bits, the more precision they offer.</p>
 </section>
 <section id="advanced-functions">
-<span id="id17"></span><h2>2.7 Advanced Functions<a class="headerlink" href="#advanced-functions" title="Link to this heading">#</a></h2>
-<p id="index-13">Section 1.9 describes positional arguments and keyword arguments as two methods for providing functions with information and instructions, but thus far, these methods have only allowed the function to take a predetermined numbers of arguments. While some flexibility is offered by the ability to set default keyword arguments that users have the option of overriding or leaving as the default, there is still a limit on the number of parameters in the function. What do we do when we need to write a function that takes an unspecified number of arguments? This section provides two approaches to solving this problem.</p>
+<span id="id17"></span><span id="index-17"></span><h2>2.7 Advanced Functions<a class="headerlink" href="#advanced-functions" title="Link to this heading">#</a></h2>
+<p>Section 1.9 describes positional arguments and keyword arguments as two methods for providing functions with information and instructions, but thus far, these methods have only allowed the function to take a predetermined numbers of arguments. While some flexibility is offered by the ability to set default keyword arguments that users have the option of overriding or leaving as the default, there is still a limit on the number of parameters in the function. What do we do when we need to write a function that takes an unspecified number of arguments? This section provides two approaches to solving this problem.</p>
 <section id="variable-positional-arguments">
 <span id="id18"></span><h3>2.7.1 Variable Positional Arguments<a class="headerlink" href="#variable-positional-arguments" title="Link to this heading">#</a></h3>
 <p>As a possible use case, it is common practice in lab to purify a solid compound by recrystallization, and chemists will often harvest multiple crops of crystals from the same solution to get the highest possible yield. If we want to write a function that returns the percent yield of a synthesized compound using the theoretical yield and the yields of each recrystallization crop, we are faced with the challenge of not knowing how many crops to expect. One solution is a var-positional argument.</p>
@@ -1437,8 +1430,8 @@
 <p>The user experience would be the same if we wrote the function to accept keyword arguments with default values of zero, but it is sometimes more convenient for the person writing the code to design the function to accept var-keyword arguments.</p>
 </section>
 <section id="recursive-functions">
-<span id="id20"></span><h3>2.7.3 Recursive Functions<a class="headerlink" href="#recursive-functions" title="Link to this heading">#</a></h3>
-<p id="index-14">Functions can call other functions. This is probably not surprising as we have already seen functions call <code class="docutils literal notranslate"><span class="pre">math.sqrt()</span></code> and <code class="docutils literal notranslate"><span class="pre">append()</span></code>, but what may be surprising is that Python allows a function to call itself. This is known as a <em>recursive function</em>.</p>
+<span id="id20"></span><span id="index-18"></span><h3>2.7.3 Recursive Functions<a class="headerlink" href="#recursive-functions" title="Link to this heading">#</a></h3>
+<p>Functions can call other functions. This is probably not surprising as we have already seen functions call <code class="docutils literal notranslate"><span class="pre">math.sqrt()</span></code> and <code class="docutils literal notranslate"><span class="pre">append()</span></code>, but what may be surprising is that Python allows a function to call itself. This is known as a <em>recursive function</em>.</p>
 <p>If we want to write a function that calculates the remaining mass of radioactive materials after a given number of half-lives, this can be accomplished using a <code class="docutils literal notranslate"><span class="pre">for</span></code> or <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, but it can also be accomplished recursively. We start by having the function divide the provided mass (<code class="docutils literal notranslate"><span class="pre">mass</span></code>) in half and then decrement the number of half-lives (<code class="docutils literal notranslate"><span class="pre">hl</span></code>) by one. This is the core component of the function. If <code class="docutils literal notranslate"><span class="pre">hl</span></code> is zero, the function is done and returns the mass. If not, the function calls itself again with the remaining mass and number of half-lives. This is the recursive part. The second time the function is run, the mass is again halved and the half-lives decremented by one, and the number of half-lives is again checked.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1535,8 +1528,8 @@
 </section>
 </section>
 <section id="error-handling">
-<span id="id21"></span><h2>2.8 Error Handling<a class="headerlink" href="#error-handling" title="Link to this heading">#</a></h2>
-<p id="index-15">It doesn’t take long to realize that error messages are an inevitable part of computer programming, so it is helpful to know what the different type of errors messages mean and how to deal with them. This section provides a quick overview of major types of error messages and how to get Python to work past them when appropriate.</p>
+<span id="id21"></span><span id="index-19"></span><h2>2.8 Error Handling<a class="headerlink" href="#error-handling" title="Link to this heading">#</a></h2>
+<p>It doesn’t take long to realize that error messages are an inevitable part of computer programming, so it is helpful to know what the different type of errors messages mean and how to deal with them. This section provides a quick overview of major types of error messages and how to get Python to work past them when appropriate.</p>
 <section id="types-of-errors">
 <span id="id22"></span><h3>2.8.1 Types of Errors<a class="headerlink" href="#types-of-errors" title="Link to this heading">#</a></h3>
 <p>Whenever you encounter an error message, it includes the type of error followed by more details. There are numberous types of errors, but there are a few errors types that are more prevalent and worth being familar with. Below is a short list of some of these common error types.</p>
@@ -1808,7 +1801,7 @@
 </section>
 <section id="workout-around-errors-with-try-and-except">
 <span id="id23"></span><h3>2.8.2 Workout Around Errors with <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code><a class="headerlink" href="#workout-around-errors-with-try-and-except" title="Link to this heading">#</a></h3>
-<p id="index-17"><span id="index-16"></span>While this may seem like a bad idea at first glance, there are times when you may want Python to not come to a grinding halt in the face of an error. One common situation is when importing a large number of data files from different sources. Not every data source may have formatted data or files the same, and some files may be malformed or there may be other unexpected edge cases. To get Python to not stop at an error message, you can use a <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code> block.</p>
+<p id="index-21"><span id="index-20"></span>While this may seem like a bad idea at first glance, there are times when you may want Python to not come to a grinding halt in the face of an error. One common situation is when importing a large number of data files from different sources. Not every data source may have formatted data or files the same, and some files may be malformed or there may be other unexpected edge cases. To get Python to not stop at an error message, you can use a <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code> block.</p>
 <p>The general structure of a <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code> block is to include the code you origionally intend to run under the <code class="docutils literal notranslate"><span class="pre">try</span></code> statement, and under the following <code class="docutils literal notranslate"><span class="pre">except</span></code> statement, include what Python should do in the event of a specific error. The general structure looks like the following.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="n">regular</span> <span class="n">code</span>
@@ -1923,7 +1916,7 @@
 </section>
 <section id="raising-exceptions">
 <span id="id24"></span><h3>2.8.3 Raising Exceptions<a class="headerlink" href="#raising-exceptions" title="Link to this heading">#</a></h3>
-<p id="index-19"><span id="index-18"></span>One thing worse than code not running is code running and producing incorrect outputs. At least when code fails to run, the user knows something is wrong whereas code that fails silently can lull the user into false conclusions. It is a prudent pratice in coding to include checks that important conditions are met, and when these conditions are not met, the code should stop and produce an error known as <em>raising an exception</em>.  To include checks in your code, you can use a condition with a <code class="docutils literal notranslate"><span class="pre">raise</span></code> statement followed by some form of error from Table 7 and an error message. The more specific you can be in your error type and message, the better.</p>
+<p id="index-23"><span id="index-22"></span>One thing worse than code not running is code running and producing incorrect outputs. At least when code fails to run, the user knows something is wrong whereas code that fails silently can lull the user into false conclusions. It is a prudent pratice in coding to include checks that important conditions are met, and when these conditions are not met, the code should stop and produce an error known as <em>raising an exception</em>.  To include checks in your code, you can use a condition with a <code class="docutils literal notranslate"><span class="pre">raise</span></code> statement followed by some form of error from Table 7 and an error message. The more specific you can be in your error type and message, the better.</p>
 <p>As an example, we will write a function below which quantifies the differences between two DNA sequences. The <em>Hamming distance</em> is one possible metric for detemining how different two sequences are and is simply the number of locations where two sequences <em>of the same length</em> are different. For example, <code class="docutils literal notranslate"><span class="pre">AATGC</span></code> and <code class="docutils literal notranslate"><span class="pre">AATGT</span></code> have a Hamming distance of 1 because they are identical except for the last base position. Because it is critical that the two DNA sequences be the same length, this should be checked before any furthur calculations, and if the sequences have different lengths, the function should not proceed and provide a helpful error message.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq1</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq2</span><span class="p">):</span>
     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Sequences must be of equal length&#39;</span><span class="p">)</span>
@@ -1997,7 +1990,7 @@
 </section>
 </section>
 <section id="date-and-time-information">
-<span id="id25"></span><h2>2.9 Date and Time Information<a class="headerlink" href="#date-and-time-information" title="Link to this heading">#</a></h2>
+<span id="id25"></span><span id="index-24"></span><h2>2.9 Date and Time Information<a class="headerlink" href="#date-and-time-information" title="Link to this heading">#</a></h2>
 <p>It is often neccesary to know when data were collected such as in chemical kinetics. This information may be stored in the file itself or as a timestamp at the end of the file name. Not only is it neccesary to extract this date and time information, it is often also neccesary to calculate the times since the start of the experiment or between data points. This section covers Python’s native <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module useful for working with date and time information and extracting this information from files. The four object types covered here are listed in <strong>Table 8</strong>. The first three tell us when the data were collected while the third, <code class="docutils literal notranslate"><span class="pre">timedelta</span></code>, tells us the amount of time between two times or dates.</p>
 <p><strong>Table 8</strong> Common <code class="docutils literal notranslate"><span class="pre">datetime</span></code> Objects</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -2073,7 +2066,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 7, 4, 13, 52, 27, 774215)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 7, 20, 7, 33, 53, 925872)
 </pre></div>
 </div>
 </div>
@@ -2086,7 +2079,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
 </pre></div>
 </div>
 </div>
@@ -2099,7 +2092,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 7, 4, 3, 52, 27, 774215)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 7, 20, 3, 33, 53, 925872)
 </pre></div>
 </div>
 </div>

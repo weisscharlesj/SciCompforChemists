@@ -462,8 +462,8 @@
 <span id="id2"></span><h2>5.1 Basic Pandas Objects<a class="headerlink" href="#basic-pandas-objects" title="Link to this heading">#</a></h2>
 <p>To support the wealth of features, pandas uses its own objects to hold data called a Series and a DataFrame, which are built on NumPy arrays. Because they are built on NumPy, many of the NumPy functions (e.g., <code class="docutils literal notranslate"><span class="pre">np.mean()</span></code>) work on pandas objects. The key difference between a Series and DataFrame is that a Series is one-dimensional while a DataFrame is two-dimensional. Unlike a NumPy array, pandas objects have fixed dimensionality. There is a three-dimensional object called a <em>Panel</em>, but this will not be covered here as it is not often used.</p>
 <section id="series">
-<span id="id3"></span><h3>5.1.1 Series<a class="headerlink" href="#series" title="Link to this heading">#</a></h3>
-<p id="index-1">While the pandas <em>Series</em> is restricted to being a single dimension, it can be as long as necessary to hold the data. A Series containing the atomic masses of the first five elements on the periodic table is generated below using the <code class="docutils literal notranslate"><span class="pre">pd.Series()</span></code> function. This function is always capitalized.</p>
+<span id="id3"></span><span id="index-1"></span><h3>5.1.1 Series<a class="headerlink" href="#series" title="Link to this heading">#</a></h3>
+<p>While the pandas <em>Series</em> is restricted to being a single dimension, it can be as long as necessary to hold the data. A Series containing the atomic masses of the first five elements on the periodic table is generated below using the <code class="docutils literal notranslate"><span class="pre">pd.Series()</span></code> function. This function is always capitalized.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mass</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">1.01</span><span class="p">,</span><span class="mf">4.00</span><span class="p">,</span><span class="mf">6.94</span><span class="p">,</span><span class="mf">9.01</span><span class="p">,</span><span class="mf">10.81</span><span class="p">])</span>
@@ -575,8 +575,8 @@ dtype: float64
 </div>
 </section>
 <section id="dataframe">
-<span id="id4"></span><h3>5.1.2 DataFrame<a class="headerlink" href="#dataframe" title="Link to this heading">#</a></h3>
-<p id="index-2">Most data you will find yourself working with will be best placed in a two-dimensional pandas object called a <em>DataFrame</em> which is always written with two capital letters. The DataFrame is similar to a Series except that now there are also columns with names. The columns can be accessed by column names and rows can be accesses by indices. You might think of a DataFrame as a collection of Series objects. Below, a DataFrame is constructed to hold the names, atomic numbers, masses, and ionization energies of the first five elements.</p>
+<span id="id4"></span><span id="index-2"></span><h3>5.1.2 DataFrame<a class="headerlink" href="#dataframe" title="Link to this heading">#</a></h3>
+<p>Most data you will find yourself working with will be best placed in a two-dimensional pandas object called a <em>DataFrame</em> which is always written with two capital letters. The DataFrame is similar to a Series except that now there are also columns with names. The columns can be accessed by column names and rows can be accesses by indices. You might think of a DataFrame as a collection of Series objects. Below, a DataFrame is constructed to hold the names, atomic numbers, masses, and ionization energies of the first five elements.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hydrogen&#39;</span><span class="p">,</span> <span class="s1">&#39;helium&#39;</span><span class="p">,</span> <span class="s1">&#39;lithium&#39;</span><span class="p">,</span> <span class="s1">&#39;beryllium&#39;</span><span class="p">,</span><span class="s1">&#39;boron&#39;</span><span class="p">]</span>
@@ -776,8 +776,8 @@ Name: Li, dtype: object
 </section>
 </section>
 <section id="reading-writing-data">
-<span id="id5"></span><h2>5.2 Reading/Writing Data<a class="headerlink" href="#reading-writing-data" title="Link to this heading">#</a></h2>
-<p id="index-4"><span id="index-3"></span>Similar to NumPy, pandas contains multiple, convenient functions for reading/writing data directly to and from its own object types, and each function is suited to a specific file format. This includes CSV, HTML, JSON, SQL, Excel, and HDF5 files <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html">among others</a>.</p>
+<span id="id5"></span><span id="index-4"></span><span id="index-3"></span><h2>5.2 Reading/Writing Data<a class="headerlink" href="#reading-writing-data" title="Link to this heading">#</a></h2>
+<p>Similar to NumPy, pandas contains multiple, convenient functions for reading/writing data directly to and from its own object types, and each function is suited to a specific file format. This includes CSV, HTML, JSON, SQL, Excel, and HDF5 files <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html">among others</a>.</p>
 <p><strong>Table 2</strong> Import/Export Functions in Pandas</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -878,7 +878,7 @@ END
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">benz</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;data/benzene.pdb&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">benz</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;data/benzene.pdb&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> 
                      <span class="n">skiprows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">skipfooter</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
                      <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;python&#39;</span><span class="p">)</span>
 <span class="n">benz</span>
@@ -886,12 +886,6 @@ END
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\s&#39;
-&lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\s&#39;
-/var/folders/zy/7y6kpdbx6p1ffrp1vtxy3ttc0000gn/T/ipykernel_2235/2901725209.py:1: SyntaxWarning: invalid escape sequence &#39;\s&#39;
-  benz = pd.read_table(&#39;data/benzene.pdb&#39;, sep=&#39;\s+&#39;,
-</pre></div>
-</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1151,7 +1145,7 @@ IE,13.6,24.6,5.4,9.3,8.3
 </div>
 </section>
 <section id="excel-notebook-files">
-<span id="id8"></span><h3>5.2.3 Excel Notebook Files<a class="headerlink" href="#excel-notebook-files" title="Link to this heading">#</a></h3>
+<span id="id8"></span><span id="index-5"></span><h3>5.2.3 Excel Notebook Files<a class="headerlink" href="#excel-notebook-files" title="Link to this heading">#</a></h3>
 <p>Pandas provides another useful function that imports Excel notebook files (i.e., <em>.xls</em> or <em>.xlsx</em>). Excel files are a specialized file type that requires the support of additional libraries, known as dependancies, that pandas does not install by default. A list of these dependancies is provided on the <a class="reference external" href="https://pandas.pydata.org/docs/getting_started/install.html#dependencies">pandas website</a>. You can either install each dependency yourself, or pandas provides a shortcut (for pandas version 2.0.0 and later) of <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&quot;pandas[excel]&quot;</span></code> that is run in the Terminal window (see <a class="reference internal" href="../chapter_00/chap_00_notebook.html#id3"><span class="std std-ref">section 0.2</span></a> for Terminal instructions). However, please check the <a class="reference external" href="https://pandas.pydata.org/docs/getting_started/install.html#dependencies">pandas website</a> for the full and most current instructions as things may have changed. Because Excel files can contain multiple sheets, this function is a little more complicated to use. The simplest way to import an Excel file is to use <code class="docutils literal notranslate"><span class="pre">pd.read_excel()</span></code> and provide it with the Excel file name.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -1415,8 +1409,8 @@ IE,13.6,24.6,5.4,9.3,8.3
 <span id="id10"></span><h2>5.3 Examining Data with Pandas<a class="headerlink" href="#examining-data-with-pandas" title="Link to this heading">#</a></h2>
 <p>Once you load data into pandas, you will likely want to get an idea of what the data look like before you proceed to calculations and in-depth analyses. This section covers a few methods provided in pandas to gain a preliminary understanding of your data.</p>
 <section id="descriptive-functions">
-<span id="id11"></span><h3>5.3.1 Descriptive Functions<a class="headerlink" href="#descriptive-functions" title="Link to this heading">#</a></h3>
-<p id="index-5">Pandas provides a few simple functions to view and describe new data. The first two are <code class="docutils literal notranslate"><span class="pre">head()</span></code> and <code class="docutils literal notranslate"><span class="pre">tail()</span></code> which allow you to see the top and bottom of the DataFrame, respectively. These are particularly useful when dealing with very large DataFrames. Below, a DataFrame containing random values in an even, normal, and poisson distribution (<span class="math notranslate nohighlight">\(\lambda\)</span> = 3.0) demonstrates these functions.</p>
+<span id="id11"></span><span id="index-6"></span><h3>5.3.1 Descriptive Functions<a class="headerlink" href="#descriptive-functions" title="Link to this heading">#</a></h3>
+<p>Pandas provides a few simple functions to view and describe new data. The first two are <code class="docutils literal notranslate"><span class="pre">head()</span></code> and <code class="docutils literal notranslate"><span class="pre">tail()</span></code> which allow you to see the top and bottom of the DataFrame, respectively. These are particularly useful when dealing with very large DataFrames. Below, a DataFrame containing random values in an even, normal, and poisson distribution (<span class="math notranslate nohighlight">\(\lambda\)</span> = 3.0) demonstrates these functions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
@@ -1683,7 +1677,7 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1b14640f16c0632c2aef36709cac4eda839395566cef5474b598d7645f37ca25.svg" src="../../_images/1b14640f16c0632c2aef36709cac4eda839395566cef5474b598d7645f37ca25.svg" />
+<img alt="../../_images/e50c4cd0e3296a5d0bf3d8295c5383b1a516d894442e530beb2176f584fda725.svg" src="../../_images/e50c4cd0e3296a5d0bf3d8295c5383b1a516d894442e530beb2176f584fda725.svg" />
 </div>
 </div>
 </section>
@@ -1748,7 +1742,7 @@ Name: count, dtype: int64
 <p>Now that you are able to generate DataFrames, it is useful to be able to modify them as you clean your data or perform calculations. This can be done through methods such as assignment, dropping rows and columns, and combining DataFrames or Series.</p>
 <section id="insert-columns-via-assignment">
 <span id="id14"></span><h3>5.4.1 Insert Columns via Assignment<a class="headerlink" href="#insert-columns-via-assignment" title="Link to this heading">#</a></h3>
-<p id="index-6">Possibly the easiest method of adding a new column is through assignment. If a nonexistent column is called and assigned values, instead of returning an error, pandas creates a new column with the given name and populates it with the data. For example, the <code class="docutils literal notranslate"><span class="pre">elements</span></code> DataFrame below does not contain a carbon column, so the column is added when assigned to a Series with the data.</p>
+<p id="index-7">Possibly the easiest method of adding a new column is through assignment. If a nonexistent column is called and assigned values, instead of returning an error, pandas creates a new column with the given name and populates it with the data. For example, the <code class="docutils literal notranslate"><span class="pre">elements</span></code> DataFrame below does not contain a carbon column, so the column is added when assigned to a Series with the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span>
@@ -1999,8 +1993,8 @@ dtype: object
 <p>The new column of nitrogen data has been added to <code class="docutils literal notranslate"><span class="pre">elements</span></code> with all pieces of data residing in the correct row.</p>
 </section>
 <section id="dropping-columns">
-<span id="id16"></span><h3>5.4.3 Dropping Columns<a class="headerlink" href="#dropping-columns" title="Link to this heading">#</a></h3>
-<p id="index-7">When cleaning up data, you may wish to drop a column or row. Pandas provides the <code class="docutils literal notranslate"><span class="pre">drop()</span></code> method for this purpose. It requires the name of the column or row to be dropped, and by default, it assumes a row, <code class="docutils literal notranslate"><span class="pre">axis=0</span></code>, is to be dropped. If you want to drop a column, change the axis using the <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> argument. Below, the hydrogen column is dropped from the elements DataFrame.</p>
+<span id="id16"></span><span id="index-8"></span><h3>5.4.3 Dropping Columns<a class="headerlink" href="#dropping-columns" title="Link to this heading">#</a></h3>
+<p>When cleaning up data, you may wish to drop a column or row. Pandas provides the <code class="docutils literal notranslate"><span class="pre">drop()</span></code> method for this purpose. It requires the name of the column or row to be dropped, and by default, it assumes a row, <code class="docutils literal notranslate"><span class="pre">axis=0</span></code>, is to be dropped. If you want to drop a column, change the axis using the <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> argument. Below, the hydrogen column is dropped from the elements DataFrame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -2145,11 +2139,11 @@ dtype: object
 </div></div></div>
 </div>
 <p>In the second example above, the hydrogen is back despite being previously dropped. This is because the <code class="docutils literal notranslate"><span class="pre">drop()</span></code> method does not by default modify the origional DataFrame. To make the changes perminent, either assigned the new DataFrame to a new variable or add the <code class="docutils literal notranslate"><span class="pre">inplace=True</span></code> keyword argument to the above <code class="docutils literal notranslate"><span class="pre">drop()</span></code> function.</p>
-<p id="index-8">There is a similar function <code class="docutils literal notranslate"><span class="pre">pd.dropna()</span></code> that drops columns or rows from a DataFrame that contain <code class="docutils literal notranslate"><span class="pre">nan</span></code> values. This is commonly used to remove incomplete data from a data set. The <code class="docutils literal notranslate"><span class="pre">pd.dropna()</span></code> function behaves very similarily to the <code class="docutils literal notranslate"><span class="pre">pd.drop()</span></code> function including the <code class="docutils literal notranslate"><span class="pre">inplace=</span></code> and <code class="docutils literal notranslate"><span class="pre">axis=</span></code> arguments.</p>
+<p id="index-9">There is a similar function <code class="docutils literal notranslate"><span class="pre">pd.dropna()</span></code> that drops columns or rows from a DataFrame that contain <code class="docutils literal notranslate"><span class="pre">nan</span></code> values. This is commonly used to remove incomplete data from a data set. The <code class="docutils literal notranslate"><span class="pre">pd.dropna()</span></code> function behaves very similarily to the <code class="docutils literal notranslate"><span class="pre">pd.drop()</span></code> function including the <code class="docutils literal notranslate"><span class="pre">inplace=</span></code> and <code class="docutils literal notranslate"><span class="pre">axis=</span></code> arguments.</p>
 </section>
 <section id="merge">
-<span id="id17"></span><h3>5.4.4 Merge<a class="headerlink" href="#merge" title="Link to this heading">#</a></h3>
-<p id="index-9">To merge multiple DataFrames, pandas provides a <code class="docutils literal notranslate"><span class="pre">merge()</span></code> method. Similar to above, the <code class="docutils literal notranslate"><span class="pre">merge()</span></code> function will properly align data, but because DataFrames have multiple columns and index values to choose from, the <code class="docutils literal notranslate"><span class="pre">merge()</span></code> function can align data based on any of these values. The default behavior for <code class="docutils literal notranslate"><span class="pre">merge()</span></code> is to check for common columns between the two DataFrames and align the data based on those columns. As an example, below are two DataFrames containing data from various chemical compounds.</p>
+<span id="id17"></span><span id="index-10"></span><h3>5.4.4 Merge<a class="headerlink" href="#merge" title="Link to this heading">#</a></h3>
+<p>To merge multiple DataFrames, pandas provides a <code class="docutils literal notranslate"><span class="pre">merge()</span></code> method. Similar to above, the <code class="docutils literal notranslate"><span class="pre">merge()</span></code> function will properly align data, but because DataFrames have multiple columns and index values to choose from, the <code class="docutils literal notranslate"><span class="pre">merge()</span></code> function can align data based on any of these values. The default behavior for <code class="docutils literal notranslate"><span class="pre">merge()</span></code> is to check for common columns between the two DataFrames and align the data based on those columns. As an example, below are two DataFrames containing data from various chemical compounds.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chemdata1</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;MW&#39;</span><span class="p">,</span> <span class="mf">58.08</span><span class="p">,</span> <span class="mf">32.04</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;dipole&#39;</span><span class="p">,</span> <span class="mf">2.91</span><span class="p">,</span> <span class="mf">1.69</span><span class="p">],</span> 
@@ -2478,8 +2472,8 @@ dtype: object
 </div>
 </section>
 <section id="concatenation">
-<span id="id18"></span><h3>5.4.5 Concatenation<a class="headerlink" href="#concatenation" title="Link to this heading">#</a></h3>
-<p id="index-10">Concatenation is the process of splicing two DataFrames along a given axis. This is different from the <code class="docutils literal notranslate"><span class="pre">merge()</span></code> method above in that <code class="docutils literal notranslate"><span class="pre">merge()</span></code> merges and aligns common data between the two DataFrames while <code class="docutils literal notranslate"><span class="pre">pd.concat()</span></code> blindly appends one DataFrame to another. As an example, imagine two lab groups measure the densities of magnesium, aluminum, titanium, and iron and load their results into DataFrames below.</p>
+<span id="id18"></span><span id="index-11"></span><h3>5.4.5 Concatenation<a class="headerlink" href="#concatenation" title="Link to this heading">#</a></h3>
+<p>Concatenation is the process of splicing two DataFrames along a given axis. This is different from the <code class="docutils literal notranslate"><span class="pre">merge()</span></code> method above in that <code class="docutils literal notranslate"><span class="pre">merge()</span></code> merges and aligns common data between the two DataFrames while <code class="docutils literal notranslate"><span class="pre">pd.concat()</span></code> blindly appends one DataFrame to another. As an example, imagine two lab groups measure the densities of magnesium, aluminum, titanium, and iron and load their results into DataFrames below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">group1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;metal&#39;</span><span class="p">:[</span><span class="s1">&#39;Mg&#39;</span><span class="p">,</span> <span class="s1">&#39;Al&#39;</span><span class="p">,</span> <span class="s1">&#39;Ti&#39;</span><span class="p">,</span> <span class="s1">&#39;Fe&#39;</span><span class="p">],</span> 

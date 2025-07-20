@@ -411,8 +411,8 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="chapter-14-optimization-and-root-finding">
-<span id="id1"></span><h1>Chapter 14: Optimization and Root Finding<a class="headerlink" href="#chapter-14-optimization-and-root-finding" title="Link to this heading">#</a></h1>
-<p id="index-1"><span id="index-0"></span><em>Optimization</em> is the process of improving something to the extent that it cannot be reasonably improved any further. This often involves maximizing desirable attributes and/or minimizing those that are undesirable, so finding the maximum and minimum are common optimization goals. While you may or may not have previously worked <em>directly</em> with optimization, you almost certainly have used it as part of a larger application or task such as energy minimization of a molecule, regression analysis, or a number of machine learning algorithms.</p>
+<span id="id1"></span><span id="index-1"></span><span id="index-0"></span><h1>Chapter 14: Optimization and Root Finding<a class="headerlink" href="#chapter-14-optimization-and-root-finding" title="Link to this heading">#</a></h1>
+<p><em>Optimization</em> is the process of improving something to the extent that it cannot be reasonably improved any further. This often involves maximizing desirable attributes and/or minimizing those that are undesirable, so finding the maximum and minimum are common optimization goals. While you may or may not have previously worked <em>directly</em> with optimization, you almost certainly have used it as part of a larger application or task such as energy minimization of a molecule, regression analysis, or a number of machine learning algorithms.</p>
 <p>In optimization tasks, we often find ourselves searching for the maximum or minimum of a given mathematical function. If we, for example, seek to minimize a function <span class="math notranslate nohighlight">\(f(a,b)\)</span>, our goal is to find values for input variables <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> to generate the smallest possible output from the function <span class="math notranslate nohighlight">\(f\)</span>. One approach is to manually try different input values until you get the smallest possible output, but this kind of tedious and time-consuming task is best left to computers. The <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module contains a number of tools for performing optimizations of mathematical functions. The goal of this chapter is to introduce the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module and apply it to chemical applications. This chapter does not go into the deeper theory behind optimization, such as specific algorithms. For those interested in some of the deeper theory of optimization, see the <a class="reference internal" href="#fr14"><span class="std std-ref">Further Reading</span></a> section.</p>
 <p>Before we begin, we first need to address how we measure what is “best”? For this, we use a <em>cost function</em>, also known as an <em>objective function</em> or <em>criterion</em>, which is a mathematical function that takes in features and returns a value that is a measure of “goodness.” If we were a company that is trying to maximize our profits, the objective function would likely be some mathematical equation that calculates our net profit. Optimization of a molecule’s conformation involves minimizing the energy, so the objective function here is the function that calculates the energy of the molecule based on the attributes like bond angles and lengths. In the examples below, each of the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> functions takes as its first argument an objective function in the form of a Python function.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">obj_func</span><span class="p">)</span>
@@ -430,8 +430,8 @@
 </div>
 </div>
 <section id="minimization">
-<span id="id2"></span><h2>14.1 Minimization<a class="headerlink" href="#minimization" title="Link to this heading">#</a></h2>
-<p id="index-2">The first task we will look at is minimization, and for this, <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> has two related functions <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize()</span></code> and <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize_scalar()</span></code>. Both functions minimize the provided function, but the difference is in the number of independent variables that the objective function takes. A function with only one independent variable, <span class="math notranslate nohighlight">\(f(a)\)</span>, is known as <em>univariant</em> while a function that takes multiple independent variables, <span class="math notranslate nohighlight">\(f(a,b,...)\)</span>, is known as <em>multivariant</em>. The <code class="docutils literal notranslate"><span class="pre">minimize()</span></code> function can minimize either multivariant and univariant functions while <code class="docutils literal notranslate"><span class="pre">minimize_scalar()</span></code> can only accept univariant objective functions.</p>
+<span id="id2"></span><span id="index-2"></span><h2>14.1 Minimization<a class="headerlink" href="#minimization" title="Link to this heading">#</a></h2>
+<p>The first task we will look at is minimization, and for this, <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> has two related functions <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize()</span></code> and <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize_scalar()</span></code>. Both functions minimize the provided function, but the difference is in the number of independent variables that the objective function takes. A function with only one independent variable, <span class="math notranslate nohighlight">\(f(a)\)</span>, is known as <em>univariant</em> while a function that takes multiple independent variables, <span class="math notranslate nohighlight">\(f(a,b,...)\)</span>, is known as <em>multivariant</em>. The <code class="docutils literal notranslate"><span class="pre">minimize()</span></code> function can minimize either multivariant and univariant functions while <code class="docutils literal notranslate"><span class="pre">minimize_scalar()</span></code> can only accept univariant objective functions.</p>
 <section id="univariant-minimization">
 <span id="id3"></span><h3>14.1.1 Univariant Minimization<a class="headerlink" href="#univariant-minimization" title="Link to this heading">#</a></h3>
 <p>If we are trying to minimize a function with a single independent variable, the <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize_scalar()</span></code> is likely a good choice. As a simple example, we will find the radius of minimal energy for two xenon atoms using the Lennard-Jones equation below which describes the potential energy with respect to the distance, <span class="math notranslate nohighlight">\(r\)</span>, between the two atoms. In this example, <span class="math notranslate nohighlight">\(\sigma\)</span> = 4.10 angstroms and <span class="math notranslate nohighlight">\(\epsilon\)</span> = 1.77 kJ/mol.</p>
@@ -537,7 +537,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ff96ded74ec6ea8cc02634c4f9600607e9e5ec3ede963d745d95a49bc3cbef5a.svg" src="../../_images/ff96ded74ec6ea8cc02634c4f9600607e9e5ec3ede963d745d95a49bc3cbef5a.svg" />
+<img alt="../../_images/a577800ae5f743ed98e4b7c23b22942c84ca6de405e0d94e92bc685869c03b02.svg" src="../../_images/a577800ae5f743ed98e4b7c23b22942c84ca6de405e0d94e92bc685869c03b02.svg" />
 </div>
 </div>
 <aside class="margin sidebar">
@@ -553,8 +553,8 @@
 </div>
 </section>
 <section id="minimization-for-maximization">
-<span id="id4"></span><h3>14.1.2 Minimization for Maximization<a class="headerlink" href="#minimization-for-maximization" title="Link to this heading">#</a></h3>
-<p id="index-3">The SciPy library does not contain any maximization functions, but maximization functions are not really necessary as minimizing the negative of a function provides the maximum. For example, below we have the radial probability function for the hydrogen 3s orbital. For convenience, the SymPy library’s <code class="docutils literal notranslate"><span class="pre">sympy.physics</span></code> module is used to generate the 3s radial function (<span class="math notranslate nohighlight">\(\psi\)</span>, <code class="docutils literal notranslate"><span class="pre">psi</span></code>) as a Python function. For this maximization example, let’s find the radius of maximum probability for the electron. The normalized probability can be calculated by <span class="math notranslate nohighlight">\(\psi ^2 r^2\)</span> where <span class="math notranslate nohighlight">\(r\)</span> is the distance from the nucleus.</p>
+<span id="id4"></span><span id="index-3"></span><h3>14.1.2 Minimization for Maximization<a class="headerlink" href="#minimization-for-maximization" title="Link to this heading">#</a></h3>
+<p>The SciPy library does not contain any maximization functions, but maximization functions are not really necessary as minimizing the negative of a function provides the maximum. For example, below we have the radial probability function for the hydrogen 3s orbital. For convenience, the SymPy library’s <code class="docutils literal notranslate"><span class="pre">sympy.physics</span></code> module is used to generate the 3s radial function (<span class="math notranslate nohighlight">\(\psi\)</span>, <code class="docutils literal notranslate"><span class="pre">psi</span></code>) as a Python function. For this maximization example, let’s find the radius of maximum probability for the electron. The normalized probability can be calculated by <span class="math notranslate nohighlight">\(\psi ^2 r^2\)</span> where <span class="math notranslate nohighlight">\(r\)</span> is the distance from the nucleus.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span>
@@ -575,7 +575,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b8bbe931b42562d319bd05b8b4943e64fcb26898dac4ea35775aa600f2af2027.svg" src="../../_images/b8bbe931b42562d319bd05b8b4943e64fcb26898dac4ea35775aa600f2af2027.svg" />
+<img alt="../../_images/5d0df2de5cbb6ce2996d35c4ef4e3204c8e6139c0e3ecd3b50f1217156409683.svg" src="../../_images/5d0df2de5cbb6ce2996d35c4ef4e3204c8e6139c0e3ecd3b50f1217156409683.svg" />
 </div>
 </div>
 <p>There are multiple ways to make the function negative like including a negative sign in the Python function definition. Our Python function has already been created, so below we will make the radial probability density negative using a <code class="docutils literal notranslate"><span class="pre">lambda</span></code> function (see <a class="reference internal" href="../chapter_02/chap_02_notebook.html#id6"><span class="std std-ref">section 2.1.4</span></a> for review on lambda functions).</p>
@@ -636,13 +636,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c4745657049ff9c1fcd59b1f6dcd57407379e05657b4b3c7d2cd380833ca67ee.svg" src="../../_images/c4745657049ff9c1fcd59b1f6dcd57407379e05657b4b3c7d2cd380833ca67ee.svg" />
+<img alt="../../_images/a7fa15ca52bfcbaa394430a1773bd670118342004187ab199f9e10d1366d1bca.svg" src="../../_images/a7fa15ca52bfcbaa394430a1773bd670118342004187ab199f9e10d1366d1bca.svg" />
 </div>
 </div>
 </section>
 <section id="multivarient-minimization">
-<span id="id5"></span><h3>14.1.3 Multivarient Minimization<a class="headerlink" href="#multivarient-minimization" title="Link to this heading">#</a></h3>
-<p id="index-5">One of the key minimization functions in the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module is the <code class="docutils literal notranslate"><span class="pre">minimize()</span></code> function which is capable of minimizing multiple variables simultaneously. This function requires at least two arguments, the objective function and initial guesses for each value as a list or tuple.</p>
+<span id="id5"></span><span id="index-5"></span><h3>14.1.3 Multivarient Minimization<a class="headerlink" href="#multivarient-minimization" title="Link to this heading">#</a></h3>
+<p>One of the key minimization functions in the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module is the <code class="docutils literal notranslate"><span class="pre">minimize()</span></code> function which is capable of minimizing multiple variables simultaneously. This function requires at least two arguments, the objective function and initial guesses for each value as a list or tuple.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">obj_func</span><span class="p">,</span> <span class="p">(</span><span class="n">guess</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -754,11 +754,11 @@
 </section>
 </section>
 <section id="fitting-equations-to-data">
-<span id="id6"></span><h2>14.2 Fitting Equations to Data<a class="headerlink" href="#fitting-equations-to-data" title="Link to this heading">#</a></h2>
-<p id="index-7"><span id="index-6"></span>An common application of optimization is fitting an equation to a series of data points such as a linear regression. While linear regression also  happens to have an analytical solution demonstrated in <a class="reference internal" href="../chapter_08/chap_08_notebook.html#id15"><span class="std std-ref">section 8.3.3</span></a>, we will solve it here using optimization. In the figure below, a regression line (solid orange) runs through the data points. The <em>residuals</em> are the difference between the regression line and the data points (green vertical dotted lines). The goal of linear regression is to generate a regression line that minimizes these residuals.</p>
+<span id="id6"></span><span id="index-7"></span><span id="index-6"></span><h2>14.2 Fitting Equations to Data<a class="headerlink" href="#fitting-equations-to-data" title="Link to this heading">#</a></h2>
+<p>An common application of optimization is fitting an equation to a series of data points such as a linear regression. While linear regression also  happens to have an analytical solution demonstrated in <a class="reference internal" href="../chapter_08/chap_08_notebook.html#id15"><span class="std std-ref">section 8.3.3</span></a>, we will solve it here using optimization. In the figure below, a regression line (solid orange) runs through the data points. The <em>residuals</em> are the difference between the regression line and the data points (green vertical dotted lines). The goal of linear regression is to generate a regression line that minimizes these residuals.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/aafb3b9d19cdb3ef93f6d021a672efecfcba314eb7278d9af54d598a52de4389.svg" src="../../_images/aafb3b9d19cdb3ef93f6d021a672efecfcba314eb7278d9af54d598a52de4389.svg" />
+<img alt="../../_images/20472314014c6ae51820f981cd3de95bb7ce903da32b44151cbe8a5edc776dbe.svg" src="../../_images/20472314014c6ae51820f981cd3de95bb7ce903da32b44151cbe8a5edc776dbe.svg" />
 </div>
 </div>
 <p><strong>Figure 1</strong> An example of a line of best fit (solid orange) running through data points (blue) with residuals (green dashed) shown as the difference on the <span class="math notranslate nohighlight">\(y\)</span>-axis between the data point and linear regression.</p>
@@ -767,8 +767,8 @@
 \[ MSE = \frac{1}{N} \sum_{i=1}^{N}{(f_i - y_i)^2} \]</div>
 <p>There are two general types of regression: linear regression and nonlinear regression. The key difference is that the former fits data to a linear equation (or plane or hyperplane for higher dimensions) while the latter fits data to nonlinear equations.</p>
 <section id="linear-equations">
-<span id="id7"></span><h3>14.2.1 Linear Equations<a class="headerlink" href="#linear-equations" title="Link to this heading">#</a></h3>
-<p id="index-9">There are numerous examples of linear equations in chemistry, and often when equations are nonlinear, they can be rearranged into a linear form. One classic example of a linear trend is the absorption of light being passed through a solution of colored analyte (i.e., material being quantified) with respect to the concentration of the analyte. This is related by Beer’s law shown below where <span class="math notranslate nohighlight">\(A\)</span> is absorption, <span class="math notranslate nohighlight">\(\epsilon\)</span> is the molar absorptivity constant for a particular analyte, <span class="math notranslate nohighlight">\(b\)</span> is path length of the sample, and <span class="math notranslate nohighlight">\(C\)</span> is the concentration of analyte.</p>
+<span id="id7"></span><span id="index-9"></span><h3>14.2.1 Linear Equations<a class="headerlink" href="#linear-equations" title="Link to this heading">#</a></h3>
+<p>There are numerous examples of linear equations in chemistry, and often when equations are nonlinear, they can be rearranged into a linear form. One classic example of a linear trend is the absorption of light being passed through a solution of colored analyte (i.e., material being quantified) with respect to the concentration of the analyte. This is related by Beer’s law shown below where <span class="math notranslate nohighlight">\(A\)</span> is absorption, <span class="math notranslate nohighlight">\(\epsilon\)</span> is the molar absorptivity constant for a particular analyte, <span class="math notranslate nohighlight">\(b\)</span> is path length of the sample, and <span class="math notranslate nohighlight">\(C\)</span> is the concentration of analyte.</p>
 <div class="math notranslate nohighlight">
 \[ A = \epsilon bC \]</div>
 <p>Being that the path length for our instrument is 1 cm, which is quite common, this equation simplifies to the following.</p>
@@ -843,8 +843,8 @@
 <p>According to the <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> function, the slope is 1.55 <span class="math notranslate nohighlight">\(\times\)</span> 10<span class="math notranslate nohighlight">\(^4\)</span> cm<span class="math notranslate nohighlight">\(^{-1}\)</span>M<span class="math notranslate nohighlight">\(^{-1}\)</span> while the <em>y</em>-intercept is -5.45 <span class="math notranslate nohighlight">\(\times\)</span> 10<span class="math notranslate nohighlight">\(^{-6}\)</span>.</p>
 </section>
 <section id="nonlinear-regression">
-<span id="id8"></span><h3>14.2.2 Nonlinear Regression<a class="headerlink" href="#nonlinear-regression" title="Link to this heading">#</a></h3>
-<p id="index-12"><span id="index-11"></span><span id="index-10"></span>Optimization can also be used to find the best fit for nonlinear data based off of a theoretical equation. One application of nonlinear fitting is to fit data to a theoretical rate law as a means of determining one or more rate constants in the equation. For this, we will again use the <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module.</p>
+<span id="id8"></span><span id="index-12"></span><span id="index-11"></span><span id="index-10"></span><h3>14.2.2 Nonlinear Regression<a class="headerlink" href="#nonlinear-regression" title="Link to this heading">#</a></h3>
+<p>Optimization can also be used to find the best fit for nonlinear data based off of a theoretical equation. One application of nonlinear fitting is to fit data to a theoretical rate law as a means of determining one or more rate constants in the equation. For this, we will again use the <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module.</p>
 <p>To demonstrate this process, let’s consider the two-step reaction of A + B <span class="math notranslate nohighlight">\(\rightarrow\)</span> P catalyzed by a metal catalyst M.</p>
 <div class="math notranslate nohighlight">
 \[ M + A \underset{k_{r1}}{\stackrel{k_1}{\rightleftharpoons}} MA \]</div>
@@ -887,7 +887,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f54b58285cf6ab3dfc0f3d02b1beb81bca680276085a9ca53ff48f31c1da5119.svg" src="../../_images/f54b58285cf6ab3dfc0f3d02b1beb81bca680276085a9ca53ff48f31c1da5119.svg" />
+<img alt="../../_images/8aecf71bdd2bb98e471764c3f3db438a53240cf206fa1615f3b84c1d86add46d.svg" src="../../_images/8aecf71bdd2bb98e471764c3f3db438a53240cf206fa1615f3b84c1d86add46d.svg" />
 </div>
 </div>
 <p>Now that we have our data, we can fit it to the theoretical equation to extract the rate constants.</p>
@@ -920,7 +920,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/fa072819374774c60a88dd4543dc658bdfa605cf1eae44086f1953f754c69a8f.svg" src="../../_images/fa072819374774c60a88dd4543dc658bdfa605cf1eae44086f1953f754c69a8f.svg" />
+<img alt="../../_images/1b86876f2ff9ab4a4e28a8e066a514fb9da8d3bfddb1e1c2fc0664a488d86f33.svg" src="../../_images/1b86876f2ff9ab4a4e28a8e066a514fb9da8d3bfddb1e1c2fc0664a488d86f33.svg" />
 </div>
 </div>
 <div class="admonition note">
@@ -960,8 +960,8 @@
 </div>
 </section>
 <section id="mixed-analyte-example">
-<span id="id9"></span><h3>14.2.3 Mixed Analyte Example<a class="headerlink" href="#mixed-analyte-example" title="Link to this heading">#</a></h3>
-<p id="index-13">Below is an additional example where we use optimization to determine the concentrations of three different dyes mixed together and analyzed by UV-Vis spectroscopy. This example was inspired by a <em>Journal of Chemical Education</em> article by <a class="reference external" href="https://doi.org/10.1021/acs.jchemed.9b00421">Jesse Maccione, Joseph Welch, and Emily C. Heider</a>. By Beer’s law, the absorbance (A) of an analyte is the product of the molar absoptivity constant (<span class="math notranslate nohighlight">\(\epsilon\)</span>) for that analyte, the path length in cm (<span class="math notranslate nohighlight">\(b\)</span>), and concentration (<span class="math notranslate nohighlight">\(C\)</span>).</p>
+<span id="id9"></span><span id="index-13"></span><h3>14.2.3 Mixed Analyte Example<a class="headerlink" href="#mixed-analyte-example" title="Link to this heading">#</a></h3>
+<p>Below is an additional example where we use optimization to determine the concentrations of three different dyes mixed together and analyzed by UV-Vis spectroscopy. This example was inspired by a <em>Journal of Chemical Education</em> article by <a class="reference external" href="https://doi.org/10.1021/acs.jchemed.9b00421">Jesse Maccione, Joseph Welch, and Emily C. Heider</a>. By Beer’s law, the absorbance (A) of an analyte is the product of the molar absoptivity constant (<span class="math notranslate nohighlight">\(\epsilon\)</span>) for that analyte, the path length in cm (<span class="math notranslate nohighlight">\(b\)</span>), and concentration (<span class="math notranslate nohighlight">\(C\)</span>).</p>
 <div class="math notranslate nohighlight">
 \[ A = \epsilon bC \]</div>
 <p>If there are multiple analytes in solution, the total absorbance (A<span class="math notranslate nohighlight">\(_{tot}\)</span>) is equal to the sum of the absorbances for the individual analytes. In our example, we will be dealing with a mixture of red, blue, and yellow dyes.</p>
@@ -1006,7 +1006,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f81503d85234caa3a2a285a988f9da89af2611144465831554e3f429ba5d1084.svg" src="../../_images/f81503d85234caa3a2a285a988f9da89af2611144465831554e3f429ba5d1084.svg" />
+<img alt="../../_images/c040408229f4dfaef977159a3e899ee89606321c10dfbb585aa1484057b33f13.svg" src="../../_images/c040408229f4dfaef977159a3e899ee89606321c10dfbb585aa1484057b33f13.svg" />
 </div>
 </div>
 <p>Next, we will use the absorbances for each pure dye sample to find the molar absorptivities using Beer’s law. The path length, <span class="math notranslate nohighlight">\(b\)</span>, in this instrument is 1 cm, and the molarities are known from the experimental setup. That is, below  we are solving for molar absorptivity (<span class="math notranslate nohighlight">\(\epsilon\)</span>) by the following.</p>
@@ -1069,8 +1069,8 @@
 </section>
 </section>
 <section id="root-finding">
-<span id="id10"></span><h2>14.3 Root Finding<a class="headerlink" href="#root-finding" title="Link to this heading">#</a></h2>
-<p id="index-14">Root finding is the process of determining where a function equals zero, <span class="math notranslate nohighlight">\(f(a,b,...) = 0\)</span>. Being that any equation can be rearranged to equal zero, this is a versatile way of solving an equation. If the function is univariant, <span class="math notranslate nohighlight">\(f(a)=0\)</span>, this task may sometimes seem trivial even without optimization algorithms, but as the complexity of the equation or number of variables increases, using optimization algorithms can be beneficial.</p>
+<span id="id10"></span><span id="index-14"></span><h2>14.3 Root Finding<a class="headerlink" href="#root-finding" title="Link to this heading">#</a></h2>
+<p>Root finding is the process of determining where a function equals zero, <span class="math notranslate nohighlight">\(f(a,b,...) = 0\)</span>. Being that any equation can be rearranged to equal zero, this is a versatile way of solving an equation. If the function is univariant, <span class="math notranslate nohighlight">\(f(a)=0\)</span>, this task may sometimes seem trivial even without optimization algorithms, but as the complexity of the equation or number of variables increases, using optimization algorithms can be beneficial.</p>
 <p>Like the minimization functions above, there are two related versions of the root finding functions: <code class="docutils literal notranslate"><span class="pre">scipy.optimize.root()</span></code> and <code class="docutils literal notranslate"><span class="pre">scipy.optimize.root_scalar()</span></code>. The key difference is that the <code class="docutils literal notranslate"><span class="pre">root()</span></code> function can solve for both univariant and multivariant functions while <code class="docutils literal notranslate"><span class="pre">root_scalar()</span></code> can only solve for univariant functions. Both functions require a function, <code class="docutils literal notranslate"><span class="pre">func</span></code>, to find the root of, and <code class="docutils literal notranslate"><span class="pre">root()</span></code> function also requires an initial guess, <code class="docutils literal notranslate"><span class="pre">x0</span></code>. The <code class="docutils literal notranslate"><span class="pre">root_scalar()</span></code> function also allows for an optional range of values that bracket the root, <code class="docutils literal notranslate"><span class="pre">bracket=</span></code> to be provides by the user.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x0</span><span class="p">)</span>
 <span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">root_scalar</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">bracket</span><span class="o">=</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">))</span>
@@ -1101,7 +1101,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4c34e4037c15d5960fec7ee6e193b54b2e099e4d71aa4ee19cc8342278be82ef.svg" src="../../_images/4c34e4037c15d5960fec7ee6e193b54b2e099e4d71aa4ee19cc8342278be82ef.svg" />
+<img alt="../../_images/11e7c9e844444d77c3d3899388862c064d9aea56df02e9c1ae79b60bfe7fe7d1.svg" src="../../_images/11e7c9e844444d77c3d3899388862c064d9aea56df02e9c1ae79b60bfe7fe7d1.svg" />
 </div>
 </div>
 <p>The function has two nodes, so our <code class="docutils literal notranslate"><span class="pre">bracket=</span></code> values will determine which we will end up
@@ -1158,7 +1158,7 @@ solving for.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/baa304c5a7968ee5eca0b64b131f2f9028b912c79ff83bbd8be5997c6e48d01c.svg" src="../../_images/baa304c5a7968ee5eca0b64b131f2f9028b912c79ff83bbd8be5997c6e48d01c.svg" />
+<img alt="../../_images/e789d1195ab90c7aba8592c1ef929d2ef859863cdd3402a5370da6c764195629.svg" src="../../_images/e789d1195ab90c7aba8592c1ef929d2ef859863cdd3402a5370da6c764195629.svg" />
 </div>
 </div>
 <p>The two dots above show the location of the two roots for this function which clearly are located on the nodes of the wave function.</p>

@@ -416,7 +416,7 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="chapter-15-cheminformatics-with-rdkit">
-<span id="id1"></span><h1>Chapter 15: Cheminformatics with RDKit<a class="headerlink" href="#chapter-15-cheminformatics-with-rdkit" title="Link to this heading">#</a></h1>
+<span id="id1"></span><span id="index-1"></span><span id="index-0"></span><h1>Chapter 15: Cheminformatics with RDKit<a class="headerlink" href="#chapter-15-cheminformatics-with-rdkit" title="Link to this heading">#</a></h1>
 <p><em>Cheminformatics</em> can be thought of as the intersection of data science, computer science, and chemistry as a means of better understanding and solving chemical problems. This chapter introduces a popular and versatile Python cheminformatics library known as RDKit which is useful for tasks such as:</p>
 <ul class="simple">
 <li><p>Visualizing molecules</p></li>
@@ -474,8 +474,8 @@
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">Chem</span></code> and <code class="docutils literal notranslate"><span class="pre">ML</span></code> modules are the major modules in RDKit, but for this chapter, we will only be focusing on the <code class="docutils literal notranslate"><span class="pre">Chem</span></code> module which has already been imported above.</p>
 <section id="loading-molecular-representations-into-rdkit">
-<span id="id2"></span><h2>15.1 Loading Molecular Representations into RDKit<a class="headerlink" href="#loading-molecular-representations-into-rdkit" title="Link to this heading">#</a></h2>
-<p id="index-1"><span id="index-0"></span>There are many ways to depict molecular structures on paper such as Lewis structures, line-angle structural formulas, and condensed notation. When representing molecules for a computer, machine-readable methods such as Simplified Molecular-Input Line-Entry System (SMILES), the International Chemical Identifier (InChI), or mol files are preferred. For example, the SMILES and InChI representations for benzene are listed below.</p>
+<span id="id2"></span><span id="index-3"></span><span id="index-2"></span><h2>15.1 Loading Molecular Representations into RDKit<a class="headerlink" href="#loading-molecular-representations-into-rdkit" title="Link to this heading">#</a></h2>
+<p>There are many ways to depict molecular structures on paper such as Lewis structures, line-angle structural formulas, and condensed notation. When representing molecules for a computer, machine-readable methods such as Simplified Molecular-Input Line-Entry System (SMILES), the International Chemical Identifier (InChI), or mol files are preferred. For example, the SMILES and InChI representations for benzene are listed below.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SMILES: c1ccccc1
 
 InChI: 1S/C6H6/c1-2-4-6-5-3-1/h1-6H
@@ -679,7 +679,7 @@ Q 242.0 141.3, 243.5 141.3
 </div>
 </section>
 <section id="visualizing-chemical-structures">
-<span id="id3"></span><h2>15.2 Visualizing Chemical Structures<a class="headerlink" href="#visualizing-chemical-structures" title="Link to this heading">#</a></h2>
+<span id="id3"></span><span id="index-4"></span><h2>15.2 Visualizing Chemical Structures<a class="headerlink" href="#visualizing-chemical-structures" title="Link to this heading">#</a></h2>
 <p>In the above examples, RDKit provided an image of the molecule simply by Jupyter running the Molecule object. By default, this generates a rather small and low resolution image. To generate a sharper image, like above, running the following code at the top of a notebook changes the settings to produce SVG (Scalable Vector Graphic) images which are a vector graphic format.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rdkit.Chem.Draw</span> <span class="kn">import</span> <span class="n">IPythonConsole</span>
 <span class="n">IPythonConsole</span><span class="o">.</span><span class="n">ipython_useSVG</span> <span class="o">=</span> <span class="kc">True</span>
@@ -732,7 +732,7 @@ Q 242.0 141.3, 243.5 141.3
 <p class="sidebar-title"></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>If you get a SyntaxWarning from a <code class="docutils literal notranslate"><span class="pre">\</span></code>, this is because Python see this as an escape character. To get rid of this error, use a raw string which is formated like <code class="docutils literal notranslate"><span class="pre">r'mytext'</span></code>.</p>
+<p>If you get a SyntaxWarning from a <code class="docutils literal notranslate"><span class="pre">\</span></code>, this is because Python interprets this as an escape character. To get rid of this error, use a raw string which is formated like <code class="docutils literal notranslate"><span class="pre">r'mytext'</span></code>.</p>
 </div>
 </aside>
 <div class="cell docutils container">
@@ -760,7 +760,7 @@ Q 242.0 141.3, 243.5 141.3
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e146c5518b33ff68892b73f287f5e27c96cf281589713db2fe827aec202ab634.svg" src="../../_images/e146c5518b33ff68892b73f287f5e27c96cf281589713db2fe827aec202ab634.svg" />
+<img alt="../../_images/7c10f9e0095c442b375f0313cdb790db7faf195ae038be9ad38530d9d65bd43e.svg" src="../../_images/7c10f9e0095c442b375f0313cdb790db7faf195ae038be9ad38530d9d65bd43e.svg" />
 </div>
 </div>
 </section>
@@ -910,26 +910,26 @@ Q 242.0 141.3, 243.5 141.3
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;rdkit.Chem.rdchem.Mol at 0x10e92eff0&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x10e92eb20&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x10e92f140&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x10e92f1b0&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x10e92f290&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x10e92f300&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x10e92f370&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x10e92f3e0&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x10e92f450&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x10e92f4c0&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x10e92f5a0&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x10e92f610&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x10e92f680&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x10e92f6f0&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x10e92f760&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x10e92f7d0&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x10e92f840&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x10e92f8b0&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x10e92f920&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x10e92f990&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;rdkit.Chem.rdchem.Mol at 0x11513b0d0&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x11513ac70&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x11513b220&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x11513b290&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x11513b370&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x11513b3e0&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x11513b450&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x11513b4c0&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x11513b530&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x11513b5a0&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x11513b680&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x11513b6f0&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x11513b760&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x11513b7d0&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x11513b840&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x11513b8b0&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x11513b920&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x11513b990&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x11513ba00&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x11513ba70&gt;]
 </pre></div>
 </div>
 </div>
@@ -959,8 +959,8 @@ Q 242.0 141.3, 243.5 141.3
 </section>
 </section>
 <section id="stereochemistry">
-<span id="id6"></span><h2>15.3 Stereochemistry<a class="headerlink" href="#stereochemistry" title="Link to this heading">#</a></h2>
-<p id="index-3"><span id="index-2"></span>RDKit can assign the stereochemistry of stereocenters, including chiral centers (<em>R</em> vs. <em>S</em>) and alkene stereocenters (<em>E</em> vs. <em>Z</em>), determine the number of isomers possible, and even generate all possible isomers. Whether or not any stereochemistry is designated in the SMILES representation or Molecule object is an important detail in carrying out the above tasks. Even though a molecule may contain a chiral center or an alkene carbon, the stereochemistry around that atom may be ambiguous.</p>
+<span id="id6"></span><span id="index-6"></span><span id="index-5"></span><h2>15.3 Stereochemistry<a class="headerlink" href="#stereochemistry" title="Link to this heading">#</a></h2>
+<p>RDKit can assign the stereochemistry of stereocenters, including chiral centers (<em>R</em> vs. <em>S</em>) and alkene stereocenters (<em>E</em> vs. <em>Z</em>), determine the number of isomers possible, and even generate all possible isomers. Whether or not any stereochemistry is designated in the SMILES representation or Molecule object is an important detail in carrying out the above tasks. Even though a molecule may contain a chiral center or an alkene carbon, the stereochemistry around that atom may be ambiguous.</p>
 <p>The SMILES representation shows stereochemistry around a tetrahedral carbon with either <strong>&#64;</strong> or <strong>&#64;&#64;</strong> and around an alkene with <strong>\</strong> and <strong>/</strong> symbols. If the SMILES representation does not include these symbols, the stereochemistry is not indicated.</p>
 <p><strong>Table 3</strong> SMILES Stereochemical Designations</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -2435,8 +2435,8 @@ Q 285.9 85.7, 285.9 86.5
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;rdkit.Chem.rdchem.Mol at 0x10b3f2a20&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x10eb96160&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;rdkit.Chem.rdchem.Mol at 0x1153c5fd0&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x1153c6200&gt;]
 </pre></div>
 </div>
 </div>
@@ -2504,8 +2504,8 @@ Q 285.9 85.7, 285.9 86.5
 </section>
 </section>
 <section id="chem-descriptor-module">
-<span id="id9"></span><h2>15.4 <code class="docutils literal notranslate"><span class="pre">Chem.Descriptor</span></code> Module<a class="headerlink" href="#chem-descriptor-module" title="Link to this heading">#</a></h2>
-<p id="index-5"><span id="index-4"></span>RDKit can be use to determine a number of key physical properties of molecules known as <em>descriptors</em> using the <code class="docutils literal notranslate"><span class="pre">Chem.Descriptor</span></code> module. These can be useful for generating features for a large number of molecules for machine learning or understanding structural trends in a body of chemical compounds.</p>
+<span id="id9"></span><span id="index-8"></span><span id="index-7"></span><h2>15.4 <code class="docutils literal notranslate"><span class="pre">Chem.Descriptor</span></code> Module<a class="headerlink" href="#chem-descriptor-module" title="Link to this heading">#</a></h2>
+<p>RDKit can be use to determine a number of key physical properties of molecules known as <em>descriptors</em> using the <code class="docutils literal notranslate"><span class="pre">Chem.Descriptor</span></code> module. These can be useful for generating features for a large number of molecules for machine learning or understanding structural trends in a body of chemical compounds.</p>
 <section id="molecular-features">
 <span id="id10"></span><h3>15.4.1 Molecular Features<a class="headerlink" href="#molecular-features" title="Link to this heading">#</a></h3>
 <p>There are numerous descriptor functions available which are callable using <code class="docutils literal notranslate"><span class="pre">Chem.Descriptors.method()</span></code> where <code class="docutils literal notranslate"><span class="pre">method()</span></code> is the name of a descriptor function that accepts an RDKit Molecule object and returns a numerical value. Below are a few examples of descriptor functions, with a more complete list is available on the <a class="reference external" href="https://www.rdkit.org/docs/GettingStartedInPython.html#list-of-available-descriptors">RDKit website</a>.</p>
@@ -2746,7 +2746,7 @@ Q 285.9 85.7, 285.9 86.5
 </section>
 </section>
 <section id="searching-molecules-for-structural-patterns">
-<span id="id12"></span><h2>15.5 Searching Molecules for Structural Patterns<a class="headerlink" href="#searching-molecules-for-structural-patterns" title="Link to this heading">#</a></h2>
+<span id="id12"></span><span id="index-9"></span><h2>15.5 Searching Molecules for Structural Patterns<a class="headerlink" href="#searching-molecules-for-structural-patterns" title="Link to this heading">#</a></h2>
 <p>Molecules can be searched for key structural features using the <code class="docutils literal notranslate"><span class="pre">HasSubstructMatch()</span></code> method which returns <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> depending if a structural pattern exists in a molecule or not. This function requires two RDKit Molecule objects - one Molecule object (<code class="docutils literal notranslate"><span class="pre">molecule</span></code>) is checked for the presence of the other Molecule object structure (<code class="docutils literal notranslate"><span class="pre">substructure</span></code>) as shown below. There are optional keyword parameters such as <code class="docutils literal notranslate"><span class="pre">useChirality=</span></code> which allows for chirality to be factored into whether there is a match or not. The default setting is <code class="docutils literal notranslate"><span class="pre">useChirality=False</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">molecule</span><span class="o">.</span><span class="n">HasSubstructMatch</span><span class="p">(</span><span class="n">substructure</span><span class="p">,</span> <span class="n">useChirality</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
