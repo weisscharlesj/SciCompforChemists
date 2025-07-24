@@ -33,6 +33,10 @@ Answer keys to exercises are available to **instructors** upon request by [email
 * Chapter 14: Optimization and Root Finding
 * Chapter 15: Cheminformatics with RDKit
 * Chapter 16: Bioinformations with Biopython and Nglview
+* Appendix 1: IPython Widgets
+* Appendix 2: Remote Requests
+* Appendix 3: Visualizing Atomic Orbitals
+* Appendix 4: Uncertainty Propagation
 
 ## Interested in Using This Book for Your Course?
 
