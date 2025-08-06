@@ -184,12 +184,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../chapter_08/chap_08_notebook.html">Chapter 8: Mathematics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_09/chap_09_notebook.html">Chapter 9: Simulations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_10/chap_10_notebook.html">Chapter 10: Plotting with Seaborn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter_11/chap_11_notebook.html">Chapter 11: Nuclear Magnetic Resonance with nmrglue and nmrsim</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter_12/chap_12_notebook.html">Chapter 12: Machine Learning using Scikit-Learn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter_13/chap_13_notebook.html">Chapter 13: Command Line &amp; Spyder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_11/chap_11_notebook.html">Chapter 11: Plotting with Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_12/chap_12_notebook.html">Chapter 12: Nuclear Magnetic Resonance with nmrglue and nmrsim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_13/chap_13_notebook.html">Chapter 13: Machine Learning using Scikit-Learn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_14/chap_14_notebook.html">Chapter 14: Optimization and Root Finding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_15/chap_15_notebook.html">Chapter 15: Cheminformatics with RDKit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_16/chap_16_notebook.html">Chapter 16: Bioinformatics with Biopython and Nglview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_17/chap_17_notebook.html">Chapter 17: Command Line &amp; Spyder</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Back Matter</span></p>
 <ul class="nav bd-sidenav">
@@ -197,6 +198,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../appendix_01/appendix_01_notebook.html">Appendix 1: Remote Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix_02/appendix_02_notebook.html">Appendix 2: Visualizing Atomic Orbitals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix_03/appendix_03_notebook.html">Appendix 3: Uncertainty Propagation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix_04/appendix_04_notebook.html">Appendix 4: Regular Expressions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
 </ul>
 
@@ -1045,7 +1047,7 @@
         <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The code above goes through every file on the computer desktop, and if the file name ends in “csv”, Python imports and prints the contents. Checking the file extension is an important step even if you have a folder that you believe only contains CSV files. This is because folders on many computers contain invisible files for use by the computer operating system. The user usually cannot see them, but Python can and will generate an error if it tries to open it as a CSV file. Checking the file extension ensures that Python only tries to open the actual CSV files. See <a class="reference internal" href="../chapter_12/chap_12_notebook.html#id16"><span class="std std-ref">section 12.2.5</span></a> for an example of this.</p>
+<p>The code above goes through every file on the computer desktop, and if the file name ends in “csv”, Python imports and prints the contents. Checking the file extension is an important step even if you have a folder that you believe only contains CSV files. This is because folders on many computers contain invisible files for use by the computer operating system. The user usually cannot see them, but Python can and will generate an error if it tries to open it as a CSV file. Checking the file extension ensures that Python only tries to open the actual CSV files. See <a class="reference internal" href="../chapter_13/chap_13_notebook.html#id16"><span class="std std-ref">section 13.2.5</span></a> for an example of this.</p>
 </section>
 <section id="itertools-module">
 <span id="id11"></span><h3>2.4.2 <code class="docutils literal notranslate"><span class="pre">itertools</span></code> Module<a class="headerlink" href="#itertools-module" title="Link to this heading">#</a></h3>
@@ -1061,7 +1063,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;itertools.combinations at 0x10bb67d80&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;itertools.combinations at 0x10aafa6b0&gt;
 </pre></div>
 </div>
 </div>
@@ -1170,7 +1172,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8173830300912851
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1536240063320783
 </pre></div>
 </div>
 </div>
@@ -1182,7 +1184,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
 </pre></div>
 </div>
 </div>
@@ -1196,7 +1198,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 6, 4, 3, 5, 2]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 6, 2, 5, 3, 1]
 </pre></div>
 </div>
 </div>
@@ -2067,7 +2069,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 7, 21, 5, 54, 27, 872666)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 8, 6, 15, 35, 53, 686964)
 </pre></div>
 </div>
 </div>
@@ -2080,7 +2082,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
 </pre></div>
 </div>
 </div>
@@ -2093,7 +2095,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 7, 21, 3, 54, 27, 872666)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 8, 6, 3, 35, 53, 686964)
 </pre></div>
 </div>
 </div>
@@ -2372,7 +2374,7 @@ acids2 = {‘HI’, ‘HBr’, ‘HClO4’, ‘HNO3’}</p>
 <li><p>Use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop and <a class="reference internal" href="#id10"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">listdir()</span></code></span></a> method to print the name of every file in a folder on your computer. Compare what Python prints out to what you see when looking in the folder using the file browser. Does Python print any files that you do not see in the file browser?</p></li>
 <li><p>Use the <a class="reference internal" href="#id12"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">random</span></code></span></a> module for the following.</p>
 <p>a) Generate 10 random integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 9 and calculate the mean of these values.
-What is the theoretical mean for this data set?</p>
+What is the theoretical mean for this dataset?</p>
 <p>b) Generate 10,000 random integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 9 and calculate the mean of these values. Is this mean closer or further than the mean from part a? Rationalize your answer. Hint: look up the “law of large numbers” for help.</p>
 </li>
 <li><p>The following code generates five atoms at random coordinates in 3D space. Write a Python script that calculates the distance between each pair of atoms and returns the shortest distance. The itertools module might be helpful here. See <a class="reference internal" href="../chapter_01/chap_01_notebook.html#id39"><span class="std std-ref">section 1.9.1</span></a> for help calculating distance.</p>

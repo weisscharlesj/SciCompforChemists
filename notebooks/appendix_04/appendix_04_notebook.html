@@ -1,0 +1,1273 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" data-theme="light">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Appendix 4: Regular Expressions &#8212; Scientific Computing for Chemists with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/appendix_04/appendix_04_notebook';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Index" href="../../genindex.html" />
+    <link rel="prev" title="Appendix 3: Uncertainty Propagation" href="../appendix_03/appendix_03_notebook.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../introduction/intro.html">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Scientific Computing for Chemists with Python - Home"/>
+    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Scientific Computing for Chemists with Python - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../introduction/intro.html">
+                    Scientific Computing for Chemists with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic Scientific Computing Skills</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_00/chap_00_notebook.html">Chapter 0: Python &amp; Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_01/chap_01_notebook.html">Chapter 1: Basic Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_02/chap_02_notebook.html">Chapter 2: Intermediate Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_03/chap_03_notebook.html">Chapter 3: Plotting with Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_04/chap_04_notebook.html">Chapter 4: NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_05/chap_05_notebook.html">Chapter 5: Pandas</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Topics &amp; Applications</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_06/chap_06_notebook.html">Chapter 6: Signal &amp; Noise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_07/chap_07_notebook.html">Chapter 7: Image Processing &amp; Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_08/chap_08_notebook.html">Chapter 8: Mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_09/chap_09_notebook.html">Chapter 9: Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_10/chap_10_notebook.html">Chapter 10: Plotting with Seaborn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_11/chap_11_notebook.html">Chapter 11: Plotting with Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_12/chap_12_notebook.html">Chapter 12: Nuclear Magnetic Resonance with nmrglue and nmrsim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_13/chap_13_notebook.html">Chapter 13: Machine Learning using Scikit-Learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_14/chap_14_notebook.html">Chapter 14: Optimization and Root Finding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_15/chap_15_notebook.html">Chapter 15: Cheminformatics with RDKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_16/chap_16_notebook.html">Chapter 16: Bioinformatics with Biopython and Nglview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_17/chap_17_notebook.html">Chapter 17: Command Line &amp; Spyder</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Back Matter</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendix_00/appendix_00_notebook.html">Appendix 0: Ipython Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix_01/appendix_01_notebook.html">Appendix 1: Remote Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix_02/appendix_02_notebook.html">Appendix 2: Visualizing Atomic Orbitals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix_03/appendix_03_notebook.html">Appendix 3: Uncertainty Propagation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Appendix 4: Regular Expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/weisscharlesj/SciCompforChemists" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/weisscharlesj/SciCompforChemists/issues/new?title=Issue%20on%20page%20%2Fnotebooks/appendix_04/appendix_04_notebook.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/appendix_04/appendix_04_notebook.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Appendix 4: Regular Expressions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regular-expression-basics">Regular Expression Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#re-functions"><code class="docutils literal notranslate"><span class="pre">re</span></code> Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symbols-characters">Symbols &amp; Characters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantifiers">Quantifiers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lookahead-and-lookbehind">Lookahead and Lookbehind</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#character-sets">Character Sets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#groups">Groups</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-cas-numbers">Finding CAS Numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parse-nmr-data">Parse NMR Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further Reading</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell tag_remove-input docutils container">
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="appendix-4-regular-expressions">
+<span id="appendix-04"></span><h1>Appendix 4: Regular Expressions<a class="headerlink" href="#appendix-4-regular-expressions" title="Link to this heading">#</a></h1>
+<p>There is a saying that synthetic chemists spend 10% of their time running reactions and 90% of their time purifying compounds. A similar saying could be said that working with chemical data is 10% performing the intended calculations or analyses on the data and 90% of the time cleaning and organizing the data. While these are both hyperbole, they underline the large amount of effort required to clean materials. This chapter is dedicated to a powerful methods known as <strong>regular expressions</strong>, or <strong>regex</strong> for short, for cleaning and filtering text data, especially in situations requiring complex pattern matching. Python <a class="reference internal" href="../chapter_01/chap_01_notebook.html#id12"><span class="std std-ref">string methods</span></a> and <a class="reference internal" href="../chapter_01/chap_01_notebook.html#id11"><span class="std std-ref">indexing</span></a> offer basic search and filtering functionality, but they tend to only allow for identifying simple and consistent patterns. For example, if you want a file name without the file extension (e.g., <em>titration</em> instead of <em>titration.png</em>), this can be solved using indexing and the string <code class="docutils literal notranslate"><span class="pre">split()</span></code> method because file extensions always follow the last period in the full file name. Likewise, parsing data from a <a class="reference internal" href="../chapter_16/chap_16_notebook.html#id8"><span class="std std-ref">PDB file</span></a> can be parsed with only a string search and slicing because PDB files follow very strict formatting rules based on labels and positions in rows. The reason these two examples are not terribly complex to parse is because they are consistent and were designed to be machine readable. However, not all data follow well-defined formatting rules or there could be more variation that needs to be accounted for. Regular expressions is not strictly a Python feature but rather is a syntax supported by Python using the <code class="docutils literal notranslate"><span class="pre">re</span></code> module imported below. This module is a built-in Python module, so it comes with every installation of Python.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Below we will first cover some key functions from the <code class="docutils literal notranslate"><span class="pre">re</span></code> modules followed by generating more complex patterns, and finally ending with a couple chemical databases and literature examples.</p>
+<section id="regular-expression-basics">
+<h2>Regular Expression Basics<a class="headerlink" href="#regular-expression-basics" title="Link to this heading">#</a></h2>
+<section id="re-functions">
+<h3><code class="docutils literal notranslate"><span class="pre">re</span></code> Functions<a class="headerlink" href="#re-functions" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">re</span></code> module provides a series of functions including those listed in <strong>Table 1</strong> that allow the user to search for, split on, or substitute for patterns within a string. Additional functions can be found on the <a class="reference external" href="https://docs.python.org/3/library/re.html">Python regular expressions page</a>.</p>
+<p><strong>Table 1</strong> Select <code class="docutils literal notranslate"><span class="pre">re</span></code> Functions</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Regex Function</p></th>
+<th class="head text-left"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">re.findall(pattern,</span> <span class="pre">str)</span></code></p></td>
+<td class="text-left"><p>Returns a list of strings that match the pattern</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">re.finditer(pattern,</span> <span class="pre">str)</span></code></p></td>
+<td class="text-left"><p>Returns iterable of Match objects</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">re.search(pattern,</span> <span class="pre">str)</span></code></p></td>
+<td class="text-left"><p>Returns the <em>first</em> pattern match as Match object</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">re.split(pattern,</span> <span class="pre">str)</span></code></p></td>
+<td class="text-left"><p>Splits string at pattern matches</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">re.sub(pattern,</span> <span class="pre">replacement,</span> <span class="pre">str)</span></code></p></td>
+<td class="text-left"><p>Replaces all occurrences with new string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The way these functions work is that the user provides a pattern to search for, which in the most basic scenarios can be a simple string, along with a string in which the function will search for the pattern. In the example below, we search a string of amine names for an aniline derivative by using <code class="docutils literal notranslate"><span class="pre">'aniline'</span></code> as a pattern.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amines</span> <span class="o">=</span> <span class="s1">&#39;2-methylcyclohexylamine N-methylaniline 3-methylbutylamine N-methyl-3-pentanamine o-methylaniline&#39;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="s1">&#39;aniline&#39;</span>
+
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">amines</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;aniline&#39;, &#39;aniline&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is not terribly informative being that all it tells us is that <code class="docutils literal notranslate"><span class="pre">'aniline'</span></code> appears twice. The <code class="docutils literal notranslate"><span class="pre">re.finditer()</span></code> function can be used instead to return an iterator providing the user with the location of each match using either a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop or <code class="docutils literal notranslate"><span class="pre">list()</span></code> function. We can see below that there are three matches along with the indices of those matches and the string that matches the pattern.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="s1">&#39;aniline&#39;</span><span class="p">,</span> <span class="n">amines</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;re.Match object; span=(32, 39), match=&#39;aniline&#39;&gt;
+&lt;re.Match object; span=(90, 97), match=&#39;aniline&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="s1">&#39;aniline&#39;</span><span class="p">,</span> <span class="n">amines</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;re.Match object; span=(32, 39), match=&#39;aniline&#39;&gt;,
+ &lt;re.Match object; span=(90, 97), match=&#39;aniline&#39;&gt;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tp access the matched strings, use the <code class="docutils literal notranslate"><span class="pre">group()</span></code> method on the <code class="docutils literal notranslate"><span class="pre">Match</span></code> objections like below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="s1">&#39;aniline&#39;</span><span class="p">,</span> <span class="n">amines</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>aniline
+aniline
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">re</span></code> module can also be used to find and replace patterns such as replacing <code class="docutils literal notranslate"><span class="pre">'aniline'</span></code> with <code class="docutils literal notranslate"><span class="pre">'anilinium'</span></code> like below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;aniline&#39;</span><span class="p">,</span> <span class="s1">&#39;anilinium&#39;</span><span class="p">,</span> <span class="n">amines</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;2-methylcyclohexylamine N-methylanilinium 3-methylbutylamine N-methyl-3-pentanamine o-methylanilinium&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We could still probably have done the above tasks with string methods and indexing. The real power of regular expressions is its ability to generate more complex and flexible patterns, which is what we address below.</p>
+</section>
+<section id="symbols-characters">
+<h3>Symbols &amp; Characters<a class="headerlink" href="#symbols-characters" title="Link to this heading">#</a></h3>
+<p>Let’s try something a little more complicated by searching for any instance of a methyl <em>not</em> located on a nitrogen. This means that the name should have a <code class="docutils literal notranslate"><span class="pre">'methyl'</span></code> string with a hyphenated number before it. The <code class="docutils literal notranslate"><span class="pre">re</span></code> module provides syntax, <strong>Table 2</strong>, for indicating specific types of characters and delimiters. For example, <code class="docutils literal notranslate"><span class="pre">\d</span></code> indicates a digit. Many of these character designators also have a negative version using the capital letter, so <code class="docutils literal notranslate"><span class="pre">\D</span></code>, for example, signifies any character except a number.</p>
+<p><strong>Table 2</strong> Regex Character Designators</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Character Type</p></th>
+<th class="head text-center"><p>Present</p></th>
+<th class="head text-center"><p>Not Present</p></th>
+<th class="head"><p>Description/Examples</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Any character</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">.</span></code></p></td>
+<td class="text-center"><p></p></td>
+<td><p>Any character except new line (i.e., \n)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Digits</p></td>
+<td class="text-center"><p>\d</p></td>
+<td class="text-center"><p>\D</p></td>
+<td><p>Digits from 0-9</p></td>
+</tr>
+<tr class="row-even"><td><p>Letters/Word characters</p></td>
+<td class="text-center"><p>\w</p></td>
+<td class="text-center"><p>\W</p></td>
+<td><p>abcABC</p></td>
+</tr>
+<tr class="row-odd"><td><p>Space</p></td>
+<td class="text-center"><p>\s</p></td>
+<td class="text-center"><p>\S</p></td>
+<td><p>White space, tabs, and end-of-lines</p></td>
+</tr>
+<tr class="row-even"><td><p>Boundary between words</p></td>
+<td class="text-center"><p>\b</p></td>
+<td class="text-center"><p>\B</p></td>
+<td><p>Space, start of line, or non-alphanumeric characters</p></td>
+</tr>
+<tr class="row-odd"><td><p>Character at start of string</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">^</span></code></p></td>
+<td class="text-center"><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">^2</span></code> finds a 2 at the start of a string</p></td>
+</tr>
+<tr class="row-even"><td><p>Character at end of string</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">$</span></code></p></td>
+<td class="text-center"><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">^1</span></code> finds a 1 at the end of a string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Being that we need any number before the methyl, the pattern is <code class="docutils literal notranslate"><span class="pre">\d-methyl</span></code>. Now that we have patterns that use a backslash, you may see a SyntaxError because the backslash is also a Python escape character. To avoid this error, either precede the backslash with another backslash, <code class="docutils literal notranslate"><span class="pre">\\d-methyl</span></code>, or make your string a raw string by preceding it with an <code class="docutils literal notranslate"><span class="pre">r</span></code> like is done below.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">.</span> <span class="pre">*</span> <span class="pre">?</span> <span class="pre">+</span> <span class="pre">^</span> <span class="pre">$</span> <span class="pre">\</span> <span class="pre">|</span> <span class="pre">{</span> <span class="pre">}</span> <span class="pre">[</span> <span class="pre">]</span> <span class="pre">(</span> <span class="pre">)</span></code> symbols are also part of regular expression syntax, so if you need to use them as just the symbol, either escape them by preceding it with a backslash or make the string a raw string by starting with an <code class="docutils literal notranslate"><span class="pre">r</span></code> like <code class="docutils literal notranslate"><span class="pre">r'[spiro[\d.\d]octane'</span></code>.</p>
+</div>
+</aside>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d-methyl&#39;</span><span class="p">,</span> <span class="n">amines</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;re.Match object; span=(0, 8), match=&#39;2-methyl&#39;&gt;
+&lt;re.Match object; span=(40, 48), match=&#39;3-methyl&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">\D</span></code> could be used as a means of locating methyls that are <em>not</em> on an aliphatic carbon chain because they do not have numbers before them (at least in this example) like is done below. Now that our patterns are more broad, the listing of matches like below are more informative because we can see that both <code class="docutils literal notranslate"><span class="pre">N-methyl</span></code> and <code class="docutils literal notranslate"><span class="pre">o-methyl</span></code> fit our pattern.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\D-methyl&#39;</span><span class="p">,</span> <span class="n">amines</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;re.Match object; span=(24, 32), match=&#39;N-methyl&#39;&gt;
+&lt;re.Match object; span=(59, 67), match=&#39;N-methyl&#39;&gt;
+&lt;re.Match object; span=(82, 90), match=&#39;o-methyl&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>As another example, below is a string that lists chemical identifiers including chemical names, CAS numbers, and a PubChem CID. The first thing we might want to do is split this up into a list where each item represents a different chemical.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chemicals</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;2-methylphenol   methanol N,N-diethylamine pentanol 281-23-2 &#39;</span> 
+              <span class="s1">&#39;ethyl benzoate glycerol 93-89-0 5793 ethanoic acid acetic anhydride&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using a string method to split based on spaces demonstrated below will not work well because some chemicals (ethyl benzoate, ethanoic acid, and acetic anhydride) have a space in the name. There is also a complication where there are multiple spaces after <code class="docutils literal notranslate"><span class="pre">'2-methylphenol'</span></code>. This problem will be solved below using additional tools from regular expressions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\s&#39;</span><span class="p">,</span> <span class="n">chemicals</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;2-methylphenol&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;methanol&#39;,
+ &#39;N,N-diethylamine&#39;,
+ &#39;pentanol&#39;,
+ &#39;281-23-2&#39;,
+ &#39;ethyl&#39;,
+ &#39;benzoate&#39;,
+ &#39;glycerol&#39;,
+ &#39;93-89-0&#39;,
+ &#39;5793&#39;,
+ &#39;ethanoic&#39;,
+ &#39;acid&#39;,
+ &#39;acetic&#39;,
+ &#39;anhydride&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="quantifiers">
+<h3>Quantifiers<a class="headerlink" href="#quantifiers" title="Link to this heading">#</a></h3>
+<p>Let’s first deal with the multiple spaces using quantifiers in <strong>Table 3</strong>. These quantifiers allow the user to specify how many of something will be in the pattern. For example, the <code class="docutils literal notranslate"><span class="pre">a+</span></code> will search for one or more a’s while <code class="docutils literal notranslate"><span class="pre">'\s{1,3}'</span></code> looks for 1-3 spaces.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Because the <code class="docutils literal notranslate"><span class="pre">?</span></code> quantifier searches for 0 or 1 of something, it is helpful to think of this as looking for optional items. For example, <code class="docutils literal notranslate"><span class="pre">-?\d</span></code> is a pattern for a number that could be positive or negative because a negative sign may or may not be present.</p>
+</div>
+</aside>
+<p><strong>Table 3</strong> Regex Quantifiers</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Flag</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>*</p></td>
+<td><p>Search for 0 or more</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">\w*</span></code> for 0 or more letters</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>?</p></td>
+<td><p>0 or 1</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">\s?</span></code> for a space that may or may not be present</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>+</p></td>
+<td><p>Search for 1 or more</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">\d+</span></code> for one or more digits</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>{}</p></td>
+<td><p>Number of preceding character to search for</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">\d{3}</span></code> for three digits, <code class="docutils literal notranslate"><span class="pre">\d{3,</span> <span class="pre">7}</span></code> for 3-7 digit</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Below, we use <code class="docutils literal notranslate"><span class="pre">\s+</span></code> to split our string of chemicals based on one or more spaces.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">chemicals</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;2-methylphenol&#39;,
+ &#39;methanol&#39;,
+ &#39;N,N-diethylamine&#39;,
+ &#39;pentanol&#39;,
+ &#39;281-23-2&#39;,
+ &#39;ethyl&#39;,
+ &#39;benzoate&#39;,
+ &#39;glycerol&#39;,
+ &#39;93-89-0&#39;,
+ &#39;5793&#39;,
+ &#39;ethanoic&#39;,
+ &#39;acid&#39;,
+ &#39;acetic&#39;,
+ &#39;anhydride&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="lookahead-and-lookbehind">
+<h3>Lookahead and Lookbehind<a class="headerlink" href="#lookahead-and-lookbehind" title="Link to this heading">#</a></h3>
+<p>Now let’s address the issue of spaces inside the name. IUPAC nomenclature for esters follow a pattern where the first word always ends in <em>-yl</em>, and carboxylic acids and anhydrides have <em>-ic</em> at the end of the first word (i.e., the carboxyl part). These trends can be used to identify spaces where the string should <em>not</em> be split, and we will carry this out using something known as a <strong>lookahead</strong> or <strong>lookbehind</strong> shown in <strong>Table 4</strong>.  These look for the presence or absence of something before or after our main pattern. We specifically want spaces that do <em>not</em> have a <em>yl</em> or <em>ic</em> preceding them. We will add these one at a time. Below<code class="docutils literal notranslate"><span class="pre">(?&lt;!yl)</span></code> is added in front of <code class="docutils literal notranslate"><span class="pre">\s+</span></code> to avoid splitting on <code class="docutils literal notranslate"><span class="pre">yl</span> </code> patterns.</p>
+<p><strong>Table 4</strong> Lookahead and Lookbehind Syntax</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p></p></th>
+<th class="head text-center"><p>Lookahead (<span class="math notranslate nohighlight">\(\rightarrow\)</span>)</p></th>
+<th class="head text-center"><p>Lookbehind (<span class="math notranslate nohighlight">\(\leftarrow\)</span>)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>Present</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">pattern1(?=pattern2)</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">(?&lt;=pattern2)pattern1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Absent</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">pattern1(?!pattern2)</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">(?&lt;!pattern2)pattern1</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;(?&lt;!yl)\s+&#39;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">chemicals</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;2-methylphenol&#39;,
+ &#39;methanol&#39;,
+ &#39;N,N-diethylamine&#39;,
+ &#39;pentanol&#39;,
+ &#39;281-23-2&#39;,
+ &#39;ethyl benzoate&#39;,
+ &#39;glycerol&#39;,
+ &#39;93-89-0&#39;,
+ &#39;5793&#39;,
+ &#39;ethanoic&#39;,
+ &#39;acid&#39;,
+ &#39;acetic&#39;,
+ &#39;anhydride&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>A lookbehind for the <em>ic</em> can also be added like below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;(?&lt;!yl)(?&lt;!ic)\s+&#39;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">chemicals</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;2-methylphenol&#39;,
+ &#39;methanol&#39;,
+ &#39;N,N-diethylamine&#39;,
+ &#39;pentanol&#39;,
+ &#39;281-23-2&#39;,
+ &#39;ethyl benzoate&#39;,
+ &#39;glycerol&#39;,
+ &#39;93-89-0&#39;,
+ &#39;5793&#39;,
+ &#39;ethanoic acid&#39;,
+ &#39;acetic anhydride&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="character-sets">
+<h3>Character Sets<a class="headerlink" href="#character-sets" title="Link to this heading">#</a></h3>
+<p>What happens if there are multiple symbols that need to be matched? By placing the symbols or characters to be matched in square brackets, <code class="docutils literal notranslate"><span class="pre">[]</span></code>, anything in the brackets is searched for. For example, it is not uncommon to see numbers separated by either a period <em>or</em> dash (e.g., phone numbers), so <code class="docutils literal notranslate"><span class="pre">[-.]</span></code> can be used to indicate that either symbol is a fit. Regular expressions also allows for ranges of letters and numbers such as <code class="docutils literal notranslate"><span class="pre">[a-e]</span></code> for any of the first five lowercase letters. It is a good idea to place the dash first to ensure that it does not get interpreted as a range.</p>
+<p>Below there is a string of toluene derivatives. If we want to filter for only <em>para</em>-substituted toluene derivatives, the name (at least in this example) should start with either <em>p-</em> or <em>4-</em>. Both symbols can be enclosed in the square brackets like <code class="docutils literal notranslate"><span class="pre">[4p]</span></code>. The next challenge is figuring out how to deal with the rest of the symbols. We could try <code class="docutils literal notranslate"><span class="pre">.+</span></code> to indicated any number of more symbols, but this includes white spaces and returns the rest of the string.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">toluene</span> <span class="o">=</span> <span class="s1">&#39;3-chlorotoluene 4-methyltoluene p-bromotoluene o-methoxytoluene&#39;</span> 
+
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[4p]-.+&#39;</span><span class="p">,</span> <span class="n">toluene</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;4-methyltoluene p-bromotoluene o-methoxytoluene&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>To solve this, we can again use character sets to include any letter, number, or dash like below. By including the <code class="docutils literal notranslate"><span class="pre">+</span></code> behind the square brackets, this means one or more of these symbols.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[4p][-\d\w]+&#39;</span><span class="p">,</span> <span class="n">toluene</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;4-methyltoluene&#39;, &#39;p-bromotoluene&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="groups">
+<h3>Groups<a class="headerlink" href="#groups" title="Link to this heading">#</a></h3>
+<p>Regular expressions in Python also support the extraction of information from specific segments in a string. In section <a class="reference internal" href="../chapter_01/chap_01_notebook.html#id13"><span class="std std-ref">section 1.3.4</span></a>, string formatting is introduced where the user can create a template string and insert different strings in various locations. Below are examples where the compound and molecular weight can be swapped out using either the <code class="docutils literal notranslate"><span class="pre">format()</span></code> method or <em>f</em>-string formatting.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compound</span> <span class="o">=</span> <span class="s1">&#39;ammonia&#39;</span>
+<span class="n">MW</span> <span class="o">=</span> <span class="mf">17.03</span>
+
+<span class="s1">&#39;The molar mass of </span><span class="si">{}</span><span class="s1"> is </span><span class="si">{}</span><span class="s1"> g/mol.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">compound</span><span class="p">,</span> <span class="n">MW</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The molar mass of ammonia is 17.03 g/mol.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compound</span> <span class="o">=</span> <span class="s1">&#39;urea&#39;</span>
+<span class="n">MW</span> <span class="o">=</span> <span class="mf">60.06</span>
+
+<span class="sa">f</span><span class="s1">&#39;The molar mass of </span><span class="si">{</span><span class="n">compound</span><span class="si">}</span><span class="s1"> is </span><span class="si">{</span><span class="n">MW</span><span class="si">}</span><span class="s1"> g/mol.&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The molar mass of urea is 60.06 g/mol.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Groups in regular expressions are essentially the opposite of above where information from the string is instead <em>extracted</em>. Groups are helpful for extracting data from a larger pattern. Below are a couple beginnings of NMR data listings that would appear is chemical literature. If we are interested in the carrier frequency, we simply write out the regular expression as normal but then wrap the part we want to extract in parentheses.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1H NMR (CDCl3, 400 MHz):
+13C NMR (C6D6, 100 MHz):
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H_NMR</span> <span class="o">=</span> <span class="s1">&#39;1H NMR (CDCl3, 400 MHz):&#39;</span>
+<span class="n">C_NMR</span> <span class="o">=</span> <span class="s1">&#39;13C NMR (C6D6, 100 MHz):&#39;</span>
+
+<span class="n">carrier</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;1\d?[HC] NMR \([\d\w]+, (\d+) MHz\):&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">carrier</span><span class="p">,</span> <span class="n">H_NMR</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;400&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">carrier</span><span class="p">,</span> <span class="n">C_NMR</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;100&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Multiple groupings can be extracted by wrapping multiple sections in parentheses. Below extracts both the solvent and the carrier frequency.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">carrier</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;1\d?[HC] NMR \(([\d\w]+), (\d+) MHz\):&#39;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">carrier</span><span class="p">,</span> <span class="n">H_NMR</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;CDCl3&#39;, &#39;400&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="finding-cas-numbers">
+<h2>Finding CAS Numbers<a class="headerlink" href="#finding-cas-numbers" title="Link to this heading">#</a></h2>
+<p>Let’s now do some extra examples. When downloading data files from <a class="reference external" href="https://pubchem.ncbi.nlm.nih.gov/">PubChem</a>, the CAS number is mixed in with other names and numerical identifiers. There are two challenges here. The first is that CAS numbers vary in length. They are always three segments of numbers separated by hyphens, such as 58-08-2 or 2501-94-2, where the second segment is always two digits and the thirds is always a single digit. However the first segment varies from 2-7 digits. The second major issue is that the CAS numbers are mixed in with other chemical identifiers such as CID numbers, common names, and IUPAC names. These other identifiers can include hyphens and numbers, so indexing and string searches cannot easily filter for CAS numbers without a long series of boolean conditions.</p>
+<p>This is a relatively simple task for regular expressions. We indicate digits with the <code class="docutils literal notranslate"><span class="pre">\d</span></code> and use curly brackets to indicate the number of digits as demonstrated below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d{2,7}-\d</span><span class="si">{2}</span><span class="s1">-\d&#39;</span><span class="p">,</span> <span class="n">chemicals</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;281-23-2&#39;, &#39;93-89-0&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>As a demonstration, <a class="reference external" href="https://pubchem.ncbi.nlm.nih.gov/classification/#hid=72">PubChem</a> allows for the free download of datasets which include a <em>Synonym</em> column. This column includes identifiers such as common and IUPAC names, CAS numbers, and PubChem CID numbers. The following code extracts the CAS numbers from one of these files. Two additional challenges arise from multiple CAS numbers being listed for a given compound or no CAS number being listed at all. When there are multiple CAS numbers, the most common one is stored, and if no CAS number is present, a <code class="docutils literal notranslate"><span class="pre">NaN</span></code> is stored in its place.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This data file is not included with the book, but you can freely download these files from the above URL.</p>
+</div>
+</aside>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get CAS number from Synonyms column</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">solv</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/solvents.csv&#39;</span><span class="p">)</span>
+<span class="n">names</span> <span class="o">=</span> <span class="n">solv</span><span class="p">[</span><span class="s1">&#39;Synonyms&#39;</span><span class="p">]</span>
+
+<span class="n">cas_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\d{2,7}-\d</span><span class="si">{2}</span><span class="s1">-\d&#39;</span>
+<span class="n">cas</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+    <span class="n">cas_in_row</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">cas_pattern</span><span class="p">,</span> <span class="n">row</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># get more common CAS number</span>
+        <span class="n">most_common_cas</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">cas_in_row</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="n">cas_in_row</span><span class="o">.</span><span class="n">count</span><span class="p">)</span>
+        <span class="n">cas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">most_common_cas</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="c1"># append NaN if no CAS number found</span>
+        <span class="n">cas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+
+<span class="n">cas</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;107-06-2&#39;,
+ &#39;120-82-1&#39;,
+ &#39;67-64-1&#39;,
+ &#39;71-43-2&#39;,
+ &#39;71-36-3&#39;,
+ &#39;111-65-9&#39;,
+ &#39;67-68-5&#39;,
+ &#39;64-17-5&#39;,
+ &#39;75-12-7&#39;,
+ &#39;67-56-1&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="parse-nmr-data">
+<h2>Parse NMR Data<a class="headerlink" href="#parse-nmr-data" title="Link to this heading">#</a></h2>
+<p>When data on an NMR spectrum is reported in the literature, it follows relatively strict formatting rules, but these rules are designed to be ready by humans, not machines. To make things more complicated, there are numerous commas and spaces in the data making it difficult to use these as delimiters, so regular expressions are ideal for parsing this kind of data. Below is the <span class="math notranslate nohighlight">\(^1\)</span>H NMR data for butanamide in DMSO-<span class="math notranslate nohighlight">\(d_6\)</span> at 22 <span class="math notranslate nohighlight">\(^\circ\)</span>C following <a class="reference external" href="https://researcher-resources.acs.org/publish/data_guidelines">American Chemical Society guidelines</a>.</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(^1\)</span>H NMR ((CD)<span class="math notranslate nohighlight">\(_3\)</span>SO, 400 MHz): <span class="math notranslate nohighlight">\(\delta\)</span> 7.23 (br, 1H), 6.70 (br, 1H), 2.00 (t, 2H, J = 7.3 Hz), 1.48 (tq, 2H, J = 7.3, 7.3 Hz), 0.84 (t, 3H, J = 7.3 Hz).</p>
+</div></blockquote>
+<p>As an example, we will extract the entries for each signal in the NMR spectrum. Each entry looks like <code class="docutils literal notranslate"><span class="pre">7.23</span> <span class="pre">(br,</span> <span class="pre">1H)</span></code> or <code class="docutils literal notranslate"><span class="pre">0.84</span> <span class="pre">(t,</span> <span class="pre">3H,</span> <span class="pre">J</span> <span class="pre">=</span> <span class="pre">7.3</span> <span class="pre">Hz)</span></code> where the decimal is the chemical shift and additional information on the signal is provided in the parentheses behind the chemical shift.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proton</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;1H NMR ((CD)3SO, 400 MHz): δ 7.23 (br, 1H), 6.70 (br, 1H),&#39;</span> 
+          <span class="s1">&#39;2.00 (t, 2H, J = 7.3 Hz), 1.48 (tq, 2H, J = 7.3, 7.3 Hz),&#39;</span> 
+          <span class="s1">&#39;0.84 (t, 3H, J = 7.3 Hz).&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each signal starts with a number to two decimal places, but there may be one or two digits before the decimal place. Even though our example always has one digit before the decimal, we want our code to be robust and versatile. The regular expression for this number is <code class="docutils literal notranslate"><span class="pre">'\d{1,2}.\d{2}'</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nmr_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\d{1,2}.\d</span><span class="si">{2}</span><span class="s1">&#39;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">nmr_pattern</span><span class="p">,</span> <span class="n">proton</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;7.23&#39;, &#39;6.70&#39;, &#39;2.00&#39;, &#39;1.48&#39;, &#39;0.84&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, the information about the signal is stored in parentheses separated from the chemical shift by a space. We will use <code class="docutils literal notranslate"><span class="pre">'\s+'</span></code> just in case someone accidentally used multiple spaces. Because parentheses are a regular expression character, we need to precede it with a backslash to indicate that we actually mean just a parentheses character.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nmr_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\d+.\d</span><span class="si">{2}</span><span class="s1">\s+\(&#39;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">nmr_pattern</span><span class="p">,</span> <span class="n">proton</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;7.23 (&#39;, &#39;6.70 (&#39;, &#39;2.00 (&#39;, &#39;1.48 (&#39;, &#39;0.84 (&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Inside the parentheses is the</p>
+<ul class="simple">
+<li><p>Splitting pattern as one or more letters, <code class="docutils literal notranslate"><span class="pre">'\w+'</span></code></p></li>
+<li><p>Integration as an integer with an <code class="docutils literal notranslate"><span class="pre">H</span></code>, so <code class="docutils literal notranslate"><span class="pre">'\d+H'</span></code></p></li>
+<li><p>Coupling information as starting with <code class="docutils literal notranslate"><span class="pre">J</span> <span class="pre">=</span></code> followed by a number to two decimal places, so <code class="docutils literal notranslate"><span class="pre">'J\s+=\s+\d+.\d+\s+Hz'</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nmr_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\d+.\d</span><span class="si">{2}</span><span class="s1">\s+\(\w+,\s+\d+H,\s+J\s+=\s+\d+.\d\s+Hz\)&#39;</span>
+
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">nmr_pattern</span><span class="p">,</span> <span class="n">proton</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;2.00 (t, 2H, J = 7.3 Hz)&#39;, &#39;0.84 (t, 3H, J = 7.3 Hz)&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The current pattern misses the signals that do not include the coupling information or have multiple coupling constants. This is where quantifier are helpful. By placing the regular expression that pattern matches <code class="docutils literal notranslate"><span class="pre">,</span> <span class="pre">J</span> <span class="pre">=</span> <span class="pre">7.3</span></code> in square brackets followed by an asterisk like below, it indicates that there could be zero or more of these.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[,\s+J\s?=\s?\d+.\d]*
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nmr_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\d+.\d</span><span class="si">{2}</span><span class="s1">\s\(\w+,\s+\d+H[,\s+J\s?=\s?\d+.\d]*\sHz\)&#39;</span>
+
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">nmr_pattern</span><span class="p">,</span> <span class="n">proton</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;2.00 (t, 2H, J = 7.3 Hz)&#39;,
+ &#39;1.48 (tq, 2H, J = 7.3, 7.3 Hz)&#39;,
+ &#39;0.84 (t, 3H, J = 7.3 Hz)&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now the regular expression finds all signals that have coupling constants but is still missing the two without coupling constants. This is because the pattern still requires a <code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">Hz'</span></code>. Because there should be either zero or one of these, the regular expression that searches for this should also be enclosed in square brackets and followed by an <code class="docutils literal notranslate"><span class="pre">*</span></code> like below.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[\sHz]*
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nmr_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\d+.\d</span><span class="si">{2}</span><span class="s1">\s\(\w+,\s+\d+H[,\s+J\s?=\s?\d+.\d]*[\sHz]*\)&#39;</span>
+
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">nmr_pattern</span><span class="p">,</span> <span class="n">proton</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;7.23 (br, 1H)&#39;,
+ &#39;6.70 (br, 1H)&#39;,
+ &#39;2.00 (t, 2H, J = 7.3 Hz)&#39;,
+ &#39;1.48 (tq, 2H, J = 7.3, 7.3 Hz)&#39;,
+ &#39;0.84 (t, 3H, J = 7.3 Hz)&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>It looks like the code finds all the signals. One more addition that would be helpful in making the code more robust is to add the possibility of a negative chemical shift. While proton chemical shift are typically positive, negative values do show up in situations such as silanes with Si-H bonds or metal hydrides. To allow for this possibility, a <code class="docutils literal notranslate"><span class="pre">-?</span></code> is placed in the front indicated that the negative may or may not be there. To test this, an extra negative resonance was added just for testing purposes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proton</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;1H NMR ((CD)3SO, 400 MHz): δ 7.23 (br, 1H), 6.70 (br, 1H),&#39;</span> 
+          <span class="s1">&#39;2.00 (t, 2H, J = 7.3 Hz), 1.48 (tq, 2H, J = 7.3, 7.3 Hz),&#39;</span> 
+          <span class="s1">&#39;0.84 (t, 3H, J = 7.3 Hz), -0.54 (s, 1H).&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nmr_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;-?\d+.\d</span><span class="si">{2}</span><span class="s1">\s\(\w+,\s+\d+H[,\s+J\s?=\s?\d+.\d]*[\sHz]*\)&#39;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">nmr_pattern</span><span class="p">,</span> <span class="n">proton</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;7.23 (br, 1H)&#39;,
+ &#39;6.70 (br, 1H)&#39;,
+ &#39;2.00 (t, 2H, J = 7.3 Hz)&#39;,
+ &#39;1.48 (tq, 2H, J = 7.3, 7.3 Hz)&#39;,
+ &#39;0.84 (t, 3H, J = 7.3 Hz)&#39;,
+ &#39;-0.54 (s, 1H)&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>If someone wanted to extract values from the NMR signals, additional regular expressions could be written to iterate through the list and extract the desired information.</p>
+</section>
+<section id="further-reading">
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p>Documentation for <code class="docutils literal notranslate"><span class="pre">re</span></code> package. <a class="reference external" href="https://docs.python.org/3/library/re.html">https://docs.python.org/3/library/re.html</a> (free resource)</p>
+<blockquote>
+<div><p>Python <code class="docutils literal notranslate"><span class="pre">re</span></code> module documentation. Provides a good list of flags.</p>
+</div></blockquote>
+</li>
+<li><p>Regular Expressions HOWTO. <a class="reference external" href="https://docs.python.org/3/howto/regex.html">https://docs.python.org/3/howto/regex.html</a> (free resource)</p>
+<blockquote>
+<div><p>An offical Python documentation page that provides an additional tutorial on regular expressions in Python.</p>
+</div></blockquote>
+</li>
+<li><p>Datacampe Regular Expressions Cheat Sheet. <a class="reference external" href="https://www.datacamp.com/cheat-sheet/regular-expresso">https://www.datacamp.com/cheat-sheet/regular-expresso</a> (free resource)</p>
+<blockquote>
+<div><p>A one-page summary of key regular expression pattern characters good for hanging above a desk.</p>
+</div></blockquote>
+</li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "scicompchem-env"
+        },
+        kernelOptions: {
+            name: "scicompchem-env",
+            path: "./notebooks/appendix_04"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'scicompchem-env'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../appendix_03/appendix_03_notebook.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Appendix 3: Uncertainty Propagation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../genindex.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Index</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regular-expression-basics">Regular Expression Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#re-functions"><code class="docutils literal notranslate"><span class="pre">re</span></code> Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symbols-characters">Symbols &amp; Characters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantifiers">Quantifiers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lookahead-and-lookbehind">Lookahead and Lookbehind</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#character-sets">Character Sets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#groups">Groups</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-cas-numbers">Finding CAS Numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parse-nmr-data">Parse NMR Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further Reading</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Charles J. Weiss
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2017-2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Scientific Computing for Chemists with Python is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

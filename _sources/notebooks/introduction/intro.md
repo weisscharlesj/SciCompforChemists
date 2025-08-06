@@ -36,16 +36,18 @@ Below is a listing with brief descriptions of the chapters.
 |Chapter 8| Symbolic math and other more advanced mathematics in Python |
 |Chapter 9| Simulating physical and chemical processes in Python |
 |Chapter 10| Seaborn plotting library |
-|Chapter 11| NMR processing and simulations with nmrglue and nmrsim |
-|Chapter 12| Machine learning using the scikit-learn library |
-|Chapter 13| Writing Python scripts using Spyder and running them from the command line |
+|Chapter 11| Interactive plotting with Altair
+|Chapter 12| NMR processing and simulations with nmrglue and nmrsim |
+|Chapter 13| Machine learning using the scikit-learn library |
 |Chapter 14| Using functions from the `scipy.optimize` module to perform minimizations, curve fitting, and root finding |
 |Chapter 15| Cheminformatics with RDKit |
 |Chapter 16| Bioinformatics with Biopython and nglview |
+|Chapter 17| Writing Python scripts using Spyder and running them from the command line |
 |Appendix 0| IPython widgets for interactive notebooks|
 |Appendix 1| Remote requests for accessing online databases|
 |Appendix 2| Visualizing atomic orbitals |
 |Appendix 3| Uncertainty propagation made easier |
+|Appendix 4| Regular Expressions |
 
 
 One of the goals of this book is to provide a streamlined introduction to Python and its scientific libraries in order to allow the reader to start applying these new skills to chemistry as quickly as possible. As a result, not all topics covered in a typical computer science course on Python are included here. Instead, the most relevant topics to chemistry are covered along with a selection of scientific libraries not likely taught in most Python courses. Another difference between this book and a typical computer science course on Python is that many computer science courses would have students write and save code as text files and run them from the command line. In contrast, this book assumes that the reader is running his or her code in a Jupyter notebook, as described in chapter 0, which is an ideal environment for scientific data analysis. The Jupyter notebook provides immediate feedback to the user, convenient graphical outputs, is shareable, and is simpler to use than running Python scripts from the command line. For those students who wish to continue on to run Python scripts from the command line, [chapter 13](13) provides a brief introduction to this process. In an effort to make this text usable in a wide range of courses, there is little in-depth analysis of the data. This book instead focuses more on how to work with the data and leaves the analysis to the individual instructors.
@@ -85,6 +87,7 @@ The code in this version of the book has been most recently tested with the foll
 - requests - 2.32.4
 - ipywidgets - 8.1.7
 - uncertainties - 3.2.3
+- Altair - 5.5.0
 
 
 ## Acknowledgements

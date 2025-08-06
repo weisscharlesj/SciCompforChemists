@@ -1,0 +1,764 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" data-theme="light">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 17: Command Line &amp; Spyder &#8212; Scientific Computing for Chemists with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/chapter_17/chap_17_notebook';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Appendix 0: Ipython Widgets" href="../appendix_00/appendix_00_notebook.html" />
+    <link rel="prev" title="Chapter 16: Bioinformatics with Biopython and Nglview" href="../chapter_16/chap_16_notebook.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../introduction/intro.html">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Scientific Computing for Chemists with Python - Home"/>
+    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Scientific Computing for Chemists with Python - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../introduction/intro.html">
+                    Scientific Computing for Chemists with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic Scientific Computing Skills</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_00/chap_00_notebook.html">Chapter 0: Python &amp; Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_01/chap_01_notebook.html">Chapter 1: Basic Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_02/chap_02_notebook.html">Chapter 2: Intermediate Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_03/chap_03_notebook.html">Chapter 3: Plotting with Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_04/chap_04_notebook.html">Chapter 4: NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_05/chap_05_notebook.html">Chapter 5: Pandas</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Topics &amp; Applications</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_06/chap_06_notebook.html">Chapter 6: Signal &amp; Noise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_07/chap_07_notebook.html">Chapter 7: Image Processing &amp; Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_08/chap_08_notebook.html">Chapter 8: Mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_09/chap_09_notebook.html">Chapter 9: Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_10/chap_10_notebook.html">Chapter 10: Plotting with Seaborn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_11/chap_11_notebook.html">Chapter 11: Plotting with Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_12/chap_12_notebook.html">Chapter 12: Nuclear Magnetic Resonance with nmrglue and nmrsim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_13/chap_13_notebook.html">Chapter 13: Machine Learning using Scikit-Learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_14/chap_14_notebook.html">Chapter 14: Optimization and Root Finding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_15/chap_15_notebook.html">Chapter 15: Cheminformatics with RDKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_16/chap_16_notebook.html">Chapter 16: Bioinformatics with Biopython and Nglview</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 17: Command Line &amp; Spyder</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Back Matter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendix_00/appendix_00_notebook.html">Appendix 0: Ipython Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix_01/appendix_01_notebook.html">Appendix 1: Remote Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix_02/appendix_02_notebook.html">Appendix 2: Visualizing Atomic Orbitals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix_03/appendix_03_notebook.html">Appendix 3: Uncertainty Propagation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix_04/appendix_04_notebook.html">Appendix 4: Regular Expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/weisscharlesj/SciCompforChemists" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/weisscharlesj/SciCompforChemists/issues/new?title=Issue%20on%20page%20%2Fnotebooks/chapter_17/chap_17_notebook.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/chapter_17/chap_17_notebook.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 17: Command Line & Spyder</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigating-the-terminal">17.1 Navigating the Terminal</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directory-name-contents">17.1.1 Directory Name &amp; Contents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-directory">17.1.2 Changing Directory</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-scripts">17.2 Running Scripts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-inputs">17.3 Additional Inputs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-inputs">17.3.1 User Inputs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sys-argv">17.3.2 <code class="docutils literal notranslate"><span class="pre">sys.argv</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-py-files-in-jupyter">17.4 Running .py Files in Jupyter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spyder">17.5 Spyder</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further Reading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-17-command-line-spyder">
+<span id="id1"></span><span id="index-0"></span><h1>Chapter 17: Command Line &amp; Spyder<a class="headerlink" href="#chapter-17-command-line-spyder" title="Link to this heading">#</a></h1>
+<p>Up to this point, we have been running all of our Python scripts through the IPython environment from either a Jupyter notebook or a Python interpreter. A third way to run Python code is to save it as text files and run the code from the computer’s or Jupyter’s terminal. The advantage of this approach is that it is more practical for larger scripts and more convenient for doing repetitive tasks like reformatting instrument data. You will need access to the terminal to run your Python script which is discussed below.</p>
+<section id="navigating-the-terminal">
+<span id="id2"></span><h2>17.1 Navigating the Terminal<a class="headerlink" href="#navigating-the-terminal" title="Link to this heading">#</a></h2>
+<p>The terminal is the command line interface used in macOS and unix-like systems such as the Linux and BSD families and allows users to perform a wide array of tasks from installing and running software to file management. If you are using Linux or Mac, launch the terminal from the applications, and if you are on Windows, you will likely first need to activate the Bash command line before proceeding. Alternatively, if you are using the JupyterLab version of Jupyer, you can launch a terminal window from the Launcher menu (see <a class="reference internal" href="../chapter_00/chap_00_notebook.html#id3"><span class="std std-ref">section 0.2</span></a>, Figure 2). In section 17.2, you will learn to run Python scripts from the terminal, but before you can run a script, you need to be able to navigate your file system and find your Python scripts. This section is a brief primer on navigating the file system through the Terminal.</p>
+<section id="directory-name-contents">
+<span id="id3"></span><h3>17.1.1 Directory Name &amp; Contents<a class="headerlink" href="#directory-name-contents" title="Link to this heading">#</a></h3>
+<p>When you open the terminal, you are greeted with a line that looks something like the following where <code class="docutils literal notranslate"><span class="pre">Comp</span></code> is your computer name and <code class="docutils literal notranslate"><span class="pre">Me</span></code> is your account user name. After the <code class="docutils literal notranslate"><span class="pre">$</span></code> sign is where you type your commands.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Comp:~Me$
+</pre></div>
+</div>
+<p>From here, you can navigate your file system. The first thing you will want to know is where on the file system you are currently looking. This is known as the current working directory, which can be determined with the command <code class="docutils literal notranslate"><span class="pre">pwd</span></code> (print working directory).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ pwd
+
+/Users/Me
+</pre></div>
+</div>
+<p>This means that we are currently in the home directory for the user Me. To view the contents of the directory, we can list its contents using the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ls
+
+Applications   Documents      Movies 
+Public         Downloads      Music 
+anaconda       Desktop        Library 
+Pictures       seaborn-data 
+</pre></div>
+</div>
+<p>You may see files listed in the terminal that you cannot see when manually looking in a folder. This is normal. Computers often contain invisible files for items such as icons, and it is often best not to alter or delete these invisible files.</p>
+</section>
+<section id="changing-directory">
+<span id="id4"></span><h3>17.1.2 Changing Directory<a class="headerlink" href="#changing-directory" title="Link to this heading">#</a></h3>
+<p>To change the current working directory, use the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command. This can be used either incrementally by stepping one directory at a time or by providing the full path name such as /Users/Me/Documents/Scripts/.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ cd Desktop
+</pre></div>
+</div>
+<p>This only allows the user to navigate into folders. To back out of a folder, <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code> (space with two periods) is used.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ cd ..
+</pre></div>
+</div>
+<p>There is certainly much more that can be done in the terminal, but this is enough of a foundation for you to find and run scripts as we will do below.</p>
+</section>
+</section>
+<section id="running-scripts">
+<span id="id5"></span><h2>17.2 Running Scripts<a class="headerlink" href="#running-scripts" title="Link to this heading">#</a></h2>
+<p>Now that you know the basics of the terminal command line, we can now run our first script. Open a text editor of your choice. Be careful if you write Python code in a regular word processor (e.g., Word, LibreOffice, Pages, etc…) as it may save extra formatting in any text file generated. A better option is to either use Spyder introduced in <a class="reference internal" href="#id8"><span class="std std-ref">section 17.5</span></a> or (easiest) select Python File from the JupyterLab launcher. Write some Python code in a new file and save it as a text file titled <code class="docutils literal notranslate"><span class="pre">first_script.py</span></code>. The <code class="docutils literal notranslate"><span class="pre">.py</span></code> extension does not do anything to the file; it just indicates to other software that this text file is a Python script. For this demonstration, I’ll include the following code in my text file.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+<span class="n">rdn</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rdn</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Next, open the terminal and navigate to the directory (i.e., folder) containing the above script file and type the following into the terminal.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python first_script.py
+
+66
+</pre></div>
+</div>
+<p>You just ran your first script from the command line! The output only includes what you print in the Python script. One key difference between a script run in the command line and Python code run in a Jupyter notebook is that when running from the command line, if you want something displayed, you need to explicitly instruct this action using the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function. In contrast, the Jupyter notebook automatically prints the output of calculations that are not assigned to variables.</p>
+<p>An alternative way to run the above file without having to navigate to the folder is to provide the file with the full (absolute) path like is shown below.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python /Users/Me/Desktop/first_script.py
+
+98
+</pre></div>
+</div>
+<p>This might seem like a lot of typing. One handy shortcut is to type <code class="docutils literal notranslate"><span class="pre">python</span></code> followed by a space and then drag-and-drop the file into the terminal window. This will result in the file path and name being automatically pasted into the terminal window.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python /Users/Me/Desktop/first_script.py
+
+65
+</pre></div>
+</div>
+</section>
+<section id="additional-inputs">
+<span id="index-1"></span><h2>17.3 Additional Inputs<a class="headerlink" href="#additional-inputs" title="Link to this heading">#</a></h2>
+<p>There are often times when running a script from the command line that you want to be able to include addition inputs or information to the Python script. This may come in the form of a user input or extra files. Below are ways to accomplish this making your script more interactive.</p>
+<section id="user-inputs">
+<h3>17.3.1 User Inputs<a class="headerlink" href="#user-inputs" title="Link to this heading">#</a></h3>
+<p>In the event you want the user to be able to input values, Python includes an <code class="docutils literal notranslate"><span class="pre">input()</span></code> function that prompts the user to provide information. For example, if we want to write a script to calculate molecular weights of simple hydrocarbon molecules based on the number of hydrogen and carbon atoms, it would be helpful to allow the user to input the number of hydrogen and carbon atoms instead of altering the script itself.  The argument inside the <code class="docutils literal notranslate"><span class="pre">input()</span></code> function is what is displayed in front of the user to prompt an input. It is important to note that the <code class="docutils literal notranslate"><span class="pre">input()</span></code> function provides the user input as a string. Being that we are expecting integers, we need to convert these strings to integers before calculating the molecular weight of the molecule as has been done below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">H</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;H = &#39;</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;C = &#39;</span><span class="p">)</span>
+
+<span class="n">MW</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">H</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.01</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="o">*</span> <span class="mf">12.01</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">MW</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Save the above script in a text file named <em><a class="reference external" href="http://MW.py">MW.py</a></em> and run it. You are prompted to provide the number of hydrogens and carbons before a molecular weight is calculated and printed.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python MW.py
+  H = 4
+  C = 1
+  16.05
+</pre></div>
+</div>
+</section>
+<section id="sys-argv">
+<span id="id6"></span><span id="index-2"></span><h3>17.3.2 <code class="docutils literal notranslate"><span class="pre">sys.argv</span></code><a class="headerlink" href="#sys-argv" title="Link to this heading">#</a></h3>
+<p>Another approach to allowing the user to provide additional information is to provide all the required information in the same line as calling the script. For example, when running the above hydrocarbon molecular weight script above, you might expect it to look like the following.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python MW.py 4 1
+
+16.05
+</pre></div>
+</div>
+<p>We can instruct Python to grab the information behind the script file name using the <code class="docutils literal notranslate"><span class="pre">argv()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">sys</span></code> module. This function brings all information after <code class="docutils literal notranslate"><span class="pre">python</span></code> as a list which can be accessed using indexing. The above input generates the following list from <code class="docutils literal notranslate"><span class="pre">sys.argv</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">['MW.py',</span> <span class="pre">'4',</span> <span class="pre">'1']</span></code></p>
+<p>Now it is just a matter of indexing and converting strings to integers as is done below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="n">MW</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">H</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.01</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="o">*</span> <span class="mf">12.01</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">MW</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now we can run the script as follows.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python MW.py 8 3
+
+44.11
+</pre></div>
+</div>
+<p>The above method is ideal from accepting file names and extension as they can be dragged into the terminal more easily than typed. The down side to this approach is that the user needs to be aware of what information to provide the script and in what order. This is analogous to the difference between a keyword argument and positional argument in a function.</p>
+</section>
+</section>
+<section id="running-py-files-in-jupyter">
+<span id="id7"></span><h2>17.4 Running .py Files in Jupyter<a class="headerlink" href="#running-py-files-in-jupyter" title="Link to this heading">#</a></h2>
+<p>As a way to combine Python scripts in external .py files and Jupyter notebooks, it is possible to run these Python scripts from the Jupyter notebook using the <code class="docutils literal notranslate"><span class="pre">%run</span></code> magic command. As an example, let’s say we have the following code in a file called <span class="math notranslate nohighlight">\(dist.py\)</span>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pt1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">pt2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">coord1</span><span class="p">,</span> <span class="n">coord2</span><span class="p">):</span>
+    <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z1</span> <span class="o">=</span> <span class="n">coord1</span>
+    <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">z2</span> <span class="o">=</span> <span class="n">coord2</span>
+    
+    <span class="k">return</span> <span class="p">((</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y1</span> <span class="o">-</span> <span class="n">y2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">z1</span> <span class="o">-</span> <span class="n">z2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+</pre></div>
+</div>
+<p>We can run this code from a Jupyter notebook using the following command. Like we’ve seen previously, Jupyter assumes the referenced file is in the same directory as the Jupyter notebook unless otherwise indicated.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> dist.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pt1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, 5, 9)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">distance</span><span class="p">(</span><span class="n">pt1</span><span class="p">,</span> <span class="n">pt2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11.180339887498949
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that the <span class="math notranslate nohighlight">\(dist.py\)</span> file has been executed, the variables and function are available in the Jupyter notebook as if this code had been run in a Jupyter code cell.</p>
+</section>
+<section id="spyder">
+<span id="id8"></span><span id="index-3"></span><h2>17.5 Spyder<a class="headerlink" href="#spyder" title="Link to this heading">#</a></h2>
+<p>While using a text editor to write your scripts works just fine, you may long for some of the features of Jupyter notebooks like how it automatically color codes text based on syntax and provides easy access to function docstrings. To get some of these features back, you can use an Integrated Development Environment (IDE). There are many to choose from, but here we will address Spyder (Scientific Python Development Environment) as it is specifically tailored to scientific applications and comes with the Anaconda installation of Python.</p>
+<p>There are two methods of launching Spyder. The first is to type <code class="docutils literal notranslate"><span class="pre">spyder</span></code> in the terminal.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ spyder
+</pre></div>
+</div>
+<p>The second method is to press the launch button for Spyder in Anaconda Navigator  (Figure 1). The latter method is often slower because it requires that Navigator be first launched.</p>
+<p><img alt="" src="../../_images/Navigator_screenshot.png" /></p>
+<p><strong>Figure 1</strong> A screenshot of the Anaconda Navigator application launcher window.</p>
+<p>Once Spyder has launched, you will be greeted by an interface divided into three windows (Figure 2). The left window is a text editor where code is written. Like the Jupyter notebook, it color codes your Python code based on syntax and provides docstrings and helpful notices. To run the code written here, you can either save it as a text file and run it as described above, or you can press the run button (►) at the top of the window. The latter approach is particularly handy during the development phase of a script as it allows you to quickly test and modify your script without having to jump between Spyder and the terminal. The smaller window on the bottom right is a Python terminal where you can test out code and see the output of your code if you run your code inside Spyder. The top right window is useful as a file navigator and as a variable explorer depending upon the tabs you choose. In Figure 2, it is a variable explorer which shows each variable in memory and what it contains. This is powerful tool when debugging code as it allows you to quickly see what the code is doing and where things are not working.</p>
+<p><img alt="" src="../../_images/spyder_4.2.5.png" /></p>
+<p><strong>Figure 2</strong> The Spyder interface with the text editor (left), variable explorer (top right), and interpreter (bottom right).</p>
+<p>So when should you use a Jupyter notebook and when should you use Spyder? The decision is often a matter of preference, but if you are doing interactive data analysis, Jupyter notebooks are typically the better choice. This is particularly true if you need to share your analysis and results with others. If you are writing large blocks of code, Spyder is likely a better choice of environment. As an example, if you wish to perform complex mining of information from an external dataset and then analyze the resulting information, you might want to write the data mining code in Spyder and then run the data analysis in a Jupyter notebook.</p>
+</section>
+<section id="further-reading">
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Spyder Website. <a class="reference external" href="https://www.spyder-ide.org/">https://www.spyder-ide.org/</a> (free resource)</p></li>
+</ol>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<p>Complete the following problems by writing a Python scripts either in a text editor or Spyder and run them from the terminal. JupyterLab, newest version of Jupyter, includes a text editor if you wish to use it, but do not use a Jupyter notebook for any of these problems!  Any data file(s) refered to in the problems can be found in the <a class="reference external" href="https://github.com/weisscharlesj/SciCompforChemists/tree/master/notebooks">data</a> folder in the same directory as this chapter’s Jupyter notebook. Alternatively, you can download a zip file of the data for this chapter from <a class="reference external" href="https://github.com/weisscharlesj/data_SciCompforChem">here</a> by selecting the appropriate chapter file and then clicking the <strong>Download</strong> button.</p>
+<ol class="arabic">
+<li><p>When an electron in a hydrogen atom relaxes from a higher to a lower energy orbital, a photon is released with the wavelength in nm described by the below equation. Write and run a Python script that prompts the user to input the initial and final principle quantum numbers (n) and prints the wavelength (λ) of light emitted with units.</p>
+<div class="math notranslate nohighlight">
+\[ \frac{1}{\lambda_{nm}} = 1.097 \times 10^7 nm^{-1} \left( \frac{1}{n_i^2} - \frac{1}{n_f^2} \right) \]</div>
+</li>
+<li><p>In the folder titled data you will find synthetic data for the conversion of A <span class="math notranslate nohighlight">\(\rightarrow\)</span> P. Both datasets are for first-order reactions.</p>
+<p>a) Write a Python script that accepts the name of a single data file like below and outputs the rate constant (k) for the data. Test it on both datasets. For the script to find the file, it needs to either be in the same directory as the data file or be provided the absolute path to the file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> $ python script.py kinetic_data_1.csv
+
+ or
+
+ $ python script.py /Users/Me/Desktop/kinetic_data_1.csv
+</pre></div>
+</div>
+<p>b) Modify the above script to print out the rate constant for all datasets in the folder. This script will accept the folder name instead of the file name. Remember to use the <code class="docutils literal notranslate"><span class="pre">os</span></code> module described in <a class="reference internal" href="../chapter_02/chap_02_notebook.html#id10"><span class="std std-ref">section 2.4.1</span></a>.</p>
+</li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "scicompchem-env"
+        },
+        kernelOptions: {
+            name: "scicompchem-env",
+            path: "./notebooks/chapter_17"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'scicompchem-env'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../chapter_16/chap_16_notebook.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 16: Bioinformatics with Biopython and Nglview</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../appendix_00/appendix_00_notebook.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Appendix 0: Ipython Widgets</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigating-the-terminal">17.1 Navigating the Terminal</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directory-name-contents">17.1.1 Directory Name &amp; Contents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-directory">17.1.2 Changing Directory</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-scripts">17.2 Running Scripts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-inputs">17.3 Additional Inputs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-inputs">17.3.1 User Inputs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sys-argv">17.3.2 <code class="docutils literal notranslate"><span class="pre">sys.argv</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-py-files-in-jupyter">17.4 Running .py Files in Jupyter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spyder">17.5 Spyder</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further Reading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Charles J. Weiss
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2017-2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Scientific Computing for Chemists with Python is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

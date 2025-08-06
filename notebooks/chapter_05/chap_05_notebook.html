@@ -184,12 +184,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../chapter_08/chap_08_notebook.html">Chapter 8: Mathematics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_09/chap_09_notebook.html">Chapter 9: Simulations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_10/chap_10_notebook.html">Chapter 10: Plotting with Seaborn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter_11/chap_11_notebook.html">Chapter 11: Nuclear Magnetic Resonance with nmrglue and nmrsim</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter_12/chap_12_notebook.html">Chapter 12: Machine Learning using Scikit-Learn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter_13/chap_13_notebook.html">Chapter 13: Command Line &amp; Spyder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_11/chap_11_notebook.html">Chapter 11: Plotting with Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_12/chap_12_notebook.html">Chapter 12: Nuclear Magnetic Resonance with nmrglue and nmrsim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_13/chap_13_notebook.html">Chapter 13: Machine Learning using Scikit-Learn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_14/chap_14_notebook.html">Chapter 14: Optimization and Root Finding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_15/chap_15_notebook.html">Chapter 15: Cheminformatics with RDKit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_16/chap_16_notebook.html">Chapter 16: Bioinformatics with Biopython and Nglview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_17/chap_17_notebook.html">Chapter 17: Command Line &amp; Spyder</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Back Matter</span></p>
 <ul class="nav bd-sidenav">
@@ -197,6 +198,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../appendix_01/appendix_01_notebook.html">Appendix 1: Remote Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix_02/appendix_02_notebook.html">Appendix 2: Visualizing Atomic Orbitals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix_03/appendix_03_notebook.html">Appendix 3: Uncertainty Propagation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix_04/appendix_04_notebook.html">Appendix 4: Regular Expressions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
 </ul>
 
@@ -448,7 +450,7 @@
 </div>
 </div>
 </div>
-<p>The second shortcoming is that NumPy arrays do not have strong support for labels in the data. That is, you might want to label rows and column describing what they represent like you might see in a well constructed spreadsheet. While there is some support for this in NumPy, it is not as strong as pandas’ support. Finally, while NumPy contains a wealth of basic tools for working with data, there are still many operations that it does not support like grouping data based on the value of a particular column or the ability to merge two data sets with automatic alignment of related data.</p>
+<p>The second shortcoming is that NumPy arrays do not have strong support for labels in the data. That is, you might want to label rows and column describing what they represent like you might see in a well constructed spreadsheet. While there is some support for this in NumPy, it is not as strong as pandas’ support. Finally, while NumPy contains a wealth of basic tools for working with data, there are still many operations that it does not support like grouping data based on the value of a particular column or the ability to merge two datasets with automatic alignment of related data.</p>
 <p>To fill in these missing features, the pandas library provides a wealth of additional tools on top of NumPy for working with data, and possibly the most endearing feature, the ability to call data based on labels. That is, data columns and rows can contain human-readable labels that are used to access the data. Pandas still supports accessing data using indices if the user wishes to go that route, but the user can now access data without knowing which column it is in as long as the user knows the column label.</p>
 <p>By popular convention, the pandas library is imported with the <code class="docutils literal notranslate"><span class="pre">pd</span></code> alias, which is used here. This chapter assumes the following imports.</p>
 <div class="cell docutils container" id="index-0">
@@ -807,6 +809,13 @@ Name: Li, dtype: object
 </div>
 <section id="general-purpose-delimited-file-reader">
 <span id="id6"></span><h3>5.2.1 General-Purpose Delimited File Reader<a class="headerlink" href="#general-purpose-delimited-file-reader" title="Link to this heading">#</a></h3>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">\s+</span></code> syntax is from regular expressions which are covered in more detail in <a class="reference internal" href="../appendix_04/appendix_04_notebook.html#appendix-04"><span class="std std-ref">appendix 4</span></a>.</p>
+</div>
+</aside>
 <p>Before we start with more well-defined file formats, pandas provides a general purpose file reader <code class="docutils literal notranslate"><span class="pre">pd.read_table()</span></code>. This function imports text files where lines represent rows and the data in each row is separated by characters or spaces. The user can designate what character(s) separate the data by using the <code class="docutils literal notranslate"><span class="pre">delimiter</span></code> or <code class="docutils literal notranslate"><span class="pre">sep</span></code> arguments (they do the same thing). To set a space as a delimiter,  use <code class="docutils literal notranslate"><span class="pre">sep=\s+</span></code>. The function also includes a series of other arguments listed below in Table 3.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -1678,7 +1687,7 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/11463ee7b188947e6381d92d4e2766b8954bbf4b4a31f8a42eebeba5fd4b2051.svg" src="../../_images/11463ee7b188947e6381d92d4e2766b8954bbf4b4a31f8a42eebeba5fd4b2051.svg" />
+<img alt="../../_images/d4a17c2fd9a71dfb30a8bd4fa6dff4c50a7d4bae054334d6e86192abcd861efb.svg" src="../../_images/d4a17c2fd9a71dfb30a8bd4fa6dff4c50a7d4bae054334d6e86192abcd861efb.svg" />
 </div>
 </div>
 </section>
@@ -2140,7 +2149,7 @@ dtype: object
 </div></div></div>
 </div>
 <p>In the second example above, the hydrogen is back despite being previously dropped. This is because the <code class="docutils literal notranslate"><span class="pre">drop()</span></code> method does not by default modify the origional DataFrame. To make the changes perminent, either assigned the new DataFrame to a new variable or add the <code class="docutils literal notranslate"><span class="pre">inplace=True</span></code> keyword argument to the above <code class="docutils literal notranslate"><span class="pre">drop()</span></code> function.</p>
-<p id="index-9">There is a similar function <code class="docutils literal notranslate"><span class="pre">pd.dropna()</span></code> that drops columns or rows from a DataFrame that contain <code class="docutils literal notranslate"><span class="pre">nan</span></code> values. This is commonly used to remove incomplete data from a data set. The <code class="docutils literal notranslate"><span class="pre">pd.dropna()</span></code> function behaves very similarily to the <code class="docutils literal notranslate"><span class="pre">pd.drop()</span></code> function including the <code class="docutils literal notranslate"><span class="pre">inplace=</span></code> and <code class="docutils literal notranslate"><span class="pre">axis=</span></code> arguments.</p>
+<p id="index-9">There is a similar function <code class="docutils literal notranslate"><span class="pre">pd.dropna()</span></code> that drops columns or rows from a DataFrame that contain <code class="docutils literal notranslate"><span class="pre">nan</span></code> values. This is commonly used to remove incomplete data from a dataset. The <code class="docutils literal notranslate"><span class="pre">pd.dropna()</span></code> function behaves very similarily to the <code class="docutils literal notranslate"><span class="pre">pd.drop()</span></code> function including the <code class="docutils literal notranslate"><span class="pre">inplace=</span></code> and <code class="docutils literal notranslate"><span class="pre">axis=</span></code> arguments.</p>
 </section>
 <section id="merge">
 <span id="id17"></span><span id="index-10"></span><h3>5.4.4 Merge<a class="headerlink" href="#merge" title="Link to this heading">#</a></h3>
@@ -2679,7 +2688,7 @@ dtype: object
 </table>
 </div></div></div>
 </div>
-<p>For comparison, if the two DataFrames are merged instead of concatenating them, pandas will align the data based on the <code class="docutils literal notranslate"><span class="pre">metal</span></code> as demonstrated below. Because <code class="docutils literal notranslate"><span class="pre">density</span></code> appears twice as a column header, pandas deals with this by adding a suffix to differentiate between the two data sets.</p>
+<p>For comparison, if the two DataFrames are merged instead of concatenating them, pandas will align the data based on the <code class="docutils literal notranslate"><span class="pre">metal</span></code> as demonstrated below. Because <code class="docutils literal notranslate"><span class="pre">density</span></code> appears twice as a column header, pandas deals with this by adding a suffix to differentiate between the two datasets.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">group1</span><span class="p">,</span> <span class="n">group2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;metal&#39;</span><span class="p">)</span>
