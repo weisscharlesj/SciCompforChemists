@@ -36,12 +36,13 @@ Below is a listing with brief descriptions of the chapters.
 |Chapter 8| Symbolic math and other more advanced mathematics in Python |
 |Chapter 9| Simulating physical and chemical processes in Python |
 |Chapter 10| Seaborn plotting library |
-|Chapter 11| NMR processing and simulations with nmrglue and nmrsim |
-|Chapter 12| Machine learning using the scikit-learn library |
-|Chapter 13| Writing Python scripts using Spyder and running them from the command line |
+|Chapter 11| Interactive plotting with Altair
+|Chapter 12| NMR processing and simulations with nmrglue and nmrsim |
+|Chapter 13| Machine learning using the scikit-learn library |
 |Chapter 14| Using functions from the `scipy.optimize` module to perform minimizations, curve fitting, and root finding |
 |Chapter 15| Cheminformatics with RDKit |
 |Chapter 16| Bioinformatics with Biopython and nglview |
+|Chapter 17| Writing Python scripts using Spyder and running them from the command line |
 |Appendix 0| IPython widgets for interactive notebooks|
 |Appendix 1| Remote requests for accessing online databases|
 |Appendix 2| Visualizing atomic orbitals |
@@ -86,6 +87,7 @@ The code in this version of the book has been most recently tested with the foll
 - requests - 2.32.4
 - ipywidgets - 8.1.7
 - uncertainties - 3.2.3
+- Altair - 5.5.0
 
 
 ## Acknowledgements

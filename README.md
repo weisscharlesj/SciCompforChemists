@@ -27,12 +27,13 @@ Answer keys to exercises are available to **instructors** upon request by [email
 * Chapter 8: Mathematics
 * Chapter 9: Simulations
 * Chapter 10: Plotting with Seaborn
-* Chapter 11: Nuclear Magnetic Resonance with NMRglue
-* Chapter 12: Machine Learning using Scikit-Learn
-* Chapter 13: Command Line & Spyder
+* Chapter 11: Interactive plotting with Altair
+* Chapter 12: Nuclear Magnetic Resonance with NMRglue
+* Chapter 13: Machine Learning using Scikit-Learn
 * Chapter 14: Optimization and Root Finding
 * Chapter 15: Cheminformatics with RDKit
 * Chapter 16: Bioinformations with Biopython and Nglview
+* Chapter 17: Command Line & Spyder
 * Appendix 0: IPython Widgets
 * Appendix 1: Remote Requests
 * Appendix 2: Visualizing Atomic Orbitals
