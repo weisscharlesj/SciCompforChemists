@@ -4,13 +4,13 @@
 
 #### An Introduction to Programming in Python with Chemical Applications
 
-*Scientific computing* utilizes computers to aid in scientific tasks such as data processing and digital simulations among others. The well-developed field of computational chemistry is part of scientific computing and focuses on utilzing computings to simulate chemical phenomena and calculate properties. However, there is less focus in the field of chemistry on the data processing side of computing, so this book strives to fill this void by introducing the reader to tools and methods for processing, visualizing, and analyzing chemical data. The tools employed in this book are the powerful and popular combination of Jupyter notebooks and the Python programming language. No background beyond first-year college chemistry and occasionally some very basic spectroscopy (for advanced chapters) is assumed for most of this book. This book starts with a brief primer on Jupyter notebooks in chapter 0 and computer programming with Python in chapters 1 and 2. If you already have background in these tools, feel free to skip ahead. The rest of the book dives into applications of Python to solving chemical problems. Python and Jupyter were chosen for a variety of reasons including that they are:
+*Scientific computing* utilizes computers to aid in scientific tasks such as data processing and digital simulations among others. The well-developed field of computational chemistry is part of scientific computing and focuses on utilizing computing to simulate chemical phenomena and calculate properties. However, there is less focus in the field of chemistry on the data processing side of computing, so this book strives to fill this void by introducing the reader to tools and methods for processing, visualizing, and analyzing chemical data. The tools employed in this book are the powerful and popular combination of Jupyter notebooks and the Python programming language. No background beyond first-year college chemistry and occasionally some very basic spectroscopy (for advanced chapters) is assumed for most of this book. This book starts with a brief primer on Jupyter notebooks in chapter 0 and computer programming with Python in chapters 1 and 2. If you already have background in these tools, feel free to skip ahead. The rest of the book dives into applications of Python to solving chemical problems. Python and Jupyter were chosen for a variety of reasons including that they are:
 
 - Relatively easy to use and learn
 - Powerful and well-suited for solving chemical problems
 - Free, open-source software
 - Cross platform (e.g., runs on Windows, macOS, and Linux)
-- Supplimented with numerous, specialized libraries for handling specific types of data or problems (e.g., machine learning)
+- Supplemented with numerous, specialized libraries for handling specific types of data or problems (e.g., machine learning)
 - Supported by a helpful and welcoming community
 
 Learning to use a number of popular Python scientific libraries to solve chemical problems is one of the themes of this book. A Python library can be thought of as a tool pack with premade functions for performing common tasks in scientific data processing, analysis, and visualization. For example, the matplotlib library provides a variety of functions for creating a wide range of plots while the scikit-learn library contains functions and resources for machine learning.
@@ -39,7 +39,7 @@ Below is a listing with brief descriptions of the chapters.
 |Chapter 11| Interactive plotting with Altair
 |Chapter 12| NMR processing and simulations with nmrglue and nmrsim |
 |Chapter 13| Machine learning using the scikit-learn library |
-|Chapter 14| Using functions from the `scipy.optimize` module to perform minimizations, curve fitting, and root finding |
+|Chapter 14| Using functions from the `scipy.optimize` module to perform minimization, curve fitting, and root finding |
 |Chapter 15| Cheminformatics with RDKit |
 |Chapter 16| Bioinformatics with Biopython and nglview |
 |Chapter 17| Writing Python scripts using Spyder and running them from the command line |
@@ -55,11 +55,11 @@ One of the goals of this book is to provide a streamlined introduction to Python
 
 ## Chapter and Exercise Data
 
-Any data file(s) refered to in the chapters or end-of-chapter exercises can be found in the [data](https://github.com/weisscharlesj/SciCompforChemists/tree/master/notebooks) folder in the same directory as the chapter's Jupyter notebook. Alternatively, you can download a zip file of the data for this chapter from [here](https://github.com/weisscharlesj/data_SciCompforChem) by selecting the appropriate chapter file and then clicking the **Download** button. The latter option is recommended for those who do not use Git or GitHub.
+Any data file(s) referred to in the chapters or end-of-chapter exercises can be found in the [data](https://github.com/weisscharlesj/SciCompforChemists/tree/master/notebooks) folder in the same directory as the chapter's Jupyter notebook. Alternatively, you can download a zip file of the data for this chapter from [here](https://github.com/weisscharlesj/data_SciCompforChem) by selecting the appropriate chapter file and then clicking the **Download** button. The latter option is recommended for those who do not use Git or GitHub.
 
 ## Exercise Answers
 
-Copies of exercise answer keys are available for **instructors** upon request. To optain copies, please [email](https://www.augie.edu/directory) the authuor using your **school email address**.
+Copies of exercise answer keys are available for **instructors** upon request. To obtain copies, please [email](https://www.augie.edu/directory) the author using your **school email address**.
 
 ## Code and Software Versions
 
@@ -90,7 +90,7 @@ The code in this version of the book has been most recently tested with the foll
 - Altair - 5.5.0
 
 
-## Acknowledgements
+## Acknowledgments
 
 This book took a substantial time to write along with the time and effort in developing the curriculum. Thank you to those who supported and encouraged me along the way. Finally, thank you to the following people for proof reading or reporting errors. Reports of additional errors are welcome on GitHub or in an [email](https://www.augie.edu/directory). Please do not email files to the author but rather include your error report in the body of the email.
 

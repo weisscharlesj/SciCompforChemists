@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Chapter 14: Optimization and Root Finding &#8212; Scientific Computing for Chemists with Python</title>
+    <title>Chapter 14: Optimization &amp; Root Finding &#8212; Scientific Computing for Chemists with Python</title>
   
   
   
@@ -187,9 +187,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../chapter_11/chap_11_notebook.html">Chapter 11: Plotting with Altair</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_12/chap_12_notebook.html">Chapter 12: Nuclear Magnetic Resonance with nmrglue and nmrsim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_13/chap_13_notebook.html">Chapter 13: Machine Learning using Scikit-Learn</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 14: Optimization and Root Finding</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 14: Optimization &amp; Root Finding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_15/chap_15_notebook.html">Chapter 15: Cheminformatics with RDKit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter_16/chap_16_notebook.html">Chapter 16: Bioinformatics with Biopython and Nglview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_16/chap_16_notebook.html">Chapter 16: Bioinformatics with Biopython &amp; Nglview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_17/chap_17_notebook.html">Chapter 17: Command Line &amp; Spyder</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Back Matter</span></p>
@@ -377,7 +377,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Chapter 14: Optimization and Root Finding</h1>
+    <h1>Chapter 14: Optimization & Root Finding</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -413,8 +413,8 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="chapter-14-optimization-and-root-finding">
-<span id="id1"></span><span id="index-1"></span><span id="index-0"></span><h1>Chapter 14: Optimization and Root Finding<a class="headerlink" href="#chapter-14-optimization-and-root-finding" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-14-optimization-root-finding">
+<span id="id1"></span><span id="index-1"></span><span id="index-0"></span><h1>Chapter 14: Optimization &amp; Root Finding<a class="headerlink" href="#chapter-14-optimization-root-finding" title="Link to this heading">#</a></h1>
 <p><em>Optimization</em> is the process of improving something to the extent that it cannot be reasonably improved any further. This often involves maximizing desirable attributes and/or minimizing those that are undesirable, so finding the maximum and minimum are common optimization goals. While you may or may not have previously worked <em>directly</em> with optimization, you almost certainly have used it as part of a larger application or task such as energy minimization of a molecule, regression analysis, or a number of machine learning algorithms.</p>
 <p>In optimization tasks, we often find ourselves searching for the maximum or minimum of a given mathematical function. If we, for example, seek to minimize a function <span class="math notranslate nohighlight">\(f(a,b)\)</span>, our goal is to find values for input variables <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> to generate the smallest possible output from the function <span class="math notranslate nohighlight">\(f\)</span>. One approach is to manually try different input values until you get the smallest possible output, but this kind of tedious and time-consuming task is best left to computers. The <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module contains a number of tools for performing optimizations of mathematical functions. The goal of this chapter is to introduce the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module and apply it to chemical applications. This chapter does not go into the deeper theory behind optimization, such as specific algorithms. For those interested in some of the deeper theory of optimization, see the <a class="reference internal" href="#fr14"><span class="std std-ref">Further Reading</span></a> section.</p>
 <p>Before we begin, we first need to address how we measure what is “best”? For this, we use a <em>cost function</em>, also known as an <em>objective function</em> or <em>criterion</em>, which is a mathematical function that takes in features and returns a value that is a measure of “goodness.” If we were a company that is trying to maximize our profits, the objective function would likely be some mathematical equation that calculates our net profit. Optimization of a molecule’s conformation involves minimizing the energy, so the objective function here is the function that calculates the energy of the molecule based on the attributes like bond angles and lengths. In the examples below, each of the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> functions takes as its first argument an objective function in the form of a Python function.</p>
@@ -540,7 +540,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7b90dcfcecab3595c2dab6213d0af91f7af1ce7d769859ee56e00987bab27597.svg" src="../../_images/7b90dcfcecab3595c2dab6213d0af91f7af1ce7d769859ee56e00987bab27597.svg" />
+<img alt="../../_images/0fb4f896338c90731fff5163434aabe3289ec66e7af1eedcdf19d589c2287d84.svg" src="../../_images/0fb4f896338c90731fff5163434aabe3289ec66e7af1eedcdf19d589c2287d84.svg" />
 </div>
 </div>
 <aside class="margin sidebar">
@@ -578,7 +578,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8f2756f3817797594dc8d8d15f256aed32f5a7f31577f1313ff2c6cb9aff2021.svg" src="../../_images/8f2756f3817797594dc8d8d15f256aed32f5a7f31577f1313ff2c6cb9aff2021.svg" />
+<img alt="../../_images/8338c1d2bac8315a61eec4afca9735917a9ebb00865cbcb9e416be3c4bbfbb25.svg" src="../../_images/8338c1d2bac8315a61eec4afca9735917a9ebb00865cbcb9e416be3c4bbfbb25.svg" />
 </div>
 </div>
 <p>There are multiple ways to make the function negative like including a negative sign in the Python function definition. Our Python function has already been created, so below we will make the radial probability density negative using a <code class="docutils literal notranslate"><span class="pre">lambda</span></code> function (see <a class="reference internal" href="../chapter_02/chap_02_notebook.html#id6"><span class="std std-ref">section 2.1.4</span></a> for review on lambda functions).</p>
@@ -639,7 +639,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/35c8ddd2800f84b7d8989a7e8f018e0739d19ca8e71ce84830a81749e16547d9.svg" src="../../_images/35c8ddd2800f84b7d8989a7e8f018e0739d19ca8e71ce84830a81749e16547d9.svg" />
+<img alt="../../_images/9e8dffe2274466a129e3c8845e7efe352a96c5f87a1a0a59b1e82d72b4e10e45.svg" src="../../_images/9e8dffe2274466a129e3c8845e7efe352a96c5f87a1a0a59b1e82d72b4e10e45.svg" />
 </div>
 </div>
 </section>
@@ -761,7 +761,7 @@
 <p>An common application of optimization is fitting an equation to a series of data points such as a linear regression. While linear regression also  happens to have an analytical solution demonstrated in <a class="reference internal" href="../chapter_08/chap_08_notebook.html#id15"><span class="std std-ref">section 8.3.3</span></a>, we will solve it here using optimization. In the figure below, a regression line (solid orange) runs through the data points. The <em>residuals</em> are the difference between the regression line and the data points (green vertical dotted lines). The goal of linear regression is to generate a regression line that minimizes these residuals.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/a378df21bc8e81cd035d1e4613084abbdd94bf01ca2c2f2f405d17a4590ebaec.svg" src="../../_images/a378df21bc8e81cd035d1e4613084abbdd94bf01ca2c2f2f405d17a4590ebaec.svg" />
+<img alt="../../_images/da6486953240f86a5f79b8bd9e02c27bd6d60d33db10a4f0b52dae7ec52c0fea.svg" src="../../_images/da6486953240f86a5f79b8bd9e02c27bd6d60d33db10a4f0b52dae7ec52c0fea.svg" />
 </div>
 </div>
 <p><strong>Figure 1</strong> An example of a line of best fit (solid orange) running through data points (blue) with residuals (green dashed) shown as the difference on the <span class="math notranslate nohighlight">\(y\)</span>-axis between the data point and linear regression.</p>
@@ -890,7 +890,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1254ed5217dd52836856ba4f4126ea3edb83a8b31e5a36a34bb16da3f1a99c9e.svg" src="../../_images/1254ed5217dd52836856ba4f4126ea3edb83a8b31e5a36a34bb16da3f1a99c9e.svg" />
+<img alt="../../_images/e02d160c765928168bfd329dd4b54c57a181d4b961d2ed27caad1aaeab7536ec.svg" src="../../_images/e02d160c765928168bfd329dd4b54c57a181d4b961d2ed27caad1aaeab7536ec.svg" />
 </div>
 </div>
 <p>Now that we have our data, we can fit it to the theoretical equation to extract the rate constants.</p>
@@ -923,7 +923,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6670b5e9b24904dca3eb7f44d55691054fccf72d99fc1ae57758200871d4163d.svg" src="../../_images/6670b5e9b24904dca3eb7f44d55691054fccf72d99fc1ae57758200871d4163d.svg" />
+<img alt="../../_images/bd68c9811df9258ece258417d982a68e75a1e4dc00b38e37f33501eac8a0d6ca.svg" src="../../_images/bd68c9811df9258ece258417d982a68e75a1e4dc00b38e37f33501eac8a0d6ca.svg" />
 </div>
 </div>
 <div class="admonition note">
@@ -1009,7 +1009,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/17b0f216da73c52538c79b4ecdac207bcfe030cb9b49bd27d78e51a353597463.svg" src="../../_images/17b0f216da73c52538c79b4ecdac207bcfe030cb9b49bd27d78e51a353597463.svg" />
+<img alt="../../_images/cc79a6f6c98b7efadd213d90dc7d660ff7e60386e886145159a33442e076a201.svg" src="../../_images/cc79a6f6c98b7efadd213d90dc7d660ff7e60386e886145159a33442e076a201.svg" />
 </div>
 </div>
 <p>Next, we will use the absorbances for each pure dye sample to find the molar absorptivities using Beer’s law. The path length, <span class="math notranslate nohighlight">\(b\)</span>, in this instrument is 1 cm, and the molarities are known from the experimental setup. That is, below  we are solving for molar absorptivity (<span class="math notranslate nohighlight">\(\epsilon\)</span>) by the following.</p>
@@ -1104,7 +1104,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/99128483cfe0b26f7a967aa8b0d0cff02be1faf7d29d85ff5a0a0425f1406b28.svg" src="../../_images/99128483cfe0b26f7a967aa8b0d0cff02be1faf7d29d85ff5a0a0425f1406b28.svg" />
+<img alt="../../_images/87e8f2c3faeff4321465c2f7287d5adf7b55664a057622da5b4536175fddf62a.svg" src="../../_images/87e8f2c3faeff4321465c2f7287d5adf7b55664a057622da5b4536175fddf62a.svg" />
 </div>
 </div>
 <p>The function has two nodes, so our <code class="docutils literal notranslate"><span class="pre">bracket=</span></code> values will determine which we will end up
@@ -1161,7 +1161,7 @@ solving for.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3804c5458cf5914668506959497740a36c71ac99e8f950f845d9961fa9ce902f.svg" src="../../_images/3804c5458cf5914668506959497740a36c71ac99e8f950f845d9961fa9ce902f.svg" />
+<img alt="../../_images/86f690fea5d3d50c02ea306e19d85e1b2ceafbeb5a747ead77c47ffebbd4fb3f.svg" src="../../_images/86f690fea5d3d50c02ea306e19d85e1b2ceafbeb5a747ead77c47ffebbd4fb3f.svg" />
 </div>
 </div>
 <p>The two dots above show the location of the two roots for this function which clearly are located on the nodes of the wave function.</p>
@@ -1175,7 +1175,7 @@ solving for.</p>
 </section>
 <section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
-<p>Solve the following problems using Python in a Jupyter notebook and functions from the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module. Any data file(s) refered to in the problems can be found in the <a class="reference external" href="https://github.com/weisscharlesj/SciCompforChemists/tree/master/notebooks">data</a> folder in the same directory as this chapter’s Jupyter notebook. Alternatively, you can download a zip file of the data for this chapter from <a class="reference external" href="https://github.com/weisscharlesj/data_SciCompforChem">here</a> by selecting the appropriate chapter file and then clicking the <strong>Download</strong> button.</p>
+<p>Solve the following problems using Python in a Jupyter notebook and functions from the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module. Any data file(s) referred to in the problems can be found in the <a class="reference external" href="https://github.com/weisscharlesj/SciCompforChemists/tree/master/notebooks">data</a> folder in the same directory as this chapter’s Jupyter notebook. Alternatively, you can download a zip file of the data for this chapter from <a class="reference external" href="https://github.com/weisscharlesj/data_SciCompforChem">here</a> by selecting the appropriate chapter file and then clicking the <strong>Download</strong> button.</p>
 <span id="index-15"></span><ol class="arabic" id="index-16">
 <li><p>A warm or hot object emits radiation in a range of wavelengths described by Plank’s law shown below where B is radiance, <span class="math notranslate nohighlight">\(\lambda\)</span> is frequency of radiation, <span class="math notranslate nohighlight">\(c\)</span> is the speed of light, <span class="math notranslate nohighlight">\(h\)</span> is Plank’s constant, <span class="math notranslate nohighlight">\(k\)</span> is Boltzmann’s constant, and <span class="math notranslate nohighlight">\(T\)</span> is temperature of the object in K.</p>
 <div class="math notranslate nohighlight">
