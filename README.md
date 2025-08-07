@@ -48,7 +48,7 @@ First, I'd love to hear how people are using this book. Second, this book may re
 
 2. Download the [combined PDF](https://github.com/weisscharlesj/data_SciCompforChem/blob/main/SciCompChemPython.pdf) of the book. This is NOT the preferred method because this PDF is not interactive and not kept as updated as other forms.
 
-3. Fork this repository to your GitHub page and have your students use your copy - create a GitHub account, fork this repository, build the book using [Jupyter Book](https://jupyterbook.org/), and have you students use your copy on your GitHub page. You can update your fork of this repository at any time to received any updates, and unlike a PDF copy, this approach makes it easier for students to copy-and-paste code from the chapters. The approach does require the user be confortable using git and GitHub.
+3. Fork this repository to your GitHub page and have your students use your copy - create a GitHub account, fork this repository, build the book using [Jupyter Book](https://jupyterbook.org/), and have you students use your copy on your GitHub page. You can update your fork of this repository at any time to received any updates, and unlike a PDF copy, this approach makes it easier for students to copy-and-paste code from the chapters. The approach does require the user be comfortable using git and GitHub.
 
 ## Citing this Book and Curriculum
 
