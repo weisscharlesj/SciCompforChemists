@@ -68,12 +68,13 @@ While great efforts have gone into ensuring that all the code in this book works
 The code in this version of the book has been most recently tested with the following software versions unless otherwise noted but will likely work with other versions.
 
 - Python – 3.12.7
-- Jupyterlab - 4.4.4
+- JupyterLab - 4.4.4
 - NumPy – 2.2.6
 - SciPy – 1.16.0
 - Pandas – 2.3.0
 - Matplotlib – 3.10.3
 - Seaborn – 0.13.2
+- Altair - 5.5.0
 - Scikit-image – 0.25.2
 - Scikit-learn – 1.7.0
 - Sympy - 1.14.0
@@ -83,11 +84,10 @@ The code in this version of the book has been most recently tested with the foll
 - Biopython - 1.85
 - Nglview - 3.1.2
 - RDKit - 2025.3.3
-- pybaselines - 1.2.0
-- requests - 2.32.4
-- ipywidgets - 8.1.7
-- uncertainties - 3.2.3
-- Altair - 5.5.0
+- Pybaselines - 1.2.0
+- Requests - 2.32.4
+- IPywidgets - 8.1.7
+- Uncertainties - 3.2.3
 
 
 ## Acknowledgments
