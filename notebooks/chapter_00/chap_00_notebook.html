@@ -472,12 +472,19 @@
 <p><img alt="" src="../../_images/jupyterlab_launcher.png" />
 <strong>Figure 2</strong> Launching the terminal using the JupyterLab launcher.</p>
 <p>From here, you can install various libraries using either of the below commands where <code class="docutils literal notranslate"><span class="pre">&lt;library&gt;</span></code> is the name of the library to install.</p>
-<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&lt;library&gt;</span></code></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install &lt;library&gt;
+</pre></div>
+</div>
 <p>or</p>
-<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">&lt;library&gt;</span></code></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda install &lt;library&gt;
+</pre></div>
+</div>
 <p>Most libraries can be installed using either of the above commands, but a few can only be installed with one. You should do a quick internet search to see which is the preferred method for a particular library before installing it. The <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">list</span></code> or <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span></code> command will display a list of all libraries currently installed with version numbers. To perform an update, the following two commands may be used for many libraries. Again, check to see which is preferred for a particular library.</p>
-<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&lt;library&gt;</span> <span class="pre">--upgrade</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">&lt;library&gt;</span></code></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install &lt;library&gt; --upgrade
+
+conda update &lt;library&gt;
+</pre></div>
+</div>
 </section>
 <section id="miniconda-preferred">
 <h4>Miniconda (preferred)<a class="headerlink" href="#miniconda-preferred" title="Link to this heading">#</a></h4>
@@ -499,31 +506,60 @@
 </ul>
 </li>
 </ol>
-<p>For example, to install numpy using pip, you would run the following command in your Terminal or in the JupyterLab Terminal.</p>
-<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">numpy</span></code></p>
+<p>For example, to install numpy using pip, you would run the following command in your computer’s Terminal or in the JupyterLab Terminal (Figure 2).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install numpy
+</pre></div>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>If you want a shortcut, a text file containing a list of all the packages, one per line, can be created called <code class="docutils literal notranslate"><span class="pre">packages.txt</span></code> and run using the <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">packages.txt</span></code> command. If the command is not finding the file, try typing the first part through <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> </code> and then click and drag the <code class="docutils literal notranslate"><span class="pre">packages.txt</span></code> file into the Terminal window.</p>
+<p>If you want a shortcut, a text file containing a list of all the packages, one per line, can be created called <code class="docutils literal notranslate"><span class="pre">packages.txt</span></code> and run using the command below. If the command is not finding the file, try typing the first part through <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> </code> and then click and drag the <code class="docutils literal notranslate"><span class="pre">packages.txt</span></code> file into the Terminal window.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install -r packages.txt
+</pre></div>
+</div>
 </div>
 <p>To launch JupyterLab and start coding, type <code class="docutils literal notranslate"><span class="pre">jupyter-lab</span></code> in the Terminal window. It should launch in your browser (e.g., Chrome or Firefox). JupyterLab is <strong>not a website</strong>; it just uses your web browser as a file viewer.</p>
 </section>
 <section id="conda-environments-optional">
 <h4>Conda Environments (optional)<a class="headerlink" href="#conda-environments-optional" title="Link to this heading">#</a></h4>
 <p>The topic of environments is technically an optional one. If you are just getting started, you can skip over this for now, but as you establish yourself more in coding and work on more projects, it is a good idea to learn to use environments. Using environments is considered best practices and allows you to have multiple different versions of Python and/or Python packages installed on a single computer at the same time. This is helpful when you are working on multiple very different projects. There are two common types of environment you will often hear about - conda and venv. We address using conda environments here. Again, if you are just getting started, this may not be necessary, but here are instructions for doing this when the time comes.</p>
-<ol class="arabic simple">
-<li><p>Open the Terminal on your computer or in JupyterLab and type <strong>one</strong> of the following commands to create a new conda environment with the name &lt;env_name&gt;. The &lt;env_name&gt; can be anything you want. The <code class="docutils literal notranslate"><span class="pre">python</span></code> tells the command to also install Python in that environment. Optionally, you can also list Python packages to install in the environment at this stage by listing them like is done in the second command example.
-<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">--name</span> <span class="pre">&lt;env_name&gt;</span> <span class="pre">python</span></code>
-<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">--name</span> <span class="pre">&lt;env_name&gt;</span> <span class="pre">python</span> <span class="pre">numpy</span> <span class="pre">scipy</span> <span class="pre">matplotlib</span></code></p></li>
-<li><p>Now the new conda environment has been created. To see a list of all your environments, type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">list</span></code>. You should always have one called <code class="docutils literal notranslate"><span class="pre">base</span></code> along with any others you created.</p></li>
-<li><p>Next, we need to switch over to the new environment by typing <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">&lt;env_name&gt;</span></code>. If you again type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">list</span></code>, you will see the <code class="docutils literal notranslate"><span class="pre">*</span></code> has shifted from <code class="docutils literal notranslate"><span class="pre">base</span></code> to your new environment indicating that the new environment is currently active.</p></li>
+<ol class="arabic">
+<li><p>Open the Terminal on your computer or in JupyterLab and type <strong>one</strong> of the following commands to create a new conda environment with the name &lt;env_name&gt;. The &lt;env_name&gt; can be anything you want. The <code class="docutils literal notranslate"><span class="pre">python</span></code> tells the command to also install Python in that environment. Optionally, you can also list Python packages to install in the environment at this stage by listing them like is done in the second command example.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> conda create --name &lt;env_name&gt; python
+
+ conda create --name &lt;env_name&gt; python numpy scipy matplotlib
+</pre></div>
+</div>
+</li>
+<li><p>Now the new conda environment has been created. To see a list of all your environments, type the following. You should always have one called <code class="docutils literal notranslate"><span class="pre">base</span></code> along with any others you created.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> conda env list
+</pre></div>
+</div>
+</li>
+<li><p>Next, we need to switch over to the new environment by typing the activate commend below. If you again type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">list</span></code>, you will see the <code class="docutils literal notranslate"><span class="pre">*</span></code> has shifted from <code class="docutils literal notranslate"><span class="pre">base</span></code> to your new environment indicating that your new environment is currently active.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> conda activate &lt;env_name&gt;
+</pre></div>
+</div>
+</li>
 <li><p>If you want to install additional libraries in this environment, you can do this now using <code class="docutils literal notranslate"><span class="pre">conda</span></code> or <code class="docutils literal notranslate"><span class="pre">pip</span></code>. Remember to install JupyterLab if you intend to use it.</p></li>
-<li><p>If you want to use this environment in a Jupyter notebook, you will need register it with JupyterLab. First install ipykernel (e.g., <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">ipykernel</span></code>) and then type <code class="docutils literal notranslate"><span class="pre">ipython</span> <span class="pre">kernel</span> <span class="pre">install</span> <span class="pre">--user</span> <span class="pre">--name=&lt;env_name&gt;</span></code> to register your environment with JupyterLab. Now when you start a new Jupyter notebook, your new environment will be an option. There will also be a pull-down menu on the top right of your notebook where you can select which environment you want to use.</p></li>
+<li><p>If you want to use this environment in a Jupyter notebook, you will need register it with JupyterLab. First install ipykernel (e.g., <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">ipykernel</span></code>) and then type the command below to register your environment with JupyterLab. Now when you start a new Jupyter notebook, your new environment will be an option. There will also be a pull-down menu on the top right of your notebook where you can select which environment you want to use.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> ipython kernel install --user --name=&lt;env_name&gt;
+</pre></div>
+</div>
+</li>
 </ol>
 <p>To remove an old environment you don’t need anymore, do the following.</p>
-<ol class="arabic simple">
+<ol class="arabic">
 <li><p>Deactivate the old environment by switching to some other environment like <code class="docutils literal notranslate"><span class="pre">base</span></code>. For example, <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">base</span></code>.</p></li>
-<li><p>If you registered the environment with Jupyter, unregister it with <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">kernelspec</span> <span class="pre">uninstall</span> <span class="pre">&lt;env_name&gt;</span></code>.</p></li>
-<li><p>Remove the environment using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">remove</span> <span class="pre">--name</span> <span class="pre">&lt;env_name&gt;</span></code>.</p></li>
+<li><p>If you registered the environment with Jupyter, unregister it with the following.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> jupyter kernelspec uninstall &lt;env_name&gt;
+</pre></div>
+</div>
+</li>
+<li><p>Remove the environment using the <code class="docutils literal notranslate"><span class="pre">remove</span></code> command.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> conda env remove --name &lt;env_name&gt;
+</pre></div>
+</div>
+</li>
 </ol>
 </section>
 </section>
@@ -551,7 +587,9 @@
 </div>
 </aside>
 <p>Most of the libraries (see <a class="reference internal" href="#id11"><span class="std std-ref">section 0.6</span></a>) used in this book are already available in Google Colab by default including NumPy, SciPy, pandas, seaborn, scikit-image, and scikit-learn. If you need any additional libraries (or “packages”), you can usually install them by adding a code cell at the top of your Jupyter notebooks that looks like the following inserting the library name for <code class="docutils literal notranslate"><span class="pre">&lt;library&gt;</span></code>. If you need any additional libraries installed for this book, this will be addressed in the appropriate chapter.</p>
-<p><code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">&lt;library&gt;</span></code></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>!pip install &lt;library&gt;
+</pre></div>
+</div>
 </section>
 </section>
 <section id="using-jupyter-notebooks">
