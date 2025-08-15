@@ -109,3 +109,4 @@ This book took a substantial time to write along with the time and effort in dev
 - Ryan Schulte for reporting typos
 - Robert Belford for reports typos
 - Filippo Muzzini for reporting a missing data file in chapter 6
+- jaredchis (GitHub handle) for reporting a code typo in chapter 3
