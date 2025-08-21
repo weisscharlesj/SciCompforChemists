@@ -949,7 +949,7 @@
 <section id="mathematical-operations-with-arrays">
 <span id="id13"></span><h3>8.3.1 Mathematical Operations with Arrays<a class="headerlink" href="#mathematical-operations-with-arrays" title="Link to this heading">#</a></h3>
 <p>Being that we are using NumPy arrays, the standard mathematical operations use the <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">‒</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, and <code class="docutils literal notranslate"><span class="pre">**</span></code> operators as demonstrated in <a class="reference internal" href="../chapter_04/chap_04_notebook.html#id17"><span class="std std-ref">chapter 4</span></a>. There are a few other operations and methods, however, that are important for matrices such as calculating the inverse, determinant, transpose, and dot product. For these operations, we have the following methods provided by NumPy’s <code class="docutils literal notranslate"><span class="pre">linalg</span></code> module, Table 4, which are demonstrated in the following sections.</p>
-<p id="index-9"><strong>Table 4</strong> Common <code class="docutils literal notranslate"><span class="pre">np.linalg</span></code> Methods</p>
+<p id="index-9"><strong>Table 4</strong> Common NumPy Methods for Linear Algebra</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Method</p></th>
@@ -957,7 +957,7 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.linalg.dot()</span></code></p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.dot()</span></code></p></td>
 <td class="text-left"><p>Calculates the dot product</p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.linalg.inv()</span></code></p></td>
@@ -991,11 +991,11 @@
 \[ −10x + −11y + 11z = −21 \]</div>
 <p>These equations can be rewritten in matrix or array form as follows with the left matrix holding the coefficients.</p>
 <div class="math notranslate nohighlight">
-\[\begin{split} \left[ \begin{array}{ccc} 6 &amp; 10 &amp; -5 \\ 2 &amp; 7 &amp; 1 \\ -10 &amp; -11 &amp; 11 \end{array} \right]
+\[\begin{split} \begin{bmatrix} 6 &amp; 10 &amp; -5 \\ 2 &amp; 7 &amp; 1 \\ -10 &amp; -11 &amp; 11 \end{bmatrix}
 \cdot
-\left[ \begin{array}{c} x \\ y \\ z \end{array} \right]
+\begin{bmatrix} x \\ y \\ z \end{bmatrix}
 =
-\left[ \begin{array}{c} 21 \\ 13 \\ -21 \end{array} \right] \end{split}\]</div>
+\begin{bmatrix} 21 \\ 13 \\ -21 \end{bmatrix} \end{split}\]</div>
 <p>We will call the first array <code class="docutils literal notranslate"><span class="pre">M</span></code>, the second <code class="docutils literal notranslate"><span class="pre">X</span></code>, and the third <code class="docutils literal notranslate"><span class="pre">y</span></code>, so we get</p>
 <div class="math notranslate nohighlight">
 \[ M \cdot X = y \]</div>
@@ -1046,18 +1046,18 @@
 \[ A_{\lambda 3} = \epsilon_{x \lambda 3} C_x +  \epsilon_{y \lambda 3} C_y +  \epsilon_{z \lambda 3} C_z \]</div>
 <p>As long as we know the molar absorptivity of each analyte at each wavelength collected from pure samples, we have three unknowns and three equations, so we can calculate the concentration of each component. The above equations can be represented as matrices shown below.</p>
 <div class="math notranslate nohighlight">
-\[\begin{split} \left[ \begin{array}{ccc} \epsilon_{x \lambda 1} &amp; \epsilon_{y \lambda 1} &amp; \epsilon_{z \lambda 1} \\ \epsilon_{x \lambda 2} &amp; \epsilon_{y \lambda 2} &amp; \epsilon_{z \lambda 2} \\ \epsilon_{x \lambda 3} &amp; \epsilon_{y \lambda 3} &amp; \epsilon_{z \lambda 3} \end{array} \right]
+\[\begin{split} \begin{bmatrix} \epsilon_{x \lambda 1} &amp; \epsilon_{y \lambda 1} &amp; \epsilon_{z \lambda 1} \\ \epsilon_{x \lambda 2} &amp; \epsilon_{y \lambda 2} &amp; \epsilon_{z \lambda 2} \\ \epsilon_{x \lambda 3} &amp; \epsilon_{y \lambda 3} &amp; \epsilon_{z \lambda 3} \end{bmatrix}
 \cdot
-\left[ \begin{array}{c} C_x \\ C_y \\ C_z \end{array} \right]
+\begin{bmatrix} C_x \\ C_y \\ C_z \end{bmatrix}
 =
-\left[ \begin{array}{c} A_{\lambda 1} \\ A_{\lambda 2} \\ A_{\lambda 3} \end{array} \right] \end{split}\]</div>
+\begin{bmatrix} A_{\lambda 1} \\ A_{\lambda 2} \\ A_{\lambda 3} \end{bmatrix} \end{split}\]</div>
 <p>If the absorbances at the three wavelengths are 0.6469, 0.2823, and 0.2221, respectively, and we know the molar absorptivities, we get the following matrices.</p>
 <div class="math notranslate nohighlight">
-\[\begin{split} \left[ \begin{array}{ccc} 7.8 &amp; 1.1 &amp; 2.0 \\ 2.6 &amp; 3.2 &amp; 0.89 \\ 1.8 &amp; 1.0 &amp; 8.9 \end{array} \right]
+\[\begin{split} \begin{bmatrix} 7.8 &amp; 1.1 &amp; 2.0 \\ 2.6 &amp; 3.2 &amp; 0.89 \\ 1.8 &amp; 1.0 &amp; 8.9 \end{bmatrix}
 \cdot
-\left[ \begin{array}{c} C_x \\ C_y \\ C_z \end{array} \right]
+\begin{bmatrix} C_x \\ C_y \\ C_z \end{bmatrix}
 =
-\left[ \begin{array}{c} 0.6469 \\ 0.2823 \\ 0.2221 \end{array} \right] \end{split}\]</div>
+\begin{bmatrix} 0.6469 \\ 0.2823 \\ 0.2221 \end{bmatrix} \end{split}\]</div>
 <p>We simply solve for the concentration matrix as was done earlier. Again, this is solvable using NumPy as shown below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1099,17 +1099,17 @@
 \[ S_8(s) + 8 \, O_2(g) \rightarrow 8 \, SO_2(g) \quad \Delta H_{net} = ? \]</div>
 <p>knowing the enthalpy of the following two subreactions.</p>
 <div class="math notranslate nohighlight">
-\[ S_8(s) + 4 \, O_2(g) \rightarrow SO_2(g) \quad \Delta H_1 = -3160 kJ \]</div>
+\[ S_8(s) + 12 \, O_2(g) \rightarrow 8 \, SO_3(g) \quad \Delta H_1 = -3160 kJ \]</div>
 <div class="math notranslate nohighlight">
 \[ 2 \, SO_2(g) + O_2(g) \rightarrow 2 \, SO_3(g) \quad \Delta H_2 = -196 kJ \]</div>
 <p id="index-16">Using Hess’s law, we need to multiply the subreactions 1 and 2 by coefficients and add them together to generate the overall net reaction. Remember that reversing a reaction results in reversing the sign of reaction enthalpy, so it’s the same as multiplying by -1. We can represent this calculation using matrices show below where r<span class="math notranslate nohighlight">\(_1\)</span> and r<span class="math notranslate nohighlight">\(_2\)</span> are the coefficients for each subreaction. The values in each row of the first matrix are the number of SO<span class="math notranslate nohighlight">\(_2\)</span>, SO<span class="math notranslate nohighlight">\(_3\)</span>, O<span class="math notranslate nohighlight">\(_2\)</span>, and S<span class="math notranslate nohighlight">\(_8\)</span> molecules, respectively, in the two subreactions, and the numbers in the last matrix are the numbers of the same molecules in the net reaction. The gray molecular formulas in the equation below are not part of the equation but rather are simply labels for clarity. You may notice that the coefficients in the balance equations on the reactant side are negative while products are positive. This allows us keep track of the side they are on.</p>
 <div class="math notranslate nohighlight">
-\[\begin{split} \begin{array}{ccc} \color{gray} {SO_2 \rightarrow} \\ \color{gray} {SO_3 \rightarrow} \\ \color{gray}{O_2 \rightarrow} \\ \color{gray}{S_8 \rightarrow} \end{array}
-\left[ \begin{array}{ccc} 0 &amp; -2 \\ 8 &amp; 2 \\ -12 &amp; -1 \\ -1 &amp; 0 \end{array} \right]
+\[\begin{split}\begin{matrix} \color{gray} {SO_2 \rightarrow} \\ \color{gray} {SO_3 \rightarrow} \\ \color{gray}{O_2 \rightarrow} \\ \color{gray}{S_8 \rightarrow} \end{matrix}
+\begin{bmatrix} 0 &amp; -2 \\ 8 &amp; 2 \\ -12 &amp; -1 \\ -1 &amp; 0 \end{bmatrix}
 \cdot
-\left[ \begin{array}{c} r_1 \\ r_2 \end{array} \right]
+\begin{bmatrix} r_1 \\ r_2 \end{bmatrix}
 =
-\left[ \begin{array}{c} 8 \\ 0 \\ -8 \\ -1 \end{array} \right] \end{split}\]</div>
+\begin{bmatrix} 8 \\ 0 \\ -8 \\ -1 \end{bmatrix} \end{split}\]</div>
 <p>If the three matrices are called A, R, and Y, respectively, we can rewrite the above calculation as follows.</p>
 <div class="math notranslate nohighlight">
 \[ A \cdot R = Y \]</div>
@@ -1189,11 +1189,11 @@
 </aside>
 <p>Finding the line of best fit through data points can be accomplished by least-square minimization. What we are essentially looking for is an equation of the form <span class="math notranslate nohighlight">\(y = mx + b\)</span> that is as close as possible to the data points, and the mean square error determines what qualifies as “close.” If we rewrite this problem in matrix or array form, it will look like the following for a series of four point (<span class="math notranslate nohighlight">\(x_n\)</span>, <span class="math notranslate nohighlight">\(y_n\)</span>) on a two-dimensional plane. The first array contains a column of ones to multiply with b, so for the first row, we get <span class="math notranslate nohighlight">\(mx_0 + b = y_0\)</span>.</p>
 <div class="math notranslate nohighlight">
-\[\begin{split} \left[ \begin{array}{cc} x_0 &amp; 1 \\ x_1 &amp; 1 \\ x_2 &amp; 1 \\ x_3 &amp; 1 \end{array} \right]
+\[\begin{split} \begin{bmatrix} x_0 &amp; 1 \\ x_1 &amp; 1 \\ x_2 &amp; 1 \\ x_3 &amp; 1 \end{bmatrix}
 \cdot
-\left[ \begin{array}{c} m \\ b \end{array} \right]
+\begin{bmatrix} m \\ b \end{bmatrix}
 =
-\left[ \begin{array}{c} y_0 \\ y_1 \\ y_2 \\ y_3 \end{array} \right] \end{split}\]</div>
+\begin{bmatrix} y_0 \\ y_1 \\ y_2 \\ y_3 \end{bmatrix} \end{split}\]</div>
 <p>We will call the leftmost matrix <span class="math notranslate nohighlight">\(X\)</span>, the center matrix <span class="math notranslate nohighlight">\(\theta\)</span>, and the rightmost matrix <span class="math notranslate nohighlight">\(y\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[ X \cdot \theta = y \]</div>
@@ -1307,7 +1307,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1e28b74e0c44e211019fc72bf6e4855dc60e871316603e849848948d5a9d5b0c.svg" src="../../_images/1e28b74e0c44e211019fc72bf6e4855dc60e871316603e849848948d5a9d5b0c.svg" />
+<img alt="../../_images/7aa3285e8bb25fcd06621cef857138e97df21c995c789cccc3036cc74bf5b9b4.svg" src="../../_images/7aa3285e8bb25fcd06621cef857138e97df21c995c789cccc3036cc74bf5b9b4.svg" />
 </div>
 </div>
 </section>
@@ -1316,44 +1316,44 @@
 <p>Matrices can also be used to balance chemical equations as shown below where <span class="math notranslate nohighlight">\(x_1\)</span> through <span class="math notranslate nohighlight">\(x_4\)</span> are the coefficients for the balanced chemical equation.</p>
 <div class="math notranslate nohighlight">
 \[ x_1 C_3H_{8} + x_2 O_2 \rightarrow x_3 CO_2 + x_4 H_2O \]</div>
-<p>We can then describe the number of carbon, hydrogen, and oxygen atoms in each compound using 3 <span class="math notranslate nohighlight">\(\times\)</span> 1 matrices <span class="math notranslate nohighlight">\(\left[ \begin{array}{c} C \\ H \\ O \end{array} \right]\)</span> as shown below.</p>
+<p>We can then describe the number of carbon, hydrogen, and oxygen atoms in each compound using 3 <span class="math notranslate nohighlight">\(\times\)</span> 1 matrices <span class="math notranslate nohighlight">\(\begin{bmatrix} C \\ H \\ O \end{bmatrix}\)</span> as shown below.</p>
 <div class="math notranslate nohighlight">
-\[\begin{split} x_1 \left[ \begin{array}{c} 3 \\ 8 \\ 0 \end{array} \right] +
-   x_2 \left[ \begin{array}{c} 0 \\ 0 \\ 2 \end{array} \right] \rightarrow
-   x_3 \left[ \begin{array}{c} 1 \\ 0 \\ 2 \end{array} \right] +
-   x_4 \left[ \begin{array}{c} 0 \\ 2 \\ 1 \end{array} \right]
+\[\begin{split} x_1 \begin{bmatrix} 3 \\ 8 \\ 0 \end{bmatrix} +
+   x_2 \begin{bmatrix} 0 \\ 0 \\ 2 \end{bmatrix} \rightarrow
+   x_3 \begin{bmatrix} 1 \\ 0 \\ 2 \end{bmatrix} +
+   x_4 \begin{bmatrix} 0 \\ 2 \\ 1 \end{bmatrix}
 \end{split}\]</div>
 <p>Because the number of carbons, hydrogens, and oxygens should be the same on both sides of the balanced chemical equation, if we subtract the products from the reactants, we should get zero.</p>
 <div class="math notranslate nohighlight">
-\[\begin{split} x_1 \left[ \begin{array}{c} 3 \\ 8 \\ 0 \end{array} \right] +
-   x_2 \left[ \begin{array}{c} 0 \\ 0 \\ 2 \end{array} \right] -
-   x_3 \left[ \begin{array}{c} 1 \\ 0 \\ 2 \end{array} \right] -
-   x_4 \left[ \begin{array}{c} 0 \\ 2 \\ 1 \end{array} \right] =
-   \left[ \begin{array}{c} 0 \\ 0 \\ 0 \end{array} \right]
+\[\begin{split} x_1 \begin{bmatrix} 3 \\ 8 \\ 0 \end{bmatrix} +
+   x_2 \begin{bmatrix} 0 \\ 0 \\ 2 \end{bmatrix} -
+   x_3 \begin{bmatrix} 1 \\ 0 \\ 2 \end{bmatrix} -
+   x_4 \begin{bmatrix} 0 \\ 2 \\ 1 \end{bmatrix} =
+   \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}
 \end{split}\]</div>
 <p>One potential issue with this set of linear equations is that making all the <span class="math notranslate nohighlight">\(x\)</span> variables zero is a valid solution, so to avoid this solution, we will set one of the <span class="math notranslate nohighlight">\(x\)</span> variables to one. Remember that a balanced chemical equation is about the appropriate ratio between the reactants and products, so setting a single coefficient to one can still generate a balanced equation. The one issue is that the coefficients generated by the software may not be integers, but this can be fixed by multiplying the fractions to get whole numbers as a final step demonstrated below.</p>
 <p>Here we have set <span class="math notranslate nohighlight">\(x_4\)</span> = 1.</p>
 <div class="math notranslate nohighlight">
-\[\begin{split} x_1 \left[ \begin{array}{c} 3 \\ 8 \\ 0 \end{array} \right] +
-   x_2 \left[ \begin{array}{c} 0 \\ 0 \\ 2 \end{array} \right] -
-   x_3 \left[ \begin{array}{c} 1 \\ 0 \\ 2 \end{array} \right] -
-   (1) \left[ \begin{array}{c} 0 \\ 2 \\ 1 \end{array} \right] =
-   \left[ \begin{array}{c} 0 \\ 0 \\ 0 \end{array} \right]
+\[\begin{split} x_1 \begin{bmatrix} 3 \\ 8 \\ 0 \end{bmatrix} +
+   x_2 \begin{bmatrix} 0 \\ 0 \\ 2 \end{bmatrix} -
+   x_3 \begin{bmatrix} 1 \\ 0 \\ 2 \end{bmatrix} -
+   (1) \begin{bmatrix} 0 \\ 2 \\ 1 \end{bmatrix} =
+   \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}
 \end{split}\]</div>
 <p>Now we move the last term to the right side.</p>
 <div class="math notranslate nohighlight">
-\[\begin{split} x_1 \left[ \begin{array}{c} 3 \\ 8 \\ 0 \end{array} \right] +
-   x_2 \left[ \begin{array}{c} 0 \\ 0 \\ 2 \end{array} \right] -
-   x_3 \left[ \begin{array}{c} 1 \\ 0 \\ 2 \end{array} \right] = 
-   \left[ \begin{array}{c} 0 \\ 2 \\ 1 \end{array} \right]
+\[\begin{split} x_1 \begin{bmatrix} 3 \\ 8 \\ 0 \end{bmatrix} +
+   x_2 \begin{bmatrix} 0 \\ 0 \\ 2 \end{bmatrix} -
+   x_3 \begin{bmatrix} 1 \\ 0 \\ 2 \end{bmatrix} = 
+   \begin{bmatrix} 0 \\ 2 \\ 1 \end{bmatrix}
 \end{split}\]</div>
 <p>These matrices can now be merged into one larger matrix. The left matrix below will be called <code class="docutils literal notranslate"><span class="pre">M</span></code> and the right matrix below is called <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
 <div class="math notranslate nohighlight">
-\[\begin{split} \left[ \begin{array}{ccc} 3 &amp; 0 &amp; -1 \\ 8 &amp; 0 &amp; 0 \\ 0 &amp; 2 &amp; -2 \end{array} \right]
+\[\begin{split} \begin{bmatrix} 3 &amp; 0 &amp; -1 \\ 8 &amp; 0 &amp; 0 \\ 0 &amp; 2 &amp; -2 \end{bmatrix}
 \cdot
-\left[ \begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array} \right]
+\begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}
 =
-\left[ \begin{array}{c} 0 \\ 2 \\ 1 \end{array} \right] \end{split}\]</div>
+\begin{bmatrix} 0 \\ 2 \\ 1 \end{bmatrix} \end{split}\]</div>
 <p>We can then solve for the <span class="math notranslate nohighlight">\(x\)</span> values to get our coefficients using the <code class="docutils literal notranslate"><span class="pre">np.linalg.solve()</span></code> function as demonstrated below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1402,7 +1402,7 @@
 </div>
 <p>As an example, we can determine the eigenvalues and eigenvector for the following matrix.</p>
 <div class="math notranslate nohighlight">
-\[\begin{split} A = \left[ \begin{array}{c} 3 &amp; 1 \\ 4 &amp; 3 \end{array} \right] \end{split}\]</div>
+\[\begin{split} A = \begin{bmatrix} 3 &amp; 1 \\ 4 &amp; 3 \end{bmatrix} \end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
@@ -1420,7 +1420,7 @@
 <p>The first array contains the two eigenvalues while the second matrix contains the two eigenvector solutions.</p>
 <p>Not every matrix has eigenvalues or eigenvectors. In the case of the following 90<span class="math notranslate nohighlight">\(\circ\)</span> rotation matrix, the solution generated includes <span class="math notranslate nohighlight">\(j\)</span> values which is Python’s notation used for imaginary and complex numbers.</p>
 <div class="math notranslate nohighlight">
-\[\begin{split} A = \left[ \begin{array}{c} 0 &amp; -1 \\ 1 &amp; 0 \end{array} \right] \end{split}\]</div>
+\[\begin{split} A = \begin{bmatrix} 0 &amp; -1 \\ 1 &amp; 0 \end{bmatrix} \end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
@@ -1525,7 +1525,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0aff6092d4ccb27c4221d9d1544ed43bbb9cca235c23f1ec54fca9d90c5d81d5.svg" src="../../_images/0aff6092d4ccb27c4221d9d1544ed43bbb9cca235c23f1ec54fca9d90c5d81d5.svg" />
+<img alt="../../_images/5d415f43135b8f24ed85b060ee2b962d4005722ef4846bb24cbe8b711f09b8da.svg" src="../../_images/5d415f43135b8f24ed85b060ee2b962d4005722ef4846bb24cbe8b711f09b8da.svg" />
 </div>
 </div>
 <p>The radius is in Bohrs (<span class="math notranslate nohighlight">\(a_0\)</span>) which is equal to approximately 0.53 angstroms.</p>
@@ -1634,7 +1634,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/28c3ed9e37d62f554df16ac97edd8d6534c7c7ea9e6bfa8821a57f9a733eb972.svg" src="../../_images/28c3ed9e37d62f554df16ac97edd8d6534c7c7ea9e6bfa8821a57f9a733eb972.svg" />
+<img alt="../../_images/ed9f4ca4a74074e029ca16e197bb64354e9cc9100c713c90dfb0b57537102b05.svg" src="../../_images/ed9f4ca4a74074e029ca16e197bb64354e9cc9100c713c90dfb0b57537102b05.svg" />
 </div>
 </div>
 <p>Above is a plot of the peaks with respect to the index values (not ppm). To integrate under each of the triplet peaks, first we need the index values for the edges of each peak. Below is a list, <code class="docutils literal notranslate"><span class="pre">i</span></code>, that provides reasonable boundaries, and a plot is below with these edges marked in orange squares.</p>
@@ -1649,19 +1649,19 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c099189431076fda8f0b4045363ed178b9d1c5b0217b4ebe5e333679d18fc34b.svg" src="../../_images/c099189431076fda8f0b4045363ed178b9d1c5b0217b4ebe5e333679d18fc34b.svg" />
+<img alt="../../_images/bf3663f5876ae23892d41b6d81110d90ae6499b3ef23c1a22ad2746ab387ca27.svg" src="../../_images/bf3663f5876ae23892d41b6d81110d90ae6499b3ef23c1a22ad2746ab387ca27.svg" />
 </div>
 </div>
 <p>Integration under sampled data does not include the values between data points, so these regions are estimated based on assumptions. The <code class="docutils literal notranslate"><span class="pre">trapezoid()</span></code> function assumes that any data point between known points lies directly between the known data points (i.e., linear interpolation) as shown below by the blue lines.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/5c36ec332ae4a3ed92abd9cc8d5a294fe9af251864b36735dbaea309033afb9f.svg" src="../../_images/5c36ec332ae4a3ed92abd9cc8d5a294fe9af251864b36735dbaea309033afb9f.svg" />
+<img alt="../../_images/38bbe11847ca40480472b642de42ff46b38d0aca117a696e0660a2790a844703.svg" src="../../_images/38bbe11847ca40480472b642de42ff46b38d0aca117a696e0660a2790a844703.svg" />
 </div>
 </div>
 <p>Alternatively, the <code class="docutils literal notranslate"><span class="pre">simpson()</span></code> function uses the <em>Simpson’s rule</em> which estimates the data between known points using quadratic interpolation shown below.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/8791a45e265cecbf36b4e32bf6277dc5e77ed31979ddca191eb866ea3592136c.svg" src="../../_images/8791a45e265cecbf36b4e32bf6277dc5e77ed31979ddca191eb866ea3592136c.svg" />
+<img alt="../../_images/6e93ed49bba50ebd95cfc38c20f33826b5f588c8f18eb0628ed5e91f92b6fead.svg" src="../../_images/6e93ed49bba50ebd95cfc38c20f33826b5f588c8f18eb0628ed5e91f92b6fead.svg" />
 </div>
 </div>
 <aside class="margin sidebar">
@@ -1759,7 +1759,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/48f572261b621b6080ed0c960330237d2a1a261a429e91f33ef52949b28cc863.svg" src="../../_images/48f572261b621b6080ed0c960330237d2a1a261a429e91f33ef52949b28cc863.svg" />
+<img alt="../../_images/efd4fb2d117e9178d231f58e3e86c6c01e90097638c6d728e2fe32b7db787882.svg" src="../../_images/efd4fb2d117e9178d231f58e3e86c6c01e90097638c6d728e2fe32b7db787882.svg" />
 </div>
 </div>
 <p>This approach to kinetic simulations can be adapted to even more complex reactions which are demonstrated in <a class="reference internal" href="../chapter_09/chap_09_notebook.html#id6"><span class="std std-ref">section 9.1.4</span></a>.</p>
@@ -1792,14 +1792,14 @@ Hint: Assume this is an isolated system, so q<span class="math notranslate nohig
 </li>
 <li><p>A matrix or array of x,y coordinates can be rotated on a two-dimensional plane around the origin by multiplying by the following rotation matrix (M<span class="math notranslate nohighlight">\(_R\)</span>). The angle (<span class="math notranslate nohighlight">\(\theta\)</span>) is in radians, and the coordinates are rotated clockwise around the origin.</p>
 <div class="math notranslate nohighlight">
-\[\begin{split} M_R = \left[ \begin{array}{cc} cos(\theta) &amp; -sin(\theta) \\ sin(\theta) &amp; cos(\theta) \end{array} \right] \end{split}\]</div>
+\[\begin{split} M_R = \begin{bmatrix} cos(\theta) &amp; -sin(\theta) \\ sin(\theta) &amp; cos(\theta) \end{bmatrix} \end{split}\]</div>
 <p>Below is an example using three generic points on the x,y plane.</p>
 <div class="math notranslate nohighlight">
-\[\begin{split} \left[ \begin{array}{cc} x_0 &amp; y_0 \\ x_1 &amp; y_1 \\ x_2 &amp; y_2 \end{array} \right] 
+\[\begin{split} \begin{bmatrix} x_0 &amp; y_0 \\ x_1 &amp; y_1 \\ x_2 &amp; y_2 \end{bmatrix}
     \cdot  
-    \left[ \begin{array}{cc} cos(\theta) &amp; -sin(\theta) \\ sin(\theta) &amp; cos(\theta) \end{array} \right]  
+    \begin{bmatrix} cos(\theta) &amp; -sin(\theta) \\ sin(\theta) &amp; cos(\theta) \end{bmatrix}  
     =
-    \left[ \begin{array}{cc} x'_0 &amp; y'_0 \\ x'_1 &amp; y'_1 \\ x'_2 &amp; y'_2 \end{array} \right]
+    \begin{bmatrix} x'_0 &amp; y'_0 \\ x'_1 &amp; y'_1 \\ x'_2 &amp; y'_2 \end{bmatrix}
     \end{split}\]</div>
 <p>a) Given the following coordinates for the four atoms in carbonate (CO<span class="math notranslate nohighlight">\(_3^{2-}\)</span>) measured in angstroms, rotate them       90<span class="math notranslate nohighlight">\(^o\)</span> clockwise. Plot the initial and rotated points in different colors to show that it worked.</p>
 <div class="math notranslate nohighlight">
@@ -1824,9 +1824,9 @@ Hint: Assume this is an isolated system, so q<span class="math notranslate nohig
 </li>
 <li><p>Below are the transformation matrices for an S<span class="math notranslate nohighlight">\(_4\)</span> and C<span class="math notranslate nohighlight">\(_2\)</span> operation used in group theory. Show that two S<span class="math notranslate nohighlight">\(_4\)</span> operations equal one C<span class="math notranslate nohighlight">\(_2\)</span> operation by multiplying two S<span class="math notranslate nohighlight">\(_4\)</span> operations together. That is, show that S<span class="math notranslate nohighlight">\(_4\)</span>S<span class="math notranslate nohighlight">\(_4\)</span> = C<span class="math notranslate nohighlight">\(_2\)</span>.</p>
 <div class="math notranslate nohighlight">
-\[\begin{split} S_4 = \left[ \begin{array}{ccc} 0 &amp; -1 &amp; 0 \\ 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; -1 \end{array} \right]
+\[\begin{split} S_4 = \begin{bmatrix} 0 &amp; -1 &amp; 0 \\ 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; -1 \end{bmatrix}
 \quad
-C_2 = \left[ \begin{array}{ccc} -1 &amp; 0 &amp; 0 \\ 0 &amp; -1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{array} \right]
+C_2 = \begin{bmatrix} -1 &amp; 0 &amp; 0 \\ 0 &amp; -1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}
 \end{split}\]</div>
 </li>
 <li><p>Using dot product math, write your own linear regression function that accepts the <em>x</em> and <em>y</em> coordinates of data points as separate arrays and returns the slope and intercept of a line of best fit.</p></li>
