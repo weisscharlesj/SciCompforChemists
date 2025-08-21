@@ -3,7 +3,7 @@
 ### An Introduction to Programming in Python with Chemical Applications
 
 
-The following is the textbook used for the Scientific Computing Chemists course intended to teach chemists and chemistry students basic computer programming in Python and Jupyter Notebooks and advanced tools for the processing, visualization, and analysis of digital data. 
+The following is the textbook used for the Scientific Computing Chemists course intended to teach chemists and chemistry students basic computer programming in Python and Jupyter Notebooks and advanced tools for the processing, visualization, and analysis of digital data. This book serves as an introduction to coding for chemists.
 
 ## [Read Scientific Computing for Chemists with Python (Jupyter Book)](https://weisscharlesj.github.io/SciCompforChemists/)
 

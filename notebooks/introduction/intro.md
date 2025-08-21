@@ -4,7 +4,7 @@
 
 #### An Introduction to Programming in Python with Chemical Applications
 
-*Scientific computing* utilizes computers to aid in scientific tasks such as data processing and digital simulations among others. The well-developed field of computational chemistry is part of scientific computing and focuses on utilizing computing to simulate chemical phenomena and calculate properties. However, there is less focus in the field of chemistry on the data processing side of computing, so this book strives to fill this void by introducing the reader to tools and methods for processing, visualizing, and analyzing chemical data. The tools employed in this book are the powerful and popular combination of Jupyter notebooks and the Python programming language. No background beyond first-year college chemistry and occasionally some very basic spectroscopy (for advanced chapters) is assumed for most of this book. This book starts with a brief primer on Jupyter notebooks in chapter 0 and computer programming with Python in chapters 1 and 2. If you already have background in these tools, feel free to skip ahead. The rest of the book dives into applications of Python to solving chemical problems. Python and Jupyter were chosen for a variety of reasons including that they are:
+*Scientific computing* utilizes computers to aid in scientific tasks such as data processing and digital simulations among others. The well-developed field of computational chemistry is part of scientific computing and focuses on utilizing computing to simulate chemical phenomena and calculate properties. However, there is less focus in the field of chemistry on the data processing side of computing, so this book strives to fill this void by introducing the reader to tools and methods for processing, visualizing, and analyzing chemical data. This book serves as an introduction to coding for chemists. The tools employed in this book are the powerful and popular combination of Jupyter notebooks and the Python programming language. No background beyond first-year college chemistry and occasionally some very basic spectroscopy (for advanced chapters) is assumed for most of this book. This book starts with a brief primer on Jupyter notebooks in chapter 0 and computer programming with Python in chapters 1 and 2. If you already have background in these tools, feel free to skip ahead. The rest of the book dives into applications of Python to solving chemical problems. Python and Jupyter were chosen for a variety of reasons including that they are:
 
 - Relatively easy to use and learn
 - Powerful and well-suited for solving chemical problems
@@ -104,7 +104,7 @@ This book took a substantial time to write along with the time and effort in dev
 - Zachary M. Schulte for providing feedback and reporting typos in chapter 14
 - Yuthana Tantirungrotechai for reporting errors in chapter 6
 - @Avalanchian for reporting error in chapter 10 data/elements_data.csv file
-- Matthew A. Kubasik for reporting an error in chapter 8
+- Matthew A. Kubasik for reporting an errors in chapters 6 and 8
 - Geoffrey M. Sametz for help with nmrsim
 - Ryan Schulte for reporting typos
 - Robert Belford for reports typos
