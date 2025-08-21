@@ -104,10 +104,9 @@ This book took a substantial time to write along with the time and effort in dev
 - Zachary M. Schulte for providing feedback and reporting typos in chapter 14
 - Yuthana Tantirungrotechai for reporting errors in chapter 6
 - @Avalanchian for reporting error in chapter 10 data/elements_data.csv file
-- Matthew A. Kubasik for reporting an error in chapter 8
+- Matthew A. Kubasik for reporting an errors in chapters 6 and 8
 - Geoffrey M. Sametz for help with nmrsim
 - Ryan Schulte for reporting typos
 - Robert Belford for reports typos
 - Filippo Muzzini for reporting a missing data file in chapter 6
 - jaredchis (GitHub handle) for reporting a code typo in chapter 3
-- Yuthana Tantirungrotechai for report typos in chapter 8
