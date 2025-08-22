@@ -474,7 +474,7 @@
 <td class="text-left"><p>Finds optimized paths across the image</p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">io</span></code></p></td>
-<td class="text-left"><p>Supports reading and writing images and contains a function for displaying images</p></td>
+<td class="text-left"><p>Supports reading and writing images</p></td>
 </tr>
 <tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">measure</span></code></p></td>
 <td class="text-left"><p>Performs a variety of measurements and calculations on or between two images</p></td>
@@ -522,20 +522,32 @@
 <p><strong>Figure 1</strong> An excerpts of values from a grayscale image showing values representing the brightness of each pixel.</p>
 <section id="loading-images">
 <span id="id3"></span><h3>7.1.1 Loading Images<a class="headerlink" href="#loading-images" title="Link to this heading">#</a></h3>
-<p id="index-2">The scikit-image library includes a <code class="docutils literal notranslate"><span class="pre">data</span></code> module containing a series of images for the user to experiment with. To display images in the notebook, use the <code class="docutils literal notranslate"><span class="pre">io.imshow()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">io</span></code> module. Each image in the <code class="docutils literal notranslate"><span class="pre">data</span></code> module has a function for fetching the image, and you can find a complete list of images/functions in the <code class="docutils literal notranslate"><span class="pre">data</span></code> module by typing <code class="docutils literal notranslate"><span class="pre">help(data)</span></code>. We will open and view the image of a lunar surface using the <code class="docutils literal notranslate"><span class="pre">data.moon()</span></code> function.</p>
+<p id="index-2">The scikit-image library includes a <code class="docutils literal notranslate"><span class="pre">data</span></code> module containing a series of images for the user to experiment with. To display images in the notebook, use the matplotlib <code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code> function. Each image in the <code class="docutils literal notranslate"><span class="pre">data</span></code> module has a function for fetching the image, and you can find a complete list of images/functions in the <code class="docutils literal notranslate"><span class="pre">data</span></code> module by typing <code class="docutils literal notranslate"><span class="pre">help(data)</span></code>. We will open and view the image of a grayscale lunar surface using the <code class="docutils literal notranslate"><span class="pre">data.moon()</span></code> function.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The scikit-image <code class="docutils literal notranslate"><span class="pre">io.imshow()</span></code> function is being deprecated and will be removed in version 0.27. If you have used this function in the past, consider using matplotlib’s <code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code> instead.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">moon</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">moon</span><span class="p">()</span>
-<span class="n">io</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">moon</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">moon</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/zy/7y6kpdbx6p1ffrp1vtxy3ttc0000gn/T/ipykernel_2095/786239732.py:2: FutureWarning: `imshow` is deprecated since version 0.25 and will be removed in version 0.27. Please use `matplotlib`, `napari`, etc. to visualize images.
-  io.imshow(moon);
+<img alt="../../_images/bbc9cbaed2deaf7dd5d2ccb70adaa92482e84871c00f90b5e0a741bb47d5c2d3.svg" src="../../_images/bbc9cbaed2deaf7dd5d2ccb70adaa92482e84871c00f90b5e0a741bb47d5c2d3.svg" />
+</div>
+</div>
+<p>The image does not look like a grayscale image because matplotlib is treating the image as data (see <a class="reference internal" href="#id6"><span class="std std-ref">section 7.1.4</span></a>). Use <code class="docutils literal notranslate"><span class="pre">cmap='gray'</span></code> to make the image look like a grayscale image.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">moon</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">moon</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">moon</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../../_images/33c1ac722cff9140e67f375a618917773163a1aab2f93a0e30fbf25319b6af8a.svg" src="../../_images/33c1ac722cff9140e67f375a618917773163a1aab2f93a0e30fbf25319b6af8a.svg" />
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/cd5b1d2b6ba28238c473462f6efc3cd4c2b0a80e954e01517c220dd9d3441217.svg" src="../../_images/cd5b1d2b6ba28238c473462f6efc3cd4c2b0a80e954e01517c220dd9d3441217.svg" />
 </div>
 </div>
 <p>If we take a closer look at the data contained inside the lunar surface image, we find a two-dimensional NumPy array filled with integers ranging from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255.</p>
@@ -557,44 +569,36 @@
 </div>
 </div>
 </div>
-<p>Each of these values represents a lightness value where 0 is black, 255 is pure white, and all other values are various shades of gray. To manipulate the image, we can use NumPy methods being that scikit-image stores images as ndarrays. For example, the image can be darkened by dividing all the values by two. Because this array is designated to contain integers (<code class="docutils literal notranslate"><span class="pre">dtype</span> <span class="pre">=</span> <span class="pre">uint8</span></code>), integer division (<code class="docutils literal notranslate"><span class="pre">//</span></code>) is used to avoid floats.</p>
+<p>Each of these values represents a lightness value where 0 is black, 255 is white, and all other values are various shades of gray. To manipulate the image, we can use NumPy methods being that scikit-image stores images as ndarrays. For example, the image can be darkened by dividing all the values by two. Because this array is designated to contain integers (<code class="docutils literal notranslate"><span class="pre">dtype</span> <span class="pre">=</span> <span class="pre">uint8</span></code>), integer division (<code class="docutils literal notranslate"><span class="pre">//</span></code>) is used to avoid floats.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">moon_dark</span> <span class="o">=</span> <span class="n">moon</span> <span class="o">//</span> <span class="mi">2</span>
-<span class="n">io</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">moon_dark</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">moon_dark</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/zy/7y6kpdbx6p1ffrp1vtxy3ttc0000gn/T/ipykernel_2095/4184250868.py:2: FutureWarning: `imshow` is deprecated since version 0.25 and will be removed in version 0.27. Please use `matplotlib`, `napari`, etc. to visualize images.
-  io.imshow(moon_dark);
-</pre></div>
-</div>
-<img alt="../../_images/a4a58cd9081a4cb1b7609ff765fd1b103d91d03fe3dc08836155cd70c90c10bc.svg" src="../../_images/a4a58cd9081a4cb1b7609ff765fd1b103d91d03fe3dc08836155cd70c90c10bc.svg" />
+<img alt="../../_images/98338fc4827ff1b18da28024b6ff5c04b1011b3b10ebce9b3839d3e6c7ed0599.svg" src="../../_images/98338fc4827ff1b18da28024b6ff5c04b1011b3b10ebce9b3839d3e6c7ed0599.svg" />
 </div>
 </div>
 </section>
 <section id="color-images">
 <span id="id4"></span><span id="index-3"></span><h3>7.1.2 Color Images<a class="headerlink" href="#color-images" title="Link to this heading">#</a></h3>
-<p>Color images are slightly more complicated to represent because all colors cannot be represented by single integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255. Probably the most popular way to digitally encode colors is <em>RGB</em> which describes every color as a combination of red, green, and blue (Figure 2). These are also known as <em>color channels</em>, and this is typically how computer monitors display colors. If you look close enough at the screen, which may require a magnifying glass for high resolution displays, you can see that every pixel is really made up of three lights: a red, a green, and a blue. Their perceived color is a mixture or blend of the red, green, and blue values. Being that every pixel now has three values to describe it, a NumPy array that defines a color image is three dimensional. The first two dimensions are the height and width of the image, and the third dimension contains values from each of the three color channels.</p>
+<p>Color images are slightly more complicated to represent because all necessary colors cannot be represented by single integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255. Probably the most popular way to digitally encode colors is <em>RGB</em> which describes every color as a combination of red, green, and blue (Figure 2). These are also known as <em>color channels</em>, and this is typically how computer monitors display colors. If you look close enough at the screen, which may require a magnifying glass for high resolution displays, you can see that every pixel is really made up of three lights: a red, a green, and a blue. Their perceived color is a mixture or blend of the red, green, and blue values. Being that every pixel now has three values to describe it, a NumPy array that defines a color image is three dimensional. The first two dimensions are the height and width of the image, and the third dimension contains values from each of the three color channels.</p>
+<p><code class="docutils literal notranslate"><span class="pre">[row,</span> <span class="pre">column,</span> <span class="pre">channel]</span></code></p>
 <p><img alt="" src="../../_images/image_data_graphic_color.png" /></p>
 <p><strong>Figure 2</strong> An excerpts of the red, green, and blue color channels for a small portion of a color image. The values in each channel represent the brightness of that color in each pixel.</p>
-<p>By <a class="reference external" href="https://scikit-image.org/docs/stable/user_guide/numpy_images.html#coordinate-conventions">scikit-image convention</a>, the encoding of color images in arrays is shown below, and the colors are in the order red, green, and then blue.</p>
-<p><code class="docutils literal notranslate"><span class="pre">[row,</span> <span class="pre">column,</span> <span class="pre">channel]</span></code></p>
+<p>By <a class="reference external" href="https://scikit-image.org/docs/stable/user_guide/numpy_images.html#coordinate-conventions">scikit-image convention</a>, the encoding of colors are in the order red, green, and then blue order, so the <code class="docutils literal notranslate"><span class="pre">0</span></code> channel is red, for example.</p>
 <p>We can look at an example of a color photo by loading an image from the Hubble space telescope. This image is included with the scikit-image library for users to experiment with.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hubble</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">hubble_deep_field</span><span class="p">()</span>
-<span class="n">io</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">hubble</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">hubble</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/zy/7y6kpdbx6p1ffrp1vtxy3ttc0000gn/T/ipykernel_2095/1071723200.py:2: FutureWarning: `imshow` is deprecated since version 0.25 and will be removed in version 0.27. Please use `matplotlib`, `napari`, etc. to visualize images.
-  io.imshow(hubble);
-</pre></div>
-</div>
-<img alt="../../_images/bed968f858fabf0aafedf9dc77a8b7b79c24b759aef75b3845fcd9cf1d8a76dd.svg" src="../../_images/bed968f858fabf0aafedf9dc77a8b7b79c24b759aef75b3845fcd9cf1d8a76dd.svg" />
+<img alt="../../_images/fc66fd395c3c8683f7d908a8c604e3d69d1d6447509dcd062f5cad5a6e4c9ab7.svg" src="../../_images/fc66fd395c3c8683f7d908a8c604e3d69d1d6447509dcd062f5cad5a6e4c9ab7.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -660,16 +664,12 @@
 <p>Looking at the array, you will notice that it is indeed three-dimensional with values residing in triplets. You may also notice that the numbers are rather small because most pixels in this particular image are near black. If we want to look at just the red values of the image, this can be accomplish by slicing the array.  The red is the first layer in the third dimension, so we should slice it <code class="docutils literal notranslate"><span class="pre">hubble[:,</span> <span class="pre">:,</span> <span class="pre">0]</span></code>. The brighter a group of pixels in the red channel image, the more red color that is present in that region.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">io</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">hubble</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">]);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">hubble</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/zy/7y6kpdbx6p1ffrp1vtxy3ttc0000gn/T/ipykernel_2095/3815783581.py:1: FutureWarning: `imshow` is deprecated since version 0.25 and will be removed in version 0.27. Please use `matplotlib`, `napari`, etc. to visualize images.
-  io.imshow(hubble[:,:,0]);
-</pre></div>
-</div>
-<img alt="../../_images/ccd3941a17a84d1a0f1dca657eb1cecfe300f428370802c854ce4002d16e60c2.svg" src="../../_images/ccd3941a17a84d1a0f1dca657eb1cecfe300f428370802c854ce4002d16e60c2.svg" />
+<img alt="../../_images/6edc337ad43458e41669182df415f610ca5f66bc62e620318183daa4085cad7d.svg" src="../../_images/6edc337ad43458e41669182df415f610ca5f66bc62e620318183daa4085cad7d.svg" />
 </div>
 </div>
 </section>
@@ -679,19 +679,15 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flask</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;data/flask.png&#39;</span><span class="p">)</span>
-<span class="n">io</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">flask</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">flask</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/zy/7y6kpdbx6p1ffrp1vtxy3ttc0000gn/T/ipykernel_2095/985208856.py:2: FutureWarning: `imshow` is deprecated since version 0.25 and will be removed in version 0.27. Please use `matplotlib`, `napari`, etc. to visualize images.
-  io.imshow(flask);
-</pre></div>
-</div>
-<img alt="../../_images/3ee3828cd74c6f3927f67d639333f82af9a54f94749bcc6be87798befc4b8c8a.svg" src="../../_images/3ee3828cd74c6f3927f67d639333f82af9a54f94749bcc6be87798befc4b8c8a.svg" />
+<img alt="../../_images/128b7b2440d435aab4ed7da30414fee850ba365b52db7bcf5635ae5f6dc6cfbe.svg" src="../../_images/128b7b2440d435aab4ed7da30414fee850ba365b52db7bcf5635ae5f6dc6cfbe.svg" />
 </div>
 </div>
-<p>If we look at the array for the flask image below, you will notice that this is a three-dimensional array with four color channels. This can happen in some file types such as Portable Network Graphics (PNG) where a fourth <em>alpha color channel</em> is supported making the coding RGBA. This channel measures opacity… that is, how non-transparent a pixel is. All of the pixels in this image are fully opaque which is represented by all <code class="docutils literal notranslate"><span class="pre">255</span></code>. If the image was fully transparent, the third values would be all zeros, and anything in between would be translucent. PNG images support an alpha channel as do many image formats, but JPG/JPEG images do not support this feature.</p>
+<p>If we look at the array for the flask image below, you will notice that this is a three-dimensional array with four color channels. This can happen in some file types such as Portable Network Graphics (PNG) where a fourth <em>alpha color channel</em> is supported making the coding RGBA. This channel measures opacity, which is how non-transparent a pixel is. All of the pixels in this image are fully opaque which is represented by <code class="docutils literal notranslate"><span class="pre">255</span></code>. If the image was fully transparent, the alpha values would be all zeros, and anything in between would be translucent. PNG images support an alpha channel as do many image formats, but JPG/JPEG images do not support this feature.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flask</span>
@@ -755,7 +751,7 @@
 </section>
 <section id="colormaps">
 <span id="id6"></span><span id="index-4"></span><h3>7.1.4 Colormaps<a class="headerlink" href="#colormaps" title="Link to this heading">#</a></h3>
-<p>So far, we having been displaying images using the scikit-image <code class="docutils literal notranslate"><span class="pre">io.imshow()</span></code> function which is intended specifically for images. Matplotlib also provides a <code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code> function that does roughly the same thing but with some important differences. Below is the red color channel from the hubble image displayed using the <code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code> function. The first thing you probably notice about the image is that the colors are likely not what you expected because when matplotlib deals with a NumPy array, it treats it as generic data, not an image. The human mind does not effectively handle data on this scale, so to make it easier for humans to interpret, matplotlib maps the values to colors according the colormap on the right. This is known as <strong>false color</strong> because the colors in the image are not the real image colors. By default, the colormap <em>viridis</em> is used, but there are many other colormaps available to choose from in matplotlib.</p>
+<p>When matplotlib deals with a NumPy array, it treats it as generic data, not an image. The human mind does not effectively handle data on this scale, so to make it easier for humans to interpret, matplotlib maps the values to colors according the colormap on the right. This is known as <strong>false color</strong> because the colors in the image are not the real image colors. By default, the colormap <em>viridis</em> is used, but there are many other colormaps available to choose from in matplotlib. Below is the red color channel from the hubble image displayed, so  using the <code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -765,10 +761,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c758fa4ef3c4a21c0b909515baef72bea075191470b1201ab97d2ccf1de74be6.svg" src="../../_images/c758fa4ef3c4a21c0b909515baef72bea075191470b1201ab97d2ccf1de74be6.svg" />
+<img alt="../../_images/ffa595f4d389d6c9eced9d75f09d9208e9747e5f4a445509fbc64683e776a652.svg" src="../../_images/ffa595f4d389d6c9eced9d75f09d9208e9747e5f4a445509fbc64683e776a652.svg" />
 </div>
 </div>
-<p>To change colormaps, input the name of a different colormap as a string in the optional <code class="docutils literal notranslate"><span class="pre">cmap</span></code> argument (e.g., <code class="docutils literal notranslate"><span class="pre">plt.imshow(hubble[:,:,0],</span> <span class="pre">cmap='magma')</span></code>). See <a class="reference external" href="https://matplotlib.org/examples/color/colormaps_reference.html">https://matplotlib.org/examples/color/colormaps_reference.html</a> for a list of available colormaps. It is strongly encouraged to use one of the <em>perceptually uniform</em> colormaps because they are more accurately interpreted by humans and also show up as a smooth, interpretable gradient when printed on a black-and-white printer. Below is the display of the Hubble image red channel using the <code class="docutils literal notranslate"><span class="pre">Reds</span></code> colormap.</p>
+<p>To change colormaps, input the name of a different colormap as a string in the optional <code class="docutils literal notranslate"><span class="pre">cmap</span></code> argument (e.g., <code class="docutils literal notranslate"><span class="pre">plt.imshow(hubble[:,:,0],</span> <span class="pre">cmap='magma')</span></code>). See <a class="reference external" href="https://matplotlib.org/examples/color/colormaps_reference.html">https://matplotlib.org/examples/color/colormaps_reference.html</a> for a list of available colormaps. It is strongly encouraged to use one of the <em>perceptually uniform</em> colormaps because they are more accurately interpreted by humans and also show up as a smooth, interpretable gradient when printed on a grayscale printer. Below is the display of the Hubble image red channel using the <code class="docutils literal notranslate"><span class="pre">Reds</span></code> colormap.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">hubble</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Reds&#39;</span><span class="p">);</span>
@@ -776,7 +772,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ba18be18990b0694c8dd705b472719296e33f1a08abf0b8be510e70d4a1b4628.svg" src="../../_images/ba18be18990b0694c8dd705b472719296e33f1a08abf0b8be510e70d4a1b4628.svg" />
+<img alt="../../_images/566e9b0a53180ca83de8252bb8aac09d98153127f8b067da5f0ef3c987d9a973.svg" src="../../_images/566e9b0a53180ca83de8252bb8aac09d98153127f8b067da5f0ef3c987d9a973.svg" />
 </div>
 </div>
 <aside class="margin sidebar">
@@ -789,7 +785,7 @@
 </section>
 <section id="saving-images">
 <span id="id7"></span><span id="index-6"></span><span id="index-5"></span><h3>7.1.5 Saving Images<a class="headerlink" href="#saving-images" title="Link to this heading">#</a></h3>
-<p>After processing an image, it is sometimes helpful to save the image to disk for records, reports, and presentations. Being that the images are ndarrays, the <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> function works just fine if executed in the same Jupyter cell as the <code class="docutils literal notranslate"><span class="pre">io.imshow()</span></code> function. Alternatively, scikit-image provides an image saving function <code class="docutils literal notranslate"><span class="pre">io.imsave(file_name,</span> <span class="pre">array)</span></code> that operates similarly as <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> except with a couple image-specific arguments. One key difference is that <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> does not take an array argument but instead assumes you want the recently displayed image saved while <code class="docutils literal notranslate"><span class="pre">io.imsave(file_name,</span> <span class="pre">array)</span></code> takes an array and can save an image even if it has not been displayed in the Jupyter notebook. Check the directory containing the Jupyter notebook, and there should be a new file titled <em>new_image.png</em>.</p>
+<p>After processing an image, it is sometimes helpful to save the image to disk for records, reports, and presentations. The <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> function works just fine if executed in the same Jupyter cell as the <code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code> function. Alternatively, scikit-image provides an image saving function <code class="docutils literal notranslate"><span class="pre">io.imsave(file_name,</span> <span class="pre">array)</span></code> that operates similarly to <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> except with a couple image-specific arguments. One key difference is that <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> does not take an array argument but instead assumes you want the recently displayed image saved while <code class="docutils literal notranslate"><span class="pre">io.imsave(file_name,</span> <span class="pre">array)</span></code> takes an array and can save an image even if it has not been displayed in the Jupyter notebook. Check the directory containing the Jupyter notebook, and there should be a new file titled <em>new_image.png</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">io</span><span class="o">.</span><span class="n">imsave</span><span class="p">(</span><span class="s1">&#39;new_img.png&#39;</span><span class="p">,</span> <span class="n">hubble</span><span class="p">)</span>
@@ -828,6 +824,7 @@
 </tbody>
 </table>
 </div>
+<p>Below, a color imaged is converted into a grayscale image.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hubble_gray</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">rgb2gray</span><span class="p">(</span><span class="n">hubble</span><span class="p">)</span>
@@ -857,8 +854,8 @@
 </section>
 <section id="encoding">
 <span id="id10"></span><span id="index-7"></span><h3>7.2.2 Encoding<a class="headerlink" href="#encoding" title="Link to this heading">#</a></h3>
-<p><em>Encoding</em> is how the values are presented in the image array. The two most common are integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255 or floats from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1. However, there are other ranges outlined in Table 3. Though you may have never encounter some, it is good to be aware that they exist in case you need to deal with them. The difference between signed integers (<code class="docutils literal notranslate"><span class="pre">int</span></code>) and unsigned integers (<code class="docutils literal notranslate"><span class="pre">uint</span></code>) is that unsigned integers are only positive integers starting with zero while signed integers are both positive and negative centered approximately around zero. The approximate part is because there are equal numbers of positive and negative integers, and being that zero is a positive integer, zero is not the exact center. To determine what the range of values is for an image, scikit-image provides the function <code class="docutils literal notranslate"><span class="pre">skimage.dtype.limits()</span></code>.</p>
-<p>Scikit-image also provides some convenient functions for converting to various value ranges described in Table 3. These functions are not contained in a module, so you will need to just do an <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">skimage</span></code> to get access to them, which was done at the start of this chapter. The one format that probably needs commenting on is the Boolean format. In this encoding, every pixel is a <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> value, which is equivalent to saying <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">0</span></code>. This is for black-and-white images where each pixel is one of two possible values.</p>
+<p><em>Encoding</em> is how the values are presented in the image array. The two most common are integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255 or floats from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1. However, there are other ranges outlined in Table 3. The difference between signed integers (<code class="docutils literal notranslate"><span class="pre">int</span></code>) and unsigned integers (<code class="docutils literal notranslate"><span class="pre">uint</span></code>) is that unsigned integers are only positive integers starting with zero while signed integers are both positive and negative centered approximately around zero. The approximate part is because there are equal numbers of positive and negative integers, and being that zero is a positive integer, zero is not the exact center. To determine what the range of values is for an image, scikit-image provides the function <code class="docutils literal notranslate"><span class="pre">skimage.dtype.limits()</span></code>.</p>
+<p>Scikit-image also provides some convenient functions for converting to various value ranges described in Table 3. These functions are not contained in a module, so you will need to just do an <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">skimage</span></code> to get access, which was done at the start of this chapter. The one format that probably needs commenting on is the Boolean format. In this encoding, every pixel is a <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> value, which is equivalent to saying <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">0</span></code>. This is for black-and-white images where each pixel is one of two possible values.</p>
 <p><strong>Table 3</strong> Scikit-Image Functions for Converting Data Types</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -917,45 +914,37 @@
 <section id="image-contrast">
 <span id="id11"></span><span id="index-8"></span><h3>7.2.3 Image Contrast<a class="headerlink" href="#image-contrast" title="Link to this heading">#</a></h3>
 <p>Before trying to extract certain types of information or identify features in an image, it is sometimes helpful to first increase the contrast of an image. There are a number of ways of doing this including thresholding and modification of the image histogram. Some approaches can be performed using NumPy array manipulation, but scikit-image also provides convenient functions designed for these task.</p>
-<p><em>Thresholding</em> can be used to generate a black-and-white image (i.e., not grayscale) by converting gray values at or below a brightness threshold to black and above the threshold to white. The threshold can be set manually or by an algorithm that chooses an optimal value customized to each image. We will start with manually setting a threshold. The grayscale image generated from <code class="docutils literal notranslate"><span class="pre">rgb2gray()</span></code> is encoded with floats from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1, so a threshold of 0.65 is chosen using trial-and-error. A black-and-white image is then generated as a Boolean. The resulting black-and-white image is shown below.</p>
+<p><em>Thresholding</em> can be used to generate a black-and-white image (i.e., not grayscale) by converting gray values at or below a brightness threshold to black and above the threshold to white. The threshold can be set manually or by an algorithm that chooses an optimal value customized to each image. We will start with manually setting a threshold. The grayscale image generated from <code class="docutils literal notranslate"><span class="pre">rgb2gray()</span></code> is encoded with floats from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1, so a threshold of 0.65 is chosen by experimentation. A black-and-white image is then generated as a Boolean. The resulting black-and-white image is shown below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chem</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">immunohistochemistry</span><span class="p">()</span>
 <span class="n">chem_gray</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">rgb2gray</span><span class="p">(</span><span class="n">chem</span><span class="p">)</span>
-<span class="n">io</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">chem_gray</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">chem_gray</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/zy/7y6kpdbx6p1ffrp1vtxy3ttc0000gn/T/ipykernel_2095/5758897.py:3: FutureWarning: `imshow` is deprecated since version 0.25 and will be removed in version 0.27. Please use `matplotlib`, `napari`, etc. to visualize images.
-  io.imshow(chem_gray);
-</pre></div>
-</div>
-<img alt="../../_images/c8c9452ae585a05d5a2ca6c86ecea6d389907496b58b5d86d4bd88b4654d8fbf.svg" src="../../_images/c8c9452ae585a05d5a2ca6c86ecea6d389907496b58b5d86d4bd88b4654d8fbf.svg" />
+<img alt="../../_images/0faaddbf74ef1ddede8f1667116d111720a80fb345f04be3b80714ab2c984a04.svg" src="../../_images/0faaddbf74ef1ddede8f1667116d111720a80fb345f04be3b80714ab2c984a04.svg" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chem_bw</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">img_as_ubyte</span><span class="p">(</span><span class="n">chem_gray</span> <span class="o">&gt;</span> <span class="mf">0.65</span><span class="p">)</span>
 <span class="c1"># above generates a boolean encoding</span>
-<span class="n">io</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">chem_bw</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">chem_bw</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/zy/7y6kpdbx6p1ffrp1vtxy3ttc0000gn/T/ipykernel_2095/3375097781.py:3: FutureWarning: `imshow` is deprecated since version 0.25 and will be removed in version 0.27. Please use `matplotlib`, `napari`, etc. to visualize images.
-  io.imshow(chem_bw);
-</pre></div>
-</div>
-<img alt="../../_images/edb973bec79dac0dd03f72ecd5646c4447c0bb3bd9f536b35b876b8c6fa81547.svg" src="../../_images/edb973bec79dac0dd03f72ecd5646c4447c0bb3bd9f536b35b876b8c6fa81547.svg" />
+<img alt="../../_images/b6db3d1c54a7c7b626ae8d851eb382043e8a41a907032f5b86b8d2dec73a944c.svg" src="../../_images/b6db3d1c54a7c7b626ae8d851eb382043e8a41a907032f5b86b8d2dec73a944c.svg" />
 </div>
 </div>
-<p>The appropriate threshold may vary from image to image, so manually setting a value is sometimes not practical. Scikit-image provides a number of functions, shown below in Table 4, in the filters module for automatically choosing a threshold. If you are not sure which of the functions below to use, there is a <code class="docutils literal notranslate"><span class="pre">try_all_filters()</span></code> function in the filters module that will try seven of them and plot the results for easy comparison.</p>
+<p>The appropriate threshold may vary from image to image, so manually setting a value is not always practical. Scikit-image provides a number of functions, shown below in Table 4, from the filters module for automatically choosing a threshold. If you are not sure which of the functions below to use, there is a <code class="docutils literal notranslate"><span class="pre">try_all_filters()</span></code> function in the filters module that will try seven of them and plot the results for easy comparison.</p>
 <p><strong>Table 4</strong> Threshold Functions from the <code class="docutils literal notranslate"><span class="pre">filters</span></code> Module</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Functions</p></th>
-<th class="head text-left"><p>Description*</p></th>
+<th class="head text-left"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
@@ -992,14 +981,17 @@
 </tbody>
 </table>
 </div>
-<p>*Threshold value functions provides a single threshold value while threshold masks provides arrays of values the size of the image. They are used in the same fashion except that the latter provides a per-pixel threshold.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Threshold value functions provide a single threshold value while threshold masks provide arrays of values the size of the image. They are used in the same fashion except that the latter provides a per-pixel threshold.</p>
+</div>
 <p>Below, we can see the Otsu filter being demonstrated.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">filters</span>
 <span class="n">threshold</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">threshold_otsu</span><span class="p">(</span><span class="n">chem_gray</span><span class="p">)</span>
 <span class="n">chem_otsu</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">img_as_ubyte</span><span class="p">(</span><span class="n">chem_gray</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">)</span>
-<span class="n">io</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">chem_otsu</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">chem_otsu</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -1016,23 +1008,19 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/916d8cedf1439a48e5e1303812fb9793730952578210d51522bcee0e530ec5c4.svg" src="../../_images/916d8cedf1439a48e5e1303812fb9793730952578210d51522bcee0e530ec5c4.svg" />
+<img alt="../../_images/ae119409f310f3eb8aa810a75b12f6415c7b782ef186b5e105409dbc1e604f14.svg" src="../../_images/ae119409f310f3eb8aa810a75b12f6415c7b782ef186b5e105409dbc1e604f14.svg" />
 </div>
 </div>
 <p>This is a plot of how many of each type of brightness value is present in the image. There are practically no pixels in the image that are black (value 0) or completely white (value 255), but there are two main collections of gray values. The contrast of this image can be increased by performing histogram equalization, which spreads these values out more evenly. The <code class="docutils literal notranslate"><span class="pre">exposure</span></code> module provides an <code class="docutils literal notranslate"><span class="pre">equalize_hist()</span></code> function for this task.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chem_eq</span> <span class="o">=</span> <span class="n">exposure</span><span class="o">.</span><span class="n">equalize_hist</span><span class="p">(</span><span class="n">chem_gray</span><span class="p">)</span>
-<span class="n">io</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">chem_eq</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">chem_eq</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/zy/7y6kpdbx6p1ffrp1vtxy3ttc0000gn/T/ipykernel_2095/1378964753.py:2: FutureWarning: `imshow` is deprecated since version 0.25 and will be removed in version 0.27. Please use `matplotlib`, `napari`, etc. to visualize images.
-  io.imshow(chem_eq);
-</pre></div>
-</div>
-<img alt="../../_images/3a53f52ae851088789e4f3fc55e4c6f760010c80014e098d0d7dca47ac247d50.svg" src="../../_images/3a53f52ae851088789e4f3fc55e4c6f760010c80014e098d0d7dca47ac247d50.svg" />
+<img alt="../../_images/2fcba8bf2c3753088a3eb7b7b6d81f70db96f1f151110974558ccbacdca67fcd.svg" src="../../_images/2fcba8bf2c3753088a3eb7b7b6d81f70db96f1f151110974558ccbacdca67fcd.svg" />
 </div>
 </div>
 <p>Histogram equalization does not produce a black-and-white image, but it does make the dark values darker and the light values lighter. If we look at the histogram for this image, it will be more even as shown below.</p>
@@ -1046,18 +1034,18 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/65deed9bce636dc64f4fa2de125d2da2cb68d34794328af435487758646c4c29.svg" src="../../_images/65deed9bce636dc64f4fa2de125d2da2cb68d34794328af435487758646c4c29.svg" />
+<img alt="../../_images/5addf27b47aba11c3d1c3ee53986e04c861ec4f91193b94698d2af0e933caa1a.svg" src="../../_images/5addf27b47aba11c3d1c3ee53986e04c861ec4f91193b94698d2af0e933caa1a.svg" />
 </div>
 </div>
 </section>
 </section>
 <section id="scikit-image-examples">
 <span id="id12"></span><h2>7.3 Scikit-Image Examples<a class="headerlink" href="#scikit-image-examples" title="Link to this heading">#</a></h2>
-<p>The scikit-image library contains numerous functions for performing various scientific analyses… so many that they cannot be comprehensively covered here. Below is a selection of some interesting examples that are relevant to science including counting objects in images, entropy analysis, and measuring eccentricity of objects. The examples below use mostly synthetic data to represent various data you might encounter in the lab. Real data can be easily extracted from publications but are not used here for copyright reasons.</p>
+<p>The scikit-image library contains numerous functions for performing various scientific analyses - so many that they cannot be comprehensively covered here. Below is a selection of some interesting examples that are relevant to science including counting objects in images, entropy analysis, and measuring eccentricity of objects. The examples below use mostly synthetic data to represent various data you might encounter in the lab. Real data can be easily extracted from publications but are not used here for copyright reasons.</p>
 <section id="blob-detection">
 <span id="id13"></span><span id="index-9"></span><h3>7.3.1 Blob Detection<a class="headerlink" href="#blob-detection" title="Link to this heading">#</a></h3>
 <p>A classic problem that translates across many scientific fields is to count spots in a photograph. A biologist may need to quantifying the number of bacteria colonies in a petri dish over the course of an experiment, while an astronomer may want to count the number of stars in a large cluster. In chemistry, this problem may occur as a need to quantify the number of nanoparticles in a photograph or using the locations to calculate the average distances between the particles.</p>
-<p>The good news is that the scikit-image library provides three functions that will take a photograph and return an array of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(z\)</span> coordinates indicating where the blobs are located in the image. If all you care about is the number of blobs, simply find the length of the returned array. There are three functions listed below which include Laplacian of Gaussian (LoG), Difference of Gaussian (DoG), and Determinant of Hessian (DoH). The LoG algorithm is the most accurate but the slowest while the DoH algorithm is the fastest. These functions only accept two-dimensional images, so if it is a color image, you will need to either convert it to grayscale or select a single color channel to work with.</p>
+<p>The good news is that the scikit-image library provides three functions that will take a photograph and return an array of <em>xyz</em> coordinates indicating where the blobs are located in the image. If all you care about is the number of blobs, simply find the length of the returned array. There are three functions listed below which include Laplacian of Gaussian (LoG), Difference of Gaussian (DoG), and Determinant of Hessian (DoH). The LoG algorithm is the most accurate but the slowest while the DoH algorithm is the fastest. These functions only accept two-dimensional images, so if it is a color image, you will need to either convert it to grayscale or select a single color channel to work with.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">skimage</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">blob_log</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="p">)</span>
 
 <span class="n">skimage</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">blob_dog</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="p">)</span>
@@ -1068,16 +1056,12 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dots</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;data/dots.png&#39;</span><span class="p">)</span>
-<span class="n">io</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dots</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dots</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/zy/7y6kpdbx6p1ffrp1vtxy3ttc0000gn/T/ipykernel_2095/4244484902.py:2: FutureWarning: `imshow` is deprecated since version 0.25 and will be removed in version 0.27. Please use `matplotlib`, `napari`, etc. to visualize images.
-  io.imshow(dots);
-</pre></div>
-</div>
-<img alt="../../_images/f044b3f852e5e6f4c2d73a60ed3a5823a97dd952ebaec2cefdc2a8ec2d548b97.svg" src="../../_images/f044b3f852e5e6f4c2d73a60ed3a5823a97dd952ebaec2cefdc2a8ec2d548b97.svg" />
+<img alt="../../_images/147cc45bfd62d625685a3ac4327a74c9cdab9f2ce532d34b2953b71550bf4126.svg" src="../../_images/147cc45bfd62d625685a3ac4327a74c9cdab9f2ce532d34b2953b71550bf4126.svg" />
 </div>
 </div>
 <p>An image of black dots on a white background is imported above, but the blob detection algorithms work best with light colors on a dark background. We will invert the image below by subtracting the values from the maximum value or using the <code class="docutils literal notranslate"><span class="pre">color.rgb2gray()</span></code>.</p>
@@ -1091,19 +1075,15 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dots_inverted</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">rgb2gray</span><span class="p">(</span><span class="mi">255</span> <span class="o">-</span> <span class="n">dots</span><span class="p">)</span>
-<span class="n">io</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dots_inverted</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dots_inverted</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/zy/7y6kpdbx6p1ffrp1vtxy3ttc0000gn/T/ipykernel_2095/1622494045.py:2: FutureWarning: `imshow` is deprecated since version 0.25 and will be removed in version 0.27. Please use `matplotlib`, `napari`, etc. to visualize images.
-  io.imshow(dots_inverted);
-</pre></div>
-</div>
-<img alt="../../_images/919f06645573149c91e74d774158504a62bdb8db0edcb2fd7c7b7f14216da4f7.svg" src="../../_images/919f06645573149c91e74d774158504a62bdb8db0edcb2fd7c7b7f14216da4f7.svg" />
+<img alt="../../_images/680f61f411d572061344955a83901ffbcc935d613f8d1a60c2bf7627217ef8a2.svg" src="../../_images/680f61f411d572061344955a83901ffbcc935d613f8d1a60c2bf7627217ef8a2.svg" />
 </div>
 </div>
-<p>To detect the blobs, we will use the <code class="docutils literal notranslate"><span class="pre">blob_dog()</span></code> function as demonstrated below. The function allows for a <code class="docutils literal notranslate"><span class="pre">threshold</span></code> argument to be set to adjust the sensitivity of the algorithm in finding blobs. A lower threshold results in smaller or less intense blobs included in the returned array.</p>
+<p>To detect the blobs, we will use the <code class="docutils literal notranslate"><span class="pre">blob_dog()</span></code> function as demonstrated below. The function allows for a <code class="docutils literal notranslate"><span class="pre">threshold</span></code> argument to be set to adjust the sensitivity of the algorithm in finding blobs. A lower threshold results in smaller or less intense blobs to be included in the returned array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">feature</span>
@@ -1129,23 +1109,19 @@
 </div>
 </div>
 </div>
-<p>The returned array includes three columns corresponding to the <span class="math notranslate nohighlight">\(y\)</span> position, <span class="math notranslate nohighlight">\(x\)</span> position, and intensity of each spot, respectively. The <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> coordinates for an image starts at the top left corner while typical plots start at the bottom left. Keep this in mind when comparing the coordinates to the image. To confirm that scikit-image found all the blobs, we can plot the coordinates on top of the image to see that they all line up. This is demonstrated below.</p>
+<p>The returned array includes three columns corresponding to the <em>y</em> position, <em>x</em> position, and intensity of each spot, respectively. The <em>x</em> and <em>y</em> coordinates for an image starts at the top left corner while typical plots start at the bottom left. Keep this in mind when comparing the coordinates to the image. To confirm that scikit-image found all the blobs, we can plot the coordinates on top of the image to see that they all line up. This is demonstrated below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">io</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dots_inverted</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dots_inverted</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">blobs</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">blobs</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;rx&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/zy/7y6kpdbx6p1ffrp1vtxy3ttc0000gn/T/ipykernel_2095/1109010740.py:1: FutureWarning: `imshow` is deprecated since version 0.25 and will be removed in version 0.27. Please use `matplotlib`, `napari`, etc. to visualize images.
-  io.imshow(dots_inverted)
-</pre></div>
-</div>
-<img alt="../../_images/e49fd36003511f0f3d668c1e4598127b23dd8d4c5c33e854e72be5092e93e06b.svg" src="../../_images/e49fd36003511f0f3d668c1e4598127b23dd8d4c5c33e854e72be5092e93e06b.svg" />
+<img alt="../../_images/1fa5102ad0ff6d503bf4d4772d16791f54bdf198d5109aa11b8ffa5073da15c9.svg" src="../../_images/1fa5102ad0ff6d503bf4d4772d16791f54bdf198d5109aa11b8ffa5073da15c9.svg" />
 </div>
 </div>
-<p>To find the number of spots, determine length of the array using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> Pythong function or using .</p>
+<p>To find the number of spots, determine length of the array using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> Python function or looking at the shape of the array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">blobs</span><span class="p">)</span>
@@ -1162,7 +1138,7 @@
 <section id="entropy-analysis">
 <span id="id14"></span><span id="index-10"></span><h3>7.3.2 Entropy Analysis<a class="headerlink" href="#entropy-analysis" title="Link to this heading">#</a></h3>
 <p>The term <em>entropy</em> outside of the physical sciences is used to represent a quantification of disorder or irregularity. In image analysis, this disorder is the amount of pixel (brightness or color) variation within a region of the image. As you will see below, entropy is the highest near the boundaries and in noisy areas of a photograph. This makes an entropy analysis useful for edge detection, checking for image quality, and detecting alterations to an image.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">filters.rank</span></code> modules contains the entropy function shown below. It works by going through the image pixel-by-pixel and calculating the entropy in the neighborhood. The <em>neighborhood</em> is the area around each pixel. An entropy value is recorded in the new array at each location and can be plotted to generate an entropy map. The entropy function takes two required arguments: the image (<code class="docutils literal notranslate"><span class="pre">img</span></code>) and a description of the neighborhood called a <em>structured element</em> (<code class="docutils literal notranslate"><span class="pre">selem</span></code>).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">filters.rank</span></code> modules contains the entropy function shown below. It works by going through the image pixel-by-pixel and calculating the entropy in the <em>neighborhood</em>, which is the area around each pixel. An entropy value is recorded in the new array at each location and can be plotted to generate an entropy map. The entropy function takes two required arguments: the image (<code class="docutils literal notranslate"><span class="pre">img</span></code>) and a description of the neighborhood called a <em>structured element</em> (<code class="docutils literal notranslate"><span class="pre">selem</span></code>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">filters</span><span class="o">.</span><span class="n">rank</span><span class="o">.</span><span class="n">entropy</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">selem</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1202,7 +1178,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a4462cab9d052acbd9f101a23c3c368519ccea171f8310e2291ab0c3fd81322c.svg" src="../../_images/a4462cab9d052acbd9f101a23c3c368519ccea171f8310e2291ab0c3fd81322c.svg" />
+<img alt="../../_images/7923a05e7675f55ffd975d593d630ff9292d78accf0471acbe850bf6822abee2.svg" src="../../_images/7923a05e7675f55ffd975d593d630ff9292d78accf0471acbe850bf6822abee2.svg" />
 </div>
 </div>
 <aside class="margin sidebar">
@@ -1216,36 +1192,28 @@
 </section>
 <section id="eccentricity">
 <span id="id15"></span><span id="index-11"></span><h3>7.3.3 Eccentricity<a class="headerlink" href="#eccentricity" title="Link to this heading">#</a></h3>
-<p><em>Eccentricity</em> is the measurement of how non-circular an object is. It runs from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1 with zero being a perfect circle and large values representing more eccentric objects. This can be useful for quantifying the shape of nanoparticles or droplets of liquid. The <code class="docutils literal notranslate"><span class="pre">measure</span></code> module from scikit-image provides an easy method of measuring eccentricity. First, let us first import an image of ovals for an example. Alternatively, you are welcome to use the <code class="docutils literal notranslate"><span class="pre">coins</span></code> image from the <code class="docutils literal notranslate"><span class="pre">data</span></code> module, but this will require some preprocessing such as increasing the contrast.</p>
+<p><em>Eccentricity</em> is the measurement of how non-circular an object is. It runs from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1 with zero being a perfect circle and larger values representing more eccentric objects. This can be useful for quantifying the shape of nanoparticles or droplets of liquid. The <code class="docutils literal notranslate"><span class="pre">measure</span></code> module from scikit-image provides an easy method of measuring eccentricity. First, let us first import an image of ovals for an example. Alternatively, you are welcome to use the <code class="docutils literal notranslate"><span class="pre">coins</span></code> image from the <code class="docutils literal notranslate"><span class="pre">data</span></code> module, but this will require some preprocessing such as increasing the contrast.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ovals</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;data/ovals.png&#39;</span><span class="p">)</span>
-<span class="n">io</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ovals</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ovals</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/zy/7y6kpdbx6p1ffrp1vtxy3ttc0000gn/T/ipykernel_2095/3848032356.py:2: FutureWarning: `imshow` is deprecated since version 0.25 and will be removed in version 0.27. Please use `matplotlib`, `napari`, etc. to visualize images.
-  io.imshow(ovals);
-</pre></div>
-</div>
-<img alt="../../_images/1bd22fc47df4ae7b67c6e8b344dde1fe5e945bef1ac9efdaf87d8d5f6d20db15.svg" src="../../_images/1bd22fc47df4ae7b67c6e8b344dde1fe5e945bef1ac9efdaf87d8d5f6d20db15.svg" />
+<img alt="../../_images/71245e2ac9048067310ba0f18f0d042143a2b07a76712f0766cedea24343fc8d.svg" src="../../_images/71245e2ac9048067310ba0f18f0d042143a2b07a76712f0766cedea24343fc8d.svg" />
 </div>
 </div>
 <p>The main function for measuring eccentricity is the <code class="docutils literal notranslate"><span class="pre">regionsprops()</span></code> function, but this function by itself cannot find the objects. Luckily, there is another function in the <code class="docutils literal notranslate"><span class="pre">measure</span></code> module called <code class="docutils literal notranslate"><span class="pre">label()</span></code> that will do exactly this, and this function requires the regions to be light with dark backgrounds. The following inverts the light and dark and also truncates the alpha channel from the RGBA image.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ovals_invert</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">rgb2gray</span><span class="p">(</span><span class="mi">255</span> <span class="o">-</span> <span class="n">ovals</span><span class="p">[:,:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">io</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ovals_invert</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ovals_invert</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/zy/7y6kpdbx6p1ffrp1vtxy3ttc0000gn/T/ipykernel_2095/2349859309.py:2: FutureWarning: `imshow` is deprecated since version 0.25 and will be removed in version 0.27. Please use `matplotlib`, `napari`, etc. to visualize images.
-  io.imshow(ovals_invert);
-</pre></div>
-</div>
-<img alt="../../_images/47145dfdef11b13bd77cb304040714cd97036a3c36a9e510f14dde8f5558620f.svg" src="../../_images/47145dfdef11b13bd77cb304040714cd97036a3c36a9e510f14dde8f5558620f.svg" />
+<img alt="../../_images/a25f3cda9f6b882cef0d32c241b79d98ace7ca1de113784b9734f2c48798ed50.svg" src="../../_images/a25f3cda9f6b882cef0d32c241b79d98ace7ca1de113784b9734f2c48798ed50.svg" />
 </div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">regionsprops()</span></code> function returns the properties on the two ovals in a list of lists. The first list corresponds to the first object and so on. Each list contains an extensive collection of properties, so it is worth visiting the scikit-image website to see the complete documentation. We are only concerned with eccentricity right now, so we can access the eccentricity of the first object with <code class="docutils literal notranslate"><span class="pre">props[0].eccentricity</span></code>, which gives a value of about 0.95 for the first object while the second object has a much lower values of about 0.40. This makes sense being that the first object is very eccentric while the second object is much more circular.</p>
@@ -1286,7 +1254,7 @@
 </section>
 <section id="further-reading">
 <h2>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
-<p>The scikit-image library with NumPy are likely all you will need for a vast majority of your scientific image processing, and the scikit-image project webpage is an excellent course of information and examples. The gallery page is particularly worth checking out as it provides a large number of examples highlighting the library’s capabilities. In the event there is an edge case the scikit-image cannot do, the pillow library may be of some use. Pillow provides more fundamental image processing functionality such as extracting metadata from the original file.</p>
+<p>The scikit-image library with NumPy are likely all you will need for a vast majority of your scientific image processing, and the scikit-image project webpage is an excellent course of information and examples. The gallery page is particularly worth checking out as it provides a large number of examples highlighting the library’s capabilities. In the event there is an edge case the scikit-image cannot do, the <a class="reference external" href="https://python-pillow.github.io/">pillow</a> library may be of some use. Pillow provides more fundamental image processing functionality such as extracting metadata from the original file.</p>
 <ol class="arabic simple">
 <li><p>Scikit-image Website. <a class="reference external" href="http://scikit-image.org/">http://scikit-image.org/</a> (free resource)</p></li>
 <li><p>Pillow Documentation Page. <a class="reference external" href="https://pillow.readthedocs.io/en/stable/">https://pillow.readthedocs.io/en/stable/</a> (free resource)</p></li>
