@@ -535,19 +535,23 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/bbc9cbaed2deaf7dd5d2ccb70adaa92482e84871c00f90b5e0a741bb47d5c2d3.svg" src="../../_images/bbc9cbaed2deaf7dd5d2ccb70adaa92482e84871c00f90b5e0a741bb47d5c2d3.svg" />
+<img alt="../../_images/09ce18c6bd0c631e05b5c44102cd9d064052e40bc76ddef727b28799b5dbd3b0.svg" src="../../_images/09ce18c6bd0c631e05b5c44102cd9d064052e40bc76ddef727b28799b5dbd3b0.svg" />
 </div>
 </div>
-<p>The image does not look like a grayscale image because matplotlib is treating the image as data (see <a class="reference internal" href="#id6"><span class="std std-ref">section 7.1.4</span></a>). Use <code class="docutils literal notranslate"><span class="pre">cmap='gray'</span></code> to make the image look like a grayscale image.</p>
+<p>The image does not look like a grayscale image because matplotlib is treating the image as data (see <a class="reference internal" href="#id6"><span class="std std-ref">section 7.1.4</span></a>). Use <code class="docutils literal notranslate"><span class="pre">cmap='gray',</span> <span class="pre">vmin=0,</span> <span class="pre">vmax=255</span></code> to make the image look like a grayscale image.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the image turns out black, you probably need to change <code class="docutils literal notranslate"><span class="pre">vmax=1</span></code>. See <a class="reference internal" href="#id10"><span class="std std-ref">section 7.2.2</span></a> for a discussion on encoding.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">moon</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">moon</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">moon</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">moon</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">255</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/cd5b1d2b6ba28238c473462f6efc3cd4c2b0a80e954e01517c220dd9d3441217.svg" src="../../_images/cd5b1d2b6ba28238c473462f6efc3cd4c2b0a80e954e01517c220dd9d3441217.svg" />
+<img alt="../../_images/c1780133a88065ea57b74df7ec2c5670b4cb20ee344bceb6527f4667ddfd262c.svg" src="../../_images/c1780133a88065ea57b74df7ec2c5670b4cb20ee344bceb6527f4667ddfd262c.svg" />
 </div>
 </div>
 <p>If we take a closer look at the data contained inside the lunar surface image, we find a two-dimensional NumPy array filled with integers ranging from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255.</p>
@@ -573,12 +577,12 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">moon_dark</span> <span class="o">=</span> <span class="n">moon</span> <span class="o">//</span> <span class="mi">2</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">moon_dark</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">moon_dark</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">255</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/98338fc4827ff1b18da28024b6ff5c04b1011b3b10ebce9b3839d3e6c7ed0599.svg" src="../../_images/98338fc4827ff1b18da28024b6ff5c04b1011b3b10ebce9b3839d3e6c7ed0599.svg" />
+<img alt="../../_images/677d389eab0b41861e55470a9a3db53b16acedea5c3f61ea73e9b501d10736de.svg" src="../../_images/677d389eab0b41861e55470a9a3db53b16acedea5c3f61ea73e9b501d10736de.svg" />
 </div>
 </div>
 </section>
@@ -598,7 +602,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/fc66fd395c3c8683f7d908a8c604e3d69d1d6447509dcd062f5cad5a6e4c9ab7.svg" src="../../_images/fc66fd395c3c8683f7d908a8c604e3d69d1d6447509dcd062f5cad5a6e4c9ab7.svg" />
+<img alt="../../_images/c4f120534cb6dbf0e139b152ab62a65d7417ddb50571f17a66b9433618ae9f6b.svg" src="../../_images/c4f120534cb6dbf0e139b152ab62a65d7417ddb50571f17a66b9433618ae9f6b.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -664,12 +668,12 @@
 <p>Looking at the array, you will notice that it is indeed three-dimensional with values residing in triplets. You may also notice that the numbers are rather small because most pixels in this particular image are near black. If we want to look at just the red values of the image, this can be accomplish by slicing the array.  The red is the first layer in the third dimension, so we should slice it <code class="docutils literal notranslate"><span class="pre">hubble[:,</span> <span class="pre">:,</span> <span class="pre">0]</span></code>. The brighter a group of pixels in the red channel image, the more red color that is present in that region.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">hubble</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">hubble</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">255</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6edc337ad43458e41669182df415f610ca5f66bc62e620318183daa4085cad7d.svg" src="../../_images/6edc337ad43458e41669182df415f610ca5f66bc62e620318183daa4085cad7d.svg" />
+<img alt="../../_images/16d07cf0a458dedf1cac92aa16dab610c900de7e260faf01a1ee1abc7c141402.svg" src="../../_images/16d07cf0a458dedf1cac92aa16dab610c900de7e260faf01a1ee1abc7c141402.svg" />
 </div>
 </div>
 </section>
@@ -684,7 +688,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/128b7b2440d435aab4ed7da30414fee850ba365b52db7bcf5635ae5f6dc6cfbe.svg" src="../../_images/128b7b2440d435aab4ed7da30414fee850ba365b52db7bcf5635ae5f6dc6cfbe.svg" />
+<img alt="../../_images/eef4335669a70da2e29026cb726092d132da737f5948e431a229b646683403b8.svg" src="../../_images/eef4335669a70da2e29026cb726092d132da737f5948e431a229b646683403b8.svg" />
 </div>
 </div>
 <p>If we look at the array for the flask image below, you will notice that this is a three-dimensional array with four color channels. This can happen in some file types such as Portable Network Graphics (PNG) where a fourth <em>alpha color channel</em> is supported making the coding RGBA. This channel measures opacity, which is how non-transparent a pixel is. All of the pixels in this image are fully opaque which is represented by <code class="docutils literal notranslate"><span class="pre">255</span></code>. If the image was fully transparent, the alpha values would be all zeros, and anything in between would be translucent. PNG images support an alpha channel as do many image formats, but JPG/JPEG images do not support this feature.</p>
@@ -761,18 +765,18 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ffa595f4d389d6c9eced9d75f09d9208e9747e5f4a445509fbc64683e776a652.svg" src="../../_images/ffa595f4d389d6c9eced9d75f09d9208e9747e5f4a445509fbc64683e776a652.svg" />
+<img alt="../../_images/ad0f27dec253ff10863a221b9ca470486b19020c3a9200e65efd16b46f290f0c.svg" src="../../_images/ad0f27dec253ff10863a221b9ca470486b19020c3a9200e65efd16b46f290f0c.svg" />
 </div>
 </div>
 <p>To change colormaps, input the name of a different colormap as a string in the optional <code class="docutils literal notranslate"><span class="pre">cmap</span></code> argument (e.g., <code class="docutils literal notranslate"><span class="pre">plt.imshow(hubble[:,:,0],</span> <span class="pre">cmap='magma')</span></code>). See <a class="reference external" href="https://matplotlib.org/examples/color/colormaps_reference.html">https://matplotlib.org/examples/color/colormaps_reference.html</a> for a list of available colormaps. It is strongly encouraged to use one of the <em>perceptually uniform</em> colormaps because they are more accurately interpreted by humans and also show up as a smooth, interpretable gradient when printed on a grayscale printer. Below is the display of the Hubble image red channel using the <code class="docutils literal notranslate"><span class="pre">Reds</span></code> colormap.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">hubble</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Reds&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">hubble</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Reds&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">255</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/566e9b0a53180ca83de8252bb8aac09d98153127f8b067da5f0ef3c987d9a973.svg" src="../../_images/566e9b0a53180ca83de8252bb8aac09d98153127f8b067da5f0ef3c987d9a973.svg" />
+<img alt="../../_images/c1babf85ac2e434345cdd8905006fe082b94a947c479edb2f97b9bd05918827b.svg" src="../../_images/c1babf85ac2e434345cdd8905006fe082b94a947c479edb2f97b9bd05918827b.svg" />
 </div>
 </div>
 <aside class="margin sidebar">
@@ -910,6 +914,7 @@
 </div>
 </div>
 </div>
+<p>If a grayscale image is encoded with floats from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1, then it is necessary set <code class="docutils literal notranslate"><span class="pre">vmin=0</span></code> and <code class="docutils literal notranslate"><span class="pre">vmax=255</span></code>. These are the min and max <em>possible</em> values from the image and are use to ensure that the range of possible values extend completely across the colormap. If these two parameters are excluded, matplotlib will automatically adjust how the values map to colors to use the full range of the colormap in the displayed image.</p>
 </section>
 <section id="image-contrast">
 <span id="id11"></span><span id="index-8"></span><h3>7.2.3 Image Contrast<a class="headerlink" href="#image-contrast" title="Link to this heading">#</a></h3>
@@ -919,24 +924,24 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chem</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">immunohistochemistry</span><span class="p">()</span>
 <span class="n">chem_gray</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">rgb2gray</span><span class="p">(</span><span class="n">chem</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">chem_gray</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">chem_gray</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0faaddbf74ef1ddede8f1667116d111720a80fb345f04be3b80714ab2c984a04.svg" src="../../_images/0faaddbf74ef1ddede8f1667116d111720a80fb345f04be3b80714ab2c984a04.svg" />
+<img alt="../../_images/71e2671bc57513a382ec760dd5ce9d7d97918039b9dda07ddd02bfed4aebef37.svg" src="../../_images/71e2671bc57513a382ec760dd5ce9d7d97918039b9dda07ddd02bfed4aebef37.svg" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chem_bw</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">img_as_ubyte</span><span class="p">(</span><span class="n">chem_gray</span> <span class="o">&gt;</span> <span class="mf">0.65</span><span class="p">)</span>
 <span class="c1"># above generates a boolean encoding</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">chem_bw</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">chem_bw</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b6db3d1c54a7c7b626ae8d851eb382043e8a41a907032f5b86b8d2dec73a944c.svg" src="../../_images/b6db3d1c54a7c7b626ae8d851eb382043e8a41a907032f5b86b8d2dec73a944c.svg" />
+<img alt="../../_images/853fe48ac32e88b7f211b04e6a1046a9d7c7d5a239010bc44440ec39aaa0a9f8.svg" src="../../_images/853fe48ac32e88b7f211b04e6a1046a9d7c7d5a239010bc44440ec39aaa0a9f8.svg" />
 </div>
 </div>
 <p>The appropriate threshold may vary from image to image, so manually setting a value is not always practical. Scikit-image provides a number of functions, shown below in Table 4, from the filters module for automatically choosing a threshold. If you are not sure which of the functions below to use, there is a <code class="docutils literal notranslate"><span class="pre">try_all_filters()</span></code> function in the filters module that will try seven of them and plot the results for easy comparison.</p>
@@ -991,7 +996,7 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">filters</span>
 <span class="n">threshold</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">threshold_otsu</span><span class="p">(</span><span class="n">chem_gray</span><span class="p">)</span>
 <span class="n">chem_otsu</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">img_as_ubyte</span><span class="p">(</span><span class="n">chem_gray</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">chem_otsu</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">chem_otsu</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -1008,19 +1013,19 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ae119409f310f3eb8aa810a75b12f6415c7b782ef186b5e105409dbc1e604f14.svg" src="../../_images/ae119409f310f3eb8aa810a75b12f6415c7b782ef186b5e105409dbc1e604f14.svg" />
+<img alt="../../_images/7b7414726248ab7ff8f074622efba29afc56ece044eb11d9149ffd9ee3744bb7.svg" src="../../_images/7b7414726248ab7ff8f074622efba29afc56ece044eb11d9149ffd9ee3744bb7.svg" />
 </div>
 </div>
 <p>This is a plot of how many of each type of brightness value is present in the image. There are practically no pixels in the image that are black (value 0) or completely white (value 255), but there are two main collections of gray values. The contrast of this image can be increased by performing histogram equalization, which spreads these values out more evenly. The <code class="docutils literal notranslate"><span class="pre">exposure</span></code> module provides an <code class="docutils literal notranslate"><span class="pre">equalize_hist()</span></code> function for this task.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chem_eq</span> <span class="o">=</span> <span class="n">exposure</span><span class="o">.</span><span class="n">equalize_hist</span><span class="p">(</span><span class="n">chem_gray</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">chem_eq</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">chem_eq</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2fcba8bf2c3753088a3eb7b7b6d81f70db96f1f151110974558ccbacdca67fcd.svg" src="../../_images/2fcba8bf2c3753088a3eb7b7b6d81f70db96f1f151110974558ccbacdca67fcd.svg" />
+<img alt="../../_images/b0fa489aa9396973b73d956af9e9637ff546064eee8c96cac40e843ef1fb6bf8.svg" src="../../_images/b0fa489aa9396973b73d956af9e9637ff546064eee8c96cac40e843ef1fb6bf8.svg" />
 </div>
 </div>
 <p>Histogram equalization does not produce a black-and-white image, but it does make the dark values darker and the light values lighter. If we look at the histogram for this image, it will be more even as shown below.</p>
@@ -1034,7 +1039,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5addf27b47aba11c3d1c3ee53986e04c861ec4f91193b94698d2af0e933caa1a.svg" src="../../_images/5addf27b47aba11c3d1c3ee53986e04c861ec4f91193b94698d2af0e933caa1a.svg" />
+<img alt="../../_images/d76f9b87ae1785160951f81efa92a797ede1aae931f4708261afef2f90afe6e7.svg" src="../../_images/d76f9b87ae1785160951f81efa92a797ede1aae931f4708261afef2f90afe6e7.svg" />
 </div>
 </div>
 </section>
@@ -1061,7 +1066,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/147cc45bfd62d625685a3ac4327a74c9cdab9f2ce532d34b2953b71550bf4126.svg" src="../../_images/147cc45bfd62d625685a3ac4327a74c9cdab9f2ce532d34b2953b71550bf4126.svg" />
+<img alt="../../_images/eea3ec92016acab421c0d5fd5bff85752a748a8c3f59b0f525151468568bd2de.svg" src="../../_images/eea3ec92016acab421c0d5fd5bff85752a748a8c3f59b0f525151468568bd2de.svg" />
 </div>
 </div>
 <p>An image of black dots on a white background is imported above, but the blob detection algorithms work best with light colors on a dark background. We will invert the image below by subtracting the values from the maximum value or using the <code class="docutils literal notranslate"><span class="pre">color.rgb2gray()</span></code>.</p>
@@ -1075,12 +1080,12 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dots_inverted</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">rgb2gray</span><span class="p">(</span><span class="mi">255</span> <span class="o">-</span> <span class="n">dots</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dots_inverted</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dots_inverted</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/680f61f411d572061344955a83901ffbcc935d613f8d1a60c2bf7627217ef8a2.svg" src="../../_images/680f61f411d572061344955a83901ffbcc935d613f8d1a60c2bf7627217ef8a2.svg" />
+<img alt="../../_images/3309afbf5877b0fe343c8e95894322e7ec0e938ededd2aa6983fb289cf5e837a.svg" src="../../_images/3309afbf5877b0fe343c8e95894322e7ec0e938ededd2aa6983fb289cf5e837a.svg" />
 </div>
 </div>
 <p>To detect the blobs, we will use the <code class="docutils literal notranslate"><span class="pre">blob_dog()</span></code> function as demonstrated below. The function allows for a <code class="docutils literal notranslate"><span class="pre">threshold</span></code> argument to be set to adjust the sensitivity of the algorithm in finding blobs. A lower threshold results in smaller or less intense blobs to be included in the returned array.</p>
@@ -1112,13 +1117,13 @@
 <p>The returned array includes three columns corresponding to the <em>y</em> position, <em>x</em> position, and intensity of each spot, respectively. The <em>x</em> and <em>y</em> coordinates for an image starts at the top left corner while typical plots start at the bottom left. Keep this in mind when comparing the coordinates to the image. To confirm that scikit-image found all the blobs, we can plot the coordinates on top of the image to see that they all line up. This is demonstrated below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dots_inverted</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dots_inverted</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">blobs</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">blobs</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;rx&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1fa5102ad0ff6d503bf4d4772d16791f54bdf198d5109aa11b8ffa5073da15c9.svg" src="../../_images/1fa5102ad0ff6d503bf4d4772d16791f54bdf198d5109aa11b8ffa5073da15c9.svg" />
+<img alt="../../_images/cf2001cf377f1c93fa43c72c0695e51082e8c798ec17a302124ea48d736d86b6.svg" src="../../_images/cf2001cf377f1c93fa43c72c0695e51082e8c798ec17a302124ea48d736d86b6.svg" />
 </div>
 </div>
 <p>To find the number of spots, determine length of the array using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> Python function or looking at the shape of the array.</p>
@@ -1178,7 +1183,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7923a05e7675f55ffd975d593d630ff9292d78accf0471acbe850bf6822abee2.svg" src="../../_images/7923a05e7675f55ffd975d593d630ff9292d78accf0471acbe850bf6822abee2.svg" />
+<img alt="../../_images/8622c0eba9218ac5080b86cce2854642383ba29e716b8a7ebef30f2b6f17500c.svg" src="../../_images/8622c0eba9218ac5080b86cce2854642383ba29e716b8a7ebef30f2b6f17500c.svg" />
 </div>
 </div>
 <aside class="margin sidebar">
@@ -1201,19 +1206,19 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/71245e2ac9048067310ba0f18f0d042143a2b07a76712f0766cedea24343fc8d.svg" src="../../_images/71245e2ac9048067310ba0f18f0d042143a2b07a76712f0766cedea24343fc8d.svg" />
+<img alt="../../_images/32799cc8ea46684621a543012a713e70cd4e2cb9443a695e6958f85b89742bee.svg" src="../../_images/32799cc8ea46684621a543012a713e70cd4e2cb9443a695e6958f85b89742bee.svg" />
 </div>
 </div>
 <p>The main function for measuring eccentricity is the <code class="docutils literal notranslate"><span class="pre">regionsprops()</span></code> function, but this function by itself cannot find the objects. Luckily, there is another function in the <code class="docutils literal notranslate"><span class="pre">measure</span></code> module called <code class="docutils literal notranslate"><span class="pre">label()</span></code> that will do exactly this, and this function requires the regions to be light with dark backgrounds. The following inverts the light and dark and also truncates the alpha channel from the RGBA image.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ovals_invert</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">rgb2gray</span><span class="p">(</span><span class="mi">255</span> <span class="o">-</span> <span class="n">ovals</span><span class="p">[:,:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ovals_invert</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ovals_invert</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a25f3cda9f6b882cef0d32c241b79d98ace7ca1de113784b9734f2c48798ed50.svg" src="../../_images/a25f3cda9f6b882cef0d32c241b79d98ace7ca1de113784b9734f2c48798ed50.svg" />
+<img alt="../../_images/43195e1cc1fe351e63b20e1151470ac3038529c74fafed784c383eee0976215e.svg" src="../../_images/43195e1cc1fe351e63b20e1151470ac3038529c74fafed784c383eee0976215e.svg" />
 </div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">regionsprops()</span></code> function returns the properties on the two ovals in a list of lists. The first list corresponds to the first object and so on. Each list contains an extensive collection of properties, so it is worth visiting the scikit-image website to see the complete documentation. We are only concerned with eccentricity right now, so we can access the eccentricity of the first object with <code class="docutils literal notranslate"><span class="pre">props[0].eccentricity</span></code>, which gives a value of about 0.95 for the first object while the second object has a much lower values of about 0.40. This makes sense being that the first object is very eccentric while the second object is much more circular.</p>
