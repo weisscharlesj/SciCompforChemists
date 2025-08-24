@@ -15,6 +15,23 @@
 
 Learning to use a number of popular Python scientific libraries to solve chemical problems is one of the themes of this book. A Python library can be thought of as a tool pack with premade functions for performing common tasks in scientific data processing, analysis, and visualization. For example, the matplotlib library provides a variety of functions for creating a wide range of plots while the scikit-learn library contains functions and resources for machine learning.
 
+## License
+
+This book is copyright © 2017-2025 Charles J. Weiss and is released under under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. All files with the book are also copyright and released under the CC BY-NC-SA 4.0 license unless otherwise noted (see README.txt files for more information).
+
+Answer keys to exercises are available to **instructors** upon request by [emailing](https://www.augie.edu/directory) me using your school email address. The answer keys are © Charles J. Weiss and are **not** released under a Creative Commons license.
+
+## PDF vs Web Versions
+
+This book has both a PDF and web version with different advantages listed below. The web version is recommended because it contains all the interactive features and is updated more regularly. The web version and book files are available on [GitHub](https://github.com/weisscharlesj/SciCompforChemists).
+
+| Web Version | PDF Version |
+|----------------  | --------------|
+| Interactive       | Static version     |
+| Easier to copy-and-paste code | Available offline |
+| Quicker navigation |  |
+| Is more regularly updated   | |
+
 ## Organization of Book
 
 This book is organized in order of more fundamental topics first, but not every chapter is a prerequisite for all subsequent chapters. Chapter 0 provides a quick introduction to Jupyter notebooks and chapters 1-2 provide background on the Python programming language. Anyone who already knows Python can skim or skip past these two chapters. Chapter 3 introduces plotting and visualization, and chapter 4 covers the NumPy library. Both chapter 3 and 4 are used *heavily* in this book and should not be bypassed. The pandas library is covered in chapter 5 which is used in some subsequent chapters, but not all. This library adds functionality and extra ease-of-use to NumPy. Anyone looking to streamline their schedule could skip this chapter, but be aware that it is heavily utilized in chapters 10, 11, and 13. However, chapters 10 and 13 should be largely readable by someone who is not familiar with pandas or at least has read sections 5.1-5.2. Chapters beyond chapter 5 are mostly applications, advanced topics, or cover libraries for very specific applications such as image processing, machine learning, bioinformatics, or optimization. Chapters 6-17 are designed to be mostly modular, so after getting through chapters 0-5, these subsequent chapters can be covered in any order depending up the reader's needs and interests. This book also has a few appendices that contain interesting topics, such as [controlling your code with widgets](appendix_00) or [visualizing atomic orbitals](appendix_02), that do not fit well into any of the chapters but are still worth checking out.
