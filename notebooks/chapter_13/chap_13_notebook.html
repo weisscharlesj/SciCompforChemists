@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -420,12 +420,12 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="chapter-13-machine-learning-using-scikit-learn">
-<span id="id1"></span><h1>Chapter 13: Machine Learning using Scikit-Learn<a class="headerlink" href="#chapter-13-machine-learning-using-scikit-learn" title="Link to this heading">#</a></h1>
-<div class="cell tag_remove-input docutils container">
+  <div class="cell tag_remove-input docutils container">
 </div>
-<p id="index-0">Machine learning is a hot topic with popular applications in driverless cars, internet search engines, and data analysis among many others. Numerous fields are utilizing machine learning, and chemistry is certainly no exception with papers using machine learning methods being published regularly. There is a considerable amount of hype around the topic along with debate about whether the field will live up to this hype. However, there is little doubt that machine learning is making a significant impact and is a powerful tool when used properly.</p>
-<p><em>Machine learning</em> occurs when a program exhibits behavior that is not explicitly programmed but rather is “learned” from data. This definition may seem somewhat unsatisfying because it is so broad that it is vague and only mildly informative. Perhaps a better way of explaining machine learning is through an example. In <a class="reference internal" href="#id2"><span class="std std-ref">section 13.1</span></a>, we are faced with the challenge of writing a program that can accurately predict the boiling point of simple alcohols when provided with information about the alcohols such as the molecular weight, number of carbon atoms, degree, etc… These pieces of information about each alcohol are known as <em>features</em> while the answer we aim to predict (i.e., boiling point) is the <em>target</em>. How can each feature be used to predict the target? To generate a program for predicting boiling points, we would need to pour over the data to see how each feature affects the boiling point. Next, we would need to write a script that somehow uses these trends to calculate the boiling points of alcohols we have never seen. This probably appears like a daunting task. Instead, we can use machine learning to solve this task by allowing the machine learning algorithms to figure out how to use the data and make predictions. Simply provide the machine learning algorithm with the features and targets on a number of alcohols and allow the machine learning algorithm to quantify the trends and develop a function to predict the boiling point of alcohols. In simple situations, this entire task can be completed in just a few minutes!
+<section class="tex2jax_ignore mathjax_ignore" id="chapter-13-machine-learning-using-scikit-learn">
+<span id="id1"></span><h1>Chapter 13: Machine Learning using Scikit-Learn<a class="headerlink" href="#chapter-13-machine-learning-using-scikit-learn" title="Link to this heading">#</a></h1>
+<p id="index-0">Machine learning is a hot topic with popular applications in driverless cars, internet search engines, and data analysis among many others. Numerous fields are utilizing machine learning, and chemistry is certainly no exception, with papers using machine learning methods being published regularly. There is a considerable amount of hype around the topic along with debate about whether the field will live up to this hype. However, there is little doubt that machine learning is making a significant impact and is a powerful tool when used properly.</p>
+<p><em>Machine learning</em> occurs when a program exhibits behavior that is not explicitly programmed but rather is “learned” from data. This definition may seem somewhat unsatisfying because it is so broad that it is vague and only mildly informative. Perhaps a better way of explaining machine learning is through an example. In <a class="reference internal" href="#id2"><span class="std std-ref">section 13.1</span></a>, we are faced with the challenge of writing a program that can accurately predict the boiling point of simple alcohols when provided with information about the alcohols, such as the molecular weight, number of carbon atoms, degree, etc. These pieces of information about each alcohol are known as <em>features</em>, while the answer we aim to predict (i.e., boiling point) is the <em>target</em>. How can each feature be used to predict the target? To generate a program for predicting boiling points, we would need to pour over the data to see how each feature affects the boiling point. Next, we would need to write a script that somehow uses these trends to calculate the boiling points of alcohols we have never seen. This probably appears like a daunting task. Instead, we can use machine learning to solve this task by allowing the machine learning algorithms to figure out how to use the data and make predictions. Simply provide the machine learning algorithm with the features and targets on a number of alcohols and allow the machine learning algorithm to quantify the trends and develop a function to predict the boiling point of alcohols. In simple situations, this entire task can be completed in just a few minutes!
 The sections in this chapter are broken down by types of machine learning. There are three major branches of machine learning: supervised, unsupervised, and reinforcement learning. This chapter will focus on the first two, which are the most applicable to chemistry and data science, while the latter relates more to robotics and is not as commonly employed in chemistry.</p>
 <p>There are multiple machine learning libraries for Python, but one of the most common, general-purpose machine learning libraries is scikit-learn. This library is simple to use, offers a wide array of common machine learning algorithms, and is installed by default with Anaconda. As you advance in machine learning, you may find it necessary to branch out to other libraries, but you will probably find that scikit-learn does almost everything you need it to do during your first year or two of using machine learning. In addition, scikit-learn includes functions for preprocessing data and evaluating the effectiveness of models.</p>
 <p id="index-1">The scikit-learn library is abbreviated <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> during imports. Each module needs to be imported individually, so you will see them imported throughout this chapter. We will be working with data and visualizing our results, so we will also be utilizing pandas, NumPy, and matplotlib. This chapter assumes the following imports.</p>
@@ -441,7 +441,7 @@ The sections in this chapter are broken down by types of machine learning. There
 <section id="supervised-learning">
 <span id="id2"></span><span id="index-2"></span><h2>13.1 Supervised Learning<a class="headerlink" href="#supervised-learning" title="Link to this heading">#</a></h2>
 <p><em>Supervised learning</em> is where the machine learning algorithms are provided with both feature and target information with the goal of developing a model to predict targets based on the features. When the supervised machine learning predictions are looking to categorize an item like a photo or type of metal complex, it is known as <em>classification</em>; and when the predictions are seeking a numerical value from a continuous range, it is a <em>regression</em> problem. Some machine learning algorithms are designed for only classification or only regression while others can do either.</p>
-<p>There are numerous algorithms for supervised learning; below are simple examples employing some well known and common algorithms. For a more in-depth coverage of the different machine learning algorithms and scikit-learn, see the <a class="reference internal" href="#fr13"><span class="std std-ref">Further Reading</span></a> section at the end of this chapter.</p>
+<p>There are numerous algorithms for supervised learning; below are simple examples employing some well-known and common algorithms. For a more in-depth coverage of the different machine learning algorithms and scikit-learn, see the <a class="reference internal" href="#fr13"><span class="std std-ref">Further Reading</span></a> section at the end of this chapter.</p>
 <section id="features-and-information">
 <span id="id3"></span><h3>13.1.1 Features and Information<a class="headerlink" href="#features-and-information" title="Link to this heading">#</a></h3>
 <p>The file titled <em>ROH_data.csv</em> contains information on over seventy simple alcohols (i.e., a single -OH with no other non-hydrocarbon function groups) including their boiling points. Our goal is to generate a function or algorithm to predict the boiling points of the alcohols based on the information on the alcohols, so here the target is the boiling point and features are the other information about the alcohols.</p>
@@ -536,7 +536,7 @@ The sections in this chapter are broken down by types of machine learning. There
 </div></div></div>
 </div>
 <p>The dataset includes the boiling point (K), molecular weight (g/mol), number of carbon atoms, whether or not it is aliphatic, degree, whether it is cyclic, and the average position of any aryl substituents. Scikit-learn requires that all features be represented numerically, so for the last three features <code class="docutils literal notranslate"><span class="pre">1</span></code> represents <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">0</span></code> represents <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
-<p>Not every feature will be equally helpful in predicting the boiling points. Chemical intuition may lead someone to propose that the molecular weight will have a relatively large impact on the boiling points, and the scatter plot below supports this prediction with boiling points increasing with molecular weight. However, the molecular weight alone is not enough to obtain a good boiling point prediction as there is as much as a one hundred degree variation in boiling points at around the same molecular weight. The color of the markers indicates the degree of the alcohol, and it is pretty clear that tertiary alcohols tend to have lower boiling points than primary and secondary alcohols which means there is a small amount of information in the degree that can be used to improve a boiling point prediction. If all the small amounts of information from each feature are combined, there is potential to produce a better boiling point prediction, and machine learning algorithms do exactly this.</p>
+<p>Not every feature will be equally helpful in predicting the boiling points. Chemical intuition may lead someone to propose that the molecular weight will have a relatively large impact on the boiling points, and the scatter plot below supports this prediction with boiling points increasing with molecular weight. However, the molecular weight alone is not enough to obtain a good boiling point prediction as there is as much as a one-hundred-degree variation in boiling points at around the same molecular weight. The color of the markers indicates the degree of the alcohol, and it is pretty clear that tertiary alcohols tend to have lower boiling points than primary and secondary alcohols, which means there is a small amount of information in the degree that can be used to improve a boiling point prediction. If all the small amounts of information from each feature are combined, there is potential to produce a better boiling point prediction, and machine learning algorithms do exactly this.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">ROH</span><span class="p">[</span><span class="s1">&#39;MW&#39;</span><span class="p">],</span> <span class="n">ROH</span><span class="p">[</span><span class="s1">&#39;bp&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">ROH</span><span class="p">[</span><span class="s1">&#39;degree&#39;</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
@@ -548,13 +548,13 @@ The sections in this chapter are broken down by types of machine learning. There
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/cd1fbdcfddd3d5d8c8b39d0a794b59450417862e3bd7fc77394efd6336348a99.svg" src="../../_images/cd1fbdcfddd3d5d8c8b39d0a794b59450417862e3bd7fc77394efd6336348a99.svg" />
+<img alt="../../_images/c26d8a91ac896a70b5c03cacd00c220fa508e8dad2af85dc3c90a1cbb2069980.svg" src="../../_images/c26d8a91ac896a70b5c03cacd00c220fa508e8dad2af85dc3c90a1cbb2069980.svg" />
 </div>
 </div>
 </section>
 <section id="train-test-split">
 <span id="id4"></span><h3>13.1.2 Train Test Split<a class="headerlink" href="#train-test-split" title="Link to this heading">#</a></h3>
-<p>Whenever training a machine learning model to make predictions, it is important to evaluate the accuracy of the predictions. It is unfair to test an algorithm on data it has already seen, so before training a model, first split the dataset into a training subset and testing subset. It is also important to shuffle the dataset before splitting it as many datasets are at least partially ordered. The alcohol dataset is roughly in order of molecular weight, so if an algorithm is trained on the first three-quarters of the dataset and then tested on the last quarter, training occurs on smaller alcohols and testing on larger alcohols. This could result in poorer predictions as the machine learning algorithm is not familiar with the trends of larger alcohols. The good news is that scikit-learn provides a built-in function for shuffling and splitting the dataset known as <code class="docutils literal notranslate"><span class="pre">train_test_split()</span></code>. The arguments are the features, target, and the fraction of the dataset to be used for testing. Below, a quarter of the dataset is allotted for testing (<code class="docutils literal notranslate"><span class="pre">test_size=0.25</span></code>).</p>
+<p>Whenever training a machine learning model to make predictions, it is important to evaluate the accuracy of the predictions. It is unfair to test an algorithm on data it has already seen, so before training a model, first split the dataset into a training subset and a testing subset. It is also important to shuffle the dataset before splitting it as many datasets are at least partially ordered. The alcohol dataset is roughly in order of molecular weight, so if an algorithm is trained on the first three-quarters of the dataset and then tested on the last quarter, training occurs on smaller alcohols and testing on larger alcohols. This could result in poorer predictions as the machine learning algorithm is not familiar with the trends of larger alcohols. The good news is that scikit-learn provides a built-in function for shuffling and splitting the dataset known as <code class="docutils literal notranslate"><span class="pre">train_test_split()</span></code>. The arguments are the features, target, and the fraction of the dataset to be used for testing. Below, a quarter of the dataset is allotted for testing (<code class="docutils literal notranslate"><span class="pre">test_size=0.25</span></code>).</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition tip">
@@ -602,8 +602,8 @@ The sections in this chapter are broken down by types of machine learning. There
 \[ target = w_0x_0 + w_1x_1 + w_2x_2 + w_3x_3 + w_4x_4 + w_5x_5 + ... \]</div>
 <p>The general procedure for supervised machine learning, regardless of model, usually includes three steps.</p>
 <ol class="arabic simple">
-<li><p>Create a model and attach it to a variable</p></li>
-<li><p>Train the model with the training data</p></li>
+<li><p>Create a model and attach it to a variable.</p></li>
+<li><p>Train the model with the training data.</p></li>
 <li><p>Evaluate the model using the testing data or use it to make predictions.</p></li>
 </ol>
 <p>To implement these steps, the linear model from the <code class="docutils literal notranslate"><span class="pre">linear_model</span></code> module is first created with the <code class="docutils literal notranslate"><span class="pre">LinearRegression()</span></code> function and assigned the variable <code class="docutils literal notranslate"><span class="pre">reg</span></code>. Next, it is trained using the <code class="docutils literal notranslate"><span class="pre">fit()</span></code> method and the training data from above.</p>
@@ -1238,7 +1238,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6fe00bc9a113dc6ff9e0aa3d56f46331ba15a422d76ee04269f046feaf31c7b7.svg" src="../../_images/6fe00bc9a113dc6ff9e0aa3d56f46331ba15a422d76ee04269f046feaf31c7b7.svg" />
+<img alt="../../_images/427dd273b4e6be28e0c0edb6677854405d58ca0ad87e91dbc258251ed8efd562.svg" src="../../_images/427dd273b4e6be28e0c0edb6677854405d58ca0ad87e91dbc258251ed8efd562.svg" />
 </div>
 </div>
 <p>This is a substantial improvement from using only the molecular weight to make predictions! If the above code is run again, the results will likely vary because the <code class="docutils literal notranslate"><span class="pre">train_test_split()</span></code> function randomly splits the dataset, so each time the above code is run, the algorithm is trained and tested on different portions of the original dataset.</p>
@@ -1258,10 +1258,10 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 </div>
-<p id="index-4">Another tool for evaluating the efficacy of a machine learning algorithm is <em>k-fold cross-validation</em>. The prediction results will vary depending upon how the dataset is randomly split into training and testing data. <em>K</em>-fold cross-validation compensates for this randomness by splitting the entire dataset into <em>k</em> (<em>k</em> being some number) chunks called <em>folds</em>. It then reserves one fold as the testing fold and trains the algorithm on the rest. The algorithm is tested using the testing fold and the process is repeated with a different fold reserved for testing (Figure 1). Each iteration trains a fresh algorithm, so it does not remember anything from the previous train/test iteration. The results for each iteration are provided at the end of this process.</p>
+<p id="index-4">Another tool for evaluating the efficacy of a machine learning algorithm is <em>k-fold cross-validation</em>. The prediction results will vary depending on how the dataset is randomly split into training and testing data. <em>K</em>-fold cross-validation compensates for this randomness by splitting the entire dataset into <em>k</em> (<em>k</em> being some number) chunks called <em>folds</em>. It then reserves one fold as the testing fold and trains the algorithm on the rest. The algorithm is tested using the testing fold, and the process is repeated with a different fold reserved for testing (Figure 1). Each iteration trains a fresh algorithm, so it does not remember anything from the previous train/test iteration. The results for each iteration are provided at the end of this process.</p>
 <p><img alt="" src="../../_images/cross_validation_folds.svg" /></p>
 <p><strong>Figure 1</strong> In each iteration of <em>k</em>-fold cross-validation, different folds of data are used for training and testing the algorithm.</p>
-<p>A demonstration of <em>k</em>-fold cross validation is show below. First, a cross-validation generator is created using the <code class="docutils literal notranslate"><span class="pre">ShuffleSplit()</span></code> function. This function shuffles the data to avoid having all similar alcohols in any particular fold. The linear model is then provided to the <code class="docutils literal notranslate"><span class="pre">cross_val_score()</span></code> function along with the feature and target data and the cross- validation generator.</p>
+<p>A demonstration of <em>k</em>-fold cross-validation is shown below. First, a cross-validation generator is created using the <code class="docutils literal notranslate"><span class="pre">ShuffleSplit()</span></code> function. This function shuffles the data to avoid having all similar alcohols in any particular fold. The linear model is then provided to the <code class="docutils literal notranslate"><span class="pre">cross_val_score()</span></code> function along with the feature and target data and the cross-validation generator.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">ShuffleSplit</span>
@@ -1291,7 +1291,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.96497805, 0.97114741, 0.95144255, 0.98827795, 0.97846902])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.97860827, 0.97219875, 0.93153479, 0.97539582, 0.95479081])
 </pre></div>
 </div>
 </div>
@@ -1304,7 +1304,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.9708629962460005)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.9625056908086304)
 </pre></div>
 </div>
 </div>
@@ -1966,17 +1966,17 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-824.25255334, 1024.31872264,  -31.85576121,    9.2405783 ,
-        -12.89220755,   15.9418657 ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-790.53554806,  989.82806956,  -30.64780139,   10.13197694,
+         -2.63180859,   15.918277  ])
 </pre></div>
 </div>
 </div>
 </div>
-<p>It is quite clear from the coefficients that the molecular weight and number of carbons are both by far the most important features to predicting the boiling points of alcohols. This makes chemical sense being that larger molecules have greater London dispersion forces thus increasing the boiling points.</p>
+<p>It is quite clear from the coefficients that the molecular weight and number of carbons are both by far the most important features to predicting the boiling points of alcohols. This makes chemical sense, being that larger molecules have greater London dispersion forces, thus increasing the boiling points.</p>
 </section>
 <section id="classification-using-random-forests">
 <span id="id8"></span><span id="index-6"></span><span id="index-5"></span><h3>13.1.6 Classification using Random Forests<a class="headerlink" href="#classification-using-random-forests" title="Link to this heading">#</a></h3>
-<p>Classification involves sorting items into discrete categories such as sorting alcohols, aldehydes/ketones, and amines by type based on features. Scikit-learn provides a number of algorithms designed for this type of task. One method is known as a <em>decision tree</em> (Figure 2, left) which sorts items into categories based on a series of conditions. For example, it might first sort chemicals based on which have degrees of unsaturation greater than zero because these are most likely to be the aldehydes and ketones. It will then take the samples with zero degrees of unsaturation, which are the alcohols and amines, and separate them through another condition based on other information about the chemical compounds. Decision trees are relatively simple and easily interpreted, but they tend not to perform particularly well in practice. An extension of the decision tree is the <em>random forest</em> (Figure 2, right) which trains a larger number of decision trees using different subsets of the training data resulting in large numbers of different decision trees. Each decision tree is used to predict the category, and the final prediction is based on the majority prediction of all the trees. Random forests tend to be more accurate than a single decision tree because even if every tree is only slightly better than random at making an accurate prediction, large numbers of decision trees have a much higher probability of making a correct prediction because of the law of large numbers.</p>
+<p>Classification involves sorting items into discrete categories such as sorting alcohols, aldehydes/ketones, and amines by type based on features. Scikit-learn provides a number of algorithms designed for this type of task. One method is known as a <em>decision tree</em> (Figure 2, left), which sorts items into categories based on a series of conditions. For example, it might first sort chemicals based on which have degrees of unsaturation greater than zero because these are most likely to be the aldehydes and ketones. It will then take the samples with zero degrees of unsaturation, which are the alcohols and amines, and separate them through another condition based on other information about the chemical compounds. Decision trees are relatively simple and easily interpreted, but they tend not to perform particularly well in practice. An extension of the decision tree is the <em>random forest</em> (Figure 2, right), which trains a larger number of decision trees using different subsets of the training data, resulting in large numbers of different decision trees. Each decision tree is used to predict the category, and the final prediction is based on the majority prediction of all the trees. Random forests tend to be more accurate than a single decision tree because even if every tree is only slightly better than random at making an accurate prediction, large numbers of decision trees have a much higher probability of making a correct prediction because of the law of large numbers.</p>
 <p><img alt="" src="../../_images/tree_and_forest.svg" /></p>
 <p><strong>Figure 2</strong> An illustration of a single decision tree (left) and a random forest (right) composed of numerous decision trees generated with different subsections of data.</p>
 </section>
@@ -2037,7 +2037,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 0, 0, 0, 0, 2, 1, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0,
        1, 2, 0, 0, 0, 2, 2, 0, 2])
 </pre></div>
 </div>
@@ -2051,7 +2051,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6774193548387096
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6451612903225806
 </pre></div>
 </div>
 </div>
@@ -2076,8 +2076,8 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[11,  0,  1],
-       [ 2,  2,  1],
-       [ 6,  0,  8]])
+       [ 3,  2,  0],
+       [ 7,  0,  7]])
 </pre></div>
 </div>
 </div>
@@ -2094,10 +2094,10 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3df8f526923f48a2e640ddca6c9549b56e767255a761bb63c20ac2c38210d9e1.svg" src="../../_images/3df8f526923f48a2e640ddca6c9549b56e767255a761bb63c20ac2c38210d9e1.svg" />
+<img alt="../../_images/a8b87544786dcb378ac5c2f642ffefbf637f454dc14636a35f44f62c856f8ce2.svg" src="../../_images/a8b87544786dcb378ac5c2f642ffefbf637f454dc14636a35f44f62c856f8ce2.svg" />
 </div>
 </div>
-<p>Every value in the diagonal has the same predicted category as the true value, making them correct predictions, whereas anything off diagonal are incorrect predictions. For example, the bottom left corner shows that six instance were predicted as category 2 but really belong to category 0. Examination of the confusion matrix shows that the most common erroneous prediction is a category 0. This could be due to, for example, the fact that alcohols and amines both tend to have degrees of unsaturation of zero in this dataset.</p>
+<p>Every value in the diagonal has the same predicted category as the true value, making them correct predictions, whereas anything off diagonal is an incorrect prediction. For example, the bottom left corner shows that six instances were predicted as category 2 but really belong to category 0. Examination of the confusion matrix shows that the most common erroneous prediction is a category 0. This could be due to, for example, the fact that alcohols and amines both tend to have degrees of unsaturation of zero in this dataset.</p>
 </section>
 </section>
 <section id="unsupervised-learning">
@@ -2105,7 +2105,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <p>Another major class of machine learning is <em>unsupervised learning</em> where no target value is provided to the machine learning algorithm. Unsupervised learning seeks to find patterns in the data instead of making predictions. One form of unsupervised problem is <em>dimensionality reduction</em> where the number of features is condensed down to typically two or three features while maintaining as much information as possible. Another unsupervised learning task is <em>clustering</em> where the algorithm attempts to group similar items in a dataset. Because no target label is available, the algorithm does not know what each group contains; it only knows that the data fall into a pattern of cohesive groups. <em>Blind signal separation (BSS)</em> is a third unsupervised task introduced below where the algorithm attempts at pulling apart mixed signals into its components without knowledge of the components. One application of BSS is extracting the spectra of pure compounds from spectra containing a mixture of chemical compounds.</p>
 <section id="dimensional-reduction">
 <span id="id12"></span><span id="index-9"></span><h3>13.2.1 Dimensional Reduction<a class="headerlink" href="#dimensional-reduction" title="Link to this heading">#</a></h3>
-<p>We will first address dimensionality reduction which typically condenses features down to two or three dimensions because it is often used in the visualization of high-dimensional data. To demonstrate this task, we will use scikit-learn’s <code class="docutils literal notranslate"><span class="pre">datasets</span></code> module which contains datasets along with data-generating functions. We will use the wine classification dataset that includes 178 samples of three different types of wines which we will classify based on features such as alcohol content, hue, malic acid, etc…</p>
+<p>We will first address dimensionality reduction, which typically condenses features down to two or three dimensions because it is often used in the visualization of high-dimensional data. To demonstrate this task, we will use scikit-learn’s <code class="docutils literal notranslate"><span class="pre">datasets</span></code> module, which contains datasets along with data-generating functions. We will use the wine classification dataset that includes 178 samples of three different types of wines, which we will classify based on features such as alcohol content, hue, malic acid, etc.</p>
 </section>
 <section id="load-wine-dataset">
 <span id="id13"></span><h3>13.2.2 Load Wine Dataset<a class="headerlink" href="#load-wine-dataset" title="Link to this heading">#</a></h3>
@@ -2118,7 +2118,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 </div>
-<p>The data is now stored as a dictionary-style object in the variable <code class="docutils literal notranslate"><span class="pre">wine</span></code> with the features stored under the key <code class="docutils literal notranslate"><span class="pre">data</span></code> and targets stored under <code class="docutils literal notranslate"><span class="pre">target</span></code>.</p>
+<p>The data is now stored as a dictionary-style object in the variable <code class="docutils literal notranslate"><span class="pre">wine</span></code>, with the features stored under the key <code class="docutils literal notranslate"><span class="pre">data</span></code> and targets stored under <code class="docutils literal notranslate"><span class="pre">target</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wine</span><span class="o">.</span><span class="n">data</span>
@@ -2163,7 +2163,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 </div>
-<p>Notice again that every data point, including the category, is a number because scikit-learn requires that all data are numerically encoded. We can get a full listing of the keys using the <code class="docutils literal notranslate"><span class="pre">keys()</span></code> method shown below. Most keys are self-explanatory except for the <code class="docutils literal notranslate"><span class="pre">DESCR</span></code> which provides a description of the dataset for those who are interested.</p>
+<p>Notice again that every data point, including the category, is a number because scikit-learn requires that all data be numerically encoded. We can get a full listing of the keys using the <code class="docutils literal notranslate"><span class="pre">keys()</span></code> method shown below. Most keys are self-explanatory except for the <code class="docutils literal notranslate"><span class="pre">DESCR</span></code>, which provides a description of the dataset for those who are interested.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wine</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
@@ -2188,7 +2188,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </section>
 <section id="reduce-dimensionality-of-wine-dataset">
 <span id="id14"></span><h3>13.2.3 Reduce Dimensionality of Wine Dataset<a class="headerlink" href="#reduce-dimensionality-of-wine-dataset" title="Link to this heading">#</a></h3>
-<p>Below is a list of thirteen features in the wine dataset which is too many to represent in a single plot, so it needs to be paired down to two or three.</p>
+<p>Below is a list of thirteen features in the wine dataset, which is too many to represent in a single plot, so it needs to be paired down to two or three.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wine</span><span class="o">.</span><span class="n">feature_names</span>
@@ -2213,17 +2213,17 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 </div>
-<p>Inevitably, some information will be lost by representing high-dimensionality data in lower dimensions, but the algorithms in scikit-learn are designed to preserve as much information as possible. Among the most common algorithms is <em>principle component analysis (PCA)</em> which determines the axes of greatest variation in the dataset known as principle components. The first principle component is the axis of greatest variation, the second principle component is the axis of the second greatest variation, and so on. Every subsequent principle component is also orthogonal to the previous principle components.</p>
-<p>As a simplified example, below is a dataset containing only two features. The axis of greatest variation slopes down and to the right, shown with a longer solid line, making this the first principle component. The second principle component is the axis of second greatest variation perpendicular to the first axis shown as a dotted line. If the data had a third dimension, the third principle component would come directly out of the page orthogonal to the first two principle components. Each data point is then represented by its relationship to the principle component axes. That is, the principle components are the new Cartesian axes. This may seem trivial with only two features, but it allows high-dimensional data to be reasonably represented in only two or three dimensions while preserving as much information as possible.</p>
+<p>Inevitably, some information will be lost by representing high-dimensionality data in lower dimensions, but the algorithms in scikit-learn are designed to preserve as much information as possible. Among the most common algorithms is <em>principal component analysis (PCA)</em>, which determines the axes of greatest variation in the dataset known as principal components. The first principal component is the axis of greatest variation, the second principal component is the axis of the second greatest variation, and so on. Every subsequent principal component is also orthogonal to the previous principal components.</p>
+<p>As a simplified example, below is a dataset containing only two features. The axis of greatest variation slopes down and to the right, shown with a longer solid line, making this the first principal component. The second principal component is the axis of second greatest variation perpendicular to the first axis shown as a dotted line. If the data had a third dimension, the third principal component would come directly out of the page orthogonal to the first two principal components. Each data point is then represented by its relationship to the principal component axes. That is, the principal components are the new Cartesian axes. This may seem trivial with only two features, but it allows high-dimensional data to be reasonably represented in only two or three dimensions while preserving as much information as possible.</p>
 <p><img alt="" src="../../_images/pca_graphic.svg" /></p>
-<p><strong>Figure 2</strong> Principle components are axes of greatest variation of a dataset in feature space. The first principle component (solid line) is the axis of greatest variation while the second principle component (dotted line) is the axis of second greatest variation orthogonal to the first.</p>
+<p><strong>Figure 2</strong> Principal components are axes of greatest variation of a dataset in feature space. The first principal component (solid line) is the axis of greatest variation while the second principal component (dotted line) is the axis of second greatest variation orthogonal to the first.</p>
 <p>The PCA algorithm is provided in the <code class="docutils literal notranslate"><span class="pre">decomposition</span></code> module of scikit-learn. Unsupervised learning procedures are similar to those of supervised learning except that there is no reason to split the data into training and testing sets, and instead of making predictions, the trained algorithm is used to transform the data. The general process is outlined below.</p>
 <ol class="arabic simple">
-<li><p>Create a model attached to a variable</p></li>
-<li><p>Train the model with the <code class="docutils literal notranslate"><span class="pre">fit()</span></code> method using all of the data</p></li>
-<li><p>Modify the data using the <code class="docutils literal notranslate"><span class="pre">transform()</span></code> method</p></li>
+<li><p>Create a model attached to a variable.</p></li>
+<li><p>Train the model with the <code class="docutils literal notranslate"><span class="pre">fit()</span></code> method using all of the data.</p></li>
+<li><p>Modify the data using the <code class="docutils literal notranslate"><span class="pre">transform()</span></code> method.</p></li>
 </ol>
-<p>Principle component analysis is sensitive to the scale of features, so before we proceed, we will scale the features using the <code class="docutils literal notranslate"><span class="pre">StandardScaler()</span></code> function introduced in <a class="reference internal" href="#id7"><span class="std std-ref">section 13.1.5</span></a>.</p>
+<p>Principal component analysis is sensitive to the scale of features, so before we proceed, we will scale the features using the <code class="docutils literal notranslate"><span class="pre">StandardScaler()</span></code> function introduced in <a class="reference internal" href="#id7"><span class="std std-ref">section 13.1.5</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
@@ -2239,7 +2239,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 </div>
-<p>When training the PCA model, it can take a number of arguments. Most are beyond the scope of this chapter, but the one you should focus on is <code class="docutils literal notranslate"><span class="pre">n_components=</span></code> where the user provides the number of principle components desired. In this case, we will obtain two principle components because it is the easiest to visualize.</p>
+<p>When training the PCA model, it can take a number of arguments. Most are beyond the scope of this chapter, but the one you should focus on is <code class="docutils literal notranslate"><span class="pre">n_components=</span></code> where the user provides the number of principal components desired. In this case, we will obtain two principal components because it is the easiest to visualize.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
@@ -2256,7 +2256,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 </div>
-<p>The result is a two-dimensional array where each column represents a principle component. We can plot these components against each other and color the markers based on the class.</p>
+<p>The result is a two-dimensional array where each column represents a principal component. We can plot these components against each other and color the markers based on the class.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">trans_data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">trans_data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">target</span><span class="p">);</span>
@@ -2264,15 +2264,15 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a4f4917e80532558b8991b85b43951b1c7c7697b621aafa326b308c9f08c640f.svg" src="../../_images/a4f4917e80532558b8991b85b43951b1c7c7697b621aafa326b308c9f08c640f.svg" />
+<img alt="../../_images/3832e72218e3e553331a317984a61c0741d4a0bce45e9c9b4a8fe671c2e7d846.svg" src="../../_images/3832e72218e3e553331a317984a61c0741d4a0bce45e9c9b4a8fe671c2e7d846.svg" />
 </div>
 </div>
 <p>We can see that the three categories of wine all form cohesive clusters with class 0 and 2 being well resolved and class 1 exhibiting slight overlap with the other two classes of wine. This suggests that we should have better luck distinguishing between class 0 and 2 than between these two classes and class 1.</p>
 </section>
 <section id="clustering">
 <span id="id15"></span><span id="index-11"></span><span id="index-10"></span><h3>13.2.4 Clustering<a class="headerlink" href="#clustering" title="Link to this heading">#</a></h3>
-<p>Clustering involves grouping similar items in a dataset, and this can be performed with a number of algorithms including <em>k</em>-means, agglomerative clustering, and Density Based Spacial Clustering Application with Noise (DBSCAN) among others. This process is somewhat similar to classification except that no labels are provided, so the algorithm does not know anything about the groups and must rely on the similarity of samples. Here we will use the DBSCAN clustering algorithm. This algorithm works by assigning items in a dataset as <em>core</em> data points if they are within a minimum distance (<code class="docutils literal notranslate"><span class="pre">eps</span></code>) of a minimum number of other samples in a dataset (<code class="docutils literal notranslate"><span class="pre">min_samples</span></code>). Clusters are built around these core data points, and any data point not within <code class="docutils literal notranslate"><span class="pre">eps</span></code> distance from a core data point is designated as <em>noise</em>, which means it is not assigned to any cluster. The larger the minimum distance and smaller minimum number of samples, the fewer clusters that are likely to be predicted by DBSCAN. One notable attribute of this algorithm versus some of the others mentioned above is that DBSCAN does not require the user to provide a requested number of clusters; it determines the number of clusters based on the other parameters mentioned above.</p>
-<p>To demonstrate clustering, we will generate a random, synthetic dataset using the <code class="docutils literal notranslate"><span class="pre">make_blob()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">sklearn.datasets</span></code> module. This function takes a number of arguments including the number of samples (<code class="docutils literal notranslate"><span class="pre">n_samples</span></code>), number of features (<code class="docutils literal notranslate"><span class="pre">n_features</span></code>), number of clusters (<code class="docutils literal notranslate"><span class="pre">centers</span></code>), and the standard deviation of the clusters (<code class="docutils literal notranslate"><span class="pre">cluster_std</span></code>). We will only generate two features to make this example easy to visualize. The output of <code class="docutils literal notranslate"><span class="pre">make_blobs()</span></code> is a NumPy array containing the features (<code class="docutils literal notranslate"><span class="pre">X</span></code>) and a second NumPy array containing the labels (<code class="docutils literal notranslate"><span class="pre">y</span></code>).</p>
+<p>Clustering involves grouping similar items in a dataset, and this can be performed with a number of algorithms including <em>k</em>-means, agglomerative clustering, and Density Based Spatial Clustering Application with Noise (DBSCAN) among others. This process is somewhat similar to classification except that no labels are provided, so the algorithm does not know anything about the groups and must rely on the similarity of samples. Here we will use the DBSCAN clustering algorithm. This algorithm works by assigning items in a dataset as <em>core</em> data points if they are within a minimum distance (<code class="docutils literal notranslate"><span class="pre">eps</span></code>) of a minimum number of other samples in a dataset (<code class="docutils literal notranslate"><span class="pre">min_samples</span></code>). Clusters are built around these core data points, and any data point not within <code class="docutils literal notranslate"><span class="pre">eps</span></code> distance from a core data point is designated as <em>noise</em>, which means it is not assigned to any cluster. The larger the minimum distance and smaller minimum number of samples, the fewer clusters that are likely to be predicted by DBSCAN. One notable attribute of this algorithm versus some of the others mentioned above is that DBSCAN does not require the user to provide a requested number of clusters; it determines the number of clusters based on the other parameters mentioned above.</p>
+<p>To demonstrate clustering, we will generate a random, synthetic dataset using the <code class="docutils literal notranslate"><span class="pre">make_blob()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">sklearn.datasets</span></code> module. This function takes a number of arguments, including the number of samples (<code class="docutils literal notranslate"><span class="pre">n_samples</span></code>), number of features (<code class="docutils literal notranslate"><span class="pre">n_features</span></code>), number of clusters (<code class="docutils literal notranslate"><span class="pre">centers</span></code>), and the standard deviation of the clusters (<code class="docutils literal notranslate"><span class="pre">cluster_std</span></code>). We will only generate two features to make this example easy to visualize. The output of <code class="docutils literal notranslate"><span class="pre">make_blobs()</span></code> is a NumPy array containing the features (<code class="docutils literal notranslate"><span class="pre">X</span></code>) and a second NumPy array containing the labels (<code class="docutils literal notranslate"><span class="pre">y</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
@@ -2288,10 +2288,10 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ea7b0e976fcfd12acb2efee91896abc3fde1179f2417fde1bdfcf89315a2efb8.svg" src="../../_images/ea7b0e976fcfd12acb2efee91896abc3fde1179f2417fde1bdfcf89315a2efb8.svg" />
+<img alt="../../_images/4323cb391756221f5afa0cb516c0a12172a8929033d282ef12e2788d5fe094fa.svg" src="../../_images/4323cb391756221f5afa0cb516c0a12172a8929033d282ef12e2788d5fe094fa.svg" />
 </div>
 </div>
-<p>We can see three distinct clusters with the cluster on the bottom being more distinct than the two at the top. Also notice that the scales of the two features are different by roughly a factor of two. Before we can use this data, we will need to normalize the scale of both features as clustering algorithms are sensitive to scale. For this task, we will use the <code class="docutils literal notranslate"><span class="pre">StandardScaler()</span></code> function introduced in <a class="reference internal" href="#id16"><span class="std std-ref">section 13.2.5</span></a>.</p>
+<p>We can see three distinct clusters, with the cluster on the bottom being more distinct than the two at the top. Also, notice that the scales of the two features are different by roughly a factor of two. Before we can use this data, we will need to normalize the scale of both features as clustering algorithms are sensitive to scale. For this task, we will use the <code class="docutils literal notranslate"><span class="pre">StandardScaler()</span></code> function introduced in <a class="reference internal" href="#id16"><span class="std std-ref">section 13.2.5</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SS</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
@@ -2944,7 +2944,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 </div>
-<p>The DBSCAN algorithm has designated which cluster each data point belongs to by assigning them an integer labels. Notice in the plot below that the labels assigned to each cluster are not the same as those in the previous plot. Clustering labels are not classes but rather are merely to indicate which data points belong to the same cluster. The values themselves do not matter. Two data points have been assigned values of <code class="docutils literal notranslate"><span class="pre">-1</span></code> which means these data points are noise. The <em>k</em>-means and agglomerative clustering algorithms would have assigned all data points, including outliers, to a cluster; but DBSCAN is willing to label outliers as noise.</p>
+<p>The DBSCAN algorithm has designated which cluster each data point belongs to by assigning them an integer label. Notice in the plot below that the labels assigned to each cluster are not the same as those in the previous plot. Clustering labels are not classes but rather are merely to indicate which data points belong to the same cluster. The values themselves do not matter. Two data points have been assigned values of <code class="docutils literal notranslate"><span class="pre">-1</span></code>, which means these data points are noise. The <em>k</em>-means and agglomerative clustering algorithms would have assigned all data points, including outliers, to a cluster; but DBSCAN is willing to label outliers as noise.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_ss</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_ss</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">DB</span><span class="o">.</span><span class="n">labels_</span><span class="p">);</span>
@@ -2952,21 +2952,21 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f1879e7225efcbbee04ffc7752161067b0b7623aa8a6b1c53cda53d826bd941f.svg" src="../../_images/f1879e7225efcbbee04ffc7752161067b0b7623aa8a6b1c53cda53d826bd941f.svg" />
+<img alt="../../_images/7d0d5de4e122cfddc7f148cc207f35191370b2e66d602f0acd8ca7d2c3f3a14e.svg" src="../../_images/7d0d5de4e122cfddc7f148cc207f35191370b2e66d602f0acd8ca7d2c3f3a14e.svg" />
 </div>
 </div>
 </section>
 <section id="blind-signal-separation">
 <span id="id16"></span><span id="index-12"></span><h3>13.2.5 Blind Signal Separation<a class="headerlink" href="#blind-signal-separation" title="Link to this heading">#</a></h3>
-<p>Blind signal (or source) separation (BSS) is the processes of separating independent component signals from a mixed signal. One application is in chemical spectroscopy where a spectrum may include signals from multiple chemical compounds in a mixture. If we provide the BSS algorithm multiple spectra of chemical mixtures where each mixture contains varying amounts of each chemical, the BSS algorithm should be able to separate the signals for each chemical component.</p>
+<p>Blind signal (or source) separation (BSS) is the process of separating independent component signals from a mixed signal. One application is in chemical spectroscopy where a spectrum may include signals from multiple chemical compounds in a mixture. If we provide the BSS algorithm multiple spectra of chemical mixtures where each mixture contains varying amounts of each chemical, the BSS algorithm should be able to separate the signals for each chemical component.</p>
 <p>To demonstrate this process, we will use infrared (IR) spectroscopy data containing mixtures of acetone, cyclohexane, toluene, and methanol in random ratios. Below are plots of four mixtures. We can see that, for example, the bands at ~3400 cm<span class="math notranslate nohighlight">\(^{-1}\)</span> and ~1000 cm<span class="math notranslate nohighlight">\(^{-1}\)</span> increase together suggesting that they originate from the same compound; this type of information can be used to discriminate which band belongs to which compound. However, instead of doing this manually, we can allow the machine learning algorithms to pick apart the spectra, and even better yet, yield complete spectra of each component.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/da6d31d7bf0228b2faa859a361c2a922aa407d858e85ef7a816eac5be3df0442.svg" src="../../_images/da6d31d7bf0228b2faa859a361c2a922aa407d858e85ef7a816eac5be3df0442.svg" />
+<img alt="../../_images/9262f111ddf56aeb149074803cd1a5d1c44de81ff40f158d89f94e51d98f1b94.svg" src="../../_images/9262f111ddf56aeb149074803cd1a5d1c44de81ff40f158d89f94e51d98f1b94.svg" />
 </div>
 </div>
 <p>For this task, we will use the <em>independent component analysis (ICA)</em> function called <code class="docutils literal notranslate"><span class="pre">fastICA()</span></code> available in scikit-learn. The process parallels the other unsupervised learning processes above of first training the algorithm using the <code class="docutils literal notranslate"><span class="pre">fit()</span></code> method followed by transforming the data using the <code class="docutils literal notranslate"><span class="pre">transform()</span></code> method. First we will load the data from the files and stack them into an array called <code class="docutils literal notranslate"><span class="pre">S_mix</span></code> where each column contains the data from a spectrum. For comparison purposes, we will also load IR spectra of each pure component into an array called <code class="docutils literal notranslate"><span class="pre">S_pure</span></code>. Normally we would not have spectra of pure components, hence the “blind” in blind signal separation, but this is just an example.</p>
-<p>The code below also grabs a copy of the wavenumbers (<code class="docutils literal notranslate"><span class="pre">wn</span></code>) for plotting purposes later on. The last 300 data points of the sprectra in this example are also being clipped off because they are a low signal high noise region of the spectra which reduces the effectiveness of the separation.</p>
+<p>The code below also grabs a copy of the wavenumbers (<code class="docutils literal notranslate"><span class="pre">wn</span></code>) for plotting purposes later on. The last 300 data points of the spectra in this example are also being clipped off because they are a low signal high noise region of the spectra which reduces the effectiveness of the separation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -3003,12 +3003,12 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 </div>
-<p>The next step is to train and transform the data. When generating the fastICA model, it requires the number of components (<code class="docutils literal notranslate"><span class="pre">n_components</span></code>) which is four in this case. One minor drawback of this algorithm is that the user must first know the number of components in the mixed signal.</p>
+<p>The next step is to train and transform the data. When generating the fastICA model, it requires the number of components (<code class="docutils literal notranslate"><span class="pre">n_components</span></code>), which is four in this case. One minor drawback of this algorithm is that the user must first know the number of components in the mixed signal.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The below example sets the <code class="docutils literal notranslate"><span class="pre">random_state=42</span></code>. This is set to keep the outputs of this Jupyter Book consistent over time but is not neccesary for regular use of the <code class="docutils literal notranslate"><span class="pre">FastICA()</span></code> function.</p>
+<p>The below example sets the <code class="docutils literal notranslate"><span class="pre">random_state=42</span></code>. This is set to keep the outputs of this Jupyter Book consistent over time but is not necessary for regular use of the <code class="docutils literal notranslate"><span class="pre">FastICA()</span></code> function.</p>
 </div>
 </aside>
 <div class="cell tag_remove-output docutils container">
@@ -3032,7 +3032,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 </div>
-<p>You may have noticed that instead of doing the <code class="docutils literal notranslate"><span class="pre">fit()</span></code> and <code class="docutils literal notranslate"><span class="pre">transform()</span></code> in two steps, we used a <code class="docutils literal notranslate"><span class="pre">fit_transform()</span></code> method. This method is present in many unsupervised algorithms allowing the user to perform both steps in a single function call. The resulting array <code class="docutils literal notranslate"><span class="pre">S_fit</span></code> contains the four extracted components where each column of the array is a component. We can plot each component next to IR spectra of pure compounds collected separately to see how it performed. Remember that the BSS algorithm does not know anything about what these components are, so interpreting them or matching them to real chemical compounds is left to the user.</p>
+<p>You may have noticed that instead of doing the <code class="docutils literal notranslate"><span class="pre">fit()</span></code> and <code class="docutils literal notranslate"><span class="pre">transform()</span></code> in two steps, we used a <code class="docutils literal notranslate"><span class="pre">fit_transform()</span></code> method. This method is present in many unsupervised algorithms, allowing the user to perform both steps in a single function call. The resulting array <code class="docutils literal notranslate"><span class="pre">S_fit</span></code> contains the four extracted components, where each column of the array is a component. We can plot each component next to IR spectra of pure compounds collected separately to see how it performed. Remember that the BSS algorithm does not know anything about what these components are, so interpreting them or matching them to real chemical compounds is left to the user.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -3052,7 +3052,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b5d327961f5336f5121cc1728a555287341e8a7729a1beaa36f9aca1ba56fdfd.svg" src="../../_images/b5d327961f5336f5121cc1728a555287341e8a7729a1beaa36f9aca1ba56fdfd.svg" />
+<img alt="../../_images/0f48b862bf8541ffadceb794c1637e34375896f8ebf8b2ce37edbc74cc40a46f.svg" src="../../_images/0f48b862bf8541ffadceb794c1637e34375896f8ebf8b2ce37edbc74cc40a46f.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3074,7 +3074,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f538f52be79dee5030303c94873792c638ff37f7b24db352a74d5bb6aee16f34.svg" src="../../_images/f538f52be79dee5030303c94873792c638ff37f7b24db352a74d5bb6aee16f34.svg" />
+<img alt="../../_images/7292825414c43d3cd99c0e1853efec27ddc5a4b7700a1f908547b1e206752ee6.svg" src="../../_images/7292825414c43d3cd99c0e1853efec27ddc5a4b7700a1f908547b1e206752ee6.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3096,7 +3096,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/357b19e1e678a13f2e3c5c27a954923ad5f60ce7c636ac6d14341300512f58d4.svg" src="../../_images/357b19e1e678a13f2e3c5c27a954923ad5f60ce7c636ac6d14341300512f58d4.svg" />
+<img alt="../../_images/655f0d8c9043579c7fb39a76a828b1e367384a845caa1484af2546f84777bbe5.svg" src="../../_images/655f0d8c9043579c7fb39a76a828b1e367384a845caa1484af2546f84777bbe5.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3118,15 +3118,15 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/27f58b354288486d779751b4fa45eaa833aa9f1947d8eb939f7990df9b52c276.svg" src="../../_images/27f58b354288486d779751b4fa45eaa833aa9f1947d8eb939f7990df9b52c276.svg" />
+<img alt="../../_images/6b0b5835de3bd385c6163ff63647828640d31836d949034bb303c7b1bb58ab6f.svg" src="../../_images/6b0b5835de3bd385c6163ff63647828640d31836d949034bb303c7b1bb58ab6f.svg" />
 </div>
 </div>
-<p>Overall, the fastICA algorithm did a decent job - sometimes even impressive job of picking out small features, but there are some discrepancies between the extracted and pure IR spectra. The first is that there are peaks that extend above the extracted spectra. A transmittance over 100% is not possible, but the algorithm does not know this. The <em>y</em>-axis scales of the extracted IR spectra also do not match the percent transmittance. While it is not shown here, sometimes the extracted components are also upside down. This is because the mixtures are assumed to be weighted sums of the components, and a component can be negative. If this bothers you, there is a related BSS algorithm called <em>non-negative matrix factorization (NMF)</em> supported in scikit-learn which requires each component to be non-negative. Finally, you may notice that there is a broad feature at around 3400 cm<span class="math notranslate nohighlight">\(^{-1}\)</span> in the acetone extracted component that is not in the pure compound. This is an O-H stretch from the methanol IR spectrum showing up in the acetone spectrum. This may be the result of hydrogen-bonding between methanol and acetone shifting the O-H band breaking down the assumption that the spectra of mixtures are purely additive.</p>
+<p>Overall, the fastICA algorithm did a decent job - sometimes even an impressive job of picking out small features, but there are some discrepancies between the extracted and pure IR spectra. The first is that there are peaks that extend above the extracted spectra. A transmittance over 100% is not possible, but the algorithm does not know this. The <em>y</em>-axis scales of the extracted IR spectra also do not match the percent transmittance. While it is not shown here, sometimes the extracted components are also upside down. This is because the mixtures are assumed to be weighted sums of the components, and a component can be negative. If this bothers you, there is a related BSS algorithm called <em>non-negative matrix factorization (NMF)</em> supported in scikit-learn which requires each component to be non-negative. Finally, you may notice that there is a broad feature at around 3400 cm<span class="math notranslate nohighlight">\(^{-1}\)</span> in the acetone extracted component that is not in the pure compound. This is an O-H stretch from the methanol IR spectrum showing up in the acetone spectrum. This may be the result of hydrogen-bonding between methanol and acetone shifting the O-H bond, breaking down the assumption that the spectra of mixtures are purely additive.</p>
 </section>
 </section>
 <section id="final-notes">
 <span id="id17"></span><h2>13.3 Final Notes<a class="headerlink" href="#final-notes" title="Link to this heading">#</a></h2>
-<p>There is a saying that there is no task so simple it cannot be done wrong, and machine learning is no exception. Machine learning, like any tool, can be used incorrectly leading to erroneous or error-prone results. One particular source of error in machine learning is making predictions outside the scope of the training dataset. That is, if we train an algorithm to predict the boiling points using aliphatic alcohols, there is no reason to expect that the algorithm should be able to accurately predict the boiling points of aromatic alcohols. Another risk in machine learning is overtraining an algorithm. Some algorithms provide numerous parameters which customize the behavior, and these parameters are often used to optimize the accuracy of the predictions. The parameters can be over optimized for the training data so that the algorithm then performs worse in predicts for non-training data. This is known as <em>overtraining</em> the algorithm. In all of the excitement about how powerful and useful machine learning is, we should always keep the sources of error in mind and always remember that just because a machine learning algorithm makes a prediction does not make it true.</p>
+<p>There is a saying that there is no task so simple it cannot be done wrong, and machine learning is no exception. Machine learning, like any tool, can be used incorrectly, leading to erroneous or error-prone results. One particular source of error in machine learning is making predictions outside the scope of the training dataset. That is, if we train an algorithm to predict the boiling points using aliphatic alcohols, there is no reason to expect that the algorithm should be able to accurately predict the boiling points of aromatic alcohols. Another risk in machine learning is overtraining an algorithm. Some algorithms provide numerous parameters which customize the behavior, and these parameters are often used to optimize the accuracy of the predictions. The parameters can be over-optimized for the training data so that the algorithm then performs worse in predictions for non-training data. This is known as <em>overtraining</em> the algorithm. In all of the excitement about how powerful and useful machine learning is, we should always keep the sources of error in mind and always remember that just because a machine learning algorithm makes a prediction does not make it true.</p>
 </section>
 <section id="further-reader">
 <span id="fr13"></span><h2>Further Reader<a class="headerlink" href="#further-reader" title="Link to this heading">#</a></h2>
@@ -3136,15 +3136,15 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <div><p>This is a great resource both on using scikit-learn and about machine learning algorithms implemented within (free resource)</p>
 </div></blockquote>
 </li>
-<li><p>VanderPlas, J. Python data Science Handbook: Essential Tools for Working with Data, 1st ed.; O’Reilly: Sebastopol, CA, 2017, chapter 5. Freely available from the author at <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/">https://jakevdp.github.io/PythonDataScienceHandbook/</a> (free resource)</p></li>
+<li><p>VanderPlas, J. Python Data Science Handbook: Essential Tools for Working with Data, 1st ed.; O’Reilly: Sebastopol, CA, 2017, chapter 5. Freely available from the author at <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/">https://jakevdp.github.io/PythonDataScienceHandbook/</a> (free resource)</p></li>
 <li><p>Müller, A. C.; Guido, S. <em>Introduction to Machine Learning with Python: A Guide for Data Scientists</em>, O’Reilly: Sebastopol, CA, 2016. -</p>
 <blockquote>
-<div><p>This book is general introduction to machine learning using scikit-learn and discusses many of the algorithms.</p>
+<div><p>This book is a general introduction to machine learning using scikit-learn and discusses many of the algorithms.</p>
 </div></blockquote>
 </li>
-<li><p>Géron, A. Hands-On Machine Learning with Scikit-Learn and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems, 1st ed.; O’Reilly: Sebastopol, CA 2017.</p>
+<li><p>Géron, A. Hands-On Machine Learning with Scikit-Learn and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems, 1st ed.; O’Reilly: Sebastopol, CA, 2017.</p>
 <blockquote>
-<div><p>This book provides a deeper discussion into the algorithms behind machine learning and provides an introduction into both scikit-learn and TensorFlow. A newer addition is also available that also provides an introduction to the keras machine learning library. The math is relatively approachable for someone without a strong math background, and the math can be glossed over if need be.</p>
+<div><p>This book provides a deeper discussion into the algorithms behind machine learning and provides an introduction into both scikit-learn and TensorFlow. A newer addition is also available that also provides an introduction to the Keras machine learning library. The math is relatively approachable for someone without a strong math background, and the math can be glossed over if need be.</p>
 </div></blockquote>
 </li>
 <li><p>Nallon,E. C.; Schnee, V. P.; Bright, C.; Polcha, M. P.; Li, Q. Chemical Discrimination with an Unmodified Graphene Chemical Sensor. <em>ACS Sens.</em> <strong>2016,</strong> 1, 26−31.</p>
@@ -3154,14 +3154,14 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </li>
 <li><p>Chen, J.; Wang, X. Z. A New Approach to Near-Infrared Spectral Data Analysis Using Independent Component Analysis. <em>J. Chem. Inf. Comput. Sci.</em> <strong>2001,</strong> 41, 992-1001.</p>
 <blockquote>
-<div><p>This article provides extra background on how <a class="reference internal" href="#id14"><span class="std std-ref">principle component analysis (PCA)</span></a> and <a class="reference internal" href="#id16"><span class="std std-ref">independant component analysis (ICA)</span></a> work, among other topics, and apply ICA to analyzing chemical mixtures using near-infrared spectroscopy. <a class="reference external" href="https://doi.org/10.1021/ci0004053">https://doi.org/10.1021/ci0004053</a></p>
+<div><p>This article provides extra background on how <a class="reference internal" href="#id14"><span class="std std-ref">principal component analysis (PCA)</span></a> and <a class="reference internal" href="#id16"><span class="std std-ref">independent component analysis (ICA)</span></a> work, among other topics, and applies ICA to analyzing chemical mixtures using near-infrared spectroscopy. <a class="reference external" href="https://doi.org/10.1021/ci0004053">https://doi.org/10.1021/ci0004053</a></p>
 </div></blockquote>
 </li>
 </ol>
 </section>
 <section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
-<p>Complete the following exercises in a Jupyter notebook and scikit-learn library. Any data file(s) refered to in the problems can be found in the <a class="reference external" href="https://github.com/weisscharlesj/SciCompforChemists/tree/master/notebooks">data</a> folder in the same directory as this chapter’s Jupyter notebook. Alternatively, you can download a zip file of the data for this chapter from <a class="reference external" href="https://github.com/weisscharlesj/data_SciCompforChem">here</a> by selecting the appropriate chapter file and then clicking the <strong>Download</strong> button.</p>
+<p>Complete the following exercises in a Jupyter notebook and scikit-learn library. Any data file(s) referred to in the problems can be found in the <a class="reference external" href="https://github.com/weisscharlesj/SciCompforChemists/tree/master/notebooks">data</a> folder in the same directory as this chapter’s Jupyter notebook. Alternatively, you can download a zip file of the data for this chapter from <a class="reference external" href="https://github.com/weisscharlesj/data_SciCompforChem">here</a> by selecting the appropriate chapter file and then clicking the <strong>Download</strong> button.</p>
 <ol class="arabic">
 <li><p>Import the data file <strong>ROH_data.csv</strong> containing data on simple alcohols and train a random forest algorithm to predict whether or not an alcohol is aliphatic. Remember to split the dataset using <code class="docutils literal notranslate"><span class="pre">train_test_split()</span></code> and evaluate the quality of the predictions.</p></li>
 <li><p>Open the file titled <strong>NMR_mixed_problem.csv</strong> which contains three <span class="math notranslate nohighlight">\(^1\)</span>H NMR spectra. Each spectrum (columns) is a mixture of three chemical compounds in different ratios (artificially generated). Use fastICA to separate out three pure <span class="math notranslate nohighlight">\(^1\)</span>H NMR spectra of each component. Compare your separated spectra to the pure NMR spectra in <strong>NMR_pure_problem.csv</strong>.</p></li>
@@ -3171,8 +3171,8 @@ the data points using color to represent each cluster.</p>
 <p>b) Use the <em>k</em>-means algorithm (<code class="docutils literal notranslate"><span class="pre">sklearn.cluster.KMeans</span></code>) to predict clusters for each datapoint in the set. This may require you to visit the Scikit-Learn website to view the documentation for this algorithm and function. Plot the data points using color to represent each cluster. You will need to provide this algorithm the number of clusters you feel is most appropriate.</p>
 </li>
 <li><p>Load the handwritten digits dataset using the <code class="docutils literal notranslate"><span class="pre">sklearn.datasets.load_digits()</span></code> function.</p>
-<p>a) Reduce the dimensionality of the dataset to two principle components and visualize it. Color the markers based on the category, and use <code class="docutils literal notranslate"><span class="pre">plt.cm.get_cmap('turbo',10)</span></code> to generate a colormap with ten colors. You will need to import <code class="docutils literal notranslate"><span class="pre">PCA</span></code> from <code class="docutils literal notranslate"><span class="pre">sklearn.decomposition</span></code>.</p>
-<p>b) Train the Gaussian Naive Bays algorithm to classify the digits. Be sure to evaluate the effectiveness using a testing dataset. Import <code class="docutils literal notranslate"><span class="pre">GaussianNB</span></code> from <code class="docutils literal notranslate"><span class="pre">sklearn.naive_bayes</span></code>.</p>
+<p>a) Reduce the dimensionality of the dataset to two principal components and visualize it. Color the markers based on the category, and use <code class="docutils literal notranslate"><span class="pre">plt.cm.get_cmap('turbo',10)</span></code> to generate a colormap with ten colors. You will need to import <code class="docutils literal notranslate"><span class="pre">PCA</span></code> from <code class="docutils literal notranslate"><span class="pre">sklearn.decomposition</span></code>.</p>
+<p>b) Train the Gaussian Naive Bayes algorithm to classify the digits. Be sure to evaluate the effectiveness using a testing dataset. Import <code class="docutils literal notranslate"><span class="pre">GaussianNB</span></code> from <code class="docutils literal notranslate"><span class="pre">sklearn.naive_bayes</span></code>.</p>
 </li>
 </ol>
 </section>

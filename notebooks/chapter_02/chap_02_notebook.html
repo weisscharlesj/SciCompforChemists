@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -518,7 +518,7 @@
 </section>
 <section id="list-comprehension">
 <span id="id4"></span><span id="index-2"></span><h3>2.1.2 List Comprehension<a class="headerlink" href="#list-comprehension" title="Link to this heading">#</a></h3>
-<p>At this point, you may have noticed that it is fairly common to generate a list populated with a series of numbers. If the values are evenly spaced integers, simply use the <code class="docutils literal notranslate"><span class="pre">range()</span></code> function and coverts it to a list using <code class="docutils literal notranslate"><span class="pre">list()</span></code>. In all other scenarios, you will need to create an empty list, use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to calculate the values, and <code class="docutils literal notranslate"><span class="pre">append</span></code> the values to the list as they are generated. Below is an example of generating a list of squares of all integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 9 using this method.</p>
+<p>At this point, you may have noticed that it is fairly common to generate a list populated with a series of numbers. If the values are evenly spaced integers, simply use the <code class="docutils literal notranslate"><span class="pre">range()</span></code> function and converts it to a list using <code class="docutils literal notranslate"><span class="pre">list()</span></code>. In all other scenarios, you will need to create an empty list, use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to calculate the values, and <code class="docutils literal notranslate"><span class="pre">append</span></code> the values to the list as they are generated. Below is an example of generating a list of squares of all integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 9 using this method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">[]</span>
@@ -601,7 +601,7 @@
 </div>
 </div>
 </div>
-<p>Therefore, the above assignments are an equivalent to the following code.</p>
+<p>Therefore, the above assignments are equivalent to the following code.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">He</span><span class="p">,</span> <span class="n">Li</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.01</span><span class="p">,</span> <span class="mf">4.00</span><span class="p">,</span> <span class="mf">5.39</span><span class="p">)</span>
@@ -645,7 +645,7 @@
 </div>
 </div>
 </div>
-<p>As an example looking ahead to chapter 8, the <code class="docutils literal notranslate"><span class="pre">quad()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code> module is a general-purpose method for integrating the area under mathematical functions. Along with the upper and lower limits, the <code class="docutils literal notranslate"><span class="pre">quad()</span></code> function requires a mathematical function in the form of a Python function (i.e., not just a mathematical expression). This would ordinarily require a formally defined Python function, but it is often more convenient to use a lambda function as a single use Python function as shown below. In the following example, we use integration to find the probability of finding a particle in the lowest state between 0 and 0.4 in a box of length 1 by performing the following integration.</p>
+<p>As an example looking ahead to chapter 8, the <code class="docutils literal notranslate"><span class="pre">quad()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code> module is a general-purpose method for integrating the area under mathematical functions. Along with the upper and lower limits, the <code class="docutils literal notranslate"><span class="pre">quad()</span></code> function requires a mathematical function in the form of a Python function (i.e., not just a mathematical expression). This would ordinarily require a formally defined Python function, but it is often more convenient to use a lambda function as a single-use Python function as shown below. In the following example, we use integration to find the probability of finding a particle in the lowest state between 0 and 0.4 in a box of length 1 by performing the following integration.</p>
 <div class="math notranslate nohighlight">
 \[ p = 2 \int_0^{0.4} sin^2(\pi x) \]</div>
 <div class="cell tag_remove-output docutils container">
@@ -693,7 +693,7 @@
 </section>
 <section id="dictionaries">
 <span id="id7"></span><span id="index-6"></span><h2>2.2 Dictionaries<a class="headerlink" href="#dictionaries" title="Link to this heading">#</a></h2>
-<p>Python <em>dictionaries</em> are a multi-element Python object type that connects keys and values analogous to the way a real dictionary connects a word (the key) with a definition (the value). These are also known as <em>associative arrays</em>. Dictionaries allow the user to access the stored values using a key without knowing anything about order of items in the dictionary. One way to think of a dictionary is an object full of variables and assigned values. For example, if we are looking to write a script to calculate the molecular weight of a compound based on its molecular formula, we would need access to the atomic mass of each element based on the elemental symbol. Here the key is the symbol and the value is the atomic mass. It looks something like a list with curly brackets and each item is a <code class="docutils literal notranslate"><span class="pre">key:value</span></code> pair separated by a colon. Below is an example of a dictionary containing the atomic masses of the first ten elements on the periodic table.</p>
+<p>Python <em>dictionaries</em> are a multi-element Python object type that connects keys and values analogous to the way a real dictionary connects a word (the key) with a definition (the value). These are also known as <em>associative arrays</em>. Dictionaries allow the user to access the stored values using a key without knowing anything about the order of items in the dictionary. One way to think of a dictionary is as an object full of variables and assigned values. For example, if we are looking to write a script to calculate the molecular weight of a compound based on its molecular formula, we would need access to the atomic mass of each element based on the elemental symbol. Here the key is the symbol and the value is the atomic mass. It looks something like a list with curly brackets and each item is a <code class="docutils literal notranslate"><span class="pre">key:value</span></code> pair separated by a colon. Below is an example of a dictionary containing the atomic masses of the first ten elements on the periodic table.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">AM</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span><span class="mf">1.01</span><span class="p">,</span> <span class="s1">&#39;He&#39;</span><span class="p">:</span><span class="mf">4.00</span><span class="p">,</span> <span class="s1">&#39;Li&#39;</span><span class="p">:</span><span class="mf">6.94</span><span class="p">,</span> <span class="s1">&#39;Be&#39;</span><span class="p">:</span><span class="mf">9.01</span><span class="p">,</span>
@@ -790,7 +790,7 @@
 </div>
 </div>
 <p>Notice that after adding sodium to the atomic mass dictionary, the order of all the pairs changed. Unlike a tuple or list, the order in a dictionary does not matter, so it is not preserved.</p>
-<p>Another method for generating a dictionary is the <code class="docutils literal notranslate"><span class="pre">dict()</span></code> function which takes in pair for nested lists or tuples and generates key:value pairs as follows.</p>
+<p>Another method for generating a dictionary is the <code class="docutils literal notranslate"><span class="pre">dict()</span></code> function which takes in pairs for nested lists or tuples and generates key:value pairs as follows.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dict</span><span class="p">([(</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;He&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Li&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">)])</span>
@@ -1029,7 +1029,7 @@
 </tbody>
 </table>
 </div>
-<p>Table 4 provides a description of the three functions that we will be using. To open a file not in the directory of your Jupyter notebook, you will need to change the directory Python is currently looking in, known as the <em>current working directory</em>, using the <code class="docutils literal notranslate"><span class="pre">chdir()</span></code> method. It takes a single string argument of the path in string format to the folder containing the files of interest. For example, if the files are in a folder called “my_folder” on your computer desktop, you might use something like the following. The exact format will vary depending upon your computer and if you are using macOS, Windows, or Linux.</p>
+<p>Table 4 provides a description of the three functions that we will be using. To open a file not in the directory of your Jupyter notebook, you will need to change the directory Python is currently looking in, known as the <em>current working directory</em>, using the <code class="docutils literal notranslate"><span class="pre">chdir()</span></code> method. It takes a single string argument of the path in string format to the folder containing the files of interest. For example, if the files are in a folder called “my_folder” on your computer desktop, you might use something like the following. The exact format will vary depending on your computer and if you are using macOS, Windows, or Linux.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/Users/me/Desktop/my_folder&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1038,7 +1038,7 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Another useful function from the os module is the <code class="docutils literal notranslate"><span class="pre">listdir()</span></code> method which lists all the files and directories in a folder. It is useful not only for determining the contents a folder but also for iterating through all the files in a folder. Imagine you have not just a single CSV file with data but an entire folder of similar CSV files that you need to import into Python. Instead of handling these files one at a time, you can have Python iterate through the folder and import each CSV file it finds. Below is a demonstration of importing and printing every CSV file on the computer desktop.</p>
+<p>Another useful function from the os module is the <code class="docutils literal notranslate"><span class="pre">listdir()</span></code> method which lists all the files and directories in a folder. It is useful not only for determining the contents of a folder but also for iterating through all the files in a folder. Imagine you have not just a single CSV file with data but an entire folder of similar CSV files that you need to import into Python. Instead of handling these files one at a time, you can have Python iterate through the folder and import each CSV file it finds. Below is a demonstration of importing and printing every CSV file on the computer desktop.</p>
 <div class="highlight-python notranslate" id="index-9"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/Users/me/Desktop&#39;</span><span class="p">)</span> <span class="c1"># changes directory</span>
 <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">():</span>
@@ -1051,8 +1051,8 @@
 </section>
 <section id="itertools-module">
 <span id="id11"></span><h3>2.4.2 <code class="docutils literal notranslate"><span class="pre">itertools</span></code> Module<a class="headerlink" href="#itertools-module" title="Link to this heading">#</a></h3>
-<p>The itertools modules contains an assortment of tools for looping over data in an efficient manner. There are a number of functions that are good to know from this module, but we will focus on the combinatorics functions <code class="docutils literal notranslate"><span class="pre">combinations()</span></code> and <code class="docutils literal notranslate"><span class="pre">permutations()</span></code>.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">combinations(collection,</span> <span class="pre">n)</span></code> function generates all n-sized combinations of elements from a collection such as a list, tuple, or range object. With <code class="docutils literal notranslate"><span class="pre">combinations()</span></code>, order does not matter, so <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2)</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">1)</span></code>.  In the below code, the <code class="docutils literal notranslate"><span class="pre">combinations()</span></code> functions generates all pairs of elements from numbers.</p>
+<p>The itertools module contains an assortment of tools for looping over data in an efficient manner. There are a number of functions that are good to know from this module, but we will focus on the combinatorics functions <code class="docutils literal notranslate"><span class="pre">combinations()</span></code> and <code class="docutils literal notranslate"><span class="pre">permutations()</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">combinations(collection,</span> <span class="pre">n)</span></code> function generates all n-sized combinations of elements from a collection such as a list, tuple, or range object. With <code class="docutils literal notranslate"><span class="pre">combinations()</span></code>, order does not matter, so <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2)</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">1)</span></code>.  In the below code, the <code class="docutils literal notranslate"><span class="pre">combinations()</span></code> function generates all pairs of elements from numbers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">itertools</span>
@@ -1063,12 +1063,12 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;itertools.combinations at 0x1091c47c0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;itertools.combinations at 0x1085cf3d0&gt;
 </pre></div>
 </div>
 </div>
 </div>
-<p>So what just happened? Instead of returning a list, it returned a <em>combinations object</em>. You do not need to know much about these except that they can be converted into lists or iterated over to extract their elements, and they are single use. Once you have iterated over them, they need to be generated again if you need them again.</p>
+<p>So what just happened? Instead of returning a list, it returned a <em>combinations object</em>. You do not need to know much about these except that they can be converted into lists or iterated over to extract their elements, and they are single-use. Once you have iterated over them, they need to be generated again if you need them again.</p>
 <aside class="margin sidebar" id="index-10">
 <p class="sidebar-title"></p>
 <div class="admonition note">
@@ -1099,7 +1099,7 @@
 </div>
 </div>
 <p>Each combination is returned in a tuple, and if the combination object is converted to a list, it would be a list of tuples.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">permutations()</span></code> function is very similar to <code class="docutils literal notranslate"><span class="pre">combinations()</span></code>, except with <code class="docutils literal notranslate"><span class="pre">permutations()</span></code>, order matters. Therefore, <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">1)</span></code> and <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2)</span></code> are nonequivalent. This is especially important in probability and statistics. Permutations of a group of items can be generated just like in the combinations example above.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">permutations()</span></code> function is very similar to <code class="docutils literal notranslate"><span class="pre">combinations()</span></code>, except with <code class="docutils literal notranslate"><span class="pre">permutations()</span></code>, order matters. Therefore, <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">1)</span></code> and <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2)</span></code> are non-equivalent. This is especially important in probability and statistics. Permutations of a group of items can be generated just like in the combinations example above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">permutations</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
@@ -1163,7 +1163,7 @@
 </tbody>
 </table>
 </div>
-<p>One point worth noting is that square brackets mean <em>inclusive</em> while the parentheses mean exclusive, so [0, 9) means from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 9 including 0 but not including 9.</p>
+<p>One point worth noting is that square brackets mean <em>inclusive</em> while parentheses mean exclusive, so [0, 9) means from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 9 including 0 but not including 9.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
@@ -1172,7 +1172,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5636973864673473
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.635704705432476
 </pre></div>
 </div>
 </div>
@@ -1184,7 +1184,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
 </pre></div>
 </div>
 </div>
@@ -1198,7 +1198,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3, 2, 5, 1, 6, 4]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[6, 5, 4, 3, 2, 1]
 </pre></div>
 </div>
 </div>
@@ -1216,7 +1216,7 @@
 </div>
 </div>
 </div>
-<p>If we want to calculate the number of neutrons in each isotope, we need to subtract each atomic number (equal to the number of protons) from the atomic mass. To accomplish this, it would be helpful to iterate over both lists simultaneously. Below are a couple methods of doing this.</p>
+<p>If we want to calculate the number of neutrons in each isotope, we need to subtract each atomic number (equal to the number of protons) from the atomic mass. To accomplish this, it would be helpful to iterate over both lists simultaneously. Below are a couple of methods of doing this.</p>
 <section id="zipping">
 <span id="id14"></span><h3>2.5.1 Zipping<a class="headerlink" href="#zipping" title="Link to this heading">#</a></h3>
 <p id="index-14">The simplest way to iterate over two lists simultaneously is to combine both lists into a single, iterable object and iterate over it once. The <code class="docutils literal notranslate"><span class="pre">zip()</span></code> function does exactly this by merging two lists or tuples, like a zipper on a jacket, into something like a nested list of lists. However, instead of returning a list or tuple, the <code class="docutils literal notranslate"><span class="pre">zip()</span></code> function returns a single-use zip object.</p>
@@ -1308,8 +1308,8 @@
 </section>
 <section id="encoding-numbers">
 <span id="id16"></span><span id="index-16"></span><h2>2.6 Encoding Numbers<a class="headerlink" href="#encoding-numbers" title="Link to this heading">#</a></h2>
-<p>During most of your work in Python, you do not need to think about how and where the values are stored because Python handles this for you. If you assign a number to a variable, Python will determine how to properly store this information. However, there are instances where you will need to understand a little about how numbers are encoded such as in gray scale images (chapter 7).</p>
-<p>Numbers on your computer are stored in <em>binary</em> which is a base two numbering system. That is, instead of using digits from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 9 to describe a number, only 0 and 1 are used.</p>
+<p>During most of your work in Python, you do not need to think about how and where the values are stored because Python handles this for you. If you assign a number to a variable, Python will determine how to properly store this information. However, there are instances where you will need to understand a little about how numbers are encoded such as in grayscale images (chapter 7).</p>
+<p>Numbers on your computer are stored in <em>binary</em> which is a base-two numbering system. That is, instead of using digits from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 9 to describe a number, only 0 and 1 are used.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
@@ -1317,7 +1317,7 @@
 <p>Standard numbers used by humans are a base-ten because we describe values using combinations of ten digits (0, 1, 2, 3, 4, 5, 6, 7, 8, and 9). Once we get to 9, the digit returns to 0 and a 1 is placed to the left. In a binary numbering system, we use only 0 and 1 to describe values. Analogously, once we get to 1, the digit returns to 0 and a 1 is placed to the left. Therefore, “10” is two in binary.</p>
 </div>
 </aside>
-<p>When a number is stored in memory, a fixed block of zeros/ones are allocated to storing this information, and depending upon the size or precision of the number to be stored, this block may need to be larger or smaller. By convention, the blocks are typically 8, 16, 32, 64, or 128 bits (i.e., zeros or ones) in size.  Table 6 lists a few examples with the terms used by Python.</p>
+<p>When a number is stored in memory, a fixed block of zeros/ones is allocated to store this information, and depending on the size or precision of the number to be stored, this block may need to be larger or smaller. By convention, the blocks are typically 8, 16, 32, 64, or 128 bits (i.e., zeros or ones) in size.  Table 6 lists a few examples with the terms used by Python.</p>
 <p><strong>Table 6</strong> Python Data Types</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -1353,16 +1353,16 @@
 </tbody>
 </table>
 </div>
-<p>Probably the simplest way to encode a number is an unsigned 8-bit integer. The “unsigned” means that is cannot have a negative sign while the “8-bit” means it can use eight zeros and ones to describe the number. For example, if we want to encode the number 3, it is 00000011. Even if not all the bits are strictly required, they have been allotted for the storage of this value, and with 8 bits, we can encode numbers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255 (i.e., 00000000 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 11111111). If we want to encode any larger numbers, a longer block of bits such as 16 or 32 will need to be allotted.</p>
-<p>To encode a negative integers, signed integers are required. The key difference between a signed and unsigned integer is that unsigned are always positive while signed can describe positive and negative values by using the first bit to describe the sign. The first bit is 0 for a positive and 1 for a negative number. Because the first bit is reserved for sign, a signed integer can describe values of only half the magnitude as an unsigned integer of the same bit length. For example, an 8-bit signed integer can describe values from -128 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 127. All combinations of zeros/ones that start with a 0 define positive values from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 127 while all combinations of zeros/ones that start with a 1 define values from -128 <span class="math notranslate nohighlight">\(\rightarrow\)</span> -1. That is, 10000000 equals -128 while 11111111 describes -1.</p>
+<p>Probably the simplest way to encode a number is an unsigned 8-bit integer. The “unsigned” means that it cannot have a negative sign while the “8-bit” means it can use eight zeros and ones to describe the number. For example, if we want to encode the number 3, it is 00000011. Even if not all the bits are strictly required, they have been allotted for the storage of this value, and with 8 bits, we can encode numbers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255 (i.e., 00000000 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 11111111). If we want to encode any larger numbers, a longer block of bits such as 16 or 32 will need to be allotted.</p>
+<p>To encode negative integers, signed integers are required. The key difference between a signed and unsigned integer is that an unsigned integer is always positive while a signed integer can describe positive and negative values by using the first bit to describe the sign. The first bit is 0 for a positive number and 1 for a negative number. Because the first bit is reserved for sign, a signed integer can describe values of only half the magnitude as an unsigned integer of the same bit length. For example, an 8-bit signed integer can describe values from -128 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 127. All combinations of zeros/ones that start with a 0 define positive values from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 127 while all combinations of zeros/ones that start with a 1 define values from -128 <span class="math notranslate nohighlight">\(\rightarrow\)</span> -1. That is, 10000000 equals -128 while 11111111 describes -1.</p>
 <p>For non-integer values, we need floats. The number of bits used to describe a float dictates the precision of the value… or rather is the number of decimal places the float extends. The various types listed above support both positive and negative values, and the more bits, the more precision they offer.</p>
 </section>
 <section id="advanced-functions">
 <span id="id17"></span><span id="index-17"></span><h2>2.7 Advanced Functions<a class="headerlink" href="#advanced-functions" title="Link to this heading">#</a></h2>
-<p>Section 1.9 describes positional arguments and keyword arguments as two methods for providing functions with information and instructions, but thus far, these methods have only allowed the function to take a predetermined numbers of arguments. While some flexibility is offered by the ability to set default keyword arguments that users have the option of overriding or leaving as the default, there is still a limit on the number of parameters in the function. What do we do when we need to write a function that takes an unspecified number of arguments? This section provides two approaches to solving this problem.</p>
+<p>Section 1.9 describes positional arguments and keyword arguments as two methods for providing functions with information and instructions, but thus far, these methods have only allowed the function to take a predetermined number of arguments. While some flexibility is offered by the ability to set default keyword arguments that users have the option of overriding or leaving as the default, there is still a limit on the number of parameters in the function. What do we do when we need to write a function that takes an unspecified number of arguments? This section provides two approaches to solving this problem.</p>
 <section id="variable-positional-arguments">
 <span id="id18"></span><h3>2.7.1 Variable Positional Arguments<a class="headerlink" href="#variable-positional-arguments" title="Link to this heading">#</a></h3>
-<p>As a possible use case, it is common practice in lab to purify a solid compound by recrystallization, and chemists will often harvest multiple crops of crystals from the same solution to get the highest possible yield. If we want to write a function that returns the percent yield of a synthesized compound using the theoretical yield and the yields of each recrystallization crop, we are faced with the challenge of not knowing how many crops to expect. One solution is a var-positional argument.</p>
+<p>As a possible use case, it is common practice in labs to purify a solid compound by recrystallization, and chemists will often harvest multiple crops of crystals from the same solution to get the highest possible yield. If we want to write a function that returns the percent yield of a synthesized compound using the theoretical yield and the yields of each recrystallization crop, we are faced with the challenge of not knowing how many crops to expect. One solution is a var-positional argument.</p>
 <p>The <em>var-positional argument</em> (often *<em>arg</em>), is a positional argument that accepts variable numbers of inputs. The arguments are then stored as a local tuple in the function attached to the <code class="docutils literal notranslate"><span class="pre">arg</span></code> variable. Even though it is extremely common in examples to see people use <code class="docutils literal notranslate"><span class="pre">arg</span></code> as the variable, you may use any non-reserved variable you like as long as you precede it with an asterisk in the function definition. For example, a function for calculating the percent yield is shown below with <code class="docutils literal notranslate"><span class="pre">g_theor</span></code> as the theoretical yield in grams and <code class="docutils literal notranslate"><span class="pre">g_crops</span></code> as the var-positional parameter storing the mass of each crop of crystals in grams.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1386,7 +1386,7 @@
 </div>
 </div>
 </div>
-<p>Interestingly, depending upon how you write the internals of the function, the var-positional argument is not strictly necessary for the function to work. In this case, because the <code class="docutils literal notranslate"><span class="pre">sum()</span></code> function returns <code class="docutils literal notranslate"><span class="pre">0</span></code> if no arguments are passed to it, the <code class="docutils literal notranslate"><span class="pre">per_yield()</span></code> function still works with no error returned.</p>
+<p>Interestingly, depending on how you write the internals of the function, the var-positional argument is not strictly necessary for the function to work. In this case, because the <code class="docutils literal notranslate"><span class="pre">sum()</span></code> function returns <code class="docutils literal notranslate"><span class="pre">0</span></code> if no arguments are passed to it, the <code class="docutils literal notranslate"><span class="pre">per_yield()</span></code> function still works with no error returned.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">per_yield</span><span class="p">(</span><span class="mf">1.32</span><span class="p">)</span>
@@ -1402,7 +1402,7 @@
 </section>
 <section id="variable-keyword-arguments">
 <span id="id19"></span><h3>2.7.2 Variable Keyword Arguments<a class="headerlink" href="#variable-keyword-arguments" title="Link to this heading">#</a></h3>
-<p>Similarly, an unspecified number of keyword arguments can also be accepted by a Python function using <em>var-keyword arguments</em>. In this case, the user not only dictates the number of arguments but also picks the variable names. The user-defined variables and values are stored in a local dictionary as key:value pairs. As an example, we can write a function that calculates the molar mass of a compounds based on the number and type of elements it contains. It is certainly possible to write a function with every chemical element as a keyword argument, but this gets absurd with so many chemical elements to choose from. Instead, we can use a var-keyword parameter as demonstrated below. The var-keyword argument is indicated with a <code class="docutils literal notranslate"><span class="pre">**</span></code> before the variable name. The function below is only designed to work with the first nine elements for brevity.</p>
+<p>Similarly, an unspecified number of keyword arguments can also be accepted by a Python function using <em>var-keyword arguments</em>. In this case, the user not only dictates the number of arguments but also picks the variable names. The user-defined variables and values are stored in a local dictionary as key:value pairs. As an example, we can write a function that calculates the molar mass of a compound based on the number and type of elements it contains. It is certainly possible to write a function with every chemical element as a keyword argument, but this gets absurd with so many chemical elements to choose from. Instead, we can use a var-keyword parameter as demonstrated below. The var-keyword argument is indicated with a <code class="docutils literal notranslate"><span class="pre">**</span></code> before the variable name. The function below is only designed to work with the first nine elements for brevity.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mol_mass</span><span class="p">(</span><span class="o">**</span><span class="n">elements</span><span class="p">):</span>
@@ -1479,7 +1479,7 @@
 </div>
 </div>
 </div>
-<p>It works! In the second example above, the <code class="docutils literal notranslate"><span class="pre">half_life()</span></code> function is run four times because the function called itself an additional three times. What happens if we feed the function 1.5 half-lives? Like a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop with a faulty termination condition, this function will keep going because <code class="docutils literal notranslate"><span class="pre">hl</span></code> never equals zero. Luckily, Python has a safeguard that stops recursive functions from running more than a thousand iterations, but this is still a problem. We can protect against this issue by doing a check at the start of the function to ensure an integer is provided using the <code class="docutils literal notranslate"><span class="pre">isinstance()</span></code> function which takes two arguments, the variable and the object type.</p>
+<p>It works! In the second example above, the <code class="docutils literal notranslate"><span class="pre">half_life()</span></code> function is run four times because the function called itself an additional three times. What happens if we feed the function 1.5 half-lives? Like a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop with a faulty termination condition, this function will keep going because <code class="docutils literal notranslate"><span class="pre">hl</span></code> never equals zero. Luckily, Python has a safeguard that stops recursive functions from running more than a thousand iterations, but this is still a problem. We can protect against this issue by doing a check at the start of the function to ensure an integer is provided using the <code class="docutils literal notranslate"><span class="pre">isinstance()</span></code> function which takes two arguments: the variable and the object type.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1532,10 +1532,10 @@
 </section>
 <section id="error-handling">
 <span id="id21"></span><span id="index-19"></span><h2>2.8 Error Handling<a class="headerlink" href="#error-handling" title="Link to this heading">#</a></h2>
-<p>It doesn’t take long to realize that error messages are an inevitable part of computer programming, so it is helpful to know what the different type of errors messages mean and how to deal with them. This section provides a quick overview of major types of error messages and how to get Python to work past them when appropriate.</p>
+<p>It doesn’t take long to realize that error messages are an inevitable part of computer programming, so it is helpful to know what the different types of error messages mean and how to deal with them. This section provides a quick overview of major types of error messages and how to get Python to work past them when appropriate.</p>
 <section id="types-of-errors">
 <span id="id22"></span><h3>2.8.1 Types of Errors<a class="headerlink" href="#types-of-errors" title="Link to this heading">#</a></h3>
-<p>Whenever you encounter an error message, it includes the type of error followed by more details. There are numerous types of errors, but there are a few errors types that are more prevalent and worth being familiar with. Below is a short list of some of these common error types.</p>
+<p>Whenever you encounter an error message, it includes the type of error followed by more details. There are numerous types of errors, but there are a few error types that are more prevalent and worth being familiar with. Below is a short list of some of these common error types.</p>
 <p><strong>Table 7</strong> A Selected List of Python Error Types</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -1598,7 +1598,7 @@
 </section>
 <section id="syntaxerror">
 <h4><code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code><a class="headerlink" href="#syntaxerror" title="Link to this heading">#</a></h4>
-<p>A programming language’s syntax is the set of rules that dictate how the code is formatted,  the appropriate symbols, valid values and variables, etc… It’s all the rules that we’ve been learning about in the past couple of chapters. A <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> indicates that your code violated one of these rules. To be helpful, the error message shows the line of code with the invalid syntax and points to where in the line the problem seems to be occurring.</p>
+<p>A programming language’s syntax is the set of rules that dictate how the code is formatted,  the appropriate symbols, valid values and variables, etc. It’s all the rules that we’ve been learning about in the past couple of chapters. A <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> indicates that your code violated one of these rules. To be helpful, the error message shows the line of code with the invalid syntax and points to where in the line the problem seems to be occurring.</p>
 <p>In the first example below, the error occurred because <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> is not a valid operator in Python.</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
@@ -1634,7 +1634,7 @@
 </section>
 <section id="typeerror">
 <h4><code class="docutils literal notranslate"><span class="pre">TypeError</span></code><a class="headerlink" href="#typeerror" title="Link to this heading">#</a></h4>
-<p>A <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> occurs when using the wrong object type for a particular function or application. For example, Python cannot take the absolute value of the letter, so this generates a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> occurs when using the wrong object type for a particular function or application. For example, Python cannot take the absolute value of a letter, so this generates a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>.</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">abs</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
@@ -1673,7 +1673,7 @@
 </section>
 <section id="valueerror">
 <h4><code class="docutils literal notranslate"><span class="pre">ValueError</span></code><a class="headerlink" href="#valueerror" title="Link to this heading">#</a></h4>
-<p>The <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> is somewhat similar to a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> execept in this case it indicates that a numerical value is not valid or appropriate for a particular function. Some functions require that their arguments be within a certain range such as the <code class="docutils literal notranslate"><span class="pre">math.sqrt()</span></code> which does not accept negative numbers. As a result, taking the square root of -1 with this function generates a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> is somewhat similar to a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>, except in this case it indicates that a numerical value is not valid or appropriate for a particular function. Some functions require that their arguments be within a certain range such as the <code class="docutils literal notranslate"><span class="pre">math.sqrt()</span></code> which does not accept negative numbers. As a result, taking the square root of -1 with this function generates a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
@@ -1717,7 +1717,7 @@
 </section>
 <section id="indentationerror">
 <h4><code class="docutils literal notranslate"><span class="pre">IndentationError</span></code><a class="headerlink" href="#indentationerror" title="Link to this heading">#</a></h4>
-<p>Python does not care about spaces except those at the start of a line as these spaces or indentations have meaning. In the example below, the <code class="docutils literal notranslate"><span class="pre">print(x)</span></code> should be indented below the the start of the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, so it generates an <code class="docutils literal notranslate"><span class="pre">IndentationError</span></code>.</p>
+<p>Python does not care about spaces except those at the start of a line as these spaces or indentations have meaning. In the example below, the <code class="docutils literal notranslate"><span class="pre">print(x)</span></code> should be indented below the start of the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, so it generates an <code class="docutils literal notranslate"><span class="pre">IndentationError</span></code>.</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
@@ -1794,7 +1794,7 @@
 <p>A <code class="docutils literal notranslate"><span class="pre">DeprecationWarning</span></code> occurs when code uses a feature that will be removed or changed in a future release of Python or a third-party library. This error does not stop your code and is a friendly heads up that your code may not work in the future.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Python error messages indicate the line where the error occurs, but on occasions you may find no error in that line of code. In these instances, the error is likely in the previous line. This can happen because Python provides means for continuing a line of code onto subsequent lines such as using a left parentheses, <code class="docutils literal notranslate"><span class="pre">(</span></code>, on the first line but not closing the parentheses with a right parentheses, <code class="docutils literal notranslate"><span class="pre">)</span></code>, until a later line. As an example, the following is executed by Python as if it were all on the same line.</p>
+<p>Python error messages indicate the line where the error occurs, but on occasions you may find no error in that line of code. In these instances, the error is likely in the previous line. This can happen because Python provides means for continuing a line of code onto subsequent lines such as using a left parenthesis, <code class="docutils literal notranslate"><span class="pre">(</span></code>, on the first line but not closing the parentheses with a right parenthesis, <code class="docutils literal notranslate"><span class="pre">)</span></code>, until a later line. As an example, the following is executed by Python as if it were all on the same line.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">V</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">R</span> <span class="o">*</span> <span class="n">T_K</span>
      <span class="o">/</span> <span class="n">P_atm</span><span class="p">)</span>
 </pre></div>
@@ -1844,7 +1844,7 @@
 </div>
 </div>
 </div>
-<p>Instead, the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop has been placed under a <code class="docutils literal notranslate"><span class="pre">try:</span></code> telling Python to make a best attempt at running the code. The code under the <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">TypError:</span></code> tells Python to run the following code in the event of a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>.</p>
+<p>Instead, the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop has been placed under a <code class="docutils literal notranslate"><span class="pre">try:</span></code> telling Python to make a best attempt at running the code. The code under the <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">TypeError:</span></code> tells Python to run the following code in the event of a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sqr_nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">144</span><span class="p">,</span> <span class="s1">&#39;four&#39;</span><span class="p">,</span> <span class="mi">49</span><span class="p">]</span>
@@ -1919,7 +1919,7 @@
 </section>
 <section id="raising-exceptions">
 <span id="id24"></span><h3>2.8.3 Raising Exceptions<a class="headerlink" href="#raising-exceptions" title="Link to this heading">#</a></h3>
-<p id="index-23"><span id="index-22"></span>One thing worse than code not running is code running and producing incorrect outputs. At least when code fails to run, the user knows something is wrong whereas code that fails silently can lull the user into false conclusions. It is a prudent pratice in coding to include checks that important conditions are met, and when these conditions are not met, the code should stop and produce an error known as <em>raising an exception</em>.  To include checks in your code, you can use a condition with a <code class="docutils literal notranslate"><span class="pre">raise</span></code> statement followed by some form of error from Table 7 and an error message. The more specific you can be in your error type and message, the better.</p>
+<p id="index-23"><span id="index-22"></span>One thing worse than code not running is code running and producing incorrect outputs. At least when code fails to run, the user knows something is wrong whereas code that fails silently can lull the user into false conclusions. It is a prudent practice in coding to include checks that important conditions are met, and when these conditions are not met, the code should stop and produce an error known as <em>raising an exception</em>.  To include checks in your code, you can use a condition with a <code class="docutils literal notranslate"><span class="pre">raise</span></code> statement followed by some form of error from Table 7 and an error message. The more specific you can be in your error type and message, the better.</p>
 <p>As an example, we will write a function below which quantifies the differences between two DNA sequences. The <em>Hamming distance</em> is one possible metric for determining how different two sequences are and is simply the number of locations where two sequences <em>of the same length</em> are different. For example, <code class="docutils literal notranslate"><span class="pre">AATGC</span></code> and <code class="docutils literal notranslate"><span class="pre">AATGT</span></code> have a Hamming distance of 1 because they are identical except for the last base position. Because it is critical that the two DNA sequences be the same length, this should be checked before any further calculations, and if the sequences have different lengths, the function should not proceed and provide a helpful error message.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq1</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq2</span><span class="p">):</span>
     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Sequences must be of equal length&#39;</span><span class="p">)</span>
@@ -2022,7 +2022,7 @@
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We assume here that the data collection occured in one timezone and not across leap years. If this is not the case, see the <a class="reference external" href="https://docs.python.org/3/library/datetime.html">Python datetime documentation</a> for dealing with these added complexities.</p>
+<p>We assume here that the data collection occurred in one timezone and not across leap years. If this is not the case, see the <a class="reference external" href="https://docs.python.org/3/library/datetime.html">Python datetime documentation</a> for dealing with these added complexities.</p>
 </div>
 </aside>
 <p>We will start with what these objects are and how to work with them followed by how to use <code class="docutils literal notranslate"><span class="pre">datetime</span></code> to extract date and time information from data files. First, we need to import the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module.</p>
@@ -2060,7 +2060,7 @@
 </div>
 </div>
 </div>
-<p>The current date and time can be accessed using the <code class="docutils literal notranslate"><span class="pre">now()</span></code> method for the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module. This function also accepts an optional timezone (<code class="docutils literal notranslate"><span class="pre">tz=</span></code>) argument (not discussed here). If no argument is provided, then <code class="docutils literal notranslate"><span class="pre">tz=None</span></code>. There is also a <code class="docutils literal notranslate"><span class="pre">datetime.datetime.today()</span></code> function that is equivalent to the <code class="docutils literal notranslate"><span class="pre">now()</span></code> function when no timezone is provided or <code class="docutils literal notranslate"><span class="pre">tz=None</span></code>. The <code class="docutils literal notranslate"><span class="pre">now()</span></code> function is recommended by the Python <a class="reference external" href="https://docs.python.org/3/library/datetime.html">Python datetime documentation</a>.</p>
+<p>The current date and time can be accessed using the <code class="docutils literal notranslate"><span class="pre">now()</span></code> method for the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module. This function also accepts an optional timezone (<code class="docutils literal notranslate"><span class="pre">tz=</span></code>) argument (not discussed here). If no argument is provided, then <code class="docutils literal notranslate"><span class="pre">tz=None</span></code>. There is also a <code class="docutils literal notranslate"><span class="pre">datetime.datetime.today()</span></code> function that is equivalent to the <code class="docutils literal notranslate"><span class="pre">now()</span></code> function when no timezone is provided or <code class="docutils literal notranslate"><span class="pre">tz=None</span></code>. The <code class="docutils literal notranslate"><span class="pre">now()</span></code> function is recommended by the <a class="reference external" href="https://docs.python.org/3/library/datetime.html">Python datetime documentation</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
@@ -2069,7 +2069,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 8, 24, 16, 32, 31, 108764)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 8, 30, 13, 40, 59, 792003)
 </pre></div>
 </div>
 </div>
@@ -2082,7 +2082,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13
 </pre></div>
 </div>
 </div>
@@ -2095,7 +2095,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 8, 24, 3, 32, 31, 108764)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 8, 30, 3, 40, 59, 792003)
 </pre></div>
 </div>
 </div>
@@ -2145,7 +2145,7 @@
 </section>
 <section id="changes-in-date-and-time">
 <span id="id27"></span><h3>2.9.2 Changes in Date and Time<a class="headerlink" href="#changes-in-date-and-time" title="Link to this heading">#</a></h3>
-<p>The differences between two <code class="docutils literal notranslate"><span class="pre">datetime</span></code> objects can also be calculated by subtracting the two objects. The result is returned as a <code class="docutils literal notranslate"><span class="pre">timedelta</span></code>object.</p>
+<p>The differences between two <code class="docutils literal notranslate"><span class="pre">datetime</span></code> objects can also be calculated by subtracting the two objects. The result is returned as a <code class="docutils literal notranslate"><span class="pre">timedelta</span></code> object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta</span> <span class="o">=</span> <span class="n">pi_day</span> <span class="o">-</span> <span class="n">mario_day</span>
@@ -2200,12 +2200,12 @@
 </section>
 <section id="extracting-date-and-time-information">
 <span id="id28"></span><h3>2.9.3 Extracting Date and Time Information<a class="headerlink" href="#extracting-date-and-time-information" title="Link to this heading">#</a></h3>
-<p>Extracting date and time from a file or file name can be accomplished using the ‘string-parsed time’ <code class="docutils literal notranslate"><span class="pre">strptime()</span></code> function and formatting codes shown below. Additional codes can be found on the <a class="reference external" href="https://docs.python.org/3/library/datetime.html#format-codes">Python webstie</a>.</p>
+<p>Extracting date and time from a file or file name can be accomplished using the ‘string-parsed time’ <code class="docutils literal notranslate"><span class="pre">strptime()</span></code> function and formatting codes shown below. Additional codes can be found on the <a class="reference external" href="https://docs.python.org/3/library/datetime.html#format-codes">Python website</a>.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>If you want to convert from a <code class="docutils literal notranslate"><span class="pre">datetime</span></code> object to string, use the ‘string from time’ <code class="docutils literal notranslate"><span class="pre">strftime()</span></code> function.</p>
+<p>If you want to convert from a <code class="docutils literal notranslate"><span class="pre">datetime</span></code> object to a string, use the ‘string from time’ <code class="docutils literal notranslate"><span class="pre">strftime()</span></code> function.</p>
 </div>
 </aside>
 <p><strong>Table 2</strong> Formatting Codes for Parsing Date and Time Strings</p>
@@ -2281,7 +2281,7 @@
 </tbody>
 </table>
 </div>
-<p>These codes will allow you to parse strings into the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module by providing the <code class="docutils literal notranslate"><span class="pre">strptime()</span></code> function with both the string from the data file and a description of how the date and time information is organized. For example, below is a file where the collection time is included in the file name as hour, minues, seconds separated by hyphens.</p>
+<p>These codes will allow you to parse strings into the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module by providing the <code class="docutils literal notranslate"><span class="pre">strptime()</span></code> function with both the string from the data file and a description of how the date and time information is organized. For example, below is a file where the collection time is included in the file name as hours, minutes, seconds separated by hyphens.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_name_1</span> <span class="o">=</span> <span class="s1">&#39;Absorbance_12-03-48.txt&#39;</span> 
@@ -2296,7 +2296,7 @@
 </div>
 </div>
 </div>
-<p>Because the date (i.e., year, month, and day) information were not provided, default values of January 1, 1900 is chosen for the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> object. If you only want the date or time information, you can access them using the <code class="docutils literal notranslate"><span class="pre">date()</span></code> or <code class="docutils literal notranslate"><span class="pre">time()</span></code> functions, respectively.</p>
+<p>Because the date (i.e., year, month, and day) information was not provided, default values of January 1, 1900 was chosen for the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> object. If you only want the date or time information, you can access them using the <code class="docutils literal notranslate"><span class="pre">date()</span></code> or <code class="docutils literal notranslate"><span class="pre">time()</span></code> functions, respectively.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">timestamp</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
@@ -2392,7 +2392,7 @@ What is the theoretical mean for this dataset?</p>
 </li>
 <li><p><a class="reference internal" href="#id14"><span class="std std-ref">Zip</span></a> together two lists containing the symbols and names of the first six elements of the periodic table and convert them to a <a class="reference internal" href="#id7"><span class="std std-ref">dictionary</span></a> using the <code class="docutils literal notranslate"><span class="pre">dict()</span></code> function. Test the dictionary by converting Li to its name.</p></li>
 <li><p>Write a Python script that goes through a collection of random integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 20 and returns a list of index values for all values larger than 10. Start by generating a list of random integers and combine them with their index values using either <a class="reference internal" href="#id13"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">zip()</span></code> or <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code></span></a>.</p></li>
-<li><p>Write a function that calculates the distance between the origin and a point in any dimensional space (1D, 2D, 3D, etc…) by allowing the function to take any number of coordinate values (e.g., x, xy, xyz, etc…). Your function should work for the following tests.</p>
+<li><p>Write a function that calculates the distance between the origin and a point in any dimensional space (1D, 2D, 3D, etc.) by allowing the function to take any number of coordinate values (e.g., x, xy, xyz, etc.). Your function should work for the following tests.</p>
 <p><code class="docutils literal notranslate"><span class="pre">[in]:</span> <span class="pre">dist(3)</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">[out]:</span> <span class="pre">3</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">[in]:</span> <span class="pre">dist(1,1)</span></code></p>

@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -428,7 +428,7 @@
 </div>
 <section id="uncertainties-variable">
 <h3>Uncertainties Variable<a class="headerlink" href="#uncertainties-variable" title="Link to this heading">#</a></h3>
-<p>Basic mathematical operations with the <code class="docutils literal notranslate"><span class="pre">uncertainties</span></code> package center around the uncertainties variable object. This is created using the <code class="docutils literal notranslate"><span class="pre">ufloat()</span></code> function accepts two important values - the first is the nominal value and the second is the standard deviation.</p>
+<p>Basic mathematical operations with the <code class="docutils literal notranslate"><span class="pre">uncertainties</span></code> package center around the uncertainties variable object. This is created using the <code class="docutils literal notranslate"><span class="pre">ufloat()</span></code> function which accepts two important values - the first is the nominal value and the second is the standard deviation.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ufloat</span><span class="p">(</span><span class="n">nominal_value</span><span class="p">,</span> <span class="n">std_dev</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -528,7 +528,7 @@
 </section>
 <section id="simple-calculations">
 <h3>Simple Calculations<a class="headerlink" href="#simple-calculations" title="Link to this heading">#</a></h3>
-<p>Beyond this, we just need to carry out our mathematical operations. For example, let’s say we want to calculate the molar absorptivity constant using Beer’s law, <span class="math notranslate nohighlight">\(A = \epsilon bC\)</span>, where A is absorbance, <span class="math notranslate nohighlight">\(\epsilon\)</span> is the molar absorptivity constant, <span class="math notranslate nohighlight">\(b\)</span> is the path length in cm, and <span class="math notranslate nohighlight">\(C\)</span> is concentration in molarity. If the A = 0.3822 <span class="math notranslate nohighlight">\(\pm\)</span> 0.0003, <span class="math notranslate nohighlight">\(b\)</span> = 1.00<span class="math notranslate nohighlight">\(\pm\)</span>0.01 cm, and <span class="math notranslate nohighlight">\(C\)</span>=0.0017<span class="math notranslate nohighlight">\(\pm\)</span>0.0001 M, we can calculate the molar absorptivity constant like below.</p>
+<p>Beyond this, we just need to carry out our mathematical operations. For example, let’s say we want to calculate the molar absorptivity constant using Beer’s law, <span class="math notranslate nohighlight">\(A = \epsilon bC\)</span>, where A is absorbance, <span class="math notranslate nohighlight">\(\epsilon\)</span> is the molar absorptivity constant, <span class="math notranslate nohighlight">\(b\)</span> is the path length in cm, and <span class="math notranslate nohighlight">\(C\)</span> is concentration in molarity. If A = 0.3822 <span class="math notranslate nohighlight">\(\pm\)</span> 0.0003, <span class="math notranslate nohighlight">\(b\)</span> = 1.00<span class="math notranslate nohighlight">\(\pm\)</span>0.01 cm, and <span class="math notranslate nohighlight">\(C\)</span>=0.0017<span class="math notranslate nohighlight">\(\pm\)</span>0.0001 M, we can calculate the molar absorptivity constant like below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">ufloat</span><span class="p">(</span><span class="mf">0.3822</span><span class="p">,</span> <span class="mf">0.0003</span><span class="p">)</span>
@@ -547,7 +547,7 @@
 </div>
 </div>
 <p>This results in 225<span class="math notranslate nohighlight">\(\pm\)</span>13 cm<span class="math notranslate nohighlight">\(^{-1}\)</span>M<span class="math notranslate nohighlight">\(^{-1}\)</span>.</p>
-<p>If we multiply an uncertainties variable object by a regular <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float()</span></code>, the <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float()</span></code> is treated as having no uncertainty, so the uncertainty of the other value scales linearly with the nominal value. In the example below, both values triple.</p>
+<p>If we multiply an uncertainty variable object by a regular <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float()</span></code>, the <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float()</span></code> is treated as having no uncertainty, so the uncertainty of the other value scales linearly with the nominal value. In the example below, both values triple.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">*</span> <span class="n">b</span>
@@ -710,7 +710,7 @@
 </div>
 </div>
 </div>
-<p>If we were to carry about the above calculation <em>without</em> factoring in correlation, it would look like below. While the value itself does not change, the uncertainty is overestimated.</p>
+<p>If we were to carry out the above calculation <em>without</em> factoring in correlation, it would look like below. While the value itself does not change, the uncertainty is overestimated.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m_uncorr</span> <span class="o">=</span> <span class="n">ufloat_fromstr</span><span class="p">(</span><span class="s1">&#39;79384.6153846154+/-2620.258467760346&#39;</span><span class="p">)</span>
@@ -730,7 +730,7 @@
 </section>
 <section id="simulating-uncertainties">
 <h2>Simulating Uncertainties<a class="headerlink" href="#simulating-uncertainties" title="Link to this heading">#</a></h2>
-<p>We can also simulate uncertainties using Monte Carlo simulations as demonstrated below. Let’s say we want to calculate the molar absorptivity constant using the same nominal and standard deviation values as above. Using a random number generator, we can generate values for A, <span class="math notranslate nohighlight">\(l\)</span>, and C with the given standard deviations using the <code class="docutils literal notranslate"><span class="pre">normal(nominal_value,</span> <span class="pre">std_dev)</span></code> function from the <a class="reference internal" href="../chapter_04/chap_04_notebook.html#id25"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> module</span></a>. We then carry out the calculation with all of these values. The molar absorptivity is the average of these values with and uncertainty calculated from the standard deviation of these calculated values.</p>
+<p>We can also simulate uncertainties using Monte Carlo simulations as demonstrated below. Let’s say we want to calculate the molar absorptivity constant using the same nominal and standard deviation values as above. Using a random number generator, we can generate values for A, <span class="math notranslate nohighlight">\(l\)</span>, and C with the given standard deviations using the <code class="docutils literal notranslate"><span class="pre">normal(nominal_value,</span> <span class="pre">std_dev)</span></code> function from the <a class="reference internal" href="../chapter_04/chap_04_notebook.html#id25"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> module</span></a>. We then carry out the calculation with all of these values. The molar absorptivity is the average of these values with an uncertainty calculated from the standard deviation of these calculated values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -766,7 +766,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/04ed7347ed5ac808fddee9974ca91c83706ba033eef37424167574e289e54898.svg" src="../../_images/04ed7347ed5ac808fddee9974ca91c83706ba033eef37424167574e289e54898.svg" />
+<img alt="../../_images/efa5865d2ac1be02270210927cf5ab4b873fac7a6237e94bcab214ee5ebe20ae.svg" src="../../_images/efa5865d2ac1be02270210927cf5ab4b873fac7a6237e94bcab214ee5ebe20ae.svg" />
 </div>
 </div>
 <div class="cell docutils container">

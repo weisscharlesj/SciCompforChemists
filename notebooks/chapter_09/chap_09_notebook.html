@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -413,12 +413,12 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="chapter-9-simulations">
-<span id="id1"></span><h1>Chapter 9: Simulations<a class="headerlink" href="#chapter-9-simulations" title="Link to this heading">#</a></h1>
-<div class="cell tag_remove-input docutils container">
+  <div class="cell tag_remove-input docutils container">
 </div>
-<p>Simulations are a major component of modern chemical research either in conjunction with experimental work or by itself. A <em>digital chemical simulation</em> is a representation or mimic of a physical or chemical process using a computer with enough detail that the results provide meaningful and useful insights into the real process. Simulations do not need to represent every aspect of the real world as long as the omitted details do not reduce the accuracy or precision to a level that the simulation is no longer useful.</p>
-<p>Modern chemical simulations are often quite complex and are performed with a range of free or commercial software that regrettably can obfuscate the underlying methods. This chapter aims to introduce simulations with simple methodologies that can be easily coded in Python, NumPy, and SciPy. These simulations are not designed for use in a research setting due to the low level of sophistication and do not represent the current state-of-art in the field of chemical simulations. Some of these simulations are also not as computationally efficient as they could be because efficiency is sometimes sacrificed here for simplicity and accessibility.</p>
+<section class="tex2jax_ignore mathjax_ignore" id="chapter-9-simulations">
+<span id="id1"></span><h1>Chapter 9: Simulations<a class="headerlink" href="#chapter-9-simulations" title="Link to this heading">#</a></h1>
+<p>Simulations are a major component of modern chemical research, either in conjunction with experimental work or by itself. A <em>digital chemical simulation</em> is a representation or mimic of a physical or chemical process using a computer with enough detail that the results provide meaningful and useful insights into the real process. Simulations do not need to represent every aspect of the real world as long as the omitted details do not reduce the accuracy or precision to a level that the simulation is no longer useful.</p>
+<p>Modern chemical simulations are often quite complex and are performed with a range of free or commercial software that regrettably can obfuscate the underlying methods. This chapter aims to introduce simulations with simple methodologies that can be easily coded in Python, NumPy, and SciPy. These simulations are not designed for use in a research setting due to the low level of sophistication and do not represent the current state-of-the-art in the field of chemical simulations. Some of these simulations are also not as computationally efficient as they could be because efficiency is sometimes sacrificed here for simplicity and accessibility.</p>
 <p>The simulations in this chapter assume the following imports from NumPy, SciPy, and matplotlib.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -498,10 +498,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/665cbef36ec064381d0b4dae56f64ef2a8e4178db7bc71f295e2e35b0994159b.svg" src="../../_images/665cbef36ec064381d0b4dae56f64ef2a8e4178db7bc71f295e2e35b0994159b.svg" />
+<img alt="../../_images/b48e9309c4c2162d19a2ce727a1487c80f638d7b480b78a1bab0a5d511e3ffa7.svg" src="../../_images/b48e9309c4c2162d19a2ce727a1487c80f638d7b480b78a1bab0a5d511e3ffa7.svg" />
 </div>
 </div>
-<p>If there are multiple nonequivalent groups of neighboring proton, this often results in more complex splitting patters due to additional protons and additional coupling constants. This can be simulated by nesting the <code class="docutils literal notranslate"><span class="pre">split()</span></code> function and providing the different coupling constants. Below, we simulate a splitting pattern for a proton coupled with two protons with J = 9.8 Hz and another proton with J = 10.8. This generates a doublet of triplets.</p>
+<p>If there are multiple nonequivalent groups of neighboring protons, this often results in more complex splitting patters due to additional protons and additional coupling constants. This can be simulated by nesting the <code class="docutils literal notranslate"><span class="pre">split()</span></code> function and providing the different coupling constants. Below, we simulate a splitting pattern for a proton coupled with two protons with J = 9.8 Hz and another proton with J = 10.8. This generates a doublet of triplets.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
@@ -518,18 +518,18 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/cd8df32ea5e78ef80201d0fc322fb3676f4d6d6d3fe05e46e5225d282e03bc7c.svg" src="../../_images/cd8df32ea5e78ef80201d0fc322fb3676f4d6d6d3fe05e46e5225d282e03bc7c.svg" />
+<img alt="../../_images/05ad79a16cc34e7da3a37da5536f58bd5d89b2eedb8127eb2614b8d223c73ef2.svg" src="../../_images/05ad79a16cc34e7da3a37da5536f58bd5d89b2eedb8127eb2614b8d223c73ef2.svg" />
 </div>
 </div>
 </section>
 <section id="single-step-stepwise-chemical-kinetics">
 <span id="id4"></span><span id="index-1"></span><h3>9.1.2 Single-Step Stepwise Chemical Kinetics<a class="headerlink" href="#single-step-stepwise-chemical-kinetics" title="Link to this heading">#</a></h3>
-<p>Another phenomenon that can be simulated deterministically is the progress of a chemical reaction with respect to time. Many chemical reactions slow over the course of the reaction as the result of diminishing reactant concentrations. This occurs when reaction rates are dependent on the concentration of at least one reactant, and as the reaction progresses, starting material is consumed slowing the reaction.</p>
+<p>Another phenomenon that can be simulated deterministically is the progress of a chemical reaction with respect to time. Many chemical reactions slow over the course of the reaction as a result of diminishing reactant concentrations. This occurs when reaction rates are dependent on the concentration of at least one reactant, and as the reaction progresses, starting material is consumed, slowing the reaction.</p>
 <p>One method for simulating this phenomenon is to incrementally calculate the rate of the chemical reaction at various points in the reaction based on the current concentrations. That is, at each small time step of the reaction, use the concentration(s) to calculate the current reaction rate and then increase/decrease the reaction concentrations by the amount calculated.</p>
 <p>For example, we can simulate the following single-step chemical reaction of A <span class="math notranslate nohighlight">\(\rightarrow\)</span> P. Because this is an elementary step, the rate law is derivable from the stoichiometry where rate is M/s, <span class="math notranslate nohighlight">\(k_{rxn}\)</span> is the rate constant, and [A] is the concentration of A in molarity (M).</p>
 <div class="math notranslate nohighlight">
 \[ Rate=k_{rxn}[A]  \]</div>
-<p>To keep the math simple, we will make each step in the reaction one second. That way, if the rate is 0.1 M/s, we can simply subtract 0.1 M for one second of reaction. Let us choose a <em>k</em> = 0.05 s<span class="math notranslate nohighlight">\(^{-1}\)</span> and an initial [A] = 1.00 M. Therefore, the rate = (0.05 s<span class="math notranslate nohighlight">\(^{-1}\)</span>)(1.00 M) = 0.05 M/s, so the concentration of A should decrease by 0.05 M in the first second giving us 0.95 M. Now the rate of reaction is (0.05 s<span class="math notranslate nohighlight">\(^{-1}\)</span>)(0.95 M) = 0.0475 M/s, so we now subtract 0.0475 M from [A] for the next second of reaction to get 0.903 M. This continues for the entire duration of the simulation. Code for executing this process is shown below. A <code class="docutils literal notranslate"><span class="pre">for</span></code> loop runs the above process for each second of the simulation and records the new concentrations of A and P in NumPy arrays via assignment.</p>
+<p>To keep the math simple, we will make each step in the reaction one second. That way, if the rate is 0.1 M/s, we can simply subtract 0.1 M for one second of reaction. Let us choose a <em>k</em> = 0.05 s<span class="math notranslate nohighlight">\(^{-1}\)</span> and an initial [A] = 1.00 M. Therefore, the rate = (0.05 s<span class="math notranslate nohighlight">\(^{-1}\)</span>)(1.00 M) = 0.05 M/s, so the concentration of A should decrease by 0.05 M in the first second, giving us 0.95 M. Now the rate of reaction is (0.05 s<span class="math notranslate nohighlight">\(^{-1}\)</span>)(0.95 M) = 0.0475 M/s, so we now subtract 0.0475 M from [A] for the next second of reaction to get 0.903 M. This continues for the entire duration of the simulation. Code for executing this process is shown below. A <code class="docutils literal notranslate"><span class="pre">for</span></code> loop runs the above process for each second of the simulation and records the new concentrations of A and P in NumPy arrays via assignment.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">,</span> <span class="n">P</span> <span class="o">=</span> <span class="mf">1.00</span><span class="p">,</span> <span class="mf">0.00</span> <span class="c1"># molarity, M</span>
@@ -568,7 +568,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0c5db0645a9839caf00f0902b589c5af8dc354ad936c314a2ae0ba183d9233e7.svg" src="../../_images/0c5db0645a9839caf00f0902b589c5af8dc354ad936c314a2ae0ba183d9233e7.svg" />
+<img alt="../../_images/95da051baa5a7a70e8ccf376c12d4b1a7c2eb73c9d690f7dbaba8e7e29d272df.svg" src="../../_images/95da051baa5a7a70e8ccf376c12d4b1a7c2eb73c9d690f7dbaba8e7e29d272df.svg" />
 </div>
 </div>
 <p>We can overlay this plot with the theoretical values using the integrated first-order rate law below.</p>
@@ -596,10 +596,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/810b0b864f7b720a53b137942f7a9c571ff0f60bf17adce13c06927d27ef9204.svg" src="../../_images/810b0b864f7b720a53b137942f7a9c571ff0f60bf17adce13c06927d27ef9204.svg" />
+<img alt="../../_images/fc29fc1b961f3f5d74da94804b5270d88bc2480cf2be1981293954815e321af4.svg" src="../../_images/fc29fc1b961f3f5d74da94804b5270d88bc2480cf2be1981293954815e321af4.svg" />
 </div>
 </div>
-<p>The theoretical equation and simulation results are in good agreement. A closer inspection of the two shows a slight discrepancy between the two which is most noticeable earlier in the simulation. This is because the simulation only adjusts the rate every second while the theoretical equation can be thought of as recalculating the rate for infinitely small increments. A more accurate method of performing kinetic simulations is presented in <a class="reference internal" href="#id6"><span class="std std-ref">section 9.1.4</span></a>.</p>
+<p>The theoretical equation and simulation results are in good agreement. A closer inspection of the two shows a slight discrepancy between the two, which is most noticeable earlier in the simulation. This is because the simulation only adjusts the rate every second, while the theoretical equation can be thought of as recalculating the rate for infinitely small increments. A more accurate method of performing kinetic simulations is presented in <a class="reference internal" href="#id6"><span class="std std-ref">section 9.1.4</span></a>.</p>
 </section>
 <section id="multistep-chemical-kinetics">
 <span id="id5"></span><h3>9.1.3 Multistep Chemical Kinetics<a class="headerlink" href="#multistep-chemical-kinetics" title="Link to this heading">#</a></h3>
@@ -608,7 +608,7 @@
 \[ A \underset{k_{r1}}{\stackrel{k_1}{\rightleftharpoons}} I \]</div>
 <div class="math notranslate nohighlight">
 \[ I + B \underset{k_{r2}}{\stackrel{k_2}{\rightleftharpoons}} P \]</div>
-<p>In this reaction, starting material A converts to intermediate I in the first step followed by starting material B combining with I to form the product P. Both of these steps are reversible, so there are four rate constants. The code and output of the simulation are below. Unlike the previous simulation, the simulation below appends values to lists (e.g., <code class="docutils literal notranslate"><span class="pre">A_conc</span></code>).</p>
+<p>In this reaction, starting material A converts to intermediate I in the first step, followed by starting material B combining with I to form the product P. Both of these steps are reversible, so there are four rate constants. The code and output of the simulation are below. Unlike the previous simulation, the simulation below appends values to lists (e.g., <code class="docutils literal notranslate"><span class="pre">A_conc</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A_conc</span><span class="p">,</span> <span class="n">B_conc</span><span class="p">,</span> <span class="n">I_conc</span><span class="p">,</span> <span class="n">P_conc</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
@@ -649,14 +649,14 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6df4896f87a078370f7d76dc495b7e56925e2cc73dd991e109016e33fb24154b.svg" src="../../_images/6df4896f87a078370f7d76dc495b7e56925e2cc73dd991e109016e33fb24154b.svg" />
+<img alt="../../_images/8ada3151973be6e977fc8f59d181d76a6f50298140ed0b5c38db5896f858ed63.svg" src="../../_images/8ada3151973be6e977fc8f59d181d76a6f50298140ed0b5c38db5896f858ed63.svg" />
 </div>
 </div>
 <p>A word of caution regarding the above simulations - if the rate constants are increased enough, oscillating behavior and negative concentrations will be observed… the latter of which is clearly wrong. This is because the simulation fails to recalculate the rates quickly enough for the simulation, but this can be remedied by decreasing the step size.</p>
 </section>
 <section id="chemical-kinetics-and-odeint">
 <span id="id6"></span><h3>9.1.4 Chemical Kinetics and ODEINT<a class="headerlink" href="#chemical-kinetics-and-odeint" title="Link to this heading">#</a></h3>
-<p>Another approach to performing the above kinetic simulations is to integrate the differential equations. For an introduction to integrating differential equations, see <a class="reference internal" href="../chapter_08/chap_08_notebook.html#id22"><span class="std std-ref">section 8.4.4</span></a>. Below we will simulate a two step reaction where the first step is reversible. Because the following are the elementary steps, the rate equations can be inferred from the reaction stoichiometry.</p>
+<p>Another approach to performing the above kinetic simulations is to integrate the differential equations. For an introduction to integrating differential equations, see <a class="reference internal" href="../chapter_08/chap_08_notebook.html#id22"><span class="std std-ref">section 8.4.4</span></a>. Below we will simulate a two-step reaction where the first step is reversible. Because the following are the elementary steps, the rate equations can be inferred from the reaction stoichiometry.</p>
 <div class="math notranslate nohighlight">
 \[ A \underset{k_{r1}}{\stackrel{k_1}{\rightleftharpoons}} B \stackrel{k_2}\rightarrow P\]</div>
 <p>The three differential equations tracking the concentrations of A, B, and P are shown below where <span class="math notranslate nohighlight">\(k_1\)</span> and <span class="math notranslate nohighlight">\(k_{r1}\)</span> are the forward and reverse rate constants, respectively, for the first step and <span class="math notranslate nohighlight">\(k_2\)</span> is the rate constant for the second step.</p>
@@ -704,7 +704,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4e394b2ab162d0ff4acc19cd501c5d36be064957d33f59ffb560bbbde893effe.svg" src="../../_images/4e394b2ab162d0ff4acc19cd501c5d36be064957d33f59ffb560bbbde893effe.svg" />
+<img alt="../../_images/0137f428434359c1f5f098f5620376bb4ba2653113b03d22ae863308521ae56d.svg" src="../../_images/0137f428434359c1f5f098f5620376bb4ba2653113b03d22ae863308521ae56d.svg" />
 </div>
 </div>
 </section>
@@ -721,7 +721,7 @@
 </aside>
 <section id="radioactive-decay">
 <span id="id8"></span><h3>9.2.1 Radioactive Decay<a class="headerlink" href="#radioactive-decay" title="Link to this heading">#</a></h3>
-<p id="index-4">Radioactive decay is a random process, so logically it can be simulated as such. Every radioactive atom has a fixed probability of decaying each second just like a die has a fixed probability of rolling a one. In the simulation below, a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop is used for each second or step of the simulation, and a random number generator is used in each step to decide how many atoms decay. The <code class="docutils literal notranslate"><span class="pre">binomial()</span></code> method is used here to generate a series of zeros and ones with a set probability of generating a one. In this simulation, a one signifies a decaying atom. These decayed atoms are tallied and subtracted from the current number of remaining atoms, and this value is recorded in the <code class="docutils literal notranslate"><span class="pre">atoms_remaining</span></code> variable.</p>
+<p id="index-4">Radioactive decay is a random process, so logically it can be simulated as such. Every radioactive atom has a fixed probability of decaying each second, just like a die has a fixed probability of rolling a one. In the simulation below, a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop is used for each second or step of the simulation, and a random number generator is used in each step to decide how many atoms decay. The <code class="docutils literal notranslate"><span class="pre">binomial()</span></code> method is used here to generate a series of zeros and ones with a set probability of generating a one. In this simulation, a one signifies a decaying atom. These decayed atoms are tallied and subtracted from the current number of remaining atoms, and this value is recorded in the <code class="docutils literal notranslate"><span class="pre">atoms_remaining</span></code> variable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
@@ -751,7 +751,7 @@
 </div>
 </div>
 </div>
-<p>The simulation results stored in the <code class="docutils literal notranslate"><span class="pre">atoms_remaining</span></code> array can be plotted along with the first-order integrated rate law to see how the two compare. Being that there is a 1/1000 probability in the above simulation of each atom generating a one (decay), the rate constant (<span class="math notranslate nohighlight">\(k\)</span>) is 0.001 s<span class="math notranslate nohighlight">\(^{-1}\)</span>. For ease of viewing, only twenty data points from the simulation are plotting below.</p>
+<p>The simulation results stored in the <code class="docutils literal notranslate"><span class="pre">atoms_remaining</span></code> array can be plotted along with the first-order integrated rate law to see how the two compare. Being that there is a 1/1000 probability in the above simulation of each atom generating a one (decay), the rate constant (<span class="math notranslate nohighlight">\(k\)</span>) is 0.001 s<span class="math notranslate nohighlight">\(^{-1}\)</span>. For ease of viewing, only twenty data points from the simulation are plotted below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot of simulation</span>
@@ -767,18 +767,18 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/243a2b3bf2464c9cbbf48180911a68f1005b6e4a12d781809a65ad265508483c.svg" src="../../_images/243a2b3bf2464c9cbbf48180911a68f1005b6e4a12d781809a65ad265508483c.svg" />
+<img alt="../../_images/59897a9ddbc2671a2b76374e6a23f6804906fa4f600c48d3cf0239f347747865.svg" src="../../_images/59897a9ddbc2671a2b76374e6a23f6804906fa4f600c48d3cf0239f347747865.svg" />
 </div>
 </div>
-<p>The simulation and theoretical model are in good but not perfect agreement. The deviation is a result of the simulation using random numbers and only simulating a relatively small number of molecules. If this simulation were run with increasingly larger number of molecules, the results are expected to converge on the theoretical prediction.</p>
+<p>The simulation and theoretical model are in good but not perfect agreement. The deviation is a result of the simulation using random numbers and only simulating a relatively small number of molecules. If this simulation were run with increasingly larger numbers of molecules, the results are expected to converge on the theoretical prediction.</p>
 </section>
 <section id="confidence-intervals">
 <span id="id9"></span><span id="index-5"></span><h3>9.2.2 Confidence Intervals<a class="headerlink" href="#confidence-intervals" title="Link to this heading">#</a></h3>
-<p>Uncertainty is a part of all data, and uncertainty around a repeatedly measured and calculated value is sometimes represented in the form of a 95% confidence interval (CI). This is the interval around the mean that has a 95% chance of containing the true value. Another way of describing 95% CI is that if we were to repeatedly collect a dataset and calculate the 95% CI, the true value should be, statistically speaking, inside the confidence interval 95% of the time. Performing these experiments would be tedious, but this can be simulated in Python relatively easily.</p>
+<p>Uncertainty is a part of all data, and uncertainty around a repeatedly measured and calculated value is sometimes represented in the form of a 95% confidence interval (CI). This is the interval around the mean that has a 95% chance of containing the true value. Another way of describing a 95% CI is that if we were to repeatedly collect a dataset and calculate the 95% CI, the true value should be, statistically speaking, inside the confidence interval 95% of the time. Performing these experiments would be tedious, but this can be simulated in Python relatively easily.</p>
 <p>The equation for calculating the 95% CI is shown below where <span class="math notranslate nohighlight">\(\bar{x}\)</span> is the average value in a set of repeated measurements, <span class="math notranslate nohighlight">\(s\)</span> is the standard deviation (corrected), <span class="math notranslate nohighlight">\(t\)</span> is the statistical <span class="math notranslate nohighlight">\(t\)</span> value from a table, and <span class="math notranslate nohighlight">\(N\)</span> is the degrees of freedom. For 20 samples per set, <span class="math notranslate nohighlight">\(t\)</span> = 2.09 and <span class="math notranslate nohighlight">\(N\)</span> = 19.</p>
 <div class="math notranslate nohighlight">
 \[ 95\%CI = \bar{x} \pm \frac{ts}{\sqrt{N}} \]</div>
-<p>We can simulate the data collection by picking a true value and generating twenty samples by adding random error to twenty copies of the true value. Using the simulated dataset, the 95% CI can be calculated, and we can test whether or not the true value is inside the CI. If we repeated this procedure numerous times recording the success or failure of the true value being inside the CI, we can calculate the success rate as demonstrated below.</p>
+<p>We can simulate the data collection by picking a true value and generating twenty samples by adding random error to twenty copies of the true value. Using the simulated dataset, the 95% CI can be calculated, and we can test whether or not the true value is inside the CI. If we repeated this procedure numerous times, recording the success or failure of the true value being inside the CI, we can calculate the success rate as demonstrated below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trials</span> <span class="o">=</span> <span class="mi">100000</span>
@@ -799,7 +799,7 @@
     <span class="n">lower</span> <span class="o">=</span> <span class="n">avg</span> <span class="o">-</span> <span class="n">CI_95</span>
     <span class="n">upper</span> <span class="o">=</span> <span class="n">avg</span> <span class="o">+</span> <span class="n">CI_95</span>
     
-    <span class="c1"># determine if true values is inside 95% CI</span>
+    <span class="c1"># determine if true value is inside 95% CI</span>
     <span class="k">if</span> <span class="n">lower</span> <span class="o">&lt;=</span> <span class="n">true</span> <span class="o">&lt;=</span> <span class="n">upper</span><span class="p">:</span>
         <span class="n">in_interval</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
@@ -851,10 +851,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0206e22e2471bbeed593b2d37f7e46431cd402ff4d42b3d79cd849310653fb16.svg" src="../../_images/0206e22e2471bbeed593b2d37f7e46431cd402ff4d42b3d79cd849310653fb16.svg" />
+<img alt="../../_images/c6b500fc03cd8b6cc9540b33e17a6dbc4d8f497a3ecbd14877152bbf18504cdc.svg" src="../../_images/c6b500fc03cd8b6cc9540b33e17a6dbc4d8f497a3ecbd14877152bbf18504cdc.svg" />
 </div>
 </div>
-<p>The results of the simulation show a polymer strand winding around in a seemingly random fashion. If we rerun the above simulation, a different looking polymer conformation will be generated.</p>
+<p>The results of the simulation show a polymer strand winding around in a seemingly random fashion. If we rerun the above simulation, a different-looking polymer conformation will be generated.</p>
 </section>
 </section>
 <section id="further-reading">
@@ -863,7 +863,7 @@
 <li><p>Downey, Allen Modeling and Simulation in Python. Book in progress. <a class="github reference external" href="https://github.com/AllenDowney/ModSimPy">AllenDowney/ModSimPy</a> (free resource)</p></li>
 <li><p>Weiss, C. J. Introduction to Stochastic Simulations for Chemical and Physical Processes: Principles and Applications. <em>J. Chem. Educ.</em> <strong>2017,</strong> 94 (12), 1904–1910. <a class="reference external" href="https://doi.org/10.1021/acs.jchemed.7b00395">https://doi.org/10.1021/acs.jchemed.7b00395</a></p></li>
 <li><p>For examples of chemical kinetics scenarios to model, see: Bentenitis, N. A Convenient Tool for the Stochastic Simulation of Reaction Mechanisms. <em>J. Chem. Educ.</em> <strong>2008,</strong> 85 (8), 1146−1150. <a class="reference external" href="https://doi.org/10.1021/ed085p1146">https://doi.org/10.1021/ed085p1146</a></p></li>
-<li><p>Kneusel, R. T. <em>The Art of Randomness: Randomized Algorithms in teh Real World;</em> No Starch Press: San Francisco, CA, 2024.</p></li>
+<li><p>Kneusel, R. T. <em>The Art of Randomness: Randomized Algorithms in the Real World;</em> No Starch Press: San Francisco, CA, 2024.</p></li>
 </ol>
 </section>
 <section id="exercises">
@@ -914,22 +914,22 @@
 <li><p>Simulate the following chemical equilibrium where the forward rate is described by Rate<span class="math notranslate nohighlight">\(_f\)</span> = (1.3 × 10<span class="math notranslate nohighlight">\(^{-2}\)</span> M<span class="math notranslate nohighlight">\(^{-1}\)</span>s<span class="math notranslate nohighlight">\(^{-1}\)</span>)[A]<span class="math notranslate nohighlight">\(^2\)</span> and the reverse rate is described by Rate<span class="math notranslate nohighlight">\(_r\)</span> = (6.2 × 10<span class="math notranslate nohighlight">\(^{-3}\)</span> s<span class="math notranslate nohighlight">\(^{-1}\)</span>)[B].</p>
 <div class="math notranslate nohighlight">
 \[ 2A \underset{k_r}{\stackrel{k_f}{\rightleftharpoons}} B \]</div>
-<p>Use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to simulate each second of reaction by calculating the rates and increasing/decreasing each concentration appropriately. Record the concentrations in lists and plot the results. Start with 2.20 M of A and 1.72 M B and run the simulation for at least 200 seconds. Notice that the rates are in M/s.</p>
+<p>Use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to simulate each second of reaction by calculating the rates and increasing/decreasing each concentration appropriately. Record the concentrations in lists and plot the results. Start with 2.20 M of A and 1.72 M of B and run the simulation for at least 200 seconds. Notice that the rates are in M/s.</p>
 </li>
 <li><p>In <a class="reference internal" href="#id5"><span class="std std-ref">section 9.1.3</span></a>, a two-step, reversible reaction is simulated. If the rate constant k<span class="math notranslate nohighlight">\(_{r1}\)</span> is decreased to 0.001 s<span class="math notranslate nohighlight">\(^{-1}\)</span>, what effect on the reaction do you anticipate? Simulate this to see if your prediction is correct.</p></li>
 <li><p>Simulate two competing, first-order reactions of starting material A forming product P<span class="math notranslate nohighlight">\(_1\)</span> and P<span class="math notranslate nohighlight">\(_2\)</span> and plot the resulting concentrations of both products versus time.</p>
 <div class="math notranslate nohighlight">
 \[ P_1 \stackrel{k_1}{\leftarrow} A \stackrel{k_2}\rightarrow P_2 \]</div>
-<p>Use k<span class="math notranslate nohighlight">\(_1\)</span> = 0.02 M/s and k<span class="math notranslate nohighlight">\(_2\)</span> = 0.04 M/s and start with 2.00 M A. What do you predict the plot of concentration versus time to look like and the ratio of products to be? Does your simulation agree?</p>
+<p>Use k<span class="math notranslate nohighlight">\(_1\)</span> = 0.02 M/s and k<span class="math notranslate nohighlight">\(_2\)</span> = 0.04 M/s and start with 2.00 M of A. What do you predict the plot of concentration versus time to look like and the ratio of products to be? Does your simulation agree?</p>
 </li>
-<li id="index-7"><p>Polymers that consist of two or more different monomers are known as copolymers. Simulate an addition copolymer consisting of two monomers: ethylene (28.06 g/mol) and styrene (104.16 g/mol) with a fixed length of a thousand units. Given the molecular weights of the two monomers above, calculate the weights for a thousand simulated polymer strands and generate a histograms of the frequency versus weight. Hint: try using the <code class="docutils literal notranslate"><span class="pre">binomial()</span></code> method with <code class="docutils literal notranslate"><span class="pre">p=0.5</span></code> and treat a zero as one monomer and a one is   the other.</p>
+<li id="index-7"><p>Polymers that consist of two or more different monomers are known as copolymers. Simulate an addition copolymer consisting of two monomers: ethylene (28.06 g/mol) and styrene (104.16 g/mol) with a fixed length of a thousand units. Given the molecular weights of the two monomers above, calculate the weights for a thousand simulated polymer strands and generate a histogram of the frequency versus weight. Hint: try using the <code class="docutils literal notranslate"><span class="pre">binomial()</span></code> method with <code class="docutils literal notranslate"><span class="pre">p=0.5</span></code> and treat a zero as one monomer and a one is   the other.</p>
 </li>
-<li id="index-8"><p>Block copolymers are polymers where multiple monomer types are clustered along the polymer chain instead of being randomly dispersed. These clusters are called blocks which may be of random lengths as the polymer switches between monomer types. An example is shown below.</p>
+<li id="index-8"><p>Block copolymers are polymers where multiple monomer types are clustered along the polymer chain instead of being randomly dispersed. These clusters are called blocks, which may be of random lengths as the polymer switches between monomer types. An example is shown below.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>-A-A-A-A-A-A-A-B-B-B-B-B-B-A-A-A-A-B-B-B-A-A-A-A-A-
 </pre></div>
 </div>
 <p>Simulate a block copolymer consisting of two monomers with a total length of a hundred monomer units.</p>
-<p>Hint: Append monomers (0 or 1) to a list inside a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, and use a method such as <code class="docutils literal notranslate"><span class="pre">binomial()</span></code> to decide when to toggle between monomers types. Use <code class="docutils literal notranslate"><span class="pre">mono</span> <span class="pre">=</span> <span class="pre">1</span> <span class="pre">-</span> <span class="pre">mono</span></code> to make the switch.</p>
+<p>Hint: Append monomers (0 or 1) to a list inside a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, and use a method such as <code class="docutils literal notranslate"><span class="pre">binomial()</span></code> to decide when to toggle between monomer types. Use <code class="docutils literal notranslate"><span class="pre">mono</span> <span class="pre">=</span> <span class="pre">1</span> <span class="pre">-</span> <span class="pre">mono</span></code> to make the switch.</p>
 </li>
 <li><p>The random flight polymer simulation presented in section 9.2.3 uses a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. As discussed in chapter 4, one of the virtues of NumPy is that it often avoids the computationally inefficient <code class="docutils literal notranslate"><span class="pre">for</span></code> loops. Below is the same simulation written in a single line of code leveraging the power of NumPy arrays. Briefly explain what it is doing and why it works.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
@@ -937,7 +937,7 @@
 </pre></div>
 </div>
 </li>
-<li><p>Proteins are nature polymers consisting of twenty common monomers called amino acids. Simulate a random protein strand of a thousand units long using the <code class="docutils literal notranslate"><span class="pre">integers()</span></code> method and a Python dictionary or list containing the single letter amino acid codes.</p></li>
+<li><p>Proteins are nature polymers consisting of twenty common monomers called amino acids. Simulate a random protein strand of a thousand units long using the <code class="docutils literal notranslate"><span class="pre">integers()</span></code> method and a Python dictionary or list containing the single-letter amino acid codes.</p></li>
 <li><p>Confidence intervals</p>
 <p>a) Convert the code for calculating a 95% confidence interval in <a class="reference internal" href="#id9"><span class="std std-ref">section 9.2.2</span></a> to a Python function that accepts the number of samples as the one argument and returns the percentage of the time the true value is inside the confidence interval. You will need to look up t values and generate a dictionary that converts degrees of freedom (N) to t values.</p>
 <p>b) Using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, calculate the percentage of the time the true value is in the 95% confidence interval for each of the sample sizes in the above dictionary and plot the results. Describe the trend.</p>

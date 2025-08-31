@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -430,12 +430,12 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="chapter-8-mathematics">
-<span id="id1"></span><h1>Chapter 8: Mathematics<a class="headerlink" href="#chapter-8-mathematics" title="Link to this heading">#</a></h1>
-<div class="cell tag_remove-input docutils container">
+  <div class="cell tag_remove-input docutils container">
 </div>
+<section class="tex2jax_ignore mathjax_ignore" id="chapter-8-mathematics">
+<span id="id1"></span><h1>Chapter 8: Mathematics<a class="headerlink" href="#chapter-8-mathematics" title="Link to this heading">#</a></h1>
 <p>We have already been doing math throughout this book as Python is fundamentally performing mathematical operations through arithmetic, calculus, algebra, and Boolean logic among others, but this chapter will dive deeper into symbolic mathematics, matrix operations, and integration. Some of this chapter will rely on SciPy and NumPy, but for the symbolic mathematics, we will use the popular <a class="reference external" href="http://www.sympy.org/en/index.html">SymPy  library</a>.</p>
-<p>SymPy is the main library in the SciPy ecosystem for performing symbolic mathematics, and it is suitable for a wide audience from high school students to scientific researchers. It is something like a free, open source Mathematica substitute that is built on Python and is arguably more accessible in terms of cost and ease of acquisition. All of the following SymPy code relies on the following import which makes all of the SymPy modules available.</p>
+<p>SymPy is the main library in the SciPy ecosystem for performing symbolic mathematics, and it is suitable for a wide audience from high school students to scientific researchers. It is something like a free, open-source Mathematica substitute that is built on Python and is arguably more accessible in terms of cost and ease of acquisition. All of the following SymPy code relies on the following import which makes all of the SymPy modules available.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span>
@@ -565,7 +565,7 @@
 </div>
 </div>
 </div>
-<p>To see what constrains were placed on a variable, use the <code class="docutils literal notranslate"><span class="pre">assumptions()</span></code> function demonstrated below.</p>
+<p>To see what constraints were placed on a variable, use the <code class="docutils literal notranslate"><span class="pre">assumptions()</span></code> function demonstrated below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy.core.assumptions</span> <span class="kn">import</span> <span class="n">assumptions</span>
@@ -591,7 +591,7 @@
 </div>
 </div>
 <p>A selection of predicate arguments for the <code class="docutils literal notranslate"><span class="pre">sympy.symbols()</span></code> function are listed below in Table 1. This is not an exhaustive list, but a complete list can be found on the <a class="reference external" href="https://docs.sympy.org/latest/guides/assumptions.html#gotcha-symbols-with-different-assumptions">SymPy website</a> under “Predicates.”</p>
-<p><strong>Table 1</strong> Predicates for<code class="docutils literal notranslate"><span class="pre">sympy.symbols()</span></code></p>
+<p><strong>Table 1</strong> Predicates for <code class="docutils literal notranslate"><span class="pre">sympy.symbols()</span></code></p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p></p></th>
@@ -634,7 +634,7 @@
 </section>
 <section id="sympy-mathematical-functions">
 <span id="id5"></span><h3>8.1.3 SymPy Mathematical Functions<a class="headerlink" href="#sympy-mathematical-functions" title="Link to this heading">#</a></h3>
-<p>Similar to the <code class="docutils literal notranslate"><span class="pre">math</span></code> Python module, SymPy contains an assortment of standard mathematical operators such as square root and trigonometric functions. A table of common functions is below. Some of the functions start with a capital letter such as <code class="docutils literal notranslate"><span class="pre">Abs()</span></code>. This is important so that they do not collide with native Python functions if SymPy is imported into the global name space.</p>
+<p>Similar to the <code class="docutils literal notranslate"><span class="pre">math</span></code> Python module, SymPy contains an assortment of standard mathematical operators such as square root and trigonometric functions. A table of common functions is below. Some of the functions start with a capital letter such as <code class="docutils literal notranslate"><span class="pre">Abs()</span></code>. This is important so that they do not collide with native Python functions if SymPy is imported into the global namespace.</p>
 <p><strong>Table 2</strong> Common SymPy Functions</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -667,12 +667,12 @@
 </tbody>
 </table>
 </div>
-<p>It is important to note that any mathematical function operating on a symbol needs to be from the SymPy library. For example, using a <code class="docutils literal notranslate"><span class="pre">math.cos()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">math</span></code> Python modeule will result in an error.</p>
+<p>It is important to note that any mathematical function operating on a symbol needs to be from the SymPy library. For example, using a <code class="docutils literal notranslate"><span class="pre">math.cos()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">math</span></code> Python module will result in an error.</p>
 </section>
 </section>
 <section id="algebra-in-sympy">
 <span id="id6"></span><h2>8.2 Algebra in SymPy<a class="headerlink" href="#algebra-in-sympy" title="Link to this heading">#</a></h2>
-<p>SymPy is quite capable at algebraic operations and is knowledgeable of common identities such as <span class="math notranslate nohighlight">\(sin(x)^2 + cos(x)^2 = 1\)</span>, but before we proceed with doing algebra in SymPy, we need to cover some basic algebraic methods. These are provided in Table 3 which includes polynomial expansion and factoring, expression simplification, and solving equations. The subsequent sections demonstrate each of these.</p>
+<p>SymPy is quite capable of algebraic operations and is knowledgeable of common identities such as <span class="math notranslate nohighlight">\(sin(x)^2 + cos(x)^2 = 1\)</span>, but before we proceed with doing algebra in SymPy, we need to cover some basic algebraic methods. These are provided in Table 3 which includes polynomial expansion and factoring, expression simplification, and solving equations. The subsequent sections demonstrate each of these.</p>
 <p><strong>Table 3</strong> Common Algebraic Methods</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -735,7 +735,7 @@
 </section>
 <section id="simplification">
 <span id="id8"></span><span id="index-4"></span><h3>8.2.2 Simplification<a class="headerlink" href="#simplification" title="Link to this heading">#</a></h3>
-<p>SymPy may not always return a mathematical expression into the simplest form. Below is an expression with a simpler form, and if we feed this into SymPy, it is not automatically simplified.</p>
+<p>SymPy may not always return a mathematical expression in the simplest form. Below is an expression with a simpler form, and if we feed this into SymPy, it is not automatically simplified.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">15</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)</span>
@@ -1007,9 +1007,9 @@
 <p id="index-13"><span id="index-12"></span>To get the inverse of a matrix or array, we can use the <code class="docutils literal notranslate"><span class="pre">np.linalg.inv()</span></code> function provided by NumPy’s linear algebra module and use the <code class="docutils literal notranslate"><span class="pre">dot()</span></code> method to take the dot product.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">],</span>
-               <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span>  <span class="mi">1</span><span class="p">],</span>
-               <span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">11</span><span class="p">,</span> <span class="mi">11</span><span class="p">]])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">],</span>
+              <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+              <span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">11</span><span class="p">,</span> <span class="mi">11</span><span class="p">]])</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">21</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="o">-</span><span class="mi">21</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -1028,7 +1028,7 @@
 </div>
 </div>
 <p>This means that <span class="math notranslate nohighlight">\(x\)</span> = 1, <span class="math notranslate nohighlight">\(y\)</span> = 2, and <span class="math notranslate nohighlight">\(z\)</span> = 1.</p>
-<p>As a chemical example, we can use the above mathematics and Beer’s law to determine the concentration of three light absorbing analytes in a solution. The mathematical representation of Beer’s law is written below where <span class="math notranslate nohighlight">\(A\)</span> is absorbance (unitless), <span class="math notranslate nohighlight">\(b\)</span> is path length (cm), <span class="math notranslate nohighlight">\(C\)</span> is concentration (M), and <span class="math notranslate nohighlight">\(\epsilon\)</span> is the molar absorptivity (cm<span class="math notranslate nohighlight">\(^{-1}\)</span>M<span class="math notranslate nohighlight">\(^{-1}\)</span>). The latter value is analyte dependent.</p>
+<p>As a chemical example, we can use the above mathematics and Beer’s law to determine the concentration of three light-absorbing analytes in a solution. The mathematical representation of Beer’s law is written below, where <span class="math notranslate nohighlight">\(A\)</span> is absorbance (unitless), <span class="math notranslate nohighlight">\(b\)</span> is path length (cm), <span class="math notranslate nohighlight">\(C\)</span> is concentration (M), and <span class="math notranslate nohighlight">\(\epsilon\)</span> is the molar absorptivity (cm<span class="math notranslate nohighlight">\(^{-1}\)</span>M<span class="math notranslate nohighlight">\(^{-1}\)</span>). The latter value is analyte-dependent.</p>
 <div class="math notranslate nohighlight">
 \[ A = \epsilon bC \]</div>
 <p>For a path length of 1.0 cm, which is quite common, the equation simplifies down to:</p>
@@ -1037,7 +1037,7 @@
 <p>When there are three analytes, <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span>, the absorption of light at a given wavelength equals the sum of the individual absorptions.</p>
 <div class="math notranslate nohighlight">
 \[ A = \epsilon_x C_x +  \epsilon_y C_y +  \epsilon_z C_z \]</div>
-<p>If we measure the absorbance of a three analyte solution at three different wavelengths (<span class="math notranslate nohighlight">\(\lambda\)</span>), we get the following three equations.</p>
+<p>If we measure the absorbance of a three-analyte solution at three different wavelengths (<span class="math notranslate nohighlight">\(\lambda\)</span>), we get the following three equations.</p>
 <div class="math notranslate nohighlight">
 \[ A_{\lambda 1} = \epsilon_{x \lambda 1} C_x +  \epsilon_{y \lambda 1} C_y +  \epsilon_{z \lambda 1} C_z \]</div>
 <div class="math notranslate nohighlight">
@@ -1061,9 +1061,9 @@
 <p>We simply solve for the concentration matrix as was done earlier. Again, this is solvable using NumPy as shown below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">7.8</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span>
-               <span class="p">[</span><span class="mf">2.6</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">,</span> <span class="mf">0.89</span><span class="p">],</span>
-               <span class="p">[</span><span class="mf">1.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">8.9</span><span class="p">]])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">7.8</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span>
+              <span class="p">[</span><span class="mf">2.6</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">,</span> <span class="mf">0.89</span><span class="p">],</span>
+              <span class="p">[</span><span class="mf">1.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">8.9</span><span class="p">]])</span>
 <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.6469</span><span class="p">,</span> <span class="mf">0.282274</span><span class="p">,</span> <span class="mf">0.22214</span><span class="p">])</span>
 <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 </pre></div>
@@ -1076,7 +1076,7 @@
 </div>
 </div>
 <p>The concentrations are <span class="math notranslate nohighlight">\(C_x\)</span> = 0.078 M, <span class="math notranslate nohighlight">\(C_y\)</span> = 0.023 M, and <span class="math notranslate nohighlight">\(C_z\)</span> = 0.0066 M.</p>
-<p>Alternatively, there is a <code class="docutils literal notranslate"><span class="pre">np.linalg.solve()</span></code> function that accomplishes the same calculation in a single function call. This function requires two pieces of information: the coefficient matrix and the dependent variable matrix. In our example, these are <code class="docutils literal notranslate"><span class="pre">E</span></code> and <code class="docutils literal notranslate"><span class="pre">A</span></code>, respectively.</p>
+<p>Alternatively, there is an <code class="docutils literal notranslate"><span class="pre">np.linalg.solve()</span></code> function that accomplishes the same calculation in a single function call. This function requires two pieces of information: the coefficient matrix and the dependent variable matrix. In our example, these are <code class="docutils literal notranslate"><span class="pre">E</span></code> and <code class="docutils literal notranslate"><span class="pre">A</span></code>, respectively.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">E</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
@@ -1102,7 +1102,7 @@
 \[ S_8(s) + 12 \, O_2(g) \rightarrow 8 \, SO_3(g) \quad \Delta H_1 = -3160 kJ \]</div>
 <div class="math notranslate nohighlight">
 \[ 2 \, SO_2(g) + O_2(g) \rightarrow 2 \, SO_3(g) \quad \Delta H_2 = -196 kJ \]</div>
-<p id="index-16">Using Hess’s law, we need to multiply the subreactions 1 and 2 by coefficients and add them together to generate the overall net reaction. Remember that reversing a reaction results in reversing the sign of reaction enthalpy, so it’s the same as multiplying by -1. We can represent this calculation using matrices show below where r<span class="math notranslate nohighlight">\(_1\)</span> and r<span class="math notranslate nohighlight">\(_2\)</span> are the coefficients for each subreaction. The values in each row of the first matrix are the number of SO<span class="math notranslate nohighlight">\(_2\)</span>, SO<span class="math notranslate nohighlight">\(_3\)</span>, O<span class="math notranslate nohighlight">\(_2\)</span>, and S<span class="math notranslate nohighlight">\(_8\)</span> molecules, respectively, in the two subreactions, and the numbers in the last matrix are the numbers of the same molecules in the net reaction. The gray molecular formulas in the equation below are not part of the equation but rather are simply labels for clarity. You may notice that the coefficients in the balance equations on the reactant side are negative while products are positive. This allows us keep track of the side they are on.</p>
+<p id="index-16">Using Hess’s law, we need to multiply the subreactions 1 and 2 by coefficients and add them together to generate the overall net reaction. Remember that reversing a reaction results in reversing the sign of reaction enthalpy, so it’s the same as multiplying by -1. We can represent this calculation using matrices shown below, where r<span class="math notranslate nohighlight">\(_1\)</span> and r<span class="math notranslate nohighlight">\(_2\)</span> are the coefficients for each subreaction. The values in each row of the first matrix are the number of SO<span class="math notranslate nohighlight">\(_2\)</span>, SO<span class="math notranslate nohighlight">\(_3\)</span>, O<span class="math notranslate nohighlight">\(_2\)</span>, and S<span class="math notranslate nohighlight">\(_8\)</span> molecules, respectively, in the two subreactions, and the numbers in the last matrix are the numbers of the same molecules in the net reaction. The gray molecular formulas in the equation below are not part of the equation but rather are simply labels for clarity. You may notice that the coefficients in the balance equations on the reactant side are negative while products are positive. This allows us to keep track of the side they are on.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{matrix} \color{gray} {SO_2 \rightarrow} \\ \color{gray} {SO_3 \rightarrow} \\ \color{gray}{O_2 \rightarrow} \\ \color{gray}{S_8 \rightarrow} \end{matrix}
 \begin{bmatrix} 0 &amp; -2 \\ 8 &amp; 2 \\ -12 &amp; -1 \\ -1 &amp; 0 \end{bmatrix}
@@ -1187,7 +1187,7 @@
 <p>The normal equation used in this section is really just the Moore-Penrose pseudoinverse and is used here as a demonstration of performing matrix calculations.</p>
 </div>
 </aside>
-<p>Finding the line of best fit through data points can be accomplished by least-square minimization. What we are essentially looking for is an equation of the form <span class="math notranslate nohighlight">\(y = mx + b\)</span> that is as close as possible to the data points, and the mean square error determines what qualifies as “close.” If we rewrite this problem in matrix or array form, it will look like the following for a series of four point (<span class="math notranslate nohighlight">\(x_n\)</span>, <span class="math notranslate nohighlight">\(y_n\)</span>) on a two-dimensional plane. The first array contains a column of ones to multiply with b, so for the first row, we get <span class="math notranslate nohighlight">\(mx_0 + b = y_0\)</span>.</p>
+<p>Finding the line of best fit through data points can be accomplished by least-square minimization. What we are essentially looking for is an equation of the form <span class="math notranslate nohighlight">\(y = mx + b\)</span> that is as close as possible to the data points, and the mean square error determines what qualifies as “close.” If we rewrite this problem in matrix or array form, it will look like the following for a series of four points (<span class="math notranslate nohighlight">\(x_n\)</span>, <span class="math notranslate nohighlight">\(y_n\)</span>) on a two-dimensional plane. The first array contains a column of ones to multiply with b, so for the first row, we get <span class="math notranslate nohighlight">\(mx_0 + b = y_0\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} \begin{bmatrix} x_0 &amp; 1 \\ x_1 &amp; 1 \\ x_2 &amp; 1 \\ x_3 &amp; 1 \end{bmatrix}
 \cdot
@@ -1307,13 +1307,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8fde8562de8799466185ce043fe12acee4ff06491b7cc8d84706daa2dd9cbbcb.svg" src="../../_images/8fde8562de8799466185ce043fe12acee4ff06491b7cc8d84706daa2dd9cbbcb.svg" />
+<img alt="../../_images/37a7c6e990ae0c568bfeb5e2de75abce84c1936684ffe937c56fee60f2b2bdf7.svg" src="../../_images/37a7c6e990ae0c568bfeb5e2de75abce84c1936684ffe937c56fee60f2b2bdf7.svg" />
 </div>
 </div>
 </section>
 <section id="balancing-chemical-equations">
 <span id="id16"></span><span id="index-19"></span><h3>8.3.4 Balancing Chemical Equations<a class="headerlink" href="#balancing-chemical-equations" title="Link to this heading">#</a></h3>
-<p>Matrices can also be used to balance chemical equations as shown below where <span class="math notranslate nohighlight">\(x_1\)</span> through <span class="math notranslate nohighlight">\(x_4\)</span> are the coefficients for the balanced chemical equation.</p>
+<p>Matrices can also be used to balance chemical equations as shown below, where <span class="math notranslate nohighlight">\(x_1\)</span> through <span class="math notranslate nohighlight">\(x_4\)</span> are the coefficients for the balanced chemical equation.</p>
 <div class="math notranslate nohighlight">
 \[ x_1 C_3H_{8} + x_2 O_2 \rightarrow x_3 CO_2 + x_4 H_2O \]</div>
 <p>We can then describe the number of carbon, hydrogen, and oxygen atoms in each compound using 3 <span class="math notranslate nohighlight">\(\times\)</span> 1 matrices <span class="math notranslate nohighlight">\(\begin{bmatrix} C \\ H \\ O \end{bmatrix}\)</span> as shown below.</p>
@@ -1347,7 +1347,7 @@
    x_3 \begin{bmatrix} 1 \\ 0 \\ 2 \end{bmatrix} = 
    \begin{bmatrix} 0 \\ 2 \\ 1 \end{bmatrix}
 \end{split}\]</div>
-<p>These matrices can now be merged into one larger matrix. The left matrix below will be called <code class="docutils literal notranslate"><span class="pre">M</span></code> and the right matrix below is called <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
+<p>These matrices can now be merged into one larger matrix. The left matrix below will be called <code class="docutils literal notranslate"><span class="pre">M</span></code>, and the right matrix below is called <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} \begin{bmatrix} 3 &amp; 0 &amp; -1 \\ 8 &amp; 0 &amp; 0 \\ 0 &amp; 2 &amp; -2 \end{bmatrix}
 \cdot
@@ -1391,7 +1391,7 @@
 </section>
 <section id="eigenvalues-and-eigenvectors">
 <span id="id17"></span><span id="index-23"></span><span id="index-22"></span><span id="index-21"></span><span id="index-20"></span><h3>8.3.5 Eigenvalues and Eigenvectors<a class="headerlink" href="#eigenvalues-and-eigenvectors" title="Link to this heading">#</a></h3>
-<p>This section covers using <code class="docutils literal notranslate"><span class="pre">np.linalg</span></code> to calculate <em>eigenvalues</em> and <em>eigenvectors</em> which is useful in quantum mechanics among other applications. This topic will not be utilized later in this book, so feel free to skip over this section if you have no interest in this topic.</p>
+<p>This section covers using <code class="docutils literal notranslate"><span class="pre">np.linalg</span></code> to calculate <em>eigenvalues</em> and <em>eigenvectors</em>, which is useful in quantum mechanics among other applications. This topic will not be utilized later in this book, so feel free to skip over this section if you have no interest in this topic.</p>
 <p>For a square matrix <span class="math notranslate nohighlight">\(A\)</span>, there can exist a scalar <span class="math notranslate nohighlight">\(\lambda\)</span> and vector <span class="math notranslate nohighlight">\(V\)</span> that satisfy the following equation.</p>
 <div class="math notranslate nohighlight">
 \[ AV = \lambda V \]</div>
@@ -1417,7 +1417,7 @@
 </div>
 </div>
 </div>
-<p>The first array contains the two eigenvalues while the second matrix contains the two eigenvector solutions.</p>
+<p>The first array contains the two eigenvalues, while the second matrix contains the two eigenvector solutions.</p>
 <p>Not every matrix has eigenvalues or eigenvectors. In the case of the following 90<span class="math notranslate nohighlight">\(\circ\)</span> rotation matrix, the solution generated includes <span class="math notranslate nohighlight">\(j\)</span> values which is Python’s notation used for imaginary and complex numbers.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} A = \begin{bmatrix} 0 &amp; -1 \\ 1 &amp; 0 \end{bmatrix} \end{split}\]</div>
@@ -1439,7 +1439,7 @@
 </section>
 <section id="calculus">
 <span id="id18"></span><span id="index-24"></span><h2>8.4 Calculus<a class="headerlink" href="#calculus" title="Link to this heading">#</a></h2>
-<p>SymPy and SciPy both contain functionality for performing calculus operations. We will start with SymPy for the symbolic math and switch over to SciPy for the strictly numerical work in <a class="reference internal" href="#id21"><span class="std std-ref">section 8.4.3</span></a>. In this section, we will be working with the radial density functions (<span class="math notranslate nohighlight">\(\psi\)</span>) for hydrogen atomic orbitals. The squares of these functions (<span class="math notranslate nohighlight">\(\psi ^2\)</span>) provide the probability of finding an electron with respect to distance from the nucleus. While these equations are available in various textbooks, SymPy provides a <code class="docutils literal notranslate"><span class="pre">physics</span></code> module with a <code class="docutils literal notranslate"><span class="pre">R_nl()</span></code> function for generating these equations based on the principle (<em>n</em>) quantum number, angular (<em>l</em>) quantum number, and the atomic number (<em>Z</em>). For example, to generate the function for the 2p orbital of hydrogen, <em>n</em> = 2, <em>l</em> = 1, and <em>Z</em> = 1.</p>
+<p>SymPy and SciPy both contain functionality for performing calculus operations. We will start with SymPy for the symbolic math and switch over to SciPy for the strictly numerical work in <a class="reference internal" href="#id21"><span class="std std-ref">section 8.4.3</span></a>. In this section, we will be working with the radial density functions (<span class="math notranslate nohighlight">\(\psi\)</span>) for hydrogen atomic orbitals. The squares of these functions (<span class="math notranslate nohighlight">\(\psi ^2\)</span>) provide the probability of finding an electron with respect to distance from the nucleus. While these equations are available in various textbooks, SymPy provides a <code class="docutils literal notranslate"><span class="pre">physics</span></code> module with a <code class="docutils literal notranslate"><span class="pre">R_nl()</span></code> function for generating these equations based on the principal (<em>n</em>) quantum number, angular (<em>l</em>) quantum number, and the atomic number (<em>Z</em>). For example, to generate the function for the 2p orbital of hydrogen, <em>n</em> = 2, <em>l</em> = 1, and <em>Z</em> = 1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy.physics.hydrogen</span> <span class="kn">import</span> <span class="n">R_nl</span>
@@ -1489,7 +1489,7 @@
 </div>
 <section id="differentiation">
 <span id="id19"></span><span id="index-25"></span><h3>8.4.1 Differentiation<a class="headerlink" href="#differentiation" title="Link to this heading">#</a></h3>
-<p>SymPy can take the derivative of mathematical expression using the <code class="docutils literal notranslate"><span class="pre">sympy.diff()</span></code> function.  This function requires a mathematical expression, the variable with respect the derivative is taken from, and the degree. The default behavior is to take the first derivative if a degree is not specified.</p>
+<p>SymPy can take the derivative of mathematical expressions using the <code class="docutils literal notranslate"><span class="pre">sympy.diff()</span></code> function.  This function requires a mathematical expression, the variable with respect to the derivative is taken from, and the degree. The default behavior is to take the first derivative if a degree is not specified.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">deg</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1525,7 +1525,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/072a9aae1037d36134f59b8a3123087872145a12b56fc1a32dfd84b40fd87fa3.svg" src="../../_images/072a9aae1037d36134f59b8a3123087872145a12b56fc1a32dfd84b40fd87fa3.svg" />
+<img alt="../../_images/005c15e8716b7e78344d1883f92b431a981b5786349956f8775a32de080a839b.svg" src="../../_images/005c15e8716b7e78344d1883f92b431a981b5786349956f8775a32de080a839b.svg" />
 </div>
 </div>
 <p>The radius is in Bohrs (<span class="math notranslate nohighlight">\(a_0\)</span>) which is equal to approximately 0.53 angstroms.</p>
@@ -1533,7 +1533,7 @@
 <section id="integration-of-functions">
 <span id="id20"></span><span id="index-26"></span><h3>8.4.2 Integration of Functions<a class="headerlink" href="#integration-of-functions" title="Link to this heading">#</a></h3>
 <p>SymPy can also integrate expressions using the <code class="docutils literal notranslate"><span class="pre">sympy.integrate()</span></code> function which takes the mathematical expression and the variable plus integration range in the form of a tuple. If the integration range is omitted, then SymPy will return a symbolic expression.</p>
-<p>The normalized (i.e., totals to one) density function is the squared wave function times <span class="math notranslate nohighlight">\(r^2\)</span> (i.e, <span class="math notranslate nohighlight">\(\psi ^2 r^2\)</span>). We can use this to determine the probability of finding an electron in a particular range of distances from the radius. Below, we integrate from the nucleus to the radius of maximum density.</p>
+<p>The normalized (i.e., totals to one) density function is the squared wave function times <span class="math notranslate nohighlight">\(r^2\)</span> (i.e., <span class="math notranslate nohighlight">\(\psi ^2 r^2\)</span>). We can use this to determine the probability of finding an electron in a particular range of distances from the radius. Below, we integrate from the nucleus to the radius of maximum density.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">R_21</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">r</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">mx</span><span class="p">))</span><span class="o">.</span><span class="n">evalf</span><span class="p">()</span>
@@ -1545,7 +1545,7 @@
 \[\displaystyle 0.0526530173437111\]</div>
 </div>
 </div>
-<p>There is a 5.27% probability finding an electron between the nucleus and the radius of maximum probability. This is probably may be a bit surprising, but examination of the radial density plot reveals that the radius of maximum probability is quite close to the nucleus with a significant amount of density beyond the maximum radius. Let’s see the probability of finding an electron between 0 and 10 Bohrs from the nucleus.</p>
+<p>There is a 5.27% probability of finding an electron between the nucleus and the radius of maximum probability. This is probably a bit surprising, but examination of the radial density plot reveals that the radius of maximum probability is quite close to the nucleus with a significant amount of density beyond the maximum radius. Let’s see the probability of finding an electron between 0 and 10 Bohrs from the nucleus.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">R_21</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">r</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span><span class="o">.</span><span class="n">evalf</span><span class="p">()</span>
@@ -1562,7 +1562,7 @@
 </section>
 <section id="integrating-sampled-data">
 <span id="id21"></span><h3>8.4.3 Integrating Sampled Data<a class="headerlink" href="#integrating-sampled-data" title="Link to this heading">#</a></h3>
-<p>The above integration assumes a mathematical function is known. There are times when there is no known function to describe the data such as spectra. This is common in NMR spectroscopy and gas chromatography (GC) among many other applications where integration of peak areas is used to quantify different components of a spectrum.</p>
+<p>The above integration assumes a mathematical function is known. There are times when there is no known function to describe the data, such as spectra. This is common in NMR spectroscopy and gas chromatography (GC) among many other applications where integration of peak areas is used to quantify different components of a spectrum.</p>
 <p>In the following example, we will use a section of a <span class="math notranslate nohighlight">\(^1\)</span>H NMR spectrum where we want to determine the ratio of the three triplet peaks via integration. NMR spectra are typically stored in binary files that require a special library to read, which is covered in chapter 11. For simplicity in this example, the data for a section of the NMR spectrum has been converted to a CSV file titled <em>Ar_NMR.csv</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1634,7 +1634,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0f7cb76c4d380f15b8f648f51fa3439de24ea8bac019541ef0bedaf2d9b138bb.svg" src="../../_images/0f7cb76c4d380f15b8f648f51fa3439de24ea8bac019541ef0bedaf2d9b138bb.svg" />
+<img alt="../../_images/25af19ab00855f61390d8c710b3d1bed9252df3408b70b03396b2de45bfd9bb7.svg" src="../../_images/25af19ab00855f61390d8c710b3d1bed9252df3408b70b03396b2de45bfd9bb7.svg" />
 </div>
 </div>
 <p>Above is a plot of the peaks with respect to the index values (not ppm). To integrate under each of the triplet peaks, first we need the index values for the edges of each peak. Below is a list, <code class="docutils literal notranslate"><span class="pre">i</span></code>, that provides reasonable boundaries, and a plot is below with these edges marked in orange squares.</p>
@@ -1649,19 +1649,19 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4b43013bacf967f61f735bf6d5e9527cfa6652b6cef6db256852acd5d27560da.svg" src="../../_images/4b43013bacf967f61f735bf6d5e9527cfa6652b6cef6db256852acd5d27560da.svg" />
+<img alt="../../_images/0a159eb0ca75c33fd8f59a1faf09aa867be225df6e2fbbf37fc38ddf34b0e2d7.svg" src="../../_images/0a159eb0ca75c33fd8f59a1faf09aa867be225df6e2fbbf37fc38ddf34b0e2d7.svg" />
 </div>
 </div>
 <p>Integration under sampled data does not include the values between data points, so these regions are estimated based on assumptions. The <code class="docutils literal notranslate"><span class="pre">trapezoid()</span></code> function assumes that any data point between known points lies directly between the known data points (i.e., linear interpolation) as shown below by the blue lines.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/011ae12496dc0abf741fe49098b88f7c3c299c689e42d7ce7843959ee4a10a78.svg" src="../../_images/011ae12496dc0abf741fe49098b88f7c3c299c689e42d7ce7843959ee4a10a78.svg" />
+<img alt="../../_images/5074aea550b3cbf00755ce9e8b2eb3b7078a0d417f3e85d4b1afbe557c5da9a8.svg" src="../../_images/5074aea550b3cbf00755ce9e8b2eb3b7078a0d417f3e85d4b1afbe557c5da9a8.svg" />
 </div>
 </div>
 <p>Alternatively, the <code class="docutils literal notranslate"><span class="pre">simpson()</span></code> function uses the <em>Simpson’s rule</em> which estimates the data between known points using quadratic interpolation shown below.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/92bb837d9f545518e611f8df1996610b7b1a8357a6e18266317b48dc8c52bb23.svg" src="../../_images/92bb837d9f545518e611f8df1996610b7b1a8357a6e18266317b48dc8c52bb23.svg" />
+<img alt="../../_images/6f020b0b4d8bd2c7af747301de8a8d4f329a89fbb30cd4383cf8ffb3cdd45a94.svg" src="../../_images/6f020b0b4d8bd2c7af747301de8a8d4f329a89fbb30cd4383cf8ffb3cdd45a94.svg" />
 </div>
 </div>
 <aside class="margin sidebar">
@@ -1710,11 +1710,11 @@
 </div>
 </div>
 </div>
-<p>The three peaks have areas of approximately 2:3:1 ratio. Using Simpson’s rule here gives approximately the same result.</p>
+<p>The three peaks have areas of approximately a 2:3:1 ratio. Using Simpson’s rule here gives approximately the same result.</p>
 </section>
 <section id="integrating-ordinary-differential-equations">
 <span id="id22"></span><span id="index-28"></span><span id="index-27"></span><h3>8.4.4 Integrating Ordinary Differential Equations<a class="headerlink" href="#integrating-ordinary-differential-equations" title="Link to this heading">#</a></h3>
-<p><em>Ordinary differential equations (ODE)</em> mathematically describe the change of one or more dependent variables with respect to an independent variable. Common chemical applications include chemical kinetics, diffusion, electric current, among others. The SciPy <code class="docutils literal notranslate"><span class="pre">integrate</span></code> module provides an ODE integrator called <code class="docutils literal notranslate"><span class="pre">odeint()</span></code> which can integrate ordinary differential equations. This is useful for, among other things, integrating under kinetic differential equations to determine the concentration of reactants and products over the course of a chemical reaction.</p>
+<p><em>Ordinary differential equations (ODEs)</em> mathematically describe the change of one or more dependent variables with respect to an independent variable. Common chemical applications include chemical kinetics, diffusion, electric current, among others. The SciPy <code class="docutils literal notranslate"><span class="pre">integrate</span></code> module provides an ODE integrator called <code class="docutils literal notranslate"><span class="pre">odeint()</span></code> which can integrate ordinary differential equations. This is useful for, among other things, integrating under kinetic differential equations to determine the concentration of reactants and products over the course of a chemical reaction.</p>
 <p>For example, the following is a first-order chemical reaction with starting material, A, and product, P.</p>
 <div class="math notranslate nohighlight">
 \[ A \rightarrow P \]</div>
@@ -1759,7 +1759,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6a1e0135042d6c677d74ae9749f25568d9bb95c64078a4b3d6bb25e70b701169.svg" src="../../_images/6a1e0135042d6c677d74ae9749f25568d9bb95c64078a4b3d6bb25e70b701169.svg" />
+<img alt="../../_images/b034e0669b9f4d9b034bffb3bdbb4a5265b36d161cc4e3bb8c3a52d25944c76a.svg" src="../../_images/b034e0669b9f4d9b034bffb3bdbb4a5265b36d161cc4e3bb8c3a52d25944c76a.svg" />
 </div>
 </div>
 <p>This approach to kinetic simulations can be adapted to even more complex reactions which are demonstrated in <a class="reference internal" href="../chapter_09/chap_09_notebook.html#id6"><span class="std std-ref">section 9.1.4</span></a>.</p>
@@ -1767,7 +1767,7 @@
 </section>
 <section id="mathematics-in-python">
 <span id="id23"></span><h2>8.5 Mathematics in Python<a class="headerlink" href="#mathematics-in-python" title="Link to this heading">#</a></h2>
-<p>Between SymPy, NumPy, SciPy, and Python’s built-in functionality, there is often more than one way to carry out calculations in Python. For example, finding roots and derivatives of polynomials can be, along with the approaches demonstrated in this chapter, calculated by creating a NumPy <code class="docutils literal notranslate"><span class="pre">Polynomial</span></code> object and using NumPy’s <code class="docutils literal notranslate"><span class="pre">roots()</span></code> and <code class="docutils literal notranslate"><span class="pre">deriv()</span></code> methods, respectively. How you carry out a calculation can often come down to matter of person preference, though there are differences in terms of speed and the output format. Find what works for you and do not necessarily worry if others are doing the same calculations through a different library or set of functions.</p>
+<p>Between SymPy, NumPy, SciPy, and Python’s built-in functionality, there is often more than one way to carry out calculations in Python. For example, finding roots and derivatives of polynomials can be, along with the approaches demonstrated in this chapter, calculated by creating a NumPy <code class="docutils literal notranslate"><span class="pre">Polynomial</span></code> object and using NumPy’s <code class="docutils literal notranslate"><span class="pre">roots()</span></code> and <code class="docutils literal notranslate"><span class="pre">deriv()</span></code> methods, respectively. How you carry out a calculation can often come down to a matter of personal preference, though there are differences in terms of speed and the output format. Find what works for you and do not necessarily worry if others are doing the same calculations through a different library or set of functions.</p>
 </section>
 <section id="further-reading">
 <span id="further-reading08"></span><h2>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
@@ -1778,7 +1778,7 @@
 </section>
 <section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
-<p>Complete the following exercises in a Jupyter notebook using the SymPy and SciPy libraries. Any data file(s) refered to in the problems can be found in the <a class="reference external" href="https://github.com/weisscharlesj/SciCompforChemists/tree/master/notebooks">data</a> folder in the same directory as this chapter’s Jupyter notebook. Alternatively, you can download a zip file of the data for this chapter from <a class="reference external" href="https://github.com/weisscharlesj/data_SciCompforChem">here</a> by selecting the appropriate chapter file and then clicking the <strong>Download</strong> button.</p>
+<p>Complete the following exercises in a Jupyter notebook using the SymPy and SciPy libraries. Any data file(s) referred to in the problems can be found in the <a class="reference external" href="https://github.com/weisscharlesj/SciCompforChemists/tree/master/notebooks">data</a> folder in the same directory as this chapter’s Jupyter notebook. Alternatively, you can download a zip file of the data for this chapter from <a class="reference external" href="https://github.com/weisscharlesj/data_SciCompforChem">here</a> by selecting the appropriate chapter file and then clicking the <strong>Download</strong> button.</p>
 <ol class="arabic">
 <li><p>Factor the following polynomial using SymPy: <span class="math notranslate nohighlight">\(x^2 + x – 6\)</span></p></li>
 <li><p>Simplify the following mathematical expression using SymPy: <span class="math notranslate nohighlight">\( z = 3x + x^2 + 2xy \)</span></p></li>
@@ -1808,15 +1808,15 @@ Hint: Assume this is an isolated system, so q<span class="math notranslate nohig
 </li>
 <li><p>Using the rotation matrix described in the above problem, write a function that rotates the carbonate anion around its own center of mass. The suggested steps to complete this task are listed below.</p>
 <p>a) Calculate the center of mass</p>
-<p>b)  Subtract the center of mass from all points to shift the cluster to the origin.</p>
+<p>b) Subtract the center of mass from all points to shift the cluster to the origin.</p>
 <p>c) Rotate the cluster of points.</p>
-<p>d) Add the center of mass back the cluster the shift the points back.</p>
+<p>d) Add the center of mass back to the cluster to the shift the points back to the starting location.</p>
 </li>
 <li><p>The following is the equation for the work performed by a reversible, isothermal (i.e., constant T) expansion of a piston by a fixed quantity of gas.</p>
 <div class="math notranslate nohighlight">
 \[ w = \int_{v_i}^{v_f} -nRT \frac{1}{V}dV \]</div>
 <p>a) Using SymPy, integrate this expression symbolically for V<span class="math notranslate nohighlight">\(_i\)</span> <span class="math notranslate nohighlight">\(\rightarrow\)</span> V<span class="math notranslate nohighlight">\(_f\)</span>. Try having SymPy simplify the answer to see if there is a simpler form.</p>
-<p>b) Integrate the same express above for the expansion of 2.44 mol of He gas from 0.552 L to 1.32 L at 298 K. Feel free to use either SymPy or SciPy.</p>
+<p>b) Integrate the same expression above for the expansion of 2.44 mol of He gas from 0.552 L to 1.32 L at 298 K. Feel free to use either SymPy or SciPy.</p>
 </li>
 <li><p>Using <code class="docutils literal notranslate"><span class="pre">odeint()</span></code>, simulate the concentration of starting material for the second-order reaction below and overlay it with the second-order integrated rate law to show that they agree.</p>
 <div class="math notranslate nohighlight">

@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -421,15 +421,15 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="chapter-15-cheminformatics-with-rdkit">
 <span id="id1"></span><span id="index-1"></span><span id="index-0"></span><h1>Chapter 15: Cheminformatics with RDKit<a class="headerlink" href="#chapter-15-cheminformatics-with-rdkit" title="Link to this heading">#</a></h1>
-<p><em>Cheminformatics</em> can be thought of as the intersection of data science, computer science, and chemistry as a means of better understanding and solving chemical problems. This chapter introduces a popular and versatile Python cheminformatics library known as RDKit which is useful for tasks such as:</p>
+<p><em>Cheminformatics</em> can be thought of as the intersection of data science, computer science, and chemistry as a means of better understanding and solving chemical problems. This chapter introduces a popular and versatile Python cheminformatics library known as RDKit, which is useful for tasks such as:</p>
 <ul class="simple">
 <li><p>Visualizing molecules</p></li>
 <li><p>Reading SMILES or InChI molecular representations</p></li>
-<li><p>Quantifying structural features in molecules such as number of rings or hydrogen bond donors</p></li>
+<li><p>Quantifying structural features in molecules such as the number of rings or hydrogen bond donors</p></li>
 <li><p>Generating all possible stereoisomers of a molecular structure</p></li>
 <li><p>Filtering molecules based on structural features</p></li>
 </ul>
-<p>This is a popular library for those in chemical computing research with examples of its use being relatively easy to find in the chemical literature. As of this writing, RDKit can be installed with either conda or pip (see <a class="reference internal" href="../chapter_00/chap_00_notebook.html#id4"><span class="std std-ref">section 0.2.1</span></a> and link below). If you are using Google Colab, you will need to install RDKit at the top of your notebook (see <a class="reference internal" href="../chapter_00/chap_00_notebook.html#id5"><span class="std std-ref">section 0.2.2</span></a>) as it is not installed by default in Colab.</p>
+<p>This is a popular library for those in chemical computing research, with examples of its use being relatively easy to find in the chemical literature. As of this writing, RDKit can be installed with either conda or pip (see <a class="reference internal" href="../chapter_00/chap_00_notebook.html#id4"><span class="std std-ref">section 0.2.1</span></a> and link below). If you are using Google Colab, you will need to install RDKit at the top of your notebook (see <a class="reference internal" href="../chapter_00/chap_00_notebook.html#id5"><span class="std std-ref">section 0.2.2</span></a>) as it is not installed by default in Colab.</p>
 <p><a class="reference external" href="https://www.rdkit.org/docs/Install.html">Installing RDKit</a></p>
 <p>This chapter assumes the following imports from RDKit.</p>
 <div class="cell docutils container">
@@ -449,7 +449,7 @@
 </div>
 </div>
 </div>
-<p>RDKit is composed of a number of modules including, but not limited to, the following.</p>
+<p>RDKit is composed of a number of modules, including, but not limited to, the following.</p>
 <p><strong>Table 1</strong> Key Modules and Submodules in the RDKit Library</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -476,17 +476,17 @@
 </tbody>
 </table>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">Chem</span></code> and <code class="docutils literal notranslate"><span class="pre">ML</span></code> modules are the major modules in RDKit, but for this chapter, we will only be focusing on the <code class="docutils literal notranslate"><span class="pre">Chem</span></code> module which has already been imported above.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Chem</span></code> and <code class="docutils literal notranslate"><span class="pre">ML</span></code> modules are the major modules in RDKit, but for this chapter, we will only be focusing on the <code class="docutils literal notranslate"><span class="pre">Chem</span></code> module, which has already been imported above.</p>
 <section id="loading-molecular-representations-into-rdkit">
 <span id="id2"></span><span id="index-3"></span><span id="index-2"></span><h2>15.1 Loading Molecular Representations into RDKit<a class="headerlink" href="#loading-molecular-representations-into-rdkit" title="Link to this heading">#</a></h2>
-<p>There are many ways to depict molecular structures on paper such as Lewis structures, line-angle structural formulas, and condensed notation. When representing molecules for a computer, machine-readable methods such as Simplified Molecular-Input Line-Entry System (SMILES), the International Chemical Identifier (InChI), or mol files are preferred. For example, the SMILES and InChI representations for benzene are listed below.</p>
+<p>There are many ways to depict molecular structures on paper, such as Lewis structures, line-angle structural formulas, and condensed notation. When representing molecules for a computer, machine-readable methods such as Simplified Molecular-Input Line-Entry System (SMILES), the International Chemical Identifier (InChI), or mol files are preferred. For example, the SMILES and InChI representations for benzene are listed below.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SMILES: c1ccccc1
 
 InChI: 1S/C6H6/c1-2-4-6-5-3-1/h1-6H
 </pre></div>
 </div>
-<p>These are not the most human-readable formats, but computer software such as RDKit is quite good at dealing with them. We will not get into the structure and rules for interpreting these representations here because it is not really necessary; reading and writing them is RDKit’s job. You can obtain these representations of a molecular structure from a variety of sources such as generating them from chemical drawing software (e.g., ChemDraw or ChemDoodle), searching <a class="reference external" href="https://webbook.nist.gov/chemistry/">NIST Chemical Webbook</a> or <a class="reference external" href="https://pubchem.ncbi.nlm.nih.gov/">NIH PubChem</a>, and many other sources. In this chapter, we will mainly focus on SMILES representations, but working with the InChI and MOL file formats is analogous and may be used from time-to-time herein.</p>
-<p>The functions below can read and write molecular structures from a variety of formats including SMILES, InChI, and MOL files. When reading these molecular structures, a Molecule object (RDKit-specific class of object) is generated.</p>
+<p>These are not the most human-readable formats, but computer software such as RDKit is quite good at dealing with them. We will not get into the structure and rules for interpreting these representations here because it is not really necessary; reading and writing them is RDKit’s job. You can obtain these representations of a molecular structure from a variety of sources, such as generating them from chemical drawing software (e.g., ChemDraw or ChemDoodle), searching <a class="reference external" href="https://webbook.nist.gov/chemistry/">NIST Chemical Webbook</a> or <a class="reference external" href="https://pubchem.ncbi.nlm.nih.gov/">NIH PubChem</a>, and many other sources. In this chapter, we will mainly focus on SMILES representations, but working with the InChI and MOL file formats is analogous and may be used from time to time herein.</p>
+<p>The functions below can read and write molecular structures from a variety of formats, including SMILES, InChI, and MOL files. When reading these molecular structures, a Molecule object (RDKit-specific class of object) is generated.</p>
 <p><strong>Table 2</strong> Functions for Loading Molecular Structures</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -684,7 +684,7 @@ Q 242.0 141.3, 243.5 141.3
 </section>
 <section id="visualizing-chemical-structures">
 <span id="id3"></span><span id="index-4"></span><h2>15.2 Visualizing Chemical Structures<a class="headerlink" href="#visualizing-chemical-structures" title="Link to this heading">#</a></h2>
-<p>In the above examples, RDKit provided an image of the molecule simply by Jupyter running the Molecule object. By default, this generates a rather small and low resolution image. To generate a sharper image, like above, running the following code at the top of a notebook changes the settings to produce SVG (Scalable Vector Graphic) images which are a vector graphic format.</p>
+<p>In the above examples, RDKit provided an image of the molecule simply by Jupyter running the Molecule object. By default, this generates a rather small and low-resolution image. To generate a sharper image, like above, running the following code at the top of a notebook changes the settings to produce SVG (Scalable Vector Graphic) images, which are a vector graphic format.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rdkit.Chem.Draw</span> <span class="kn">import</span> <span class="n">IPythonConsole</span>
 <span class="n">IPythonConsole</span><span class="o">.</span><span class="n">ipython_useSVG</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
@@ -692,7 +692,7 @@ Q 242.0 141.3, 243.5 141.3
 <section id="single-chemical-structures">
 <span id="id4"></span><h3>15.2.1 Single Chemical Structures<a class="headerlink" href="#single-chemical-structures" title="Link to this heading">#</a></h3>
 <p>However, simply running the Molecule object does not provide easy control over the image. In this section, we will generate images that can be saved along with visualizing grids of molecules and other visual representations.</p>
-<p>To view the molecule, we can use the <code class="docutils literal notranslate"><span class="pre">Chem.Draw.MolToImage(Mol)</span></code> function which takes one required positional arguments of the Molecule object (<code class="docutils literal notranslate"><span class="pre">Mol</span></code>). Optional keyword arguments can be used to set other parameters such as the image size (<code class="docutils literal notranslate"><span class="pre">size=</span></code>) in pixels.</p>
+<p>To view the molecule, we can use the <code class="docutils literal notranslate"><span class="pre">Chem.Draw.MolToImage(Mol)</span></code> function, which takes one required positional argument of the Molecule object (<code class="docutils literal notranslate"><span class="pre">Mol</span></code>). Optional keyword arguments can be used to set other parameters such as the image size (<code class="docutils literal notranslate"><span class="pre">size=</span></code>) in pixels.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">Draw</span><span class="o">.</span><span class="n">MolToImage</span><span class="p">(</span><span class="n">aspirin</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">))</span>
@@ -703,7 +703,7 @@ Q 242.0 141.3, 243.5 141.3
 <img alt="../../_images/0117c1512fcf1eb086b9845cd56c4cd0d8681d30a10084641b9494e21baf3e6d.png" src="../../_images/0117c1512fcf1eb086b9845cd56c4cd0d8681d30a10084641b9494e21baf3e6d.png" />
 </div>
 </div>
-<p>If we want to save the image to a file, this is accomplished using the <code class="docutils literal notranslate"><span class="pre">Chem.Draw.MolToFile()</span></code> function which requires two pieces of information - the Molecule object and the name of the new file as a string.</p>
+<p>If we want to save the image to a file, this is accomplished using the <code class="docutils literal notranslate"><span class="pre">Chem.Draw.MolToFile()</span></code> function, which requires two pieces of information - the Molecule object and the name of the new file as a string.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">Draw</span><span class="o">.</span><span class="n">MolToFile</span><span class="p">(</span><span class="n">mol_object</span><span class="p">,</span> <span class="s1">&#39;file_name.png&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">),</span> <span class="n">imageType</span><span class="o">=</span><span class="s1">&#39;png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -712,7 +712,7 @@ Q 242.0 141.3, 243.5 141.3
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The PNG file formate is a great general-purpose raster file format. Unless you know you need a different file format, this is often a good choice. The SVG file format is a vector format which makes it easily editable in software applications such as <a class="reference external" href="https://inkscape.org/">Inkscape</a>.</p>
+<p>The PNG file format is a great general-purpose raster file format. Unless you know you need a different file format, this is often a good choice. The SVG file format is a vector format which makes it easily editable in software applications such as <a class="reference external" href="https://inkscape.org/">Inkscape</a>.</p>
 </div>
 </aside>
 <aside class="margin sidebar">
@@ -736,7 +736,7 @@ Q 242.0 141.3, 243.5 141.3
 <p class="sidebar-title"></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>If you get a SyntaxWarning from a <code class="docutils literal notranslate"><span class="pre">\</span></code>, this is because Python interprets this as an escape character. To get rid of this error, use a raw string which is formated like <code class="docutils literal notranslate"><span class="pre">r'mytext'</span></code>.</p>
+<p>If you get a SyntaxWarning from a <code class="docutils literal notranslate"><span class="pre">\</span></code>, this is because Python interprets this as an escape character. To get rid of this error, use a raw string which is formatted like <code class="docutils literal notranslate"><span class="pre">r'mytext'</span></code>.</p>
 </div>
 </aside>
 <div class="cell docutils container">
@@ -764,7 +764,7 @@ Q 242.0 141.3, 243.5 141.3
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6b1af6ed58af2cc93c32c1e35aca1155693710b027e8a502cb5166d9bafeae0a.svg" src="../../_images/6b1af6ed58af2cc93c32c1e35aca1155693710b027e8a502cb5166d9bafeae0a.svg" />
+<img alt="../../_images/b7201e0f1401cb897d9072ead50607b76a19dfe12df472185e61aa01f77da80a.svg" src="../../_images/b7201e0f1401cb897d9072ead50607b76a19dfe12df472185e61aa01f77da80a.svg" />
 </div>
 </div>
 </section>
@@ -914,31 +914,31 @@ Q 242.0 141.3, 243.5 141.3
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;rdkit.Chem.rdchem.Mol at 0x11d3c2650&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x11d3c14d0&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x11d3c31b0&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x11d3c1700&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x11d3c1540&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x11d3c13f0&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x11d3c1310&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x11d3c1230&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x11d3c1150&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x11d3c1070&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x11d3c0f90&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x11d3c0e40&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x11d3c0f20&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x11d3c0c80&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x11d3c0d60&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x11d3c0ac0&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x11d3c0ba0&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x11d3c28f0&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x11d3c2960&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x11d3c29d0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;rdkit.Chem.rdchem.Mol at 0x1153ed5b0&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x1153ec900&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x1153ef1b0&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x1153ed700&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x1153ed540&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x1153ed3f0&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x1153ed310&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x1153ed230&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x1153ed150&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x1153ed070&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x1153ecf90&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x1153ece40&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x1153ecf20&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x1153ecc80&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x1153ecd60&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x1153ecba0&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x1153ecac0&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x1153ee8f0&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x1153ee960&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x1153ee9d0&gt;]
 </pre></div>
 </div>
 </div>
 </div>
-<p>To generate the grid, we will use the <code class="docutils literal notranslate"><span class="pre">MolsToGridImage()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">Chem.Draw</span></code> submodule. This function requires one positional argument of an array-like object (e.g., list, tuple, ndarray, etc.) containing the Molecule objects. Other optional keyword arguments include the number of molecules per row (<code class="docutils literal notranslate"><span class="pre">molsPerRow=</span></code>), the pixel dimensions of each molecule (<code class="docutils literal notranslate"><span class="pre">subImgSize=</span></code>), labels below each molecule (<code class="docutils literal notranslate"><span class="pre">legends=</span></code>), and the ability to make images SVG format (<code class="docutils literal notranslate"><span class="pre">usesSVG=</span></code>). The image dimensions only matter if using a raster image format and requires a tuple with the width and height in that order. The <code class="docutils literal notranslate"><span class="pre">legends=</span></code> argument requires an array-like object with the labels in the same order as the object containing the Molecule objects.</p>
+<p>To generate the grid, we will use the <code class="docutils literal notranslate"><span class="pre">MolsToGridImage()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">Chem.Draw</span></code> submodule. This function requires one positional argument of an array-like object (e.g., list, tuple, ndarray, etc.) containing the Molecule objects. Other optional keyword arguments include the number of molecules per row (<code class="docutils literal notranslate"><span class="pre">molsPerRow=</span></code>), the pixel dimensions of each molecule (<code class="docutils literal notranslate"><span class="pre">subImgSize=</span></code>), labels below each molecule (<code class="docutils literal notranslate"><span class="pre">legends=</span></code>), and the ability to make images in SVG format (<code class="docutils literal notranslate"><span class="pre">usesSVG=</span></code>). The image dimensions only matter if using a raster image format and require a tuple with the width and height in that order. The <code class="docutils literal notranslate"><span class="pre">legends=</span></code> argument requires an array-like object with the labels in the same order as the object containing the Molecule objects.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">Draw</span><span class="o">.</span><span class="n">MolsToGridImage</span><span class="p">(</span><span class="n">AminoAcids</span><span class="p">,</span> 
@@ -957,7 +957,7 @@ Q 242.0 141.3, 243.5 141.3
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you’re wondering what is up with the <code class="docutils literal notranslate"><span class="pre">AllChem</span></code> submodule, it stores lesser used features separately from the more mainstay features. By storing these features separately, it speeds up importing the main features. However, the extra cost in time is not substatial, and this submodule contains some cool features such as <a class="reference internal" href="#id9"><span class="std std-ref">generating all possible stereoisomers</span></a> and <a class="reference internal" href="#id13"><span class="std std-ref">filtering molecules based on structural features</span></a>.</p>
+<p>If you’re wondering what is up with the <code class="docutils literal notranslate"><span class="pre">AllChem</span></code> submodule, it stores lesser-used features separately from the more mainstay features. By storing these features separately, it speeds up importing the main features. However, the extra cost in time is not substantial, and this submodule contains some cool features such as <a class="reference internal" href="#id9"><span class="std std-ref">generating all possible stereoisomers</span></a> and <a class="reference internal" href="#id13"><span class="std std-ref">filtering molecules based on structural features</span></a>.</p>
 </div>
 </aside>
 </section>
@@ -1103,7 +1103,7 @@ Q 242.0 141.3, 243.5 141.3
 </table>
 </div></div></div>
 </div>
-<p>The DataFrame can also be exported as an Excel spreadsheet complete with images using the <code class="docutils literal notranslate"><span class="pre">SaveXlsxFromFrame()</span></code>. This function accepts accepts the DataFrame name, output file name, name of the Molecule object column, and the image size as arguments.</p>
+<p>The DataFrame can also be exported as an Excel spreadsheet complete with images using the <code class="docutils literal notranslate"><span class="pre">SaveXlsxFromFrame()</span></code>. This function accepts the DataFrame name, output file name, name of the Molecule object column, and the image size as arguments.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PandasTools</span><span class="o">.</span><span class="n">SaveXlsxFromFrame</span><span class="p">(</span><span class="n">ligands</span><span class="p">,</span> <span class="s1">&#39;ligands.xlsx&#39;</span><span class="p">,</span> <span class="n">molCol</span><span class="o">=</span><span class="s1">&#39;molecules&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">))</span>
@@ -1526,7 +1526,7 @@ Q 268.3 36.8, 268.3 38.7
 </svg>
 </div></div>
 </div>
-<p>To obtain the stereochemistry of double bonds, we can iteration through the bonds and obtain the stereochemistry using the <code class="docutils literal notranslate"><span class="pre">GetStereo()</span></code> bond method as shown below. There are three possible outputs list below.</p>
+<p>To obtain the stereochemistry of double bonds, we can iterate through the bonds and obtain the stereochemistry using the <code class="docutils literal notranslate"><span class="pre">GetStereo()</span></code> bond method as shown below. There are three possible outputs listed below.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
@@ -1558,7 +1558,7 @@ Q 268.3 36.8, 268.3 38.7
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code class="docutils literal notranslate"><span class="pre">STEREONONE</span></code> indicates there is no bond stereochemistry which could be the result of a singel or triple bond or it could be the result of the alkene bond has multiple equivalent substituents on the same carbon (e.g., 2-methylpent-2-ene).</p>
+<p><code class="docutils literal notranslate"><span class="pre">STEREONONE</span></code> indicates there is no bond stereochemistry, which could be the result of a single or triple bond, or it could be the result of the alkene bond having multiple equivalent substituents on the same carbon (e.g., 2-methylpent-2-ene).</p>
 </div>
 </aside>
 <div class="cell docutils container">
@@ -1580,7 +1580,7 @@ STEREONONE
 </div>
 <p>In the above example, there are four bonds with no stereochemistry due to being single bonds, and there is one <em>E</em> bond corresponding to the alkene. If there are multiple double bonds, it can be difficult to determine which bond has which stereochemistry. In this case, either use the image like shown above or use additional
 bond methods (see <a class="reference internal" href="#id14"><span class="std std-ref">section 15.6</span></a>) to obtain more information about the bonds.</p>
-<p>As another example, below we will look at the bonds in 9-<em>cis</em>-retinoic acid where we can see examples of all three possible bond stereochemical assignments.</p>
+<p>As another example, below we will look at the bonds in 9-<em>cis</em>-retinoic acid, where we can see examples of all three possible bond stereochemical assignments.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">retinoic</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;O=C(O)\C=C(\C=C\C=C(/C=C/C1=C(/CCCC1(C)C)C)C)C&#39;</span><span class="p">)</span>
@@ -2554,7 +2554,7 @@ Q 285.9 85.7, 285.9 86.5
 </section>
 <section id="counting-and-generating-isomers">
 <span id="id9"></span><h3>15.3.2 Counting and Generating Isomers<a class="headerlink" href="#counting-and-generating-isomers" title="Link to this heading">#</a></h3>
-<p>Another interesting feature of RDKit is the ability to determine the number of stereoisomers possible for a given structure and to generate the different isomers. In both these applications, RDKit treats any explicitly assigned stereocenter as fixed and will not allow it to be changed. For example, below we will again look at (2<em>S</em>, 3<em>E</em>)-pent-3-en-2-ol. Because the structure already designates this as the (2<em>S</em>, 3<em>E</em>) isomer, the stereochemistry of the chiral center and alkene cannot be changed. As a result, when using the <code class="docutils literal notranslate"><span class="pre">GetStereoisomerCount()</span></code> method from the <code class="docutils literal notranslate"><span class="pre">EnumerateStereoisomers</span></code> module, it returns a <code class="docutils literal notranslate"><span class="pre">1</span></code> indicating that there is only one stereoisomer possible with these constraints.</p>
+<p>Another interesting feature of RDKit is the ability to determine the number of stereoisomers possible for a given structure and to generate the different isomers. In both these applications, RDKit treats any explicitly assigned stereocenter as fixed and will not allow it to be changed. For example, below we will again look at (2<em>S</em>, 3<em>E</em>)-pent-3-en-2-ol. Because the structure already designates this as the (2<em>S</em>, 3<em>E</em>) isomer, the stereochemistry of the chiral center and alkene cannot be changed. As a result, when using the <code class="docutils literal notranslate"><span class="pre">GetStereoisomerCount()</span></code> method from the <code class="docutils literal notranslate"><span class="pre">EnumerateStereoisomers</span></code> module, it returns a <code class="docutils literal notranslate"><span class="pre">1</span></code>, indicating that there is only one stereoisomer possible with these constraints.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">EnumerateStereoisomers</span><span class="o">.</span><span class="n">GetStereoisomerCount</span><span class="p">(</span><span class="n">pentenol</span><span class="p">)</span>
@@ -2590,8 +2590,8 @@ Q 285.9 85.7, 285.9 86.5
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;rdkit.Chem.rdchem.Mol at 0x11d69dcb0&gt;,
- &lt;rdkit.Chem.rdchem.Mol at 0x11d69dee0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;rdkit.Chem.rdchem.Mol at 0x1156b61b0&gt;,
+ &lt;rdkit.Chem.rdchem.Mol at 0x1156b6390&gt;]
 </pre></div>
 </div>
 </div>
@@ -2660,10 +2660,10 @@ Q 285.9 85.7, 285.9 86.5
 </section>
 <section id="chem-descriptor-module">
 <span id="id10"></span><span id="index-8"></span><span id="index-7"></span><h2>15.4 <code class="docutils literal notranslate"><span class="pre">Chem.Descriptor</span></code> Module<a class="headerlink" href="#chem-descriptor-module" title="Link to this heading">#</a></h2>
-<p>RDKit can be use to determine a number of key physical properties of molecules known as <em>descriptors</em> using the <code class="docutils literal notranslate"><span class="pre">Chem.Descriptor</span></code> module. These can be useful for generating features for a large number of molecules for machine learning or understanding structural trends in a body of chemical compounds.</p>
+<p>RDKit can be used to determine a number of key physical properties of molecules known as <em>descriptors</em> using the <code class="docutils literal notranslate"><span class="pre">Chem.Descriptor</span></code> module. These can be useful for generating features for a large number of molecules for machine learning or understanding structural trends in a body of chemical compounds.</p>
 <section id="molecular-features">
 <span id="id11"></span><h3>15.4.1 Molecular Features<a class="headerlink" href="#molecular-features" title="Link to this heading">#</a></h3>
-<p>There are numerous descriptor functions available which are callable using <code class="docutils literal notranslate"><span class="pre">Chem.Descriptors.method()</span></code> where <code class="docutils literal notranslate"><span class="pre">method()</span></code> is the name of a descriptor function that accepts an RDKit Molecule object and returns a numerical value. Below are a few examples of descriptor functions, with a more complete list is available on the <a class="reference external" href="https://www.rdkit.org/docs/GettingStartedInPython.html#list-of-available-descriptors">RDKit website</a>.</p>
+<p>There are numerous descriptor functions available which are callable using <code class="docutils literal notranslate"><span class="pre">Chem.Descriptors.method()</span></code> where <code class="docutils literal notranslate"><span class="pre">method()</span></code> is the name of a descriptor function that accepts an RDKit Molecule object and returns a numerical value. Below are a few examples of descriptor functions, with a more complete list available on the <a class="reference external" href="https://www.rdkit.org/docs/GettingStartedInPython.html#list-of-available-descriptors">RDKit website</a>.</p>
 <p><strong>Table 5</strong> Examples of Molecular Descriptors</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -2861,7 +2861,7 @@ Q 285.9 85.7, 285.9 86.5
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># number of alphatic alcohols</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># number of aliphatic alcohols</span>
 <span class="n">Chem</span><span class="o">.</span><span class="n">Descriptors</span><span class="o">.</span><span class="n">fr_Al_OH</span><span class="p">(</span><span class="n">ptx</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2902,7 +2902,7 @@ Q 285.9 85.7, 285.9 86.5
 </section>
 <section id="searching-molecules-for-structural-patterns">
 <span id="id13"></span><span id="index-9"></span><h2>15.5 Searching Molecules for Structural Patterns<a class="headerlink" href="#searching-molecules-for-structural-patterns" title="Link to this heading">#</a></h2>
-<p>Molecules can be searched for key structural features using the <code class="docutils literal notranslate"><span class="pre">HasSubstructMatch()</span></code> method which returns <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> depending if a structural pattern exists in a molecule or not. This function requires two RDKit Molecule objects - one Molecule object (<code class="docutils literal notranslate"><span class="pre">molecule</span></code>) is checked for the presence of the other Molecule object structure (<code class="docutils literal notranslate"><span class="pre">substructure</span></code>) as shown below. There are optional keyword parameters such as <code class="docutils literal notranslate"><span class="pre">useChirality=</span></code> which allows for chirality to be factored into whether there is a match or not. The default setting is <code class="docutils literal notranslate"><span class="pre">useChirality=False</span></code>.</p>
+<p>Molecules can be searched for key structural features using the <code class="docutils literal notranslate"><span class="pre">HasSubstructMatch()</span></code> method which returns <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> depending on if a structural pattern exists in a molecule or not. This function requires two RDKit Molecule objects - one Molecule object (<code class="docutils literal notranslate"><span class="pre">molecule</span></code>) is checked for the presence of the other Molecule object structure (<code class="docutils literal notranslate"><span class="pre">substructure</span></code>) as shown below. There are optional keyword parameters such as <code class="docutils literal notranslate"><span class="pre">useChirality=</span></code> which allows for chirality to be factored into whether there is a match or not. The default setting is <code class="docutils literal notranslate"><span class="pre">useChirality=False</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">molecule</span><span class="o">.</span><span class="n">HasSubstructMatch</span><span class="p">(</span><span class="n">substructure</span><span class="p">,</span> <span class="n">useChirality</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -3105,7 +3105,7 @@ L 367.7 60.8
 <img alt="../../_images/416e80d172bb2f14bd2e92288fc47254e1f59a4adb8eba8681c300134dc7a8ea.svg" src="../../_images/416e80d172bb2f14bd2e92288fc47254e1f59a4adb8eba8681c300134dc7a8ea.svg" />
 </div>
 </div>
-<p>Indeed, it did return all 20 amino acids, and notice how the core structure of all amino acids are oriented the same direction. Now let us try something a little more interesting by search for all amino acids with a benzene ring in them. The substructural bonding pattern in this case is benzene itself, and the three aromatic amino acids are returned.</p>
+<p>Indeed, it did return all 20 amino acids, and notice how the core structures of all amino acids are oriented in the same direction. Now let us try something a little more interesting by searching for all amino acids with a benzene ring in them. The substructural bonding pattern in this case is benzene itself, and the three aromatic amino acids are returned.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">substructure</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s1">&#39;c1ccccc1&#39;</span><span class="p">)</span>
@@ -3336,7 +3336,7 @@ Q 242.0 141.3, 243.5 141.3
 </svg>
 </div></div>
 </div>
-<p>If we generate a list populated with the degrees of atoms (i.e., number of other atoms bonded directly to it), you may notice that there are no 4 values even though the methyl (i.e., -CH<span class="math notranslate nohighlight">\(_3\)</span>) carbon should have four atoms attached to it. This is because the hydrogen atoms are not explicitly designated in the structure (i.e., the are implicit), so they are not counted.</p>
+<p>If we generate a list populated with the degrees of atoms (i.e., number of other atoms bonded directly to it), you may notice that there are no 4 values even though the methyl (i.e., -CH<span class="math notranslate nohighlight">\(_3\)</span>) carbon should have four atoms attached to it. This is because the hydrogen atoms are not explicitly designated in the structure (i.e., they are implicit), so they are not counted.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">atom</span><span class="o">.</span><span class="n">GetDegree</span><span class="p">()</span> <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">aspirin</span><span class="o">.</span><span class="n">GetAtoms</span><span class="p">()]</span>
@@ -3369,7 +3369,7 @@ Q 242.0 141.3, 243.5 141.3
 <p>If you want to make all hydrogens explicitly defined, this is accomplished using the <code class="docutils literal notranslate"><span class="pre">Chem.AddHs(mol)</span></code> function. An example is in <a class="reference internal" href="../chapter_16/chap_16_notebook.html#id15"><span class="std std-ref">section 16.3.1</span></a>.</p>
 </div>
 </aside>
-<p>We can also use these atom methods to change values and attributes of various atoms. For example, we can set the isotopes of the carbonyl carbons (i.e., C=O) to <span class="math notranslate nohighlight">\(^{13}\)</span>C. This is accomplished with the following code that iterates through all the atoms and finds the carbonyl carbons by testing for atoms that have an atomic number of 6, are not aromatic, and have no hydrogens and then setting the isotope value to 13. The molecular weight is calculated before and after the isotopes are changed for comparison.</p>
+<p>We can also use these atom methods to change values and attributes of various atoms. For example, we can set the isotopes of the carbonyl carbons (i.e., C=O) to <span class="math notranslate nohighlight">\(^{13}\)</span>C. This is accomplished with the following code that iterates through all the atoms and finds the carbonyl carbons by testing for atoms that have an atomic number of 6, are not aromatic, and have no hydrogens, and then setting the isotope value to 13. The molecular weight is calculated before and after the isotopes are changed for comparison.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">Descriptors</span><span class="o">.</span><span class="n">MolWt</span><span class="p">(</span><span class="n">aspirin</span><span class="p">)</span>
@@ -3660,7 +3660,7 @@ Q 242.0 141.3, 243.5 141.3
 </svg>
 </div></div>
 </div>
-<p>The molar mass has increased due to two of the carbon atoms being isotopically labeled, and we can see in the image which of the two carbons were isotopically labeled. It is worth nothing that the molecular weight before isotopically labeling assumes a natural distribution of isotopes which for carbon is 98.9% <span class="math notranslate nohighlight">\(^{12}\)</span>C and 1.1% <span class="math notranslate nohighlight">\(^{13}\)</span>C. In the isotopically labeled structure, the two carbonyl carbons are 100% <span class="math notranslate nohighlight">\(^{13}\)</span>C.</p>
+<p>The molar mass has increased due to two of the carbon atoms being isotopically labeled, and we can see in the image which of the two carbons were isotopically labeled. It is worth noting that the molecular weight before isotopically labeling assumes a natural distribution of isotopes, which for carbon is 98.9% <span class="math notranslate nohighlight">\(^{12}\)</span>C and 1.1% <span class="math notranslate nohighlight">\(^{13}\)</span>C. In the isotopically labeled structure, the two carbonyl carbons are 100% <span class="math notranslate nohighlight">\(^{13}\)</span>C.</p>
 <p>Using bond methods, we can perform analogous types of operations except that bonds have different attributes than atoms. A table of selected bond methods is provided below.</p>
 <p><strong>Table 10</strong> Select Bond Methods</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -3837,7 +3837,7 @@ L 239.0 11.3
 </section>
 <section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
-<p>Complete the following exercises in a Jupyter notebook using RDKit. You are encouraged to also to use data libraries such as NumPy or pandas to support your solutions. Any data file(s) referred to in the problems can be found in the <a class="reference external" href="https://github.com/weisscharlesj/SciCompforChemists/tree/master/notebooks">data</a> folder in the same directory as this chapter’s Jupyter notebook. Alternatively, you can download a zip file of the data for this chapter from <a class="reference external" href="https://github.com/weisscharlesj/data_SciCompforChem">here</a> by selecting the appropriate chapter file and then clicking the <strong>Download</strong> button.</p>
+<p>Complete the following exercises in a Jupyter notebook using RDKit. You are encouraged to also use data libraries such as NumPy or pandas to support your solutions. Any data file(s) referred to in the problems can be found in the <a class="reference external" href="https://github.com/weisscharlesj/SciCompforChemists/tree/master/notebooks">data</a> folder in the same directory as this chapter’s Jupyter notebook. Alternatively, you can download a zip file of the data for this chapter from <a class="reference external" href="https://github.com/weisscharlesj/data_SciCompforChem">here</a> by selecting the appropriate chapter file and then clicking the <strong>Download</strong> button.</p>
 <ol class="arabic">
 <li><p>Load the structure for <strong>morphine</strong> into RDKit using either a SMILES or InChI representation. You will need to either generate one of these representations using chemical drawing software or find one online from a free resource.</p>
 <p>a) Visualize the structure of morphine and save it as an SVG image file.</p>
@@ -3850,7 +3850,7 @@ L 239.0 11.3
 <p>b) How many amino acids have two chiral centers?</p>
 </li>
 <li><p>Load the <strong>organic_molecules.txt</strong> dataset containing SMILES representations of a range of organic molecules.</p>
-<p>a) Using descriptors, generate a list containing the SMILES representations of only primary and secondary alphatic alcohols.</p>
+<p>a) Using descriptors, generate a list containing the SMILES representations of only primary and secondary aliphatic alcohols.</p>
 <p>b) Using pattern matching, generate an image containing only primary alcohols from the file. To help you along, here is the SMARTS representation of a primary alcohol for the pattern matching. <code class="docutils literal notranslate"><span class="pre">Chem.MolFromSmarts('[CH2][OH]')</span></code></p>
 <p>c) Calculate the percentage of heavy-element (i.e., not with hydrogens) bonds that are C-O bonds.</p>
 <p>d) Calculate the percentage of carbon atoms in a ring.</p>

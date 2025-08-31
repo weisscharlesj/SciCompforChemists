@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -423,12 +423,12 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="chapter-6-signal-noise">
-<span id="id1"></span><h1>Chapter 6: Signal &amp; Noise<a class="headerlink" href="#chapter-6-signal-noise" title="Link to this heading">#</a></h1>
-<div class="cell tag_remove-input docutils container">
+  <div class="cell tag_remove-input docutils container">
 </div>
-<p>When collecting data from a scientific instrument, a measurement is returned as a value or series of values, and these values are composed of both signal and noise. The signal is the component of interest while the noise is random instrument response resulting from a variety of sources that can include the instrument itself, the sample holder, and even the tiny vibrations of the building. For the most interpretable data, you want the largest signal-to-noise ratio possible in order to reliably identify the features in the data.</p>
-<p id="index-0">This chapter introduces the processing of signal data including detecting features, removing noise from the data, and fitting the data to mathematical models. We will be using the NumPy library in this chapter and also start to use modules from the SciPy library. SciPy, short for “scientific python,” is one of the core libraries in the scientific Python ecosystem. This library includes a variety of modules for dealing with signal data, performing Fourier transforms, and integrating sampled data among other common tasks in scientific data analysis. Table 1 summarizes some of the key modules in the SciPy library.</p>
+<section class="tex2jax_ignore mathjax_ignore" id="chapter-6-signal-noise">
+<span id="id1"></span><h1>Chapter 6: Signal &amp; Noise<a class="headerlink" href="#chapter-6-signal-noise" title="Link to this heading">#</a></h1>
+<p>When collecting data from a scientific instrument, a measurement is returned as a value or series of values, and these values are composed of both signal and noise. The signal is the component of interest, while the noise is random instrument response resulting from a variety of sources that can include the instrument itself, the sample holder, and even the tiny vibrations of the building. For the most interpretable data, you want the largest signal-to-noise ratio possible in order to reliably identify the features in the data.</p>
+<p id="index-0">This chapter introduces the processing of signal data, including detecting features, removing noise from the data, and fitting the data to mathematical models. We will be using the NumPy library in this chapter and also start to use modules from the SciPy library. SciPy, short for “scientific Python,” is one of the core libraries in the scientific Python ecosystem. This library includes a variety of modules for dealing with signal data, performing Fourier transforms, and integrating sampled data, among other common tasks in scientific data analysis. Table 1 summarizes some of the key modules in the SciPy library.</p>
 <p id="index-1"><strong>Table 1</strong> Common SciPy Modules</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -492,10 +492,10 @@
 </div>
 <section id="feature-detection">
 <span id="id2"></span><h2>6.1 Feature Detection<a class="headerlink" href="#feature-detection" title="Link to this heading">#</a></h2>
-<p>When analyzing experimental data, there are typically key features in the signal that you are most interested in. Often, they are peaks or a series of peaks, but they can also be negative peaks (i.e., low point), the slopes, or inflection points. This section covers extracting feature information from signal data.</p>
+<p>When analyzing experimental data, there are typically key features in the signal that you are most interested in. Often, they are peaks or a series of peaks, but they can also be negative peaks (i.e., low points), the slopes, or inflection points. This section covers extracting feature information from signal data.</p>
 <section id="global-maxima-minima">
 <span id="id3"></span><span id="index-3"></span><span id="index-2"></span><h3>6.1.1 Global Maxima &amp; Minima<a class="headerlink" href="#global-maxima-minima" title="Link to this heading">#</a></h3>
-<p>The simplest and probably most commonly sought after features in signal data are peaks and negative peaks. These are known as the <em>maxima</em> and <em>minima</em>, respectively, or collectively known as the <em>extrema</em>. In the simplest data, there may be only one peak or negative peak, so finding it is a matter of finding the maximum or minimum value in the data. For this, we can use NumPy’s <code class="docutils literal notranslate"><span class="pre">np.maximum()</span></code> and <code class="docutils literal notranslate"><span class="pre">np.minimum()</span></code> functions, and these functions can also be called using the shorter <code class="docutils literal notranslate"><span class="pre">np.max()</span></code> and <code class="docutils literal notranslate"><span class="pre">np.min()</span></code> function calls, respectively.</p>
+<p>The simplest and probably most commonly sought-after features in signal data are peaks and negative peaks. These are known as the <em>maxima</em> and <em>minima</em>, respectively, or collectively known as the <em>extrema</em>. In the simplest data, there may be only one peak or negative peak, so finding it is a matter of finding the maximum or minimum value in the data. For this, we can use NumPy’s <code class="docutils literal notranslate"><span class="pre">np.maximum()</span></code> and <code class="docutils literal notranslate"><span class="pre">np.minimum()</span></code> functions, and these functions can also be called using the shorter <code class="docutils literal notranslate"><span class="pre">np.max()</span></code> and <code class="docutils literal notranslate"><span class="pre">np.min()</span></code> function calls, respectively.</p>
 <p>To demonstrate peak finding, we will use both a <span class="math notranslate nohighlight">\(^{13}\)</span>C{<span class="math notranslate nohighlight">\(^1\)</span>H} Nuclear Magnetic Resonance (NMR) spectrum and an infrared (IR) spectrum. These data are imported below using NumPy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -514,7 +514,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/67954c92a3c2f4cba399b868e45f61345aa8882b0521a92335deeae6e8b4e82c.svg" src="../../_images/67954c92a3c2f4cba399b868e45f61345aa8882b0521a92335deeae6e8b4e82c.svg" />
+<img alt="../../_images/8d2cae2f3acdd20ee55ecbbce1b0141425a81cba4c0c5edb0badc824db8b2d97.svg" src="../../_images/8d2cae2f3acdd20ee55ecbbce1b0141425a81cba4c0c5edb0badc824db8b2d97.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -534,7 +534,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ac6ebcf8bade19b8cd31e5c6f4da119fef2eb57809598229691e6befd52fe869.svg" src="../../_images/ac6ebcf8bade19b8cd31e5c6f4da119fef2eb57809598229691e6befd52fe869.svg" />
+<img alt="../../_images/0b04cf6781d82ee7c8c81b9774cdbdbf1ddba6e9b02ce082d7e72427562139dd.svg" src="../../_images/0b04cf6781d82ee7c8c81b9774cdbdbf1ddba6e9b02ce082d7e72427562139dd.svg" />
 </div>
 </div>
 <p>NMR resonances are positive peaks while IR stretches are represented here as negative peaks, so we can find the largest features in both spectra by finding the maximum value in the NMR spectrum and the smallest value in the IR spectrum.</p>
@@ -625,7 +625,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3dac5297c065cc9f50553fae486cb32ef7713dafa125593b4ded463001a13e5b.svg" src="../../_images/3dac5297c065cc9f50553fae486cb32ef7713dafa125593b4ded463001a13e5b.svg" />
+<img alt="../../_images/dbcec12c58c3f2c4ba2aae5fc574b89947580edec76c300ea481d737b5ee6a40.svg" src="../../_images/dbcec12c58c3f2c4ba2aae5fc574b89947580edec76c300ea481d737b5ee6a40.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -639,14 +639,14 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7e031c7b983e104b2b79dcdb5a7cb26df1397c0fdbd188ba406995a7d70264d8.svg" src="../../_images/7e031c7b983e104b2b79dcdb5a7cb26df1397c0fdbd188ba406995a7d70264d8.svg" />
+<img alt="../../_images/c644827b51439da90c27888427355d18cd9cbbd7ba01632a0ff2a77e27d0c68c.svg" src="../../_images/c644827b51439da90c27888427355d18cd9cbbd7ba01632a0ff2a77e27d0c68c.svg" />
 </div>
 </div>
 <p>Both of these functions find the <em>global extremes</em> (or <em>global extrema</em>). If all you need is the largest feature in a spectrum, this works just fine. To find multiple features, we will need to find the local extrema addressed in the following section.</p>
 </section>
 <section id="local-maximums-minimums">
 <span id="id4"></span><span id="index-5"></span><span id="index-4"></span><h3>6.1.2 Local Maximums &amp; Minimums<a class="headerlink" href="#local-maximums-minimums" title="Link to this heading">#</a></h3>
-<p>A considerable amount of data in science contain numerous peaks and negative peaks which are called <em>local extrema</em>. To locate the multiple max and min values, we will use SciPy’s relative max/min functions <code class="docutils literal notranslate"><span class="pre">argrelmax()</span></code> and <code class="docutils literal notranslate"><span class="pre">argrelmin()</span></code>. These functions determine if a point is a max/min by checking a range of data points on both sides to see if the point is the larges/smallest. The range of data points examined is known as the window, and the window can be modified using the <code class="docutils literal notranslate"><span class="pre">order</span></code> argument. Instead of the actual max/min values, these functions return the indices as the “arg” part of the name suggests.</p>
+<p>A considerable amount of data in science contains numerous peaks and negative peaks which are called <em>local extrema</em>. To locate the multiple max and min values, we will use SciPy’s relative max/min functions <code class="docutils literal notranslate"><span class="pre">argrelmax()</span></code> and <code class="docutils literal notranslate"><span class="pre">argrelmin()</span></code>. These functions determine if a point is a max/min by checking a range of data points on both sides to see if the point is the largest/smallest. The range of data points examined is known as the window, and the window can be modified using the <code class="docutils literal notranslate"><span class="pre">order</span></code> argument. Instead of the actual max/min values, these functions return the indices as the “arg” part of the name suggests.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">argrelmax</span><span class="p">,</span> <span class="n">argrelmin</span>
@@ -678,10 +678,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/766dd0074f5a5b9732f3b964c155ad501ac212e272a1d20ae1cc0b7400267f73.svg" src="../../_images/766dd0074f5a5b9732f3b964c155ad501ac212e272a1d20ae1cc0b7400267f73.svg" />
+<img alt="../../_images/8c68cf6f603c147671dba6fe07451f732fb6f03c20b76b761f0302b06c15be3d.svg" src="../../_images/8c68cf6f603c147671dba6fe07451f732fb6f03c20b76b761f0302b06c15be3d.svg" />
 </div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">argrelmax()</span></code> function may at times identify an edge or a point in a flat region as a local maximum because there is nothing larger near it. There are multiple ways to mitigate these erroneous peaks. First, we can increase the window for which the function checks to see if a point is the largest value in its neighborhood. Unfortunately, making the window too large can also prevent the identification of multiple extrema near each other. The second mitigation is to change the function’s mode from the default <code class="docutils literal notranslate"><span class="pre">'clip'</span></code> to <code class="docutils literal notranslate"><span class="pre">'wrap'</span></code>. This makes the function treat the data as wrapped around on itself instead of stopping at the edge. That is, both edges of the data are treated as being connected. This makes it more likely that an extrema value is in the neighborhood. Finally, the user can filter the returned for values that correspond to peaks above a certain height value. Below is an example of filtering values based on a height. The window below is intentionally narrowed so that the <code class="docutils literal notranslate"><span class="pre">argrelmax()</span></code> function returns too many values for demonstration purposes.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">argrelmax()</span></code> function may at times identify an edge or a point in a flat region as a local maximum because there is nothing larger near it. There are multiple ways to mitigate these erroneous peaks. First, we can increase the window for which the function checks to see if a point is the largest value in its neighborhood. Unfortunately, making the window too large can also prevent the identification of multiple extrema near each other. The second mitigation is to change the function’s mode from the default <code class="docutils literal notranslate"><span class="pre">'clip'</span></code> to <code class="docutils literal notranslate"><span class="pre">'wrap'</span></code>. This makes the function treat the data as wrapped around on itself instead of stopping at the edge. That is, both edges of the data are treated as being connected. This makes it more likely that an extrema value is in the neighborhood. Finally, the user can filter for values that correspond to peaks above a certain height value. Below is an example of filtering values based on a height. The window below is intentionally narrowed so that the <code class="docutils literal notranslate"><span class="pre">argrelmax()</span></code> function returns too many values for demonstration purposes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">imax</span> <span class="o">=</span> <span class="n">argrelmax</span><span class="p">(</span><span class="n">nmr</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="mi">1000</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
@@ -725,7 +725,7 @@
 </section>
 <section id="scipy-find-peaks-function">
 <span id="id5"></span><span id="index-8"></span><span id="index-7"></span><h3>6.1.3 SciPy <code class="docutils literal notranslate"><span class="pre">find_peaks()</span></code> Function<a class="headerlink" href="#scipy-find-peaks-function" title="Link to this heading">#</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">scipy.signal</span></code> module includes a convenient <code class="docutils literal notranslate"><span class="pre">find_peaks()</span></code> function that facilitates the finding of multiple peaks in a spectrum based on parameters such as the height of the peaks or <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.peak_prominences.html">promience</a>. This function requires a one-dimensional array as a positional argument and a number of optional, keyword arguments (Table 2).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">scipy.signal</span></code> module includes a convenient <code class="docutils literal notranslate"><span class="pre">find_peaks()</span></code> function that facilitates the finding of multiple peaks in a spectrum based on parameters such as the height of the peaks or <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.peak_prominences.html">prominence</a>. This function requires a one-dimensional array as a positional argument and a number of optional, keyword arguments (Table 2).</p>
 <p><strong>Table 2</strong> Select Keyword Argument for the <code class="docutils literal notranslate"><span class="pre">scipy.signal.find_peaks()</span></code> Function</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -767,7 +767,7 @@
 </div>
 </div>
 </div>
-<p>Now that the peaks are point upward, we feed the data into the <code class="docutils literal notranslate"><span class="pre">find_peaks()</span></code> function and decide how to best identify the peaks we are interested in. This will depend up the type of spectrum and other conditions. One straight forward method is the <code class="docutils literal notranslate"><span class="pre">height=</span></code> parameter where any peaks above this level are identified at their apex.</p>
+<p>Now that the peaks are pointed upward, we feed the data into the <code class="docutils literal notranslate"><span class="pre">find_peaks()</span></code> function and decide how to best identify the peaks we are interested in. This will depend on the type of spectrum and other conditions. One straightforward method is the <code class="docutils literal notranslate"><span class="pre">height=</span></code> parameter where any peaks above this level are identified at their apex.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">find_peaks</span>
@@ -809,8 +809,8 @@
 </div>
 </div>
 </div>
-<p>The function returns and tuple containing an array and a dictionary in this order. The array contains the indices of identified peaks while the dictionary may either be empty or include information about the identified peaks depending upon what keyword arguments are used in the function.</p>
-<p>Below, we can plot the results of the function with the horizontal dotted line representing the chosen height and the orange dots represent identified peaks.</p>
+<p>The function returns a tuple containing an array and a dictionary in this order. The array contains the indices of identified peaks, while the dictionary may either be empty or include information about the identified peaks depending on what keyword arguments are used in the function.</p>
+<p>Below, we can plot the results of the function with the horizontal dotted line representing the chosen height, and the orange dots represent identified peaks.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">height</span> <span class="o">=</span> <span class="mf">0.01</span>
@@ -829,10 +829,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x113a9b1d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x10f859610&gt;
 </pre></div>
 </div>
-<img alt="../../_images/401a62857e1aa2b4817111d9810f5e2de521b6464208bf475ab954d307cd3255.svg" src="../../_images/401a62857e1aa2b4817111d9810f5e2de521b6464208bf475ab954d307cd3255.svg" />
+<img alt="../../_images/78ffbde7544d38421a597d06c265609b48f3a9d4df44e118c2216ef05d41b869.svg" src="../../_images/78ffbde7544d38421a597d06c265609b48f3a9d4df44e118c2216ef05d41b869.svg" />
 </div>
 </div>
 <p>When using keyword arguments, the <code class="docutils literal notranslate"><span class="pre">find_peaks()</span></code> function returns the values used by the keyword arguments in the dictionary. For example, because we used the <code class="docutils literal notranslate"><span class="pre">height=</span></code> argument, the heights are returned.</p>
@@ -884,16 +884,16 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x113b229f0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x10e6519a0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/c892774af72b2ae990e03f9fba3257b23bb979b95d5551530461cbc47f6e5a6b.svg" src="../../_images/c892774af72b2ae990e03f9fba3257b23bb979b95d5551530461cbc47f6e5a6b.svg" />
+<img alt="../../_images/cdfbae9b185e45c3833972de4ded2749e55cfd8c068c503d83fa4234752ec8d6.svg" src="../../_images/cdfbae9b185e45c3833972de4ded2749e55cfd8c068c503d83fa4234752ec8d6.svg" />
 </div>
 </div>
 </section>
 <section id="slopes-inflection-points">
 <span id="id6"></span><span id="index-10"></span><span id="index-9"></span><h3>6.1.4 Slopes &amp; Inflection Points<a class="headerlink" href="#slopes-inflection-points" title="Link to this heading">#</a></h3>
-<p>The slope is a useful feature as it can be used to identify inflection points, edges, and make subtle features in a curve more obvious. Unfortunately, noisy data can make it challenging to examine the slope as the noise causes the slope to fluctuate so much that it sometimes dwarfs the overall signal. It is sometimes recommended that the noise be first removed by signal smoothing covered in section 6.2 before trying to identify signal features. To demonstrate the challenges of noisy data, we will generate both noise-free and noisy synthetic data below and calculate the slopes for both.</p>
+<p>The slope is a useful feature as it can be used to identify inflection points, edges, and make subtle features in a curve more obvious. Unfortunately, noisy data can make it challenging to examine the slope as the noise causes the slope to fluctuate so much that it sometimes dwarfs the overall signal. It is sometimes recommended that the noise be first removed by signal smoothing, covered in <a class="reference internal" href="#id7"><span class="std std-ref">section 6.2</span></a>, before trying to identify signal features. To demonstrate the challenges of noisy data, we will generate both noise-free and noisy synthetic data below and calculate the slopes for both.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
@@ -919,10 +919,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/766a6d29344801d87e1d9053bc283a4e5af4c3b02f4cf5d2bb1e238314da3bf0.svg" src="../../_images/766a6d29344801d87e1d9053bc283a4e5af4c3b02f4cf5d2bb1e238314da3bf0.svg" />
+<img alt="../../_images/3caead942fe7ef6d94873e26ec3bf95efba76738a636331b133cbe79b5add74d.svg" src="../../_images/3caead942fe7ef6d94873e26ec3bf95efba76738a636331b133cbe79b5add74d.svg" />
 </div>
 </div>
-<p>We will use NumPy to calculate the slope using the <code class="docutils literal notranslate"><span class="pre">np.diff()</span></code> function which calculates the differential of a user defined order (<code class="docutils literal notranslate"><span class="pre">n</span></code>). Because the slope is the <em>dy/dx</em> between every pair of adjacent points, the resulting slope data is one data point shorter than the original data. This is important when plotting the data because the length of the x and y values must be the same.</p>
+<p>We will use NumPy to calculate the slope using the <code class="docutils literal notranslate"><span class="pre">np.diff()</span></code> function, which calculates the differential of a user-defined order (<code class="docutils literal notranslate"><span class="pre">n</span></code>). Because the slope is the <em>dy/dx</em> between every pair of adjacent points, the resulting slope data is one data point shorter than the original data. This is important when plotting the data because the length of the x and y values must be the same.</p>
 <p>When examining the slope, it is important to use smooth data. In the example below, the slope from the noise in the noisy data dwarfs that of the main signal. Therefore, we will use the slope of the smooth data to find the inflection point below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -944,7 +944,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/91348e9e4f60eb7d84fb1f7a99d261a48904dd8e4a59e4c21a668a03ea0c24d9.svg" src="../../_images/91348e9e4f60eb7d84fb1f7a99d261a48904dd8e4a59e4c21a668a03ea0c24d9.svg" />
+<img alt="../../_images/548f17e56f98c082dd9053d0e2018a73be7cfcd72295360970c3cedc216105f3.svg" src="../../_images/548f17e56f98c082dd9053d0e2018a73be7cfcd72295360970c3cedc216105f3.svg" />
 </div>
 </div>
 <p>Because the inflection point in the center of the data has a negative slope, we will need to find the minimum slope. This may not always be the case with other data.</p>
@@ -957,15 +957,15 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/dedec7778b32efd6951d1ae601eecc7978df6a9579721895cb95c1f4b662dcdc.svg" src="../../_images/dedec7778b32efd6951d1ae601eecc7978df6a9579721895cb95c1f4b662dcdc.svg" />
+<img alt="../../_images/2264921c2b8bef22899326d91bb349dea78e36aeafb04cff4464cb513ac2fa79.svg" src="../../_images/2264921c2b8bef22899326d91bb349dea78e36aeafb04cff4464cb513ac2fa79.svg" />
 </div>
 </div>
 </section>
 </section>
 <section id="smoothing-data">
 <span id="id7"></span><span id="index-11"></span><h2>6.2 Smoothing Data<a class="headerlink" href="#smoothing-data" title="Link to this heading">#</a></h2>
-<p>It is not uncommon to collect signal data that has a considerable amount of noise in it. Smoothing the data can help in the processing and analysis of the data such as making it easier to identify peaks or preventing the noise from hiding the extremes in the derivative of the data. Smoothing alters the actual data, so it is important to be transparent to others that the data were smoothed and how they were smoothed.</p>
-<p>There are a variety of ways to smooth data including moving averages, band filters, and the Savitzky-Golay filter. We will focus on moving averages and Savitzky-Golay here. For this section, we will work with a noisy cyclic voltammogram (CV) stored in the file <em>CV_noisy.csv</em>.</p>
+<p>It is not uncommon to collect signal data that has a considerable amount of noise in it. Smoothing the data can help in the processing and analysis of the data, such as making it easier to identify peaks or preventing the noise from hiding the extremes in the derivative of the data. Smoothing alters the actual data, so it is important to be transparent to others that the data were smoothed and how they were smoothed.</p>
+<p>There are a variety of ways to smooth data, including moving averages, band filters, and the Savitzky-Golay filter. We will focus on moving averages and Savitzky-Golay here. For this section, we will work with a noisy cyclic voltammogram (CV) stored in the file <em>CV_noisy.csv</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CV</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s1">&#39;data/CV_noisy.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
@@ -979,7 +979,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c6dbf6a468607916ab073359cd5e341f8bc44da1a1f05a60a34c358e5fa8d38f.svg" src="../../_images/c6dbf6a468607916ab073359cd5e341f8bc44da1a1f05a60a34c358e5fa8d38f.svg" />
+<img alt="../../_images/fcf551581550373595535fb7f444b08d4b2ade5ab895331608fc757fdde0f50f.svg" src="../../_images/fcf551581550373595535fb7f444b08d4b2ade5ab895331608fc757fdde0f50f.svg" />
 </div>
 </div>
 <section id="unweighted-average">
@@ -1000,7 +1000,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c975f48008749b186418b61947f341c4f4396e9010b8ea870bb6827798b25fc1.svg" src="../../_images/c975f48008749b186418b61947f341c4f4396e9010b8ea870bb6827798b25fc1.svg" />
+<img alt="../../_images/d377468ac3db6894b5e3b6f19164b35740f09aa9669f06f93dbae26618124c9d.svg" src="../../_images/d377468ac3db6894b5e3b6f19164b35740f09aa9669f06f93dbae26618124c9d.svg" />
 </div>
 </div>
 <p>The data are smoothed relative to the original data, but there is still a considerable amount of noise present.</p>
@@ -1023,7 +1023,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4f7d7cb8c704f8ec2e777a6466bfed02e55d964e9a543b05090f99a99aff06a8.svg" src="../../_images/4f7d7cb8c704f8ec2e777a6466bfed02e55d964e9a543b05090f99a99aff06a8.svg" />
+<img alt="../../_images/fe06a7abb3ba74281358606ed3199a04a4ccc938b9fbb5cf8fb6ab83ff0d44f9.svg" src="../../_images/fe06a7abb3ba74281358606ed3199a04a4ccc938b9fbb5cf8fb6ab83ff0d44f9.svg" />
 </div>
 </div>
 <p>The triangular smooth results in a smoother dataset than the rectangular smooth. This is not surprising as applying the triangular smooth above is mathematically equivalent to applying the rectangular smooth twice.</p>
@@ -1043,17 +1043,17 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/fbc663b335801f01f9d99a3ce1b4c7b18a7148599d2594de11db11279df47703.svg" src="../../_images/fbc663b335801f01f9d99a3ce1b4c7b18a7148599d2594de11db11279df47703.svg" />
+<img alt="../../_images/908ab7b6c7f24e5adf5ac192f25b67c6680c1018965dc89b0edc69445712da7b.svg" src="../../_images/908ab7b6c7f24e5adf5ac192f25b67c6680c1018965dc89b0edc69445712da7b.svg" />
 </div>
 </div>
 </section>
 <section id="savitzkygolay">
 <span id="id11"></span><span id="index-15"></span><span id="index-14"></span><h3>6.2.4 Savitzky–Golay<a class="headerlink" href="#savitzkygolay" title="Link to this heading">#</a></h3>
-<p>Another approach is the <em>Savitzky–Golay</em> filter which incrementally moves along the noisy data and fits sections (i.e.., windows) of data points to a polynomial using least square minimization. While this approach had been previously described in the mathematical literature, Abraham Savitzky and M. J. E. Golay are known for applying it to spectroscopy (<a class="reference external" href="https://doi.org/10.1021/ac60214a047">https://doi.org/10.1021/ac60214a047</a>). Conveniently, SciPy contains a built-in function for this called <code class="docutils literal notranslate"><span class="pre">savgol_filter()</span></code> from the <code class="docutils literal notranslate"><span class="pre">scipy.signal</span></code> module shown below.</p>
+<p>Another approach is the <em>Savitzky–Golay</em> filter, which incrementally moves along the noisy data and fits sections (i.e., windows) of data points to a polynomial using least-square minimization. While this approach had been previously described in the mathematical literature, Abraham Savitzky and M. J. E. Golay are known for applying it to spectroscopy (<a class="reference external" href="https://doi.org/10.1021/ac60214a047">https://doi.org/10.1021/ac60214a047</a>). Conveniently, SciPy contains a built-in function for this called <code class="docutils literal notranslate"><span class="pre">savgol_filter()</span></code> from the <code class="docutils literal notranslate"><span class="pre">scipy.signal</span></code> module shown below.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">savgol_filter</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">polyorder</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This function requires three arguments which include the original data as a NumPy array, <code class="docutils literal notranslate"><span class="pre">window</span></code> which is the width of the moving window the savgol algorithm fits to a polynomial, and <code class="docutils literal notranslate"><span class="pre">polyorder</span></code> which is the order of <code class="docutils literal notranslate"><span class="pre">polynomial</span></code> used for the moving data fit. You are encouraged to experiment with the <code class="docutils literal notranslate"><span class="pre">window</span></code> and <code class="docutils literal notranslate"><span class="pre">polyorder</span></code> arguments to see what works the best for your application. However, <code class="docutils literal notranslate"><span class="pre">polyorder</span></code> must be less than the <code class="docutils literal notranslate"><span class="pre">window</span></code> size, and the <code class="docutils literal notranslate"><span class="pre">window</span></code> must be an odd integer.</p>
+<p>This function requires three arguments, which include the original data as a NumPy array, <code class="docutils literal notranslate"><span class="pre">window</span></code>, which is the width of the moving window the savgol algorithm fits to a polynomial, and <code class="docutils literal notranslate"><span class="pre">polyorder</span></code>, which is the order of <code class="docutils literal notranslate"><span class="pre">polynomial</span></code> used for the moving data fit. You are encouraged to experiment with the <code class="docutils literal notranslate"><span class="pre">window</span></code> and <code class="docutils literal notranslate"><span class="pre">polyorder</span></code> arguments to see what works best for your application. However, <code class="docutils literal notranslate"><span class="pre">polyorder</span></code> must be less than the <code class="docutils literal notranslate"><span class="pre">window</span></code> size, and the <code class="docutils literal notranslate"><span class="pre">window</span></code> must be an odd integer.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">savgol_filter</span>
@@ -1071,7 +1071,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c2479e4a6ee11fd8d0b5fad0ff9b1ca4b92a472a309aa181f0df2df8ffa846cb.svg" src="../../_images/c2479e4a6ee11fd8d0b5fad0ff9b1ca4b92a472a309aa181f0df2df8ffa846cb.svg" />
+<img alt="../../_images/ecb1934de70aeadfaedb9cb4ebae6cb5b5fad4273c1b6a0fecb3a7c7a719af36.svg" src="../../_images/ecb1934de70aeadfaedb9cb4ebae6cb5b5fad4273c1b6a0fecb3a7c7a719af36.svg" />
 </div>
 </div>
 <p>The Savitzky–Golay filter appears to have done a decent job removing the noise. Despite there being some remaining noise and other artifacts in the CV, the denoised CV makes it significantly easier to locate the maxima and minima in this example.</p>
@@ -1079,7 +1079,7 @@
 </section>
 <section id="fourier-transforms">
 <span id="id12"></span><span id="index-16"></span><h2>6.3 Fourier Transforms<a class="headerlink" href="#fourier-transforms" title="Link to this heading">#</a></h2>
-<p>Another approach to filtering noise is to filter based on frequency. Many times, random noise in data occurs at a different frequency than the data itself, and the noise can be reduced by filtering noise frequency ranges while maintaining signal frequencies. If the noise is higher frequency than the signal, it can be filtered out with what is known as a <em>low-pass</em> filter. Alternatively, filtering out low-frequency noise is known as a <em>high-pass</em> filter, and filtering out noise both above and blow the signal frequency is known as a <em>band-pass</em> filter. Frequency filtering is somewhat involved being that we need to use window functions which are covered in the <a class="reference external" href="https://greenteapress.com/wp/think-dsp/">Think DSP</a> book by Allen Downey listed at the end of this chapter. Instead, we will just look at the distribution of signal and noise frequencies in synthetic data. This is useful for analyzing the noise in data and also is used routinely in nuclear magnetic resonance (NMR) spectroscopy and Fourier Transform infrared spectroscopy (FTIR).</p>
+<p>Another approach to filtering noise is to filter based on frequency. Many times, random noise in data occurs at a different frequency than the data itself, and the noise can be reduced by filtering noise frequency ranges while maintaining signal frequencies. If the noise is higher frequency than the signal, it can be filtered out with what is known as a <em>low-pass</em> filter. Alternatively, filtering out low-frequency noise is known as a <em>high-pass</em> filter, and filtering out noise both above and below the signal frequency is known as a <em>band-pass</em> filter. Frequency filtering is somewhat involved being that we need to use window functions which are covered in the <a class="reference external" href="https://greenteapress.com/wp/think-dsp/">Think DSP</a> book by Allen Downey listed at the end of this chapter. Instead, we will just look at the distribution of signal and noise frequencies in synthetic data. This is useful for analyzing the noise in data and also is used routinely in nuclear magnetic resonance (NMR) spectroscopy and Fourier Transform infrared spectroscopy (FTIR).</p>
 <p>To convert the data from the time domain to the frequency domain, we will use the <em>fast Fourier transform (FFT)</em> algorithm. This algorithm is only for data that is periodic.  Below, synthetic data is generated oscillating at 62.0 Hz with some random noise to make it more interesting.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1100,10 +1100,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/03257bdb64184e7846ad8e2f12767737a164bacebe0e05a91c4e1ac2cc745a68.svg" src="../../_images/03257bdb64184e7846ad8e2f12767737a164bacebe0e05a91c4e1ac2cc745a68.svg" />
+<img alt="../../_images/3505d30595061816f5d45a8813718f94bfeff2a81c56cce67aacfae93f8afb05.svg" src="../../_images/3505d30595061816f5d45a8813718f94bfeff2a81c56cce67aacfae93f8afb05.svg" />
 </div>
 </div>
-<p>SciPy contains an entire module called <code class="docutils literal notranslate"><span class="pre">fft</span></code> dedicated to Fourier transforms and reverse Fourier transforms. We will use the basic <code class="docutils literal notranslate"><span class="pre">fft()</span></code> function for our synthetic data which returns a mixture of real and imaginary values. For plotting, we will simply look at the real component of the result using <code class="docutils literal notranslate"><span class="pre">.real</span></code>.</p>
+<p>SciPy contains an entire module called <code class="docutils literal notranslate"><span class="pre">fft</span></code> dedicated to Fourier transforms and reverse Fourier transforms. We will use the basic <code class="docutils literal notranslate"><span class="pre">fft()</span></code> function for our synthetic data, which returns a mixture of real and imaginary values. For plotting, we will simply look at the real component of the result using <code class="docutils literal notranslate"><span class="pre">.real</span></code>.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
@@ -1122,10 +1122,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6a1bc0e18243cadf1bc39c85a2aa9be3ee4389eb1e0859dddfa009762e19818e.svg" src="../../_images/6a1bc0e18243cadf1bc39c85a2aa9be3ee4389eb1e0859dddfa009762e19818e.svg" />
+<img alt="../../_images/b26399997e718db91026d738fa0153908859199f85e2a0c9654f256714771558.svg" src="../../_images/b26399997e718db91026d738fa0153908859199f85e2a0c9654f256714771558.svg" />
 </div>
 </div>
-<p>Only the first half of the Fourier transform output is plotted above because the second half is a mirror image of the first. A single peak at 62.0 Hz is present from our signal. The rest of the baseline of the plot is not smooth because there is noise present at a variety of frequencies. It is important to note that the erratic variations in the baseline of the frequency plot is not the noise itself but more like a histogram of all the frequencies present in the original data.</p>
+<p>Only the first half of the Fourier transform output is plotted above because the second half is a mirror image of the first. A single peak at 62.0 Hz is present in our signal. The rest of the baseline of the plot is not smooth because there is noise present at a variety of frequencies. It is important to note that the erratic variations in the baseline of the frequency plot are not the noise itself but more like a histogram of all the frequencies present in the original data.</p>
 </section>
 <section id="fitting-interpolation">
 <span id="id13"></span><span id="index-18"></span><h2>6.4 Fitting &amp; Interpolation<a class="headerlink" href="#fitting-interpolation" title="Link to this heading">#</a></h2>
@@ -1148,7 +1148,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4c37bcc7c0d3352617c4adfd9ad3c2cd7faeee810ecbfce150d776ce91625f0e.svg" src="../../_images/4c37bcc7c0d3352617c4adfd9ad3c2cd7faeee810ecbfce150d776ce91625f0e.svg" />
+<img alt="../../_images/f8781ade4f87f662d10f3131809f11da9098476cd71cd60a12cee8a51426885b.svg" src="../../_images/f8781ade4f87f662d10f3131809f11da9098476cd71cd60a12cee8a51426885b.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1158,7 +1158,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/366ac1b5348d5b63cef19ab3ac9511cc71a812bb5a7d213b6a4434f2d6e34fbe.svg" src="../../_images/366ac1b5348d5b63cef19ab3ac9511cc71a812bb5a7d213b6a4434f2d6e34fbe.svg" />
+<img alt="../../_images/ec239c5e9019cf9e728cd13c6fd35610ffcac27ff8670cb57992c99637aae59d.svg" src="../../_images/ec239c5e9019cf9e728cd13c6fd35610ffcac27ff8670cb57992c99637aae59d.svg" />
 </div>
 </div>
 <section id="linear-regression">
@@ -1191,7 +1191,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a2619f55ab7676eb37c5deb6e5d4ba651493a885f70ad5916fbdb3f9b9ae9748.svg" src="../../_images/a2619f55ab7676eb37c5deb6e5d4ba651493a885f70ad5916fbdb3f9b9ae9748.svg" />
+<img alt="../../_images/80af00c628751561fb3f3d775224ba71854ff0261c09b5d0fe691035e457e050.svg" src="../../_images/80af00c628751561fb3f3d775224ba71854ff0261c09b5d0fe691035e457e050.svg" />
 </div>
 </div>
 <p>We can also obtain the statistics for our fit using the <code class="docutils literal notranslate"><span class="pre">linregress()</span></code> function from the SciPy <code class="docutils literal notranslate"><span class="pre">stats</span></code> module. Note that this does not return the <span class="math notranslate nohighlight">\(r^2\)</span> value but instead the <span class="math notranslate nohighlight">\(r\)</span>-value which can be squared to generate the <span class="math notranslate nohighlight">\(r^2\)</span> value.</p>
@@ -1213,7 +1213,7 @@
 <p>We are starting to see examples of functions that return multiple values which can be assigned to multiple variables using <a class="reference internal" href="../chapter_02/chap_02_notebook.html#id5"><span class="std std-ref">tuple unpacking</span></a> like below.</p>
 <div class="math notranslate nohighlight">
 \[ x, y = func(z) \]</div>
-<p>There may be times when you don’t need all of the returned values from a function. In these instances, it is common to use <code class="docutils literal notranslate"><span class="pre">__</span></code> (double underscore) as a junk variable which is broadly understood to store information that will never be used in the code. You may also see a <code class="docutils literal notranslate"><span class="pre">_</span></code> (single underscore) used for this purpose, but this is discouraged as a single underscore is also used by the Python interpreter to store the last ouput.</p>
+<p>There may be times when you don’t need all of the returned values from a function. In these instances, it is common to use <code class="docutils literal notranslate"><span class="pre">__</span></code> (double underscore) as a junk variable which is broadly understood to store information that will never be used in the code. You may also see a <code class="docutils literal notranslate"><span class="pre">_</span></code> (single underscore) used for this purpose, but this is discouraged as a single underscore is also used by the Python interpreter to store the last output.</p>
 </div>
 </section>
 <section id="polynomial-fitting">
@@ -1236,7 +1236,7 @@
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>See section <a class="reference internal" href="../chapter_14/chap_14_notebook.html#id6"><span class="std std-ref">14.2</span></a> for instuctions on fitting data to equatons other than linear or polynomial using <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> functions.</p>
+<p>See section <a class="reference internal" href="../chapter_14/chap_14_notebook.html#id6"><span class="std std-ref">14.2</span></a> for instructions on fitting data to equations other than linear or polynomial using <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> functions.</p>
 </div>
 </aside>
 <div class="cell docutils container">
@@ -1250,13 +1250,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ba9f8d8e6e30b0b6874e5549d0a85bba6404408894d47404a4d9076902e6c148.svg" src="../../_images/ba9f8d8e6e30b0b6874e5549d0a85bba6404408894d47404a4d9076902e6c148.svg" />
+<img alt="../../_images/e2ddb1849d4e89eac332c008495d8f229244280563a174b4728804d21310bdc1.svg" src="../../_images/e2ddb1849d4e89eac332c008495d8f229244280563a174b4728804d21310bdc1.svg" />
 </div>
 </div>
 </section>
 <section id="multivariable-linear-regression">
 <span id="id16"></span><span id="index-21"></span><h3>6.4.3 Multivariable Linear Regression<a class="headerlink" href="#multivariable-linear-regression" title="Link to this heading">#</a></h3>
-<p><em>Multivariable linear regression</em> (aka. <em>multiple linear regression</em>) is similar to the linear regression seen in <a class="reference internal" href="#id14"><span class="std std-ref">section 6.4.1</span></a> except that there are multiple independent variable. This takes the form below where <span class="math notranslate nohighlight">\(y\)</span> is the dependent variable, <span class="math notranslate nohighlight">\(x\)</span> are the independent variables (plural) with coefficients <span class="math notranslate nohighlight">\(a\)</span>, and <span class="math notranslate nohighlight">\(b\)</span> is the bias term. There are <span class="math notranslate nohighlight">\(k\)</span> independent variables below.</p>
+<p><em>Multivariable linear regression</em> (aka, <em>multiple linear regression</em>) is similar to the linear regression seen in <a class="reference internal" href="#id14"><span class="std std-ref">section 6.4.1</span></a> except that there are multiple independent variables. This takes the form below where <span class="math notranslate nohighlight">\(y\)</span> is the dependent variable, <span class="math notranslate nohighlight">\(x\)</span> are the independent variables (plural) with coefficients <span class="math notranslate nohighlight">\(a\)</span>, and <span class="math notranslate nohighlight">\(b\)</span> is the bias term. There are <span class="math notranslate nohighlight">\(k\)</span> independent variables below.</p>
 <div class="math notranslate nohighlight">
 \[ y = a_0x_0 + ... + a_{k-1}x_{k-1} + b \]</div>
 <p>The goal is to solve for the <span class="math notranslate nohighlight">\(a\)</span> coefficients and the value for <span class="math notranslate nohighlight">\(b\)</span> given a series of <span class="math notranslate nohighlight">\(x\)</span>-values with their corresponding <span class="math notranslate nohighlight">\(y\)</span>-values. Essentially, this is taking regular linear regression to three dimensions or higher. There are multiple methods available in Python to solve this type of problem including, but not limited to, the following.</p>
@@ -1269,12 +1269,12 @@
 </aside>
 <ol class="arabic simple">
 <li><p>Scikit-learn’s <code class="docutils literal notranslate"><span class="pre">LinearRegressor()</span></code> demonstrated in <a class="reference internal" href="../chapter_13/chap_13_notebook.html#id5"><span class="std std-ref">section 13.1.3</span></a></p></li>
-<li><p>Moore-Penrose psudoinvere and some matrix math demonstrated in <a class="reference internal" href="../chapter_08/chap_08_notebook.html#id14"><span class="std std-ref">section 8.3.2</span></a></p></li>
+<li><p>Moore-Penrose pseudoinverse and some matrix math demonstrated in <a class="reference internal" href="../chapter_08/chap_08_notebook.html#id14"><span class="std std-ref">section 8.3.2</span></a></p></li>
 <li><p>NumPy’s <code class="docutils literal notranslate"><span class="pre">np.linalg.lstsq()</span></code> function</p></li>
 <li><p>Using optimization algorithms to fit the equation similar to what is demonstrated in <a class="reference internal" href="../chapter_14/chap_14_notebook.html#id6"><span class="std std-ref">section 14.2</span></a></p></li>
 </ol>
-<p>The first option will often involve the fewest lines of code but does require knowledge of using the scikit-learn library. Being that the other options 1, 2, and 4 either require other libraries or specialized knowledge not yet addressed, we will solve a multivariable linear regression problem using the <code class="docutils literal notranslate"><span class="pre">np.linalge.lstsq()</span></code> function.</p>
-<p>In the example below, we have an array <code class="docutils literal notranslate"><span class="pre">y</span></code> which contains our dependent variable values and array <code class="docutils literal notranslate"><span class="pre">X</span></code> which contains our independent variable values. For this approach, we want these two arrays to be related by the following equation where <code class="docutils literal notranslate"><span class="pre">a</span></code> is an array containing the our coefficients and bias term. The issue is that our array <code class="docutils literal notranslate"><span class="pre">X</span></code> has too few columns to take the dot product of, so there is nothing that multiplies by <span class="math notranslate nohighlight">\(b\)</span>.</p>
+<p>The first option will often involve the fewest lines of code but does require knowledge of using the scikit-learn library. Being that the other options 1, 2, and 4 either require other libraries or specialized knowledge not yet addressed, we will solve a multivariable linear regression problem using the <code class="docutils literal notranslate"><span class="pre">np.linalg.lstsq()</span></code> function.</p>
+<p>In the example below, we have an array <code class="docutils literal notranslate"><span class="pre">y</span></code> which contains our dependent variable values and array <code class="docutils literal notranslate"><span class="pre">X</span></code> which contains our independent variable values. For this approach, we want these two arrays to be related by the following equation where <code class="docutils literal notranslate"><span class="pre">a</span></code> is an array containing the coefficients and bias term. The issue is that our array <code class="docutils literal notranslate"><span class="pre">X</span></code> has too few columns to take the dot product of, so there is nothing that multiplies by <span class="math notranslate nohighlight">\(b\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[ y = a \bullet X \]</div>
 <div class="cell docutils container">
@@ -1310,7 +1310,7 @@
 </div>
 </div>
 </div>
-<p>To solve for array <code class="docutils literal notranslate"><span class="pre">a</span></code>, we will use the <code class="docutils literal notranslate"><span class="pre">np.linalg.lstsq()</span></code> function which take the arrays containing independent and dependent variables in this order.</p>
+<p>To solve for array <code class="docutils literal notranslate"><span class="pre">a</span></code>, we will use the <code class="docutils literal notranslate"><span class="pre">np.linalg.lstsq()</span></code> function which takes the arrays containing independent and dependent variables in this order.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
@@ -1327,7 +1327,7 @@
 </div>
 </div>
 </div>
-<p>The output includes the coefficients plus other information about the fit such as the sum of the squared residuals from the fit. If you just want the coefficients, use indexing like below.</p>
+<p>The output includes the coefficients plus other information about the fit, such as the sum of the squared residuals from the fit. If you just want the coefficients, use indexing like below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -1344,7 +1344,7 @@
 </section>
 <section id="interpolation">
 <span id="id17"></span><span id="index-22"></span><h3>6.4.4 Interpolation<a class="headerlink" href="#interpolation" title="Link to this heading">#</a></h3>
-<p>The practical difference between the <code class="docutils literal notranslate"><span class="pre">np.polyfit</span></code> function and the interpolation functions in SciPy is that the former returns coefficients for the equation while the interpolation functions return a Python function that can be used to calculate values. There are times when one is more desirable than the other depending upon your application. Below we will use the interpolation function to interpolate a one dimensional function.</p>
+<p>The practical difference between the <code class="docutils literal notranslate"><span class="pre">np.polyfit</span></code> function and the interpolation functions in SciPy is that the former returns coefficients for the equation, while the interpolation functions return a Python function that can be used to calculate values. There are times when one is more desirable than the other, depending upon your application. Below we will use the interpolation function to interpolate a one-dimensional function.</p>
 <p>Below is a dampening sine wave that we will interpolate from ten data points.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1355,10 +1355,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1faacdf15bf9169649b2b17480e5c0292b28152b646b04f40fefa0fc7c370a81.svg" src="../../_images/1faacdf15bf9169649b2b17480e5c0292b28152b646b04f40fefa0fc7c370a81.svg" />
+<img alt="../../_images/aa1bf4d031a7849d190df69b59310caab72c32ec7205014701296c56565a72e7.svg" src="../../_images/aa1bf4d031a7849d190df69b59310caab72c32ec7205014701296c56565a72e7.svg" />
 </div>
 </div>
-<p>To interpolate this one-dimensional function, we will use the <code class="docutils literal notranslate"><span class="pre">interp1d()</span></code> method from SciPy. Along with the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> values, <code class="docutils literal notranslate"><span class="pre">interp1d()</span></code> requires a mode of interpolation using the kind keyword which can include the items listed in Table 3.</p>
+<p>To interpolate this one-dimensional function, we will use the <code class="docutils literal notranslate"><span class="pre">interp1d()</span></code> method from SciPy. Along with the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> values, <code class="docutils literal notranslate"><span class="pre">interp1d()</span></code> requires a mode of interpolation using the kind keyword, which can include the items listed in Table 3.</p>
 <p><strong>Table 3</strong> Modes for <code class="docutils literal notranslate"><span class="pre">interp1d()</span></code> Method</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -1407,14 +1407,14 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d7431d2446844ef0cdebb50c8467543ffeea5d11be4d0e07f935245761d99415.svg" src="../../_images/d7431d2446844ef0cdebb50c8467543ffeea5d11be4d0e07f935245761d99415.svg" />
+<img alt="../../_images/cb3696c7f10d29c2bca4ee6a7a0db3b4f60d0a020cf4f56fa2d71a778f8d16eb.svg" src="../../_images/cb3696c7f10d29c2bca4ee6a7a0db3b4f60d0a020cf4f56fa2d71a778f8d16eb.svg" />
 </div>
 </div>
 </section>
 </section>
 <section id="baseline-correction">
 <span id="id18"></span><span id="index-23"></span><h2>6.5 Baseline Correction<a class="headerlink" href="#baseline-correction" title="Link to this heading">#</a></h2>
-<p>The baseline of chemical spectra may sometimes slope or undulate requiring baseline correction.  This is a two step process -  first, the baseline needs to be identified and then the baseline is subtracted from the original spectrum. Predicting a baseline for a spectrum is not a trivial task. Fortunately, the <a class="reference external" href="https://pybaselines.readthedocs.io/en/latest/index.html">pybaselines</a> library provides Python implementations of various algorithms for determining the baseline. Because pybaselines is not a standard library with Anaconda or Colab, it needs to be installed using either <a class="reference external" href="https://pybaselines.readthedocs.io/en/latest/installation.html">pip or conda</a>.</p>
+<p>The baseline of chemical spectra may sometimes slope or undulate, requiring baseline correction.  This is a two-step process - first, the baseline needs to be identified, and then the baseline is subtracted from the original spectrum. Predicting a baseline for a spectrum is not a trivial task. Fortunately, the <a class="reference external" href="https://pybaselines.readthedocs.io/en/latest/index.html">pybaselines</a> library provides Python implementations of various algorithms for determining the baseline. Because pybaselines is not a standard library with Anaconda or Colab, it needs to be installed using either <a class="reference external" href="https://pybaselines.readthedocs.io/en/latest/installation.html">pip or conda</a>.</p>
 <p>For our example below, we will correct the baseline of an IR spectrum of 2-pentanone. We can see that the baseline curves upward at frequencies below 2000 cm<span class="math notranslate nohighlight">\(^{-1}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1430,10 +1430,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/bb92021b6cf724f62e1c860dcbffa246b8096e74336f3d1d1685d219ba251902.svg" src="../../_images/bb92021b6cf724f62e1c860dcbffa246b8096e74336f3d1d1685d219ba251902.svg" />
+<img alt="../../_images/35263e53ad1a346435c659f8fba62a38dbaa63c7066468b6f98bab924fa7ee04.svg" src="../../_images/35263e53ad1a346435c659f8fba62a38dbaa63c7066468b6f98bab924fa7ee04.svg" />
 </div>
 </div>
-<p>To identify a baseline, we will use the <code class="docutils literal notranslate"><span class="pre">Baseline</span></code> module of pybaselines imported below. The first step is to create a baseline fitter object which accepts the <em>x</em>-axis data from your spectrum.</p>
+<p>To identify a baseline, we will use the <code class="docutils literal notranslate"><span class="pre">Baseline</span></code> module of pybaselines imported below. The first step is to create a baseline fitter object, which accepts the <em>x</em>-axis data from your spectrum.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pybaselines</span> <span class="kn">import</span> <span class="n">Baseline</span>
@@ -1442,7 +1442,7 @@
 </div>
 </div>
 </div>
-<p>Next, the fitter object is used to predict the baseline using various baseline algorithms. There are numerous algorithms available, and many algorithms have multiple parameters that fine tune how the baseline is identified. Finding the ideal algorithm and parameters to use can come down to trial-and-error, so feel free to try a few and see what works the best. We will try the modified polynomial, asymmetric least squares, and morphological based algorithms below, but there are many others to choose from. The output of each prediction is a background and the parameters from the baseline fit.</p>
+<p>Next, the fitter object is used to predict the baseline using various baseline algorithms. There are numerous algorithms available, and many algorithms have multiple parameters that fine-tune how the baseline is identified. Finding the ideal algorithm and parameters to use can come down to trial-and-error, so feel free to try a few and see what works best. We will try the modified polynomial, asymmetric least squares, and morphological-based algorithms below, but there are many others to choose from. The output of each prediction is a background and the parameters from the baseline fit.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition tip">
@@ -1468,7 +1468,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f9421a2eedb8d7d62cc9f9115d5b223b1930333249e290f065d23a8628cb1242.svg" src="../../_images/f9421a2eedb8d7d62cc9f9115d5b223b1930333249e290f065d23a8628cb1242.svg" />
+<img alt="../../_images/d55161245bbcd84514087ee81691c76041c99cf26cbc52b56fea37fb42c3048e.svg" src="../../_images/d55161245bbcd84514087ee81691c76041c99cf26cbc52b56fea37fb42c3048e.svg" />
 </div>
 </div>
 <p>Finally, we will subtract the baseline from the original data. The good news is that the baseline fitter generated the baseline as a NumPy array with the same size as the original data, so subtraction is a matter of subtracting one array from another.</p>
@@ -1484,7 +1484,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2c3900e1ac985996f24438f207fbeb2ea9ab003c148daab186e6104e8b8975b9.svg" src="../../_images/2c3900e1ac985996f24438f207fbeb2ea9ab003c148daab186e6104e8b8975b9.svg" />
+<img alt="../../_images/4fb674c9a2d29812149043fb4ffe666dd13b0ab327dd6f5d62226e51b58657f0.svg" src="../../_images/4fb674c9a2d29812149043fb4ffe666dd13b0ab327dd6f5d62226e51b58657f0.svg" />
 </div>
 </div>
 </section>
@@ -1495,7 +1495,7 @@
 <li><p>Numpy and Scipy Documentation. <a class="reference external" href="https://docs.scipy.org/doc/">https://docs.scipy.org/doc/</a> (free resource)</p></li>
 <li><p>Downey, Allen B. Think DSP, Green Tea Press, 2016. <a class="reference external" href="https://docs.scipy.org/doc/">http://greenteapress.com/wp/think-dsp/</a> (free resource)</p></li>
 <li><p>O’Haver, T. C. An Introduction to Signal Processing in Chemical Measurement. <em>J. Chem. Educ.</em> <strong>1991,</strong> 68 (6), A147-A150. <a class="reference external" href="https://doi.org/10.1021/ed068pA147">https://doi.org/10.1021/ed068pA147</a></p></li>
-<li><p>Savitzky, A.; Golay, M.J.E. Smoothing and Differentiation of Data by Simplified Least Squares Procedures. <em>Anal. Chem.</em> <strong>1964,</strong> 36 (8) 1627–1639. <a class="reference external" href="https://doi.org/10.1021/ac60214a047">https://doi.org/10.1021/ac60214a047</a></p></li>
+<li><p>Savitzky, A.; Golay, M.J.E. Smoothing and Differentiation of Data by Simplified Least Squares Procedures. <em>Anal. Chem.</em> <strong>1964,</strong> 36 (8), 1627–1639. <a class="reference external" href="https://doi.org/10.1021/ac60214a047">https://doi.org/10.1021/ac60214a047</a></p></li>
 </ol>
 </section>
 <section id="exercises">
@@ -1503,7 +1503,7 @@
 <p>Complete the following exercises in a Jupyter notebook. Any data file(s) referred to in the problems can be found in the <a class="reference external" href="https://github.com/weisscharlesj/SciCompforChemists/tree/master/notebooks">data</a> folder in the same directory as this chapter’s Jupyter notebook. Alternatively, you can download a zip file of the data for this chapter from <a class="reference external" href="https://github.com/weisscharlesj/data_SciCompforChem">here</a> by selecting the appropriate chapter file and then clicking the <strong>Download</strong> button.</p>
 <ol class="arabic">
 <li><p>Import the file <strong>CV_K3Fe(CN)6.csv</strong> which contains a cyclic voltammogram for potassium cyanoferrate. Plot the data with the green dots on the highest point(s) and red triangles on the lowest point(s).</p></li>
-<li><p>Import the file titled <strong>CV_K3Fe(CN)6.csv</strong> and determine the inflection points. Plot the data with a marker on both inflection points. Hint: There are two inflections points in these data with one running in the reverse direction making it have a negative slop.</p></li>
+<li><p>Import the file titled <strong>CV_K3Fe(CN)6.csv</strong> and determine the inflection points. Plot the data with a marker on both inflection points. Hint: There are two inflection points in these data with one running in the reverse direction making it have a negative slope.</p></li>
 <li><p>Generate noisy synthetic data from the following code.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">sawtooth</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1515,8 +1515,8 @@
 <p>a) Smooth the data using moving averages and plot the smoothed signal. Feel free to use the moving averages code from this chapter.</p>
 <p>b) Smooth the same data using a Savitzky–Golay filter. Plot the smoothed signal.</p>
 </li>
-<li><p>Import the <span class="math notranslate nohighlight">\(^{31}\)</span>P NMR file titled <strong>fid_31P.csv</strong> and determine the number of major frequencies are in this wave. Keep in mind that there will be a second echo for each peak.</p></li>
-<li><p>The wavelength of emitted light (<span class="math notranslate nohighlight">\(\lambda\)</span>) from hydrogen is related to the electron energy level transitions by the following equation where R<span class="math notranslate nohighlight">\(_\infty\)</span> is the Rydberg constant, n<span class="math notranslate nohighlight">\(_i\)</span> is the initial principle quantum number of the electron, and n<span class="math notranslate nohighlight">\(_f\)</span> is the final principle quantum number of the electron.</p>
+<li><p>Import the <span class="math notranslate nohighlight">\(^{31}\)</span>P NMR file titled <strong>fid_31P.csv</strong> and determine the number of major frequencies in this wave. Keep in mind that there will be a second echo for each peak.</p></li>
+<li><p>The wavelength of emitted light (<span class="math notranslate nohighlight">\(\lambda\)</span>) from hydrogen is related to the electron energy level transitions by the following equation where R<span class="math notranslate nohighlight">\(_\infty\)</span> is the Rydberg constant, n<span class="math notranslate nohighlight">\(_i\)</span> is the initial principal quantum number of the electron, and n<span class="math notranslate nohighlight">\(_f\)</span> is the final principal quantum number of the electron.</p>
 <div class="math notranslate nohighlight">
 \[ \frac{1}{\lambda} = R_\infty \left(\frac{1}{n_f^2} - \frac{1}{n_i^2} \right) \]</div>
 <p>The following is experimental data of the wavelengths for five different transitions from the  Balmer series (i.e., n<span class="math notranslate nohighlight">\(_f\)</span> = 2).</p>
@@ -1650,8 +1650,8 @@
 </pre></div>
 </div>
 </li>
-<li><p>The file <strong>Cp2Fe_Mossbauer.txt</strong> contains Mossbauer data for a ferrocene complex where the left data column is velocity in millimeters per second and the right column is relative transmission. Using Python, determine the velocities of the six negative peaks. Plot the spectrum with dots on lowest point of each negative peak, and be sure to label your axes complete with units.</p></li>
-<li><p>Load the file <strong>XRF_Cu.csv</strong>, which contains X-ray fluorence (XRF) data for elemental copper, and use Python to determine the energy in eV of the two peaks. Notice that the <em>x</em>-axis is not in eV yet (see row 17 of data). You are advised to load the data using a pandas function, and setting a threshold will likely be necessary.</p></li>
+<li><p>The file <strong>Cp2Fe_Mossbauer.txt</strong> contains Mossbauer data for a ferrocene complex where the left data column is velocity in millimeters per second and the right column is relative transmission. Using Python, determine the velocities of the six negative peaks. Plot the spectrum with dots on the lowest point of each negative peak, and be sure to label your axes complete with units.</p></li>
+<li><p>Load the file <strong>XRF_Cu.csv</strong>, which contains X-ray fluorescence (XRF) data for elemental copper, and use Python to determine the energy in eV of the two peaks. Notice that the <em>x</em>-axis is not in eV yet (see row 17 of data). You are advised to load the data using a pandas function, and setting a threshold will likely be necessary.</p></li>
 </ol>
 </section>
 </section>

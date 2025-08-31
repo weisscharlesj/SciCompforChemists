@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -424,16 +424,16 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="chapter-12-nuclear-magnetic-resonance-with-nmrglue-nmrsim">
-<span id="id1"></span><h1>Chapter 12: Nuclear Magnetic Resonance with nmrglue &amp; nmrsim<a class="headerlink" href="#chapter-12-nuclear-magnetic-resonance-with-nmrglue-nmrsim" title="Link to this heading">#</a></h1>
-<div class="cell tag_remove-input docutils container">
+  <div class="cell tag_remove-input docutils container">
 </div>
-<p>Nuclear magnetic resonance (NMR) spectroscopy is one of the most common and powerful analytical methods used in modern chemistry. Up to this point, we having been primarily dealing with text-based data files - that is, files that can be opened with a text editor and still contain human comprehensible information. If you open most files that come out of an NMR instrument in a text editor, it will look more like gibberish than anything a human should be able to read. This is because they are <em>binary</em> files - they are written in computer language rather than human language.</p>
-<p>We need a specialized module to be able to import and read these data, and luckily a Python library called nmrglue to does exactly this. The library contains modules for dealing with data from each of the major NMR spectroscopy file types which includes Bruker, Pipe, Sparky, and Varian. It does not read JEOL files, but as of this writing, JEOL spectrometers support exporting data into at least one of the above file types supported by nmrglue and direct support for JEOL files is under development.</p>
-<p>In addition, it is also sometimes helpful to be able to simulate NMR spectra to confirm spectral parameters (e.g., coupling constants), visualize hypothetical spectra of splitting patterns, or fit the line shapes or splitting patterns of experimental data. The library nmrsim provides the ability to simulate NMR spectra including dynamic NMR and is introduced in <a class="reference internal" href="#id13"><span class="std std-ref">section 12.2</span></a>.</p>
+<section class="tex2jax_ignore mathjax_ignore" id="chapter-12-nuclear-magnetic-resonance-with-nmrglue-nmrsim">
+<span id="id1"></span><h1>Chapter 12: Nuclear Magnetic Resonance with nmrglue &amp; nmrsim<a class="headerlink" href="#chapter-12-nuclear-magnetic-resonance-with-nmrglue-nmrsim" title="Link to this heading">#</a></h1>
+<p>Nuclear magnetic resonance (NMR) spectroscopy is one of the most common and powerful analytical methods used in modern chemistry. Up to this point, we have been primarily dealing with text-based data files - that is, files that can be opened with a text editor and still contain human-comprehensible information. If you open most files that come out of an NMR instrument in a text editor, it will look more like gibberish than anything a human should be able to read. This is because they are <em>binary</em> files - they are written in computer language rather than human language.</p>
+<p>We need a specialized module to be able to import and read these data, and luckily, a Python library called nmrglue does exactly this. The library contains modules for dealing with data from each of the major NMR spectroscopy file types, which includes Bruker, Pipe, Sparky, and Varian. It does not read JEOL files, but as of this writing, JEOL spectrometers support exporting data into at least one of the above file types supported by nmrglue, and direct support for JEOL files is under development.</p>
+<p>In addition, it is also sometimes helpful to be able to simulate NMR spectra to confirm spectral parameters (e.g., coupling constants), visualize hypothetical spectra of splitting patterns, or fit the line shapes or splitting patterns of experimental data. The library nmrsim provides the ability to simulate NMR spectra, including dynamic NMR, and is introduced in <a class="reference internal" href="#id13"><span class="std std-ref">section 12.2</span></a>.</p>
 <section id="nmr-processing-with-nmrglue">
 <span id="id2"></span><span id="index-1"></span><span id="index-0"></span><h2>12.1 NMR Processing with nmrglue<a class="headerlink" href="#nmr-processing-with-nmrglue" title="Link to this heading">#</a></h2>
-<p>Currently, nmrglue is not included with default installation of Anaconda, so you will need to install it. Instructions are included on the <a class="reference external" href="https://nmrglue.readthedocs.io/en/latest/index.html">nmrglue documentation page</a> or you can use <code class="docutils literal notranslate"><span class="pre">pip</span></code> to install it. If Jupyterlab is installed on your computer, you should be able to install it through the terminal using <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">nmrglue</span></code>, and if you are using Google Colab, you should include <code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">nmrglue</span></code> in the first code cell of the notebook (see <a class="reference internal" href="../chapter_00/chap_00_notebook.html#id3"><span class="std std-ref">section 0.2</span></a>). nmrglue requires you have NumPy and SciPy installed, and matplotlib should also be installed for visualization.</p>
+<p>Currently, nmrglue is not included with the default installation of Anaconda or Miniconda, so you will need to install it separately. Instructions are included on the <a class="reference external" href="https://nmrglue.readthedocs.io/en/latest/index.html">nmrglue documentation page</a>, or you can use <code class="docutils literal notranslate"><span class="pre">pip</span></code> to install it. If Jupyterlab is installed on your computer, you should be able to install it through the terminal using <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">nmrglue</span></code>, and if you are using Google Colab, you should include <code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">nmrglue</span></code> in the first code cell of the notebook (see <a class="reference internal" href="../chapter_00/chap_00_notebook.html#id3"><span class="std std-ref">section 0.2</span></a>). nmrglue requires you to have NumPy and SciPy installed, and matplotlib should also be installed for visualization.</p>
 <p>All use of code below assumes the following imports with aliases. nmrglue is not a major library in the SciPy ecosystem, so the <code class="docutils literal notranslate"><span class="pre">ng</span></code> alias is not a strong convention but is used here for convenience and to be consistent with the online documentation.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -444,20 +444,20 @@
 </div>
 </div>
 </div>
-<p>The general procedure for collecting NMR data is to excite a given type of NMR-active nuclei with a radio-frequency pulse and allow them to relax. As they precess, their rotation leads to a voltage oscillation in the instrument at characteristic frequencies, and the spectrometer records these oscillations as a <em>free induction decay (fid)</em> depicted below (Figure 1, left). It is the frequency of these oscillations that we are interested in because they are informative to a trained chemist as to the chemical environment of the nuclei. One challenge is that all the different signals from each of the nuclei are stacked on top of each other making it difficult to distinguish one from the other or to determine the wave frequency. This is similar to the problem of a computer discerning a single instrument in an entire orchestra playing at once. Fortunately, there is a mathematical equation called the Fourier transform that converts the above <em>fid</em> into a graph showing all of the different frequencies (Figure 1, right). This is what is known as converting the <em>time domain</em> to the <em>frequency domain</em>.</p>
+<p>The general procedure for collecting NMR data is to excite a given type of NMR-active nuclei with a radio-frequency pulse and allow them to relax. As they precess, their rotation leads to a voltage oscillation in the instrument at characteristic frequencies, and the spectrometer records these oscillations as a <em>free induction decay (FID)</em> depicted below (Figure 1, left). It is the frequency of these oscillations that we are interested in because they are informative to a trained chemist as to the chemical environment of the nuclei. One challenge is that all the different signals from each of the nuclei are stacked on top of each other, making it difficult to distinguish one from the other or to determine the wave frequency. This is similar to the problem of a computer discerning a single instrument in an entire orchestra playing at once. Fortunately, there is a mathematical equation called the Fourier transform that converts the above <em>FID</em> into a graph showing all of the different frequencies (Figure 1, right). This is what is known as converting the <em>time domain</em> to the <em>frequency domain</em>.</p>
 <p><img alt="" src="../../_images/fid.svg" /></p>
 <p><strong>Figure 1</strong> Raw NMR spectroscopy data is converted from the time domain (left) to the frequency domain (right) using a Fourier transform.</p>
 <p>The general steps for dealing with NMR spectroscopic data in Python are outlined below.</p>
 <ol class="arabic simple">
-<li><p>Load the fid data into a NumPy array using nmrglue</p></li>
-<li><p>Fourier transform the data to the frequency domain</p></li>
-<li><p>Phase the spectrum</p></li>
-<li><p>Reference the spectrum</p></li>
-<li><p>Measure the chemical shifts and integrals of the peaks</p></li>
+<li><p>Load the FID data into a NumPy array using nmrglue.</p></li>
+<li><p>Fourier transform the data to the frequency domain.</p></li>
+<li><p>Phase the spectrum.</p></li>
+<li><p>Reference the spectrum.</p></li>
+<li><p>Measure the chemical shifts and integrals of the peaks.</p></li>
 </ol>
 <section id="importing-data-with-nmrglue">
 <span id="id3"></span><span id="index-2"></span><h3>12.1.1 Importing Data with nmrglue<a class="headerlink" href="#importing-data-with-nmrglue" title="Link to this heading">#</a></h3>
-<p>The importing of data using nmrglue is performed by the read function from one of the submodules shown in Table 1. Additional modules can be found in the <a class="reference external" href="https://nmrglue.readthedocs.io/en/latest/tutorial.html">nmrglue documention</a>. The choice of module is dictated by the data file type.</p>
+<p>The importing of data using nmrglue is performed by the read function from one of the submodules shown in Table 1. Additional modules can be found in the <a class="reference external" href="https://nmrglue.readthedocs.io/en/latest/tutorial.html">nmrglue documentation</a>. The choice of module is dictated by the data file type.</p>
 <p><strong>Table 1</strong> Examples of nmrglue Modules</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -505,7 +505,7 @@
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The data used in this demo was already Fourier transformed on the spectrometer, so the following cell reverses this process for demo purposed. Some spectrometers automatically Fourier transform the data while others do not.</p>
+<p>The data used in this demo was already Fourier transformed on the spectrometer, so the following cell reverses this process for demo purposes. Some spectrometers automatically Fourier transform the data while others do not.</p>
 </div>
 </aside>
 <div class="cell docutils container">
@@ -546,10 +546,10 @@
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In NMR spectroscopy, “1D NMR” is actually two-dimensional while “2D NMR” are actually three-dimensional.</p>
+<p>In NMR spectroscopy, “1D NMR” is actually two-dimensional while “2D NMR” is actually three-dimensional.</p>
 </div>
 </aside>
-<p>The universal dictionary is a nested dictionary. The first key is <code class="docutils literal notranslate"><span class="pre">ndim</span></code> which provides the number of dimensions in the NMR spectrum. Most NMR spectra are one dimensional, but two dimensional is also fairly common. Subsequent key(s) are for each dimension in the NMR spectrum with the value as a nested dictionary of metadata. Because the data for the above spectrum is one-dimensional, there is only one nested dictionary. Table 2 below provides a description of each piece of metadata contained in the universal dictionary.</p>
+<p>The universal dictionary is a nested dictionary. The first key is <code class="docutils literal notranslate"><span class="pre">ndim</span></code> which provides the number of dimensions in the NMR spectrum. Most NMR spectra are one-dimensional, but two-dimensional is also fairly common. Subsequent key(s) are for each dimension in the NMR spectrum with the value as a nested dictionary of metadata. Because the data for the above spectrum is one-dimensional, there is only one nested dictionary. Table 2 below provides a description of each piece of metadata contained in the universal dictionary.</p>
 <p><strong>Table 2</strong> <code class="docutils literal notranslate"><span class="pre">udic</span></code> Dictionary Keys for Single Dimensions*</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -617,7 +617,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d1c6b2c71df856aeac05796da253ff5c7f3a6ed9c8c899db85027e57abea317b.svg" src="../../_images/d1c6b2c71df856aeac05796da253ff5c7f3a6ed9c8c899db85027e57abea317b.svg" />
+<img alt="../../_images/4fdeae92f1972be07b47c63e29e44a3627ef9fa6fc2595bada821469b03c8f6f.svg" src="../../_images/4fdeae92f1972be07b47c63e29e44a3627ef9fa6fc2595bada821469b03c8f6f.svg" />
 </div>
 </div>
 <p>To convert the data to the frequency domain, we will use the fast Fourier transform function (<code class="docutils literal notranslate"><span class="pre">fft</span></code>) from the <code class="docutils literal notranslate"><span class="pre">fft</span></code> SciPy module. nmrglue also contains Fourier transform functions, but we will use SciPy here. The plot below inverts the <em>x</em>-axis with <code class="docutils literal notranslate"><span class="pre">plt.gca().invert_xaxis()</span></code> to conform to NMR plotting conventions.</p>
@@ -639,7 +639,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/801bfe8d33cb2f4bc8b1f2748c062a17be032cc0f6db12073957c3a6e82c251d.svg" src="../../_images/801bfe8d33cb2f4bc8b1f2748c062a17be032cc0f6db12073957c3a6e82c251d.svg" />
+<img alt="../../_images/ddd4eb01f9b317388336960ec65e2bd3fc2d6cff4a504616bf7846fcdf366c04.svg" src="../../_images/ddd4eb01f9b317388336960ec65e2bd3fc2d6cff4a504616bf7846fcdf366c04.svg" />
 </div>
 </div>
 <p>When you plot the Fourier transformed data, you may get a <code class="docutils literal notranslate"><span class="pre">ComplexWarning</span></code> error message because the Fourier transform will return complex values (i.e., values with real and imaginary components). To only work with the real components, use the <code class="docutils literal notranslate"><span class="pre">.real</span></code> method as is done above. The plot now looks more like an NMR spectrum, but most of the resonances are out of phase. The next step is to phase the spectrum.</p>
@@ -681,10 +681,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5f3427855c08cf81acf65e66f7ee70a4dd3e1bb1c189824db83c02f5c197d689.svg" src="../../_images/5f3427855c08cf81acf65e66f7ee70a4dd3e1bb1c189824db83c02f5c197d689.svg" />
+<img alt="../../_images/bd32ca303ae595d41ca3075b2db5de62a6b48a65a0f8876851cb737d056913ab.svg" src="../../_images/bd32ca303ae595d41ca3075b2db5de62a6b48a65a0f8876851cb737d056913ab.svg" />
 </div>
 </div>
-<p>You should try both algorithms to see which works best for you. The above spectrum is the result of the <code class="docutils literal notranslate"><span class="pre">acme</span></code> autophasing algorithm which is close but still slightly off. If neither of the provided autophasing algorithms work for you, you will need to instead manually phase the NMR spectrum as discussed below.</p>
+<p>You should try both algorithms to see which works best for you. The above spectrum is the result of the <code class="docutils literal notranslate"><span class="pre">acme</span></code> autophasing algorithm, which is close but still slightly off. If neither of the provided autophasing algorithms work for you, you will need to instead manually phase the NMR spectrum as discussed below.</p>
 </section>
 <section id="manual-phasing">
 <span id="id7"></span><h4>12.1.3.2 Manual Phasing<a class="headerlink" href="#manual-phasing" title="Link to this heading">#</a></h4>
@@ -716,7 +716,7 @@
 <p>The <em>x</em>-axis is the frequency scale, so this axis is sometimes presented in hertz (Hz). However, because the frequency of NMR resonances depends upon the instrument field strength, the same sample will exhibit different frequencies in different instruments. To make the frequency axis independent of the spectrometer field strength, NMR spectra are often presented on a <em>ppm scale</em> which is the ratio of the observed chemical shift (Hz) versus a standard over the spectrometer frequency (MHz) at which that particular nucleus is observed.</p>
 <div class="math notranslate nohighlight">
 \[ ppm = \frac{Observed \, Frequency \, (Hz)}{Spectrometer \, Frequency \, (MHz)} \]</div>
-<p>This makes the locations of the peaks consistent from spectrometer to spectrometer no matter the strength of the magnet. This is where the <code class="docutils literal notranslate"><span class="pre">udic</span></code> from <a class="reference internal" href="#id3"><span class="std std-ref">section 12.1.1</span></a> is important because we can obtained the observed frequency width (Hz) of the spectrum, and the resolution of the data. The latter is how many data points are in the spectrum which is important so that we avoid a plotting error (we all know the one: <code class="docutils literal notranslate"><span class="pre">ValueError:</span> <span class="pre">x</span> <span class="pre">and</span> <span class="pre">y</span> <span class="pre">must</span> <span class="pre">have</span> <span class="pre">same</span> <span class="pre">first</span> <span class="pre">dimension,...</span></code>). If any of the values from the <code class="docutils literal notranslate"><span class="pre">udic</span></code> are 999.99, this means the spectrometer did not record this piece of information and you will need to find it elsewhere.</p>
+<p>This makes the locations of the peaks consistent from spectrometer to spectrometer no matter the strength of the magnet. This is where the <code class="docutils literal notranslate"><span class="pre">udic</span></code> from <a class="reference internal" href="#id3"><span class="std std-ref">section 12.1.1</span></a> is important because we can obtain the observed frequency width (Hz) of the spectrum, and the resolution of the data. The latter is how many data points are in the spectrum which is important so that we avoid a plotting error (we all know the one: <code class="docutils literal notranslate"><span class="pre">ValueError:</span> <span class="pre">x</span> <span class="pre">and</span> <span class="pre">y</span> <span class="pre">must</span> <span class="pre">have</span> <span class="pre">same</span> <span class="pre">first</span> <span class="pre">dimension,...</span></code>). If any of the values from the <code class="docutils literal notranslate"><span class="pre">udic</span></code> are 999.99, this means the spectrometer did not record this piece of information and you will need to find it elsewhere.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">size</span> <span class="o">=</span> <span class="n">udic</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="c1"># points in data</span>
@@ -747,7 +747,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2a1e99818d3e6be2d48cfcd8b40d2e85b6ba9548c319864d0f45ea1eef52b138.svg" src="../../_images/2a1e99818d3e6be2d48cfcd8b40d2e85b6ba9548c319864d0f45ea1eef52b138.svg" />
+<img alt="../../_images/4533e470f5d338b06159c5fee08888967079ab86301b7c3201fd11171b9ff363.svg" src="../../_images/4533e470f5d338b06159c5fee08888967079ab86301b7c3201fd11171b9ff363.svg" />
 </div>
 </div>
 <p>Alternatively, nmrglue contains an object called a <em>unit conversion object</em> that can be created and used to convert between ppm, Hz, and point index values for any position in an NMR spectrum. To create a unit conversion object, use the <code class="docutils literal notranslate"><span class="pre">make_uc()</span></code> function which takes two arguments  – the dictionary, <code class="docutils literal notranslate"><span class="pre">dic</span></code>, and the original data array, <code class="docutils literal notranslate"><span class="pre">data</span></code>, generated from reading the NMR file in section 12.2.</p>
@@ -785,7 +785,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e704034961963aa8879bcbfe1608055465250d9d86c8352297d30f76796d17b4.svg" src="../../_images/e704034961963aa8879bcbfe1608055465250d9d86c8352297d30f76796d17b4.svg" />
+<img alt="../../_images/b401edfd8a554fafd78ec510ea76312f86dd0c95be2321edcb0e8c1095cb196d.svg" src="../../_images/b401edfd8a554fafd78ec510ea76312f86dd0c95be2321edcb0e8c1095cb196d.svg" />
 </div>
 </div>
 <p>The following example uses the ppm scale generated by the unit conversion object.</p>
@@ -827,7 +827,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b45016058af68b2a8a70fb58d883d3fe01c1b08a454d3f72a5910c495dbd7e53.svg" src="../../_images/b45016058af68b2a8a70fb58d883d3fe01c1b08a454d3f72a5910c495dbd7e53.svg" />
+<img alt="../../_images/bd743327324ec1afa1350438c1c8d379462b8f66969afddeb00c017792f99d52.svg" src="../../_images/bd743327324ec1afa1350438c1c8d379462b8f66969afddeb00c017792f99d52.svg" />
 </div>
 </div>
 <p>If you want to narrow the plot to where the resonances are located, you can use the <code class="docutils literal notranslate"><span class="pre">plt.xlim(8,0)</span></code> function. Notice that 8 is first to indicate that the plot is from 8 ppm <span class="math notranslate nohighlight">\(\rightarrow\)</span> 0 ppm. The use of <code class="docutils literal notranslate"><span class="pre">plt.xlim(8,0)</span></code> removes the need to use <code class="docutils literal notranslate"><span class="pre">plt.gca().invert_xaxis()</span></code> to flip the <em>x</em>-axis.</p>
@@ -835,7 +835,7 @@
 </section>
 <section id="integration">
 <span id="id11"></span><span id="index-5"></span><h3>12.1.5 Integration<a class="headerlink" href="#integration" title="Link to this heading">#</a></h3>
-<p>Integration of the area under the peaks can be performed using either integration functions from the <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code> module or though nmrglue’s integration function(s). Because the integration function in nmrglue supports limit values in the ppm scale, it is probably the most convenient and is demonstrated below.</p>
+<p>Integration of the area under the peaks can be performed using either integration functions from the <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code> module or through nmrglue’s integration function(s). Because the integration function in nmrglue supports limit values in the ppm scale, it is probably the most convenient and is demonstrated below.</p>
 <p>The integration is performed using the <code class="docutils literal notranslate"><span class="pre">integrate()</span></code> function below where <code class="docutils literal notranslate"><span class="pre">data</span></code> is your NMR data as a NumPy array, the <code class="docutils literal notranslate"><span class="pre">conv_obj</span></code> is an nmrglue unit conversion object (see <a class="reference internal" href="#id9"><span class="std std-ref">section 12.1.4.1</span></a>), and limits is a list or array of limits for integration.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ng</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">integration</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">conv_obj</span><span class="p">,</span> <span class="n">limits</span><span class="p">)</span>
 </pre></div>
@@ -868,10 +868,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/cc9df06da53dbc91c2acd3bbc204f11d50e2f177472b9227f2625b65875adb1c.svg" src="../../_images/cc9df06da53dbc91c2acd3bbc204f11d50e2f177472b9227f2625b65875adb1c.svg" />
+<img alt="../../_images/d2a6f2edcaefd5d3306d3f7f52fd6e379700d509797dcb087966cdfc0ce31d84.svg" src="../../_images/d2a6f2edcaefd5d3306d3f7f52fd6e379700d509797dcb087966cdfc0ce31d84.svg" />
 </div>
 </div>
-<p>The limits are in ppm, so take a look at the spectrum above and decide where you want to put the integration limits. An NMR spectrum with the chosen integration limits are shown above as vertical red lines.</p>
+<p>The limits are in ppm, so take a look at the spectrum above and decide where you want to put the integration limits. An NMR spectrum is shown above with the chosen integration limits represented as vertical red lines.</p>
 <p>Now to integrate our NMR spectrum.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -934,7 +934,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c7078e78c1eb0d7114538463e347e3340fdf2d27abfd400375ae6c93edf7e052.svg" src="../../_images/c7078e78c1eb0d7114538463e347e3340fdf2d27abfd400375ae6c93edf7e052.svg" />
+<img alt="../../_images/14ae12c8ba2023ccd88179cf1fdc29cdb79e43e3e9354837ad17335256001083.svg" src="../../_images/14ae12c8ba2023ccd88179cf1fdc29cdb79e43e3e9354837ad17335256001083.svg" />
 </div>
 </div>
 <div class="admonition note">
@@ -989,7 +989,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ffc8eb3f29b288115c8cf3fa54ac625ca569f797485aef84bcec5b714100d3c4.svg" src="../../_images/ffc8eb3f29b288115c8cf3fa54ac625ca569f797485aef84bcec5b714100d3c4.svg" />
+<img alt="../../_images/e2d097e05d105036294cf9598ea82d0d5e78eb0a03389e7ed8232e697f5b024e.svg" src="../../_images/e2d097e05d105036294cf9598ea82d0d5e78eb0a03389e7ed8232e697f5b024e.svg" />
 </div>
 </div>
 <p>We can plot the NMR spectrum with these chemical shifts marked with vertical dotted lines shown above. Looks like it did a pretty good job locating the resonances! If nmrglue fails to properly identify the peaks, there are a number of parameters described in the <a class="reference external" href="https://nmrglue.readthedocs.io/en/latest/reference/generated/nmrglue.analysis.peakpick.pick.html#nmrglue.analysis.peakpick.pick">nmrglue documentation</a> that can be adjusted.</p>
@@ -997,7 +997,7 @@
 </section>
 <section id="simulating-nmr-with-nmrsim">
 <span id="id13"></span><span id="index-7"></span><span id="index-6"></span><h2>12.2 Simulating NMR with nmrsim<a class="headerlink" href="#simulating-nmr-with-nmrsim" title="Link to this heading">#</a></h2>
-<p>nmrsim is a Python package for simulating NMR spectra based on information such as the chemical shifts, coupling constants, and number of coupling nuclei. The package is capable of simulating individual first-order and second-order splitting patterns or enitre NMR spectra. It can also simulate dynamic NMR caused by nuclei rapidly exchanging. nmrsim is <a class="reference external" href="https://nmrsim.readthedocs.io/en/latest/installation.html">installable using <code class="docutils literal notranslate"><span class="pre">pip</span></code></a>. The package has a few key functions listed below (Table 3) for simulating first-order multiples, spin systems, and spectra. The <code class="docutils literal notranslate"><span class="pre">Multiplet()</span></code> function is used to simulate a single, first-order resonance such as a 1:2:1 triplet or a doublet-of-doublets while the <code class="docutils literal notranslate"><span class="pre">SpinSystem()</span></code> function simulates two resonance signals belonging to pairs of coupled nuclei. The <code class="docutils literal notranslate"><span class="pre">Spectrum()</span></code> function can generate entire spectra by merging the resonances generated by other functions.</p>
+<p>nmrsim is a Python package for simulating NMR spectra based on information such as the chemical shifts, coupling constants, and number of coupling nuclei. The package is capable of simulating individual first-order and second-order splitting patterns or entire NMR spectra. It can also simulate dynamic NMR caused by nuclei rapidly exchanging. nmrsim is <a class="reference external" href="https://nmrsim.readthedocs.io/en/latest/installation.html">installable using <code class="docutils literal notranslate"><span class="pre">pip</span></code></a>. The package has a few key functions listed below (Table 3) for simulating first-order multiples, spin systems, and spectra. The <code class="docutils literal notranslate"><span class="pre">Multiplet()</span></code> function is used to simulate a single, first-order resonance such as a 1:2:1 triplet or a doublet-of-doublets while the <code class="docutils literal notranslate"><span class="pre">SpinSystem()</span></code> function simulates two resonance signals belonging to pairs of coupled nuclei. The <code class="docutils literal notranslate"><span class="pre">Spectrum()</span></code> function can generate entire spectra by merging the resonances generated by other functions.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
@@ -1027,7 +1027,7 @@
 </div>
 <section id="simulating-first-order-multiplets">
 <span id="id14"></span><h3>12.2.1 Simulating First-Order Multiplets<a class="headerlink" href="#simulating-first-order-multiplets" title="Link to this heading">#</a></h3>
-<p>As an example, we can simulate a the signal of methylene (i.e., -CH<span class="math notranslate nohighlight">\(_2\)</span>-) protons in CH<span class="math notranslate nohighlight">\(_3\)</span>-CH<span class="math notranslate nohighlight">\(_2\)</span>-CH-. Let us assume that the methyl/methylene protons have coupling constants of <em>J</em> = 7.8 Hz the methine/methylene protons have a coupling constant of <em>J</em> = 6.1 Hz. First, we need to import the <code class="docutils literal notranslate"><span class="pre">Multiplet()</span></code> function along with the <code class="docutils literal notranslate"><span class="pre">mplplot()</span></code> plotting function. The <code class="docutils literal notranslate"><span class="pre">Multiplet()</span></code> fuction takes the resonance frequency in Hz (<code class="docutils literal notranslate"><span class="pre">v</span></code>) as the first positional argument followed by the intensity (<code class="docutils literal notranslate"><span class="pre">I</span></code>) of the resonance signal. This can simply be the number of nuclei the signal represents and is only really important when generating entire spectra with multiple signals so that signals that represent more nuclei have a larger area. Finally, coupling constants(<code class="docutils literal notranslate"><span class="pre">J</span></code>)/number of nuclei (<code class="docutils literal notranslate"><span class="pre">n_nuc</span></code>) pairs is provided as a list of tuples, list of lists, or 2D array.</p>
+<p>As an example, we can simulate the signal of methylene (i.e., -CH<span class="math notranslate nohighlight">\(_2\)</span>-) protons in CH<span class="math notranslate nohighlight">\(_3\)</span>-CH<span class="math notranslate nohighlight">\(_2\)</span>-CH-. Let us assume that the methyl/methylene protons have coupling constants of <em>J</em> = 7.8 Hz, and the methine/methylene protons have a coupling constant of <em>J</em> = 6.1 Hz. First, we need to import the <code class="docutils literal notranslate"><span class="pre">Multiplet()</span></code> function along with the <code class="docutils literal notranslate"><span class="pre">mplplot()</span></code> plotting function. The <code class="docutils literal notranslate"><span class="pre">Multiplet()</span></code> function takes the resonance frequency in Hz (<code class="docutils literal notranslate"><span class="pre">v</span></code>) as the first positional argument followed by the intensity (<code class="docutils literal notranslate"><span class="pre">I</span></code>) of the resonance signal. This can simply be the number of nuclei the signal represents and is only really important when generating entire spectra with multiple signals so that signals that represent more nuclei have a larger area. Finally, coupling constants(<code class="docutils literal notranslate"><span class="pre">J</span></code>)/number of nuclei (<code class="docutils literal notranslate"><span class="pre">n_nuc</span></code>) pairs is provided as a list of tuples, list of lists, or 2D array.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Multiplet</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="p">[(</span><span class="n">J</span><span class="p">,</span> <span class="n">n_nuc</span><span class="p">),</span> <span class="p">(</span><span class="n">J</span><span class="p">,</span> <span class="n">n_nuc</span><span class="p">)])</span>
 </pre></div>
 </div>
@@ -1048,7 +1048,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nmrsim._classes.Multiplet at 0x1165c3230&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nmrsim._classes.Multiplet at 0x10fb47ef0&gt;
 </pre></div>
 </div>
 </div>
@@ -1073,16 +1073,16 @@
 </div>
 </div>
 </div>
-<p>Next we need to visualize this data. For this, nmrsim provides multiple plotting functions built off of matplotlib. We will focus on the <code class="docutils literal notranslate"><span class="pre">mplplot()</span></code> function which accepts the peaklist and generates the line shapes for the actual peaks.</p>
+<p>Next, we need to visualize this data. For this, nmrsim provides multiple plotting functions built off of matplotlib. We will focus on the <code class="docutils literal notranslate"><span class="pre">mplplot()</span></code> function, which accepts the peaklist and generates the line shapes for the actual peaks.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mplplot</span><span class="p">(</span><span class="n">peaklist</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y_min</span><span class="o">=-</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">y_max</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">),</span> <span class="n">points</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span> 
 </pre></div>
 </div>
-<p>There are a number of optional, keyword arguments such as line width (<code class="docutils literal notranslate"><span class="pre">w</span></code>), <em>y</em>-axis limits (<code class="docutils literal notranslate"><span class="pre">y_min</span></code> and <code class="docutils literal notranslate"><span class="pre">y_max</span></code>), <em>x</em>-axis limits (<code class="docutils literal notranslate"><span class="pre">limits</span></code>), and number of points in the multiplet (<code class="docutils literal notranslate"><span class="pre">points</span></code>). The <code class="docutils literal notranslate"><span class="pre">mplplot()</span></code> function will return the <em>x-</em> and <em>y</em>-coordinates for the plot. To suppres this, either end the line with a <code class="docutils literal notranslate"><span class="pre">;</span></code> or give it a pair of variables to store these data.</p>
+<p>There are a number of optional, keyword arguments such as line width (<code class="docutils literal notranslate"><span class="pre">w</span></code>), <em>y</em>-axis limits (<code class="docutils literal notranslate"><span class="pre">y_min</span></code> and <code class="docutils literal notranslate"><span class="pre">y_max</span></code>), <em>x</em>-axis limits (<code class="docutils literal notranslate"><span class="pre">limits</span></code>), and the number of points in the multiplet (<code class="docutils literal notranslate"><span class="pre">points</span></code>). The <code class="docutils literal notranslate"><span class="pre">mplplot()</span></code> function will return the <em>x-</em> and <em>y</em>-coordinates for the plot. To suppress this, either end the line with a <code class="docutils literal notranslate"><span class="pre">;</span></code> or give it a pair of variables to store these data.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>If the splitting pattern does not look quite right, consider increasing the number of points because undersampling can lead to anomalous looking signals.</p>
+<p>If the splitting pattern does not look quite right, consider increasing the number of points because undersampling can lead to anomalous-looking signals.</p>
 </div>
 </aside>
 <div class="cell docutils container">
@@ -1092,10 +1092,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x1176091f0&gt;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x11c0a9d30&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/8a1b671b3ed8b62141bef7dc8e76a90990a38dccb072fe16508db782bff78a06.svg" src="../../_images/8a1b671b3ed8b62141bef7dc8e76a90990a38dccb072fe16508db782bff78a06.svg" />
+<img alt="../../_images/a8d47c30b3738962e13c8e34cc2fd17479a10a875d68783cb84a2cd7acdab238.svg" src="../../_images/a8d47c30b3738962e13c8e34cc2fd17479a10a875d68783cb84a2cd7acdab238.svg" />
 </div>
 </div>
 <p>Below is the same splitting pattern with the line width tripled.</p>
@@ -1106,13 +1106,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x11765db50&gt;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x11c0fdeb0&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/08cfd9b50ae9ba35fbfa20e6703893fd54332a5cad7951a5c10e9c11360ce8eb.svg" src="../../_images/08cfd9b50ae9ba35fbfa20e6703893fd54332a5cad7951a5c10e9c11360ce8eb.svg" />
+<img alt="../../_images/bfdfffb344dcc9ef2465bcd37e1f4a2cef43f81b0817bbe1d263b01b80528d91.svg" src="../../_images/bfdfffb344dcc9ef2465bcd37e1f4a2cef43f81b0817bbe1d263b01b80528d91.svg" />
 </div>
 </div>
-<p>As another option, we can overlay the multiplet with lines showing the exact chemical shift and intensity ratio of each peak. This can be done either using your plotting library of choice or using the <code class="docutils literal notranslate"><span class="pre">mplplot_stick()</span></code> function in nmrsim. Below the intensity of the stem plot is reduced by a fifth to keep the lines inside the blue splitting pattern.</p>
+<p>As another option, we can overlay the multiplet with lines showing the exact chemical shift and intensity ratio of each peak. This can be done either using your plotting library of choice or using the <code class="docutils literal notranslate"><span class="pre">mplplot_stick()</span></code> function in nmrsim. Below, the intensity of the stem plot is reduced by a fifth to keep the lines inside the blue splitting pattern.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peaks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">mult_peaks</span><span class="p">)</span>
@@ -1126,7 +1126,7 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;StemContainer object of 3 artists&gt;
 </pre></div>
 </div>
-<img alt="../../_images/f0d6cc2009eb1bdcedb31864aaf9d5130895375e99569e5e83de92d86de63da4.svg" src="../../_images/f0d6cc2009eb1bdcedb31864aaf9d5130895375e99569e5e83de92d86de63da4.svg" />
+<img alt="../../_images/36bbc8126acd2310909cfa27f6f0d040dc6747f3e9db470208b8c0a66edf4a43.svg" src="../../_images/36bbc8126acd2310909cfa27f6f0d040dc6747f3e9db470208b8c0a66edf4a43.svg" />
 </div>
 </div>
 </section>
@@ -1164,7 +1164,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01487be350e44972aa4c1b58413d89c853957ed0f9dd10e9e66df0329e7bf4b7.svg" src="../../_images/01487be350e44972aa4c1b58413d89c853957ed0f9dd10e9e66df0329e7bf4b7.svg" />
+<img alt="../../_images/0542928442d9e4d33bc36a6b539cca4e7e36b0c07803f73382208c5b145887dd.svg" src="../../_images/0542928442d9e4d33bc36a6b539cca4e7e36b0c07803f73382208c5b145887dd.svg" />
 </div>
 </div>
 <p>The simulation even exhibits the second-order roofing effect where coupled resonances ‘lean’ towards each other.</p>
@@ -1178,7 +1178,7 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">SpinSystem()</span></code> function can also simulate second-order signals with a default setting of <code class="docutils literal notranslate"><span class="pre">second_order=False</span></code>.</p>
 </div>
 </aside>
-<p>nmrsim is capable of simulating second-order splitting patterns using the following functions (Table 4). The name of each function is based on the Pople notation where letters adjacent to each other in the alphabet represent resonances that are near each other in a spectrum (e.g., A and B), letters far apart in the alphabet represent resonances further part in the spectrum (e.g., A and X), the same letter is used to represent chemically equivalent nuclei, and primes are used to differentiate chemical equivalent nuclei that are magnetically nonequivalent (e.g., A and A’).</p>
+<p>nmrsim is capable of simulating second-order splitting patterns using the following functions (Table 4). The name of each function is based on the Pople notation where letters adjacent to each other in the alphabet represent resonances that are near each other in a spectrum (e.g., A and B), letters far apart in the alphabet represent resonances further apart in the spectrum (e.g., A and X), the same letter is used to represent chemically equivalent nuclei, and primes are used to differentiate chemically equivalent nuclei that are magnetically nonequivalent (e.g., A and A’).</p>
 <p><strong>Table 4</strong> Second-Order Simulation Functions</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -1208,7 +1208,7 @@
 </tbody>
 </table>
 </div>
-<p>These functions typically accept the coupling constants (e.g., <code class="docutils literal notranslate"><span class="pre">Jab=</span></code>), the distance between the two nuclei (e.g., <code class="docutils literal notranslate"><span class="pre">Vab=</span></code>), and the chemical shift of the signal in Hz (<code class="docutils literal notranslate"><span class="pre">Vcentr=</span></code>). As a demonstration, below we will simulate an AB spin system where the two nuclei are coupled with <em>J</em>=10.0 Hz and separation between the two signals of 9.0 Hz.</p>
+<p>These functions typically accept the coupling constants (e.g., <code class="docutils literal notranslate"><span class="pre">Jab=</span></code>), the distance between the two nuclei (e.g., <code class="docutils literal notranslate"><span class="pre">Vab=</span></code>), and the chemical shift of the signal in Hz (<code class="docutils literal notranslate"><span class="pre">Vcentr=</span></code>). As a demonstration, below we will simulate an AB spin system where the two nuclei are coupled with <em>J</em>=10.0 Hz and separated by 9.0 Hz.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nmrsim.discrete</span> <span class="kn">import</span> <span class="n">AB</span>
@@ -1219,10 +1219,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x1179f0a10&gt;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x11c494f80&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/8f9902e020e301c5b9a701689b485d982ae5e30aa109a9612f986a448bc94b1d.svg" src="../../_images/8f9902e020e301c5b9a701689b485d982ae5e30aa109a9612f986a448bc94b1d.svg" />
+<img alt="../../_images/afd17449cf7f1d0e7515823e08cc4d8c92d6180abba3782063a3c6806a182df4.svg" src="../../_images/afd17449cf7f1d0e7515823e08cc4d8c92d6180abba3782063a3c6806a182df4.svg" />
 </div>
 </div>
 <p>If we increase the distance between the two nuclei to 30.0 Hz, not only do the two signals become further apart, but the second-order character, unevenness in this case, decreases. It is important to note that when measuring the distance between the two second-order signals like this, the center of a doublet with uneven heights is not the center of the doublet but rather a weighted frequency average of the two peaks based on intensities. This means the chemical shift of a doublet is closer to the larger of the two peaks in the doublet.</p>
@@ -1234,16 +1234,16 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x1176afe30&gt;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x11c1b1d60&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/6d5bccb803c2a9443bcc76b13e841237247940acd3d4872dc942d16b39050f42.svg" src="../../_images/6d5bccb803c2a9443bcc76b13e841237247940acd3d4872dc942d16b39050f42.svg" />
+<img alt="../../_images/821a65dc2e0c1bce46072775edb33a1f703f788f94191d2060d4cb10c50da016.svg" src="../../_images/821a65dc2e0c1bce46072775edb33a1f703f788f94191d2060d4cb10c50da016.svg" />
 </div>
 </div>
 </section>
 <section id="dynamic-nmr-simulations">
 <span id="id17"></span><span id="index-9"></span><h3>12.2.4 Dynamic NMR Simulations<a class="headerlink" href="#dynamic-nmr-simulations" title="Link to this heading">#</a></h3>
-<p>Nuclei in some molecules can exchange with each other at observable rates. At lower temperatures, the exchange is relatively slow leading to two distinct and reasonably sharp signals representing the two environments of the exchanging nuclei. As the temperature is increased, the exchanges becomes more rapid causing the two signals to broaden and become closer until they merge into a single peak and ultimately sharpen. There are two dynamic NMR functions in the nmrsim.dnmr module: the <code class="docutils literal notranslate"><span class="pre">dnmr_two_singlets()</span></code> function which simulates two exchanging nuclei (or groups of chemically equivalent nuclei) that are not coupling with each other while the <code class="docutils literal notranslate"><span class="pre">dnmr_AB()</span></code> function simulates two exchanging nuclei that couple with each other. Below we will simulate two non-coupled, singlet signals exchanging with either other. The required arguments are the chemical shift frequencies of the two nuclei during slow exchange (<code class="docutils literal notranslate"><span class="pre">va</span></code> and <code class="docutils literal notranslate"><span class="pre">vb</span></code>), the exchange rate constant in Hz (<code class="docutils literal notranslate"><span class="pre">k</span></code>), the half-height width of the peaks at slow exchange (<code class="docutils literal notranslate"><span class="pre">wa</span></code> and <code class="docutils literal notranslate"><span class="pre">wb</span></code>), and the fraction of the nuclei in position <em>a</em> (<code class="docutils literal notranslate"><span class="pre">pa</span></code>). Optionally, you can specify the frequency limits for the generated line shape (<code class="docutils literal notranslate"><span class="pre">limits=</span></code>) and number of data point (<code class="docutils literal notranslate"><span class="pre">points=</span></code>).</p>
+<p>Nuclei in some molecules can exchange with each other at observable rates. At lower temperatures, the exchange is relatively slow, leading to two distinct and reasonably sharp signals representing the two environments of the exchanging nuclei. As the temperature is increased, the exchange becomes more rapid, causing the two signals to broaden and become closer until they merge into a single peak and ultimately sharpen. There are two dynamic NMR functions in the nmrsim.dnmr module: the <code class="docutils literal notranslate"><span class="pre">dnmr_two_singlets()</span></code> function, which simulates two exchanging nuclei (or groups of chemically equivalent nuclei) that are not coupling with each other, while the <code class="docutils literal notranslate"><span class="pre">dnmr_AB()</span></code> function simulates two exchanging nuclei that couple with each other. Below, we will simulate two non-coupled, singlet signals exchanging with each other. The required arguments are the chemical shift frequencies of the two nuclei during slow exchange (<code class="docutils literal notranslate"><span class="pre">va</span></code> and <code class="docutils literal notranslate"><span class="pre">vb</span></code>), the exchange rate constant in Hz (<code class="docutils literal notranslate"><span class="pre">k</span></code>), the half-height width of the peaks at slow exchange (<code class="docutils literal notranslate"><span class="pre">wa</span></code> and <code class="docutils literal notranslate"><span class="pre">wb</span></code>), and the fraction of the nuclei in position <em>a</em> (<code class="docutils literal notranslate"><span class="pre">pa</span></code>). Optionally, you can specify the frequency limits for the generated line shape (<code class="docutils literal notranslate"><span class="pre">limits=</span></code>) and number of data points (<code class="docutils literal notranslate"><span class="pre">points=</span></code>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="n">dnmr_two_singlets</span><span class="p">(</span><span class="n">va</span><span class="p">,</span> <span class="n">vb</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">wa</span><span class="p">,</span> <span class="n">wb</span><span class="p">,</span> <span class="n">pa</span><span class="p">,</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">),</span> <span class="n">point</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1263,10 +1263,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x117a60500&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11c500650&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/564df226b9c627fe293f4606c6382074b5c08f58891addf9ed3ff9d014a47dab.svg" src="../../_images/564df226b9c627fe293f4606c6382074b5c08f58891addf9ed3ff9d014a47dab.svg" />
+<img alt="../../_images/7849b981694635a4bff54b1bcff1bac92b09e51c66e803a8699d8b144ca41526.svg" src="../../_images/7849b981694635a4bff54b1bcff1bac92b09e51c66e803a8699d8b144ca41526.svg" />
 </div>
 </div>
 </section>
@@ -1292,7 +1292,7 @@
 <li><p>Open the <span class="math notranslate nohighlight">\(^1\)</span>H and <span class="math notranslate nohighlight">\(^{13}\)</span>C NMR spectra of 2-ethyl-1-hexanol, <strong>2-ethyl-1-hexanol_1H_NMR_CDCl3.fid</strong> and <strong>2-ethyl-1-hexanol_13C_NMR_CDCl3.fid</strong>, in CDCl<span class="math notranslate nohighlight">\(_3\)</span> with TMS and plot them on a ppm scale. Be sure to properly phase and reference the spectra if not done already. Use the <code class="docutils literal notranslate"><span class="pre">pipe</span></code> module.</p></li>
 <li><p>Simulate a first-order doublet of triplets with <em>J</em>=5.6 Hz and <em>J</em>=9.2 Hz, respectively.</p></li>
 <li><p>Select an article from the <a class="reference external" href="https://pubs.acs.org/journal/joceah"><em>Journal of Organic Chemistry</em></a> or some other journal and simulate an NMR spectrum with coupling (e.g., not <span class="math notranslate nohighlight">\(^{13}\)</span>C{<span class="math notranslate nohighlight">\(^1\)</span>H}) based on data listed in the experimental section. <em>Note</em>: some articles are free to access even if you do not have a subscription. Just access the most recent issue, and the free articles are marked “Open Access” in ACS journals.</p></li>
-<li><p>Simulate a second-order AA’BB’ simulation with a <em>J</em><span class="math notranslate nohighlight">\(_{AA'}\)</span> = 15.0 Hz, <em>J</em><span class="math notranslate nohighlight">\(_{BB'}\)</span> = 15.0 Hz, <em>J</em><span class="math notranslate nohighlight">\(_{AB}\)</span> = 7.0 Hz, <em>J</em><span class="math notranslate nohighlight">\(_{AB'}\)</span> = 7.0 Hz and a separation of 27.0 Hz. Compare your simulate to what is shown on <a class="reference external" href="https://organicchemistrydata.org/hansreich/resources/nmr/?page=05-hmr-15-aabb%2F">Hans Reich’s figure</a> (first set of NMR spectra on the page).</p></li>
+<li><p>Simulate a second-order AA’BB’ simulation with <em>J</em><span class="math notranslate nohighlight">\(_{AA'}\)</span> = 15.0 Hz, <em>J</em><span class="math notranslate nohighlight">\(_{BB'}\)</span> = 15.0 Hz, <em>J</em><span class="math notranslate nohighlight">\(_{AB}\)</span> = 7.0 Hz, <em>J</em><span class="math notranslate nohighlight">\(_{AB'}\)</span> = 7.0 Hz, and a separation of 27.0 Hz. Compare your simulate to what is shown on <a class="reference external" href="https://organicchemistrydata.org/hansreich/resources/nmr/?page=05-hmr-15-aabb%2F">Hans Reich’s figure</a> (first set of NMR spectra on the page).</p></li>
 </ol>
 </section>
 </section>

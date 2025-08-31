@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -425,11 +425,11 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="chapter-5-pandas">
-<span id="id1"></span><h1>Chapter 5: Pandas<a class="headerlink" href="#chapter-5-pandas" title="Link to this heading">#</a></h1>
-<div class="cell tag_remove-input docutils container">
+  <div class="cell tag_remove-input docutils container">
 </div>
-<p>While NumPy is the foundation of much of the SciPy ecosystem and provides very capable ndarray objects, it has a few missing features. The first is that NumPy arrays cannot hold different types of objects in a single array. For example, if we attempt to convert the following list containing integers, floats, and strings into an array, NumPy coverts all elements into strings as a way of making the object types uniform.</p>
+<section class="tex2jax_ignore mathjax_ignore" id="chapter-5-pandas">
+<span id="id1"></span><h1>Chapter 5: Pandas<a class="headerlink" href="#chapter-5-pandas" title="Link to this heading">#</a></h1>
+<p>While NumPy is the foundation of much of the SciPy ecosystem and provides very capable ndarray objects, it has a few missing features. The first is that NumPy arrays cannot hold different types of objects in a single array. For example, if we attempt to convert the following list containing integers, floats, and strings into an array, NumPy converts all elements into strings as a way of making the object types uniform.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;four&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;six&#39;</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">]</span>
@@ -450,7 +450,7 @@
 </div>
 </div>
 </div>
-<p>The second shortcoming is that NumPy arrays do not have strong support for labels in the data. That is, you might want to label rows and column describing what they represent like you might see in a well constructed spreadsheet. While there is some support for this in NumPy, it is not as strong as pandas’ support. Finally, while NumPy contains a wealth of basic tools for working with data, there are still many operations that it does not support like grouping data based on the value of a particular column or the ability to merge two datasets with automatic alignment of related data.</p>
+<p>The second shortcoming is that NumPy arrays do not have strong support for labels in the data. That is, you might want to label rows and columns describing what they represent, like you might see in a well-constructed spreadsheet. While there is some support for this in NumPy, it is not as strong as pandas’ support. Finally, while NumPy contains a wealth of basic tools for working with data, there are still many operations that it does not support, like grouping data based on the value of a particular column or the ability to merge two datasets with automatic alignment of related data.</p>
 <p>To fill in these missing features, the pandas library provides a wealth of additional tools on top of NumPy for working with data, and possibly the most endearing feature, the ability to call data based on labels. That is, data columns and rows can contain human-readable labels that are used to access the data. Pandas still supports accessing data using indices if the user wishes to go that route, but the user can now access data without knowing which column it is in as long as the user knows the column label.</p>
 <p>By popular convention, the pandas library is imported with the <code class="docutils literal notranslate"><span class="pre">pd</span></code> alias, which is used here. This chapter assumes the following imports.</p>
 <div class="cell docutils container" id="index-0">
@@ -485,8 +485,8 @@ dtype: float64
 </div>
 </div>
 </div>
-<p>The right column is the actual data in the Series while the values on the left are the assigned indices for each value in the Series. The index column is not part of the dimensionality of the Series; it is metadata (i.e., data about the data). Think of the numbers as the row labels you would see in a traditional spreadsheet software application.</p>
-<p>Consistent with list, tuples, and ndarrays, values in a Series can be accessed using indexing with square brackets as demonstrated below.</p>
+<p>The right column is the actual data in the Series, while the values on the left are the assigned indices for each value in the Series. The index column is not part of the dimensionality of the Series; it is metadata (i.e., data about the data). Think of the numbers as the row labels you would see in a traditional spreadsheet software application.</p>
+<p>Consistent with lists, tuples, and ndarrays, values in a Series can be accessed using indexing with square brackets as demonstrated below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mass</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
@@ -499,7 +499,7 @@ dtype: float64
 </div>
 </div>
 </div>
-<p>Unlike most other multi-element objects seen so far, data in a Series can be accessed using indices different from the default (i.e., 0, 1, 2, etc…) values. That is, custom row labels can be assigned using the <code class="docutils literal notranslate"><span class="pre">index=</span></code> argument shown below.</p>
+<p>Unlike most other multi-element objects seen so far, data in a Series can be accessed using indices different from the default (i.e., 0, 1, 2, etc.) values. That is, custom row labels can be assigned using the <code class="docutils literal notranslate"><span class="pre">index=</span></code> argument shown below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;He&#39;</span><span class="p">,</span> <span class="s1">&#39;Li&#39;</span><span class="p">,</span> <span class="s1">&#39;Be&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
@@ -579,7 +579,7 @@ dtype: float64
 </section>
 <section id="dataframe">
 <span id="id4"></span><span id="index-2"></span><h3>5.1.2 DataFrame<a class="headerlink" href="#dataframe" title="Link to this heading">#</a></h3>
-<p>Most data you will find yourself working with will be best placed in a two-dimensional pandas object called a <em>DataFrame</em> which is always written with two capital letters. The DataFrame is similar to a Series except that now there are also columns with names. The columns can be accessed by column names and rows can be accesses by indices. You might think of a DataFrame as a collection of Series objects. Below, a DataFrame is constructed to hold the names, atomic numbers, masses, and ionization energies of the first five elements.</p>
+<p>Most data you will find yourself working with will be best placed in a two-dimensional pandas object called a <em>DataFrame</em>, which is always written with two capital letters. The DataFrame is similar to a Series except that now there are also columns with names. The columns can be accessed by column names, and rows can be accessed by indices. You might think of a DataFrame as a collection of Series objects. Below, a DataFrame is constructed to hold the names, atomic numbers, masses, and ionization energies of the first five elements.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hydrogen&#39;</span><span class="p">,</span> <span class="s1">&#39;helium&#39;</span><span class="p">,</span> <span class="s1">&#39;lithium&#39;</span><span class="p">,</span> <span class="s1">&#39;beryllium&#39;</span><span class="p">,</span><span class="s1">&#39;boron&#39;</span><span class="p">]</span>
@@ -680,7 +680,7 @@ Name: Li, dtype: object
 </div>
 </div>
 </div>
-<p>Essentially what we get out of a column is a Series with the indices shown on the leftward side.</p>
+<p>Essentially, what we get out of a column is a Series with the indices shown on the leftward side.</p>
 <p>To indicate a row, instead use the <code class="docutils literal notranslate"><span class="pre">loc[]</span></code> method. We again get a Series with indices derived from the column names in the source DataFrame. This Series can be placed in a variable and indexed just like in <a class="reference internal" href="#id3"><span class="std std-ref">section 5.1.1</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -780,7 +780,7 @@ Name: Li, dtype: object
 </section>
 <section id="reading-writing-data">
 <span id="id5"></span><span id="index-4"></span><span id="index-3"></span><h2>5.2 Reading/Writing Data<a class="headerlink" href="#reading-writing-data" title="Link to this heading">#</a></h2>
-<p>Similar to NumPy, pandas contains multiple, convenient functions for reading/writing data directly to and from its own object types, and each function is suited to a specific file format. This includes CSV, HTML, JSON, SQL, Excel, and HDF5 files <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html">among others</a>.</p>
+<p>Similar to NumPy, pandas contains multiple, convenient functions for reading/writing data directly to and from its own object types, and each function is suited to a specific file format. This includes CSV, HTML, JSON, SQL, Excel, and HDF5 files, <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html">among others</a>.</p>
 <p><strong>Table 2</strong> Import/Export Functions in Pandas</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -813,15 +813,15 @@ Name: Li, dtype: object
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">\s+</span></code> syntax is from regular expressions which are covered in more detail in <a class="reference internal" href="../appendix_04/appendix_04_notebook.html#appendix-04"><span class="std std-ref">appendix 4</span></a>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">\s+</span></code> syntax is from regular expressions, which are covered in more detail in <a class="reference internal" href="../appendix_04/appendix_04_notebook.html#appendix-04"><span class="std std-ref">Appendix 4</span></a>.</p>
 </div>
 </aside>
-<p>Before we start with more well-defined file formats, pandas provides a general purpose file reader <code class="docutils literal notranslate"><span class="pre">pd.read_table()</span></code>. This function imports text files where lines represent rows and the data in each row is separated by characters or spaces. The user can designate what character(s) separate the data by using the <code class="docutils literal notranslate"><span class="pre">delimiter</span></code> or <code class="docutils literal notranslate"><span class="pre">sep</span></code> arguments (they do the same thing). To set a space as a delimiter,  use <code class="docutils literal notranslate"><span class="pre">sep=\s+</span></code>. The function also includes a series of other arguments listed below in Table 3.</p>
+<p>Before we start with more well-defined file formats, pandas provides a general-purpose file reader <code class="docutils literal notranslate"><span class="pre">pd.read_table()</span></code>. This function imports text files where lines represent rows, and the data in each row is separated by characters or spaces. The user can designate what character(s) separate the data by using the <code class="docutils literal notranslate"><span class="pre">delimiter</span></code> or <code class="docutils literal notranslate"><span class="pre">sep</span></code> arguments (they do the same thing). To set a space as a delimiter,  use <code class="docutils literal notranslate"><span class="pre">sep=\s+</span></code>. The function also includes a series of other arguments listed below in Table 3.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">delim_whitespace=</span></code> argument has been depricated and will be removed from pandas at some point. Use <code class="docutils literal notranslate"><span class="pre">sep=\s+</span></code> instead.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">delim_whitespace=</span></code> argument has been deprecated and will be removed from pandas at some point. Use <code class="docutils literal notranslate"><span class="pre">sep=\s+</span></code> instead.</p>
 </div>
 </aside>
 <p><strong>Table 3</strong> More <code class="docutils literal notranslate"><span class="pre">pd.read_table()</span></code> Arguments</p>
@@ -1061,11 +1061,11 @@ END
 </table>
 </div></div></div>
 </div>
-<p>The <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> data are in columns 5, 6, and 7, respectively and can be extracted by indexing as discussed in <a class="reference internal" href="#id4"><span class="std std-ref">section 5.1.2</span></a>.</p>
+<p>The <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> data are in columns 5, 6, and 7, respectively, and can be extracted by indexing as discussed in <a class="reference internal" href="#id4"><span class="std std-ref">section 5.1.2</span></a>.</p>
 </section>
 <section id="comma-separated-values-files">
 <span id="id7"></span><h3>5.2.2 Comma Separated Values Files<a class="headerlink" href="#comma-separated-values-files" title="Link to this heading">#</a></h3>
-<p>Pandas provides a collection of more format-specific functions for reading/writing files. The most popular is possibly the CSV file because it is simple and many scientific instruments support exporting data in this format. To import a CSV file, we will use the <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> function. This function is very similar to the <code class="docutils literal notranslate"><span class="pre">read_table()</span></code> function except that a default value for the separator/delimiter is set to a comma. To create a CSV file, use the <code class="docutils literal notranslate"><span class="pre">to_csv()</span></code> method which at a minimum requires the file name and a pandas object with the data.</p>
+<p>Pandas provides a collection of more format-specific functions for reading/writing files. The most popular is possibly the CSV file because it is simple, and many scientific instruments support exporting data in this format. To import a CSV file, we will use the <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> function. This function is very similar to the <code class="docutils literal notranslate"><span class="pre">read_table()</span></code> function except that a default value for the separator/delimiter is set to a comma. To create a CSV file, use the <code class="docutils literal notranslate"><span class="pre">to_csv()</span></code> method, which at a minimum requires the file name and a pandas object with the data.</p>
 <p>We can write the above chemical element data assembled in <a class="reference internal" href="#id2"><span class="std std-ref">section 5.1</span></a> as shown below. Because we are starting from a pandas object and are using a pandas method, the <code class="docutils literal notranslate"><span class="pre">df.to_csv()</span></code> format is used where df is a DataFrame.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;elements.csv&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1408,7 +1408,7 @@ IE,13.6,24.6,5.4,9.3,8.3
 </section>
 <section id="computer-clipboard">
 <span id="id9"></span><h3>5.2.4 Computer Clipboard<a class="headerlink" href="#computer-clipboard" title="Link to this heading">#</a></h3>
-<p>Pandas will also accept data from the computer’s copy and paste clipboard. Start by highlighting some data from a webpage or a spreadsheet, select copy. This is typically located under the Edit menu of most software applications. Alternatively, you can type Command + C on a macOS or Control + C on Windows and Linux. Finally, use the <code class="docutils literal notranslate"><span class="pre">pd.read_clipboard()</span></code> function to convert it to a pandas DataFrame.</p>
+<p>Pandas will also accept data from the computer’s copy and paste clipboard. Start by highlighting some data from a webpage or a spreadsheet, then select copy. This is typically located under the Edit menu of most software applications. Alternatively, you can type Command + C on a macOS or Control + C on Windows and Linux. Finally, use the <code class="docutils literal notranslate"><span class="pre">pd.read_clipboard()</span></code> function to convert it to a pandas DataFrame.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_clipboard</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1420,7 +1420,7 @@ IE,13.6,24.6,5.4,9.3,8.3
 <p>Once you load data into pandas, you will likely want to get an idea of what the data look like before you proceed to calculations and in-depth analyses. This section covers a few methods provided in pandas to gain a preliminary understanding of your data.</p>
 <section id="descriptive-functions">
 <span id="id11"></span><span id="index-6"></span><h3>5.3.1 Descriptive Functions<a class="headerlink" href="#descriptive-functions" title="Link to this heading">#</a></h3>
-<p>Pandas provides a few simple functions to view and describe new data. The first two are <code class="docutils literal notranslate"><span class="pre">head()</span></code> and <code class="docutils literal notranslate"><span class="pre">tail()</span></code> which allow you to see the top and bottom of the DataFrame, respectively. These are particularly useful when dealing with very large DataFrames. Below, a DataFrame containing random values in an even, normal, and poisson distribution (<span class="math notranslate nohighlight">\(\lambda\)</span> = 3.0) demonstrates these functions.</p>
+<p>Pandas provides a few simple functions to view and describe new data. The first two are <code class="docutils literal notranslate"><span class="pre">head()</span></code> and <code class="docutils literal notranslate"><span class="pre">tail()</span></code> which allow you to see the top and bottom of the DataFrame, respectively. These are particularly useful when dealing with very large DataFrames. Below, a DataFrame containing random values in an even, normal, and Poisson distribution (<span class="math notranslate nohighlight">\(\lambda\)</span> = 3.0) demonstrates these functions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
@@ -1569,7 +1569,7 @@ IE,13.6,24.6,5.4,9.3,8.3
 </table>
 </div></div></div>
 </div>
-<p>Pandas also contains a <code class="docutils literal notranslate"><span class="pre">describe()</span></code> function that returns a variety of statistics on each column. For example, the mean is provided which are approximately 0.5, 0.0, and 3.0 for the even, normal, and poisson distributions, respectively. This is not surprising being that the even distribution is centered around 0.5, the normal around 0.0, and the poisson distribution is generated for an average of 3.0. The user is also provided with the minimum, maximum, standard deviation, and the quartile boundaries.</p>
+<p>Pandas also contains a <code class="docutils literal notranslate"><span class="pre">describe()</span></code> function that returns a variety of statistics on each column. For example, the mean is provided, which are approximately 0.5, 0.0, and 3.0 for the even, normal, and poisson distributions, respectively. This is not surprising, being that the even distribution is centered around 0.5, the normal around 0.0, and the poisson distribution is generated for an average of 3.0. The user is also provided with the minimum, maximum, standard deviation, and the quartile boundaries.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -1653,7 +1653,7 @@ IE,13.6,24.6,5.4,9.3,8.3
 </table>
 </div></div></div>
 </div>
-<p>Another useful function is the <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> method which returns all unique values in a Series (or DataFrame column or row). Below, it is demonstrated on the poisson column being that the other two columns will have a relatively large number of unique values.</p>
+<p>Another useful function is the <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> method, which returns all unique values in a Series (or DataFrame column or row). Below, it is demonstrated on the poisson column, being that the other two columns will have a relatively large number of unique values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span> <span class="o">=</span> <span class="n">random</span><span class="p">[</span><span class="s1">&#39;poisson&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -1679,7 +1679,7 @@ Name: count, dtype: int64
 </div>
 </div>
 </div>
-<p>Data in DataFrames can be plotting by calling the desired columns of data and feeding them into plotting functions like <code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code>. The data can also be visualized by using the <code class="docutils literal notranslate"><span class="pre">df.plot(kind=)</span></code> format where <code class="docutils literal notranslate"><span class="pre">df</span></code> is the DataFrame and <code class="docutils literal notranslate"><span class="pre">kind</span></code> is the plot type (e.g., <code class="docutils literal notranslate"><span class="pre">'bar'</span></code>, <code class="docutils literal notranslate"><span class="pre">'hist'</span></code>, <code class="docutils literal notranslate"><span class="pre">'scatter'</span></code>, <code class="docutils literal notranslate"><span class="pre">'line'</span></code>, <code class="docutils literal notranslate"><span class="pre">'pie'</span></code>, etc…). However, this is just matplotlib doing the plotting and is largely redundant with other methods already covered. Below is a quick example of the counts data generated above.</p>
+<p>Data in DataFrames can be plotted by calling the desired columns of data and feeding them into plotting functions like <code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code>. The data can also be visualized by using the <code class="docutils literal notranslate"><span class="pre">df.plot(kind=)</span></code> format where <code class="docutils literal notranslate"><span class="pre">df</span></code> is the DataFrame and <code class="docutils literal notranslate"><span class="pre">kind</span></code> is the plot type (e.g., <code class="docutils literal notranslate"><span class="pre">'bar'</span></code>, <code class="docutils literal notranslate"><span class="pre">'hist'</span></code>, <code class="docutils literal notranslate"><span class="pre">'scatter'</span></code>, <code class="docutils literal notranslate"><span class="pre">'line'</span></code>, <code class="docutils literal notranslate"><span class="pre">'pie'</span></code>, etc.). However, this is just matplotlib doing the plotting and is largely redundant with other methods already covered. Below is a quick example of the counts data generated above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">);</span>
@@ -1687,13 +1687,13 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1f23810263dcce7a00b557db8b620b7cdfc3a4ba9778779ee51841abc9356c5c.svg" src="../../_images/1f23810263dcce7a00b557db8b620b7cdfc3a4ba9778779ee51841abc9356c5c.svg" />
+<img alt="../../_images/17ca07129beef3e7daef0899f620375f493cf157410512af40ccb2c3532c3b82.svg" src="../../_images/17ca07129beef3e7daef0899f620375f493cf157410512af40ccb2c3532c3b82.svg" />
 </div>
 </div>
 </section>
 <section id="broadcasted-mathematical-operations">
 <span id="id12"></span><h3>5.3.2 Broadcasted Mathematical Operations<a class="headerlink" href="#broadcasted-mathematical-operations" title="Link to this heading">#</a></h3>
-<p>Because pandas is built upon NumPy arrays, mathematical operations are propagated through Series and DataFrames. The user is able to use NumPy methods on pandas objects, and there are a number of other mathematical operations to chose from such as those listed below.</p>
+<p>Because pandas is built upon NumPy arrays, mathematical operations are propagated through Series and DataFrames. The user is able to use NumPy methods on pandas objects, and there are a number of other mathematical operations to choose from such as those listed below.</p>
 <p><strong>Table 4</strong> Broadcasted Pandas Methods</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -2148,7 +2148,7 @@ dtype: object
 </table>
 </div></div></div>
 </div>
-<p>In the second example above, the hydrogen is back despite being previously dropped. This is because the <code class="docutils literal notranslate"><span class="pre">drop()</span></code> method does not by default modify the original DataFrame. To make the changes permanent, either assigned the new DataFrame to a new variable or add the <code class="docutils literal notranslate"><span class="pre">inplace=True</span></code> keyword argument to the above <code class="docutils literal notranslate"><span class="pre">drop()</span></code> function.</p>
+<p>In the second example above, the hydrogen is back despite being previously dropped. This is because the <code class="docutils literal notranslate"><span class="pre">drop()</span></code> method does not by default modify the original DataFrame. To make the changes permanent, either assign the new DataFrame to a new variable or add the <code class="docutils literal notranslate"><span class="pre">inplace=True</span></code> keyword argument to the above <code class="docutils literal notranslate"><span class="pre">drop()</span></code> function.</p>
 <p id="index-9">There is a similar function <code class="docutils literal notranslate"><span class="pre">pd.dropna()</span></code> that drops columns or rows from a DataFrame that contain <code class="docutils literal notranslate"><span class="pre">nan</span></code> values. This is commonly used to remove incomplete data from a dataset. The <code class="docutils literal notranslate"><span class="pre">pd.dropna()</span></code> function behaves very similarly to the <code class="docutils literal notranslate"><span class="pre">pd.drop()</span></code> function including the <code class="docutils literal notranslate"><span class="pre">inplace=</span></code> and <code class="docutils literal notranslate"><span class="pre">axis=</span></code> arguments.</p>
 </section>
 <section id="merge">
@@ -2352,7 +2352,7 @@ dtype: object
 </div>
 </div>
 </div>
-<p>In the two DataFrames generated above, each contains data on on cobalt, iron, chromium, and nickel; but the first DataFrame labels metals as <code class="docutils literal notranslate"><span class="pre">element</span></code> while the second labels the metals as <code class="docutils literal notranslate"><span class="pre">metal</span></code>. The following merges the two DataFrames based on values in these two columns.</p>
+<p>In the two DataFrames generated above, each contains data on cobalt, iron, chromium, and nickel; but the first DataFrame labels metals as <code class="docutils literal notranslate"><span class="pre">element</span></code> while the second labels the metals as <code class="docutils literal notranslate"><span class="pre">metal</span></code>. The following merges the two DataFrames based on values in these two columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">comps1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">comps2</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;element&#39;</span><span class="p">,</span><span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;metal&#39;</span><span class="p">)</span>
@@ -2752,11 +2752,11 @@ dtype: object
 </section>
 <section id="further-reading">
 <h2>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
-<p>For further resources on the pandas library, see the following. The value of the pandas website cannot be emphasized enough as it contains a large quantity of high quality documentation and illustrative examples on using pandas for data analysis and processing.</p>
+<p>For further resources on the pandas library, see the following. The value of the pandas website cannot be emphasized enough, as it contains a large quantity of high-quality documentation and illustrative examples on using pandas for data analysis and processing.</p>
 <ol class="arabic simple">
 <li><p>Pandas Website. <a class="reference external" href="http://pandas.pydata.org/">http://pandas.pydata.org/</a> (free resource)</p></li>
-<li><p>VanderPlas, J. Python data Science Handbook: Essential Tools for Working with Data, 1st ed.; O’Reilly: Sebastopol, CA, 2017, chapter 3. Freely available from the author at <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/">https://jakevdp.github.io/PythonDataScienceHandbook/</a> (free resource)</p></li>
-<li><p>McKinney, W. Python for Data Analysis: Data Wrangling with Pandas, NumPy, and Ipython, 2nd ed.; O’Reilly: Sebastopol, CA, 2018.</p></li>
+<li><p>VanderPlas, J. Python Data Science Handbook: Essential Tools for Working with Data, 1st ed.; O’Reilly: Sebastopol, CA, 2017, chapter 3. Freely available from the author at <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/">https://jakevdp.github.io/PythonDataScienceHandbook/</a> (free resource)</p></li>
+<li><p>McKinney, W. Python for Data Analysis: Data Wrangling with Pandas, NumPy, and IPython, 2nd ed.; O’Reilly: Sebastopol, CA, 2018.</p></li>
 </ol>
 </section>
 <section id="exercises">

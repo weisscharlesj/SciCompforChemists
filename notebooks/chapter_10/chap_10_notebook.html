@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -428,12 +428,12 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="chapter-10-plotting-with-seaborn">
-<span id="id1"></span><h1>Chapter 10: Plotting with Seaborn<a class="headerlink" href="#chapter-10-plotting-with-seaborn" title="Link to this heading">#</a></h1>
-<div class="cell tag_remove-input docutils container">
+  <div class="cell tag_remove-input docutils container">
 </div>
-<p>There are a number of plotting libraries available for Python including Bokeh, Plotly, and MayaVi; but the most prevalent library is still probably matplotlib. It is often the first plotting library a Python user will learn, and for good reason. It is stable, well supported, and there are few plots that matplotlib cannot generate. Despite its popularity, there are some drawbacks… namely, it can be quite verbose. That is, you may be able to generate nearly any plot, but it will take at least a few lines of code if not dozens to create and customize your figure.</p>
-<p>One attractive alternative is the seaborn plotting library. While seaborn cannot generate the same variety of plots as matplotlib, it is good at generating a few common plots that people use regularly, and here is the key detail… it often does what would take matplotlib 10+ lines of code in only one or two lines. To make things even better, seaborn is built on top of matplotlib. This means that if you are not completely happy with what seaborn creates, you can fine tune it with the same matplotlib commands you already know! In addition, seaborn is designed to work closely with the pandas library. For example, think of all the lines of code you have typed to simply add labels to your <em>x</em>- and <em>y</em>-axes. Instead, seaborn often pulls the labels from the DataFrame column headers. Again, if you do not like this default behavior, you can still override it with <code class="docutils literal notranslate"><span class="pre">plt.xlabel()</span></code> and other commands that you already know.</p>
+<section class="tex2jax_ignore mathjax_ignore" id="chapter-10-plotting-with-seaborn">
+<span id="id1"></span><h1>Chapter 10: Plotting with Seaborn<a class="headerlink" href="#chapter-10-plotting-with-seaborn" title="Link to this heading">#</a></h1>
+<p>There are a number of plotting libraries available for Python, including Bokeh, Plotly, and MayaVi; but the most prevalent library is still probably matplotlib. It is often the first plotting library a Python user will learn, and for good reason. It is stable, well supported, and there are few plots that matplotlib cannot generate. Despite its popularity, there are some drawbacks… namely, it can be quite verbose. That is, you may be able to generate nearly any plot, but it will take at least a few lines of code, if not dozens, to create and customize your figure.</p>
+<p>One attractive alternative is the seaborn plotting library. While seaborn cannot generate the same variety of plots as matplotlib, it is good at generating a few common plots that people use regularly, and here is the key detail… it often does what would take matplotlib 10+ lines of code in only one or two lines. To make things even better, seaborn is built on top of matplotlib. This means that if you are not completely happy with what seaborn creates, you can fine-tune it with the same matplotlib commands you already know! In addition, seaborn is designed to work closely with the pandas library. For example, think of all the lines of code you have typed to simply add labels to your <em>x</em>- and <em>y</em>-axes. Instead, seaborn often pulls the labels from the DataFrame column headers. Again, if you do not like this default behavior, you can still override it with <code class="docutils literal notranslate"><span class="pre">plt.xlabel()</span></code> and other commands that you already know.</p>
 <p>By convention, seaborn is imported with the <code class="docutils literal notranslate"><span class="pre">sns</span></code> alias, but being that this is a relatively young library, it is unclear how strong this convention is. The <a class="reference external" href="https://seaborn.pydata.org/">official seaborn website</a> uses it, so we will as well. All code in this chapter assumes the following import.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -447,7 +447,7 @@
 </div>
 <section id="seaborn-plot-types">
 <span id="id2"></span><h2>10.1 Seaborn Plot Types<a class="headerlink" href="#seaborn-plot-types" title="Link to this heading">#</a></h2>
-<p>A map of the seaborn plotting library is mainly a series of the different types of plots that it can generate. Below is table of the main categories. The rest of this chapter is a more in-depth survey of select plotting functions, and it is certainly not a complete list.</p>
+<p>A map of the seaborn plotting library is mainly a series of the different types of plots that it can generate. Below is a table of the main categories. The rest of this chapter is a more in-depth survey of select plotting functions, and it is certainly not a complete list.</p>
 <p><strong>Table 1</strong> Seaborn Plotting Type Categories Covered Herein</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -474,7 +474,7 @@
 </tbody>
 </table>
 </div>
-<p>One distinction between some of the plotting categories above is whether they display continuous versus discrete/categorial information. When data are continuous, they can be nearly any value in a range like the density of a metal. This in contrast to discrete or categorical data that places data in a limited number of groups or bins such as the element(s) present in a metal sample.</p>
+<p>One distinction between some of the plotting categories above is whether they display continuous versus discrete/categorical information. When data are continuous, they can be nearly any value in a range like the density of a metal. This is in contrast to discrete or categorical data that places data in a limited number of groups or bins such as the element(s) present in a metal sample.</p>
 </section>
 <section id="regression-plots">
 <span id="id3"></span><h2>10.2 Regression Plots<a class="headerlink" href="#regression-plots" title="Link to this heading">#</a></h2>
@@ -506,10 +506,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/06406efae1d94dfb5caa2e55e50afb3eb1de0bdc1dd1a4fad55dc95148c36b8d.svg" src="../../_images/06406efae1d94dfb5caa2e55e50afb3eb1de0bdc1dd1a4fad55dc95148c36b8d.svg" />
+<img alt="../../_images/a1f931f5322f9fc5fe122166bde5a958c3915bd0484efe50a719600cb6b5b654.svg" src="../../_images/a1f931f5322f9fc5fe122166bde5a958c3915bd0484efe50a719600cb6b5b654.svg" />
 </div>
 </div>
-<p>If the data is in a DataFrame, the <em>x</em> and <em>y</em> values can be provide as the column names, and seaborn will automatically add the column names as x and y labels. Below is a series of boiling point and molecular weights for various organic compounds.</p>
+<p>If the data is in a DataFrame, the <em>x</em> and <em>y</em> values can be provides as the column names, and seaborn will automatically add the column names as x and y labels. Below is a series of boiling point and molecular weights for various organic compounds.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/org_bp.csv&#39;</span><span class="p">)</span>
@@ -734,7 +734,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/84eb4fcf44e17d4f518b76d99f97a9bbd7854ede669327f1a9b42dd237dadf1f.svg" src="../../_images/84eb4fcf44e17d4f518b76d99f97a9bbd7854ede669327f1a9b42dd237dadf1f.svg" />
+<img alt="../../_images/1dc7d8131a5c47fc693d5b6ed57debd609e54c074c1fff9a3580a1edf0937bdc.svg" src="../../_images/1dc7d8131a5c47fc693d5b6ed57debd609e54c074c1fff9a3580a1edf0937bdc.svg" />
 </div>
 </div>
 <p>While the DataFrame column names provide accurate axis labels, the units are missing. We can use matplotlib commands from chapter 3 to modify the axis labels.</p>
@@ -747,14 +747,14 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/867c81593b6a140c3493d07a1299ed17b87bbab2c5c9e9b0adbcbe75780edd26.svg" src="../../_images/867c81593b6a140c3493d07a1299ed17b87bbab2c5c9e9b0adbcbe75780edd26.svg" />
+<img alt="../../_images/a52fe3068bc86eee6d517d9143f50f40697dd83894e23da17b5a69ce921b0a32.svg" src="../../_images/a52fe3068bc86eee6d517d9143f50f40697dd83894e23da17b5a69ce921b0a32.svg" />
 </div>
 </div>
 </section>
 </section>
 <section id="lmplot">
 <span id="id5"></span><h2>10.2.2 lmplot<a class="headerlink" href="#lmplot" title="Link to this heading">#</a></h2>
-<p>An <code class="docutils literal notranslate"><span class="pre">lmplot()</span></code> is very similar to the <code class="docutils literal notranslate"><span class="pre">regplot()</span></code> function except that an <code class="docutils literal notranslate"><span class="pre">lmplot()</span></code> also allows for multiple regressions based on additional pieces of information about each data point. For example, the <em>org_bp.csv</em> file above contains the boiling points of various alcohols and alkanes along with their molecular weights. Chemical intuition might bring one to expect two independent boiling point trends between the alcohol and alkanes, so we need two independent regression lines for the two classes of organic molecule. The <code class="docutils literal notranslate"><span class="pre">lmplot()</span></code> function can do exactly this.</p>
+<p>An <code class="docutils literal notranslate"><span class="pre">lmplot()</span></code> is very similar to the <code class="docutils literal notranslate"><span class="pre">regplot()</span></code> function except that an <code class="docutils literal notranslate"><span class="pre">lmplot()</span></code> also allows for multiple regressions based on additional pieces of information about each data point. For example, the <em>org_bp.csv</em> file above contains the boiling points of various alcohols and alkanes along with their molecular weights. Chemical intuition might bring one to expect two independent boiling point trends between the alcohol and alkanes, so we need two independent regression lines for the two classes of organic molecules. The <code class="docutils literal notranslate"><span class="pre">lmplot()</span></code> function can do exactly this.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">lmplot()</span></code> function takes the <em>x</em> and <em>y</em> variables and the DataFrame name as either positional or keyword arguments, so the function call could also be as shown below where the first three arguments are positional arguments providing the <em>x</em>-values, <em>y</em>-values, and the DataFrame name in this order.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="s1">&#39;MW&#39;</span><span class="p">,</span> <span class="s1">&#39;bp&#39;</span><span class="p">,</span> <span class="n">bp</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;type&#39;</span><span class="p">)</span>
 </pre></div>
@@ -769,7 +769,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0b953f114f896ff659fb08948c440bad355591fd86bee50bdc2a6b90daa83fd3.svg" src="../../_images/0b953f114f896ff659fb08948c440bad355591fd86bee50bdc2a6b90daa83fd3.svg" />
+<img alt="../../_images/114ddef78ff582c534dca2886b606249b050679be716a4e03401a5ac1c7de3b8.svg" src="../../_images/114ddef78ff582c534dca2886b606249b050679be716a4e03401a5ac1c7de3b8.svg" />
 </div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">lmplot()</span></code> function also provides arguments for modifying the appearance of the plot. Below is a demonstration of a few extra adjustments to the plot. The <code class="docutils literal notranslate"><span class="pre">facet_kws</span></code> argument takes extra parameters in the form of a dictionary with key-value pairs. In this case, the <code class="docutils literal notranslate"><span class="pre">legend_out</span></code> key controls whether the legend is outside the plot’s boundaries. The <code class="docutils literal notranslate"><span class="pre">aspect</span></code> argument sets the ratio of the <em>x</em>-axis versus the <em>y</em>-axis, and the marker shapes can also be modified using the <code class="docutils literal notranslate"><span class="pre">markers</span></code> argument with matplotlib conventions from <a class="reference internal" href="../chapter_03/chap_03_notebook.html#id4"><span class="std std-ref">section 3.1.2</span></a>.</p>
@@ -783,13 +783,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a2a3080fbe2b557e587b7c14509ec1682cb01ebfbdd4b876b8e75637669e5724.svg" src="../../_images/a2a3080fbe2b557e587b7c14509ec1682cb01ebfbdd4b876b8e75637669e5724.svg" />
+<img alt="../../_images/ff3d48d1d13d8eed2d302c14c0d4cdfc714aba0220b913e864be828b1a015c27.svg" src="../../_images/ff3d48d1d13d8eed2d302c14c0d4cdfc714aba0220b913e864be828b1a015c27.svg" />
 </div>
 </div>
 </section>
 <section id="categorical-plots">
 <span id="id6"></span><span id="index-2"></span><h2>10.3 Categorical Plots<a class="headerlink" href="#categorical-plots" title="Link to this heading">#</a></h2>
-<p>Categorical plots contain one axis of continuous values and one axis of discrete or categorical values. For example, if the density of three metals were measured repeatedly in lab, we would want to plot measured density (continuous) with respect to metal identity (categorical). Below are a few fictitious laboratory measurements for the densities of copper, iron, and zinc.</p>
+<p>Categorical plots contain one axis of continuous values and one axis of discrete or categorical values. For example, if the density of three metals were measured repeatedly in the lab, we would want to plot measured density (continuous) with respect to metal identity (categorical). Below are a few fictitious laboratory measurements for the densities of copper, iron, and zinc.</p>
 <p><strong>Table 2</strong> Density (g/mL) Measurements for Different Metals</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -936,7 +936,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/294ceb385e2fee1c3cf26517de9e3a447797fae67a6a83cab0618781f6a2e9bd.svg" src="../../_images/294ceb385e2fee1c3cf26517de9e3a447797fae67a6a83cab0618781f6a2e9bd.svg" />
+<img alt="../../_images/88253bc2255fdc61ffc88df9b7806b5e7d3c99fcae78c08303c41f31f13272a9.svg" src="../../_images/88253bc2255fdc61ffc88df9b7806b5e7d3c99fcae78c08303c41f31f13272a9.svg" />
 </div>
 </div>
 <p>By default, the <em>x</em>-axis contains the column labels from the DataFrame, but the <em>y</em>-axis is without any label. Again, one of the conveniences of the seaborn library is that it is built on top of matplotlib, so any plot created by seaborn can be further modified by matplotlib commands as shown below.</p>
@@ -949,13 +949,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9bc6750451c99c7cd7750a162f440d204d610442da1864681a1dcfd9ecdd4a2e.svg" src="../../_images/9bc6750451c99c7cd7750a162f440d204d610442da1864681a1dcfd9ecdd4a2e.svg" />
+<img alt="../../_images/56f3343e98e5780e03efe36df7ae8bb97bd6f57e2744ee44fe00089b4e7e4911.svg" src="../../_images/56f3343e98e5780e03efe36df7ae8bb97bd6f57e2744ee44fe00089b4e7e4911.svg" />
 </div>
 </div>
 </section>
 <section id="swarm-plot">
 <span id="id8"></span><h3>10.3.2 Swarm Plot<a class="headerlink" href="#swarm-plot" title="Link to this heading">#</a></h3>
-<p>While the plots above are elegantly simple, they can make it difficult to accurately interpret the data when multiple data points are overlapping as can happen with larger numbers of data points. This obscures the quantity of points in various regions. One plot that alleviates this issue is the swarm plot which is almost identical to the strip plot except that points are no permitted to overlap to make the quantity more apparent.</p>
+<p>While the plots above are elegantly simple, they can make it difficult to accurately interpret the data when multiple data points are overlapping as can happen with larger numbers of data points. This obscures the quantity of points in various regions. One plot that alleviates this issue is the swarm plot which is almost identical to the strip plot except that points are not permitted to overlap to make the quantity more apparent.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">swarmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
@@ -965,7 +965,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/491f878ec8fe54ec724ebd384f7e0d80f49acfefc71cb14983e578cadc68ac8c.svg" src="../../_images/491f878ec8fe54ec724ebd384f7e0d80f49acfefc71cb14983e578cadc68ac8c.svg" />
+<img alt="../../_images/cb8f901dbcdaa449ee0b5b6ae07c85babb863ded9345b7333acf1ad6aa4c354b.svg" src="../../_images/cb8f901dbcdaa449ee0b5b6ae07c85babb863ded9345b7333acf1ad6aa4c354b.svg" />
 </div>
 </div>
 </section>
@@ -981,13 +981,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4d68aa0c22ea203e3b5279b0609c676eec81d7cd326dd81935c86c3779e786c1.svg" src="../../_images/4d68aa0c22ea203e3b5279b0609c676eec81d7cd326dd81935c86c3779e786c1.svg" />
+<img alt="../../_images/0be69052212d5a405c3993983cd14bf5e84cd02348b06923773846259581fdf7.svg" src="../../_images/0be69052212d5a405c3993983cd14bf5e84cd02348b06923773846259581fdf7.svg" />
 </div>
 </div>
 </section>
 <section id="box-plot">
 <span id="id10"></span><span id="index-5"></span><span id="index-4"></span><h3>10.3.4 Box Plot<a class="headerlink" href="#box-plot" title="Link to this heading">#</a></h3>
-<p>The box plot is a classic plot in statistics for representing the distribution of data and can be easily generated in seaborn using the <code class="docutils literal notranslate"><span class="pre">boxplot()</span></code> function which works much the same way as the above categorical plots. There are three main components to a box plot. The center box contains lines marking the 25, 50, and 75 percentile regions. For example, the 75 percentile line is where 75% of the data points are below. The 50 percentile is also known as the median. The length of the box (i.e., from 25 percentile to 75 percentile) is known as the <em>inner quartile range (IQR)</em>.  Beyond the box are the bars known as <em>whiskers</em> which mark the range of the rest of the data points up to 1.5x the IQR. If a data point is beyond 1.5x the IQR, it is an outlier and is explicitly represented with a spot (Figure 1)</p>
+<p>The box plot is a classic plot in statistics for representing the distribution of data and can be easily generated in seaborn using the <code class="docutils literal notranslate"><span class="pre">boxplot()</span></code> function, which works much the same way as the above categorical plots. There are three main components to a box plot. The center box contains lines marking the 25<span class="math notranslate nohighlight">\(^{th}\)</span>, 50<span class="math notranslate nohighlight">\(^{th}\)</span>, and 75<span class="math notranslate nohighlight">\(^{th}\)</span> percentile regions. For example, the 75<span class="math notranslate nohighlight">\(^{th}\)</span> percentile line is where 75% of the data points are below. The 50<span class="math notranslate nohighlight">\(^{th}\)</span> percentile is also known as the median. The length of the box (i.e., from the 25<span class="math notranslate nohighlight">\(^{th}\)</span> percentile to 75<span class="math notranslate nohighlight">\(^{th}\)</span> percentile) is known as the <em>inner quartile range (IQR)</em>.  Beyond the box are the bars known as <em>whiskers</em>, which mark the range of the rest of the data points up to 1.5x the IQR. If a data point is beyond 1.5x the IQR, it is an outlier and is explicitly represented with a spot (Figure 1).</p>
 <p><img alt="" src="../../_images/box_plot_diagram.svg" /></p>
 <p><strong>Figure 1</strong> A box plot is composed of a box with lines at the 25<span class="math notranslate nohighlight">\(^{th}\)</span>, 50<span class="math notranslate nohighlight">\(^{th}\)</span>, and 75<span class="math notranslate nohighlight">\(^{th}\)</span> percentiles and whiskers that extend out to the rest of the non-outlier data points. If a data point is greater than 1.5 <span class="math notranslate nohighlight">\(\times\)</span> the inner quartile range from the 25<span class="math notranslate nohighlight">\(^{th}\)</span> or 75<span class="math notranslate nohighlight">\(^{th}\)</span> percentiles, it is an outlier represented by a dot.</p>
 <div class="cell docutils container">
@@ -999,7 +999,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/61d4fa49a7589d0f451d9438228630b3ecd9ae104b84041e674f973fabe1e0bc.svg" src="../../_images/61d4fa49a7589d0f451d9438228630b3ecd9ae104b84041e674f973fabe1e0bc.svg" />
+<img alt="../../_images/33efb9190dd47afc77be8a1dd99dedd4c3e9421dd934095dd4efc4267b7a9132.svg" src="../../_images/33efb9190dd47afc77be8a1dd99dedd4c3e9421dd934095dd4efc4267b7a9132.svg" />
 </div>
 </div>
 </section>
@@ -1091,7 +1091,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/49962a95e51912f35d264b684ab3a32a7d251cd8a5a85ce5227c86e8d8c7837c.svg" src="../../_images/49962a95e51912f35d264b684ab3a32a7d251cd8a5a85ce5227c86e8d8c7837c.svg" />
+<img alt="../../_images/9895ffb024f9cddd945cab7a744898049f3b3f79963830bf9a04ac60636394b7.svg" src="../../_images/9895ffb024f9cddd945cab7a744898049f3b3f79963830bf9a04ac60636394b7.svg" />
 </div>
 </div>
 <p>Like many plotting types in seaborn, the count plot can be further customized through keyword arguments and using other available data. One shortcoming of the above plot is that the states are listed in the order they first appear in the dataset instead of based on disorder. We can assert a different order by providing the <code class="docutils literal notranslate"><span class="pre">order</span></code> argument as a list of how the states should appear.</p>
@@ -1102,7 +1102,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/44704231a2774b07b581503d4740aa1b22088c080947a4e14296354ace4adaff.svg" src="../../_images/44704231a2774b07b581503d4740aa1b22088c080947a4e14296354ace4adaff.svg" />
+<img alt="../../_images/07e73684af1b4e8825a6f9d4cf28ac8456244dd099153ce38d0d368743fac7ef.svg" src="../../_images/07e73684af1b4e8825a6f9d4cf28ac8456244dd099153ce38d0d368743fac7ef.svg" />
 </div>
 </div>
 <p>We can also set the color of each bar based on the valence orbital block by providing the <code class="docutils literal notranslate"><span class="pre">hue</span></code> argument with the name of the column.</p>
@@ -1113,7 +1113,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8e4cdd0482516c96524b3938f16e76f7bba659e9ce38502397c8b764c40fe687.svg" src="../../_images/8e4cdd0482516c96524b3938f16e76f7bba659e9ce38502397c8b764c40fe687.svg" />
+<img alt="../../_images/bb0341c2c1abfc626ce7dc5f41cd8a605d3e47bcefd21a1300e935f398287b3a.svg" src="../../_images/bb0341c2c1abfc626ce7dc5f41cd8a605d3e47bcefd21a1300e935f398287b3a.svg" />
 </div>
 </div>
 </section>
@@ -1124,7 +1124,7 @@
 <section id="histplot">
 <span id="id13"></span><h3>10.4.1 histplot<a class="headerlink" href="#histplot" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">histplot()</span></code> function is one of the most basic distribution plotting functions in seaborn. This function is similar to the matplotlib <code class="docutils literal notranslate"><span class="pre">plt.hist()</span></code> function except that seaborn brings a few extra options like setting the color (<code class="docutils literal notranslate"><span class="pre">hue=</span></code>) based on a particular column of data.</p>
-<p>To demonstrate this, we will use the results of a one-dimensional stochastic diffusion simulation. During the individual steps of this simulation, each of a thousand simulated molecules are either moved to the right one unit, to the left one unit, or not moved at all. A random number generator dictates this movement as demonstrated below.</p>
+<p>To demonstrate this, we will use the results of a one-dimensional stochastic diffusion simulation. During the individual steps of this simulation, each of a thousand simulated molecules is either moved to the right one unit, to the left one unit, or not moved at all. A random number generator dictates this movement as demonstrated below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>   <span class="c1"># locations of molecules</span>
@@ -1143,13 +1143,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/17447b078dc6a12afe8f2443830ecbf0acd019fdb6ae7daff4df22196b13a752.svg" src="../../_images/17447b078dc6a12afe8f2443830ecbf0acd019fdb6ae7daff4df22196b13a752.svg" />
+<img alt="../../_images/972cb5ee505f44ebf899a6b274d634fd6b1cb5fbea801877bbb2f895dd6dd3e7.svg" src="../../_images/972cb5ee505f44ebf899a6b274d634fd6b1cb5fbea801877bbb2f895dd6dd3e7.svg" />
 </div>
 </div>
 </section>
 <section id="kde-plot">
 <span id="id14"></span><span id="index-7"></span><h3>10.4.2 kde Plot<a class="headerlink" href="#kde-plot" title="Link to this heading">#</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">kdeplot()</span></code> function is very similar to the <code class="docutils literal notranslate"><span class="pre">histplot()</span></code> except that it fits the histogram with a kernel density estimates (kde) curve. This curve is basically just a smoothed curve over the data to help visualize the overall trend.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">kdeplot()</span></code> function is very similar to the <code class="docutils literal notranslate"><span class="pre">histplot()</span></code> function except that it fits the histogram with a kernel density estimate (kde) curve. This curve is basically just a smoothed curve over the data to help visualize the overall trend.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">loc</span><span class="p">)</span>
@@ -1160,13 +1160,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/879a4e3444429e24df625d28917c89156360994ac16c692a02fc92d58f504128.svg" src="../../_images/879a4e3444429e24df625d28917c89156360994ac16c692a02fc92d58f504128.svg" />
+<img alt="../../_images/3ac538653b91f56d6818a84b5b0155a1fbdf25c35449d6f6fa102483f3937be9.svg" src="../../_images/3ac538653b91f56d6818a84b5b0155a1fbdf25c35449d6f6fa102483f3937be9.svg" />
 </div>
 </div>
 </section>
 <section id="jointplot-diffusion-simulation">
 <span id="id15"></span><h3>10.4.3 jointplot (diffusion simulation)<a class="headerlink" href="#jointplot-diffusion-simulation" title="Link to this heading">#</a></h3>
-<p>A joint plot can be described as a scatter plot with histograms on the sides providing additional information or clarification on the density of the data points. To demonstrate this, below is a two dimensional stochastic diffusion simulation and the results. The principles are the same as above except applied to two dimensions.</p>
+<p>A joint plot can be described as a scatter plot with histograms on the sides providing additional information or clarification on the density of the data points. To demonstrate this, below is a two-dimensional stochastic diffusion simulation and the results. The principles are the same as above except applied to two dimensions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">7000</span><span class="p">)),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -1183,7 +1183,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2f6c36a29d7b43d9bf4fa26d254a56516626e0fbb6968babe20ca2fe0ca42c6b.svg" src="../../_images/2f6c36a29d7b43d9bf4fa26d254a56516626e0fbb6968babe20ca2fe0ca42c6b.svg" />
+<img alt="../../_images/e536d91ea90b1b68b5b7f7dc856a89f777ece84bdad38031c5b07990ea7bc26c.svg" src="../../_images/e536d91ea90b1b68b5b7f7dc856a89f777ece84bdad38031c5b07990ea7bc26c.svg" />
 </div>
 </div>
 <p>One of the issues with this plot is that there are so many data points in the plot that it is difficult to determine the distribution/density inside the blanket of solid dots. The seaborn joint plot adds histograms to the side to help the viewer recognize where most of the data points reside.</p>
@@ -1198,13 +1198,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x114eb0620&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x11761f140&gt;
 </pre></div>
 </div>
-<img alt="../../_images/4deb0e0478836d3fc810481cc003a56dfc4573ad8cc72033fad92771391fbc24.svg" src="../../_images/4deb0e0478836d3fc810481cc003a56dfc4573ad8cc72033fad92771391fbc24.svg" />
+<img alt="../../_images/ad6547fa43acd51f1a679497a323df2986ae66ef4e329201aa924f7595c855f9.svg" src="../../_images/ad6547fa43acd51f1a679497a323df2986ae66ef4e329201aa924f7595c855f9.svg" />
 </div>
 </div>
-<p>There are numerous arguments to fine tune the joint plot. For example, the joint plot does not need to be a scatter plot with histograms. The density of the data points can be represented with hexagonal patches or <em>kernel density estimates (kde)</em>. The latter represents the density of points through contours and is a reoccurring option in other plotting functions in the seaborn library. It is worth noting that the kde plotting types take a little time to calculate, so expect a brief delay in generating these plots.</p>
+<p>There are numerous arguments to fine-tune the joint plot. For example, the joint plot does not need to be a scatter plot with histograms. The density of the data points can be represented with hexagonal patches or <em>kernel density estimates (kde)</em>. The latter represents the density of points through contours and is a recurring option in other plotting functions in the seaborn library. It is worth noting that the kde plotting types take a little time to calculate, so expect a brief delay in generating these plots.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;X Distance, au&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Y Distance, au&#39;</span><span class="p">],</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hex&#39;</span><span class="p">);</span>
@@ -1212,7 +1212,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/21bce1c6be09a586cdbd39b6710b7d6a91a184522710ff11984ae12589ad0d42.svg" src="../../_images/21bce1c6be09a586cdbd39b6710b7d6a91a184522710ff11984ae12589ad0d42.svg" />
+<img alt="../../_images/b93c1becf07f2f89809ef4a855e15b5568178eedca52d623b459641fab8951a6.svg" src="../../_images/b93c1becf07f2f89809ef4a855e15b5568178eedca52d623b459641fab8951a6.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1222,7 +1222,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/77533b367e3cf4300f2321e23643127a2bc5bebed35803e0ba1b3b38d9b26f2e.svg" src="../../_images/77533b367e3cf4300f2321e23643127a2bc5bebed35803e0ba1b3b38d9b26f2e.svg" />
+<img alt="../../_images/4a3eca4cdcf6ca006b93c0f7e01b3e78d20687127b6fd6a50b9195d33dcfd6fd.svg" src="../../_images/4a3eca4cdcf6ca006b93c0f7e01b3e78d20687127b6fd6a50b9195d33dcfd6fd.svg" />
 </div>
 </div>
 </section>
@@ -1230,7 +1230,7 @@
 <section id="pair-plot">
 <span id="id16"></span><h2>10.5 Pair Plot<a class="headerlink" href="#pair-plot" title="Link to this heading">#</a></h2>
 <p>The pair plot belongs to the category of distribution plots, but it is different enough to be worth addressing separately. A pair plot is designed to show the relationship among multiple variables by generating a grid of plots in a single figure. Each plot in the grid is a scatter plot showing the relationship between two of the variables on either axis with the exception of the plots in the diagonals. Because the diagonal plots are the intersection between a variable and itself, these are histograms showing the distributions of values for that variable. Pair plots are particularly useful for looking at new data to see if there are any trends worth investigating because this entire grid can be easily generated with a single <code class="docutils literal notranslate"><span class="pre">sns.pairplot()</span></code> function.</p>
-<p>To demonstrate a pair plot, the file <em>periodic_trends.csv</em> contains physical data on non-noble gas elements in the first three rows of the periodic table. To quickly see how each of the columns of data relate to each other, we will generate a pair plot.</p>
+<p>To demonstrate a pair plot, the file <em>periodic_trends.csv</em> contains physical data on non-noble gas elements in the first three rows of the periodic table. To quickly see how each of the columns of data relates to each other, we will generate a pair plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">per</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/periodic_trends.csv&#39;</span><span class="p">)</span>
@@ -1394,7 +1394,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/23f9ea4d238633eda80962c30f36ce82b970568cb1a5d1bb7d5614103f85d450.svg" src="../../_images/23f9ea4d238633eda80962c30f36ce82b970568cb1a5d1bb7d5614103f85d450.svg" />
+<img alt="../../_images/a1200ac0c960260fe87ba7d0f80c339901a279f45fb520d2bb137d8c3989d291.svg" src="../../_images/a1200ac0c960260fe87ba7d0f80c339901a279f45fb520d2bb137d8c3989d291.svg" />
 </div>
 </div>
 <p>The color can also be set based on any piece of information. Below, the row is used to dictate the color of each data point.</p>
@@ -1405,7 +1405,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4c67e0b821e59d832a5644ac3faee53736e6234074a001ba2bd44965b4a63568.svg" src="../../_images/4c67e0b821e59d832a5644ac3faee53736e6234074a001ba2bd44965b4a63568.svg" />
+<img alt="../../_images/e8c4f4753603aea7e33a69b70580d00064957a1ed9d982e953758dc0336ccf70.svg" src="../../_images/e8c4f4753603aea7e33a69b70580d00064957a1ed9d982e953758dc0336ccf70.svg" />
 </div>
 </div>
 </section>
@@ -1490,7 +1490,7 @@
 </table>
 </div></div></div>
 </div>
-<p>This grid of numerical values is difficult to quickly interpret, and if it were a larger table of data, it could become almost impossible to interpret in this form. We can plot the heat map using the <code class="docutils literal notranslate"><span class="pre">heatmapt()</span></code> function and feeding it the DataFrame. The function also accepts NumPy arrays, but without the index and column labels of a DataFrame, the axes will not be automatically labeled.</p>
+<p>This grid of numerical values is difficult to quickly interpret, and if it were a larger table of data, it could become almost impossible to interpret in this form. We can plot the heat map using the <code class="docutils literal notranslate"><span class="pre">heatmap()</span></code> function and feeding it the DataFrame. The function also accepts NumPy arrays, but without the index and column labels of a DataFrame, the axes will not be automatically labeled.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">bde</span><span class="p">);</span>
@@ -1498,10 +1498,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/877a27e96ed19b7d6864aa9020acd747218a2499a97a877daf226915f543f43f.svg" src="../../_images/877a27e96ed19b7d6864aa9020acd747218a2499a97a877daf226915f543f43f.svg" />
+<img alt="../../_images/ccd8435c31d810f3275b0a0ed28a8ff31f4016469fee50ef766495c285b62605.svg" src="../../_images/ccd8435c31d810f3275b0a0ed28a8ff31f4016469fee50ef766495c285b62605.svg" />
 </div>
 </div>
-<p>Now we have a color grid where the colors represent numerical values defined in a colorbar automatically displayed on the right side. This default color map can easily be customized through various arguments in the <code class="docutils literal notranslate"><span class="pre">heatmap()</span></code> function. One nice addition is to display the numerical values on the heat map by setting <code class="docutils literal notranslate"><span class="pre">annot=True</span></code>. If you choose to annotate the rectangles, you may need to use the <code class="docutils literal notranslate"><span class="pre">fmt=</span></code> parameter to dictate the format of the annotation labels. Some common formats are <code class="docutils literal notranslate"><span class="pre">d</span></code> for decimal, <code class="docutils literal notranslate"><span class="pre">f</span></code> for floating point, and <code class="docutils literal notranslate"><span class="pre">.2f</span></code> gives two places after the decimal place in a floating point number. If you want a different color map, this can be set using the <code class="docutils literal notranslate"><span class="pre">cmap</span></code> argument and any <a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">matplotlib colormap</a> you want. Below, the annotation is turned on with the perceptually uniform viridis colormap. To further customize the colorbar, use the <code class="docutils literal notranslate"><span class="pre">cbar_kws=</span></code> argument that takes a dictionary of parameters found on the <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure.colorbar">matplotlib website</a>. For example, to add a label, use the <code class="docutils literal notranslate"><span class="pre">label</span></code> key and the label text is the dictionary value as shown below.</p>
+<p>Now we have a color grid where the colors represent numerical values defined in a colorbar automatically displayed on the right side. This default color map can easily be customized through various arguments in the <code class="docutils literal notranslate"><span class="pre">heatmap()</span></code> function. One nice addition is to display the numerical values on the heat map by setting <code class="docutils literal notranslate"><span class="pre">annot=True</span></code>. If you choose to annotate the rectangles, you may need to use the <code class="docutils literal notranslate"><span class="pre">fmt=</span></code> parameter to dictate the format of the annotation labels. Some common formats are <code class="docutils literal notranslate"><span class="pre">d</span></code> for decimal, <code class="docutils literal notranslate"><span class="pre">f</span></code> for floating point, and <code class="docutils literal notranslate"><span class="pre">.2f</span></code> gives two places after the decimal point in a floating point number. If you want a different color map, this can be set using the <code class="docutils literal notranslate"><span class="pre">cmap</span></code> argument and any <a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">matplotlib colormap</a> you want. Below, the annotation is turned on with the perceptually uniform viridis colormap. To further customize the colorbar, use the <code class="docutils literal notranslate"><span class="pre">cbar_kws=</span></code> argument that takes a dictionary of parameters found on the <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure.colorbar">matplotlib website</a>. For example, to add a label, use the <code class="docutils literal notranslate"><span class="pre">label</span></code> key and the label text is the dictionary value as shown below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">bde</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span>
@@ -1510,7 +1510,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c1dfe85e7ad36a7c115f1e8688f406def1404955a6d93d0a83bc101550bcc2bd.svg" src="../../_images/c1dfe85e7ad36a7c115f1e8688f406def1404955a6d93d0a83bc101550bcc2bd.svg" />
+<img alt="../../_images/82fe3ba71a34501d93937487e0e1b360326b89c9a47139ab0d4a9fb41f202167.svg" src="../../_images/82fe3ba71a34501d93937487e0e1b360326b89c9a47139ab0d4a9fb41f202167.svg" />
 </div>
 </div>
 </section>
@@ -1520,7 +1520,7 @@
 <section id="scatter-plots">
 <span id="id19"></span><h3>10.7.1 Scatter Plots<a class="headerlink" href="#scatter-plots" title="Link to this heading">#</a></h3>
 <p>One difference between seaborn and matplotlib in generating scatter and line plots is that seaborn allows the user to change the color, size, and marker styles of individual markers based on numerical values or text data. Matplotlib can also change the color and size of the markers but only based on numerical values, and to change the marker style, the  <code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code> function needs to be called a second time. Seaborn allows this whole process in a single function call.</p>
-<p>Below, we are using the periodic trends data (<code class="docutils literal notranslate"><span class="pre">per</span></code>) imported in <a class="reference internal" href="#id16"><span class="std std-ref">section 10.5</span></a>. We can start with plotting the electronegativity (<code class="docutils literal notranslate"><span class="pre">EN</span></code>) versus the atomic radius (<code class="docutils literal notranslate"><span class="pre">radius_pm</span></code>) using the <code class="docutils literal notranslate"><span class="pre">sns.scatterplot()</span></code> function which takes many of the same basic arguments as plots we have seen so far with seaborn.</p>
+<p>Below, we are using the periodic trends data (<code class="docutils literal notranslate"><span class="pre">per</span></code>) imported in <a class="reference internal" href="#id16"><span class="std std-ref">section 10.5</span></a>. We can start with plotting the electronegativity (<code class="docutils literal notranslate"><span class="pre">EN</span></code>) versus the atomic radius (<code class="docutils literal notranslate"><span class="pre">radius_pm</span></code>) using the <code class="docutils literal notranslate"><span class="pre">sns.scatterplot()</span></code> function, which takes many of the same basic arguments as plots we have seen so far with seaborn.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;radius_pm&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;EN&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">per</span><span class="p">);</span>
@@ -1528,7 +1528,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/14de3cb086f2ca2a73b227949f72205a7678ae1939cef40bb743bab2448b818d.svg" src="../../_images/14de3cb086f2ca2a73b227949f72205a7678ae1939cef40bb743bab2448b818d.svg" />
+<img alt="../../_images/1939a853a8c15d5c71b6fd28233edb56a9195ecd9ae08135e979a10a0126ff6c.svg" src="../../_images/1939a853a8c15d5c71b6fd28233edb56a9195ecd9ae08135e979a10a0126ff6c.svg" />
 </div>
 </div>
 <p>To modify the color, size, and marker style of the data points, use the <code class="docutils literal notranslate"><span class="pre">hue</span></code>, <code class="docutils literal notranslate"><span class="pre">size</span></code>, and <code class="docutils literal notranslate"><span class="pre">marker</span></code> arguments. This allows additional information to be infused into a single plot. Note that the legend automatically appears on the plot. In addition, the colormap for the plot can be modified using the <code class="docutils literal notranslate"><span class="pre">palette</span></code> keyword argument and the name of any matplotlib colormap.</p>
@@ -1540,7 +1540,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/da1c318bf54cf123d5ae55d47b03cc2d02768f068065f6879293181187349e5d.svg" src="../../_images/da1c318bf54cf123d5ae55d47b03cc2d02768f068065f6879293181187349e5d.svg" />
+<img alt="../../_images/8aecd4414242bce99e77018c2b3a05cab84d64593f418564f636bebc3c7f2954.svg" src="../../_images/8aecd4414242bce99e77018c2b3a05cab84d64593f418564f636bebc3c7f2954.svg" />
 </div>
 </div>
 </section>
@@ -1628,10 +1628,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/081ad6edb7143dd1f455ddc323b129dd933d37e771100483a51cdfb151b4e548.svg" src="../../_images/081ad6edb7143dd1f455ddc323b129dd933d37e771100483a51cdfb151b4e548.svg" />
+<img alt="../../_images/e03512c5b6bc8090936a68188ce6f8eeb10ffa49a785f49abc466fd9caa60611.svg" src="../../_images/e03512c5b6bc8090936a68188ce6f8eeb10ffa49a785f49abc466fd9caa60611.svg" />
 </div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">[A]</span></code> was plotted versus <code class="docutils literal notranslate"><span class="pre">Time</span></code>, and the hue of each line was set to the <code class="docutils literal notranslate"><span class="pre">Run</span></code> number. The result is that each kinetic run is shown in a separate color. If the user is not concerned so much with seeing the individual runs but instead wants to see an average of each all the runs with some indication of the variation, the <code class="docutils literal notranslate"><span class="pre">lineplot()</span></code> function provides a default 95% confidence interval as is shown below.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">[A]</span></code> was plotted versus <code class="docutils literal notranslate"><span class="pre">Time</span></code>, and the hue of each line was set to the <code class="docutils literal notranslate"><span class="pre">Run</span></code> number. The result is that each kinetic run is shown in a separate color. If the user is not concerned so much with seeing the individual runs but instead wants to see an average of each of the runs with some indication of the variation, the <code class="docutils literal notranslate"><span class="pre">lineplot()</span></code> function provides a default 95% confidence interval as is shown below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;[A]&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">kinetics</span><span class="p">)</span>
@@ -1641,7 +1641,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a14868a201749803bcb266d848b51f0c2fd259a921538d6a73d4825b2244d25d.svg" src="../../_images/a14868a201749803bcb266d848b51f0c2fd259a921538d6a73d4825b2244d25d.svg" />
+<img alt="../../_images/35c94611dd74db6b5e761b7f0ddab41cddf63cb0c77df995b3774bc118fab9b4.svg" src="../../_images/35c94611dd74db6b5e761b7f0ddab41cddf63cb0c77df995b3774bc118fab9b4.svg" />
 </div>
 </div>
 <p>A confidence interval is only shown if there are multiple data points for each time. The confidence intervals can also be represented with error bars by setting <code class="docutils literal notranslate"><span class="pre">err_style</span> <span class="pre">=</span> <span class="pre">'bars'</span></code>.</p>
@@ -1654,7 +1654,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/98013038904ddbcb39300e300896354d39f7f9733af666d59c4f8b964a6ca5ea.svg" src="../../_images/98013038904ddbcb39300e300896354d39f7f9733af666d59c4f8b964a6ca5ea.svg" />
+<img alt="../../_images/8620ad21490c0e1b5977dd7f2e702f83e9d3f445b35323df2885ad8de8c509c9.svg" src="../../_images/8620ad21490c0e1b5977dd7f2e702f83e9d3f445b35323df2885ad8de8c509c9.svg" />
 </div>
 </div>
 </section>
@@ -1715,14 +1715,14 @@
 <p>b) Visualize the distribution of both ketone and aldehyde carbonyl stretches using a <a class="reference internal" href="#id14"><span class="std std-ref">kde plot</span></a>.</p>
 </li>
 <li><p>Import the <strong>elements_data.csv</strong> file and generate a <a class="reference internal" href="#id11"><span class="std std-ref">count plot</span></a> showing the number of elements in each block of the periodic table (i.e., s, p, d, f).</p></li>
-<li><p>The following equation is Plank’s law which describes the relationship between the radiation intensity(<span class="math notranslate nohighlight">\(M\)</span>) with respect to wavelength (<span class="math notranslate nohighlight">\(\lambda\)</span>) and temperature (<span class="math notranslate nohighlight">\(T\)</span>).</p>
+<li><p>The following equation is Planck’s law which describes the relationship between the radiation intensity(<span class="math notranslate nohighlight">\(M\)</span>) with respect to wavelength (<span class="math notranslate nohighlight">\(\lambda\)</span>) and temperature (<span class="math notranslate nohighlight">\(T\)</span>).</p>
 <div class="math notranslate nohighlight">
 \[ M = \frac{2 \pi hc^2}{\lambda ^5 (e^{hc/\lambda kT} - 1)} \]</div>
-<p>Import the data called <em><strong>blackbody.csv</strong></em> containing intensities at various temperatures and wavelengths based on Plank’s law. Generate a plot of intensity versus wavelength using the <code class="docutils literal notranslate"><span class="pre">lineplot()</span></code> function, and display the different temperatures as different colors.</p>
+<p>Import the data called <em><strong>blackbody.csv</strong></em> containing intensities at various temperatures and wavelengths based on Planck’s law. Generate a plot of intensity versus wavelength using the <code class="docutils literal notranslate"><span class="pre">lineplot()</span></code> function, and display the different temperatures as different colors.</p>
 </li>
 <li><p>Import the file <strong>ionization_energies.csv</strong> showing the first four ionization energies for a number of elements. Plot this grid of data as a <a class="reference internal" href="#id17"><span class="std std-ref">heat map</span></a>. Include labels in each cell using the <code class="docutils literal notranslate"><span class="pre">annot=</span></code> argument.</p></li>
 <li><p>Import the file <strong>ROH_data_small.csv</strong> and plot visualize how boiling point (bp), molecular weight (MW), degree, and whether a compound is aliphatic are correlated using a <a class="reference internal" href="#id16"><span class="std std-ref">pairplot</span></a>.</p></li>
-<li><p>The following code generates the radial probability plot for hydrogen atomic orbitals for n = 1-4 (see <a class="reference internal" href="../chapter_03/chap_03_notebook.html#id2"><span class="std std-ref">section 3.1</span></a>) and determines the radius of maximum probability (see <a class="reference internal" href="../chapter_06/chap_06_notebook.html#id3"><span class="std std-ref">section 6.1.1</span></a>). These values are combined into a pandas DataFrame called <code class="docutils literal notranslate"><span class="pre">max_prob</span></code> where the rows are the principle quantum numbers and columns are the angular quantum numbers. Display the DataFrame using a heatmap. Your heatmap should include numerical labels on each colored block on the heatmap, and you should select a non-default, perceptually uniform colormap for your colormap.</p></li>
+<li><p>The following code generates the radial probability plot for hydrogen atomic orbitals for n = 1-4 (see <a class="reference internal" href="../chapter_03/chap_03_notebook.html#id2"><span class="std std-ref">section 3.1</span></a>) and determines the radius of maximum probability (see <a class="reference internal" href="../chapter_06/chap_06_notebook.html#id3"><span class="std std-ref">section 6.1.1</span></a>). These values are combined into a pandas DataFrame called <code class="docutils literal notranslate"><span class="pre">max_prob</span></code> where the rows are the principal quantum numbers and columns are the angular quantum numbers. Display the DataFrame using a heatmap. Your heatmap should include numerical labels on each colored block on the heatmap, and you should select a non-default, perceptually uniform colormap for your colormap.</p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>

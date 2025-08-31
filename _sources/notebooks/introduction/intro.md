@@ -4,20 +4,20 @@
 
 #### An Introduction to Programming in Python with Chemical Applications
 
-*Scientific computing* utilizes computers to aid in scientific tasks such as data processing and digital simulations among others. The well-developed field of computational chemistry is part of scientific computing and focuses on utilizing computing to simulate chemical phenomena and calculate properties. However, there is less focus in the field of chemistry on the data processing side of computing, so this book strives to fill this void by introducing the reader to tools and methods for processing, visualizing, and analyzing chemical data. This book serves as an introduction to coding for chemists. The tools employed in this book are the powerful and popular combination of Jupyter notebooks and the Python programming language. No background beyond first-year college chemistry and occasionally some very basic spectroscopy (for advanced chapters) is assumed for most of this book. This book starts with a brief primer on Jupyter notebooks in chapter 0 and computer programming with Python in chapters 1 and 2. If you already have background in these tools, feel free to skip ahead. The rest of the book dives into applications of Python to solving chemical problems. Python and Jupyter were chosen for a variety of reasons including that they are:
+*Scientific computing* utilizes computers to aid in scientific tasks such as data processing and digital simulations, among others. The well-developed field of computational chemistry is part of scientific computing and focuses on utilizing computing to simulate chemical phenomena and calculate properties. However, there is less focus in the field of chemistry on the data processing side of computing, so this book strives to fill this void by introducing the reader to tools and methods for processing, visualizing, and analyzing chemical data. This book serves as an introduction to coding for chemists. The tools employed in this book are the powerful and popular combination of Jupyter notebooks and the Python programming language. No background beyond first-year college chemistry and occasionally some very basic spectroscopy (for advanced chapters) is assumed for most of this book. This book starts with a brief primer on Jupyter notebooks in chapter 0 and computer programming with Python in chapters 1 and 2. If you already have a background in these tools, feel free to skip ahead. The rest of the book dives into applications of Python to solving chemical problems. Python and Jupyter were chosen for a variety of reasons, including that they are:
 
 - Relatively easy to use and learn
 - Powerful and well-suited for solving chemical problems
 - Free, open-source software
-- Cross platform (e.g., runs on Windows, macOS, and Linux)
+- Cross-platform (e.g., runs on Windows, macOS, and Linux)
 - Supplemented with numerous, specialized libraries for handling specific types of data or problems (e.g., machine learning)
 - Supported by a helpful and welcoming community
 
-Learning to use a number of popular Python scientific libraries to solve chemical problems is one of the themes of this book. A Python library can be thought of as a tool pack with premade functions for performing common tasks in scientific data processing, analysis, and visualization. For example, the matplotlib library provides a variety of functions for creating a wide range of plots while the scikit-learn library contains functions and resources for machine learning.
+Learning to use a number of popular Python scientific libraries to solve chemical problems is one of the themes of this book. A Python library can be thought of as a tool pack with premade functions for performing common tasks in scientific data processing, analysis, and visualization. For example, the matplotlib library provides a variety of functions for creating a wide range of plots, while the scikit-learn library contains functions and resources for machine learning.
 
 ## License
 
-This book is copyright © 2017-2025 Charles J. Weiss and is released under under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. All files with the book are also copyright and released under the CC BY-NC-SA 4.0 license unless otherwise noted (see README.txt files for more information).
+This book is copyright © 2017-2025 Charles J. Weiss and is released under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. All files with the book are also copyright and released under the CC BY-NC-SA 4.0 license unless otherwise noted (see README.txt files for more information).
 
 Answer keys to exercises are available to **instructors** upon request by [emailing](https://www.augie.edu/directory) me using your school email address. The answer keys are © Charles J. Weiss and are **not** released under a Creative Commons license.
 
@@ -34,7 +34,7 @@ This book has both a PDF and web version with different advantages listed below.
 
 ## Organization of Book
 
-This book is organized in order of more fundamental topics first, but not every chapter is a prerequisite for all subsequent chapters. Chapter 0 provides a quick introduction to Jupyter notebooks and chapters 1-2 provide background on the Python programming language. Anyone who already knows Python can skim or skip past these two chapters. Chapter 3 introduces plotting and visualization, and chapter 4 covers the NumPy library. Both chapter 3 and 4 are used *heavily* in this book and should not be bypassed. The pandas library is covered in chapter 5 which is used in some subsequent chapters, but not all. This library adds functionality and extra ease-of-use to NumPy. Anyone looking to streamline their schedule could skip this chapter, but be aware that it is heavily utilized in chapters 10, 11, and 13. However, chapters 10 and 13 should be largely readable by someone who is not familiar with pandas or at least has read sections 5.1-5.2. Chapters beyond chapter 5 are mostly applications, advanced topics, or cover libraries for very specific applications such as image processing, machine learning, bioinformatics, or optimization. Chapters 6-17 are designed to be mostly modular, so after getting through chapters 0-5, these subsequent chapters can be covered in any order depending up the reader's needs and interests. This book also has a few appendices that contain interesting topics, such as [controlling your code with widgets](appendix_00) or [visualizing atomic orbitals](appendix_02), that do not fit well into any of the chapters but are still worth checking out.
+This book is organized in order of more fundamental topics first, but not every chapter is a prerequisite for all subsequent chapters. Chapter 0 provides a quick introduction to Jupyter notebooks, and chapters 1-2 provide background on the Python programming language. Anyone who already knows Python can skim or skip past these two chapters. Chapter 3 introduces plotting and visualization, and chapter 4 covers the NumPy library. Both chapter 3 and 4 are used *heavily* in this book and should not be bypassed. The pandas library is covered in chapter 5, which is used in some subsequent chapters, but not all. This library adds functionality and extra ease-of-use to NumPy. Anyone looking to streamline their schedule could skip this chapter, but be aware that it is heavily utilized in chapters 10, 11, and 13. However, chapters 10 and 13 should be largely readable by someone who is not familiar with pandas or at least has read sections 5.1-5.2. Chapters beyond chapter 5 are mostly applications, advanced topics, or cover libraries for very specific applications such as image processing, machine learning, bioinformatics, or optimization. Chapters 6-17 are designed to be mostly modular, so after getting through chapters 0-5, these subsequent chapters can be covered in any order depending on the reader's needs and interests. This book also has a few appendices that contain interesting topics, such as [controlling your code with widgets](appendix_00) or [visualizing atomic orbitals](appendix_02), that do not fit well into any of the chapters but are still worth checking out.
 
 ![progress through chapters](chapter_progression.svg)
 
@@ -109,7 +109,7 @@ The code in this version of the book has been most recently tested with the foll
 
 ## Acknowledgments
 
-This book took a substantial time to write along with the time and effort in developing the curriculum. Thank you to those who supported and encouraged me along the way. Finally, thank you to the following people for proof reading or reporting errors. Reports of additional errors are welcome on GitHub or in an [email](https://www.augie.edu/directory). Please do not email files to the author but rather include your error report in the body of the email.
+This book took a substantial time to write along with the time and effort in developing the curriculum. Thank you to those who supported and encouraged me along the way. Finally, thank you to the following people for proofreading or reporting errors. Reports of additional errors are welcome on GitHub or in an [email](https://www.augie.edu/directory). Please do not email files to the author but rather include your error report in the body of the email.
 
 - Wesley A. Deutscher helping collect some example data
 - M. Roarke Tollar providing feedback and reporting typos in chapters 0 and 1
@@ -120,10 +120,10 @@ This book took a substantial time to write along with the time and effort in dev
 - Patrick Coppock providing feedback
 - Zachary M. Schulte for providing feedback and reporting typos in chapter 14
 - Yuthana Tantirungrotechai for reporting errors in chapter 6
-- @Avalanchian for reporting error in chapter 10 data/elements_data.csv file
-- Matthew A. Kubasik for reporting an errors in chapters 6 and 8
+- @Avalanchian for reporting an error in chapter 10 data/elements_data.csv file
+- Matthew A. Kubasik for reporting an error in chapters 6 and 8
 - Geoffrey M. Sametz for help with nmrsim
 - Ryan Schulte for reporting typos
-- Robert Belford for reports typos
+- Robert Belford for reporting typos
 - Filippo Muzzini for reporting a missing data file in chapter 6
 - jaredchis (GitHub handle) for reporting a code typo in chapter 3

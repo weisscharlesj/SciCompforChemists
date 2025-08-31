@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -390,7 +390,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimization">14.1 Minimization</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#univariant-minimization">14.1.1 Univariant Minimization</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimization-for-maximization">14.1.2 Minimization for Maximization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multivarient-minimization">14.1.3 Multivarient Minimization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariant-minimization">14.1.3 Multivariant Minimization</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-equations-to-data">14.2 Fitting Equations to Data</a><ul class="nav section-nav flex-column">
@@ -437,7 +437,7 @@
 <p>The first task we will look at is minimization, and for this, <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> has two related functions <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize()</span></code> and <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize_scalar()</span></code>. Both functions minimize the provided function, but the difference is in the number of independent variables that the objective function takes. A function with only one independent variable, <span class="math notranslate nohighlight">\(f(a)\)</span>, is known as <em>univariant</em> while a function that takes multiple independent variables, <span class="math notranslate nohighlight">\(f(a,b,...)\)</span>, is known as <em>multivariant</em>. The <code class="docutils literal notranslate"><span class="pre">minimize()</span></code> function can minimize either multivariant and univariant functions while <code class="docutils literal notranslate"><span class="pre">minimize_scalar()</span></code> can only accept univariant objective functions.</p>
 <section id="univariant-minimization">
 <span id="id3"></span><h3>14.1.1 Univariant Minimization<a class="headerlink" href="#univariant-minimization" title="Link to this heading">#</a></h3>
-<p>If we are trying to minimize a function with a single independent variable, the <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize_scalar()</span></code> is likely a good choice. As a simple example, we will find the radius of minimal energy for two xenon atoms using the Lennard-Jones equation below which describes the potential energy with respect to the distance, <span class="math notranslate nohighlight">\(r\)</span>, between the two atoms. In this example, <span class="math notranslate nohighlight">\(\sigma\)</span> = 4.10 angstroms and <span class="math notranslate nohighlight">\(\epsilon\)</span> = 1.77 kJ/mol.</p>
+<p>If we are trying to minimize a function with a single independent variable, the <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize_scalar()</span></code> is likely a good choice. As a simple example, we will find the radius of minimal energy for two xenon atoms using the Lennard-Jones equation below, which describes the potential energy with respect to the distance, <span class="math notranslate nohighlight">\(r\)</span>, between the two atoms. In this example, <span class="math notranslate nohighlight">\(\sigma\)</span> = 4.10 angstroms and <span class="math notranslate nohighlight">\(\epsilon\)</span> = 1.77 kJ/mol.</p>
 <div class="math notranslate nohighlight">
 \[ PE = 4 \epsilon \left[ \left(\frac{\sigma}{r}\right)^{12} - \left(\frac{\sigma}{r}\right)^6 \right] \]</div>
 <p>Being that energy described by the Lennard-Jones energy equation is what we are trying to minimize, this is our objective function. We first need to define this equation as a Python function.</p>
@@ -461,7 +461,7 @@
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Because we imported the <code class="docutils literal notranslate"><span class="pre">optimize</span></code> module explicitley in this chapter, calling any function from inside the <code class="docutils literal notranslate"><span class="pre">scipi.optimize</span></code> module does not need to include <code class="docutils literal notranslate"><span class="pre">scipy</span></code>.</p>
+<p>Because we imported the <code class="docutils literal notranslate"><span class="pre">optimize</span></code> module explicitly in this chapter, calling any function from inside the <code class="docutils literal notranslate"><span class="pre">scipi.optimize</span></code> module does not need to include <code class="docutils literal notranslate"><span class="pre">scipy</span></code>.</p>
 </div>
 </aside>
 <div class="cell docutils container">
@@ -513,7 +513,7 @@
 </div>
 </div>
 </div>
-<p>After running our optimization function, an <code class="docutils literal notranslate"><span class="pre">OptimizeResult</span></code> object is returned. This object has a series of attributes listed above, but the two most important are <code class="docutils literal notranslate"><span class="pre">success</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span></code>. The <code class="docutils literal notranslate"><span class="pre">success</span></code> attribute tells us if the optimization function was successful at converging on a solution while the <code class="docutils literal notranslate"><span class="pre">x</span></code> attribute is the optimized solution. We can access the solution using <code class="docutils literal notranslate"><span class="pre">opt.x</span></code> to learn that the minimized distance according to the  Lennard-Jones energy equation is 1.99 angstroms.</p>
+<p>After running our optimization function, an <code class="docutils literal notranslate"><span class="pre">OptimizeResult</span></code> object is returned. This object has a series of attributes listed above, but the two most important are <code class="docutils literal notranslate"><span class="pre">success</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span></code>. The <code class="docutils literal notranslate"><span class="pre">success</span></code> attribute tells us if the optimization function was successful at converging on a solution, while the <code class="docutils literal notranslate"><span class="pre">x</span></code> attribute is the optimized solution. We can access the solution using <code class="docutils literal notranslate"><span class="pre">opt.x</span></code> to learn that the minimized distance according to the  Lennard-Jones energy equation is 1.99 angstroms.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">x</span>
@@ -540,19 +540,19 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8ac84d377d3ddbb9d1a23ed36536f8eeabc24c8f1351a90b3560cb2e7fd46d69.svg" src="../../_images/8ac84d377d3ddbb9d1a23ed36536f8eeabc24c8f1351a90b3560cb2e7fd46d69.svg" />
+<img alt="../../_images/64dd1e3f3c81dccd28dcf553577eb3d96d4c6bc587b2849051ddc89889ee9ba1.svg" src="../../_images/64dd1e3f3c81dccd28dcf553577eb3d96d4c6bc587b2849051ddc89889ee9ba1.svg" />
 </div>
 </div>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Optimization functions can use algorithms with random components, so if they are run multiple times, variations in the results may be observed. The results typically vary only slightly, but sometimes more significant variations may be observed such as if there are multiple minima or maxima in the objective function.</p>
+<p>Optimization functions can use algorithms with random components, so if they are run multiple times, variations in the results may be observed. The results typically vary only slightly, but sometimes more significant variations may be observed, such as if there are multiple minima or maxima in the objective function.</p>
 </div>
 </aside>
 <div class="seealso admonition">
 <p class="admonition-title">How it works…</p>
-<p>The goal of optimization is to minimize the objective function which can be accomplished through a number of algorithms. Knowledge of these algorithms is not required to use optimization, but if you are curious, here is the view from 10,000 feet. Despite the wide variety of algorithms available, they generally operate by an almost trial-and-error approach. They start with initial input values for the objective function and then try slightly different input values. If the new input values decrease the objective function, they are accepted, and if they increase the objective function, they are rejected. This continues on for a number of iterations finding values that progressively decrease the objective function until the algorithm can no longer minimize the objective function any further. The final input values are then returned by the optimization function as the optimized values. Optimization algorithms can differ by, for example, how they decide which input values to try next or how different the subsequent input values to try should be. See <a class="reference internal" href="#fr14"><span class="std std-ref">Further Reading</span></a> for more information on optimization algorithms.</p>
+<p>The goal of optimization is to minimize the objective function, which can be accomplished through a number of algorithms. Knowledge of these algorithms is not required to use optimization, but if you are curious, here is the view from 10,000 feet. Despite the wide variety of algorithms available, they generally operate by an almost trial-and-error approach. They start with initial input values for the objective function and then try slightly different input values. If the new input values decrease the objective function, they are accepted, and if they increase the objective function, they are rejected. This continues on for a number of iterations, finding values that progressively decrease the objective function until the algorithm can no longer minimize the objective function any further. The final input values are then returned by the optimization function as the optimized values. Optimization algorithms can differ by, for example, how they decide which input values to try next or how different the subsequent input values to try should be. See <a class="reference internal" href="#fr14"><span class="std std-ref">Further Reading</span></a> for more information on optimization algorithms.</p>
 </div>
 </section>
 <section id="minimization-for-maximization">
@@ -578,10 +578,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/347745cfc9c87b6c9f7b181df72ddf6c376d9a920789e728cd0c8fa8ec0e6899.svg" src="../../_images/347745cfc9c87b6c9f7b181df72ddf6c376d9a920789e728cd0c8fa8ec0e6899.svg" />
+<img alt="../../_images/51d7855914bedc16a6ba74a98c82ba715c593773d8be843bdb645dc13874af2d.svg" src="../../_images/51d7855914bedc16a6ba74a98c82ba715c593773d8be843bdb645dc13874af2d.svg" />
 </div>
 </div>
-<p>There are multiple ways to make the function negative like including a negative sign in the Python function definition. Our Python function has already been created, so below we will make the radial probability density negative using a <code class="docutils literal notranslate"><span class="pre">lambda</span></code> function (see <a class="reference internal" href="../chapter_02/chap_02_notebook.html#id6"><span class="std std-ref">section 2.1.4</span></a> for review on lambda functions).</p>
+<p>There are multiple ways to make the function negative, like including a negative sign in the Python function definition. Our Python function has already been created, so below we will make the radial probability density negative using a <code class="docutils literal notranslate"><span class="pre">lambda</span></code> function (see <a class="reference internal" href="../chapter_02/chap_02_notebook.html#id6"><span class="std std-ref">section 2.1.4</span></a> for review on lambda functions).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mx</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="n">psi</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
@@ -639,17 +639,17 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a8862168b72318b296fbfd64eaae0733bbf3b61356a2592c160f82af2b8b1de0.svg" src="../../_images/a8862168b72318b296fbfd64eaae0733bbf3b61356a2592c160f82af2b8b1de0.svg" />
+<img alt="../../_images/6f0c528bf6907f87b1875f4f1dc61c367acd4e02057b53c04bb638468c9ba3bf.svg" src="../../_images/6f0c528bf6907f87b1875f4f1dc61c367acd4e02057b53c04bb638468c9ba3bf.svg" />
 </div>
 </div>
 </section>
-<section id="multivarient-minimization">
-<span id="id5"></span><span id="index-5"></span><h3>14.1.3 Multivarient Minimization<a class="headerlink" href="#multivarient-minimization" title="Link to this heading">#</a></h3>
-<p>One of the key minimization functions in the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module is the <code class="docutils literal notranslate"><span class="pre">minimize()</span></code> function which is capable of minimizing multiple variables simultaneously. This function requires at least two arguments, the objective function and initial guesses for each value as a list or tuple.</p>
+<section id="multivariant-minimization">
+<span id="id5"></span><span id="index-5"></span><h3>14.1.3 Multivariant Minimization<a class="headerlink" href="#multivariant-minimization" title="Link to this heading">#</a></h3>
+<p>One of the key minimization functions in the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module is the <code class="docutils literal notranslate"><span class="pre">minimize()</span></code> function, which is capable of minimizing multiple variables simultaneously. This function requires at least two arguments: the objective function and initial guesses for each value as a list or tuple.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">obj_func</span><span class="p">,</span> <span class="p">(</span><span class="n">guess</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>As an example, we will calculate the equilibrium concentrations for a tandem equilibrium shown below between three different isomers assuming we place an initial 122 mmol of the isomer A into solution and allow it to equilibrate at 25 <span class="math notranslate nohighlight">\(^o\)</span>C. The two equilibrium constants for this equilibrium are <em>K</em><span class="math notranslate nohighlight">\(_1\)</span>=5.0 and <em>K</em><span class="math notranslate nohighlight">\(_2\)</span>=0.80.</p>
+<p>As an example, we will calculate the equilibrium concentrations for a tandem equilibrium shown below between three different isomers, assuming we place an initial 122 mmol of the isomer A into solution and allow it to equilibrate at 25 <span class="math notranslate nohighlight">\(^o\)</span>C. The two equilibrium constants for this equilibrium are <em>K</em><span class="math notranslate nohighlight">\(_1\)</span>=5.0 and <em>K</em><span class="math notranslate nohighlight">\(_2\)</span>=0.80.</p>
 <div class="math notranslate nohighlight">
 \[ A {\stackrel{K_1}{\rightleftharpoons}} B {\stackrel{K_2}{\rightleftharpoons}} C\]</div>
 <p>To solve this problem, we need to adjust the three isomer concentrations, our variables, such that they get as close as possible to the equilibrium ratios set by the equilibrium constants.</p>
@@ -749,23 +749,23 @@
 </div>
 </div>
 </div>
-<p>The final equilibrium quanties for A, B, and C are 12.2, 61.0, and 48.8 mmol, respectively.</p>
+<p>The final equilibrium quantities for A, B, and C are 12.2, 61.0, and 48.8 mmol, respectively.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>It is important to recognize that just because an optimization function generates an answer does not mean that it is indeed the correct answer for your problem. The generated answer is the optimization algorithm’s best effort in producing the optimal result which may be, for example, a local minimum instead of the global minimum. If there is a way to verify the answer such as is done in the equilibrium example above, this is a prudent last step before using this information.</p>
+<p>It is important to recognize that just because an optimization function generates an answer does not mean that it is indeed the correct answer for your problem. The generated answer is the optimization algorithm’s best effort in producing the optimal result, which may be, for example, a local minimum instead of the global minimum. If there is a way to verify the answer, such as is done in the equilibrium example above, this is a prudent last step before using this information.</p>
 </div>
 </section>
 </section>
 <section id="fitting-equations-to-data">
 <span id="id6"></span><span id="index-7"></span><span id="index-6"></span><h2>14.2 Fitting Equations to Data<a class="headerlink" href="#fitting-equations-to-data" title="Link to this heading">#</a></h2>
-<p>An common application of optimization is fitting an equation to a series of data points such as a linear regression. While linear regression also  happens to have an analytical solution demonstrated in <a class="reference internal" href="../chapter_08/chap_08_notebook.html#id15"><span class="std std-ref">section 8.3.3</span></a>, we will solve it here using optimization. In the figure below, a regression line (solid orange) runs through the data points. The <em>residuals</em> are the difference between the regression line and the data points (green vertical dotted lines). The goal of linear regression is to generate a regression line that minimizes these residuals.</p>
+<p>An common application of optimization is fitting an equation to a series of data points, such as a linear regression. While linear regression also  happens to have an analytical solution demonstrated in <a class="reference internal" href="../chapter_08/chap_08_notebook.html#id15"><span class="std std-ref">section 8.3.3</span></a>, we will solve it here using optimization. In the figure below, a regression line (solid orange) runs through the data points. The <em>residuals</em> are the difference between the regression line and the data points (green vertical dotted lines). The goal of linear regression is to generate a regression line that minimizes these residuals.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/e61e6fb5205d6ac30811e0dd1ad6440259ad850a07aa0a875b3da0abdbebabd6.svg" src="../../_images/e61e6fb5205d6ac30811e0dd1ad6440259ad850a07aa0a875b3da0abdbebabd6.svg" />
+<img alt="../../_images/46f8bc1417d41b5d274fef634e8d5866c8ab0d64f5833d60560c4e66e5769f0d.svg" src="../../_images/46f8bc1417d41b5d274fef634e8d5866c8ab0d64f5833d60560c4e66e5769f0d.svg" />
 </div>
 </div>
 <p><strong>Figure 1</strong> An example of a line of best fit (solid orange) running through data points (blue) with residuals (green dashed) shown as the difference on the <span class="math notranslate nohighlight">\(y\)</span>-axis between the data point and linear regression.</p>
-<p id="index-8">One of the major questions in regression is how do we measure the quality of the fit. We could in principle use the total absolute sum of the residuals, known as the <em>lease absolute deviation</em> cost or objective function, but the commonly accepted objective function for fitting equations to data is <em>mean square error (MSE)</em> function. This is the average of the square of the difference between the equation’s predictions and the actual data points, or another way of wording this is MSE is the average square residual of the fit line. The MSE equation is shown below where <span class="math notranslate nohighlight">\(f_i\)</span> is the <em>y</em>-value from the regression line, <span class="math notranslate nohighlight">\(y_i\)</span> is the data point <em>y</em>-value, and <span class="math notranslate nohighlight">\(N\)</span> is the number of data points.</p>
+<p id="index-8">One of the major questions in regression is how do we measure the quality of the fit. We could in principle use the total absolute sum of the residuals, known as the <em>least absolute deviation</em> cost or objective function, but the commonly accepted objective function for fitting equations to data is the <em>mean square error (MSE)</em> function. This is the average of the square of the difference between the equation’s predictions and the actual data points, or another way of wording this is MSE is the average square residual of the fit line. The MSE equation is shown below where <span class="math notranslate nohighlight">\(f_i\)</span> is the <em>y</em>-value from the regression line, <span class="math notranslate nohighlight">\(y_i\)</span> is the data point <em>y</em>-value, and <span class="math notranslate nohighlight">\(N\)</span> is the number of data points.</p>
 <div class="math notranslate nohighlight">
 \[ MSE = \frac{1}{N} \sum_{i=1}^{N}{(f_i - y_i)^2} \]</div>
 <p>There are two general types of regression: linear regression and nonlinear regression. The key difference is that the former fits data to a linear equation (or plane or hyperplane for higher dimensions) while the latter fits data to nonlinear equations.</p>
@@ -890,7 +890,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b0cfbd81e55c6a8d65c93ddc97c03df8c572e5b9b0f771fcc3b4a5546e4cb989.svg" src="../../_images/b0cfbd81e55c6a8d65c93ddc97c03df8c572e5b9b0f771fcc3b4a5546e4cb989.svg" />
+<img alt="../../_images/5ab6f6a930363e61aff9e42e0656878a6476788ba3550ae4742fa5408e58a2c6.svg" src="../../_images/5ab6f6a930363e61aff9e42e0656878a6476788ba3550ae4742fa5408e58a2c6.svg" />
 </div>
 </div>
 <p>Now that we have our data, we can fit it to the theoretical equation to extract the rate constants.</p>
@@ -923,7 +923,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b01ca7fb1c6a2c677e7f12fc378f1c9a97fa9a851012f47c7ac0aa00c63aca11.svg" src="../../_images/b01ca7fb1c6a2c677e7f12fc378f1c9a97fa9a851012f47c7ac0aa00c63aca11.svg" />
+<img alt="../../_images/09336f24b92b728dfe428e67555bf80e0c514e248bc96abfb4ac70fb57c92aa7.svg" src="../../_images/09336f24b92b728dfe428e67555bf80e0c514e248bc96abfb4ac70fb57c92aa7.svg" />
 </div>
 </div>
 <div class="admonition note">
@@ -1009,7 +1009,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/65ba6a7f6254178cc303f2ab92cd7fcfc821094871f137e0736bb4a43d47bef8.svg" src="../../_images/65ba6a7f6254178cc303f2ab92cd7fcfc821094871f137e0736bb4a43d47bef8.svg" />
+<img alt="../../_images/7072caf2367663d2a12aea89ae62388c67dbf75fcc1adeb18f8c281c1475fc4c.svg" src="../../_images/7072caf2367663d2a12aea89ae62388c67dbf75fcc1adeb18f8c281c1475fc4c.svg" />
 </div>
 </div>
 <p>Next, we will use the absorbances for each pure dye sample to find the molar absorptivities using Beer’s law. The path length, <span class="math notranslate nohighlight">\(b\)</span>, in this instrument is 1 cm, and the molarities are known from the experimental setup. That is, below  we are solving for molar absorptivity (<span class="math notranslate nohighlight">\(\epsilon\)</span>) by the following.</p>
@@ -1042,7 +1042,7 @@
 </div>
 </div>
 <p>The end result is that the red, blue, and yellow dyes have concentrations of 1.45 <span class="math notranslate nohighlight">\(\times\)</span> 10<span class="math notranslate nohighlight">\(^{-5}\)</span> M, 2.85 <span class="math notranslate nohighlight">\(\times\)</span> 10<span class="math notranslate nohighlight">\(^{-6}\)</span> M, and 1.27 <span class="math notranslate nohighlight">\(\times\)</span> 10<span class="math notranslate nohighlight">\(^{-5}\)</span> M.</p>
-<p>Below is a quick demonstration on how to also solve this problem using the <code class="docutils literal notranslate"><span class="pre">optimize.lease_squares()</span></code> function. As mentioned earlier, both the <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> and <code class="docutils literal notranslate"><span class="pre">least_squares()</span></code> functions can be used to solve the same problems. The <code class="docutils literal notranslate"><span class="pre">least_squares()</span></code> function requires a Python function that calculates the residuals (i.e., the difference between the calculated and measured absorbances) instead of the theoretical equation. This function also requires an initial guess for the fit parameters. Even if you don’t know the concentrations, just give some reasonable value. In this case, we guessed 1 <span class="math notranslate nohighlight">\(\times\)</span> 10<span class="math notranslate nohighlight">\(^{-3}\)</span> M for each dye.</p>
+<p>Below is a quick demonstration on how to also solve this problem using the <code class="docutils literal notranslate"><span class="pre">optimize.least_squares()</span></code> function. As mentioned earlier, both the <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> and <code class="docutils literal notranslate"><span class="pre">least_squares()</span></code> functions can be used to solve the same problems. The <code class="docutils literal notranslate"><span class="pre">least_squares()</span></code> function requires a Python function that calculates the residuals (i.e., the difference between the calculated and measured absorbances) instead of the theoretical equation. This function also requires an initial guess for the fit parameters. Even if you don’t know the concentrations, just give some reasonable value. In this case, we guessed 1 <span class="math notranslate nohighlight">\(\times\)</span> 10<span class="math notranslate nohighlight">\(^{-3}\)</span> M for each dye.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">residuals</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
@@ -1104,7 +1104,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/fde1f055e2c516d409feb7c524078fc2e62b0fb1e2091fbc235a3865298adc51.svg" src="../../_images/fde1f055e2c516d409feb7c524078fc2e62b0fb1e2091fbc235a3865298adc51.svg" />
+<img alt="../../_images/0c0f6f1233459c0b3dc0e0648713767cd68184fd4a357642ba9f54fa639e82fe.svg" src="../../_images/0c0f6f1233459c0b3dc0e0648713767cd68184fd4a357642ba9f54fa639e82fe.svg" />
 </div>
 </div>
 <p>The function has two nodes, so our <code class="docutils literal notranslate"><span class="pre">bracket=</span></code> values will determine which we will end up
@@ -1161,7 +1161,7 @@ solving for.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/66dc21a87e2257038487396634c2731be9465ffbf794fcc1f1e4b630bee6a1c5.svg" src="../../_images/66dc21a87e2257038487396634c2731be9465ffbf794fcc1f1e4b630bee6a1c5.svg" />
+<img alt="../../_images/c0d2f9faa7614322949e5b61ec274270b19b0b188df7dc4ddf6ddfe22f525205.svg" src="../../_images/c0d2f9faa7614322949e5b61ec274270b19b0b188df7dc4ddf6ddfe22f525205.svg" />
 </div>
 </div>
 <p>The two dots above show the location of the two roots for this function which clearly are located on the nodes of the wave function.</p>
@@ -1350,7 +1350,7 @@ solving for.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimization">14.1 Minimization</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#univariant-minimization">14.1.1 Univariant Minimization</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimization-for-maximization">14.1.2 Minimization for Maximization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multivarient-minimization">14.1.3 Multivarient Minimization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariant-minimization">14.1.3 Multivariant Minimization</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-equations-to-data">14.2 Fitting Equations to Data</a><ul class="nav section-nav flex-column">
