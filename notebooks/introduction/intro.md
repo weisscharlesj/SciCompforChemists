@@ -23,7 +23,7 @@ Answer keys to exercises are available to **instructors** upon request by [email
 
 ## PDF vs Web Versions
 
-This book has both a PDF and web version with different advantages listed below. The web version is recommended because it contains all the interactive features and is updated more regularly. The web version and book files are available on [GitHub](https://github.com/weisscharlesj/SciCompforChemists).
+This book has both a [PDF version](https://github.com/weisscharlesj/data_SciCompforChem/blob/main/SciCompforChem_Weiss.pdf) and web version with different advantages listed below. The web version is recommended because it contains all the interactive features and is updated more regularly. The web version and book files are available on [GitHub](https://github.com/weisscharlesj/SciCompforChemists).
 
 | Web Version | PDF Version |
 |----------------  | --------------|
