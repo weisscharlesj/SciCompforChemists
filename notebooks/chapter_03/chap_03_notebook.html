@@ -458,7 +458,7 @@
 <span id="id2"></span><h2>3.1 Plotting Basics<a class="headerlink" href="#plotting-basics" title="Link to this heading">#</a></h2>
 <p>Before creating our first plot, we need some data to plot, so we will generate data points from orbital radial wave functions. The following equation defines the wave function (<span class="math notranslate nohighlight">\(\psi\)</span>) for the 3s atomic orbital of hydrogen with respect to atomic radius (<span class="math notranslate nohighlight">\(r\)</span>) in Bohrs (<span class="math notranslate nohighlight">\(a_0\)</span>).</p>
 <div class="math notranslate nohighlight">
-\[ \psi_{3s} = \frac{2}{27}\sqrt{3}(2r^{2/9} - 2r + 3)e^{-r/3} \]</div>
+\[ \psi_{3s} = \frac{2\sqrt{3}}{27}(\frac{2}{9}r^2 - 2r + 3)e^{-r/3} \]</div>
 <p>We will generate points on this curve using a method called list comprehension covered in section <a class="reference internal" href="../chapter_02/chap_02_notebook.html#id4"><span class="std std-ref">2.1.2</span></a>. In the examples below, <code class="docutils literal notranslate"><span class="pre">r</span></code> is the distance from the nucleus and <code class="docutils literal notranslate"><span class="pre">psi_3s</span></code> is the wave function. If you choose to plot something else, just make two lists or tuples of the same length containing the <span class="math notranslate nohighlight">\(x\)</span>- and <span class="math notranslate nohighlight">\(y\)</span>-values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -466,7 +466,7 @@
 <span class="kn">import</span> <span class="nn">math</span>
 
 <span class="k">def</span> <span class="nf">orbital_3S</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
-    <span class="n">wf</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">27</span><span class="p">)</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">r</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">9</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">r</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span><span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">r</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">wf</span> <span class="o">=</span> <span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span><span class="o">/</span><span class="mi">27</span><span class="p">)</span><span class="o">*</span><span class="p">((</span><span class="mi">2</span><span class="o">/</span><span class="mi">9</span><span class="p">)</span><span class="o">*</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">r</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span><span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">r</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">wf</span>
 </pre></div>
 </div>
@@ -491,7 +491,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/53e048ba8e04c27752cc119b27e9c6b5091badd9bbb95c0c9cd37a7319c8d975.svg" src="../../_images/53e048ba8e04c27752cc119b27e9c6b5091badd9bbb95c0c9cd37a7319c8d975.svg" />
+<img alt="../../_images/46db40850d6ea2e3f10adc03dc9642acc1e24d65e300705d23ea4af9d496d706.svg" src="../../_images/46db40850d6ea2e3f10adc03dc9642acc1e24d65e300705d23ea4af9d496d706.svg" />
 </div>
 </div>
 <aside class="margin sidebar">
@@ -629,7 +629,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/bdafb7d1517efa7f5c3211b6296cd4a3a476e12636e33217f823279d08b22558.svg" src="../../_images/bdafb7d1517efa7f5c3211b6296cd4a3a476e12636e33217f823279d08b22558.svg" />
+<img alt="../../_images/4a8aec7463735870ad819733d12981da99f98f39a8a7c811514a75fdf3d4883e.svg" src="../../_images/4a8aec7463735870ad819733d12981da99f98f39a8a7c811514a75fdf3d4883e.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -640,7 +640,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/798ff82c518ede332bb41464f518299cedc182ba80ff8c42781c52a34131869c.svg" src="../../_images/798ff82c518ede332bb41464f518299cedc182ba80ff8c42781c52a34131869c.svg" />
+<img alt="../../_images/31148466673f9e42ee8c333af37f01b6747a59e7e58883d22570e661d5ab9525.svg" src="../../_images/31148466673f9e42ee8c333af37f01b6747a59e7e58883d22570e661d5ab9525.svg" />
 </div>
 </div>
 </section>
@@ -656,7 +656,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7faa443da671361d26b198a557c6b1995318e7e176c46bdf17d908b1a974970d.svg" src="../../_images/7faa443da671361d26b198a557c6b1995318e7e176c46bdf17d908b1a974970d.svg" />
+<img alt="../../_images/64a0761bcd965722f4e4ea5e926d7cfce51d7a8d1934d45396e909cc2ec317f7.svg" src="../../_images/64a0761bcd965722f4e4ea5e926d7cfce51d7a8d1934d45396e909cc2ec317f7.svg" />
 </div>
 </div>
 <p id="index-4">In the event you want a title at the top of your plots, you can add one using the <code class="docutils literal notranslate"><span class="pre">plt.title()</span></code> argument. To add symbols to the axes, this can be done using LaTeX commands which are used below, but discussion of LaTeX is beyond the scope of this chapter.</p>
@@ -670,7 +670,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1c3c9620d91322a1694acc91672ca41e47e4878db5c428ebb3cc9198beb22b5a.svg" src="../../_images/1c3c9620d91322a1694acc91672ca41e47e4878db5c428ebb3cc9198beb22b5a.svg" />
+<img alt="../../_images/0f4edf57f0d0ec4b27882c36fe22db7c971eb56f2d53edf19dfa77b6e87ffa6c.svg" src="../../_images/0f4edf57f0d0ec4b27882c36fe22db7c971eb56f2d53edf19dfa77b6e87ffa6c.svg" />
 </div>
 </div>
 <aside class="margin sidebar">
@@ -695,7 +695,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/53ff35451522c007f3033b08c4f2f19e3d57d41ecd069b228ad7aa3ef4fd8121.svg" src="../../_images/53ff35451522c007f3033b08c4f2f19e3d57d41ecd069b228ad7aa3ef4fd8121.svg" />
+<img alt="../../_images/64df16bdda06be7687b22fbdb030a18fdb486318c4bfb617335615955df8ef58.svg" src="../../_images/64df16bdda06be7687b22fbdb030a18fdb486318c4bfb617335615955df8ef58.svg" />
 </div>
 </div>
 </section>
@@ -712,7 +712,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0dfb1edb6602ab102999ea552776157d271b6e49c1eaabc96871be768274158a.svg" src="../../_images/0dfb1edb6602ab102999ea552776157d271b6e49c1eaabc96871be768274158a.svg" />
+<img alt="../../_images/622b0f008d3455e475af4e1a7843585ed170952d90afba138034c82206b45bd2.svg" src="../../_images/622b0f008d3455e475af4e1a7843585ed170952d90afba138034c82206b45bd2.svg" />
 </div>
 </div>
 <aside class="margin sidebar">
@@ -748,7 +748,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/44e2abfd52c3225ee5290f4aa1dbcaeaaa626fe7ee2b6fac67ea575e8cc77241.svg" src="../../_images/44e2abfd52c3225ee5290f4aa1dbcaeaaa626fe7ee2b6fac67ea575e8cc77241.svg" />
+<img alt="../../_images/91f609f3bfc91b7d0abc2451863d5f26d40aebe2ae0aa77eb9dc7dd372864aca.svg" src="../../_images/91f609f3bfc91b7d0abc2451863d5f26d40aebe2ae0aa77eb9dc7dd372864aca.svg" />
 </div>
 </div>
 <p>The bar plot characteristics can be adjusted like most other types of plots in matplotlib. The main arguments you will probably want to adjust are color and width, but some other arguments are provided in Table 5. The color arguments are consistent with the <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> colors from earlier. The error bar arguments can take either a single value to display homogeneous error bars on all data points or can take a multi-element object (e.g., a list or tuple) containing the different margins of uncertainty for each data point.</p>
@@ -805,7 +805,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/757ba61cc664dc2a1141443256178accba6a4df51d20b65d11b40873e60ce93d.svg" src="../../_images/757ba61cc664dc2a1141443256178accba6a4df51d20b65d11b40873e60ce93d.svg" />
+<img alt="../../_images/ea97548984861c85ea8cab37308dcb2c3ff5a9e9d66d7cd202be0217acbfcfb3.svg" src="../../_images/ea97548984861c85ea8cab37308dcb2c3ff5a9e9d66d7cd202be0217acbfcfb3.svg" />
 </div>
 </div>
 <p>In the example above, the alcohol content is represented on the <span class="math notranslate nohighlight">\(x\)</span>-axis, the alkalinity is represented on the <span class="math notranslate nohighlight">\(y\)</span>-axis, and the proline content is shown using the color of the markers. The spectrum of colors that represent the values is called the <em>colormap</em>, and this can be changed using an optional <code class="docutils literal notranslate"><span class="pre">cmap=</span></code> argument. See the <a class="reference external" href="https://matplotlib.org/3.5.1/tutorials/colors/colormaps.html">matplotlib colormap page</a> for a list of available colormaps.</p>
@@ -829,7 +829,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d670e3d0a1a575487c12a88fe9f61757bbb9f0b86b28e073f206b2adf52050ea.svg" src="../../_images/d670e3d0a1a575487c12a88fe9f61757bbb9f0b86b28e073f206b2adf52050ea.svg" />
+<img alt="../../_images/83ae2f5eb5fe286cb071fbdd6ca785a9d2af45b35db6c803a1ad37c194521dd5.svg" src="../../_images/83ae2f5eb5fe286cb071fbdd6ca785a9d2af45b35db6c803a1ad37c194521dd5.svg" />
 </div>
 </div>
 <p id="index-11"><span id="index-10"></span>As an additional example, we can generate a plot of nuclide atomic numbers versus the number of neutrons and color the markers with the log of the half-life, in years, of each nuclide.</p>
@@ -864,13 +864,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8c3a6deec952dcd483da11b93301e954436f6f9adc6684a1f85dd23394f44ead.svg" src="../../_images/8c3a6deec952dcd483da11b93301e954436f6f9adc6684a1f85dd23394f44ead.svg" />
+<img alt="../../_images/ca253fa5f917657adfbd5d344976e3a561a785a2c2b7f7d3e37f767317b28f99.svg" src="../../_images/ca253fa5f917657adfbd5d344976e3a561a785a2c2b7f7d3e37f767317b28f99.svg" />
 </div>
 </div>
 <p>One of the issues we encounter in the above plot is that the range of half-lives is large with relatively few points in the extreme ends. We can see this in the histogram plot of these log half-life values shown below (see <a class="reference internal" href="#id11"><span class="std std-ref">section 3.2.3</span></a>).</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/3e15d6412210c7b298f24283a505da0a42f25b7841a890e4aaf6a41fe92a4b3e.svg" src="../../_images/3e15d6412210c7b298f24283a505da0a42f25b7841a890e4aaf6a41fe92a4b3e.svg" />
+<img alt="../../_images/d3f0d77537693fd65f0d231432b4487a3171cb66a8415745a882ddf24634fde8.svg" src="../../_images/d3f0d77537693fd65f0d231432b4487a3171cb66a8415745a882ddf24634fde8.svg" />
 </div>
 </div>
 <p>In order to prevent the few values at the extremes from effectively washing out the color and making it difficult to see the differences, we can use the <code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code> arguments <code class="docutils literal notranslate"><span class="pre">vmax=</span></code> and <code class="docutils literal notranslate"><span class="pre">vmin=</span></code> to narrow the colormap range like shown below. By doing this, any values above the <code class="docutils literal notranslate"><span class="pre">vmax=</span></code> value will be a fixed color, and any values below the <code class="docutils literal notranslate"><span class="pre">vmin=</span></code> value will be a fixed color.</p>
@@ -886,7 +886,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/19e72eff82cd1f18e2387a9368e2e8320ae51e1f73bf5f92fdc0482590ecb067.svg" src="../../_images/19e72eff82cd1f18e2387a9368e2e8320ae51e1f73bf5f92fdc0482590ecb067.svg" />
+<img alt="../../_images/c63248e3c0d007a14f5918a36a519a6860d810794cef3b912d73baea9ac50aa7.svg" src="../../_images/c63248e3c0d007a14f5918a36a519a6860d810794cef3b912d73baea9ac50aa7.svg" />
 </div>
 </div>
 </section>
@@ -906,7 +906,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/71acca9ac3e522ebcbb7464342d6c2cc3af152cd75fccc25b6a2f77031242557.svg" src="../../_images/71acca9ac3e522ebcbb7464342d6c2cc3af152cd75fccc25b6a2f77031242557.svg" />
+<img alt="../../_images/e5eec192e498d58904cddc792ace0c070a2f2fd5ad478c97eea4f07b9c7d9866.svg" src="../../_images/e5eec192e498d58904cddc792ace0c070a2f2fd5ad478c97eea4f07b9c7d9866.svg" />
 </div>
 </div>
 <p>From the plot above, we can see that a large number of heat capacities reside in the area of 0.1-0.5 J/g<span class="math notranslate nohighlight">\(\cdot^o\)</span>C and none fall in the 0.6-0.8 J/g<span class="math notranslate nohighlight">\(\cdot^o\)</span>C range.</p>
@@ -920,7 +920,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/15bd0072af983a6cb9a2aa85f254ac6022e04b3d502eaebaee986518692d8aa9.svg" src="../../_images/15bd0072af983a6cb9a2aa85f254ac6022e04b3d502eaebaee986518692d8aa9.svg" />
+<img alt="../../_images/3cc2f2a28a71cc67cffbdd77328fd1d97f2dbf6f49cfcdf6db55ca4c34d71b6b.svg" src="../../_images/3cc2f2a28a71cc67cffbdd77328fd1d97f2dbf6f49cfcdf6db55ca4c34d71b6b.svg" />
 </div>
 </div>
 <p>Providing the histogram function bin edges offers far more control to the user, but writing out a list can be tedious. As an alternative, the histogram function also accepts bin edges as <code class="docutils literal notranslate"><span class="pre">range()</span></code> objects. Unfortunately, Python’s built-in <code class="docutils literal notranslate"><span class="pre">range()</span></code> function only generates values with integer steps. As an alternative, you can use list comprehension from chapter 2 or use NumPy’s <code class="docutils literal notranslate"><span class="pre">np.arange()</span></code> function from <a class="reference internal" href="../chapter_04/chap_04_notebook.html#id5"><span class="std std-ref">section 4.1.3</span></a> which does allow non-integer step sizes.</p>
@@ -938,7 +938,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f6fd6e60d421835bf86318b7466f700a517cf158423e833d2cfd7992d9e8c84c.svg" src="../../_images/f6fd6e60d421835bf86318b7466f700a517cf158423e833d2cfd7992d9e8c84c.svg" />
+<img alt="../../_images/c19e077cc3ed5bc8d4e690edffff7bb4f03b0c0abf004427884ab269b32c4ce5.svg" src="../../_images/c19e077cc3ed5bc8d4e690edffff7bb4f03b0c0abf004427884ab269b32c4ce5.svg" />
 </div>
 </div>
 <div class="cell docutils container" id="index-15">
@@ -955,7 +955,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d1c54b368e0ce621625f92500db637d64b8d0b512bde174e85273ddcbff1f97e.svg" src="../../_images/d1c54b368e0ce621625f92500db637d64b8d0b512bde174e85273ddcbff1f97e.svg" />
+<img alt="../../_images/d9bc09da4d3ae1841f4591af7ae932f1c5efa206727f45cb5b91bd2f61c2c5dd.svg" src="../../_images/d9bc09da4d3ae1841f4591af7ae932f1c5efa206727f45cb5b91bd2f61c2c5dd.svg" />
 </div>
 </div>
 <div class="cell docutils container" id="index-16">
@@ -970,7 +970,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/43c41bcc6f24550c2099c410f08c6b95a5e947b78d40c6fd28898aeacfb41ec6.svg" src="../../_images/43c41bcc6f24550c2099c410f08c6b95a5e947b78d40c6fd28898aeacfb41ec6.svg" />
+<img alt="../../_images/256f462dff233c8cf2696cb18de6852128ae9ef4b7721637e233a49cd850ac25.svg" src="../../_images/256f462dff233c8cf2696cb18de6852128ae9ef4b7721637e233a49cd850ac25.svg" />
 </div>
 </div>
 <div class="cell docutils container" id="index-17">
@@ -985,7 +985,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/795c1ef7d677003c192dd053c9a8a5ad9b4de9f546e9d2736f91bd0884d63656.svg" src="../../_images/795c1ef7d677003c192dd053c9a8a5ad9b4de9f546e9d2736f91bd0884d63656.svg" />
+<img alt="../../_images/e82b0f6e04a39b38895183611954786bde815b0ed48ee610536eedfa3c704e79.svg" src="../../_images/e82b0f6e04a39b38895183611954786bde815b0ed48ee610536eedfa3c704e79.svg" />
 </div>
 </div>
 </section>
@@ -1023,7 +1023,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e1c90b6dd52d31a7bc87542550d7db3228ab7bccff319df7519980b08e9bd1a1.svg" src="../../_images/e1c90b6dd52d31a7bc87542550d7db3228ab7bccff319df7519980b08e9bd1a1.svg" />
+<img alt="../../_images/e98a2a5d973763d39f729543a2444c9b09f6172441f0a2928740e4dde21474fb.svg" src="../../_images/e98a2a5d973763d39f729543a2444c9b09f6172441f0a2928740e4dde21474fb.svg" />
 </div>
 </div>
 <p>The second approach is to include both sets of data in the same plotting command as is shown below. Matplotlib will assume that each new non-keyword is a new set of data and that the positional arguments are associated with the most recent data.</p>
@@ -1037,7 +1037,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c7adf41b37f2b6ae8de70f20dff3ec98c9a67430acbcc34a80afa9a5caa9b121.svg" src="../../_images/c7adf41b37f2b6ae8de70f20dff3ec98c9a67430acbcc34a80afa9a5caa9b121.svg" />
+<img alt="../../_images/8bf9bbd0c67bc0c292f18fccd30f6afb2bddf5bdaa5026f18b307a7bbc037239.svg" src="../../_images/8bf9bbd0c67bc0c292f18fccd30f6afb2bddf5bdaa5026f18b307a7bbc037239.svg" />
 </div>
 </div>
 <p>In the second plot above, <code class="docutils literal notranslate"><span class="pre">r</span></code>, <code class="docutils literal notranslate"><span class="pre">psi_3s</span></code>, <code class="docutils literal notranslate"><span class="pre">'bo'</span></code> are the data and style for the first set of data while <code class="docutils literal notranslate"><span class="pre">r</span></code>, <code class="docutils literal notranslate"><span class="pre">psi_3p</span></code>,<code class="docutils literal notranslate"><span class="pre">'r^'</span></code> are the data and plotting style for the second.</p>
@@ -1055,7 +1055,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f58485fd9ff19e5858127e0e672e59f9e2033268c07277656fbac6e88da550af.svg" src="../../_images/f58485fd9ff19e5858127e0e672e59f9e2033268c07277656fbac6e88da550af.svg" />
+<img alt="../../_images/5f132c153200eff2a82037478565c7950bb3ebfa8b2541f9fd237a3090967818.svg" src="../../_images/5f132c153200eff2a82037478565c7950bb3ebfa8b2541f9fd237a3090967818.svg" />
 </div>
 </div>
 </section>
@@ -1085,7 +1085,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ed2df8e9364a4bfa6af295f10f52f64ef1fe944183bef0135501b1e6275d0865.svg" src="../../_images/ed2df8e9364a4bfa6af295f10f52f64ef1fe944183bef0135501b1e6275d0865.svg" />
+<img alt="../../_images/dd3dbaff8025947f567987691580ceba018b8311c602a69a81dc6e20d58b39be.svg" src="../../_images/dd3dbaff8025947f567987691580ceba018b8311c602a69a81dc6e20d58b39be.svg" />
 </div>
 </div>
 <p>If you don’t like the dimensions of your plot, you can still change them using a <code class="docutils literal notranslate"><span class="pre">figsize=(width,</span> <span class="pre">height)</span></code> argument in the <code class="docutils literal notranslate"><span class="pre">figure()</span></code> function like the following.</p>
@@ -1109,7 +1109,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3e8680eef13e62e2e6bb87fc6a5956caa573f667d4d86d6a631ae823faabe53a.svg" src="../../_images/3e8680eef13e62e2e6bb87fc6a5956caa573f667d4d86d6a631ae823faabe53a.svg" />
+<img alt="../../_images/6704e1099b0013b8367f8ecb1fd27a01d7ac82b367004974ff5cd809e5c883cd.svg" src="../../_images/6704e1099b0013b8367f8ecb1fd27a01d7ac82b367004974ff5cd809e5c883cd.svg" />
 </div>
 </div>
 <p>The values in the <code class="docutils literal notranslate"><span class="pre">plt.subplot()</span></code> command may seem redundant. Why are the dimensions for the figure repeatedly defined instead of just once? The answer is that subplots with different dimensions can be created in the same figure (Figure 1). In this example, the top subplot dimension is created as if it were the first subplot in a 2 <span class="math notranslate nohighlight">\(\times\)</span> 1 figure. The bottom two subplot dimensions are created as if they are the third and fourth subplots in a 2 <span class="math notranslate nohighlight">\(\times\)</span> 2 figure.</p>
@@ -1156,7 +1156,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8cee7590ecb13f84fb30e7bd4131e8b60189c3a085b6dfdae86d03a51e0d9686.svg" src="../../_images/8cee7590ecb13f84fb30e7bd4131e8b60189c3a085b6dfdae86d03a51e0d9686.svg" />
+<img alt="../../_images/fbff87bcc11d1bb099e3b43538f4e9e94fd87cbf6507a2664c9aedf72234564e.svg" src="../../_images/fbff87bcc11d1bb099e3b43538f4e9e94fd87cbf6507a2664c9aedf72234564e.svg" />
 </div>
 </div>
 <aside class="margin sidebar">
@@ -1195,7 +1195,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a7172002bd92a997958553e6bdf72c16143929f7f153acd137b908cd683462ee.svg" src="../../_images/a7172002bd92a997958553e6bdf72c16143929f7f153acd137b908cd683462ee.svg" />
+<img alt="../../_images/76e294eef08ab773050fbab0dfd7be145c3dd99af78be5b3c6613ddda6d96aec.svg" src="../../_images/76e294eef08ab773050fbab0dfd7be145c3dd99af78be5b3c6613ddda6d96aec.svg" />
 </div>
 </div>
 </section>
@@ -1228,7 +1228,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/365557e3f22295ea0ebe81761dd38d2e7b373baebe996f9fb0ffcc047916c876.svg" src="../../_images/365557e3f22295ea0ebe81761dd38d2e7b373baebe996f9fb0ffcc047916c876.svg" />
+<img alt="../../_images/d609b884771039190368ed2768bd8bfd7b2669103703fa46da822f154a559b94.svg" src="../../_images/d609b884771039190368ed2768bd8bfd7b2669103703fa46da822f154a559b94.svg" />
 </div>
 </div>
 </section>
@@ -1271,7 +1271,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e9f63a3ac99100b6ade06a7551a7b679054ca58b8645febb29bac1888376f502.svg" src="../../_images/e9f63a3ac99100b6ade06a7551a7b679054ca58b8645febb29bac1888376f502.svg" />
+<img alt="../../_images/5f739454498b09f32e9bd777a56a235d0af9492f28983778e044d5e05ef3658e.svg" src="../../_images/5f739454498b09f32e9bd777a56a235d0af9492f28983778e044d5e05ef3658e.svg" />
 </div>
 </div>
 <p id="index-25">As a more chemical example, we can plot the standing waves for a 2D particle in a box by the following equation where <span class="math notranslate nohighlight">\(n_x\)</span> and <span class="math notranslate nohighlight">\(n_y\)</span> are the principal quantum numbers along each axis and <span class="math notranslate nohighlight">\(L\)</span> is the length of the box.</p>
@@ -1306,7 +1306,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4298ffea339df1c242ea3088515d55e0c2cd8ec00ed0f29a25b44feaa12b054c.svg" src="../../_images/4298ffea339df1c242ea3088515d55e0c2cd8ec00ed0f29a25b44feaa12b054c.svg" />
+<img alt="../../_images/fb1593e30bd77ce8db9e70b2d89d1415dafed30a732d3b2cac13226e1c31efc7.svg" src="../../_images/fb1593e30bd77ce8db9e70b2d89d1415dafed30a732d3b2cac13226e1c31efc7.svg" />
 </div>
 </div>
 <p>You are encouraged to increase the values for <span class="math notranslate nohighlight">\(n_x\)</span> and <span class="math notranslate nohighlight">\(n_y\)</span> and see how the surface plot changes.</p>
@@ -1320,7 +1320,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/142a6dc2f7ae96d78bfa72778bb1001f38baa7a2e08b1e7da48000c460e6d6ba.svg" src="../../_images/142a6dc2f7ae96d78bfa72778bb1001f38baa7a2e08b1e7da48000c460e6d6ba.svg" />
+<img alt="../../_images/fe86b3df84383a05aff314fbc2eb4986af98f5cfac3622ee9840a8724070b40b.svg" src="../../_images/fe86b3df84383a05aff314fbc2eb4986af98f5cfac3622ee9840a8724070b40b.svg" />
 </div>
 </div>
 </section>
@@ -1361,7 +1361,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a101e1c603e5b71decd8d22c6ae1ec36ac9ea9e6a5f0e7eea3ed22fdb99d699c.svg" src="../../_images/a101e1c603e5b71decd8d22c6ae1ec36ac9ea9e6a5f0e7eea3ed22fdb99d699c.svg" />
+<img alt="../../_images/0d07611acefdd901e57a65bf432f70c225a96f1e44810723305571922a353141.svg" src="../../_images/0d07611acefdd901e57a65bf432f70c225a96f1e44810723305571922a353141.svg" />
 </div>
 </div>
 </section>
@@ -1394,7 +1394,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/42b0462a0a17a8f89e1cc2d67c0a8861e607b35e593b08271265ee330d0df765.svg" src="../../_images/42b0462a0a17a8f89e1cc2d67c0a8861e607b35e593b08271265ee330d0df765.svg" />
+<img alt="../../_images/f6cebf137a9078d294320129d50d5dac66543b15f0d0abb4aead19a979c40752.svg" src="../../_images/f6cebf137a9078d294320129d50d5dac66543b15f0d0abb4aead19a979c40752.svg" />
 </div>
 </div>
 <p id="index-27">To plot orbital angular components, we can modify or warp our sphere by multiplying the <em>xyz</em>-coordinates by the orbital’s angular wave function. We are essentially changing the radius at different angles in the trigonometric equations above. For example, below is the angular wave function for the <span class="math notranslate nohighlight">\(d_{z^2}\)</span> orbital.</p>
@@ -1423,7 +1423,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ce564a0cc35f42f4474fa394b79adce0662d06ce6cbada7d1180ef543254074f.svg" src="../../_images/ce564a0cc35f42f4474fa394b79adce0662d06ce6cbada7d1180ef543254074f.svg" />
+<img alt="../../_images/9ac5cff69fb2548af70196bcaaf275f1b93b0140ac245cc6ccc51cde43fce680.svg" src="../../_images/9ac5cff69fb2548af70196bcaaf275f1b93b0140ac245cc6ccc51cde43fce680.svg" />
 </div>
 </div>
 <p>While the angular wave functions can be coded manually, the SciPy library includes a <a class="reference external" href="https://docs.scipy.org/doc/scipy-1.16.0/reference/generated/scipy.special.sph_harm_y.html">spherical harmonics</a> <code class="docutils literal notranslate"><span class="pre">sph_harm_y(l,</span> <span class="pre">m,</span> <span class="pre">theta,</span> <span class="pre">phi)</span></code> function that will calculate the angular wave function for any combination of the angular (<span class="math notranslate nohighlight">\(l\)</span>) and magnetic (<span class="math notranslate nohighlight">\(m_l\)</span>) quantum numbers. We only want the positive, real results, so we will take the absolute value of the real component.</p>
@@ -1456,7 +1456,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a4db59812ff6554e89b08bbaa92db9eca8bea7a060bf3fa645066b465355ff58.svg" src="../../_images/a4db59812ff6554e89b08bbaa92db9eca8bea7a060bf3fa645066b465355ff58.svg" />
+<img alt="../../_images/2429374592444e15b2c08ae67c761794883372b97b95a128f1abb8be827d6348.svg" src="../../_images/2429374592444e15b2c08ae67c761794883372b97b95a128f1abb8be827d6348.svg" />
 </div>
 </div>
 </section>
@@ -1482,7 +1482,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/aff934e98caef184b84fce8d61570f474252970eac41c3b5d761e621c5cb5b18.svg" src="../../_images/aff934e98caef184b84fce8d61570f474252970eac41c3b5d761e621c5cb5b18.svg" />
+<img alt="../../_images/e1722d2b32b456d72ad74b96f73331debe2775f2b8c059d8b0a06684a34ac9e4.svg" src="../../_images/e1722d2b32b456d72ad74b96f73331debe2775f2b8c059d8b0a06684a34ac9e4.svg" />
 </div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">plt.hexbin()</span></code> function in its basic form is like the <code class="docutils literal notranslate"><span class="pre">plt.hist2d()</span></code> function except that the bins are hexagons instead of rectangles.</p>
@@ -1495,7 +1495,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9683a332e6923d92c24e6dcc57a1f953bdf72e13ca85ed399222a79e1b6562f2.svg" src="../../_images/9683a332e6923d92c24e6dcc57a1f953bdf72e13ca85ed399222a79e1b6562f2.svg" />
+<img alt="../../_images/a514a4253580dcdb897980f31440c8fe6b0eb32243858469b676ecaa0744c2e9.svg" src="../../_images/a514a4253580dcdb897980f31440c8fe6b0eb32243858469b676ecaa0744c2e9.svg" />
 </div>
 </div>
 </section>
@@ -1527,7 +1527,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3506a2bd7073c3008d40a047aa698b37e653fcacebe8df6b7f9d10b3413aef18.svg" src="../../_images/3506a2bd7073c3008d40a047aa698b37e653fcacebe8df6b7f9d10b3413aef18.svg" />
+<img alt="../../_images/08a5c67237f30860bbb455be193964dc4b6cd025403d82e6d02638a5340f5406.svg" src="../../_images/08a5c67237f30860bbb455be193964dc4b6cd025403d82e6d02638a5340f5406.svg" />
 </div>
 </div>
 <p>We can also generate a contour plot where the space between the lines is filled using the <code class="docutils literal notranslate"><span class="pre">plt.contourf()</span></code> function. The “f” is for “filled”.</p>
@@ -1539,7 +1539,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/fa7f0a8b246f3a89e399b2a58bc1cc340a20950cc5252b063aa6b6b4b4d9957f.svg" src="../../_images/fa7f0a8b246f3a89e399b2a58bc1cc340a20950cc5252b063aa6b6b4b4d9957f.svg" />
+<img alt="../../_images/81dd48d6fd17c5fd0832cd213f7f99c8ea2e58fa0879def643cc8f18a1f98114.svg" src="../../_images/81dd48d6fd17c5fd0832cd213f7f99c8ea2e58fa0879def643cc8f18a1f98114.svg" />
 </div>
 </div>
 <p id="index-31"><span id="index-30"></span>If the data are in <span class="math notranslate nohighlight">\(xyz\)</span> coordinate format, we will instead use the <code class="docutils literal notranslate"><span class="pre">plt.tricontour()</span></code> or <code class="docutils literal notranslate"><span class="pre">plt.tricontourf()</span></code> functions as demonstrated below with COSY NMR data of quinine.</p>
@@ -1558,7 +1558,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0057fffd477c0a3d57d7bf9372a6684b9684a9178517bd6ccca539a1f5590d94.svg" src="../../_images/0057fffd477c0a3d57d7bf9372a6684b9684a9178517bd6ccca539a1f5590d94.svg" />
+<img alt="../../_images/382f955eb910f0e6d3f2ef73221d4bfe6b2d20af39ebc7a9d2181e6d18d959c0.svg" src="../../_images/382f955eb910f0e6d3f2ef73221d4bfe6b2d20af39ebc7a9d2181e6d18d959c0.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1572,7 +1572,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/77b031516d8b7fdf1b065b1edbfa9230d5c1ceae5823993c3405f66aceac6f5d.svg" src="../../_images/77b031516d8b7fdf1b065b1edbfa9230d5c1ceae5823993c3405f66aceac6f5d.svg" />
+<img alt="../../_images/e020c81f3dba77d685fdbdacc39dab1d921cea17eaace19fa81321cadcea82d0.svg" src="../../_images/e020c81f3dba77d685fdbdacc39dab1d921cea17eaace19fa81321cadcea82d0.svg" />
 </div>
 </div>
 <p>As a final example, it is possible to merge a contour plot with a line plot. This is useful for representing 2D NMR spectra such as COSY NMR, where the COSY NMR data is represented by the contour plot while the <span class="math notranslate nohighlight">\(^1\)</span>H NMR spectrum is located on the margins of the contour plot. Below, a function <code class="docutils literal notranslate"><span class="pre">plot_2d_nmr()</span></code> is defined (click <em>Show code cell source</em>) to generate such a plot.</p>
@@ -1663,7 +1663,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ec357881837502ab84cd2ab90efaa00820018d011c2bd1be1e0001f1fa64155e.svg" src="../../_images/ec357881837502ab84cd2ab90efaa00820018d011c2bd1be1e0001f1fa64155e.svg" />
+<img alt="../../_images/ad0b66941a7ae09fbf21f24d93289316be2180afabc4cad5a51aff625714acc3.svg" src="../../_images/ad0b66941a7ae09fbf21f24d93289316be2180afabc4cad5a51aff625714acc3.svg" />
 </div>
 </div>
 </section>

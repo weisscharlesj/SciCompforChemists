@@ -30,7 +30,7 @@ This book has both a [PDF version](https://github.com/weisscharlesj/data_SciComp
 | Interactive       | Static version     |
 | Easier to copy-and-paste code | Available offline |
 | Quicker navigation |  |
-| Is more regularly updated   | |
+| More regularly updated   | |
 
 ## Organization of Book
 
