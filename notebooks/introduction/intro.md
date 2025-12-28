@@ -17,7 +17,7 @@ Learning to use a number of popular Python scientific libraries to solve chemica
 
 ## License
 
-This book is copyright © 2017-2025 Charles J. Weiss and is released under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. All files with the book are also copyright and released under the CC BY-NC-SA 4.0 license unless otherwise noted (see README.txt files for more information).
+This book is copyright © 2017-2025 Charles J. Weiss and is released under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. All files associated with the book are also copyright and released under the CC BY-NC-SA 4.0 license unless otherwise noted (see README.txt files for more information).
 
 Answer keys to exercises are available to **instructors** upon request by [emailing](https://www.augie.edu/directory) me using your school email address. The answer keys are © Charles J. Weiss and are **not** released under a Creative Commons license.
 
@@ -44,7 +44,7 @@ Below is a listing with brief descriptions of the chapters.
 |:-----:  | :---------- |
 |Chapter 0| Short introduction to installing and using Jupyter notebooks |
 |Chapter 1| Core Python programming skills |
-|Chapter 2| Intermediate Python programming skills - this chapter contains many useful topics but may be skipped over and returned to as needed for the impatient reader |
+|Chapter 2| Intermediate Python programming skills - this chapter contains many useful topics, but it may be skipped over and returned to as needed for the impatient reader |
 |Chapter 3| Matplotlib plotting library for visualization of data and results |
 |Chapter 4| NumPy library which is the foundation of much of the scientific Python ecosystem |
 |Chapter 5| Pandas data analysis library |
@@ -67,7 +67,7 @@ Below is a listing with brief descriptions of the chapters.
 |Appendix 4| Regular Expressions |
 
 
-One of the goals of this book is to provide a streamlined introduction to Python and its scientific libraries in order to allow the reader to start applying these new skills to chemistry as quickly as possible. As a result, not all topics covered in a typical computer science course on Python are included here. Instead, the most relevant topics to chemistry are covered along with a selection of scientific libraries not likely taught in most Python courses. Another difference between this book and a typical computer science course on Python is that many computer science courses would have students write and save code as text files and run them from the command line. In contrast, this book assumes that the reader is running his or her code in a Jupyter notebook, as described in chapter 0, which is an ideal environment for scientific data analysis. The Jupyter notebook provides immediate feedback to the user, convenient graphical outputs, is shareable, and is simpler to use than running Python scripts from the command line. For those students who wish to continue on to run Python scripts from the command line, [chapter 17](17) provides a brief introduction to this process. In an effort to make this text usable in a wide range of courses, there is little in-depth analysis of the data. This book instead focuses more on how to work with the data and leaves the chemical analysis to the individual instructors.
+One of the goals of this book is to provide a streamlined introduction to Python and its scientific libraries in order to allow the reader to start applying these new skills to chemistry as quickly as possible. As a result, not all topics covered in a typical computer science course on Python are included here. Instead, the most relevant topics to chemistry are covered along with a selection of scientific libraries unlikely to be taught in most Python courses. Another difference between this book and a typical computer science course on Python is that many computer science courses would have students write and save code as text files and run them from the command line. In contrast, this book assumes that the reader is running his or her code in a Jupyter notebook, as described in chapter 0, which is an ideal environment for scientific data analysis. The Jupyter notebook provides immediate feedback to the user, offers convenient graphical outputs, allows for easy sharing, and streamlines code execution versus running Python scripts from the command line. For those students who wish to continue on to run Python scripts from the command line, [chapter 17](17) provides a brief introduction to this process. In an effort to make this text usable in a wide range of courses, there is little in-depth analysis of the data. This book instead focuses more on how to work with the data and leaves the chemical analysis to the individual instructors.
 
 
 ## Chapter and Exercise Data
@@ -115,16 +115,16 @@ This book took a substantial time to write along with the time and effort in dev
 - M. Roarke Tollar providing feedback and reporting typos in chapters 0 and 1
 - Andrew Klose providing feedback and reporting typos in chapter 12 and an idea for an exercise
 - Harrison Kuhn for identifying a code error in chapter 11
-- nzjakemartin (GitHub handle) identifying a type in the weighted average equation 
+- nzjakemartin (GitHub handle) identifying a typo in the weighted average equation 
 - Paul A. Craig identifying a typo in the Python code
 - Patrick Coppock providing feedback
 - Zachary M. Schulte for providing feedback and reporting typos in chapter 14
 - Yuthana Tantirungrotechai for reporting errors in chapter 6
 - @Avalanchian for reporting an error in chapter 10 data/elements_data.csv file
 - Matthew A. Kubasik for reporting an error in chapters 6 and 8
-- Geoffrey M. Sametz for help with nmrsim
+- Geoffrey M. Sametz for helping with nmrsim
 - Ryan Schulte for reporting typos
 - Robert Belford for reporting typos
 - Filippo Muzzini for reporting a missing data file in chapter 6
 - jaredchis (GitHub handle) for reporting a code typo in chapter 3
-- Geoffrey D. Smith for reports multiple typos
+- Geoffrey D. Smith for reporting multiple typos
