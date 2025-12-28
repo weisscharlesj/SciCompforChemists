@@ -409,7 +409,7 @@
 <p class="admonition-title">Note</p>
 <p>This appendix assumes a future version of SymPy for the <code class="docutils literal notranslate"><span class="pre">Z_lm()</span></code> function. This function has been temporarily defined in a code cell below to provide this feature until the next SymPy release.</p>
 </div>
-<p>The visualization of atomic orbitals and orbital information is an important enough topic in chemistry to warrant specific attention. This appendix focuses on different methods of visualizing various aspects of atomic orbitals and tools to assist in this task. This content is not included in the chapter on plotting with matplotlib because this appendix heavily utilizes various libraries such as SymPy, interact, and NumPy not yet introduced before Chapter 03. While this appendix is written to be standalone as much as possible, knowledge of <a class="reference internal" href="../chapter_03/chap_03_notebook.html#id1"><span class="std std-ref">matplotlib</span></a>, including <a class="reference internal" href="../chapter_03/chap_03_notebook.html#id18"><span class="std std-ref">surface plots</span></a>, will be helpful along with <a class="reference internal" href="../chapter_04/chap_04_notebook.html#id1"><span class="std std-ref">NumPy</span></a> and <a class="reference internal" href="../chapter_08/chap_08_notebook.html#id2"><span class="std std-ref">SymPy</span></a> basics.</p>
+<p>The visualization of atomic orbitals and orbital information is an important enough topic in chemistry to warrant specific attention. This appendix focuses on different methods of visualizing various aspects of atomic orbitals and tools to assist in this task. This content is not included in the chapter on plotting with matplotlib because this appendix heavily utilizes various libraries such as SymPy, interact, and NumPy not introduced before Chapter 03. While this appendix is written to be standalone as much as possible, knowledge of <a class="reference internal" href="../chapter_03/chap_03_notebook.html#id1"><span class="std std-ref">matplotlib</span></a>, including <a class="reference internal" href="../chapter_03/chap_03_notebook.html#id18"><span class="std std-ref">surface plots</span></a>, will be helpful along with <a class="reference internal" href="../chapter_04/chap_04_notebook.html#id1"><span class="std std-ref">NumPy</span></a> and <a class="reference internal" href="../chapter_08/chap_08_notebook.html#id2"><span class="std std-ref">SymPy</span></a> basics.</p>
 <p>Atomic orbitals are described by a wavefunction, <span class="math notranslate nohighlight">\(\Psi (n, l, m)\)</span>, which is the product of the radial wavefunction, <span class="math notranslate nohighlight">\(R(n, l)\)</span>, and the angular wavefunction, <span class="math notranslate nohighlight">\(Y(l, m)\)</span>. Each atomic orbital has a different wavefunction <span class="math notranslate nohighlight">\(\Psi\)</span>, but they sometimes share common radial wavefunctions.</p>
 <div class="math notranslate nohighlight">
 \[ \Psi(n, l, m) = R(n, l)Y(l, m) \]</div>
@@ -447,7 +447,7 @@
 <section id="radial-wavefunctions">
 <span id="index-2"></span><h2>Radial Wavefunctions<a class="headerlink" href="#radial-wavefunctions" title="Link to this heading">#</a></h2>
 <p>Because the radial wavefunctions are independent of direction, they can be represented effectively on a simple 2D plot. The toughest part is coding the equations for every combination of n and <span class="math notranslate nohighlight">\(l\)</span>. The good news is that the SymPy library includes a function, <code class="docutils literal notranslate"><span class="pre">R_nl()</span></code>, in the <a class="reference external" href="https://docs.sympy.org/latest/modules/physics/hydrogen.html">Hydrogen Wavefunction</a> (<code class="docutils literal notranslate"><span class="pre">sympy.physics.hydrogen</span></code>) module that provides this functionality. This function takes the principal quantum number (n), angular quantum number (<span class="math notranslate nohighlight">\(l\)</span>), radius in Bohrs (r), and atomic number (Z). A Bohr equals about 52.9 pm.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">R_nl</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">Z</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">R_nl</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">Z</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>We can evaluate the function for any hydrogen-like atomic orbitals such as the 3p orbitals (n = 3 and <span class="math notranslate nohighlight">\(l\)</span> = 1) at 4.0 Bohrs.</p>
@@ -501,7 +501,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/bf5e3b18e5c2c4dea40e421c23d6905cb483e816fd1b7cb18659aef3594db0e4.svg" src="../../_images/bf5e3b18e5c2c4dea40e421c23d6905cb483e816fd1b7cb18659aef3594db0e4.svg" />
+<img alt="../../_images/6dc15b9da6def8c83d92b70d6df633d1bfc15f783b7e8362a5917e897ec169bb.svg" src="../../_images/6dc15b9da6def8c83d92b70d6df633d1bfc15f783b7e8362a5917e897ec169bb.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -521,7 +521,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/15cd381456ff41443588b380aed92c30c8ee5466f659c474ca99f292b37b38b9.svg" src="../../_images/15cd381456ff41443588b380aed92c30c8ee5466f659c474ca99f292b37b38b9.svg" />
+<img alt="../../_images/bd77e92e526c852cc1d059515b935ed9ef979b55dc635a426673507e35608016.svg" src="../../_images/bd77e92e526c852cc1d059515b935ed9ef979b55dc635a426673507e35608016.svg" />
 </div>
 </div>
 <p>The electron <strong>probability density</strong> can be found by calculating <span class="math notranslate nohighlight">\(R^2\)</span> where <span class="math notranslate nohighlight">\(R\)</span> is the radial wavefunction, and the <strong>radial probability</strong> is <span class="math notranslate nohighlight">\(R^2r^2\)</span> where <span class="math notranslate nohighlight">\(r\)</span> is the distance from the nucleus.</p>
@@ -534,10 +534,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/66e492a5ed4e6c33eed163ccd4bdaaf465ea730808f530da799a183c1defb394.svg" src="../../_images/66e492a5ed4e6c33eed163ccd4bdaaf465ea730808f530da799a183c1defb394.svg" />
+<img alt="../../_images/791e4bd66f3d10f9ccc029cf93a4ce879a9562a88607ab6087b6b0f03b50f19f.svg" src="../../_images/791e4bd66f3d10f9ccc029cf93a4ce879a9562a88607ab6087b6b0f03b50f19f.svg" />
 </div>
 </div>
-<p>The reason we multiply the probability density by the square of the radial wavefunction, <span class="math notranslate nohighlight">\(r^2\)</span>, is to account for the greater surface area of a sphere (<span class="math notranslate nohighlight">\(A_{sphere} = 4\pi r^2\)</span>) the larger the radius. We are effectively carrying out the calculation depicted below. We divide the sphere surface area by 4<span class="math notranslate nohighlight">\(\pi\)</span> to normalize the integration, making the probability over all space total to 1.</p>
+<p>The reason we multiply the probability density by the volume factor, <span class="math notranslate nohighlight">\(r^2\)</span>, is to account for the greater surface area of a sphere (<span class="math notranslate nohighlight">\(A_{sphere} = 4\pi r^2\)</span>) the larger the radius. We are effectively carrying out the calculation depicted below. We divide the sphere surface area by 4<span class="math notranslate nohighlight">\(\pi\)</span> to normalize the integration, making the probability over all space total to 1.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -573,7 +573,7 @@
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../../_images/9a58bc911bd863552ff6a77761e6bb759ba827e7e274db185dad5518e23b68ae.svg" src="../../_images/9a58bc911bd863552ff6a77761e6bb759ba827e7e274db185dad5518e23b68ae.svg" />
+<img alt="../../_images/97d51d10ee2ea83338573e4f3dd6ed77d1ef34ae86348f86176117ba9481b940.svg" src="../../_images/97d51d10ee2ea83338573e4f3dd6ed77d1ef34ae86348f86176117ba9481b940.svg" />
 </div>
 </div>
 <p>One of the uses of these radial plots is to compare the radial probability of multiple different orbitals on the same axes, like below, for the fourth row of the periodic table. This can be used, for example, to discuss the valence electron configurations of Cr and Cu.</p>
@@ -582,14 +582,14 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="c1"># create SymPy symbol</span>
 
 <span class="c1"># create a numpy compatible function using lambdify</span>
-<span class="n">R_3s</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">lambdify</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">R_nl</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">Z</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">modules</span><span class="o">=</span><span class="s1">&#39;numpy&#39;</span><span class="p">)</span>
-<span class="n">R_3p</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">lambdify</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">R_nl</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">Z</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">modules</span><span class="o">=</span><span class="s1">&#39;numpy&#39;</span><span class="p">)</span>
+<span class="n">R_4s</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">lambdify</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">R_nl</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">Z</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">modules</span><span class="o">=</span><span class="s1">&#39;numpy&#39;</span><span class="p">)</span>
+<span class="n">R_4p</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">lambdify</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">R_nl</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">Z</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">modules</span><span class="o">=</span><span class="s1">&#39;numpy&#39;</span><span class="p">)</span>
 <span class="n">R_3d</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">lambdify</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">R_nl</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">Z</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">modules</span><span class="o">=</span><span class="s1">&#39;numpy&#39;</span><span class="p">)</span>
 
 <span class="n">radii</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">radii</span><span class="p">,</span> <span class="n">R_3s</span><span class="p">(</span><span class="n">radii</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">radii</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;4s&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">radii</span><span class="p">,</span> <span class="n">R_3p</span><span class="p">(</span><span class="n">radii</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">radii</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;4p&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">radii</span><span class="p">,</span> <span class="n">R_4s</span><span class="p">(</span><span class="n">radii</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">radii</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;4s&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">radii</span><span class="p">,</span> <span class="n">R_4p</span><span class="p">(</span><span class="n">radii</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">radii</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;4p&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">radii</span><span class="p">,</span> <span class="n">R_3d</span><span class="p">(</span><span class="n">radii</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">radii</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Distance from Nucleus (Bohrs)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Radial Probability ($R^2r^2$)&#39;</span><span class="p">);</span>
@@ -599,7 +599,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2e2d3500ce91efca8302c59fdb9b78656874c2efb3d28d4e681959c8b837ad9c.svg" src="../../_images/2e2d3500ce91efca8302c59fdb9b78656874c2efb3d28d4e681959c8b837ad9c.svg" />
+<img alt="../../_images/5f173d93feaccca5cb26107afaacbdc37e2ed47bca2690ebc44734329af90296.svg" src="../../_images/5f173d93feaccca5cb26107afaacbdc37e2ed47bca2690ebc44734329af90296.svg" />
 </div>
 </div>
 <p id="index-3">The probability <span class="math notranslate nohighlight">\(R^2r^2\)</span> can be integrated using the <code class="docutils literal notranslate"><span class="pre">sympy.integrate()</span></code> function, which accepts the function or mathematical expression to be integrated and a tuple that contains the variable, the min, and the max values.</p>
@@ -635,7 +635,7 @@
 </section>
 <section id="angular-wavefunctions">
 <span id="index-4"></span><h2>Angular Wavefunctions<a class="headerlink" href="#angular-wavefunctions" title="Link to this heading">#</a></h2>
-<p>The other component of <span class="math notranslate nohighlight">\(\Psi\)</span> is the angular wavefunctions, which provides directional information about an orbital. The angular equations can be coded by hand, or we can also use the <code class="docutils literal notranslate"><span class="pre">Y_lm()</span></code> or <code class="docutils literal notranslate"><span class="pre">Z_lm()</span></code> spherical harmonics wavefunctions from <code class="docutils literal notranslate"><span class="pre">sympy.physics.hydrogen</span></code> to assist us. The difference between these two functions is that <code class="docutils literal notranslate"><span class="pre">Y_lm()</span></code> may return a complex expression, whereas <code class="docutils literal notranslate"><span class="pre">Z_lm()</span></code> will return the real-valued angular wavefunction. Because our goal is to visualize the wavefunctions, we will restrict ourselves to the latter here. The angular wavefunction provides information in all directions, so we will plot this information in 3D.</p>
+<p>The other component of <span class="math notranslate nohighlight">\(\Psi\)</span> is the angular wavefunctions, which provide directional information about an orbital. The angular equations can be coded by hand, or we can also use the <code class="docutils literal notranslate"><span class="pre">Y_lm()</span></code> or <code class="docutils literal notranslate"><span class="pre">Z_lm()</span></code> spherical harmonics wavefunctions from <code class="docutils literal notranslate"><span class="pre">sympy.physics.hydrogen</span></code> to assist us. The difference between these two functions is that <code class="docutils literal notranslate"><span class="pre">Y_lm()</span></code> may return a complex expression, whereas <code class="docutils literal notranslate"><span class="pre">Z_lm()</span></code> will return the real-valued angular wavefunction. Because our goal is to visualize the wavefunctions, we will restrict ourselves to the latter here. The angular wavefunction provides information in all directions, so we will plot this information in 3D.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition warning">
@@ -677,7 +677,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e435dc4972aeb4caae882ec1d845908fed6a2d709dfd48ae7a8ae0823d9a2a7f.svg" src="../../_images/e435dc4972aeb4caae882ec1d845908fed6a2d709dfd48ae7a8ae0823d9a2a7f.svg" />
+<img alt="../../_images/ed4f115e3265f0f9ea6325884fe9ca2ff8d8016a1cdb68b73be98abeb0235ce0.svg" src="../../_images/ed4f115e3265f0f9ea6325884fe9ca2ff8d8016a1cdb68b73be98abeb0235ce0.svg" />
 </div>
 </div>
 <p>Alternatively, we can use the <code class="docutils literal notranslate"><span class="pre">Z_lm()</span></code> function from <code class="docutils literal notranslate"><span class="pre">sympy.physics.hydrogen</span></code> to generate the angular wavefunction based on the angular and magnetic quantum numbers.</p>
@@ -713,7 +713,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ea515e702cf1fda30fbccdb6780bffa239697f06fe49a3af1743d7870a5510ee.svg" src="../../_images/ea515e702cf1fda30fbccdb6780bffa239697f06fe49a3af1743d7870a5510ee.svg" />
+<img alt="../../_images/f2cc14f51c1d9eeec32aa628cfc306194a7c001a82388ff006c7383a31141137.svg" src="../../_images/f2cc14f51c1d9eeec32aa628cfc306194a7c001a82388ff006c7383a31141137.svg" />
 </div>
 </div>
 <p>We can also visualize the angular component of wavefunctions in 2D using a <a class="reference internal" href="../chapter_03/chap_03_notebook.html#id12"><span class="std std-ref">polar plot</span></a>, but we can only visualize one angle at a time. Below we will visualize theta and leave phi fixed. Because we are only visualizing in 2D and not sweeping around the phi angles, we need to make theta go from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 2<span class="math notranslate nohighlight">\(\pi\)</span>.</p>
@@ -733,7 +733,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/bce7667435c2510c24a4a6595ac7d532206a7213678dcdc60b071dbffb5c6899.svg" src="../../_images/bce7667435c2510c24a4a6595ac7d532206a7213678dcdc60b071dbffb5c6899.svg" />
+<img alt="../../_images/52a1e6f1670f0e7b2e873b610a92c09d5d97a0f29afc0f8511e3f2c0cd77f5cc.svg" src="../../_images/52a1e6f1670f0e7b2e873b610a92c09d5d97a0f29afc0f8511e3f2c0cd77f5cc.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -752,7 +752,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6ae676978aac2fea66bf1ad1d873e6a3f3c27c909ddd307d0f1ff2582c27e0b0.svg" src="../../_images/6ae676978aac2fea66bf1ad1d873e6a3f3c27c909ddd307d0f1ff2582c27e0b0.svg" />
+<img alt="../../_images/8b42b2a609ad00eccaff4e8811192c05a57787395a996666c792a531992688cd.svg" src="../../_images/8b42b2a609ad00eccaff4e8811192c05a57787395a996666c792a531992688cd.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -771,7 +771,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e49aca41dfe65042942e8aff4a090bf148d4f26abe6b22d078476979dd2c9cb1.svg" src="../../_images/e49aca41dfe65042942e8aff4a090bf148d4f26abe6b22d078476979dd2c9cb1.svg" />
+<img alt="../../_images/e63c77ff080a3d4f6dccdeac24bf6042c46ecfeb9cf3593880e44341e3cd764c.svg" src="../../_images/e63c77ff080a3d4f6dccdeac24bf6042c46ecfeb9cf3593880e44341e3cd764c.svg" />
 </div>
 </div>
 <p>The last orbital image is a <em>d</em>-orbital viewed from the side.</p>
@@ -860,7 +860,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4876fcd8b3c5453ece2c5d96cefd0fec0849d269f8e07d495ea54607dfe72b34.svg" src="../../_images/4876fcd8b3c5453ece2c5d96cefd0fec0849d269f8e07d495ea54607dfe72b34.svg" />
+<img alt="../../_images/8483658ae7128d14ef3cea92907e7cf8c34beb71809f98e514cb7c8a3376b2ca.svg" src="../../_images/8483658ae7128d14ef3cea92907e7cf8c34beb71809f98e514cb7c8a3376b2ca.svg" />
 </div>
 </div>
 <p>The plot above makes the shape of the orbital look like the orbital lobes are almost conical, which is not what we typically see in accurate orbital shapes. This is an effect of there being more data points visualized along the vertical axis due to the orbital being thicker there. If we instead reduce the simulation to 2D (i.e., only the <em>yz</em> plane), like below, the orbital lobes appear rounder because we are visualizing a slice through the middle of the orbital.</p>
@@ -897,7 +897,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e08bcca837ccc2d06c46f43c02dc4516ef2282acab66abcd5b1e94c00138d25d.svg" src="../../_images/e08bcca837ccc2d06c46f43c02dc4516ef2282acab66abcd5b1e94c00138d25d.svg" />
+<img alt="../../_images/b73d70d3e60d214f5a6f8e5b60d1b24214ad3e7f5629d6344d17dfa6c36579e4.svg" src="../../_images/b73d70d3e60d214f5a6f8e5b60d1b24214ad3e7f5629d6344d17dfa6c36579e4.svg" />
 </div>
 </div>
 <p>We can visualize larger orbitals to see more nodes such as in the 3p and 3s orbitals below. We can also color the points based on the sign of the wavefunction before calculating the probability. In the examples below, the color only represents the sign of the wavefunction and not the magnitude of the value.</p>
@@ -936,7 +936,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c863394b9426ac2e07a4eafc2e7be68086339b500670f1482abbb6c4f986541c.svg" src="../../_images/c863394b9426ac2e07a4eafc2e7be68086339b500670f1482abbb6c4f986541c.svg" />
+<img alt="../../_images/98518d64e1286e80aa3446dbe21f86e92ca3a4ec41d96f862d9681e4d7da9553.svg" src="../../_images/98518d64e1286e80aa3446dbe21f86e92ca3a4ec41d96f862d9681e4d7da9553.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -973,7 +973,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/86c33f41565be57a33e3afbe8e6cff6d77e6a4a45b918c0ab6595763a1d8c3b2.svg" src="../../_images/86c33f41565be57a33e3afbe8e6cff6d77e6a4a45b918c0ab6595763a1d8c3b2.svg" />
+<img alt="../../_images/614c26aa852bd8be15eb6a088d2f597b13287ace52ba836c9479b384dc8bf85c.svg" src="../../_images/614c26aa852bd8be15eb6a088d2f597b13287ace52ba836c9479b384dc8bf85c.svg" />
 </div>
 </div>
 <p>A second way to visualize orbitals is through a contour plot. Here we calculate the probability in a mesh of locations and provide the <code class="docutils literal notranslate"><span class="pre">plt.contour()</span></code> function with the locations and probabilities.</p>
@@ -1000,7 +1000,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d0fb557671b42062d1d920cb4e8d02066398b72aff6e85b2c17d20c091a65358.svg" src="../../_images/d0fb557671b42062d1d920cb4e8d02066398b72aff6e85b2c17d20c091a65358.svg" />
+<img alt="../../_images/9ba0b4276e36398f9dc5ae813aeb05f1e1ed4f1d5c3679b8f14c720c74a76924.svg" src="../../_images/9ba0b4276e36398f9dc5ae813aeb05f1e1ed4f1d5c3679b8f14c720c74a76924.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1026,7 +1026,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f560cbc8dc2fb3beb38ca612b9e06c6ebb210733695b11659d2bcb5cf06ad1dc.svg" src="../../_images/f560cbc8dc2fb3beb38ca612b9e06c6ebb210733695b11659d2bcb5cf06ad1dc.svg" />
+<img alt="../../_images/29c4135bda958ad9b14ec57ce286c3fa550cf6b8134df3f821d3175fafc924c2.svg" src="../../_images/29c4135bda958ad9b14ec57ce286c3fa550cf6b8134df3f821d3175fafc924c2.svg" />
 </div>
 </div>
 </section>

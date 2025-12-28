@@ -444,7 +444,7 @@ The sections in this chapter are broken down by types of machine learning. There
 <p>There are numerous algorithms for supervised learning; below are simple examples employing some well-known and common algorithms. For a more in-depth coverage of the different machine learning algorithms and scikit-learn, see the <a class="reference internal" href="#fr13"><span class="std std-ref">Further Reading</span></a> section at the end of this chapter.</p>
 <section id="features-and-information">
 <span id="id3"></span><h3>13.1.1 Features and Information<a class="headerlink" href="#features-and-information" title="Link to this heading">#</a></h3>
-<p>The file titled <em>ROH_data.csv</em> contains information on over seventy simple alcohols (i.e., a single -OH with no other non-hydrocarbon function groups) including their boiling points. Our goal is to generate a function or algorithm to predict the boiling points of the alcohols based on the information on the alcohols, so here the target is the boiling point and features are the other information about the alcohols.</p>
+<p>The file titled <em>ROH_data.csv</em> contains information on over seventy simple alcohols (i.e., a single -OH with no additional non-hydrocarbon functional groups) including their boiling points. Our goal is to generate a function or algorithm to predict the boiling points of the alcohols based on the information on the alcohols, so here the target is the boiling point and features are the other information about the alcohols.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ROH</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/ROH_data.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
@@ -548,7 +548,7 @@ The sections in this chapter are broken down by types of machine learning. There
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/32162a8192f7a84f23172112a9fbe32f21bd911869a6d28c5f83593bab99e545.svg" src="../../_images/32162a8192f7a84f23172112a9fbe32f21bd911869a6d28c5f83593bab99e545.svg" />
+<img alt="../../_images/096e6c41667a2c76aaad510482eee8bee0f2aaebbb47a99afb430c084e9ddb49.svg" src="../../_images/096e6c41667a2c76aaad510482eee8bee0f2aaebbb47a99afb430c084e9ddb49.svg" />
 </div>
 </div>
 </section>
@@ -1227,7 +1227,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 </div>
-<p>Remember that the algorithm has been only provided the features for the testing subset; it has never seen the <code class="docutils literal notranslate"><span class="pre">y_test</span></code> target data. The performance can be assessed by plotting the predictions against the true values.</p>
+<p>Remember that the algorithm has only been provided the features for the testing subset; it has never seen the <code class="docutils literal notranslate"><span class="pre">y_test</span></code> target data. The performance can be assessed by plotting the predictions against the true values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
@@ -1238,7 +1238,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6d4f88b6b92085992e880b6ab710041572811e57cfc1eb79801e51cb3c253052.svg" src="../../_images/6d4f88b6b92085992e880b6ab710041572811e57cfc1eb79801e51cb3c253052.svg" />
+<img alt="../../_images/64b2aa337a6b8d5093c061efa4fd0117c15248988de4689d7f1b73cafb339a46.svg" src="../../_images/64b2aa337a6b8d5093c061efa4fd0117c15248988de4689d7f1b73cafb339a46.svg" />
 </div>
 </div>
 <p>This is a substantial improvement from using only the molecular weight to make predictions! If the above code is run again, the results will likely vary because the <code class="docutils literal notranslate"><span class="pre">train_test_split()</span></code> function randomly splits the dataset, so each time the above code is run, the algorithm is trained and tested on different portions of the original dataset.</p>
@@ -1258,7 +1258,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 </div>
-<p id="index-4">Another tool for evaluating the efficacy of a machine learning algorithm is <em>k-fold cross-validation</em>. The prediction results will vary depending on how the dataset is randomly split into training and testing data. <em>K</em>-fold cross-validation compensates for this randomness by splitting the entire dataset into <em>k</em> (<em>k</em> being some number) chunks called <em>folds</em>. It then reserves one fold as the testing fold and trains the algorithm on the rest. The algorithm is tested using the testing fold, and the process is repeated with a different fold reserved for testing (Figure 1). Each iteration trains a fresh algorithm, so it does not remember anything from the previous train/test iteration. The results for each iteration are provided at the end of this process.</p>
+<p id="index-4">Another tool for evaluating the efficacy of a machine learning algorithm is <em>k-fold cross-validation</em>. The prediction results will vary depending on how the dataset is randomly split into training and testing data. <em>K</em>-fold cross-validation compensates for this randomness by splitting the entire dataset into <em>k</em> (i.e., counting number) chunks called <em>folds</em>. It then reserves one fold as the testing fold and trains the algorithm on the rest. The algorithm is tested using the testing fold, and the process is repeated with a different fold reserved for testing (Figure 1). Each iteration trains a fresh algorithm, so it does not remember anything from the previous train/test iteration. The results for each iteration are provided at the end of this process.</p>
 <p><img alt="" src="../../_images/cross_validation_folds.svg" /></p>
 <p><strong>Figure 1</strong> In each iteration of <em>k</em>-fold cross-validation, different folds of data are used for training and testing the algorithm.</p>
 <p>A demonstration of <em>k</em>-fold cross-validation is shown below. First, a cross-validation generator is created using the <code class="docutils literal notranslate"><span class="pre">ShuffleSplit()</span></code> function. This function shuffles the data to avoid having all similar alcohols in any particular fold. The linear model is then provided to the <code class="docutils literal notranslate"><span class="pre">cross_val_score()</span></code> function along with the feature and target data and the cross-validation generator.</p>
@@ -1291,7 +1291,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.97435942, 0.98732413, 0.9807443 , 0.98337818, 0.95837055])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.96664589, 0.95794313, 0.96293799, 0.97539977, 0.968548  ])
 </pre></div>
 </div>
 </div>
@@ -1304,7 +1304,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.9768353147109352)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.9662949550759912)
 </pre></div>
 </div>
 </div>
@@ -1966,13 +1966,13 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-945.97872347, 1147.33913825,  -28.96329338,    7.07385877,
-        -18.03866565,   11.68545968])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-896.32083367, 1094.86445012,  -33.96789025,   10.84592854,
+        -14.3206418 ,   14.49051165])
 </pre></div>
 </div>
 </div>
 </div>
-<p>It is quite clear from the coefficients that the molecular weight and number of carbons are both by far the most important features to predicting the boiling points of alcohols. This makes chemical sense, being that larger molecules have greater London dispersion forces, thus increasing the boiling points.</p>
+<p>It is quite clear from the coefficients that the molecular weight and number of carbons are both by far the most important features to predicting the boiling points of alcohols. This makes chemical sense, since larger molecules have greater London dispersion forces, thus increasing the boiling points.</p>
 </section>
 <section id="classification-using-random-forests">
 <span id="id8"></span><span id="index-6"></span><span id="index-5"></span><h3>13.1.6 Classification using Random Forests<a class="headerlink" href="#classification-using-random-forests" title="Link to this heading">#</a></h3>
@@ -1982,7 +1982,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </section>
 <section id="classify-chemical-compounds">
 <span id="id9"></span><h3>13.1.7 Classify Chemical Compounds<a class="headerlink" href="#classify-chemical-compounds" title="Link to this heading">#</a></h3>
-<p>To demonstrate classification, we will use a small dataset containing 122 monofunctional organic compounds from three different categories: alcohols (category 0), ketones/aldehydes (category 1), and amines (category 2). The features provided are the molecular weight, number of carbons, boiling point, whether it is cyclic, whether it is aromatic, and the unsaturation number. All the data is represented numerically, so the data is ready to be used.</p>
+<p>To demonstrate classification, we will use a small dataset containing 122 monofunctional organic compounds from three different categories: alcohols (category 0), ketones/aldehydes (category 1), and amines (category 2). The features provided are the molecular weight, number of carbons, boiling point, whether it is cyclic, whether it is aromatic, and the unsaturation number. All the data are represented numerically, so the data are ready to be used.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/org_comp.csv&#39;</span><span class="p">)</span>
@@ -2037,7 +2037,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 0, 0, 0, 0, 2, 1, 2, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0,
        1, 2, 0, 1, 0, 2, 2, 0, 2])
 </pre></div>
 </div>
@@ -2051,7 +2051,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7096774193548387
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6774193548387096
 </pre></div>
 </div>
 </div>
@@ -2075,8 +2075,8 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[11,  0,  1],
-       [ 2,  3,  0],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[10,  0,  2],
+       [ 1,  3,  1],
        [ 6,  0,  8]])
 </pre></div>
 </div>
@@ -2094,7 +2094,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/057d3eee39ccc11b2c0e88a4038d0f789aab16e423bb570561a615798ef7d4d0.svg" src="../../_images/057d3eee39ccc11b2c0e88a4038d0f789aab16e423bb570561a615798ef7d4d0.svg" />
+<img alt="../../_images/f4d8fce3cf0d38dc874872a7010eaaabe9bad909f5c95292a764db906896724f.svg" src="../../_images/f4d8fce3cf0d38dc874872a7010eaaabe9bad909f5c95292a764db906896724f.svg" />
 </div>
 </div>
 <p>Every value in the diagonal has the same predicted category as the true value, making them correct predictions, whereas anything off diagonal is an incorrect prediction. For example, the bottom left corner shows that six instances were predicted as category 2 but really belong to category 0. Examination of the confusion matrix shows that the most common erroneous prediction is a category 0. This could be due to, for example, the fact that alcohols and amines both tend to have degrees of unsaturation of zero in this dataset.</p>
@@ -2102,7 +2102,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </section>
 <section id="unsupervised-learning">
 <span id="id11"></span><span id="index-8"></span><h2>13.2 Unsupervised Learning<a class="headerlink" href="#unsupervised-learning" title="Link to this heading">#</a></h2>
-<p>Another major class of machine learning is <em>unsupervised learning</em> where no target value is provided to the machine learning algorithm. Unsupervised learning seeks to find patterns in the data instead of making predictions. One form of unsupervised problem is <em>dimensionality reduction</em> where the number of features is condensed down to typically two or three features while maintaining as much information as possible. Another unsupervised learning task is <em>clustering</em> where the algorithm attempts to group similar items in a dataset. Because no target label is available, the algorithm does not know what each group contains; it only knows that the data fall into a pattern of cohesive groups. <em>Blind signal separation (BSS)</em> is a third unsupervised task introduced below where the algorithm attempts at pulling apart mixed signals into its components without knowledge of the components. One application of BSS is extracting the spectra of pure compounds from spectra containing a mixture of chemical compounds.</p>
+<p>Another major class of machine learning is <em>unsupervised learning</em> where no target value is provided to the machine learning algorithm. Unsupervised learning seeks to find patterns in the data instead of making predictions. One form of unsupervised problem is <em>dimensionality reduction</em> where the number of features is condensed down to typically two or three features while maintaining as much information as possible. Another unsupervised learning task is <em>clustering</em> where the algorithm attempts to group similar items in a dataset. Because no target label is available, the algorithm does not know what each group contains; it only knows that the data fall into a pattern of cohesive groups. <em>Blind signal separation (BSS)</em> is a third unsupervised task introduced below where the algorithm attempts to pull apart mixed signals into its components without knowledge of the components. One application of BSS is extracting the spectra of pure compounds from spectra containing a mixture of chemical compounds.</p>
 <section id="dimensional-reduction">
 <span id="id12"></span><span id="index-9"></span><h3>13.2.1 Dimensional Reduction<a class="headerlink" href="#dimensional-reduction" title="Link to this heading">#</a></h3>
 <p>We will first address dimensionality reduction, which typically condenses features down to two or three dimensions because it is often used in the visualization of high-dimensional data. To demonstrate this task, we will use scikit-learn’s <code class="docutils literal notranslate"><span class="pre">datasets</span></code> module, which contains datasets along with data-generating functions. We will use the wine classification dataset that includes 178 samples of three different types of wines, which we will classify based on features such as alcohol content, hue, malic acid, etc.</p>
@@ -2118,7 +2118,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 </div>
-<p>The data is now stored as a dictionary-style object in the variable <code class="docutils literal notranslate"><span class="pre">wine</span></code>, with the features stored under the key <code class="docutils literal notranslate"><span class="pre">data</span></code> and targets stored under <code class="docutils literal notranslate"><span class="pre">target</span></code>.</p>
+<p>The data are now stored as a dictionary-style object in the variable <code class="docutils literal notranslate"><span class="pre">wine</span></code>, with the features stored under the key <code class="docutils literal notranslate"><span class="pre">data</span></code> and targets stored under <code class="docutils literal notranslate"><span class="pre">target</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wine</span><span class="o">.</span><span class="n">data</span>
@@ -2188,7 +2188,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </section>
 <section id="reduce-dimensionality-of-wine-dataset">
 <span id="id14"></span><h3>13.2.3 Reduce Dimensionality of Wine Dataset<a class="headerlink" href="#reduce-dimensionality-of-wine-dataset" title="Link to this heading">#</a></h3>
-<p>Below is a list of thirteen features in the wine dataset, which is too many to represent in a single plot, so it needs to be paired down to two or three.</p>
+<p>Below is a list of thirteen features in the wine dataset, which is too many to represent in a single plot, so it needs to be pared down to two or three.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wine</span><span class="o">.</span><span class="n">feature_names</span>
@@ -2264,7 +2264,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/87b540a7b544ed426848f27e5edb0673a32ee2049afbf6693791efa6c09cb08f.svg" src="../../_images/87b540a7b544ed426848f27e5edb0673a32ee2049afbf6693791efa6c09cb08f.svg" />
+<img alt="../../_images/8e62c9cd5b38f2a5b5c230e649480da8ad95dc549756145b1bced8009c1cc0b5.svg" src="../../_images/8e62c9cd5b38f2a5b5c230e649480da8ad95dc549756145b1bced8009c1cc0b5.svg" />
 </div>
 </div>
 <p>We can see that the three categories of wine all form cohesive clusters with class 0 and 2 being well resolved and class 1 exhibiting slight overlap with the other two classes of wine. This suggests that we should have better luck distinguishing between class 0 and 2 than between these two classes and class 1.</p>
@@ -2288,7 +2288,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/fe4f0401bc157e57db747e71888e581f2250e2f0c7f3e2f4721f38933e3e4c97.svg" src="../../_images/fe4f0401bc157e57db747e71888e581f2250e2f0c7f3e2f4721f38933e3e4c97.svg" />
+<img alt="../../_images/3427dc310ed292f7a4d7f87db03e1b2da824702ae27122388a7aa958937c0381.svg" src="../../_images/3427dc310ed292f7a4d7f87db03e1b2da824702ae27122388a7aa958937c0381.svg" />
 </div>
 </div>
 <p>We can see three distinct clusters, with the cluster on the bottom being more distinct than the two at the top. Also, notice that the scales of the two features are different by roughly a factor of two. Before we can use this data, we will need to normalize the scale of both features as clustering algorithms are sensitive to scale. For this task, we will use the <code class="docutils literal notranslate"><span class="pre">StandardScaler()</span></code> function introduced in <a class="reference internal" href="#id16"><span class="std std-ref">section 13.2.5</span></a>.</p>
@@ -2300,7 +2300,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 </div>
-<p>Now that the data is scaled, we will initiate our model, train it using the <code class="docutils literal notranslate"><span class="pre">fit()</span></code> method, and examine the predictions using the <code class="docutils literal notranslate"><span class="pre">labels_</span></code> attribute.</p>
+<p>Now that the data are scaled, we will initiate our model, train it using the <code class="docutils literal notranslate"><span class="pre">fit()</span></code> method, and examine the predictions using the <code class="docutils literal notranslate"><span class="pre">labels_</span></code> attribute.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">DBSCAN</span>
@@ -2952,17 +2952,17 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/14a0497e4035533829d711f113ee10dd5a09355d9f00c7aa38cf908a7dea7442.svg" src="../../_images/14a0497e4035533829d711f113ee10dd5a09355d9f00c7aa38cf908a7dea7442.svg" />
+<img alt="../../_images/8e76df636b25f36ee2309fbabfbacd414334e3fc7a98ce26ea8e53a591d25dc4.svg" src="../../_images/8e76df636b25f36ee2309fbabfbacd414334e3fc7a98ce26ea8e53a591d25dc4.svg" />
 </div>
 </div>
 </section>
 <section id="blind-signal-separation">
 <span id="id16"></span><span id="index-12"></span><h3>13.2.5 Blind Signal Separation<a class="headerlink" href="#blind-signal-separation" title="Link to this heading">#</a></h3>
 <p>Blind signal (or source) separation (BSS) is the process of separating independent component signals from a mixed signal. One application is in chemical spectroscopy where a spectrum may include signals from multiple chemical compounds in a mixture. If we provide the BSS algorithm multiple spectra of chemical mixtures where each mixture contains varying amounts of each chemical, the BSS algorithm should be able to separate the signals for each chemical component.</p>
-<p>To demonstrate this process, we will use infrared (IR) spectroscopy data containing mixtures of acetone, cyclohexane, toluene, and methanol in random ratios. Below are plots of four mixtures. We can see that, for example, the bands at ~3400 cm<span class="math notranslate nohighlight">\(^{-1}\)</span> and ~1000 cm<span class="math notranslate nohighlight">\(^{-1}\)</span> increase together suggesting that they originate from the same compound; this type of information can be used to discriminate which band belongs to which compound. However, instead of doing this manually, we can allow the machine learning algorithms to pick apart the spectra, and even better yet, yield complete spectra of each component.</p>
+<p>To demonstrate this process, we will use infrared (IR) spectroscopy data containing mixtures of acetone, cyclohexane, toluene, and methanol in random ratios. Below are plots of four mixtures. We can see that, for example, the bands at ~3400 cm<span class="math notranslate nohighlight">\(^{-1}\)</span> and ~1000 cm<span class="math notranslate nohighlight">\(^{-1}\)</span> increase together, suggesting that they originate from the same compound; this type of information can be used to discriminate which band belongs to which compound. However, instead of doing this manually, we can allow the machine learning algorithms to pick apart the spectra, and even better yet, yield complete spectra of each component.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/1e90dad31fefa0e15aaf01b645bb5de9b119ef9d4ee64a6bfcdff4c07e85bde7.svg" src="../../_images/1e90dad31fefa0e15aaf01b645bb5de9b119ef9d4ee64a6bfcdff4c07e85bde7.svg" />
+<img alt="../../_images/4174df9db788f9c2c906a595193e61f80a4fad22de94e29ddde979a7e166f215.svg" src="../../_images/4174df9db788f9c2c906a595193e61f80a4fad22de94e29ddde979a7e166f215.svg" />
 </div>
 </div>
 <p>For this task, we will use the <em>independent component analysis (ICA)</em> function called <code class="docutils literal notranslate"><span class="pre">fastICA()</span></code> available in scikit-learn. The process parallels the other unsupervised learning processes above of first training the algorithm using the <code class="docutils literal notranslate"><span class="pre">fit()</span></code> method followed by transforming the data using the <code class="docutils literal notranslate"><span class="pre">transform()</span></code> method. First we will load the data from the files and stack them into an array called <code class="docutils literal notranslate"><span class="pre">S_mix</span></code> where each column contains the data from a spectrum. For comparison purposes, we will also load IR spectra of each pure component into an array called <code class="docutils literal notranslate"><span class="pre">S_pure</span></code>. Normally we would not have spectra of pure components, hence the “blind” in blind signal separation, but this is just an example.</p>
@@ -3052,7 +3052,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/073a24ad769537d2a88f3e7da7f7a63e6823343f7059af532bf39361ebf6447e.svg" src="../../_images/073a24ad769537d2a88f3e7da7f7a63e6823343f7059af532bf39361ebf6447e.svg" />
+<img alt="../../_images/1ffdcf8e0ae6229fc4ca32fbaf03fd3fe97fa2b07096a6ce8015ecdace3268ac.svg" src="../../_images/1ffdcf8e0ae6229fc4ca32fbaf03fd3fe97fa2b07096a6ce8015ecdace3268ac.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3074,7 +3074,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/531dc2572f79c1a1db7b5983ab0ca3124a05faef1d8f0c0e00f58b77d692fbf7.svg" src="../../_images/531dc2572f79c1a1db7b5983ab0ca3124a05faef1d8f0c0e00f58b77d692fbf7.svg" />
+<img alt="../../_images/86d4cde8566f2be872e278419086bacf1a2f31bf213533183133d1b01f027461.svg" src="../../_images/86d4cde8566f2be872e278419086bacf1a2f31bf213533183133d1b01f027461.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3096,7 +3096,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4293d73c8f5c0579b8e6373c6431346ef56aa15efeaa3d70db10551d11542468.svg" src="../../_images/4293d73c8f5c0579b8e6373c6431346ef56aa15efeaa3d70db10551d11542468.svg" />
+<img alt="../../_images/5edf62e9ca8c15b62b7c7f8eb33b8ecb67a6f5914555cc3bdb4bcc4f9852b6c4.svg" src="../../_images/5edf62e9ca8c15b62b7c7f8eb33b8ecb67a6f5914555cc3bdb4bcc4f9852b6c4.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3118,10 +3118,10 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f54262d5f0766eec076105951b571642e58beb625e6bd04236a3a03215ce902e.svg" src="../../_images/f54262d5f0766eec076105951b571642e58beb625e6bd04236a3a03215ce902e.svg" />
+<img alt="../../_images/30cb201890fc48b7b18f16fe8ad4b4865778ac577f0d56c1293edee2b27748bb.svg" src="../../_images/30cb201890fc48b7b18f16fe8ad4b4865778ac577f0d56c1293edee2b27748bb.svg" />
 </div>
 </div>
-<p>Overall, the fastICA algorithm did a decent job - sometimes even an impressive job of picking out small features, but there are some discrepancies between the extracted and pure IR spectra. The first is that there are peaks that extend above the extracted spectra. A transmittance over 100% is not possible, but the algorithm does not know this. The <em>y</em>-axis scales of the extracted IR spectra also do not match the percent transmittance. While it is not shown here, sometimes the extracted components are also upside down. This is because the mixtures are assumed to be weighted sums of the components, and a component can be negative. If this bothers you, there is a related BSS algorithm called <em>non-negative matrix factorization (NMF)</em> supported in scikit-learn which requires each component to be non-negative. Finally, you may notice that there is a broad feature at around 3400 cm<span class="math notranslate nohighlight">\(^{-1}\)</span> in the acetone extracted component that is not in the pure compound. This is an O-H stretch from the methanol IR spectrum showing up in the acetone spectrum. This may be the result of hydrogen-bonding between methanol and acetone shifting the O-H bond, breaking down the assumption that the spectra of mixtures are purely additive.</p>
+<p>Overall, the fastICA algorithm did a decent job - sometimes even an impressive job of picking out small features, but there are some discrepancies between the extracted and pure IR spectra. The first is that there are peaks that extend above the extracted spectra. A transmittance over 100% is not possible, but the algorithm does not know this. The <em>y</em>-axis scales of the extracted IR spectra also do not match the percent transmittance. While it is not shown here, sometimes the extracted components are also upside down. This is because the mixtures are assumed to be weighted sums of the components, and a component can be negative. If this bothers you, there is a related BSS algorithm called <em>non-negative matrix factorization (NMF)</em> supported in scikit-learn which requires each component to be non-negative. Finally, you may notice that there is a broad feature at around 3400 cm<span class="math notranslate nohighlight">\(^{-1}\)</span> in the acetone, extracted component that is not in the pure compound. This is an O-H stretch from the methanol IR spectrum showing up in the acetone spectrum. This may be the result of hydrogen-bonding between methanol and acetone shifting the O-H bond, breaking down the assumption that the spectra of mixtures are purely additive.</p>
 </section>
 </section>
 <section id="final-notes">

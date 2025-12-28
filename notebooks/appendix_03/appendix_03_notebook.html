@@ -411,10 +411,10 @@
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="appendix-3-uncertainty-propagation">
 <span id="appendix-03"></span><h1>Appendix 3: Uncertainty Propagation<a class="headerlink" href="#appendix-3-uncertainty-propagation" title="Link to this heading">#</a></h1>
-<p><strong>Uncertainty</strong> occurs in any scientific measurement and is often represented as the standard deviations, <span class="math notranslate nohighlight">\(\sigma\)</span>, of measurements or the 95% confidence interval, 95% CI. When performing calculations containing values with uncertainty, the uncertainty needs to be propagated through the calculations, which is a tedious and error-prone task when done by hand. This appendix demonstrates how to use the Python <code class="docutils literal notranslate"><span class="pre">uncertainties</span></code> package to remove most of the pain from uncertainty propagation along with simulating uncertainty using a random number generator.</p>
+<p><strong>Uncertainty</strong> occurs in any scientific measurement and is often represented as the standard deviation, <span class="math notranslate nohighlight">\(\sigma\)</span>, of measurements or the 95% confidence interval, 95% CI. When performing calculations containing values with uncertainty, the uncertainty needs to be propagated through the calculations, which is a tedious and error-prone task when done by hand. This appendix demonstrates how to use the Python <code class="docutils literal notranslate"><span class="pre">uncertainties</span></code> package to remove most of the pain from uncertainty propagation along with simulating uncertainty using a random number generator.</p>
 <section id="uncertainties-package">
 <h2><code class="docutils literal notranslate"><span class="pre">Uncertainties</span></code> Package<a class="headerlink" href="#uncertainties-package" title="Link to this heading">#</a></h2>
-<p>As of this writing, the <code class="docutils literal notranslate"><span class="pre">uncertainties</span></code> package can be <a class="reference external" href="https://uncertainties.readthedocs.io/en/latest/">installed using pip</a>. We will then import a couple key functions, <code class="docutils literal notranslate"><span class="pre">ufloat()</span></code> and <code class="docutils literal notranslate"><span class="pre">ufloat_fromstr()</span></code>, along with the <code class="docutils literal notranslate"><span class="pre">umath</span></code> module which brings a range of math functions (e.g., log and sin). We will also import NumPy and matplotlib to use in the simulation section.</p>
+<p>As of this writing, the <code class="docutils literal notranslate"><span class="pre">uncertainties</span></code> package can be <a class="reference external" href="https://uncertainties.readthedocs.io/en/latest/">installed using pip</a>. We will then import a couple of key functions, <code class="docutils literal notranslate"><span class="pre">ufloat()</span></code> and <code class="docutils literal notranslate"><span class="pre">ufloat_fromstr()</span></code>, along with the <code class="docutils literal notranslate"><span class="pre">umath</span></code> module which brings a range of math functions (e.g., log and sin). We will also import NumPy and matplotlib to use in the simulation section.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">uncertainties</span> <span class="kn">import</span> <span class="n">ufloat</span><span class="p">,</span> <span class="n">ufloat_fromstr</span>
@@ -524,7 +524,7 @@
 </div>
 </div>
 </div>
-<p>The last one did not include an uncertainty, so the uncertainty was interpreted to be <span class="math notranslate nohighlight">\(\pm\)</span>1 of the least significant decimal place.</p>
+<p>The last one did not include an uncertainty, so the uncertainty was interpreted to be <span class="math notranslate nohighlight">\(\pm\)</span>1 at the least significant decimal place.</p>
 </section>
 <section id="simple-calculations">
 <h3>Simple Calculations<a class="headerlink" href="#simple-calculations" title="Link to this heading">#</a></h3>
@@ -584,7 +584,7 @@
 </section>
 <section id="correlated-values">
 <h3>Correlated Values<a class="headerlink" href="#correlated-values" title="Link to this heading">#</a></h3>
-<p>The above calculations assume that all the values in the calculation have no correlation with each other, which is not always the case. When correlation occurs, this adds an extra layer of complexity to the error propagation calculations. The <code class="docutils literal notranslate"><span class="pre">uncertainties</span></code> package recognizes some correlation automatically and handles it for you such as below when subtracting a value by itself.</p>
+<p>The above calculations assume that all the values in the calculation have no correlation with each other, which is not always the case. When correlation occurs, this adds an extra layer of complexity to the error propagation calculations. The <code class="docutils literal notranslate"><span class="pre">uncertainties</span></code> package recognizes some correlation automatically and handles it for you such as below when subtracting a value from itself.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">-</span> <span class="n">b</span>
@@ -638,7 +638,7 @@
 <span class="n">correlated_values_norm</span><span class="p">(</span><span class="n">nominal_values</span><span class="p">,</span> <span class="n">correlation_matrix</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The good news is that NumPy and SciPy functions can also return the covariance matrix along with the best fit parameters. For example, <code class="docutils literal notranslate"><span class="pre">scipy.optimize.curve_fit()</span></code> automatically returns <code class="docutils literal notranslate"><span class="pre">pcov</span></code> which is the “estimated approximate” covariance matrix and <code class="docutils literal notranslate"><span class="pre">numpy.polyfit(cov=True)</span></code> returns the scaled covariance matrix as a second returned item when <code class="docutils literal notranslate"><span class="pre">cov=True</span></code>.</p>
+<p>The good news is that NumPy and SciPy functions can also return the covariance matrix along with the best fit parameters. For example, <code class="docutils literal notranslate"><span class="pre">scipy.optimize.curve_fit()</span></code> automatically returns <code class="docutils literal notranslate"><span class="pre">pcov</span></code>, which is the “estimated approximate” covariance matrix and <code class="docutils literal notranslate"><span class="pre">numpy.polyfit(cov=True)</span></code> returns the scaled covariance matrix as a second returned item when <code class="docutils literal notranslate"><span class="pre">cov=True</span></code>.</p>
 <p>Below, we will demonstrate this using a calibration curve for absorbance and concentration data using the <code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code> function introduced in <a class="reference internal" href="../chapter_06/chap_06_notebook.html#id14"><span class="std std-ref">section 6.4.1</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -697,7 +697,7 @@
 </div>
 </div>
 </div>
-<p>If we then decide to calculate the concentration for an absorbance of 0.501, for example, <code class="docutils literal notranslate"><span class="pre">uncertainties</span></code> will factor in uncertainty and correlation automatically like below.</p>
+<p>If we then decide to calculate the concentration for an absorbance of 0.501, <code class="docutils literal notranslate"><span class="pre">uncertainties</span></code> will factor in uncertainty and correlation automatically like below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mf">0.501</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">/</span> <span class="n">m</span>
@@ -760,13 +760,13 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">E</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Molar Absorbtivity Constant (cm$^{-1}$M$^{-1}$)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Molar Absorptivity Constant (cm$^{-1}$M$^{-1}$)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/50e98d6d055cd1041284bd18c4a2a7e337159aaea11391a97498050ff19c8546.svg" src="../../_images/50e98d6d055cd1041284bd18c4a2a7e337159aaea11391a97498050ff19c8546.svg" />
+<img alt="../../_images/03f6e9ea99c328e9f1511316802f5b3cd5ddfc94279a1008c7c212142e580838.svg" src="../../_images/03f6e9ea99c328e9f1511316802f5b3cd5ddfc94279a1008c7c212142e580838.svg" />
 </div>
 </div>
 <div class="cell docutils container">

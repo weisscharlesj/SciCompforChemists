@@ -417,7 +417,7 @@
 <span id="id1"></span><span id="index-1"></span><span id="index-0"></span><h1>Chapter 14: Optimization &amp; Root Finding<a class="headerlink" href="#chapter-14-optimization-root-finding" title="Link to this heading">#</a></h1>
 <p><em>Optimization</em> is the process of improving something to the extent that it cannot be reasonably improved any further. This often involves maximizing desirable attributes and/or minimizing those that are undesirable, so finding the maximum and minimum are common optimization goals. While you may or may not have previously worked <em>directly</em> with optimization, you almost certainly have used it as part of a larger application or task such as energy minimization of a molecule, regression analysis, or a number of machine learning algorithms.</p>
 <p>In optimization tasks, we often find ourselves searching for the maximum or minimum of a given mathematical function. If we, for example, seek to minimize a function <span class="math notranslate nohighlight">\(f(a,b)\)</span>, our goal is to find values for input variables <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> to generate the smallest possible output from the function <span class="math notranslate nohighlight">\(f\)</span>. One approach is to manually try different input values until you get the smallest possible output, but this kind of tedious and time-consuming task is best left to computers. The <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module contains a number of tools for performing optimizations of mathematical functions. The goal of this chapter is to introduce the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module and apply it to chemical applications. This chapter does not go into the deeper theory behind optimization, such as specific algorithms. For those interested in some of the deeper theory of optimization, see the <a class="reference internal" href="#fr14"><span class="std std-ref">Further Reading</span></a> section.</p>
-<p>Before we begin, we first need to address how we measure what is “best”? For this, we use a <em>cost function</em>, also known as an <em>objective function</em> or <em>criterion</em>, which is a mathematical function that takes in features and returns a value that is a measure of “goodness.” If we were a company that is trying to maximize our profits, the objective function would likely be some mathematical equation that calculates our net profit. Optimization of a molecule’s conformation involves minimizing the energy, so the objective function here is the function that calculates the energy of the molecule based on the attributes like bond angles and lengths. In the examples below, each of the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> functions takes as its first argument an objective function in the form of a Python function.</p>
+<p>Before we begin, we first need to address how we measure what is “best”? For this, we use a <em>cost function</em>, also known as an <em>objective function</em> or <em>criterion</em>, which is a mathematical function that takes in features and returns a value that is a measure of “goodness.” If we were a company that was trying to maximize our profits, the objective function would likely be some mathematical equation that calculates our net profit. Optimization of a molecule’s conformation involves minimizing the energy, so the objective function here is the function that calculates the energy of the molecule based on the attributes like bond angles and lengths. In the examples below, each of the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> functions takes as its first argument an objective function in the form of a Python function.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">obj_func</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -434,7 +434,7 @@
 </div>
 <section id="minimization">
 <span id="id2"></span><span id="index-2"></span><h2>14.1 Minimization<a class="headerlink" href="#minimization" title="Link to this heading">#</a></h2>
-<p>The first task we will look at is minimization, and for this, <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> has two related functions <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize()</span></code> and <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize_scalar()</span></code>. Both functions minimize the provided function, but the difference is in the number of independent variables that the objective function takes. A function with only one independent variable, <span class="math notranslate nohighlight">\(f(a)\)</span>, is known as <em>univariant</em> while a function that takes multiple independent variables, <span class="math notranslate nohighlight">\(f(a,b,...)\)</span>, is known as <em>multivariant</em>. The <code class="docutils literal notranslate"><span class="pre">minimize()</span></code> function can minimize either multivariant and univariant functions while <code class="docutils literal notranslate"><span class="pre">minimize_scalar()</span></code> can only accept univariant objective functions.</p>
+<p>The first task we will look at is minimization, and for this, <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> has two related functions <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize()</span></code> and <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize_scalar()</span></code>. Both functions minimize the provided function, but the difference is in the number of independent variables that the objective function takes. A function with only one independent variable, <span class="math notranslate nohighlight">\(f(a)\)</span>, is known as <em>univariant</em> while a function that takes multiple independent variables, <span class="math notranslate nohighlight">\(f(a,b,...)\)</span>, is known as <em>multivariant</em>. The <code class="docutils literal notranslate"><span class="pre">minimize()</span></code> function can minimize either multivariant or univariant functions while <code class="docutils literal notranslate"><span class="pre">minimize_scalar()</span></code> can only accept univariant objective functions.</p>
 <section id="univariant-minimization">
 <span id="id3"></span><h3>14.1.1 Univariant Minimization<a class="headerlink" href="#univariant-minimization" title="Link to this heading">#</a></h3>
 <p>If we are trying to minimize a function with a single independent variable, the <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize_scalar()</span></code> is likely a good choice. As a simple example, we will find the radius of minimal energy for two xenon atoms using the Lennard-Jones equation below, which describes the potential energy with respect to the distance, <span class="math notranslate nohighlight">\(r\)</span>, between the two atoms. In this example, <span class="math notranslate nohighlight">\(\sigma\)</span> = 4.10 angstroms and <span class="math notranslate nohighlight">\(\epsilon\)</span> = 1.77 kJ/mol.</p>
@@ -461,7 +461,7 @@
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Because we imported the <code class="docutils literal notranslate"><span class="pre">optimize</span></code> module explicitly in this chapter, calling any function from inside the <code class="docutils literal notranslate"><span class="pre">scipi.optimize</span></code> module does not need to include <code class="docutils literal notranslate"><span class="pre">scipy</span></code>.</p>
+<p>Because we imported the <code class="docutils literal notranslate"><span class="pre">optimize</span></code> module explicitly in this chapter, calling any function from inside the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module does not need to include <code class="docutils literal notranslate"><span class="pre">scipy</span></code>.</p>
 </div>
 </aside>
 <div class="cell docutils container">
@@ -540,7 +540,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1fa19a7aceb9441ffcbab4bdb3f101b5d26153353c8631b760359cafeef16e47.svg" src="../../_images/1fa19a7aceb9441ffcbab4bdb3f101b5d26153353c8631b760359cafeef16e47.svg" />
+<img alt="../../_images/6b81466ff5061de614f73bfcbe7536af6a3de101cc273b3dbde4437af067e128.svg" src="../../_images/6b81466ff5061de614f73bfcbe7536af6a3de101cc273b3dbde4437af067e128.svg" />
 </div>
 </div>
 <aside class="margin sidebar">
@@ -578,7 +578,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/12f7fd1f4884fea35a4773b0df59465e27481369c0a0e601650a517405c4801d.svg" src="../../_images/12f7fd1f4884fea35a4773b0df59465e27481369c0a0e601650a517405c4801d.svg" />
+<img alt="../../_images/89c62e2256da931e123614b5c5afca6081f25f3db1c5f8a41faa974a018231b0.svg" src="../../_images/89c62e2256da931e123614b5c5afca6081f25f3db1c5f8a41faa974a018231b0.svg" />
 </div>
 </div>
 <p>There are multiple ways to make the function negative, like including a negative sign in the Python function definition. Our Python function has already been created, so below we will make the radial probability density negative using a <code class="docutils literal notranslate"><span class="pre">lambda</span></code> function (see <a class="reference internal" href="../chapter_02/chap_02_notebook.html#id6"><span class="std std-ref">section 2.1.4</span></a> for review on lambda functions).</p>
@@ -639,7 +639,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/312897f6b98d77f8fb7755bd5df9a719d560810a89c128be646913c1554b205c.svg" src="../../_images/312897f6b98d77f8fb7755bd5df9a719d560810a89c128be646913c1554b205c.svg" />
+<img alt="../../_images/1601052183dbb8e6695c63b3842285fb07178b9b0629e37d954b3bf5bd336e46.svg" src="../../_images/1601052183dbb8e6695c63b3842285fb07178b9b0629e37d954b3bf5bd336e46.svg" />
 </div>
 </div>
 </section>
@@ -758,14 +758,14 @@
 </section>
 <section id="fitting-equations-to-data">
 <span id="id6"></span><span id="index-7"></span><span id="index-6"></span><h2>14.2 Fitting Equations to Data<a class="headerlink" href="#fitting-equations-to-data" title="Link to this heading">#</a></h2>
-<p>An common application of optimization is fitting an equation to a series of data points, such as a linear regression. While linear regression also  happens to have an analytical solution demonstrated in <a class="reference internal" href="../chapter_08/chap_08_notebook.html#id15"><span class="std std-ref">section 8.3.3</span></a>, we will solve it here using optimization. In the figure below, a regression line (solid orange) runs through the data points. The <em>residuals</em> are the difference between the regression line and the data points (green vertical dotted lines). The goal of linear regression is to generate a regression line that minimizes these residuals.</p>
+<p>A common application of optimization is fitting an equation to a series of data points, such as a linear regression. While linear regression also  happens to have an analytical solution demonstrated in <a class="reference internal" href="../chapter_08/chap_08_notebook.html#id15"><span class="std std-ref">section 8.3.3</span></a>, we will solve it here using optimization. In the figure below, a regression line (solid orange) runs through the data points. The <em>residuals</em> are the difference between the regression line and the data points (green vertical dotted lines). The goal of linear regression is to generate a regression line that minimizes these residuals.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/611c9bb37b2f0913325a4e356aa78ec13ced422fa5948a622aa67e6726f5327c.svg" src="../../_images/611c9bb37b2f0913325a4e356aa78ec13ced422fa5948a622aa67e6726f5327c.svg" />
+<img alt="../../_images/78b86bde778a46fa44dca68c08f330b53f47a07ae55f3fdb041d00af5697807e.svg" src="../../_images/78b86bde778a46fa44dca68c08f330b53f47a07ae55f3fdb041d00af5697807e.svg" />
 </div>
 </div>
 <p><strong>Figure 1</strong> An example of a line of best fit (solid orange) running through data points (blue) with residuals (green dashed) shown as the difference on the <span class="math notranslate nohighlight">\(y\)</span>-axis between the data point and linear regression.</p>
-<p id="index-8">One of the major questions in regression is how do we measure the quality of the fit. We could in principle use the total absolute sum of the residuals, known as the <em>least absolute deviation</em> cost or objective function, but the commonly accepted objective function for fitting equations to data is the <em>mean square error (MSE)</em> function. This is the average of the square of the difference between the equation’s predictions and the actual data points, or another way of wording this is MSE is the average square residual of the fit line. The MSE equation is shown below where <span class="math notranslate nohighlight">\(f_i\)</span> is the <em>y</em>-value from the regression line, <span class="math notranslate nohighlight">\(y_i\)</span> is the data point <em>y</em>-value, and <span class="math notranslate nohighlight">\(N\)</span> is the number of data points.</p>
+<p id="index-8">One of the major questions in regression is to measure the quality of the fit. We could in principle use the total absolute sum of the residuals, known as the <em>least absolute deviation</em> cost or objective function, but the commonly accepted objective function for fitting equations to data is the <em>mean square error (MSE)</em> function. This is the average of the square of the difference between the equation’s predictions and the actual data points, or another way of wording this is MSE is the average square residual of the fit line. The MSE equation is shown below where <span class="math notranslate nohighlight">\(f_i\)</span> is the <em>y</em>-value from the regression line, <span class="math notranslate nohighlight">\(y_i\)</span> is the data point <em>y</em>-value, and <span class="math notranslate nohighlight">\(N\)</span> is the number of data points.</p>
 <div class="math notranslate nohighlight">
 \[ MSE = \frac{1}{N} \sum_{i=1}^{N}{(f_i - y_i)^2} \]</div>
 <p>There are two general types of regression: linear regression and nonlinear regression. The key difference is that the former fits data to a linear equation (or plane or hyperplane for higher dimensions) while the latter fits data to nonlinear equations.</p>
@@ -890,7 +890,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5b32ece834ef03da949ce77957ae14836c18a2c25a30ba9c061560e9c5cea1b9.svg" src="../../_images/5b32ece834ef03da949ce77957ae14836c18a2c25a30ba9c061560e9c5cea1b9.svg" />
+<img alt="../../_images/0ff9173d81028c76403fcf10dbbd8558d551959620ad1a6895d0c5922983f49f.svg" src="../../_images/0ff9173d81028c76403fcf10dbbd8558d551959620ad1a6895d0c5922983f49f.svg" />
 </div>
 </div>
 <p>Now that we have our data, we can fit it to the theoretical equation to extract the rate constants.</p>
@@ -923,7 +923,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0cac4746379a9968cb150826cdac98f0057ea616ffdfad9e9c185ba9e9b9f01d.svg" src="../../_images/0cac4746379a9968cb150826cdac98f0057ea616ffdfad9e9c185ba9e9b9f01d.svg" />
+<img alt="../../_images/3b7f71fbdb70c1f0896c8fb0c885ebef267253c922a71e8df92135b8c253283c.svg" src="../../_images/3b7f71fbdb70c1f0896c8fb0c885ebef267253c922a71e8df92135b8c253283c.svg" />
 </div>
 </div>
 <div class="admonition note">
@@ -1009,7 +1009,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/28817ab7e8edd79d40fcd9fa937d99d612eb4109bd56a8fdc44e2cd475103276.svg" src="../../_images/28817ab7e8edd79d40fcd9fa937d99d612eb4109bd56a8fdc44e2cd475103276.svg" />
+<img alt="../../_images/0e7f14d0edf2f527083ba8b274fb6a9f16d5593bb12feeea93df7bb11eee3b33.svg" src="../../_images/0e7f14d0edf2f527083ba8b274fb6a9f16d5593bb12feeea93df7bb11eee3b33.svg" />
 </div>
 </div>
 <p>Next, we will use the absorbances for each pure dye sample to find the molar absorptivities using Beer’s law. The path length, <span class="math notranslate nohighlight">\(b\)</span>, in this instrument is 1 cm, and the molarities are known from the experimental setup. That is, below  we are solving for molar absorptivity (<span class="math notranslate nohighlight">\(\epsilon\)</span>) by the following.</p>
@@ -1061,7 +1061,7 @@
 </div>
 </div>
 </div>
-<p>The resulting concentrations for the three dyes appears identical (or nearly so) to those calculated by the <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> function.</p>
+<p>The resulting concentrations for the three dyes appear identical (or nearly so) to those calculated by the <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> function.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
@@ -1074,7 +1074,7 @@
 <section id="root-finding">
 <span id="id10"></span><span id="index-14"></span><h2>14.3 Root Finding<a class="headerlink" href="#root-finding" title="Link to this heading">#</a></h2>
 <p>Root finding is the process of determining where a function equals zero, <span class="math notranslate nohighlight">\(f(a,b,...) = 0\)</span>. Being that any equation can be rearranged to equal zero, this is a versatile way of solving an equation. If the function is univariant, <span class="math notranslate nohighlight">\(f(a)=0\)</span>, this task may sometimes seem trivial even without optimization algorithms, but as the complexity of the equation or number of variables increases, using optimization algorithms can be beneficial.</p>
-<p>Like the minimization functions above, there are two related versions of the root finding functions: <code class="docutils literal notranslate"><span class="pre">scipy.optimize.root()</span></code> and <code class="docutils literal notranslate"><span class="pre">scipy.optimize.root_scalar()</span></code>. The key difference is that the <code class="docutils literal notranslate"><span class="pre">root()</span></code> function can solve for both univariant and multivariant functions while <code class="docutils literal notranslate"><span class="pre">root_scalar()</span></code> can only solve for univariant functions. Both functions require a function, <code class="docutils literal notranslate"><span class="pre">func</span></code>, to find the root of, and <code class="docutils literal notranslate"><span class="pre">root()</span></code> function also requires an initial guess, <code class="docutils literal notranslate"><span class="pre">x0</span></code>. The <code class="docutils literal notranslate"><span class="pre">root_scalar()</span></code> function also allows for an optional range of values that bracket the root, <code class="docutils literal notranslate"><span class="pre">bracket=</span></code> to be provides by the user.</p>
+<p>Like the minimization functions above, there are two related versions of the root finding functions: <code class="docutils literal notranslate"><span class="pre">scipy.optimize.root()</span></code> and <code class="docutils literal notranslate"><span class="pre">scipy.optimize.root_scalar()</span></code>. The key difference is that the <code class="docutils literal notranslate"><span class="pre">root()</span></code> function can solve for both univariant and multivariant functions while <code class="docutils literal notranslate"><span class="pre">root_scalar()</span></code> can only solve for univariant functions. Both functions require a function, <code class="docutils literal notranslate"><span class="pre">func</span></code>, to find the root of, and <code class="docutils literal notranslate"><span class="pre">root()</span></code> function also requires an initial guess, <code class="docutils literal notranslate"><span class="pre">x0</span></code>. The <code class="docutils literal notranslate"><span class="pre">root_scalar()</span></code> function also allows for an optional range of values that bracket the root, <code class="docutils literal notranslate"><span class="pre">bracket=</span></code> to be provided by the user.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x0</span><span class="p">)</span>
 <span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">root_scalar</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">bracket</span><span class="o">=</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">))</span>
 </pre></div>
@@ -1083,7 +1083,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">orbital_3s</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
-    <span class="n">wf</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">27</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">9</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">r</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span><span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">r</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">wf</span> <span class="o">=</span> <span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span><span class="o">/</span><span class="mi">27</span><span class="p">)</span><span class="o">*</span><span class="p">((</span><span class="mi">2</span><span class="o">/</span><span class="mi">9</span><span class="p">)</span><span class="o">*</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">r</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span><span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">r</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">wf</span>
 </pre></div>
 </div>
@@ -1104,7 +1104,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/36fd864d697e92104c3784a7916d33818b9de0961ded76b54ef571896e279bee.svg" src="../../_images/36fd864d697e92104c3784a7916d33818b9de0961ded76b54ef571896e279bee.svg" />
+<img alt="../../_images/c6cb01e302bf634d1172dc15e52b6a9d35c8704eedf788315a75ab6bbb1f2181.svg" src="../../_images/c6cb01e302bf634d1172dc15e52b6a9d35c8704eedf788315a75ab6bbb1f2181.svg" />
 </div>
 </div>
 <p>The function has two nodes, so our <code class="docutils literal notranslate"><span class="pre">bracket=</span></code> values will determine which we will end up
@@ -1139,7 +1139,7 @@ solving for.</p>
            flag: converged
  function_calls: 9
      iterations: 8
-           root: 7.098076211353316
+           root: 7.098076211353317
          method: brentq
 </pre></div>
 </div>
@@ -1161,7 +1161,7 @@ solving for.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/550ded267e38f28f2bdb486bf0f2671b40dd412e9aa791e06d330a0071bea487.svg" src="../../_images/550ded267e38f28f2bdb486bf0f2671b40dd412e9aa791e06d330a0071bea487.svg" />
+<img alt="../../_images/a3a8406bbf70e25618bbc3ce5eca477f9048c791fb4cc6a4ff864e7d45d4ea28.svg" src="../../_images/a3a8406bbf70e25618bbc3ce5eca477f9048c791fb4cc6a4ff864e7d45d4ea28.svg" />
 </div>
 </div>
 <p>The two dots above show the location of the two roots for this function which clearly are located on the nodes of the wave function.</p>
@@ -1276,7 +1276,7 @@ solving for.</p>
 <li id="index-19"><p>The van der Waals equation is a modified form of the ideal gas law but includes two correction factors that account for intermolecular forces and the volume of gas molecules. These correction factors include constants <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> which are gas-dependent, and the values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> can be calculated by fitting the van der Waals equation to pressure versus volume data.</p>
 <div class="math notranslate nohighlight">
 \[ \left(P + a\frac{n^2}{V^2} \right) (V - nb) = nRT \]</div>
-<p>Load the file <code class="docutils literal notranslate"><span class="pre">PV_CO.csv</span></code> containing pressure and volume data for one mole of carbon monixide at 298 K acquired from the <a class="reference external" href="https://webbook.nist.gov/chemistry/">NIST Chemistry WebBook</a>. Fit the van der Waals equation to this dataset to determine <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> values for carbon monoxide.</p>
+<p>Load the file <code class="docutils literal notranslate"><span class="pre">PV_CO.csv</span></code> containing pressure and volume data for one mole of carbon monoxide at 298 K acquired from the <a class="reference external" href="https://webbook.nist.gov/chemistry/">NIST Chemistry WebBook</a>. Fit the van der Waals equation to this dataset to determine <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> values for carbon monoxide.</p>
 </li>
 </ol>
 </section>

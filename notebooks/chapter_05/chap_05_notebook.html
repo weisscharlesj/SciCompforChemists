@@ -1072,7 +1072,7 @@ END
 </div>
 <p>If we check the directory containing the Jupyter notebook, the data folder contains a file titled <em>elements.csv</em> that looks like the following. Each row in the DataFrame is a different line in the file, and every column is separated by a comma.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>,H,He,Li,Be,B
-name,hydrogen,helium,lithium,berylium,boron
+name,hydrogen,helium,lithium,beryllium,boron
 AN,1,2,3,4,5
 mass,1.01,4.0,6.94,9.01,10.81
 IE,13.6,24.6,5.4,9.3,8.3
@@ -1374,7 +1374,7 @@ IE,13.6,24.6,5.4,9.3,8.3
 </table>
 </div></div></div>
 </div>
-<p>Alternatively, if you want to extract the sheet names, you can use the <code class="docutils literal notranslate"><span class="pre">sheets_names</span></code> method with the <code class="docutils literal notranslate"><span class="pre">ExcelFile</span></code> class as demonstrated below.</p>
+<p>Alternatively, if you want to extract the sheet names, you can use the <code class="docutils literal notranslate"><span class="pre">sheet_names</span></code> attribute with the <code class="docutils literal notranslate"><span class="pre">ExcelFile</span></code> class as demonstrated below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelFile</span><span class="p">(</span><span class="s1">&#39;data/test.xlsx&#39;</span><span class="p">)</span>
@@ -1569,7 +1569,7 @@ IE,13.6,24.6,5.4,9.3,8.3
 </table>
 </div></div></div>
 </div>
-<p>Pandas also contains a <code class="docutils literal notranslate"><span class="pre">describe()</span></code> function that returns a variety of statistics on each column. For example, the mean is provided, which are approximately 0.5, 0.0, and 3.0 for the even, normal, and poisson distributions, respectively. This is not surprising, being that the even distribution is centered around 0.5, the normal around 0.0, and the poisson distribution is generated for an average of 3.0. The user is also provided with the minimum, maximum, standard deviation, and the quartile boundaries.</p>
+<p>Pandas also contains a <code class="docutils literal notranslate"><span class="pre">describe()</span></code> function that returns a variety of statistics on each column. For example, the means are provided, which are approximately 0.5, 0.0, and 3.0 for the even, normal, and poisson distributions, respectively. This is not surprising, being that the even distribution is centered around 0.5, the normal around 0.0, and the poisson distribution is generated for an average of 3.0. The user is also provided with the minimum, maximum, standard deviation, and the quartile boundaries.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -1687,7 +1687,7 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b278ab40ad6ce1074efac7615bb7a58e0679c67e6f7b96927bfa1764f3b6f309.svg" src="../../_images/b278ab40ad6ce1074efac7615bb7a58e0679c67e6f7b96927bfa1764f3b6f309.svg" />
+<img alt="../../_images/2067455ea3e9f02afb0508ae794d159d674c748e5bb4a920b9842b5839aea06c.svg" src="../../_images/2067455ea3e9f02afb0508ae794d159d674c748e5bb4a920b9842b5839aea06c.svg" />
 </div>
 </div>
 </section>
@@ -1742,7 +1742,7 @@ Name: count, dtype: int64
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The default delta degree of freedom (<code class="docutils literal notranslate"><span class="pre">ddof</span></code>) of the <code class="docutils literal notranslate"><span class="pre">std()</span></code> function in pandas equals one unlike Microsoft Excel or NumPy (<a class="reference internal" href="../chapter_04/chap_04_notebook.html#id23"><span class="std std-ref">see section 4.5</span></a>) where the default is zero. This behavior can be modified with the <code class="docutils literal notranslate"><span class="pre">ddof=1</span></code> argument.</p>
+<p>The default delta degrees of freedom (<code class="docutils literal notranslate"><span class="pre">ddof</span></code>) of the <code class="docutils literal notranslate"><span class="pre">std()</span></code> function in pandas equals one unlike Microsoft Excel or NumPy (<a class="reference internal" href="../chapter_04/chap_04_notebook.html#id23"><span class="std std-ref">see section 4.5</span></a>) where the default is zero. This behavior can be modified with the <code class="docutils literal notranslate"><span class="pre">ddof=1</span></code> argument.</p>
 </div>
 </aside>
 </section>
@@ -2815,9 +2815,9 @@ dtype: object
 <li><p>Chemical Kinetics: Import the file <strong>kinetics.csv</strong> containing time series data for the conversion of A <span class="math notranslate nohighlight">\(\rightarrow\)</span> Product using pandas IO tools. Generate new columns for <span class="math notranslate nohighlight">\(ln[A]\)</span>, <span class="math notranslate nohighlight">\([A]^{-1}\)</span>, and <span class="math notranslate nohighlight">\([A]^{0.5}\)</span> and determine the order of the reaction.</p></li>
 <li><p>Import the <strong>ROH_data.csv</strong> file containing data on various simple alcohols to a DataFrame. Notice that this data is missing densities for some of the compounds.</p>
 <p>a) Use pandas to remove any rows with incomplete information in the density column using the <code class="docutils literal notranslate"><span class="pre">pd.dropna()</span></code>           function. Check the DataFrame to see if it has changed.</p>
-<p>b) Again using the <code class="docutils literal notranslate"><span class="pre">pd.dropna()</span></code> function, drop incomplete row with the parameter <code class="docutils literal notranslate"><span class="pre">inplace=True</span></code>. Check to see if the     DataFrame has changed.</p>
+<p>b) Again using the <code class="docutils literal notranslate"><span class="pre">pd.dropna()</span></code> function, drop incomplete rows with the parameter <code class="docutils literal notranslate"><span class="pre">inplace=True</span></code>. Check to see if the     DataFrame has changed.</p>
 </li>
-<li><p>Import the following four files containing UV-vis spectra of four food dyes with the first column listing the wavelengths (nm) and the second column containing the absorbances. Each file contains data in from 400-850 nm in 1 nm increments.</p>
+<li><p>Import the following four files containing UV-vis spectra of four food dyes with the first column listing the wavelengths (nm) and the second column containing the absorbances. Each file contains data from 400-850 nm in 1 nm increments.</p>
 <div class="math notranslate nohighlight">
 \[ red40.csv \quad green3.csv \quad  blue1.csv \quad yellow6.csv \]</div>
 <p>a) Concatenate the files into a single DataFrame with the first column as the wavelength (nm) and the other         four columns as the absorbances for each dye.</p>

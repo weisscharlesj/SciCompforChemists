@@ -514,12 +514,12 @@
 </div>
 </div>
 </div>
-<p>Despite the power and utility of the scikit-image library, there is a significant amount of image processing and analysis that can be performed using NumPy functionality. This is especially true being that scikit-image imports/stores images as NumPy arrays.</p>
+<p>Despite the power and utility of the scikit-image library, there is a significant amount of image processing and analysis that can be performed using NumPy functionality. This is especially true since scikit-image imports/stores images as NumPy arrays.</p>
 <section id="basic-image-structure">
 <span id="id2"></span><span id="index-1"></span><h2>7.1 Basic Image Structure<a class="headerlink" href="#basic-image-structure" title="Link to this heading">#</a></h2>
 <p>Most images are <em>raster</em> images, which are essentially a grid of pixels where each location on the grid is a number describing that pixel. If the image is a grayscale image, these values represent how light or dark each pixel is; and if it is a color image, the value(s) at each location describe the color. Figure 1 shows a grayscale photo of a flask containing crystals, with a 10 <span class="math notranslate nohighlight">\(\times\)</span> 10 pixel excerpt showing the brightness values from the photo. While there is another major class of images known as <em>vector</em> images, we will restrict ourselves to dealing with raster images in this chapter as primary scientific data tend to be raster images.</p>
 <p><img alt="" src="../../_images/image_data_graphic.png" /></p>
-<p><strong>Figure 1</strong> An excerpts of values from a grayscale image showing values representing the brightness of each pixel.</p>
+<p><strong>Figure 1</strong> An excerpt of values from a grayscale image showing values representing the brightness of each pixel.</p>
 <section id="loading-images">
 <span id="id3"></span><h3>7.1.1 Loading Images<a class="headerlink" href="#loading-images" title="Link to this heading">#</a></h3>
 <p id="index-2">The scikit-image library includes a <code class="docutils literal notranslate"><span class="pre">data</span></code> module containing a series of images for the user to experiment with. To display images in the notebook, use the matplotlib <code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code> function. Each image in the <code class="docutils literal notranslate"><span class="pre">data</span></code> module has a function for fetching the image, and you can find a complete list of images/functions in the <code class="docutils literal notranslate"><span class="pre">data</span></code> module by typing <code class="docutils literal notranslate"><span class="pre">help(data)</span></code>. We will open and view the image of a grayscale lunar surface using the <code class="docutils literal notranslate"><span class="pre">data.moon()</span></code> function.</p>
@@ -535,7 +535,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c8efc62cecfa535697b7bc3d4f81c41fd6494d6678d9f118ded0614fc5acac52.svg" src="../../_images/c8efc62cecfa535697b7bc3d4f81c41fd6494d6678d9f118ded0614fc5acac52.svg" />
+<img alt="../../_images/7fbaacbde620f10fd8a44de75eb5be267b7496dece8913645bf8bc35fc0b124f.svg" src="../../_images/7fbaacbde620f10fd8a44de75eb5be267b7496dece8913645bf8bc35fc0b124f.svg" />
 </div>
 </div>
 <p>The image does not look like a grayscale image because matplotlib is treating the image as data (see <a class="reference internal" href="#id6"><span class="std std-ref">section 7.1.4</span></a>). Use <code class="docutils literal notranslate"><span class="pre">cmap='gray',</span> <span class="pre">vmin=0,</span> <span class="pre">vmax=255</span></code> to make the image look like a grayscale image.</p>
@@ -551,7 +551,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/33394309b3d28cf0d13d1cd1de3ebb7fba42065791290339abae25228b0ece35.svg" src="../../_images/33394309b3d28cf0d13d1cd1de3ebb7fba42065791290339abae25228b0ece35.svg" />
+<img alt="../../_images/c646052907e97efc64519de6ab7333fb4ad8c2ba7aa7fe97e592da2d93eb4fcc.svg" src="../../_images/c646052907e97efc64519de6ab7333fb4ad8c2ba7aa7fe97e592da2d93eb4fcc.svg" />
 </div>
 </div>
 <p>If we take a closer look at the data contained inside the lunar surface image, we find a two-dimensional NumPy array filled with integers ranging from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255.</p>
@@ -573,7 +573,7 @@
 </div>
 </div>
 </div>
-<p>Each of these values represents a lightness value where 0 is black, 255 is white, and all other values are various shades of gray. To manipulate the image, we can use NumPy methods, being that scikit-image stores images as ndarrays. For example, the image can be darkened by dividing all the values by two. Because this array is designated to contain integers (<code class="docutils literal notranslate"><span class="pre">dtype</span> <span class="pre">=</span> <span class="pre">uint8</span></code>), integer division (<code class="docutils literal notranslate"><span class="pre">//</span></code>) is used to avoid floats.</p>
+<p>Each of these values represents a lightness value where 0 is black, 255 is white, and all other values are various shades of gray. To manipulate the image, we can use NumPy methods, since scikit-image stores images as ndarrays. For example, the image can be darkened by dividing all the values by two. Because this array is designated to contain integers (<code class="docutils literal notranslate"><span class="pre">dtype</span> <span class="pre">=</span> <span class="pre">uint8</span></code>), integer division (<code class="docutils literal notranslate"><span class="pre">//</span></code>) is used to avoid floats.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">moon_dark</span> <span class="o">=</span> <span class="n">moon</span> <span class="o">//</span> <span class="mi">2</span>
@@ -582,13 +582,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/508a6594764d7461415298cb3e52f0b062d7d1e9ab05914560acd013adf0b484.svg" src="../../_images/508a6594764d7461415298cb3e52f0b062d7d1e9ab05914560acd013adf0b484.svg" />
+<img alt="../../_images/2cd58968591fd91c9f842d0eb4dd75283296a93fe7ec9cc82b08bcf2d74546bf.svg" src="../../_images/2cd58968591fd91c9f842d0eb4dd75283296a93fe7ec9cc82b08bcf2d74546bf.svg" />
 </div>
 </div>
 </section>
 <section id="color-images">
 <span id="id4"></span><span id="index-3"></span><h3>7.1.2 Color Images<a class="headerlink" href="#color-images" title="Link to this heading">#</a></h3>
-<p>Color images are slightly more complicated to represent because all necessary colors cannot be represented by single integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255. Probably the most popular way to digitally encode colors is <em>RGB</em>, which describes every color as a combination of red, green, and blue (Figure 2). These are also known as <em>color channels</em>, and this is typically how computer monitors display colors. If you look close enough at the screen, which may require a magnifying glass for high-resolution displays, you can see that every pixel is really made up of three lights: a red, a green, and a blue. Their perceived color is a mixture or blend of the red, green, and blue values. Being that every pixel now has three values to describe it, a NumPy array that defines a color image is three-dimensional. The first two dimensions are the height and width of the image, and the third dimension contains values from each of the three color channels.</p>
+<p>Color images are slightly more complicated to represent because all necessary colors cannot be represented by single integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255. Probably the most popular way to digitally encode colors is <em>RGB</em>, which describes every color as a combination of red, green, and blue (Figure 2). These are also known as <em>color channels</em>, and this is typically how computer monitors display colors. If you look closely enough at the screen, which may require a magnifying glass for high-resolution displays, you can see that every pixel is really made up of three lights: a red, a green, and a blue. Their perceived color is a mixture or blend of the red, green, and blue values. Since every pixel now has three values to describe it, a NumPy array that defines a color image is three-dimensional. The first two dimensions are the height and width of the image, and the third dimension contains values from each of the three color channels.</p>
 <p><code class="docutils literal notranslate"><span class="pre">[row,</span> <span class="pre">column,</span> <span class="pre">channel]</span></code></p>
 <p><img alt="" src="../../_images/image_data_graphic_color.png" /></p>
 <p><strong>Figure 2</strong> An excerpt of the red, green, and blue color channels for a small portion of a color image. The values in each channel represent the brightness of that color in each pixel.</p>
@@ -602,7 +602,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4bff6d4922c509974944bb00c71298bbde79078e9e8178310ccea8c7f00c0551.svg" src="../../_images/4bff6d4922c509974944bb00c71298bbde79078e9e8178310ccea8c7f00c0551.svg" />
+<img alt="../../_images/26345a14660b58d2aeba061c40d41df700a7f8efa0e948e85a0aec8ecb12e3cc.svg" src="../../_images/26345a14660b58d2aeba061c40d41df700a7f8efa0e948e85a0aec8ecb12e3cc.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -665,7 +665,7 @@
 </div>
 </div>
 </div>
-<p>Looking at the array, you will notice that it is indeed three-dimensional with values residing in triplets. You may also notice that the numbers are rather small because most pixels in this particular image are near black. If we want to look at just the red values of the image, this can be accomplish by slicing the array.  The red is the first layer in the third dimension, so we should slice it <code class="docutils literal notranslate"><span class="pre">hubble[:,</span> <span class="pre">:,</span> <span class="pre">0]</span></code>. The brighter a group of pixels in the red channel image, the more red color that is present in that region.</p>
+<p>Looking at the array, you will notice that it is indeed three-dimensional with values residing in triplets. You may also notice that the numbers are rather small because most pixels in this particular image are near black. If we want to look at just the red values of the image, this can be accomplished by slicing the array.  The red is the first layer in the third dimension, so we should slice it <code class="docutils literal notranslate"><span class="pre">hubble[:,</span> <span class="pre">:,</span> <span class="pre">0]</span></code>. The brighter a group of pixels in the red channel image, the more red color that is present in that region.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">hubble</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">255</span><span class="p">);</span>
@@ -673,13 +673,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2fd484e450772ecf03fa19e97a8c2bf13b6c4cd626ef22759cad180a8336fec2.svg" src="../../_images/2fd484e450772ecf03fa19e97a8c2bf13b6c4cd626ef22759cad180a8336fec2.svg" />
+<img alt="../../_images/be7a82f382dc6ae1eaef0e5404c214efac8a1a8939c4f7f9d003cc0ac1d95495.svg" src="../../_images/be7a82f382dc6ae1eaef0e5404c214efac8a1a8939c4f7f9d003cc0ac1d95495.svg" />
 </div>
 </div>
 </section>
 <section id="external-images">
 <span id="id5"></span><h3>7.1.3 External Images<a class="headerlink" href="#external-images" title="Link to this heading">#</a></h3>
-<p>Alternatively, images can be loaded from an external source using the <code class="docutils literal notranslate"><span class="pre">io.imread()</span></code> function provided by scikit-image. This function requires one argument to tell scikit-image which image the user wants to load. If your Jupyter notebook is in the same directory as the image you want to load, you can simply input the full file name, including the extension, as a string. Otherwise, you will need to include the full path to the file in addition to the name. Below is an image showing a flask full of [Ni(CH<span class="math notranslate nohighlight">\(_3\)</span>CN)<span class="math notranslate nohighlight">\(_6\)</span>][BF<span class="math notranslate nohighlight">\(_4\)</span>]<span class="math notranslate nohighlight">\(_2\)</span> crystals is read into Python.</p>
+<p>Alternatively, images can be loaded from an external source using the <code class="docutils literal notranslate"><span class="pre">io.imread()</span></code> function provided by scikit-image. This function requires one argument to tell scikit-image which image the user wants to load. If your Jupyter notebook is in the same directory as the image you want to load, you can simply input the full file name, including the extension, as a string. Otherwise, you will need to include the full path to the file in addition to the name. For example, below is a photo of [Ni(CH<span class="math notranslate nohighlight">\(_3\)</span>CN)<span class="math notranslate nohighlight">\(_6\)</span>][BF<span class="math notranslate nohighlight">\(_4\)</span>]<span class="math notranslate nohighlight">\(_2\)</span> crystals, which is loaded into Python.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flask</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;data/flask.png&#39;</span><span class="p">)</span>
@@ -688,7 +688,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/07fb1565dfa89daa41ca2550ae36bf57cbe7c39de757b345c548330afa8e2ae2.svg" src="../../_images/07fb1565dfa89daa41ca2550ae36bf57cbe7c39de757b345c548330afa8e2ae2.svg" />
+<img alt="../../_images/cd8e13e3b825e11cb2147e19635679fb272f9b27d0f390826861e5063a44a24f.svg" src="../../_images/cd8e13e3b825e11cb2147e19635679fb272f9b27d0f390826861e5063a44a24f.svg" />
 </div>
 </div>
 <p>If we look at the array for the flask image below, you will notice that this is a three-dimensional array with four color channels. This can happen in some file types such as Portable Network Graphics (PNG) where a fourth <em>alpha color channel</em> is supported, making the coding RGBA. This channel measures opacity, which is how non-transparent a pixel is. All of the pixels in this image are fully opaque, which is represented by <code class="docutils literal notranslate"><span class="pre">255</span></code>. If the image was fully transparent, the alpha values would be all zeros, and anything in between would be translucent. PNG images support an alpha channel as do many image formats, but JPG/JPEG images do not support this feature.</p>
@@ -755,7 +755,7 @@
 </section>
 <section id="colormaps">
 <span id="id6"></span><span id="index-4"></span><h3>7.1.4 Colormaps<a class="headerlink" href="#colormaps" title="Link to this heading">#</a></h3>
-<p>When matplotlib deals with a NumPy array, it treats it as generic data, not an image. The human mind does not effectively handle data on this scale, so to make it easier for humans to interpret, matplotlib maps the values to colors according the colormap on the right. This is known as <strong>false color</strong> because the colors in the image are not the real image colors. By default, the colormap <em>viridis</em> is used, but there are many other colormaps available to choose from in matplotlib. Below is the red color channel from the Hubble image displayed, so  using the <code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code> function.</p>
+<p>When matplotlib deals with a NumPy array, it treats it as generic data, not an image. The human mind does not effectively handle data on this scale, so to make it easier for humans to interpret, matplotlib maps the values to colors according to the colormap on the right. This is known as <strong>false color</strong> because the colors in the image are not the real image colors. By default, the colormap <em>viridis</em> is used, but there are many other colormaps available to choose from in matplotlib. Below is the red color channel from the Hubble image displayed, so  using the <code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -765,7 +765,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/eda724f4574edcec4d27fb6566957c1a5cb173ea93ac3f236ee0a44d154a7fe1.svg" src="../../_images/eda724f4574edcec4d27fb6566957c1a5cb173ea93ac3f236ee0a44d154a7fe1.svg" />
+<img alt="../../_images/a2813b8059cd78bb54c773b82b41cf7cc5274df73fc79a6d496ff941a6f80438.svg" src="../../_images/a2813b8059cd78bb54c773b82b41cf7cc5274df73fc79a6d496ff941a6f80438.svg" />
 </div>
 </div>
 <p>To change colormaps, input the name of a different colormap as a string in the optional <code class="docutils literal notranslate"><span class="pre">cmap</span></code> argument (e.g., <code class="docutils literal notranslate"><span class="pre">plt.imshow(hubble[:,:,0],</span> <span class="pre">cmap='magma')</span></code>). See <a class="reference external" href="https://matplotlib.org/examples/color/colormaps_reference.html">https://matplotlib.org/examples/color/colormaps_reference.html</a> for a list of available colormaps. It is strongly encouraged to use one of the <em>perceptually uniform</em> colormaps because they are more accurately interpreted by humans and also show up as a smooth, interpretable gradient when printed on a grayscale printer. Below is the display of the Hubble image red channel using the <code class="docutils literal notranslate"><span class="pre">Reds</span></code> colormap.</p>
@@ -776,7 +776,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/182766f4581f29bb7c151ded8a87d7c92cb63fee4eb732e10618c7172156722b.svg" src="../../_images/182766f4581f29bb7c151ded8a87d7c92cb63fee4eb732e10618c7172156722b.svg" />
+<img alt="../../_images/4fb32caacfcf09e2a4bcedeff1af880b36faf59bcb0e041b57d54c9e02eb0fd6.svg" src="../../_images/4fb32caacfcf09e2a4bcedeff1af880b36faf59bcb0e041b57d54c9e02eb0fd6.svg" />
 </div>
 </div>
 <aside class="margin sidebar">
@@ -814,12 +814,12 @@
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">color.rgb2gray()</span></code></p></td>
-<td class="text-left"><p>Coverts from RGB to grayscale</p></td>
+<td class="text-left"><p>Converts from RGB to grayscale</p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">color.gray2rgb()</span></code></p></td>
-<td class="text-left"><p>Coverts grayscale to RGB; by just replicating the gray values into three color channels</p></td>
+<td class="text-left"><p>Converts grayscale to RGB; by just replicating the gray values into three color channels</p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">color.hsv2rbg()</span></code></p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">color.hsv2rgb()</span></code></p></td>
 <td class="text-left"><p>HSV to RGB conversion</p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">color.xyz2rgb()</span></code></p></td>
@@ -858,7 +858,7 @@
 </section>
 <section id="encoding">
 <span id="id10"></span><span id="index-7"></span><h3>7.2.2 Encoding<a class="headerlink" href="#encoding" title="Link to this heading">#</a></h3>
-<p><em>Encoding</em> is how the values are presented in the image array. The two most common are integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255 or floats from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1. However, there are other ranges outlined in Table 3. The difference between signed integers (<code class="docutils literal notranslate"><span class="pre">int</span></code>) and unsigned integers (<code class="docutils literal notranslate"><span class="pre">uint</span></code>) is that unsigned integers are only positive integers starting with zero, while signed integers are both positive and negative centered approximately around zero. The approximate part is because there are equal numbers of positive and negative integers, and being that zero is a positive integer, zero is not the exact center. To determine what the range of values is for an image, scikit-image provides the function <code class="docutils literal notranslate"><span class="pre">skimage.dtype.limits()</span></code>.</p>
+<p><em>Encoding</em> is how the values are presented in the image array. The two most common are integers from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255 or floats from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1. However, there are other ranges outlined in Table 3. The difference between signed integers (<code class="docutils literal notranslate"><span class="pre">int</span></code>) and unsigned integers (<code class="docutils literal notranslate"><span class="pre">uint</span></code>) is that unsigned integers are only positive integers starting with zero, while signed integers are both positive and negative centered approximately around zero. The approximate part is because there are equal numbers of positive and negative integers, and since zero is a positive integer, zero is not the exact center. To determine what the range of values is for an image, scikit-image provides the function <code class="docutils literal notranslate"><span class="pre">skimage.dtype.limits()</span></code>.</p>
 <p>Scikit-image also provides some convenient functions for converting to various value ranges described in Table 3. These functions are not contained in a module, so you will need to just do an <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">skimage</span></code> to get access, which was done at the start of this chapter. The one format that probably needs commenting on is the Boolean format. In this encoding, every pixel is a <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> value, which is equivalent to saying <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">0</span></code>. This is for black-and-white images where each pixel is one of two possible values.</p>
 <p><strong>Table 3</strong> Scikit-Image Functions for Converting Data Types</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -877,7 +877,7 @@
 <tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">skimage.img_as_int()</span></code></p></td>
 <td class="text-left"><p>Converts to integers from -32768 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 32767</p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">akimage.img_as_bool()</span></code></p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">skimage.img_as_bool()</span></code></p></td>
 <td class="text-left"><p>Converts to Boolean (i.e., <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>) format</p></td>
 </tr>
 <tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">skimage.img_as_float32()</span></code></p></td>
@@ -903,8 +903,8 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hubble_gray_unint8</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">img_as_ubyte</span><span class="p">(</span><span class="n">hubble_gray</span><span class="p">)</span>
-<span class="n">skimage</span><span class="o">.</span><span class="n">dtype_limits</span><span class="p">(</span><span class="n">hubble_gray_unint8</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hubble_gray_uint8</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">img_as_ubyte</span><span class="p">(</span><span class="n">hubble_gray</span><span class="p">)</span>
+<span class="n">skimage</span><span class="o">.</span><span class="n">dtype_limits</span><span class="p">(</span><span class="n">hubble_gray_uint8</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -929,7 +929,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/38612547f9619101954020fcfc6a92eed95ef2b58c303cb38c2478720f2a7462.svg" src="../../_images/38612547f9619101954020fcfc6a92eed95ef2b58c303cb38c2478720f2a7462.svg" />
+<img alt="../../_images/081a8510839c26dafd229c3fd171f5a732c0d6e6c59935958e43ee1286bc96b4.svg" src="../../_images/081a8510839c26dafd229c3fd171f5a732c0d6e6c59935958e43ee1286bc96b4.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -941,7 +941,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a989f040c587cf4a181d65d9adfdae51a76b23dd69ca5037e416dc687f2b557e.svg" src="../../_images/a989f040c587cf4a181d65d9adfdae51a76b23dd69ca5037e416dc687f2b557e.svg" />
+<img alt="../../_images/b9cd2d1a4957ddb0cfd699d8bfb698d12d4b8bcdb88d403b638b821d0198b315.svg" src="../../_images/b9cd2d1a4957ddb0cfd699d8bfb698d12d4b8bcdb88d403b638b821d0198b315.svg" />
 </div>
 </div>
 <p>The appropriate threshold may vary from image to image, so manually setting a value is not always practical. Scikit-image provides a number of functions, shown below in Table 4, from the filters module for automatically choosing a threshold. If you are not sure which of the functions below to use, there is a <code class="docutils literal notranslate"><span class="pre">try_all_filters()</span></code> function in the filters module that will try seven of them and plot the results for easy comparison.</p>
@@ -1013,7 +1013,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9576a5c94aa5389ad1be1ad94c605f6a3c5607524457503812b45238868f38fe.svg" src="../../_images/9576a5c94aa5389ad1be1ad94c605f6a3c5607524457503812b45238868f38fe.svg" />
+<img alt="../../_images/7c54fe8889ff08edaab68fa40b6f857ee253619eb6dde8c6864f25a81e9678d7.svg" src="../../_images/7c54fe8889ff08edaab68fa40b6f857ee253619eb6dde8c6864f25a81e9678d7.svg" />
 </div>
 </div>
 <p>This is a plot of how many of each type of brightness value is present in the image. There are practically no pixels in the image that are black (value 0) or completely white (value 255), but there are two main collections of gray values. The contrast of this image can be increased by performing histogram equalization, which spreads these values out more evenly. The <code class="docutils literal notranslate"><span class="pre">exposure</span></code> module provides an <code class="docutils literal notranslate"><span class="pre">equalize_hist()</span></code> function for this task.</p>
@@ -1025,7 +1025,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/466209574f4538051007f770f72ba76e1bea342045681f97a5bbcadf37cea93b.svg" src="../../_images/466209574f4538051007f770f72ba76e1bea342045681f97a5bbcadf37cea93b.svg" />
+<img alt="../../_images/b5d59dc2c5018d380d7261fd894bd5769814be9976547987068ecde0600c764c.svg" src="../../_images/b5d59dc2c5018d380d7261fd894bd5769814be9976547987068ecde0600c764c.svg" />
 </div>
 </div>
 <p>Histogram equalization does not produce a black-and-white image, but it does make the dark values darker and the light values lighter. If we look at the histogram for this image, it will be more even as shown below.</p>
@@ -1039,7 +1039,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/672f28b9c56f09ef27dd48a6733ec3263da7ab84c6465e056113dcf0a457284f.svg" src="../../_images/672f28b9c56f09ef27dd48a6733ec3263da7ab84c6465e056113dcf0a457284f.svg" />
+<img alt="../../_images/ce09f123a19121e779421d07fdd570d5d74c77137782eead5ad233fbffa7e69b.svg" src="../../_images/ce09f123a19121e779421d07fdd570d5d74c77137782eead5ad233fbffa7e69b.svg" />
 </div>
 </div>
 </section>
@@ -1049,7 +1049,7 @@
 <p>The scikit-image library contains numerous functions for performing various scientific analyses - so many that they cannot be comprehensively covered here. Below is a selection of some interesting examples that are relevant to science, including counting objects in images, entropy analysis, and measuring eccentricity of objects. The examples below use mostly synthetic data to represent various data you might encounter in the lab. Real data can be easily extracted from publications but are not used here for copyright reasons.</p>
 <section id="blob-detection">
 <span id="id13"></span><span id="index-9"></span><h3>7.3.1 Blob Detection<a class="headerlink" href="#blob-detection" title="Link to this heading">#</a></h3>
-<p>A classic problem that translates across many scientific fields is to count spots in a photograph. A biologist may need to quantifying the number of bacteria colonies in a petri dish over the course of an experiment, while an astronomer may want to count the number of stars in a large cluster. In chemistry, this problem may occur as a need to quantify the number of nanoparticles in a photograph or using the locations to calculate the average distances between the particles.</p>
+<p>A classic problem that translates across many scientific fields is to count spots in a photograph. A biologist may need to quantify the number of bacteria colonies in a petri dish over the course of an experiment, while an astronomer may want to count the number of stars in a large cluster. In chemistry, this problem may occur as a need to quantify the number of nanoparticles in a photograph or using the locations to calculate the average distances between the particles.</p>
 <p>The good news is that the scikit-image library provides three functions that will take a photograph and return an array of <em>xyz</em> coordinates indicating where the blobs are located in the image. If all you care about is the number of blobs, simply find the length of the returned array. There are three functions listed below which include Laplacian of Gaussian (LoG), Difference of Gaussian (DoG), and Determinant of Hessian (DoH). The LoG algorithm is the most accurate but the slowest, while the DoH algorithm is the fastest. These functions only accept two-dimensional images, so if it is a color image, you will need to either convert it to grayscale or select a single color channel to work with.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">skimage</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">blob_log</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="p">)</span>
 
@@ -1066,7 +1066,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/33326deaa32f7e66e9902de6b3175c8932eef97ad7100773b76330f974a23928.svg" src="../../_images/33326deaa32f7e66e9902de6b3175c8932eef97ad7100773b76330f974a23928.svg" />
+<img alt="../../_images/ec9e096a8b79b61d90cd5421b6ce1d184ed10ceea97049e7c703fe2eed8680db.svg" src="../../_images/ec9e096a8b79b61d90cd5421b6ce1d184ed10ceea97049e7c703fe2eed8680db.svg" />
 </div>
 </div>
 <p>An image of black dots on a white background is imported above, but the blob detection algorithms work best with light colors on a dark background. We will invert the image below by subtracting the values from the maximum value or using the <code class="docutils literal notranslate"><span class="pre">color.rgb2gray()</span></code>.</p>
@@ -1085,7 +1085,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/af264844b9dac920117b6128ce44ee433dd1943cab8e062d9ba7e8d4fc44c797.svg" src="../../_images/af264844b9dac920117b6128ce44ee433dd1943cab8e062d9ba7e8d4fc44c797.svg" />
+<img alt="../../_images/d6363612be30f84250ce46e889bfe1eb9e157765d28e724eb417a699995ae7b8.svg" src="../../_images/d6363612be30f84250ce46e889bfe1eb9e157765d28e724eb417a699995ae7b8.svg" />
 </div>
 </div>
 <p>To detect the blobs, we will use the <code class="docutils literal notranslate"><span class="pre">blob_dog()</span></code> function as demonstrated below. The function allows for a <code class="docutils literal notranslate"><span class="pre">threshold</span></code> argument to be set to adjust the sensitivity of the algorithm in finding blobs. A lower threshold results in smaller or less intense blobs to be included in the returned array.</p>
@@ -1123,10 +1123,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/395a08ae9c7110ef0e267cd7e37e46c03ccca4a1357efab60240aebd24d2451b.svg" src="../../_images/395a08ae9c7110ef0e267cd7e37e46c03ccca4a1357efab60240aebd24d2451b.svg" />
+<img alt="../../_images/2e14ddb5cb9bbe189a73e0ef3ff15788b23490f45f51a1c04a284467017b651a.svg" src="../../_images/2e14ddb5cb9bbe189a73e0ef3ff15788b23490f45f51a1c04a284467017b651a.svg" />
 </div>
 </div>
-<p>To find the number of spots, determine length of the array using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> Python function or looking at the shape of the array.</p>
+<p>To find the number of spots, determine the length of the array using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> Python function or looking at the shape of the array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">blobs</span><span class="p">)</span>
@@ -1143,7 +1143,7 @@
 <section id="entropy-analysis">
 <span id="id14"></span><span id="index-10"></span><h3>7.3.2 Entropy Analysis<a class="headerlink" href="#entropy-analysis" title="Link to this heading">#</a></h3>
 <p>The term <em>entropy</em> outside of the physical sciences is used to represent a quantification of disorder or irregularity. In image analysis, this disorder is the amount of pixel (brightness or color) variation within a region of the image. As you will see below, entropy is the highest near the boundaries and in noisy areas of a photograph. This makes an entropy analysis useful for edge detection, checking for image quality, and detecting alterations to an image.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">filters.rank</span></code> modules contains the entropy function shown below. It works by going through the image pixel-by-pixel and calculating the entropy in the <em>neighborhood</em>, which is the area around each pixel. An entropy value is recorded in the new array at each location and can be plotted to generate an entropy map. The entropy function takes two required arguments: the image (<code class="docutils literal notranslate"><span class="pre">img</span></code>) and a description of the neighborhood called a <em>structured element</em> (<code class="docutils literal notranslate"><span class="pre">selem</span></code>).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">filters.rank</span></code> module contains the <code class="docutils literal notranslate"><span class="pre">entropy()</span></code> function shown below. It works by going through the image pixel-by-pixel and calculating the entropy in the <em>neighborhood</em>, which is the area around each pixel. An entropy value is recorded in the new array at each location and can be plotted to generate an entropy map. The entropy function takes two required arguments: the image (<code class="docutils literal notranslate"><span class="pre">img</span></code>) and a description of the neighborhood called a <em>structured element</em> (<code class="docutils literal notranslate"><span class="pre">selem</span></code>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">filters</span><span class="o">.</span><span class="n">rank</span><span class="o">.</span><span class="n">entropy</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">selem</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1183,21 +1183,21 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0847dea2b4fbc91792df1f68d72b0c1994d7162f245ea5fc9b4c623ff16e14ef.svg" src="../../_images/0847dea2b4fbc91792df1f68d72b0c1994d7162f245ea5fc9b4c623ff16e14ef.svg" />
+<img alt="../../_images/477a74b0894af77a4ef6c6ab9318770d600b227f5f6cad8f7f7552a02d2758e5.svg" src="../../_images/477a74b0894af77a4ef6c6ab9318770d600b227f5f6cad8f7f7552a02d2758e5.svg" />
 </div>
 </div>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The step above for converting the image repesentation from floats to integers is not strictly required, but the <code class="docutils literal notranslate"><span class="pre">entropy()</span></code> function will generate a loss of precision warning if you do not.</p>
+<p>The step above for converting the image representation from floats to integers is not strictly required, but the <code class="docutils literal notranslate"><span class="pre">entropy()</span></code> function will generate a loss of precision warning if you do not.</p>
 </div>
 </aside>
 <p>Examination of the image shows that there is an increase in entropy near the edges of the features in the image as expected. There are two regions (blue) that contain unusually low entropy. If you look back at the original image, these regions are comparatively homogeneous in color.</p>
 </section>
 <section id="eccentricity">
 <span id="id15"></span><span id="index-11"></span><h3>7.3.3 Eccentricity<a class="headerlink" href="#eccentricity" title="Link to this heading">#</a></h3>
-<p><em>Eccentricity</em> is the measurement of how non-circular an object is. It runs from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1 with zero being a perfect circle and larger values representing more eccentric objects. This can be useful for quantifying the shape of nanoparticles or droplets of liquid. The <code class="docutils literal notranslate"><span class="pre">measure</span></code> module from scikit-image provides an easy method of measuring eccentricity. First, let us first import an image of ovals for an example. Alternatively, you are welcome to use the <code class="docutils literal notranslate"><span class="pre">coins</span></code> image from the <code class="docutils literal notranslate"><span class="pre">data</span></code> module, but this will require some preprocessing such as increasing the contrast.</p>
+<p><em>Eccentricity</em> is the measurement of how non-circular an object is. It runs from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1 with zero being a perfect circle and larger values representing more eccentric objects. This can be useful for quantifying the shape of nanoparticles or droplets of liquid. The <code class="docutils literal notranslate"><span class="pre">measure</span></code> module from scikit-image provides an easy method of measuring eccentricity. First, let us import an image of ovals as an example. Alternatively, you are welcome to use the <code class="docutils literal notranslate"><span class="pre">coins</span></code> image from the <code class="docutils literal notranslate"><span class="pre">data</span></code> module, but this will require some preprocessing such as increasing the contrast.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ovals</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;data/ovals.png&#39;</span><span class="p">)</span>
@@ -1206,7 +1206,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a3d3f2c158892575c6f95ca37b3d59d7ca6890018e21a3399db3387ebb8b7ce6.svg" src="../../_images/a3d3f2c158892575c6f95ca37b3d59d7ca6890018e21a3399db3387ebb8b7ce6.svg" />
+<img alt="../../_images/2ed3535cf1d2c105c4949a316eb28f6e47da9708c5498c0deda698317b2bfc50.svg" src="../../_images/2ed3535cf1d2c105c4949a316eb28f6e47da9708c5498c0deda698317b2bfc50.svg" />
 </div>
 </div>
 <p>The main function for measuring eccentricity is the <code class="docutils literal notranslate"><span class="pre">regionsprops()</span></code> function, but this function by itself cannot find the objects. Luckily, there is another function in the <code class="docutils literal notranslate"><span class="pre">measure</span></code> module called <code class="docutils literal notranslate"><span class="pre">label()</span></code> that will do exactly this, and this function requires the regions to be light with dark backgrounds. The following inverts the light and dark and also truncates the alpha channel from the RGBA image.</p>
@@ -1218,10 +1218,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/cc5cccfe5de327d72f8a25617423ef1ea7a303bb76c6237e4115241da09c04f4.svg" src="../../_images/cc5cccfe5de327d72f8a25617423ef1ea7a303bb76c6237e4115241da09c04f4.svg" />
+<img alt="../../_images/dc66396540a1b24e2194189f3c49e55ac0bb2e25aafc647722a0d8329eef6e52.svg" src="../../_images/dc66396540a1b24e2194189f3c49e55ac0bb2e25aafc647722a0d8329eef6e52.svg" />
 </div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">regionsprops()</span></code> function returns the properties of the two ovals in a list of lists. The first list corresponds to the first object and so on. Each list contains an extensive collection of properties, so it is worth visiting the scikit-image website to see the complete documentation. We are only concerned with eccentricity right now, so we can access the eccentricity of the first object with <code class="docutils literal notranslate"><span class="pre">props[0].eccentricity</span></code>, which gives a value of about 0.95 for the first object while the second object has a much lower values of about 0.40. This makes sense being that the first object is very eccentric while the second object is much more circular.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">regionsprops()</span></code> function returns the properties of the two ovals in a list of lists. The first list corresponds to the first object and so on. Each list contains an extensive collection of properties, so it is worth visiting the scikit-image website to see the complete documentation. We are only concerned with eccentricity right now, so we can access the eccentricity of the first object with <code class="docutils literal notranslate"><span class="pre">props[0].eccentricity</span></code>, which gives a value of about 0.95 for the first object while the second object has a much lower value of about 0.40. This makes sense since the first object is very eccentric while the second object is much more circular.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage.measure</span> <span class="kn">import</span> <span class="n">label</span><span class="p">,</span> <span class="n">regionprops</span>
@@ -1268,7 +1268,7 @@
 </section>
 <section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
-<p>Complete the following exercises in a Jupyter notebook. Any data file(s) refered to in the problems can be found in the <a class="reference external" href="https://github.com/weisscharlesj/SciCompforChemists/tree/master/notebooks">data</a> folder in the same directory as this chapter’s Jupyter notebook. Alternatively, you can download a zip file of the data for this chapter from <a class="reference external" href="https://github.com/weisscharlesj/data_SciCompforChem">here</a> by selecting the appropriate chapter file and then clicking the <strong>Download</strong> button.</p>
+<p>Complete the following exercises in a Jupyter notebook. Any data file(s) referred to in the problems can be found in the <a class="reference external" href="https://github.com/weisscharlesj/SciCompforChemists/tree/master/notebooks">data</a> folder in the same directory as this chapter’s Jupyter notebook. Alternatively, you can download a zip file of the data for this chapter from <a class="reference external" href="https://github.com/weisscharlesj/data_SciCompforChem">here</a> by selecting the appropriate chapter file and then clicking the <strong>Download</strong> button.</p>
 <ol class="arabic">
 <li><p>Import the image titled <strong>NaK_THF.jpg</strong> using scikit-image.</p>
 <p>a) Convert the image to grayscale using a scikit-image function.</p>
