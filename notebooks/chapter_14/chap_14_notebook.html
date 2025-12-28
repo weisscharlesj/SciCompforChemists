@@ -444,8 +444,8 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">PE_LJ</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
-    <span class="n">epsilon</span> <span class="o">=</span> <span class="mf">4.10</span> <span class="c1">#kJ/mol</span>
-    <span class="n">sigma</span> <span class="o">=</span> <span class="mf">1.77</span> <span class="c1">#angstroms</span>
+    <span class="n">epsilon</span> <span class="o">=</span> <span class="mf">1.77</span> <span class="c1"># kJ/mol</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="mf">4.10</span> <span class="c1"># angstroms</span>
     <span class="n">PE</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">epsilon</span> <span class="o">*</span> <span class="p">(</span> <span class="p">(</span><span class="n">sigma</span><span class="o">/</span><span class="n">r</span><span class="p">)</span><span class="o">**</span><span class="mi">12</span> <span class="o">-</span> <span class="p">(</span><span class="n">sigma</span><span class="o">/</span><span class="n">r</span><span class="p">)</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">PE</span>
 </pre></div>
@@ -476,10 +476,10 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> message: Solution found.
  success: True
   status: 0
-     fun: -4.099999999992542
-       x: 1.986757378942203
-     nit: 21
-    nfev: 21
+     fun: -1.769999999998977
+       x: 4.602094981193578
+     nit: 19
+    nfev: 19
 </pre></div>
 </div>
 </div>
@@ -505,15 +505,15 @@
           The returned value satisfies the termination criteria
           (using xtol = 1.48e-08 )
  success: True
-     fun: -4.099999999999997
-       x: 1.9867578344041286
-     nit: 23
-    nfev: 26
+     fun: -1.77
+       x: 4.602094396888028
+     nit: 22
+    nfev: 25
 </pre></div>
 </div>
 </div>
 </div>
-<p>After running our optimization function, an <code class="docutils literal notranslate"><span class="pre">OptimizeResult</span></code> object is returned. This object has a series of attributes listed above, but the two most important are <code class="docutils literal notranslate"><span class="pre">success</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span></code>. The <code class="docutils literal notranslate"><span class="pre">success</span></code> attribute tells us if the optimization function was successful at converging on a solution, while the <code class="docutils literal notranslate"><span class="pre">x</span></code> attribute is the optimized solution. We can access the solution using <code class="docutils literal notranslate"><span class="pre">opt.x</span></code> to learn that the minimized distance according to the  Lennard-Jones energy equation is 1.99 angstroms.</p>
+<p>After running our optimization function, an <code class="docutils literal notranslate"><span class="pre">OptimizeResult</span></code> object is returned. This object has a series of attributes listed above, but the two most important are <code class="docutils literal notranslate"><span class="pre">success</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span></code>. The <code class="docutils literal notranslate"><span class="pre">success</span></code> attribute tells us if the optimization function was successful at converging on a solution, while the <code class="docutils literal notranslate"><span class="pre">x</span></code> attribute is the optimized solution. We can access the solution using <code class="docutils literal notranslate"><span class="pre">opt.x</span></code> to learn that the minimized distance according to the  Lennard-Jones energy equation is 4.60 angstroms.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">x</span>
@@ -521,7 +521,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.9867578344041286)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(4.602094396888028)
 </pre></div>
 </div>
 </div>
@@ -529,7 +529,7 @@
 <p>Being that our energy function is only univariant, we can easily visualize the function and our minimized solution (orange dot) as done below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">1.7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
 <span class="n">PE</span> <span class="o">=</span> <span class="n">PE_LJ</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">PE</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;energy function&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">opt</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">PE_LJ</span><span class="p">(</span><span class="n">opt</span><span class="o">.</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;minimum&#39;</span><span class="p">)</span>
@@ -540,7 +540,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6b81466ff5061de614f73bfcbe7536af6a3de101cc273b3dbde4437af067e128.svg" src="../../_images/6b81466ff5061de614f73bfcbe7536af6a3de101cc273b3dbde4437af067e128.svg" />
+<img alt="../../_images/f7ad65b942855cea1c4aef1557bb9758d68d62ae909fc6571957facc8cfcadf7.svg" src="../../_images/f7ad65b942855cea1c4aef1557bb9758d68d62ae909fc6571957facc8cfcadf7.svg" />
 </div>
 </div>
 <aside class="margin sidebar">
@@ -578,7 +578,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/89c62e2256da931e123614b5c5afca6081f25f3db1c5f8a41faa974a018231b0.svg" src="../../_images/89c62e2256da931e123614b5c5afca6081f25f3db1c5f8a41faa974a018231b0.svg" />
+<img alt="../../_images/b9e813830a637f4c90921de41578efab1ac5ea856f39b9981a4c8d510d6a037d.svg" src="../../_images/b9e813830a637f4c90921de41578efab1ac5ea856f39b9981a4c8d510d6a037d.svg" />
 </div>
 </div>
 <p>There are multiple ways to make the function negative, like including a negative sign in the Python function definition. Our Python function has already been created, so below we will make the radial probability density negative using a <code class="docutils literal notranslate"><span class="pre">lambda</span></code> function (see <a class="reference internal" href="../chapter_02/chap_02_notebook.html#id6"><span class="std std-ref">section 2.1.4</span></a> for review on lambda functions).</p>
@@ -639,7 +639,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1601052183dbb8e6695c63b3842285fb07178b9b0629e37d954b3bf5bd336e46.svg" src="../../_images/1601052183dbb8e6695c63b3842285fb07178b9b0629e37d954b3bf5bd336e46.svg" />
+<img alt="../../_images/32bbb7f4613e2bbfa59b1a6668c946461932e444c307a966ffaab2520a5a47cb.svg" src="../../_images/32bbb7f4613e2bbfa59b1a6668c946461932e444c307a966ffaab2520a5a47cb.svg" />
 </div>
 </div>
 </section>
@@ -761,7 +761,7 @@
 <p>A common application of optimization is fitting an equation to a series of data points, such as a linear regression. While linear regression also  happens to have an analytical solution demonstrated in <a class="reference internal" href="../chapter_08/chap_08_notebook.html#id15"><span class="std std-ref">section 8.3.3</span></a>, we will solve it here using optimization. In the figure below, a regression line (solid orange) runs through the data points. The <em>residuals</em> are the difference between the regression line and the data points (green vertical dotted lines). The goal of linear regression is to generate a regression line that minimizes these residuals.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/78b86bde778a46fa44dca68c08f330b53f47a07ae55f3fdb041d00af5697807e.svg" src="../../_images/78b86bde778a46fa44dca68c08f330b53f47a07ae55f3fdb041d00af5697807e.svg" />
+<img alt="../../_images/287dab5ae05cd92fe7e654784017e3703f18f71e3ac5da2bfa93277435e737d1.svg" src="../../_images/287dab5ae05cd92fe7e654784017e3703f18f71e3ac5da2bfa93277435e737d1.svg" />
 </div>
 </div>
 <p><strong>Figure 1</strong> An example of a line of best fit (solid orange) running through data points (blue) with residuals (green dashed) shown as the difference on the <span class="math notranslate nohighlight">\(y\)</span>-axis between the data point and linear regression.</p>
@@ -890,7 +890,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0ff9173d81028c76403fcf10dbbd8558d551959620ad1a6895d0c5922983f49f.svg" src="../../_images/0ff9173d81028c76403fcf10dbbd8558d551959620ad1a6895d0c5922983f49f.svg" />
+<img alt="../../_images/4f4b010045a5ff4869ddc392b25352e07f58ea5b608f924d94d1b3d5156426ee.svg" src="../../_images/4f4b010045a5ff4869ddc392b25352e07f58ea5b608f924d94d1b3d5156426ee.svg" />
 </div>
 </div>
 <p>Now that we have our data, we can fit it to the theoretical equation to extract the rate constants.</p>
@@ -923,7 +923,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3b7f71fbdb70c1f0896c8fb0c885ebef267253c922a71e8df92135b8c253283c.svg" src="../../_images/3b7f71fbdb70c1f0896c8fb0c885ebef267253c922a71e8df92135b8c253283c.svg" />
+<img alt="../../_images/4edb51d9a91b67a8a7482182df558bc9834fa304bb3f6636bff0fdf1b3626756.svg" src="../../_images/4edb51d9a91b67a8a7482182df558bc9834fa304bb3f6636bff0fdf1b3626756.svg" />
 </div>
 </div>
 <div class="admonition note">
@@ -1009,7 +1009,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0e7f14d0edf2f527083ba8b274fb6a9f16d5593bb12feeea93df7bb11eee3b33.svg" src="../../_images/0e7f14d0edf2f527083ba8b274fb6a9f16d5593bb12feeea93df7bb11eee3b33.svg" />
+<img alt="../../_images/a4743fd2f83039a06d7ad756b8f4b88434e01ae763e5d548e1645b50d58c26e7.svg" src="../../_images/a4743fd2f83039a06d7ad756b8f4b88434e01ae763e5d548e1645b50d58c26e7.svg" />
 </div>
 </div>
 <p>Next, we will use the absorbances for each pure dye sample to find the molar absorptivities using Beer’s law. The path length, <span class="math notranslate nohighlight">\(b\)</span>, in this instrument is 1 cm, and the molarities are known from the experimental setup. That is, below  we are solving for molar absorptivity (<span class="math notranslate nohighlight">\(\epsilon\)</span>) by the following.</p>
@@ -1104,7 +1104,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c6cb01e302bf634d1172dc15e52b6a9d35c8704eedf788315a75ab6bbb1f2181.svg" src="../../_images/c6cb01e302bf634d1172dc15e52b6a9d35c8704eedf788315a75ab6bbb1f2181.svg" />
+<img alt="../../_images/cad78e60c06a0e512459dee549b07623fcd566df7a9e3f710427899ee17c1da2.svg" src="../../_images/cad78e60c06a0e512459dee549b07623fcd566df7a9e3f710427899ee17c1da2.svg" />
 </div>
 </div>
 <p>The function has two nodes, so our <code class="docutils literal notranslate"><span class="pre">bracket=</span></code> values will determine which we will end up
@@ -1161,7 +1161,7 @@ solving for.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a3a8406bbf70e25618bbc3ce5eca477f9048c791fb4cc6a4ff864e7d45d4ea28.svg" src="../../_images/a3a8406bbf70e25618bbc3ce5eca477f9048c791fb4cc6a4ff864e7d45d4ea28.svg" />
+<img alt="../../_images/280fe649049c02b87ea756774f2a7cf8b51af1c74ef08afabc49c87128bfa790.svg" src="../../_images/280fe649049c02b87ea756774f2a7cf8b51af1c74ef08afabc49c87128bfa790.svg" />
 </div>
 </div>
 <p>The two dots above show the location of the two roots for this function which clearly are located on the nodes of the wave function.</p>
