@@ -997,7 +997,7 @@ aniline
 <p>Each signal starts with a number to two decimal places, but there may be one or two digits before the decimal place. Even though our example always has one digit before the decimal, we want our code to be robust and versatile. The regular expression for this number is <code class="docutils literal notranslate"><span class="pre">'\d{1,2}.\d{2}'</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nmr_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\d{1,2}.\d</span><span class="si">{2}</span><span class="s1">&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nmr_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\d{1,2}\.\d</span><span class="si">{2}</span><span class="s1">&#39;</span>
 <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">nmr_pattern</span><span class="p">,</span> <span class="n">proton</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1011,7 +1011,7 @@ aniline
 <p>Next, the information about the signal is stored in parentheses separated from the chemical shift by a space. We will use <code class="docutils literal notranslate"><span class="pre">'\s+'</span></code> just in case someone accidentally used multiple spaces. Because parentheses are a regular expression character, we need to precede it with a backslash to indicate that we actually mean just a parentheses character.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nmr_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\d+.\d</span><span class="si">{2}</span><span class="s1">\s+\(&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nmr_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\d+\.\d</span><span class="si">{2}</span><span class="s1">\s+\(&#39;</span>
 <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">nmr_pattern</span><span class="p">,</span> <span class="n">proton</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1030,7 +1030,7 @@ aniline
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nmr_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\d+.\d</span><span class="si">{2}</span><span class="s1">\s+\(\w+,\s+\d+H,\s+J\s+=\s+\d+.\d\s+Hz\)&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nmr_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\d+\.\d</span><span class="si">{2}</span><span class="s1">\s+\(\w+,\s+\d+H,\s+J\s+=\s+\d+\.\d\s+Hz\)&#39;</span>
 
 <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">nmr_pattern</span><span class="p">,</span> <span class="n">proton</span><span class="p">)</span>
 </pre></div>
@@ -1048,7 +1048,7 @@ aniline
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nmr_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\d+.\d</span><span class="si">{2}</span><span class="s1">\s\(\w+,\s+\d+H[,\s+J\s?=\s?\d+.\d]*\sHz\)&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nmr_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\d+\.\d</span><span class="si">{2}</span><span class="s1">\s\(\w+,\s+\d+H[,\s+J\s?=\s?\d+\.\d]*\sHz\)&#39;</span>
 
 <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">nmr_pattern</span><span class="p">,</span> <span class="n">proton</span><span class="p">)</span>
 </pre></div>
@@ -1068,7 +1068,7 @@ aniline
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nmr_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\d+.\d</span><span class="si">{2}</span><span class="s1">\s\(\w+,\s+\d+H[,\s+J\s?=\s?\d+.\d]*[\sHz]*\)&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nmr_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\d+\.\d</span><span class="si">{2}</span><span class="s1">\s\(\w+,\s+\d+H[,\s+J\s?=\s?\d+\.\d]*[\sHz]*\)&#39;</span>
 
 <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">nmr_pattern</span><span class="p">,</span> <span class="n">proton</span><span class="p">)</span>
 </pre></div>
@@ -1096,7 +1096,7 @@ aniline
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nmr_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;-?\d+.\d</span><span class="si">{2}</span><span class="s1">\s\(\w+,\s+\d+H[,\s+J\s?=\s?\d+.\d]*[\sHz]*\)&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nmr_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;-?\d+\.\d</span><span class="si">{2}</span><span class="s1">\s\(\w+,\s+\d+H[,\s+J\s?=\s?\d+\.\d]*[\sHz]*\)&#39;</span>
 <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">nmr_pattern</span><span class="p">,</span> <span class="n">proton</span><span class="p">)</span>
 </pre></div>
 </div>

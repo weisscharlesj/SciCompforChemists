@@ -548,7 +548,7 @@ The sections in this chapter are broken down by types of machine learning. There
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/096e6c41667a2c76aaad510482eee8bee0f2aaebbb47a99afb430c084e9ddb49.svg" src="../../_images/096e6c41667a2c76aaad510482eee8bee0f2aaebbb47a99afb430c084e9ddb49.svg" />
+<img alt="../../_images/d5a9716dc8256b6ed8fb6100c708271d9401b0edfc359c8aa13a07accc9f5fa0.svg" src="../../_images/d5a9716dc8256b6ed8fb6100c708271d9401b0edfc359c8aa13a07accc9f5fa0.svg" />
 </div>
 </div>
 </section>
@@ -1238,7 +1238,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/64b2aa337a6b8d5093c061efa4fd0117c15248988de4689d7f1b73cafb339a46.svg" src="../../_images/64b2aa337a6b8d5093c061efa4fd0117c15248988de4689d7f1b73cafb339a46.svg" />
+<img alt="../../_images/5173b55bf66df4f21660a5bcfc48f6f7d4e6133d4cfb16d1d21e8f3e69b5a7d9.svg" src="../../_images/5173b55bf66df4f21660a5bcfc48f6f7d4e6133d4cfb16d1d21e8f3e69b5a7d9.svg" />
 </div>
 </div>
 <p>This is a substantial improvement from using only the molecular weight to make predictions! If the above code is run again, the results will likely vary because the <code class="docutils literal notranslate"><span class="pre">train_test_split()</span></code> function randomly splits the dataset, so each time the above code is run, the algorithm is trained and tested on different portions of the original dataset.</p>
@@ -1291,7 +1291,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.96664589, 0.95794313, 0.96293799, 0.97539977, 0.968548  ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.97727097, 0.935391  , 0.94260751, 0.97878151, 0.98038135])
 </pre></div>
 </div>
 </div>
@@ -1304,7 +1304,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.9662949550759912)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.9628864695463959)
 </pre></div>
 </div>
 </div>
@@ -1328,8 +1328,8 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 </div>
-<p>These coefficients correspond to molecular weight, number of carbons, degree, whether or not it is aliphatic, average aryl position, and whether or not it is cyclic, respectively. While some coefficients are larger than others, we cannot yet distinguish which features are more important than the others because the values for each feature occur in different ranges. This is because the coefficients are not only proportional to the predictive value of a feature but also inversely proportional to the magnitude of feature values. For example, while the molecular mass has greater predictive value than the degree, the degree has a larger coefficient because it occurs in a smaller range (1 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 3) than the molecular weights (32.04 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 186.33 g/mol).</p>
-<p>To address this issue, the scikit-learn <code class="docutils literal notranslate"><span class="pre">sklearn.preprocess</span></code> module provides a selection of functions for scaling the features to the same range. Three common feature scaling functions are described in Table 1, but others are detailed on the scikit-learn website.</p>
+<p>These coefficients correspond to molecular weight, number of carbons, degree, whether or not it is aliphatic, average aryl position, and whether or not it is cyclic, respectively. While some coefficients are larger than others, we cannot yet distinguish which features are more important than the others because the values for each feature occur in different ranges. This is because the coefficients are not only proportional to the predictive value of a feature but also inversely proportional to the magnitude of feature values. For example, while the molecular mass has greater predictive value than the degree, the degree has a larger coefficient because it occurs in a smaller range (1 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 3) than the molecular weights (32.04 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 186.33 g/mol). You may also be wondering why molecular weight has a negative coefficient despite this feature leading to a higher boiling point. Because molecular weight and the number of carbons affect the boiling point by increasing the size of the molecule, they contribute similar information to the boiling point prediction. In this example, the machine learning model opted to use the number of carbons as we might have expected and the molecular weight very little compared to the number of carbons. As to why molecular weight is negative is potentially arbitrary and comes from the fact that as one of these two feature coefficients gets larger in the positive direction, the other tends to shift in the opposite direction to compensate.</p>
+<p>To address the feature scale issue, the scikit-learn <code class="docutils literal notranslate"><span class="pre">sklearn.preprocess</span></code> module provides a selection of functions for scaling the features to the same range. Three common feature scaling functions are described in Table 1, but others are detailed on the scikit-learn website.</p>
 <p><strong>Table 1</strong> Preprocessing Data Scaling Functions</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -1966,8 +1966,8 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-896.32083367, 1094.86445012,  -33.96789025,   10.84592854,
-        -14.3206418 ,   14.49051165])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-905.36941744, 1109.59619361,  -29.21654595,   13.81886877,
+        -15.20177819,   17.60350342])
 </pre></div>
 </div>
 </div>
@@ -2037,8 +2037,8 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 0, 0, 0, 0, 2, 1, 2, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0,
-       1, 2, 0, 1, 0, 2, 2, 0, 2])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 0, 0, 0, 0, 2, 1, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0,
+       1, 2, 0, 0, 0, 2, 2, 0, 2])
 </pre></div>
 </div>
 </div>
@@ -2051,7 +2051,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6774193548387096
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7096774193548387
 </pre></div>
 </div>
 </div>
@@ -2075,8 +2075,8 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[10,  0,  2],
-       [ 1,  3,  1],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[11,  0,  1],
+       [ 2,  3,  0],
        [ 6,  0,  8]])
 </pre></div>
 </div>
@@ -2094,7 +2094,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f4d8fce3cf0d38dc874872a7010eaaabe9bad909f5c95292a764db906896724f.svg" src="../../_images/f4d8fce3cf0d38dc874872a7010eaaabe9bad909f5c95292a764db906896724f.svg" />
+<img alt="../../_images/decde006e61c0fec75bca18b102ab19f2530cb98c6d6fe6a1528040983039420.svg" src="../../_images/decde006e61c0fec75bca18b102ab19f2530cb98c6d6fe6a1528040983039420.svg" />
 </div>
 </div>
 <p>Every value in the diagonal has the same predicted category as the true value, making them correct predictions, whereas anything off diagonal is an incorrect prediction. For example, the bottom left corner shows that six instances were predicted as category 2 but really belong to category 0. Examination of the confusion matrix shows that the most common erroneous prediction is a category 0. This could be due to, for example, the fact that alcohols and amines both tend to have degrees of unsaturation of zero in this dataset.</p>
@@ -2264,7 +2264,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8e62c9cd5b38f2a5b5c230e649480da8ad95dc549756145b1bced8009c1cc0b5.svg" src="../../_images/8e62c9cd5b38f2a5b5c230e649480da8ad95dc549756145b1bced8009c1cc0b5.svg" />
+<img alt="../../_images/a8d45e9ca238c10c759c08802858a1dcdbcc6add09f7d065937bc6b409f582d5.svg" src="../../_images/a8d45e9ca238c10c759c08802858a1dcdbcc6add09f7d065937bc6b409f582d5.svg" />
 </div>
 </div>
 <p>We can see that the three categories of wine all form cohesive clusters with class 0 and 2 being well resolved and class 1 exhibiting slight overlap with the other two classes of wine. This suggests that we should have better luck distinguishing between class 0 and 2 than between these two classes and class 1.</p>
@@ -2288,7 +2288,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3427dc310ed292f7a4d7f87db03e1b2da824702ae27122388a7aa958937c0381.svg" src="../../_images/3427dc310ed292f7a4d7f87db03e1b2da824702ae27122388a7aa958937c0381.svg" />
+<img alt="../../_images/6a37ab270217c03570766c77671b1e9441ec27ce1464b6c9cf0892f7d1237f95.svg" src="../../_images/6a37ab270217c03570766c77671b1e9441ec27ce1464b6c9cf0892f7d1237f95.svg" />
 </div>
 </div>
 <p>We can see three distinct clusters, with the cluster on the bottom being more distinct than the two at the top. Also, notice that the scales of the two features are different by roughly a factor of two. Before we can use this data, we will need to normalize the scale of both features as clustering algorithms are sensitive to scale. For this task, we will use the <code class="docutils literal notranslate"><span class="pre">StandardScaler()</span></code> function introduced in <a class="reference internal" href="#id16"><span class="std std-ref">section 13.2.5</span></a>.</p>
@@ -2952,7 +2952,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8e76df636b25f36ee2309fbabfbacd414334e3fc7a98ce26ea8e53a591d25dc4.svg" src="../../_images/8e76df636b25f36ee2309fbabfbacd414334e3fc7a98ce26ea8e53a591d25dc4.svg" />
+<img alt="../../_images/d7d5d331f88b1537e01c7374fe1d967ad0d4993646c6750348614d771f224152.svg" src="../../_images/d7d5d331f88b1537e01c7374fe1d967ad0d4993646c6750348614d771f224152.svg" />
 </div>
 </div>
 </section>
@@ -2962,7 +2962,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <p>To demonstrate this process, we will use infrared (IR) spectroscopy data containing mixtures of acetone, cyclohexane, toluene, and methanol in random ratios. Below are plots of four mixtures. We can see that, for example, the bands at ~3400 cm<span class="math notranslate nohighlight">\(^{-1}\)</span> and ~1000 cm<span class="math notranslate nohighlight">\(^{-1}\)</span> increase together, suggesting that they originate from the same compound; this type of information can be used to discriminate which band belongs to which compound. However, instead of doing this manually, we can allow the machine learning algorithms to pick apart the spectra, and even better yet, yield complete spectra of each component.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/4174df9db788f9c2c906a595193e61f80a4fad22de94e29ddde979a7e166f215.svg" src="../../_images/4174df9db788f9c2c906a595193e61f80a4fad22de94e29ddde979a7e166f215.svg" />
+<img alt="../../_images/98939187837d5614c47f81dd026ec1120902c3c00d76cb27011e6c8481ffddc5.svg" src="../../_images/98939187837d5614c47f81dd026ec1120902c3c00d76cb27011e6c8481ffddc5.svg" />
 </div>
 </div>
 <p>For this task, we will use the <em>independent component analysis (ICA)</em> function called <code class="docutils literal notranslate"><span class="pre">fastICA()</span></code> available in scikit-learn. The process parallels the other unsupervised learning processes above of first training the algorithm using the <code class="docutils literal notranslate"><span class="pre">fit()</span></code> method followed by transforming the data using the <code class="docutils literal notranslate"><span class="pre">transform()</span></code> method. First we will load the data from the files and stack them into an array called <code class="docutils literal notranslate"><span class="pre">S_mix</span></code> where each column contains the data from a spectrum. For comparison purposes, we will also load IR spectra of each pure component into an array called <code class="docutils literal notranslate"><span class="pre">S_pure</span></code>. Normally we would not have spectra of pure components, hence the “blind” in blind signal separation, but this is just an example.</p>
@@ -3052,7 +3052,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1ffdcf8e0ae6229fc4ca32fbaf03fd3fe97fa2b07096a6ce8015ecdace3268ac.svg" src="../../_images/1ffdcf8e0ae6229fc4ca32fbaf03fd3fe97fa2b07096a6ce8015ecdace3268ac.svg" />
+<img alt="../../_images/7474179e0391576c6fb5a3c3684a74fd2ec027ec2caa8dda1f1dc097c01995e8.svg" src="../../_images/7474179e0391576c6fb5a3c3684a74fd2ec027ec2caa8dda1f1dc097c01995e8.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3074,7 +3074,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/86d4cde8566f2be872e278419086bacf1a2f31bf213533183133d1b01f027461.svg" src="../../_images/86d4cde8566f2be872e278419086bacf1a2f31bf213533183133d1b01f027461.svg" />
+<img alt="../../_images/c7c4f9cc99da58501889c89ffd166758035dfa2043b55029760da0e46b05b6a7.svg" src="../../_images/c7c4f9cc99da58501889c89ffd166758035dfa2043b55029760da0e46b05b6a7.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3096,7 +3096,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5edf62e9ca8c15b62b7c7f8eb33b8ecb67a6f5914555cc3bdb4bcc4f9852b6c4.svg" src="../../_images/5edf62e9ca8c15b62b7c7f8eb33b8ecb67a6f5914555cc3bdb4bcc4f9852b6c4.svg" />
+<img alt="../../_images/d80af6c921855cf2d1a82b7d2df1ab9d9856edd87380a559f29e78e8f861fbc3.svg" src="../../_images/d80af6c921855cf2d1a82b7d2df1ab9d9856edd87380a559f29e78e8f861fbc3.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3118,7 +3118,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/30cb201890fc48b7b18f16fe8ad4b4865778ac577f0d56c1293edee2b27748bb.svg" src="../../_images/30cb201890fc48b7b18f16fe8ad4b4865778ac577f0d56c1293edee2b27748bb.svg" />
+<img alt="../../_images/08fcaab58ed9b22a91aa1a7c8b7f10f1227e1f91eed0dd38db7f326edc3787e5.svg" src="../../_images/08fcaab58ed9b22a91aa1a7c8b7f10f1227e1f91eed0dd38db7f326edc3787e5.svg" />
 </div>
 </div>
 <p>Overall, the fastICA algorithm did a decent job - sometimes even an impressive job of picking out small features, but there are some discrepancies between the extracted and pure IR spectra. The first is that there are peaks that extend above the extracted spectra. A transmittance over 100% is not possible, but the algorithm does not know this. The <em>y</em>-axis scales of the extracted IR spectra also do not match the percent transmittance. While it is not shown here, sometimes the extracted components are also upside down. This is because the mixtures are assumed to be weighted sums of the components, and a component can be negative. If this bothers you, there is a related BSS algorithm called <em>non-negative matrix factorization (NMF)</em> supported in scikit-learn which requires each component to be non-negative. Finally, you may notice that there is a broad feature at around 3400 cm<span class="math notranslate nohighlight">\(^{-1}\)</span> in the acetone, extracted component that is not in the pure compound. This is an O-H stretch from the methanol IR spectrum showing up in the acetone spectrum. This may be the result of hydrogen-bonding between methanol and acetone shifting the O-H bond, breaking down the assumption that the spectra of mixtures are purely additive.</p>

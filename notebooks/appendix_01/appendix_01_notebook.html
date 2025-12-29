@@ -447,7 +447,7 @@
 </div>
 </div>
 </div>
-<p>Once you have the result, use the <code class="docutils literal notranslate"><span class="pre">.text</span></code> method to get the regular text, and you will need to remove the last two characters.</p>
+<p>Once you have the result, use the <code class="docutils literal notranslate"><span class="pre">.text</span></code> method to get the regular text, and you will need to remove the last two characters. This can be done using the <code class="docutils literal notranslate"><span class="pre">rstrip()</span></code> string method or with slicing. The <code class="docutils literal notranslate"><span class="pre">\n</span></code> is treated like one character in Python, so the slicing code looks like it is only removing one character.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="o">.</span><span class="n">text</span>
@@ -462,7 +462,19 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;252.2000000000&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> 
 </pre></div>
 </div>
 </div>
