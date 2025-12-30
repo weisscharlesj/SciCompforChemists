@@ -93,7 +93,7 @@ The code in this version of the book has been most recently tested with the foll
 - Seaborn – 0.13.2
 - Altair - 5.5.0
 - Scikit-image – 0.25.2
-- Scikit-learn – 1.7.0
+- Scikit-learn – 1.8.0
 - Sympy - 1.14.0
 - nmrglue – 0.11
 - nmrsim - 0.6 
