@@ -17,7 +17,7 @@ Learning to use a number of popular Python scientific libraries to solve chemica
 
 ## License
 
-This book is copyright © 2017-2025 Charles J. Weiss and is released under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. All files associated with the book are also copyright and released under the CC BY-NC-SA 4.0 license unless otherwise noted (see README.txt files for more information).
+This book is copyright © 2017-2026 Charles J. Weiss and is released under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. All files associated with the book are also copyright and released under the CC BY-NC-SA 4.0 license unless otherwise noted (see README.txt files for more information).
 
 Answer keys to exercises are available to **instructors** upon request by [emailing](https://www.augie.edu/directory) me using your school email address. The answer keys are © Charles J. Weiss and are **not** released under a Creative Commons license.
 
