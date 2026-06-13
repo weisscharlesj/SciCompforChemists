@@ -128,3 +128,4 @@ This book took a substantial time to write along with the time and effort in dev
 - Filippo Muzzini for reporting a missing data file in chapter 6
 - jaredchis (GitHub handle) for reporting a code typo in chapter 3
 - Geoffrey D. Smith for reporting multiple typos
+- athlete5 (GitHub handle) for reporting an error in chapter 1
