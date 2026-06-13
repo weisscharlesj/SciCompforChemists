@@ -194,7 +194,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Back Matter</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../appendix_00/appendix_00_notebook.html">Appendix 0: Ipython Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix_00/appendix_00_notebook.html">Appendix 0: IPython Widgets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix_01/appendix_01_notebook.html">Appendix 1: Remote Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix_02/appendix_02_notebook.html">Appendix 2: Visualizing Atomic Orbitals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix_03/appendix_03_notebook.html">Appendix 3: Uncertainty Propagation</a></li>
@@ -426,7 +426,7 @@
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#deprecationwarning"><code class="docutils literal notranslate"><span class="pre">DeprecationWarning</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#work-around-errors-with-try-and-except">2.8.2 Work Around Errors with <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#working-around-errors-with-try-and-except">2.8.2 Working Around Errors with <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raising-exceptions">2.8.3 Raising Exceptions</a></li>
 </ul>
 </li>
@@ -879,7 +879,7 @@
 </div>
 </div>
 <p>Notice that when ethanol is added to the set, nothing changes. This is because ethanol is already in the set, and sets do not store redundant copies of elements.</p>
-<p>Multiple sets can be concatenated or subtracted from each other using the <code class="docutils literal notranslate"><span class="pre">|</span></code> and <code class="docutils literal notranslate"><span class="pre">–</span></code> operators, and two sets can be compared using Boolean operators. Below are two sets containing the atomic orbitals in nitrogen (N) and calcium (Ca) atoms. Even though there are three 2p orbitals in nitrogen, it only appears once telling us what types of orbitals are present but not how many.</p>
+<p>Multiple sets can be concatenated or subtracted from each other using the <code class="docutils literal notranslate"><span class="pre">|</span></code> and <code class="docutils literal notranslate"><span class="pre">–</span></code> operators, and the common or non-common items can be returned with <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> and <code class="docutils literal notranslate"><span class="pre">^</span></code>, respectively. To demonstrate set operators, below are two sets containing the types of atomic orbitals in nitrogen (N) and calcium (Ca) atoms.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;1s&#39;</span><span class="p">,</span><span class="s1">&#39;2s&#39;</span><span class="p">,</span><span class="s1">&#39;2p&#39;</span><span class="p">}</span>
@@ -890,7 +890,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">|</span> <span class="n">Ca</span> <span class="c1"># returns orbitals in either set</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">|</span> <span class="n">Ca</span> <span class="c1"># returns orbitals in either or both sets</span>
 </pre></div>
 </div>
 </div>
@@ -920,6 +920,31 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;1s&#39;, &#39;2p&#39;, &#39;2s&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">^</span> <span class="n">Ca</span> <span class="c1"># returns orbitals not in both sets</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;3p&#39;, &#39;3s&#39;, &#39;4s&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Two sets can also be compared using Boolean operators.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">==</span> <span class="n">Ca</span> <span class="c1"># boolean test</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
 </pre></div>
 </div>
 </div>
@@ -1063,7 +1088,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;itertools.combinations at 0x10bdb8db0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;itertools.combinations at 0x10b067920&gt;
 </pre></div>
 </div>
 </div>
@@ -1172,7 +1197,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.03324586987058897
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.20837528576087294
 </pre></div>
 </div>
 </div>
@@ -1184,7 +1209,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
 </pre></div>
 </div>
 </div>
@@ -1198,7 +1223,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[5, 1, 2, 6, 4, 3]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3, 1, 2, 4, 6, 5]
 </pre></div>
 </div>
 </div>
@@ -1587,7 +1612,7 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">54</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">56</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;root&#39; is not defined
@@ -1607,7 +1632,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">55</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">57</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="g g-Whitespace">    </span><span class="mi">5</span> <span class="o">&lt;&gt;</span> <span class="mi">6</span>
       <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
@@ -1623,7 +1648,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">56</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">58</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="g g-Whitespace">    </span><span class="mi">5</span><span class="n">sdq</span> <span class="o">=</span> <span class="mi">52</span>
     <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid decimal literal
@@ -1644,7 +1669,7 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">57</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">59</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">abs</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
 
 <span class="ne">TypeError</span>: bad operand type for abs(): &#39;str&#39;
@@ -1662,7 +1687,7 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">58</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">60</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">5</span>
 
 <span class="ne">TypeError</span>: &#39;&gt;&#39; not supported between instances of &#39;list&#39; and &#39;int&#39;
@@ -1684,7 +1709,7 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">59</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">61</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">math</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
@@ -1706,7 +1731,7 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">60</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">62</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="mi">4</span> <span class="o">/</span> <span class="mi">0</span>
 
 <span class="ne">ZeroDivisionError</span>: division by zero
@@ -1726,7 +1751,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">61</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">63</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="o">^</span>
 <span class="ne">IndentationError</span>: expected an indented block after &#39;for&#39; statement on line 1
@@ -1748,7 +1773,7 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">62</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">64</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">lst</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
 
@@ -1780,7 +1805,7 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">64</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">66</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">elements</span><span class="p">[</span><span class="s1">&#39;N&#39;</span><span class="p">]</span>
 
 <span class="ne">KeyError</span>: &#39;N&#39;
@@ -1802,8 +1827,8 @@
 </div>
 </section>
 </section>
-<section id="work-around-errors-with-try-and-except">
-<span id="id23"></span><h3>2.8.2 Work Around Errors with <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code><a class="headerlink" href="#work-around-errors-with-try-and-except" title="Link to this heading">#</a></h3>
+<section id="working-around-errors-with-try-and-except">
+<span id="id23"></span><h3>2.8.2 Working Around Errors with <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code><a class="headerlink" href="#working-around-errors-with-try-and-except" title="Link to this heading">#</a></h3>
 <p id="index-21"><span id="index-20"></span>While this may seem like a bad idea at first glance, there are times when you may want Python to not come to a grinding halt in the face of an error. One common situation is when importing a large number of data files from different sources. Not every data source may have formatted data or files the same, and some files may be malformed or there may be other unexpected edge cases. To get Python to not stop at an error message, you can use a <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code> block.</p>
 <p>The general structure of a <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code> block is to include the code you originally intend to run under the <code class="docutils literal notranslate"><span class="pre">try</span></code> statement, and under the following <code class="docutils literal notranslate"><span class="pre">except</span></code> statement, include what Python should do in the event of a specific error. The general structure looks like the following.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
@@ -1834,7 +1859,7 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">66</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">68</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">sqr_root</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">sqr_nums</span><span class="p">:</span>
 <span class="ne">----&gt; </span><span class="mi">5</span>     <span class="n">sqr_root</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>
@@ -1975,10 +2000,10 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">74</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">76</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">hamming</span><span class="p">(</span><span class="n">dna2</span><span class="p">,</span> <span class="n">dna3</span><span class="p">)</span>
 
-<span class="nn">Cell In[72], line 4,</span> in <span class="ni">hamming</span><span class="nt">(seq1, seq2)</span>
+<span class="nn">Cell In[74], line 4,</span> in <span class="ni">hamming</span><span class="nt">(seq1, seq2)</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">hamming</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span> <span class="n">seq2</span><span class="p">):</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq1</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq2</span><span class="p">):</span>
 <span class="ne">----&gt; </span><span class="mi">4</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Sequences must be of equal length&#39;</span><span class="p">)</span>
@@ -2069,7 +2094,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2026, 2, 15, 10, 55, 42, 207183)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2026, 6, 13, 11, 17, 53, 587305)
 </pre></div>
 </div>
 </div>
@@ -2082,7 +2107,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11
 </pre></div>
 </div>
 </div>
@@ -2095,7 +2120,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2026, 2, 15, 3, 55, 42, 207183)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2026, 6, 13, 3, 17, 53, 587305)
 </pre></div>
 </div>
 </div>
@@ -2400,7 +2425,7 @@ What is the theoretical mean for this dataset?</p>
 <p><code class="docutils literal notranslate"><span class="pre">[in]:</span> <span class="pre">dist(3,</span> <span class="pre">2,</span> <span class="pre">1)</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">[out]:</span> <span class="pre">3.7416573867739413</span></code></p>
 </li>
-<li><p>Below is a function calculates the theoretical number of remaining protons(p) and neutrons(n) remaining after x alpha decays. Convert this function to a <a class="reference internal" href="#id20"><span class="std std-ref">recursive function</span></a>. Hint: start by removing the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop and replace it with an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement.</p>
+<li><p>Below is a function that calculates the theoretical number of remaining protons(p) and neutrons(n) remaining after x alpha decays. Convert this function to a <a class="reference internal" href="#id20"><span class="std std-ref">recursive function</span></a>. Hint: start by removing the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop and replace it with an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">alpha_decay</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;(alpha decays(x), protons(int), neutrons(int)) -&gt; prints p and n remaining         </span>
 <span class="sd">    Takes in the number of alpha decays(x), protons(p), and number of neutrons(n) </span>
@@ -2420,7 +2445,7 @@ What is the theoretical mean for this dataset?</p>
 </pre></div>
 </div>
 </li>
-<li><p>DNA strands contain sequences of nucleitide bases, and for DNA, these bases are adenine (A), thymine (T), guanine (G), and cytosine (C). When comparing two DNA strands of the same length, the Hamming distance is the number of places where the two DNA strands contain a different base. For example, the ATTG and ATCG sequences have a Hamming distance of 1 because they differ only by the third base position. Write a Python function that calculates the Hamming distance between two DNA sequences by zipping the two sequences. Your function should first check that the two sequences are of the same length and return an error message if they are not. Test the function on the following two DNA sequences.</p>
+<li><p>DNA strands contain sequences of nucleotide bases, and for DNA, these bases are adenine (A), thymine (T), guanine (G), and cytosine (C). When comparing two DNA strands of the same length, the Hamming distance is the number of places where the two DNA strands contain a different base. For example, the ATTG and ATCG sequences have a Hamming distance of 1 because they differ only by the third base position. Write a Python function that calculates the Hamming distance between two DNA sequences by zipping the two sequences. Your function should first check that the two sequences are of the same length and return an error message if they are not. Test the function on the following two DNA sequences.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dna1</span> <span class="o">=</span> <span class="s1">&#39;ATCCTGCATTAGGGAGCTTTTATTGCCCAATAGCTA&#39;</span>
 <span class="n">dna2</span> <span class="o">=</span> <span class="s1">&#39;ATCCTGGATTAGGGAGCATTTATTGCCCAATAGGTA&#39;</span>
 </pre></div>
@@ -2538,7 +2563,7 @@ What is the theoretical mean for this dataset?</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#deprecationwarning"><code class="docutils literal notranslate"><span class="pre">DeprecationWarning</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#work-around-errors-with-try-and-except">2.8.2 Work Around Errors with <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#working-around-errors-with-try-and-except">2.8.2 Working Around Errors with <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raising-exceptions">2.8.3 Raising Exceptions</a></li>
 </ul>
 </li>

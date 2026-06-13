@@ -194,7 +194,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Back Matter</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../appendix_00/appendix_00_notebook.html">Appendix 0: Ipython Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix_00/appendix_00_notebook.html">Appendix 0: IPython Widgets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix_01/appendix_01_notebook.html">Appendix 1: Remote Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix_02/appendix_02_notebook.html">Appendix 2: Visualizing Atomic Orbitals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix_03/appendix_03_notebook.html">Appendix 3: Uncertainty Propagation</a></li>
@@ -470,7 +470,7 @@
 </div>
 </div>
 </div>
-<p>This is not terribly informative being that all it tells us is that <code class="docutils literal notranslate"><span class="pre">'aniline'</span></code> appears twice. The <code class="docutils literal notranslate"><span class="pre">re.finditer()</span></code> function can be used instead to return an iterator providing the user with the location of each match using either a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop or <code class="docutils literal notranslate"><span class="pre">list()</span></code> function. We can see below that there are three matches along with the indices of those matches and the string that matches the pattern.</p>
+<p>This is not terribly informative being that all it tells us is that <code class="docutils literal notranslate"><span class="pre">'aniline'</span></code> appears twice. The <code class="docutils literal notranslate"><span class="pre">re.finditer()</span></code> function can be used instead to return an iterator providing the user with the location of each match using either a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop or <code class="docutils literal notranslate"><span class="pre">list()</span></code> function. We can see below that there are two matches along with the indices of those matches and the string that matches the pattern.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="s1">&#39;aniline&#39;</span><span class="p">,</span> <span class="n">amines</span><span class="p">):</span>
@@ -498,7 +498,7 @@
 </div>
 </div>
 </div>
-<p>Tp access the matched strings, use the <code class="docutils literal notranslate"><span class="pre">group()</span></code> method on the <code class="docutils literal notranslate"><span class="pre">Match</span></code> objects like below.</p>
+<p>To access the matched strings, use the <code class="docutils literal notranslate"><span class="pre">group()</span></code> method on the <code class="docutils literal notranslate"><span class="pre">Match</span></code> objects like below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="s1">&#39;aniline&#39;</span><span class="p">,</span> <span class="n">amines</span><span class="p">):</span>
@@ -994,7 +994,7 @@ aniline
 </div>
 </div>
 </div>
-<p>Each signal starts with a number to two decimal places, but there may be one or two digits before the decimal place. Even though our example always has one digit before the decimal, we want our code to be robust and versatile. The regular expression for this number is <code class="docutils literal notranslate"><span class="pre">'\d{1,2}.\d{2}'</span></code>.</p>
+<p>Each signal starts with a number to two decimal places, but there may be one or two digits before the decimal place. Even though our example always has one digit before the decimal, we want our code to be robust and versatile. The regular expression for this number is <code class="docutils literal notranslate"><span class="pre">'\d{1,2}\.\d{2}'</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nmr_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\d{1,2}\.\d</span><span class="si">{2}</span><span class="s1">&#39;</span>
@@ -1026,7 +1026,7 @@ aniline
 <ul class="simple">
 <li><p>Splitting pattern as one or more letters, <code class="docutils literal notranslate"><span class="pre">'\w+'</span></code></p></li>
 <li><p>Integration as an integer with an <code class="docutils literal notranslate"><span class="pre">H</span></code>, so <code class="docutils literal notranslate"><span class="pre">'\d+H'</span></code></p></li>
-<li><p>Coupling information as starting with <code class="docutils literal notranslate"><span class="pre">J</span> <span class="pre">=</span></code> followed by a number to two decimal places, so <code class="docutils literal notranslate"><span class="pre">'J\s+=\s+\d+.\d+\s+Hz'</span></code>.</p></li>
+<li><p>Coupling information as starting with <code class="docutils literal notranslate"><span class="pre">J</span> <span class="pre">=</span></code> followed by a number to one decimal place, so <code class="docutils literal notranslate"><span class="pre">'J\s+=\s+\d+.\d+\s+Hz'</span></code>.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

@@ -194,7 +194,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Back Matter</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../appendix_00/appendix_00_notebook.html">Appendix 0: Ipython Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix_00/appendix_00_notebook.html">Appendix 0: IPython Widgets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix_01/appendix_01_notebook.html">Appendix 1: Remote Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix_02/appendix_02_notebook.html">Appendix 2: Visualizing Atomic Orbitals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix_03/appendix_03_notebook.html">Appendix 3: Uncertainty Propagation</a></li>
@@ -726,7 +726,7 @@
 </section>
 <section id="flatten-arrays">
 <span id="id9"></span><h3>4.2.2 Flatten Arrays<a class="headerlink" href="#flatten-arrays" title="Link to this heading">#</a></h3>
-<p>Flattening an array takes a higher-dimensional array and squishes it into a one-dimensional array. To flatten out an array, the <code class="docutils literal notranslate"><span class="pre">np.flatten()</span></code> method is often the most convenient way.</p>
+<p>Flattening an array takes a higher-dimensional array and squishes it into a one-dimensional array. To flatten out an array, the <code class="docutils literal notranslate"><span class="pre">flatten()</span></code> method is often the most convenient way.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_2D</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
@@ -1000,7 +1000,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_2D</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>     <span class="c1"># all rows</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_2D</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="c1"># all rows of column 0</span>
 </pre></div>
 </div>
 </div>
@@ -1542,17 +1542,17 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.flatten()</span></code></p></td>
-<td class="text-left"><p>Flattens an array in place</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">flatten()</span></code></p></td>
+<td class="text-left"><p>Flattens a copy of an array</p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.ravel()</span></code></p></td>
 <td class="text-left"><p>Returns a flattened view of the array without changing the array</p></td>
 </tr>
 <tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.reshape()</span></code></p></td>
-<td class="text-left"><p>Reshapes an array in place</p></td>
+<td class="text-left"><p>Reshapes an array and returns a copy</p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.resize()</span></code></p></td>
-<td class="text-left"><p>Returns a resized view of an array without modifying the original</p></td>
+<td class="text-left"><p>Returns a resized copy of an array without modifying the original</p></td>
 </tr>
 <tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.transpose()</span></code></p></td>
 <td class="text-left"><p>Returns a view of transposed array</p></td>
@@ -1632,49 +1632,46 @@
 <tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.argmax()</span></code></p></td>
 <td class="text-left"><p>Returns argument  (i.e., index) of max</p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.argrelmax()</span></code></p></td>
-<td class="text-left"><p>Returns argument  (i.e., index) of the local max</p></td>
-</tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.fmin()</span></code></p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.fmin()</span></code></p></td>
 <td class="text-left"><p>Returns the element-by-element min between two arrays of the same size</p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.fmax()</span></code></p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.fmax()</span></code></p></td>
 <td class="text-left"><p>Returns the element-by-element max between two arrays of the same size</p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.percentile()</span></code></p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.percentile()</span></code></p></td>
 <td class="text-left"><p>Returns the specified percentile</p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.mean()</span></code></p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.mean()</span></code></p></td>
 <td class="text-left"><p>Returns the mean (commonly known as the average)</p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.median()</span></code></p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.median()</span></code></p></td>
 <td class="text-left"><p>Returns the median</p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.std()</span></code></p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.std()</span></code></p></td>
 <td class="text-left"><p>Returns the standard deviation; be sure to include <code class="docutils literal notranslate"><span class="pre">ddof=1</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.histogram()</span></code></p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.histogram()</span></code></p></td>
 <td class="text-left"><p>Returns counts and bins for a histogram</p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.cumprod()</span></code></p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.cumprod()</span></code></p></td>
 <td class="text-left"><p>Returns the cumulative product</p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.cumsum()</span></code></p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.cumsum()</span></code></p></td>
 <td class="text-left"><p>Returns the cumulative sum</p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.sum()</span></code></p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.sum()</span></code></p></td>
 <td class="text-left"><p>Returns the sum of all elements</p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.prod()</span></code></p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.prod()</span></code></p></td>
 <td class="text-left"><p>Returns the product of all elements</p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.ptp()</span></code></p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.ptp()</span></code></p></td>
 <td class="text-left"><p>Returns the peak-to-peak separation of max and min values</p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.unique()</span></code></p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.unique()</span></code></p></td>
 <td class="text-left"><p>Returns an array of unique elements in an array, set <code class="docutils literal notranslate"><span class="pre">return_counts=True</span></code> to get frequency</p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.unique_counts()</span></code></p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">np.unique_counts()</span></code></p></td>
 <td class="text-left"><p>Returns an array of unique elements in an array and a second array with the frequency of these elements</p></td>
 </tr>
 </tbody>
@@ -1687,6 +1684,10 @@
 <p>The standard deviation equation includes degrees of freedom. The default value for NumPy is zero, but the default value for Excel, and some other software, is one. If you want your standard deviations to match Excel, include the <code class="docutils literal notranslate"><span class="pre">ddof=1</span></code> argument to the <code class="docutils literal notranslate"><span class="pre">np.std()</span></code> standard deviation function.</p>
 </div>
 </aside>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The SciPy library includes a couple related functions, <code class="docutils literal notranslate"><span class="pre">scipy.signal.argrelmax()</span></code> and <code class="docutils literal notranslate"><span class="pre">scipy.signal.argrelmin()</span></code>, that return the <em>index</em> of the max or min values, respectively. I personally find these functions quite useful at times.</p>
+</div>
 </section>
 <section id="missing-data">
 <span id="id24"></span><span id="index-14"></span><h2>4.6 Missing Data<a class="headerlink" href="#missing-data" title="Link to this heading">#</a></h2>
@@ -1830,7 +1831,7 @@ random for most chemical simulations and will be referred to as “random number
 <p>The simplest distribution is the <em>uniform distribution</em> of random numbers where every number in the range has an equal probability of occurring. The distribution may not always appear as even with small sample sizes due to the random nature of the number generation, but as a larger population of samples is generated, the relative distribution will appear more even. The histograms below (Figure 3) are of a hundred (left) and a hundred thousand (right) randomly generated floats from the [0,1) range in an even distribution. While the plot on the right appears more even, this is mostly an effect of the different scales.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/c93076412c4da7628848bb70d9c6e68e69a5217dd362bad39afe2596a25b16ca.svg" src="../../_images/c93076412c4da7628848bb70d9c6e68e69a5217dd362bad39afe2596a25b16ca.svg" />
+<img alt="../../_images/bc1df574efc8aedf3fa80e07d4bc09917ffdb66ae6b31a4214f6f9f866ffcbb2.svg" src="../../_images/bc1df574efc8aedf3fa80e07d4bc09917ffdb66ae6b31a4214f6f9f866ffcbb2.svg" />
 </div>
 </div>
 <p><strong>Figure 3</strong> Histograms of a hundred (left) and a hundred thousand (right) randomly generated floats from the [0,1) range in an even distribution using the <code class="docutils literal notranslate"><span class="pre">random()</span></code> method.</p>
@@ -1860,7 +1861,7 @@ random for most chemical simulations and will be referred to as “random number
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.60602722, 0.5110779 , 0.22189234, 0.36013602, 0.08912853])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.28577818, 0.87916533, 0.18502091, 0.05263112, 0.94585951])
 </pre></div>
 </div>
 </div>
@@ -1872,7 +1873,7 @@ random for most chemical simulations and will be referred to as “random number
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([9, 2, 9, 5, 9, 9, 0, 1, 7, 9])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([9, 4, 2, 2, 7, 1, 9, 4, 7, 7])
 </pre></div>
 </div>
 </div>
@@ -1891,7 +1892,7 @@ random for most chemical simulations and will be referred to as “random number
 <p>The <code class="docutils literal notranslate"><span class="pre">t</span></code> argument is the number of trials, while the <code class="docutils literal notranslate"><span class="pre">size=</span></code> argument is the number of generated values. For example, if <code class="docutils literal notranslate"><span class="pre">t</span> <span class="pre">=</span> <span class="pre">2</span></code>, two binomial values are generated, and the sum is returned, which may be <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span></code>, or <code class="docutils literal notranslate"><span class="pre">2</span></code>. Basic probability predicts that these sums will occur in a 1:2:1 ratio, respectively. If <code class="docutils literal notranslate"><span class="pre">t</span></code> is increased to <code class="docutils literal notranslate"><span class="pre">10</span></code>, a shape more closely representing a bell curve is obtained. A <em>Bernoulli distribution</em> is the specific instance of a binomial distribution where t = 1. The histograms below (Figure 4) are of a hundred randomly generated numbers in a binomial distribution with <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">0.5</span></code> and where <code class="docutils literal notranslate"><span class="pre">t</span> <span class="pre">=</span> <span class="pre">1</span></code> (left), <code class="docutils literal notranslate"><span class="pre">t</span> <span class="pre">=</span> <span class="pre">2</span></code> (center), and <code class="docutils literal notranslate"><span class="pre">t</span> <span class="pre">=</span> <span class="pre">10</span></code> (right).</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/bc8a0ac7b4b982ca18e9cfd15dff41c736a89f60fb71a1b06bf01a51266debb7.svg" src="../../_images/bc8a0ac7b4b982ca18e9cfd15dff41c736a89f60fb71a1b06bf01a51266debb7.svg" />
+<img alt="../../_images/5efccd4046751fd44a6ea44dbe093612945b42d9aea7c117035d2d08ac258c7d.svg" src="../../_images/5efccd4046751fd44a6ea44dbe093612945b42d9aea7c117035d2d08ac258c7d.svg" />
 </div>
 </div>
 <p><strong>Figure 4</strong> Histograms of a hundred randomly generated numbers in a binomial distribution with <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">0.5</span></code> and <code class="docutils literal notranslate"><span class="pre">t</span> <span class="pre">=</span> <span class="pre">1</span></code> (left), <code class="docutils literal notranslate"><span class="pre">t</span> <span class="pre">=</span> <span class="pre">2</span></code> (center), and <code class="docutils literal notranslate"><span class="pre">t</span> <span class="pre">=</span> <span class="pre">10</span></code> (right).</p>
@@ -1921,7 +1922,7 @@ random for most chemical simulations and will be referred to as “random number
 <p>The returned array of values is the total radiation detections for each second for thirty seconds, and the mean value is 3.8 counts. While not precisely the target of 3.6 counts, it is close, and larger sample sizes are statistically more likely to generate results closer to the target value. A histogram of these values is shown below (Figure 5, left). When this simulation was repeated with thirty thousand samples (Figure 5, right), a mean of 3.61 counts is obtained. In addition, the larger number of values results in a classic Poisson distribution curve which appears something like a bell curve with more tapering on the high end.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/cd377c8da5f77ac4c596ac539802cbe16daa857337fe7fffd02d82bc11817309.svg" src="../../_images/cd377c8da5f77ac4c596ac539802cbe16daa857337fe7fffd02d82bc11817309.svg" />
+<img alt="../../_images/dd13a9ce64cc58d480c2eacea7e3595774d32b46104e485fc1bfc2f0172f9b46.svg" src="../../_images/dd13a9ce64cc58d480c2eacea7e3595774d32b46104e485fc1bfc2f0172f9b46.svg" />
 </div>
 </div>
 <p><strong>Figure 5</strong> Histograms of thirty (left) and thirty thousand (right) randomly generated integers in a Poisson distribution with a target mean (<span class="math notranslate nohighlight">\(\lambda\)</span>) of 3.6 (dashed red line).</p>
@@ -1962,10 +1963,10 @@ random for most chemical simulations and will be referred to as “random number
 <td class="text-left"><p>Generates random floats in a normal distribution centered around zero</p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">rng.binomial()</span></code></p></td>
-<td class="text-left"><p>Generates random integers in a binomial distribution; takes a probability ,<code class="docutils literal notranslate"><span class="pre">p</span></code>, and <code class="docutils literal notranslate"><span class="pre">size</span></code> arguments</p></td>
+<td class="text-left"><p>Generates random integers in a binomial distribution; takes a <code class="docutils literal notranslate"><span class="pre">p</span></code> (probability) and <code class="docutils literal notranslate"><span class="pre">size</span></code> arguments</p></td>
 </tr>
 <tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">rng.poisson()</span></code></p></td>
-<td class="text-left"><p>Generates random floats in a Poisson distribution; takes a target mean argument (<code class="docutils literal notranslate"><span class="pre">lam</span></code>)</p></td>
+<td class="text-left"><p>Generates random integers in a Poisson distribution; takes a target mean argument (<code class="docutils literal notranslate"><span class="pre">lam</span></code>)</p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">rng.choice()</span></code></p></td>
 <td class="text-left"><p>Selects random values taken from a 1-D array or range</p></td>
@@ -2112,7 +2113,7 @@ random for most chemical simulations and will be referred to as “random number
 <p>b. Transpose the array, so now it should be a 5 <span class="math notranslate nohighlight">\(\times\)</span> 3 array.</p>
 <p>c. Make the array one-dimensional again <em>without</em> using the <code class="docutils literal notranslate"><span class="pre">reshape()</span></code> method.</p>
 </li>
-<li><p>Generating an Combining arrays – Bohr hydrogen atom.</p>
+<li><p>Generating and Combining arrays – Bohr hydrogen atom.</p>
 <p>a. Create an array containing the principal quantum numbers (n) for the first eight orbits of a hydrogen atom             (i.e., 1 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 8).</p>
 <p>b. Generate a second array containing the energy (J) of each orbit in part A for a Bohr model of a hydrogen atom           using the equation below.</p>
 <div class="math notranslate nohighlight">
