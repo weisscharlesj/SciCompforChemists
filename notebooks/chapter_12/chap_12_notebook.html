@@ -408,7 +408,8 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-first-order-multiplets">12.2.1 Simulating First-Order Multiplets</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-spectra">12.2.2 Simulating Spectra</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-second-order-resonances">12.2.3 Simulate Second-Order Resonances</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-nmr-simulations">12.2.4 Dynamic NMR Simulations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-with-spinsystem">12.2.4 Simulating with <code class="docutils literal notranslate"><span class="pre">SpinSystem()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-nmr-simulations">12.2.5 Dynamic NMR Simulations</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further Reading</a></li>
@@ -617,7 +618,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c16e57c5e24d088ebb433802a3c19dd34cc0ef9f2b937c356ae8ead9862e53c7.svg" src="../../_images/c16e57c5e24d088ebb433802a3c19dd34cc0ef9f2b937c356ae8ead9862e53c7.svg" />
+<img alt="../../_images/df8d26999371c126bb7f4eed9b6e1e236946a6306d1bf049257134eaa840798d.svg" src="../../_images/df8d26999371c126bb7f4eed9b6e1e236946a6306d1bf049257134eaa840798d.svg" />
 </div>
 </div>
 <p>To convert the data to the frequency domain, we will use the fast Fourier transform function (<code class="docutils literal notranslate"><span class="pre">fft</span></code>) from the <code class="docutils literal notranslate"><span class="pre">fft</span></code> SciPy module. nmrglue also contains Fourier transform functions, but we will use SciPy here. The plot below inverts the <em>x</em>-axis with <code class="docutils literal notranslate"><span class="pre">plt.gca().invert_xaxis()</span></code> to conform to NMR plotting conventions.</p>
@@ -639,7 +640,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ae59253de30890f9635c871b48739c170766bd557dc21f6c9d8fd73316374b95.svg" src="../../_images/ae59253de30890f9635c871b48739c170766bd557dc21f6c9d8fd73316374b95.svg" />
+<img alt="../../_images/06815b87481df728238c7529c6eda9d88ed9683b7e56d703fe1ade3179ade941.svg" src="../../_images/06815b87481df728238c7529c6eda9d88ed9683b7e56d703fe1ade3179ade941.svg" />
 </div>
 </div>
 <p>When you plot the Fourier transformed data, you may get a <code class="docutils literal notranslate"><span class="pre">ComplexWarning</span></code> error message because the Fourier transform will return complex values (i.e., values with real and imaginary components). To only work with the real components, use the <code class="docutils literal notranslate"><span class="pre">.real</span></code> method as is done above. The plot now looks more like an NMR spectrum, but most of the resonances are out of phase. The next step is to phase the spectrum.</p>
@@ -665,8 +666,8 @@
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully.
          Current function value: 0.001729
-         Iterations: 117
-         Function evaluations: 236
+         Iterations: 116
+         Function evaluations: 230
 </pre></div>
 </div>
 </div>
@@ -681,7 +682,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6eb71e96e93257754ac68be9d425145a170e12810d504593ff980f1da47d3a00.svg" src="../../_images/6eb71e96e93257754ac68be9d425145a170e12810d504593ff980f1da47d3a00.svg" />
+<img alt="../../_images/bc3a8ec12d5f3ced98c1cede1f84c6e06b99c0da631199ecd9609ef2739a53d8.svg" src="../../_images/bc3a8ec12d5f3ced98c1cede1f84c6e06b99c0da631199ecd9609ef2739a53d8.svg" />
 </div>
 </div>
 <p>You should try both algorithms to see which works best for you. The above spectrum is the result of the <code class="docutils literal notranslate"><span class="pre">acme</span></code> autophasing algorithm, which is close but still slightly off. If neither of the provided autophasing algorithms work for you, you will need to instead manually phase the NMR spectrum as discussed below.</p>
@@ -747,7 +748,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6d9d735267faa06a6ecc60fbc433deb1e6dec89aa3bcbd19d47df2dfc77a8d56.svg" src="../../_images/6d9d735267faa06a6ecc60fbc433deb1e6dec89aa3bcbd19d47df2dfc77a8d56.svg" />
+<img alt="../../_images/ecb7cc0b2190dafa9ffb87f234b5940ea92b4816d7dd9d605d629101e2369a72.svg" src="../../_images/ecb7cc0b2190dafa9ffb87f234b5940ea92b4816d7dd9d605d629101e2369a72.svg" />
 </div>
 </div>
 <p>Alternatively, nmrglue contains an object called a <em>unit conversion object</em> that can be created and used to convert between ppm, Hz, and point index values for any position in an NMR spectrum. To create a unit conversion object, use the <code class="docutils literal notranslate"><span class="pre">make_uc()</span></code> function which takes two arguments  – the dictionary, <code class="docutils literal notranslate"><span class="pre">dic</span></code>, and the original data array, <code class="docutils literal notranslate"><span class="pre">data</span></code>, generated from reading the NMR file in <a class="reference internal" href="#id3"><span class="std std-ref">section 12.1.1</span></a>.</p>
@@ -785,7 +786,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/cd3f9d8a00e649aa67cbb82ea17883528959588bc9ad2bc9cd4ff6ae5b824504.svg" src="../../_images/cd3f9d8a00e649aa67cbb82ea17883528959588bc9ad2bc9cd4ff6ae5b824504.svg" />
+<img alt="../../_images/b7750387d7b51b8ad220034d8a73b8c4b80100c996673ee807c4ea7f00c0c2b0.svg" src="../../_images/b7750387d7b51b8ad220034d8a73b8c4b80100c996673ee807c4ea7f00c0c2b0.svg" />
 </div>
 </div>
 <p>The following example uses the ppm scale generated by the unit conversion object.</p>
@@ -827,7 +828,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8a95bcb47b8c1ccabf8aa70282a951e1ca48c487fa538f6b1474b89b38ad5d9f.svg" src="../../_images/8a95bcb47b8c1ccabf8aa70282a951e1ca48c487fa538f6b1474b89b38ad5d9f.svg" />
+<img alt="../../_images/f114a9d2bd4b6accb213c7e58c2ab8eb468b7c888bb29d7e4e32bbfcd0302817.svg" src="../../_images/f114a9d2bd4b6accb213c7e58c2ab8eb468b7c888bb29d7e4e32bbfcd0302817.svg" />
 </div>
 </div>
 <p>If you want to narrow the plot to where the resonances are located, you can use the <code class="docutils literal notranslate"><span class="pre">plt.xlim(8,0)</span></code> function. Notice that 8 is first to indicate that the plot is from 8 ppm <span class="math notranslate nohighlight">\(\rightarrow\)</span> 0 ppm. The use of <code class="docutils literal notranslate"><span class="pre">plt.xlim(8,0)</span></code> removes the need to use <code class="docutils literal notranslate"><span class="pre">plt.gca().invert_xaxis()</span></code> to flip the <em>x</em>-axis.</p>
@@ -868,7 +869,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/19146180e58299fb3d1e5b0c10ab0bb51860996e1f6585ca52ba5b9812f44b01.svg" src="../../_images/19146180e58299fb3d1e5b0c10ab0bb51860996e1f6585ca52ba5b9812f44b01.svg" />
+<img alt="../../_images/59b4061d943c839570f96a12ad49fc732a470efa7b827f018789503233b086f9.svg" src="../../_images/59b4061d943c839570f96a12ad49fc732a470efa7b827f018789503233b086f9.svg" />
 </div>
 </div>
 <p>The limits are in ppm, so take a look at the spectrum above and decide where you want to put the integration limits. An NMR spectrum is shown above with the chosen integration limits represented as vertical red lines.</p>
@@ -881,7 +882,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.05381569, 0.03379756, 0.02178194])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.05381572, 0.03379757, 0.02178194])
 </pre></div>
 </div>
 </div>
@@ -895,7 +896,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.47065636, 1.55163197, 1.        ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.47065776, 1.55163268, 1.        ])
 </pre></div>
 </div>
 </div>
@@ -908,7 +909,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4.91938374, 3.08949203, 1.99112423])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4.91938447, 3.08949213, 1.9911234 ])
 </pre></div>
 </div>
 </div>
@@ -934,7 +935,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a0ba8e8607ba28ca70bd13ae6b0b32a97dffb808dc9b0d5bb48a90a3a20d442a.svg" src="../../_images/a0ba8e8607ba28ca70bd13ae6b0b32a97dffb808dc9b0d5bb48a90a3a20d442a.svg" />
+<img alt="../../_images/54c06f9d8f48e3272ce1eca18e8c05e551adb49d8b09cbd1e2ccc6a109b5025b.svg" src="../../_images/54c06f9d8f48e3272ce1eca18e8c05e551adb49d8b09cbd1e2ccc6a109b5025b.svg" />
 </div>
 </div>
 <div class="admonition note">
@@ -949,11 +950,11 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rec.array([( 4568., 1, 32.13860124, 18.64042664),
-           ( 4648., 2, 35.96968658, 26.9859066 ),
-           ( 8624., 3, 31.36229043, 18.30371094),
-           ( 9846., 4, 34.1857674 , 28.33754349),
-           (10923., 5,  0.        ,  0.06818369)],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rec.array([( 4568., 1, 32.13873177, 18.64052963),
+           ( 4648., 2, 35.9697139 , 26.9858036 ),
+           ( 8624., 3, 31.36229397, 18.30371284),
+           ( 9846., 4, 34.18577859, 28.33757019),
+           (10923., 5,  0.        ,  0.06818376)],
           dtype=[(&#39;X_AXIS&#39;, &#39;&lt;f8&#39;), (&#39;cID&#39;, &#39;&lt;i8&#39;), (&#39;X_LW&#39;, &#39;&lt;f8&#39;), (&#39;VOL&#39;, &#39;&lt;f8&#39;)])
 </pre></div>
 </div>
@@ -989,7 +990,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0d2a4daeb4695c9359e84ea3ad047a41e5b04c07af18e1fb008ab367d92a442e.svg" src="../../_images/0d2a4daeb4695c9359e84ea3ad047a41e5b04c07af18e1fb008ab367d92a442e.svg" />
+<img alt="../../_images/83161b0cc72ced1ab5ee9a5280f5a18e6b427958085d990ca59148b5b42ab082.svg" src="../../_images/83161b0cc72ced1ab5ee9a5280f5a18e6b427958085d990ca59148b5b42ab082.svg" />
 </div>
 </div>
 <p>We can plot the NMR spectrum with these chemical shifts marked with vertical dotted lines shown above. It looks like it did a pretty good job locating the resonances! If nmrglue fails to properly identify the peaks, there are a number of parameters described in the <a class="reference external" href="https://nmrglue.readthedocs.io/en/latest/reference/generated/nmrglue.analysis.peakpick.pick.html#nmrglue.analysis.peakpick.pick">nmrglue documentation</a> that can be adjusted.</p>
@@ -997,7 +998,7 @@
 </section>
 <section id="simulating-nmr-with-nmrsim">
 <span id="id13"></span><span id="index-7"></span><span id="index-6"></span><h2>12.2 Simulating NMR with nmrsim<a class="headerlink" href="#simulating-nmr-with-nmrsim" title="Link to this heading">#</a></h2>
-<p>nmrsim is a Python package for simulating NMR spectra based on information such as the chemical shifts, coupling constants, and number of coupling nuclei. The package is capable of simulating individual first-order and second-order splitting patterns or entire NMR spectra. It can also simulate dynamic NMR caused by nuclei rapidly exchanging. nmrsim is <a class="reference external" href="https://nmrsim.readthedocs.io/en/latest/installation.html">installable using <code class="docutils literal notranslate"><span class="pre">pip</span></code></a>. The package has a few key functions listed below (Table 3) for simulating first-order multiplets, spin systems, and spectra. The <code class="docutils literal notranslate"><span class="pre">Multiplet()</span></code> function is used to simulate a single, first-order resonance such as a 1:2:1 triplet or a doublet-of-doublets while the <code class="docutils literal notranslate"><span class="pre">SpinSystem()</span></code> function simulates two resonance signals belonging to pairs of coupled nuclei. The <code class="docutils literal notranslate"><span class="pre">Spectrum()</span></code> function can generate entire spectra by merging the resonances generated by other functions.</p>
+<p>nmrsim is a Python package for simulating NMR spectra based on information such as the chemical shifts, coupling constants, and number of coupling nuclei. The package is capable of simulating individual first-order and second-order splitting patterns or entire NMR spectra. It can also simulate dynamic NMR caused by nuclei rapidly exchanging. nmrsim is <a class="reference external" href="https://nmrsim.readthedocs.io/en/latest/installation.html">installable using <code class="docutils literal notranslate"><span class="pre">pip</span></code></a>. The package has a few key functions listed below (Table 3) for simulating first-order multiplets, spin systems, and spectra. The <code class="docutils literal notranslate"><span class="pre">Multiplet()</span></code> function is used to simulate a single, first-order resonance such as a 1:2:1 triplet or a doublet-of-doublets while the <code class="docutils literal notranslate"><span class="pre">Spectrum()</span></code> function can generate entire spectra by merging the resonances generated by other functions. The <code class="docutils literal notranslate"><span class="pre">SpinSystem()</span></code> function simulates two or more resonance signals belonging to coupled nuclei. The latter is a little more involved, but it also is very powerful if you are willing to build the coupling matrix for all nuclei.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
@@ -1016,11 +1017,11 @@
 <tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">Multiplet()</span></code></p></td>
 <td class="text-left"><p>Simulates a single, first-order multiplet</p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">SpinSystem()</span></code></p></td>
-<td class="text-left"><p>Simulates sets of first- or second-order multiplets generated by coupled nuclei</p></td>
-</tr>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">Spectrum()</span></code></p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">Spectrum()</span></code></p></td>
 <td class="text-left"><p>Simulates first-order spectra</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">SpinSystem()</span></code></p></td>
+<td class="text-left"><p>Simulates sets of first- or second-order multiplets generated by coupled nuclei</p></td>
 </tr>
 </tbody>
 </table>
@@ -1048,7 +1049,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nmrsim._classes.Multiplet at 0x11549f380&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nmrsim._classes.Multiplet at 0x10e1db110&gt;
 </pre></div>
 </div>
 </div>
@@ -1092,10 +1093,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x1157a2510&gt;]
-</pre></div>
-</div>
-<img alt="../../_images/f4f364f1cbc3c37e4049548fda34a96441a835ea760e6ed4bbe845ac071d21d2.svg" src="../../_images/f4f364f1cbc3c37e4049548fda34a96441a835ea760e6ed4bbe845ac071d21d2.svg" />
+<img alt="../../_images/039101ea9203212e18de91bec4559fd95dcfb44d0081d2fbe77224e6479c305d.svg" src="../../_images/039101ea9203212e18de91bec4559fd95dcfb44d0081d2fbe77224e6479c305d.svg" />
 </div>
 </div>
 <p>Below is the same splitting pattern with the line width tripled.</p>
@@ -1106,10 +1104,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x117415af0&gt;]
-</pre></div>
-</div>
-<img alt="../../_images/7c7c6e5669d55ee9726074c840ef68e41e9d842e4cddc836202838d9c1224d3f.svg" src="../../_images/7c7c6e5669d55ee9726074c840ef68e41e9d842e4cddc836202838d9c1224d3f.svg" />
+<img alt="../../_images/d755caf1bc128dc40f6464bdcd68a13bdc64953257350946c6363362ee17dd2f.svg" src="../../_images/d755caf1bc128dc40f6464bdcd68a13bdc64953257350946c6363362ee17dd2f.svg" />
 </div>
 </div>
 <p>As another option, we can overlay the multiplet with lines showing the exact chemical shift and intensity ratio of each peak. This can be done either using your plotting library of choice or using the <code class="docutils literal notranslate"><span class="pre">mplplot_stick()</span></code> function in nmrsim. Below, the intensity of the stem plot is reduced by a fifth to keep the lines inside the blue splitting pattern.</p>
@@ -1126,7 +1121,7 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;StemContainer object of 3 artists&gt;
 </pre></div>
 </div>
-<img alt="../../_images/327c4570bc33b33eb6cc6a802b288117dc765b2486537e4a968500b686565af4.svg" src="../../_images/327c4570bc33b33eb6cc6a802b288117dc765b2486537e4a968500b686565af4.svg" />
+<img alt="../../_images/181d98d57fa687f4c5a77ebb274ececd48fbfc6aaa0828758c8e20a1422564e2.svg" src="../../_images/181d98d57fa687f4c5a77ebb274ececd48fbfc6aaa0828758c8e20a1422564e2.svg" />
 </div>
 </div>
 </section>
@@ -1164,7 +1159,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6ce5674025559e107f3741ec143dfc203bbe50ae13f9c4a3e4ad8d830a75c399.svg" src="../../_images/6ce5674025559e107f3741ec143dfc203bbe50ae13f9c4a3e4ad8d830a75c399.svg" />
+<img alt="../../_images/17a110eb4e9f7d3b4c35be2ec2905538418974efa7ed002db73c0d85b176644a.svg" src="../../_images/17a110eb4e9f7d3b4c35be2ec2905538418974efa7ed002db73c0d85b176644a.svg" />
 </div>
 </div>
 <p>The simulation even exhibits the second-order roofing effect where coupled resonances ‘lean’ towards each other.</p>
@@ -1219,10 +1214,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x117910e90&gt;]
-</pre></div>
-</div>
-<img alt="../../_images/3dbc123d2b6d003604c3d3acce41e5020061be2129ed1117f8ad00ee4e249fb6.svg" src="../../_images/3dbc123d2b6d003604c3d3acce41e5020061be2129ed1117f8ad00ee4e249fb6.svg" />
+<img alt="../../_images/4c90148aa6b1012641122c051db2ca13d056646fff1bca9c168da2b6d471a63f.svg" src="../../_images/4c90148aa6b1012641122c051db2ca13d056646fff1bca9c168da2b6d471a63f.svg" />
 </div>
 </div>
 <p>If we increase the distance between the two nuclei to 30.0 Hz, not only do the two signals become further apart, but the second-order character, unevenness in this case, decreases. It is important to note that when measuring the distance between the two second-order signals like this, the center of a doublet with uneven heights is not the center of the doublet but rather a weighted frequency average of the two peaks based on intensities. This means the chemical shift of a doublet is closer to the larger of the two peaks in the doublet.</p>
@@ -1234,15 +1226,141 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x1174af800&gt;]
+<img alt="../../_images/9fdd1e92a5ba8cf301ed82443b9dfd5cff9c9a43ff242b5bb882be3e51c05aa9.svg" src="../../_images/9fdd1e92a5ba8cf301ed82443b9dfd5cff9c9a43ff242b5bb882be3e51c05aa9.svg" />
+</div>
+</div>
+</section>
+<section id="simulating-with-spinsystem">
+<span id="id17"></span><span id="index-9"></span><h3>12.2.4 Simulating with <code class="docutils literal notranslate"><span class="pre">SpinSystem()</span></code><a class="headerlink" href="#simulating-with-spinsystem" title="Link to this heading">#</a></h3>
+<p>Another approach to simulating multiple resonances or entire spectra is the <code class="docutils literal notranslate"><span class="pre">SpinSystem()</span></code> function, which can simulate both first- and second-order splitting patterns. This is a very powerful method for simulate entire systems of coupled nuclei, but it is also more tedious since every spin-active nucleus needs to be addressed separately. That is, even equivalent nuclei need to be included in the simulation individually.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When simulating multiple, equivalent nuclei such as three methyl protons, all three nuclei need to be addressed separately with <code class="docutils literal notranslate"><span class="pre">SpinSystem()</span></code>. However, if there are two equivalent methyls that do not interact, such as in 3-pentanone, then each set of methyl protons only need to be simulated once.</p>
+</div>
+</aside>
+<p>The <code class="docutils literal notranslate"><span class="pre">SpinSystem()</span></code> function requires two key pieces of information. The first is a list, tuple, or array of frequency values (<code class="docutils literal notranslate"><span class="pre">v</span></code>), in Hz, for each signal. Again, list each nucleus separately, so if there are multiple chemically equivalent nuclei, there should be the same frequencies listed multiple times. Next, create an array or nested list (<code class="docutils literal notranslate"><span class="pre">J</span></code>) providing the coupling constants.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">SpinSystem</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">second_order</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../../_images/6f0579c9fd5febda41c42c76fda3273a7837416afffabd0540e215e8375ca439.svg" src="../../_images/6f0579c9fd5febda41c42c76fda3273a7837416afffabd0540e215e8375ca439.svg" />
+<p>As an example, we can simulate the <span class="math notranslate nohighlight">\(^1\)</span>H NMR spectrum for naphthalene, which has two pairs of chemically equivalent protons with frequencies of 2990.9 Hz and 3137.4 Hz on a 400 MHz (9.4 T) spectrometer. The two sides of the molecule are identical, so we do not need to simulate the other four protons as well. The coupling constants are Jaa’ = 7.156 Hz, Jxx’ = 0.806 Hz, Jax = 1.449 Hz, Jax’ = 8.138 Hz, Ja’x = 8.138, and Ja’x’ = 1.449 Hz, so the table of coupling constants will look like below. Notice that the coupling constants on the diagonal are going to be zero and the the table is symmetric around the diagonal.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{c|cccc}
+ &amp; {\mathbf{A}} &amp; {\mathbf{A'}} &amp; {\mathbf{X}} &amp; {\mathbf{X'}} \\
+\hline
+{\mathbf{A}}  &amp; 0 &amp; 7.156 &amp; 1.449 &amp; 8.138 \\
+{\mathbf{A'}} &amp; 7.156 &amp; 0 &amp; 2.8.138 &amp; 1.449 \\
+{\mathbf{X}}  &amp; 1.449 &amp; 8.138 &amp; 0 &amp; 0.806 \\
+{\mathbf{X'}} &amp; 8.138 &amp; 1.449 &amp; 0.806 &amp; 0 \\
+\end{array}\end{split}\]</div>
+<p>We can go ahead and import <code class="docutils literal notranslate"><span class="pre">SpinSystem</span></code>, run the simulation, and plot the results. The <code class="docutils literal notranslate"><span class="pre">mplplot()</span></code> function can be used to visualize the plot directly, but for more control on the output, this is turned off below with <code class="docutils literal notranslate"><span class="pre">hidden=True</span></code>, and the results are plotted directly using matplotlib.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nmrsim</span> <span class="kn">import</span> <span class="n">SpinSystem</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2990.9</span><span class="p">,</span> <span class="mf">2990.9</span><span class="p">,</span> <span class="mf">3137.4</span><span class="p">,</span> <span class="mf">3137.4</span><span class="p">]</span>
+<span class="n">J</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">7.156</span><span class="p">,</span> <span class="mf">1.449</span><span class="p">,</span> <span class="mf">8.138</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">7.156</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">8.138</span><span class="p">,</span> <span class="mf">1.449</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">1.449</span><span class="p">,</span> <span class="mf">8.138</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.806</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">8.138</span><span class="p">,</span> <span class="mf">1.449</span><span class="p">,</span> <span class="mf">0.806</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+
+<span class="n">aaxx</span> <span class="o">=</span> <span class="n">SpinSystem</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">second_order</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">peaks</span> <span class="o">=</span> <span class="n">aaxx</span><span class="o">.</span><span class="n">peaklist</span><span class="p">()</span>
+<span class="n">v</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="n">mplplot</span><span class="p">(</span><span class="n">peaks</span><span class="p">,</span> <span class="n">y_max</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">hidden</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">I</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">3190</span><span class="p">,</span> <span class="mi">2950</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency, Hz&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>From hamiltonian_sparse:
+Lz is type:  &lt;class &#39;sparse._coo.core.COO&#39;&gt;
+Lproduct is type:  &lt;class &#39;sparse._coo.core.COO&#39;&gt;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>From hamiltonian_sparse:
+Lz is type:  &lt;class &#39;sparse._coo.core.COO&#39;&gt;
+Lproduct is type:  &lt;class &#39;sparse._coo.core.COO&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../_images/8c32078a92d5340e891f4b5e00130ee7de60d00c9a34fe2f5d9cf80a7824fff0.svg" src="../../_images/8c32078a92d5340e891f4b5e00130ee7de60d00c9a34fe2f5d9cf80a7824fff0.svg" />
+</div>
+</div>
+<p>This is overlaid with experimental data below showing good agreement.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">naphthalene</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s1">&#39;data/naphthalene_signals.csv&#39;</span><span class="p">,</span> <span class="n">skip_header</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">naphth_hz</span> <span class="o">=</span> <span class="n">naphthalene</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">400</span>
+<span class="n">naphth_I</span> <span class="o">=</span> <span class="n">naphthalene</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">naphth_hz</span><span class="p">,</span> <span class="n">naphth_I</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Experimental&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">I</span><span class="o">*</span><span class="mi">18</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Simulation&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">3190</span><span class="p">,</span> <span class="mi">2950</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency, Hz&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1818aa09fa107949dbf051debfbe2758a95c9b66925da749b9c4fae7b8bebe03.svg" src="../../_images/1818aa09fa107949dbf051debfbe2758a95c9b66925da749b9c4fae7b8bebe03.svg" />
+</div>
+</div>
+<p>An expansion of one pattern is also shown below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">naphthalene</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s1">&#39;data/naphthalene_signals.csv&#39;</span><span class="p">,</span> <span class="n">skip_header</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">naphth_hz</span> <span class="o">=</span> <span class="n">naphthalene</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">400</span>
+<span class="n">naphth_I</span> <span class="o">=</span> <span class="n">naphthalene</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">naphth_hz</span><span class="p">,</span> <span class="n">naphth_I</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Experimental&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">I</span><span class="o">*</span><span class="mi">18</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Simulation&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">3155</span><span class="p">,</span> <span class="mi">3120</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency, Hz&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/526841f325affb7acd1c6cb20b98e0e84dd04c6f54d5c2bad5f3240916b00e15.svg" src="../../_images/526841f325affb7acd1c6cb20b98e0e84dd04c6f54d5c2bad5f3240916b00e15.svg" />
+</div>
+</div>
+<p>The default behavior of the simulation is <code class="docutils literal notranslate"><span class="pre">second_order=True</span></code>, so the simulation will automatically include whatever amount of second-order behavior is needed. If <code class="docutils literal notranslate"><span class="pre">second_order=False</span></code>, the simulation shows what the splitting patterns would be with first-order behavior (i.e., the behavior predicted using splitting trees).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2991</span><span class="p">,</span> <span class="mi">2991</span><span class="p">,</span> <span class="mf">3137.5</span><span class="p">,</span> <span class="mf">3137.5</span><span class="p">]</span>
+<span class="n">J</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">7.156</span><span class="p">,</span> <span class="mf">1.449</span><span class="p">,</span> <span class="mf">8.138</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">7.156</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">8.138</span><span class="p">,</span> <span class="mf">1.449</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">1.449</span><span class="p">,</span> <span class="mf">8.138</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.806</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">8.138</span><span class="p">,</span> <span class="mf">1.449</span><span class="p">,</span> <span class="mf">0.806</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+
+<span class="n">aaxx</span> <span class="o">=</span> <span class="n">SpinSystem</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">second_order</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">peaks</span> <span class="o">=</span> <span class="n">aaxx</span><span class="o">.</span><span class="n">peaklist</span><span class="p">()</span>
+<span class="n">v</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="n">mplplot</span><span class="p">(</span><span class="n">peaks</span><span class="p">,</span> <span class="n">y_max</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">hidden</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">I</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency, Hz&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Frequency, Hz&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/423b7d75700dbebfc939486d055950a0c7bdb16aa3e4456c3c487b5562a60ca2.svg" src="../../_images/423b7d75700dbebfc939486d055950a0c7bdb16aa3e4456c3c487b5562a60ca2.svg" />
 </div>
 </div>
 </section>
 <section id="dynamic-nmr-simulations">
-<span id="id17"></span><span id="index-9"></span><h3>12.2.4 Dynamic NMR Simulations<a class="headerlink" href="#dynamic-nmr-simulations" title="Link to this heading">#</a></h3>
+<span id="id18"></span><span id="index-10"></span><h3>12.2.5 Dynamic NMR Simulations<a class="headerlink" href="#dynamic-nmr-simulations" title="Link to this heading">#</a></h3>
 <p>Nuclei in some molecules can exchange with each other at observable rates. At lower temperatures, the exchange is relatively slow, leading to two distinct and reasonably sharp signals representing the two environments of the exchanging nuclei. As the temperature is increased, the exchange becomes more rapid, causing the two signals to broaden and become closer until they merge into a single peak and ultimately sharpen. There are two dynamic NMR functions in the nmrsim.dnmr module: the <code class="docutils literal notranslate"><span class="pre">dnmr_two_singlets()</span></code> function, which simulates two exchanging nuclei (or groups of chemically equivalent nuclei) that are not coupling with each other, while the <code class="docutils literal notranslate"><span class="pre">dnmr_AB()</span></code> function simulates two exchanging nuclei that couple with each other. Below, we will simulate two non-coupled, singlet signals exchanging with each other. The required arguments are the chemical shift frequencies of the two nuclei during slow exchange (<code class="docutils literal notranslate"><span class="pre">va</span></code> and <code class="docutils literal notranslate"><span class="pre">vb</span></code>), the exchange rate constant in Hz (<code class="docutils literal notranslate"><span class="pre">k</span></code>), the half-height width of the peaks at slow exchange (<code class="docutils literal notranslate"><span class="pre">wa</span></code> and <code class="docutils literal notranslate"><span class="pre">wb</span></code>), and the fraction of the nuclei in position <em>a</em> (<code class="docutils literal notranslate"><span class="pre">pa</span></code>). Optionally, you can specify the frequency limits for the generated line shape (<code class="docutils literal notranslate"><span class="pre">limits=</span></code>) and number of data points (<code class="docutils literal notranslate"><span class="pre">points=</span></code>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="n">dnmr_two_singlets</span><span class="p">(</span><span class="n">va</span><span class="p">,</span> <span class="n">vb</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">wa</span><span class="p">,</span> <span class="n">wb</span><span class="p">,</span> <span class="n">pa</span><span class="p">,</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">),</span> <span class="n">points</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
 </pre></div>
@@ -1259,26 +1377,52 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="n">dnmr_two_singlets</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">450</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">I</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency, Hz&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x117980440&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Frequency, Hz&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/e63ad643f89ace63115e1e3e0ceefbfae8efcb915758405704a046c936b59aaf.svg" src="../../_images/e63ad643f89ace63115e1e3e0ceefbfae8efcb915758405704a046c936b59aaf.svg" />
+<img alt="../../_images/63eb6db8bdf9c15aa6881b065ecfaacc9423e199718f61ca91b1c096fcc42533.svg" src="../../_images/63eb6db8bdf9c15aa6881b065ecfaacc9423e199718f61ca91b1c096fcc42533.svg" />
+</div>
+</div>
+<p>If the rotation frequency is adjusted lower, the two peaks merge into a single peak, while increasing the rotation frequency causes the two individual peaks to sharpen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frequency</span> <span class="o">=</span> <span class="p">[</span><span class="mi">300</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">linestyles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;solid&#39;</span><span class="p">,</span> <span class="s1">&#39;dotted&#39;</span><span class="p">,</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="s1">&#39;dashdot&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">))]</span>
+<span class="k">for</span> <span class="n">freq</span><span class="p">,</span> <span class="n">style</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">frequency</span><span class="p">,</span> <span class="n">linestyles</span><span class="p">):</span>
+    <span class="n">v</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="n">dnmr_two_singlets</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">450</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">freq</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;Hz&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="n">style</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency, Hz&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/78a904250d6233c5b6d271015166cdc7abddcb96b46aeaee8433ac7a500ca06e.svg" src="../../_images/78a904250d6233c5b6d271015166cdc7abddcb96b46aeaee8433ac7a500ca06e.svg" />
 </div>
 </div>
 </section>
 </section>
 <section id="further-reading">
 <h2>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
+<ol class="arabic">
 <li><p>NMRglue Website. <a class="reference external" href="https://www.nmrglue.com/">https://www.nmrglue.com/</a> (free resource)</p></li>
 <li><p>NMRglue Documentation Page. <a class="reference external" href="https://www.nmrglue.com/">http://nmrglue.readthedocs.io/en/latest/tutorial.html</a> (free resource)</p></li>
-<li><p>J.J. Helmus, C.P. Jaroniec, Nmrglue: An open source Python package for the analysis of multidimensional NMR data, J. Biomol. NMR 2013, 55, 355-367, <a class="reference external" href="http://dx.doi.org/10.1007/s10858-013-9718-x">http://dx.doi.org/10.1007/s10858-013-9718-x</a>. (paper on nmrglue)</p></li>
+<li><p>J.J. Helmus, C.P. Jaroniec, Nmrglue: An open source Python package for the analysis of multidimensional NMR data, J. Biomol. NMR 2013, 55, 355-367, <a class="reference external" href="http://dx.doi.org/10.1007/s10858-013-9718-x">http://dx.doi.org/10.1007/s10858-013-9718-x</a>.</p>
+<blockquote>
+<div><p>This is the academic paper on the nmrglue package.</p>
+</div></blockquote>
+</li>
 <li><p>nmrsim Documentation Page. <a class="reference external" href="https://nmrsim.readthedocs.io/en/latest/introduction.html">https://nmrsim.readthedocs.io/en/latest/introduction.html</a> (free resource)</p></li>
-<li><p>American Chemical Society Division of Organic Chemistry, Hans Reich’s NMR Spectroscopy Collection. <a class="reference external" href="https://organicchemistrydata.org/hansreich/resources/nmr/?page=nmr-content%2F">https://organicchemistrydata.org/hansreich/resources/nmr/?page=nmr-content%2F</a> (free resource)</p></li>
+<li><p>American Chemical Society Division of Organic Chemistry, Hans Reich’s NMR Spectroscopy Collection. <a class="reference external" href="https://organicchemistrydata.org/hansreich/resources/nmr/?page=nmr-content%2F">https://organicchemistrydata.org/hansreich/resources/nmr/?page=nmr-content%2F</a> (free resource)</p>
+<blockquote>
+<div><p>This is an excellent, free resource on basic to advanced NMR spectroscopy topics, including second-order effects, coupling constants, dynamic NMR, and numerous examples.</p>
+</div></blockquote>
+</li>
 </ol>
 </section>
 <section id="exercises">
@@ -1290,7 +1434,7 @@
 <p>b) Integrate the methyl (-CH<span class="math notranslate nohighlight">\(_3\)</span>) versus the methylene (-CH<span class="math notranslate nohighlight">\(_2\)</span>-) resonances and calculate the ratio.</p>
 </li>
 <li><p>Open the <span class="math notranslate nohighlight">\(^1\)</span>H and <span class="math notranslate nohighlight">\(^{13}\)</span>C NMR spectra of 2-ethyl-1-hexanol, <strong>2-ethyl-1-hexanol_1H_NMR_CDCl3.fid</strong> and <strong>2-ethyl-1-hexanol_13C_NMR_CDCl3.fid</strong>, in CDCl<span class="math notranslate nohighlight">\(_3\)</span> with TMS and plot them on a ppm scale. Be sure to properly phase and reference the spectra if not done already. Use the <code class="docutils literal notranslate"><span class="pre">pipe</span></code> module.</p></li>
-<li><p>Simulate a first-order doublet of triplets with <em>J</em>=5.6 Hz and <em>J</em>=9.2 Hz, respectively.</p></li>
+<li><p>Simulate a first-order doublet of triplets with <em>J</em><span class="math notranslate nohighlight">\(_d\)</span> = 5.6 Hz and <em>J</em><span class="math notranslate nohighlight">\(_t\)</span> = 9.2 Hz, respectively.</p></li>
 <li><p>Select an article from the <a class="reference external" href="https://pubs.acs.org/journal/joceah"><em>Journal of Organic Chemistry</em></a> or some other journal and simulate an NMR spectrum with coupling (e.g., not <span class="math notranslate nohighlight">\(^{13}\)</span>C{<span class="math notranslate nohighlight">\(^1\)</span>H}) based on data listed in the experimental section. <em>Note</em>: some articles are free to access even if you do not have a subscription. Just access the most recent issue, and the free articles are marked “Open Access” in ACS journals.</p></li>
 <li><p>Simulate a second-order AA’BB’ simulation with <em>J</em><span class="math notranslate nohighlight">\(_{AA'}\)</span> = 15.0 Hz, <em>J</em><span class="math notranslate nohighlight">\(_{BB'}\)</span> = 15.0 Hz, <em>J</em><span class="math notranslate nohighlight">\(_{AB}\)</span> = 7.0 Hz, <em>J</em><span class="math notranslate nohighlight">\(_{AB'}\)</span> = 7.0 Hz, and a separation of 27.0 Hz. Compare your simulation to what is shown on <a class="reference external" href="https://organicchemistrydata.org/hansreich/resources/nmr/?page=05-hmr-15-aabb%2F">Hans Reich’s figure</a> (first set of NMR spectra on the page).</p></li>
 </ol>
@@ -1383,7 +1527,8 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-first-order-multiplets">12.2.1 Simulating First-Order Multiplets</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-spectra">12.2.2 Simulating Spectra</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-second-order-resonances">12.2.3 Simulate Second-Order Resonances</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-nmr-simulations">12.2.4 Dynamic NMR Simulations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-with-spinsystem">12.2.4 Simulating with <code class="docutils literal notranslate"><span class="pre">SpinSystem()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-nmr-simulations">12.2.5 Dynamic NMR Simulations</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further Reading</a></li>
