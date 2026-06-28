@@ -86,7 +86,7 @@ The code in this version of the book has been most recently tested with the foll
 
 - Python – 3.12.7
 - JupyterLab - 4.4.4
-- NumPy – 2.2.6
+- NumPy – 2.4.6
 - SciPy – 1.16.0
 - Pandas – 2.3.0
 - Matplotlib – 3.10.3
@@ -102,7 +102,7 @@ The code in this version of the book has been most recently tested with the foll
 - Nglview - 3.1.2
 - RDKit - 2025.3.3
 - Pybaselines - 1.2.0
-- Requests - 2.32.4
+- Requests - 2.34.2
 - IPywidgets - 8.1.7
 - Uncertainties - 3.2.3
 
