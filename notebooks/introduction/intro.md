@@ -85,7 +85,7 @@ While great efforts have gone into ensuring that all the code in this book works
 
 The code in this version of the book has been most recently tested with the following software versions unless otherwise noted but will likely work with other versions.
 
-- Python – 3.12.7
+- Python – 3.13.15
 - JupyterLab - 4.4.4
 - NumPy – 2.4.6
 - SciPy – 1.16.0
