@@ -131,3 +131,4 @@ This book took a substantial time to write along with the time and effort in dev
 - jaredchis (GitHub handle) for reporting a code typo in chapter 3
 - Geoffrey D. Smith for reporting multiple typos
 - athlete5 (GitHub handle) for reporting an error in chapter 1
+- saf-dmitry (GitHub handle) for reporting a regex error in appendix 4
