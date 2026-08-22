@@ -86,24 +86,24 @@ While great efforts have gone into ensuring that all the code in this book works
 The code in this version of the book has been most recently tested with the following software versions unless otherwise noted but will likely work with other versions.
 
 - Python – 3.13.15
-- JupyterLab - 4.4.4
-- NumPy – 2.4.6
-- SciPy – 1.16.0
-- Pandas – 2.3.0
-- Matplotlib – 3.10.3
+- JupyterLab - 4.5.10
+- NumPy – 2.5.1
+- SciPy – 1.16.1
+- Pandas – 2.3.1
+- Matplotlib – 3.10.5
 - Seaborn – 0.13.2
 - Altair - 5.5.0
 - Scikit-image – 0.25.2
-- Scikit-learn – 1.8.0
+- Scikit-learn – 1.9.0
 - Sympy - 1.14.0
 - nmrglue – 0.11
 - nmrsim - 0.6 
-- Spyder – 5.4.2
-- Biopython - 1.85
+- Spyder – 6.0.7
+- Biopython - 1.87
 - Nglview - 4.0
-- RDKit - 2025.3.3
+- RDKit - 2025.3.5
 - ChemPy - 0.10.1
-- Pybaselines - 1.2.0
+- Pybaselines - 1.2.1
 - Requests - 2.34.2
 - IPywidgets - 8.1.7
 - Uncertainties - 3.2.3
