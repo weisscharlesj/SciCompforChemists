@@ -2,7 +2,7 @@
 
 # Scientific Computing for Chemists with Python
 
-#### An Introduction to Programming in Python with Chemical Applications
+<span style="font-size:1.6em">An Introduction to Programming in Python with Chemical Applications</span>
 
 *Scientific computing* utilizes computers to aid in scientific tasks such as data processing and digital simulations, among others. The well-developed field of computational chemistry is part of scientific computing and focuses on utilizing computing to simulate chemical phenomena and calculate properties. However, there is less focus in the field of chemistry on the data processing side of computing, so this book strives to fill this void by introducing the reader to tools and methods for processing, visualizing, and analyzing chemical data. This book serves as an introduction to coding for chemists. The tools employed in this book are the powerful and popular combination of Jupyter notebooks and the Python programming language. No background beyond first-year college chemistry and occasionally some very basic spectroscopy (for advanced chapters) is assumed for most of this book. This book starts with a brief primer on Jupyter notebooks in chapter 0 and computer programming with Python in chapters 1 and 2. If you already have a background in these tools, feel free to skip ahead. The rest of the book dives into applications of Python to solving chemical problems. Python and Jupyter were chosen for a variety of reasons, including that they are:
 
@@ -60,6 +60,7 @@ Below is a listing with brief descriptions of the chapters.
 |Chapter 15| Cheminformatics with RDKit |
 |Chapter 16| Bioinformatics with Biopython and nglview |
 |Chapter 17| Writing Python scripts using Spyder and running them from the command line |
+|Chapter 18| Inorganic, physical, and analytical chemistry calculations |
 |Appendix 0| IPython widgets for interactive notebooks|
 |Appendix 1| Remote requests for accessing online databases|
 |Appendix 2| Visualizing atomic orbitals |
@@ -84,24 +85,25 @@ While great efforts have gone into ensuring that all the code in this book works
 
 The code in this version of the book has been most recently tested with the following software versions unless otherwise noted but will likely work with other versions.
 
-- Python – 3.12.7
-- JupyterLab - 4.4.4
-- NumPy – 2.4.6
-- SciPy – 1.16.0
-- Pandas – 2.3.0
-- Matplotlib – 3.10.3
+- Python – 3.13.15
+- JupyterLab - 4.5.10
+- NumPy – 2.5.1
+- SciPy – 1.16.1
+- Pandas – 2.3.1
+- Matplotlib – 3.10.5
 - Seaborn – 0.13.2
 - Altair - 5.5.0
 - Scikit-image – 0.25.2
-- Scikit-learn – 1.8.0
+- Scikit-learn – 1.9.0
 - Sympy - 1.14.0
 - nmrglue – 0.11
 - nmrsim - 0.6 
-- Spyder – 5.4.2
-- Biopython - 1.85
-- Nglview - 3.1.2
-- RDKit - 2025.3.3
-- Pybaselines - 1.2.0
+- Spyder – 6.0.7
+- Biopython - 1.87
+- Nglview - 4.0
+- RDKit - 2025.3.5
+- ChemPy - 0.10.1
+- Pybaselines - 1.2.1
 - Requests - 2.34.2
 - IPywidgets - 8.1.7
 - Uncertainties - 3.2.3
@@ -129,3 +131,4 @@ This book took a substantial time to write along with the time and effort in dev
 - jaredchis (GitHub handle) for reporting a code typo in chapter 3
 - Geoffrey D. Smith for reporting multiple typos
 - athlete5 (GitHub handle) for reporting an error in chapter 1
+- saf-dmitry (GitHub handle) for reporting a regex error in appendix 4

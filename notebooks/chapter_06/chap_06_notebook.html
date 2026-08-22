@@ -16,33 +16,30 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -69,7 +66,6 @@
     <link rel="prev" title="Chapter 5: Pandas" href="../chapter_05/chap_05_notebook.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -85,8 +81,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -94,6 +101,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -101,8 +109,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -118,8 +126,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -147,17 +154,21 @@
     
     
     <img src="../../_static/logo.svg" class="logo__image only-light" alt="Scientific Computing for Chemists with Python - Home"/>
-    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Scientific Computing for Chemists with Python - Home"/>
+    <script>document.write(`<img src="../../_static/logo.svg" class="logo__image only-dark" alt="Scientific Computing for Chemists with Python - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -191,6 +202,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../chapter_15/chap_15_notebook.html">Chapter 15: Cheminformatics with RDKit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_16/chap_16_notebook.html">Chapter 16: Bioinformatics with Biopython &amp; Nglview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_17/chap_17_notebook.html">Chapter 17: Command Line &amp; Spyder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_18/chap_18_notebook.html">Chapter 18: ChemPy</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Back Matter</span></p>
 <ul class="nav bd-sidenav">
@@ -354,16 +366,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -474,18 +494,18 @@
 </table>
 </div>
 <p>Unlike NumPy, many of the functions in SciPy are stored in modules, so each module from SciPy needs to be imported individually or listed when calling the function. It is common to see specific SciPy modules imported as shown below.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">module</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">module</span>
 </pre></div>
 </div>
 <p>Alternatively, you can import a single function from a module.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.module</span> <span class="kn">import</span> <span class="n">function</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.module</span><span class="w"> </span><span class="kn">import</span> <span class="n">function</span>
 </pre></div>
 </div>
 <p>Because NumPy and plotting are used heavily in signal processing, the examples in this chapter assume the following NumPy and matplotlib imports.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
@@ -514,7 +534,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/79a34c8ad9b3cef6e3fd59ea1cae599447b752ffba523c3cac6213a7731911eb.svg" src="../../_images/79a34c8ad9b3cef6e3fd59ea1cae599447b752ffba523c3cac6213a7731911eb.svg" />
+<img alt="../../_images/c900ade2126c6660adb568fe911400637139846a38b31a8c918fe3432e52abdf.svg" src="../../_images/c900ade2126c6660adb568fe911400637139846a38b31a8c918fe3432e52abdf.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -534,7 +554,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8e6f7f993306921397dc271ea80e7fd7dcf30caf0767f6e61e607c33d5220a8a.svg" src="../../_images/8e6f7f993306921397dc271ea80e7fd7dcf30caf0767f6e61e607c33d5220a8a.svg" />
+<img alt="../../_images/86d9a040dc58136865361b379432634c984b441d6b4ba62e482f2c20c9fee230.svg" src="../../_images/86d9a040dc58136865361b379432634c984b441d6b4ba62e482f2c20c9fee230.svg" />
 </div>
 </div>
 <p>NMR resonances are positive peaks while IR stretches are represented here as negative peaks, so we can find the largest features in both spectra by finding the maximum value in the NMR spectrum and the smallest value in the IR spectrum.</p>
@@ -625,7 +645,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/bb05c3143a19c5abb9730b3b4fb0bbc06b3c3a957131cf36977828bfcdaa62de.svg" src="../../_images/bb05c3143a19c5abb9730b3b4fb0bbc06b3c3a957131cf36977828bfcdaa62de.svg" />
+<img alt="../../_images/74babfbc674a3f0249d0fda9b72c3b076cbbb19131f3fcaa08201705f4da6414.svg" src="../../_images/74babfbc674a3f0249d0fda9b72c3b076cbbb19131f3fcaa08201705f4da6414.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -639,7 +659,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b46b11dca7e2ae88a26503603c2fb9bb7de3011ea57a24cad54a2eb18ed1bed4.svg" src="../../_images/b46b11dca7e2ae88a26503603c2fb9bb7de3011ea57a24cad54a2eb18ed1bed4.svg" />
+<img alt="../../_images/0d3832e8b05750c3557e5aab2027f7464df1d23767acff4e782ebc1c1b2e2539.svg" src="../../_images/0d3832e8b05750c3557e5aab2027f7464df1d23767acff4e782ebc1c1b2e2539.svg" />
 </div>
 </div>
 <p>Both of these functions find the <em>global extremes</em> (or <em>global extrema</em>). If all you need is the largest feature in a spectrum, this works just fine. To find multiple features, we will need to find the local extrema addressed in the following section.</p>
@@ -649,7 +669,7 @@
 <p>A considerable amount of data in science contains numerous peaks and negative peaks which are called <em>local extrema</em>. To locate the multiple max and min values, we will use SciPy’s relative max/min functions <code class="docutils literal notranslate"><span class="pre">argrelmax()</span></code> and <code class="docutils literal notranslate"><span class="pre">argrelmin()</span></code>. These functions determine if a point is a max/min by checking a range of data points on both sides to see if the point is the largest/smallest. The range of data points examined is known as the window, and the window can be modified using the <code class="docutils literal notranslate"><span class="pre">order</span></code> argument. Instead of the actual max/min values, these functions return the indices as the “arg” part of the name suggests.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">argrelmax</span><span class="p">,</span> <span class="n">argrelmin</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.signal</span><span class="w"> </span><span class="kn">import</span> <span class="n">argrelmax</span><span class="p">,</span> <span class="n">argrelmin</span>
 </pre></div>
 </div>
 </div>
@@ -678,7 +698,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/fd087d825a75463999cdd83765f4c3b25ffc9c4e35fe55852269c8c232dd75e6.svg" src="../../_images/fd087d825a75463999cdd83765f4c3b25ffc9c4e35fe55852269c8c232dd75e6.svg" />
+<img alt="../../_images/68f212fff13011aa0c83c4cfaead94865dbd4adbe3601cf38321ea4f2454c66d.svg" src="../../_images/68f212fff13011aa0c83c4cfaead94865dbd4adbe3601cf38321ea4f2454c66d.svg" />
 </div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">argrelmax()</span></code> function may at times identify an edge or a point in a flat region as a local maximum because there is nothing larger near it. There are multiple ways to mitigate these erroneous peaks. First, we can increase the window for which the function checks to see if a point is the largest value in its neighborhood. Unfortunately, making the window too large can also prevent the identification of multiple extrema near each other. The second mitigation is to change the function’s mode from the default <code class="docutils literal notranslate"><span class="pre">'clip'</span></code> to <code class="docutils literal notranslate"><span class="pre">'wrap'</span></code>. This makes the function treat the data as wrapped around on itself instead of stopping at the edge. That is, both edges of the data are treated as being connected. This makes it more likely that an extrema value is in the neighborhood. Finally, the user can filter for values that correspond to peaks above a certain height value. Below is an example of filtering values based on a height. The window below is intentionally narrowed so that the <code class="docutils literal notranslate"><span class="pre">argrelmax()</span></code> function returns too many values for demonstration purposes.</p>
@@ -770,7 +790,7 @@
 <p>Now that the peaks are pointed upward, we feed the data into the <code class="docutils literal notranslate"><span class="pre">find_peaks()</span></code> function and decide how to best identify the peaks we are interested in. This will depend on the type of spectrum and other conditions. One straightforward method is the <code class="docutils literal notranslate"><span class="pre">height=</span></code> parameter where any peaks above this level are identified at their apex.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">find_peaks</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.signal</span><span class="w"> </span><span class="kn">import</span> <span class="n">find_peaks</span>
 
 <span class="n">find_peaks</span><span class="p">(</span><span class="n">absorb</span><span class="p">)</span>
 </pre></div>
@@ -829,7 +849,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/83d5c02635d22b753033c53f9550462052b83b36522c0edddef97a69f19e9e3c.svg" src="../../_images/83d5c02635d22b753033c53f9550462052b83b36522c0edddef97a69f19e9e3c.svg" />
+<img alt="../../_images/bbc929251753e7053907d263a75f90e14ba0245fd341ebcb24843eb6855e08c1.svg" src="../../_images/bbc929251753e7053907d263a75f90e14ba0245fd341ebcb24843eb6855e08c1.svg" />
 </div>
 </div>
 <p>When using keyword arguments, the <code class="docutils literal notranslate"><span class="pre">find_peaks()</span></code> function returns the values used by the keyword arguments in the dictionary. For example, because we used the <code class="docutils literal notranslate"><span class="pre">height=</span></code> argument, the heights are returned.</p>
@@ -881,7 +901,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/91b26cb2d473b280528d0d7caaa6d979cc510dbc0d43f7710ffa44412b04d73d.svg" src="../../_images/91b26cb2d473b280528d0d7caaa6d979cc510dbc0d43f7710ffa44412b04d73d.svg" />
+<img alt="../../_images/0934add0de8669256ee9dff6412373db6df6f6df243c30651450e46df8df59d0.svg" src="../../_images/0934add0de8669256ee9dff6412373db6df6f6df243c30651450e46df8df59d0.svg" />
 </div>
 </div>
 </section>
@@ -913,7 +933,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/51f0301f06a83b6ddd5a4d7ddafd79add8c5bed14998d6869d8cc61344523fca.svg" src="../../_images/51f0301f06a83b6ddd5a4d7ddafd79add8c5bed14998d6869d8cc61344523fca.svg" />
+<img alt="../../_images/f0b0070025123ed45432a5854e809477b1d5f2e6fdb49e58935e6eb3a00a009c.svg" src="../../_images/f0b0070025123ed45432a5854e809477b1d5f2e6fdb49e58935e6eb3a00a009c.svg" />
 </div>
 </div>
 <p>We will use NumPy to calculate the slope using the <code class="docutils literal notranslate"><span class="pre">np.diff()</span></code> function, which calculates the differential of a user-defined order (<code class="docutils literal notranslate"><span class="pre">n</span></code>). Because the slope is the <em>dy/dx</em> between every pair of adjacent points, the resulting slope data is one data point shorter than the original data. This is important when plotting the data because the length of the x and y values must be the same.</p>
@@ -938,7 +958,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/eab8a54af71ab5403493fd1cddd811f1fdfe617f1839895852f7d397d51c0205.svg" src="../../_images/eab8a54af71ab5403493fd1cddd811f1fdfe617f1839895852f7d397d51c0205.svg" />
+<img alt="../../_images/277bc8de3b85ab281c7fa54406a7cb468a2079134caea4f2af3df2d9980f7efa.svg" src="../../_images/277bc8de3b85ab281c7fa54406a7cb468a2079134caea4f2af3df2d9980f7efa.svg" />
 </div>
 </div>
 <p>Because the inflection point in the center of the data has a negative slope, we will need to find the minimum slope. This may not always be the case with other data.</p>
@@ -951,7 +971,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f4c0a156c81cb05e190852ff74ba3fe2dcc1f756d27f34c9cec23b22571d276d.svg" src="../../_images/f4c0a156c81cb05e190852ff74ba3fe2dcc1f756d27f34c9cec23b22571d276d.svg" />
+<img alt="../../_images/591c17a7402bbac0ea2a08efd8fc16f400b5ccc7d40527962a33c01802295b8d.svg" src="../../_images/591c17a7402bbac0ea2a08efd8fc16f400b5ccc7d40527962a33c01802295b8d.svg" />
 </div>
 </div>
 </section>
@@ -973,7 +993,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e6c846f739efbaff1e119d3b9a5c642b9c730f1b30a6c4620c3ca1ca6721ee40.svg" src="../../_images/e6c846f739efbaff1e119d3b9a5c642b9c730f1b30a6c4620c3ca1ca6721ee40.svg" />
+<img alt="../../_images/d0f38d30b3617ab9137cb079dd61eae497cc83b4d465b7f0f9adee15cf70f39a.svg" src="../../_images/d0f38d30b3617ab9137cb079dd61eae497cc83b4d465b7f0f9adee15cf70f39a.svg" />
 </div>
 </div>
 <section id="unweighted-average">
@@ -994,7 +1014,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/406b3754352399d4113ee06e133bc2247b213e0a852ab8333bf14c9e42621907.svg" src="../../_images/406b3754352399d4113ee06e133bc2247b213e0a852ab8333bf14c9e42621907.svg" />
+<img alt="../../_images/71dba6e3d970f57c1c5c1fd54b5843882bd25d135cedb75cf6d5c2d7775441e4.svg" src="../../_images/71dba6e3d970f57c1c5c1fd54b5843882bd25d135cedb75cf6d5c2d7775441e4.svg" />
 </div>
 </div>
 <p>The data are smoothed relative to the original data, but there is still a considerable amount of noise present.</p>
@@ -1017,7 +1037,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/dcabecf78873c07f247e5b330b96c773b9b7b87070df9b1c7f068edf94046ed6.svg" src="../../_images/dcabecf78873c07f247e5b330b96c773b9b7b87070df9b1c7f068edf94046ed6.svg" />
+<img alt="../../_images/5f7abc564a477c807d3a795f27b281c193152d442746f0cbae0d401c25b2bbf3.svg" src="../../_images/5f7abc564a477c807d3a795f27b281c193152d442746f0cbae0d401c25b2bbf3.svg" />
 </div>
 </div>
 <p>The triangular smooth results in a smoother dataset than the rectangular smooth. This is not surprising as applying the triangular smooth above is mathematically equivalent to applying the rectangular smooth twice.</p>
@@ -1037,7 +1057,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/efc46275bc40d976a5aa8cb36095400cbc2914d9c4c57192b11f2ad0355881bc.svg" src="../../_images/efc46275bc40d976a5aa8cb36095400cbc2914d9c4c57192b11f2ad0355881bc.svg" />
+<img alt="../../_images/f07cdc14fc01c0846755ed8edb6df38848b1b8122a9776072746ffda0184d3f6.svg" src="../../_images/f07cdc14fc01c0846755ed8edb6df38848b1b8122a9776072746ffda0184d3f6.svg" />
 </div>
 </div>
 </section>
@@ -1050,7 +1070,7 @@
 <p>This function requires three arguments, which include the original data as a NumPy array, <code class="docutils literal notranslate"><span class="pre">window</span></code>, which is the width of the moving window the savgol algorithm fits to a polynomial, and <code class="docutils literal notranslate"><span class="pre">polyorder</span></code>, which is the order of <code class="docutils literal notranslate"><span class="pre">polynomial</span></code> used for the moving data fit. You are encouraged to experiment with the <code class="docutils literal notranslate"><span class="pre">window</span></code> and <code class="docutils literal notranslate"><span class="pre">polyorder</span></code> arguments to see what works best for your application. However, <code class="docutils literal notranslate"><span class="pre">polyorder</span></code> must be less than the <code class="docutils literal notranslate"><span class="pre">window</span></code> size, and the <code class="docutils literal notranslate"><span class="pre">window</span></code> must be an odd integer.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">savgol_filter</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.signal</span><span class="w"> </span><span class="kn">import</span> <span class="n">savgol_filter</span>
 <span class="n">sg_smooth</span> <span class="o">=</span> <span class="n">savgol_filter</span><span class="p">(</span><span class="n">curr</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1065,7 +1085,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/34b0d557f8179ceeb7e071c2b13ca0a28b569b08fcc9793c5f44e0073c23275c.svg" src="../../_images/34b0d557f8179ceeb7e071c2b13ca0a28b569b08fcc9793c5f44e0073c23275c.svg" />
+<img alt="../../_images/b994deecebf394fe1fd21820e5e531ff68e259086fc8b9dce38376cc075e5ae7.svg" src="../../_images/b994deecebf394fe1fd21820e5e531ff68e259086fc8b9dce38376cc075e5ae7.svg" />
 </div>
 </div>
 <p>The Savitzky–Golay filter appears to have done a decent job removing the noise. Despite there being some remaining noise and other artifacts in the CV, the denoised CV makes it significantly easier to locate the maxima and minima in this example.</p>
@@ -1094,7 +1114,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/25747107c98795b6b406b396e1e1795ceb4c8ed538e7d191e46319cc01a0a34b.svg" src="../../_images/25747107c98795b6b406b396e1e1795ceb4c8ed538e7d191e46319cc01a0a34b.svg" />
+<img alt="../../_images/9a7942d121a5defc1c580c753b663a4bc8e9edbd6531a19fe6d5d8c8c4839123.svg" src="../../_images/9a7942d121a5defc1c580c753b663a4bc8e9edbd6531a19fe6d5d8c8c4839123.svg" />
 </div>
 </div>
 <p>SciPy contains an entire module called <code class="docutils literal notranslate"><span class="pre">fft</span></code> dedicated to Fourier transforms and reverse Fourier transforms. We will use the basic <code class="docutils literal notranslate"><span class="pre">fft()</span></code> function for our synthetic data, which returns a mixture of real and imaginary values. For plotting, we will simply look at the real component of the result using <code class="docutils literal notranslate"><span class="pre">.real</span></code>.</p>
@@ -1107,7 +1127,7 @@
 </aside>
 <div class="cell docutils container" id="index-17">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">fft</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.fft</span><span class="w"> </span><span class="kn">import</span> <span class="n">fft</span>
 <span class="n">fdata</span> <span class="o">=</span> <span class="n">fft</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fdata</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">500</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
@@ -1116,7 +1136,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/62201036e78d4b1ebb0afe4a624d06bfc1ba213dfe85eab44c3c8d38fbd4c84a.svg" src="../../_images/62201036e78d4b1ebb0afe4a624d06bfc1ba213dfe85eab44c3c8d38fbd4c84a.svg" />
+<img alt="../../_images/77deab9c9442672811fcdb2096f6a7a84448e2aec4ff00638ed08ecb2df5abd8.svg" src="../../_images/77deab9c9442672811fcdb2096f6a7a84448e2aec4ff00638ed08ecb2df5abd8.svg" />
 </div>
 </div>
 <p>Only the first half of the Fourier transform output is plotted above because the second half is a mirror image of the first. A single peak at 62.0 Hz is present in our signal. The rest of the baseline of the plot is not smooth because there is noise present at a variety of frequencies. It is important to note that the erratic variations in the baseline of the frequency plot are not the noise itself but more like a histogram of all the frequencies present in the original data.</p>
@@ -1142,7 +1162,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/bd92894def3df3c59328e8141beb69a5e5ffde1b1851b14ed5c7d5ede4326803.svg" src="../../_images/bd92894def3df3c59328e8141beb69a5e5ffde1b1851b14ed5c7d5ede4326803.svg" />
+<img alt="../../_images/be130d98bd9495a6f4f353041a316105eaeed3900ecd6ad4bbe49ea7ccd9c963.svg" src="../../_images/be130d98bd9495a6f4f353041a316105eaeed3900ecd6ad4bbe49ea7ccd9c963.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1152,7 +1172,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2a565ebda055a1ef7bd3956324c5dfece02e0b74843eb1987b9033fbb3c61353.svg" src="../../_images/2a565ebda055a1ef7bd3956324c5dfece02e0b74843eb1987b9033fbb3c61353.svg" />
+<img alt="../../_images/1c6ad6345f8ea7f44764f230ab86041d557a49e1245c7c49e39c4006845dc5af.svg" src="../../_images/1c6ad6345f8ea7f44764f230ab86041d557a49e1245c7c49e39c4006845dc5af.svg" />
 </div>
 </div>
 <section id="linear-regression">
@@ -1185,13 +1205,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0289642cca6af09fc4d232abc1da635626c5d0b699e1b3b0fa28daddf1307d7d.svg" src="../../_images/0289642cca6af09fc4d232abc1da635626c5d0b699e1b3b0fa28daddf1307d7d.svg" />
+<img alt="../../_images/ee6b205c936d5e3d863a9bf7dd66efd22b2fccf591ec74c18177646718cfedfd.svg" src="../../_images/ee6b205c936d5e3d863a9bf7dd66efd22b2fccf591ec74c18177646718cfedfd.svg" />
 </div>
 </div>
 <p>We can also obtain the statistics for our fit using the <code class="docutils literal notranslate"><span class="pre">linregress()</span></code> function from the SciPy <code class="docutils literal notranslate"><span class="pre">stats</span></code> module. Note that this does not return the <span class="math notranslate nohighlight">\(r^2\)</span> value but instead the <span class="math notranslate nohighlight">\(r\)</span>-value which can be squared to generate the <span class="math notranslate nohighlight">\(r^2\)</span> value.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
 <span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_noisy</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1244,7 +1264,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/36812dd0c7951fed91ed1befc57c6c728f35d19432771d09689dea7bdfcd2896.svg" src="../../_images/36812dd0c7951fed91ed1befc57c6c728f35d19432771d09689dea7bdfcd2896.svg" />
+<img alt="../../_images/de59bc14e7c5e0cd8cc28a756502617a2e8ef0134522399136f28bdac060a8e3.svg" src="../../_images/de59bc14e7c5e0cd8cc28a756502617a2e8ef0134522399136f28bdac060a8e3.svg" />
 </div>
 </div>
 </section>
@@ -1349,7 +1369,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a257553b9c673de8fb0d1b9c54fa98837fbdba9f80ae5f5cb509eba74130b1d0.svg" src="../../_images/a257553b9c673de8fb0d1b9c54fa98837fbdba9f80ae5f5cb509eba74130b1d0.svg" />
+<img alt="../../_images/f0c3b88d59243f415d1d3cdc6ac8ebff5d9ef9c099768d589e921452c719e505.svg" src="../../_images/f0c3b88d59243f415d1d3cdc6ac8ebff5d9ef9c099768d589e921452c719e505.svg" />
 </div>
 </div>
 <p>To interpolate this one-dimensional function, we will use the <code class="docutils literal notranslate"><span class="pre">interp1d()</span></code> method from SciPy. Along with the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> values, <code class="docutils literal notranslate"><span class="pre">interp1d()</span></code> requires a mode of interpolation using the kind keyword, which can include the items listed in Table 3.</p>
@@ -1382,7 +1402,7 @@
 <p>Below is a demonstration of both linear and cubic interpolation. The two functions <code class="docutils literal notranslate"><span class="pre">f()</span></code> and <code class="docutils literal notranslate"><span class="pre">f2()</span></code> are generated and can be used like any other Python function to calculate values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">interpolate</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">interpolate</span>
 <span class="n">f</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
 <span class="n">f2</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;cubic&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1401,7 +1421,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/544586425522fe85e2cbbe886356b31e5eece6748c752e1f358c244b310d8964.svg" src="../../_images/544586425522fe85e2cbbe886356b31e5eece6748c752e1f358c244b310d8964.svg" />
+<img alt="../../_images/f64aec1c65326c51226dc8dceb249952edf9d6a804ef2eb5c56d0a9f69d48017.svg" src="../../_images/f64aec1c65326c51226dc8dceb249952edf9d6a804ef2eb5c56d0a9f69d48017.svg" />
 </div>
 </div>
 </section>
@@ -1424,13 +1444,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f527e35d82a7cc87159b71d2a54f58281fb1c2b81d8dcbdc0b5eb17b66fb314a.svg" src="../../_images/f527e35d82a7cc87159b71d2a54f58281fb1c2b81d8dcbdc0b5eb17b66fb314a.svg" />
+<img alt="../../_images/7b7f85b1ca79bb72ae84c9a066b65c58a6cf42f7cb84512d26f2417d032e5a8c.svg" src="../../_images/7b7f85b1ca79bb72ae84c9a066b65c58a6cf42f7cb84512d26f2417d032e5a8c.svg" />
 </div>
 </div>
 <p>To identify a baseline, we will use the <code class="docutils literal notranslate"><span class="pre">Baseline</span></code> module of pybaselines imported below. The first step is to create a baseline fitter object, which accepts the <em>x</em>-axis data from your spectrum.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pybaselines</span> <span class="kn">import</span> <span class="n">Baseline</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pybaselines</span><span class="w"> </span><span class="kn">import</span> <span class="n">Baseline</span>
 <span class="n">fitter</span> <span class="o">=</span> <span class="n">Baseline</span><span class="p">(</span><span class="n">x_data</span><span class="o">=</span><span class="n">wavenums</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1462,7 +1482,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/abdb08be8faad43ae7fb8a3c2e45b45a1447584f8fb92598f8df55ea2a0a369c.svg" src="../../_images/abdb08be8faad43ae7fb8a3c2e45b45a1447584f8fb92598f8df55ea2a0a369c.svg" />
+<img alt="../../_images/fefeda5aca8760b403d1d9db7f2c6de0ef7d12402b5ee6032fdca687cf676855.svg" src="../../_images/fefeda5aca8760b403d1d9db7f2c6de0ef7d12402b5ee6032fdca687cf676855.svg" />
 </div>
 </div>
 <p>Finally, we will subtract the baseline from the original data. The good news is that the baseline fitter generated the baseline as a NumPy array with the same size as the original data, so subtraction is a matter of subtracting one array from another.</p>
@@ -1478,7 +1498,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a72cb9fc65533b783bea30c549fe24891d2511e831fb707fd582c15441ad1438.svg" src="../../_images/a72cb9fc65533b783bea30c549fe24891d2511e831fb707fd582c15441ad1438.svg" />
+<img alt="../../_images/f8704293b177f1e55d8347784625469c6871464bf4bdfe3b7dc98547e487ae39.svg" src="../../_images/f8704293b177f1e55d8347784625469c6871464bf4bdfe3b7dc98547e487ae39.svg" />
 </div>
 </div>
 </section>
@@ -1499,8 +1519,8 @@
 <li><p>Import the file <strong>CV_K3Fe(CN)6.csv</strong> which contains a cyclic voltammogram for potassium cyanoferrate. Plot the data with the green dots on the highest point(s) and red triangles on the lowest point(s).</p></li>
 <li><p>Import the file titled <strong>CV_K3Fe(CN)6.csv</strong> and determine the inflection points. Plot the data with a marker on both inflection points. Hint: There are two inflection points in these data with one running in the reverse direction making it have a negative slope.</p></li>
 <li><p>Generate noisy synthetic data from the following code.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">sawtooth</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.signal</span><span class="w"> </span><span class="kn">import</span> <span class="n">sawtooth</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="n">sig</span> <span class="o">=</span> <span class="n">sawtooth</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
@@ -1705,8 +1725,7 @@
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1791,8 +1810,8 @@ By Charles J. Weiss
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

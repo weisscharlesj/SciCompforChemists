@@ -16,33 +16,30 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -69,7 +66,6 @@
     <link rel="prev" title="Chapter 9: Simulations" href="../chapter_09/chap_09_notebook.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -85,8 +81,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -94,6 +101,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -101,8 +109,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -118,8 +126,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -147,17 +154,21 @@
     
     
     <img src="../../_static/logo.svg" class="logo__image only-light" alt="Scientific Computing for Chemists with Python - Home"/>
-    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Scientific Computing for Chemists with Python - Home"/>
+    <script>document.write(`<img src="../../_static/logo.svg" class="logo__image only-dark" alt="Scientific Computing for Chemists with Python - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -191,6 +202,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../chapter_15/chap_15_notebook.html">Chapter 15: Cheminformatics with RDKit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_16/chap_16_notebook.html">Chapter 16: Bioinformatics with Biopython &amp; Nglview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_17/chap_17_notebook.html">Chapter 17: Command Line &amp; Spyder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_18/chap_18_notebook.html">Chapter 18: ChemPy</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Back Matter</span></p>
 <ul class="nav bd-sidenav">
@@ -354,16 +366,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -437,10 +457,10 @@
 <p>By convention, seaborn is imported with the <code class="docutils literal notranslate"><span class="pre">sns</span></code> alias, but since this is a relatively young library, it is unclear how strong this convention is. The <a class="reference external" href="https://seaborn.pydata.org/">official seaborn website</a> uses it, so we will as well. All code in this chapter assumes the following import.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
@@ -506,7 +526,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4faef542173c5d9b1c00e30d9afd53d92b79f6ad32fd64141a8034e2f582a3d6.svg" src="../../_images/4faef542173c5d9b1c00e30d9afd53d92b79f6ad32fd64141a8034e2f582a3d6.svg" />
+<img alt="../../_images/218d98ead20d05084018b2b0c840d809b65360268a1bc7d3aac264b93c798597.svg" src="../../_images/218d98ead20d05084018b2b0c840d809b65360268a1bc7d3aac264b93c798597.svg" />
 </div>
 </div>
 <p>If the data is in a DataFrame, the <em>x</em> and <em>y</em> values can be provided as the column names, and seaborn will automatically add the column names as x and y labels. Below is a series of boiling point and molecular weights for various organic compounds.</p>
@@ -734,7 +754,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b985e29d13354d2b82dc55386a21b4cf293c03a6a50127e025b0b0c266321b99.svg" src="../../_images/b985e29d13354d2b82dc55386a21b4cf293c03a6a50127e025b0b0c266321b99.svg" />
+<img alt="../../_images/ee612294116b38469130b3eb1d392d71f15e7d16496f3b03cf1dd2a7c29e3426.svg" src="../../_images/ee612294116b38469130b3eb1d392d71f15e7d16496f3b03cf1dd2a7c29e3426.svg" />
 </div>
 </div>
 <p>While the DataFrame column names provide accurate axis labels, the units are missing. We can use matplotlib commands from chapter 3 to modify the axis labels.</p>
@@ -747,7 +767,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8c2d6971dbb1b8f03fd2b9ecae41e992efc0324cb05af777c00d01266e44557d.svg" src="../../_images/8c2d6971dbb1b8f03fd2b9ecae41e992efc0324cb05af777c00d01266e44557d.svg" />
+<img alt="../../_images/d7021e3da4a474782cd48ae0b4e5f93cb641c646c2c4b2e62b1d037a297b8485.svg" src="../../_images/d7021e3da4a474782cd48ae0b4e5f93cb641c646c2c4b2e62b1d037a297b8485.svg" />
 </div>
 </div>
 </section>
@@ -768,7 +788,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/00dd120870ac3bb810e9ad8ec4cc5bfa95d54f02e32ccc0d4e7fc3e5f70e2bbf.svg" src="../../_images/00dd120870ac3bb810e9ad8ec4cc5bfa95d54f02e32ccc0d4e7fc3e5f70e2bbf.svg" />
+<img alt="../../_images/dc46ef08c9707fe3e23aa76bc0cd7f062865297874de35382f49e6ba8779d5ce.svg" src="../../_images/dc46ef08c9707fe3e23aa76bc0cd7f062865297874de35382f49e6ba8779d5ce.svg" />
 </div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">lmplot()</span></code> function also provides arguments for modifying the appearance of the plot. Below is a demonstration of a few extra adjustments to the plot. The <code class="docutils literal notranslate"><span class="pre">facet_kws</span></code> argument takes extra parameters in the form of a dictionary with key-value pairs. In this case, the <code class="docutils literal notranslate"><span class="pre">legend_out</span></code> key controls whether the legend is outside the plot’s boundaries. The <code class="docutils literal notranslate"><span class="pre">aspect</span></code> argument sets the ratio of the <em>x</em>-axis versus the <em>y</em>-axis, and the marker shapes can also be modified using the <code class="docutils literal notranslate"><span class="pre">markers</span></code> argument with matplotlib conventions from <a class="reference internal" href="../chapter_03/chap_03_notebook.html#id4"><span class="std std-ref">section 3.1.2</span></a>.</p>
@@ -782,7 +802,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/cceb9ba605c36331b10acdbcbaaaf93fbfe4eb8454a1d9e495c93cbdc519395c.svg" src="../../_images/cceb9ba605c36331b10acdbcbaaaf93fbfe4eb8454a1d9e495c93cbdc519395c.svg" />
+<img alt="../../_images/e1f9a1ea2f362f3764362bae324e2ffd4ebde4936a8426e79f6faca288401332.svg" src="../../_images/e1f9a1ea2f362f3764362bae324e2ffd4ebde4936a8426e79f6faca288401332.svg" />
 </div>
 </div>
 </section>
@@ -936,7 +956,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8cfa1dfaf1087a0ab408909429447266a2661c395498972e26815622e476914c.svg" src="../../_images/8cfa1dfaf1087a0ab408909429447266a2661c395498972e26815622e476914c.svg" />
+<img alt="../../_images/e5b21ad2e46264ca6d058d72ca64a7821159918cebc54616898043620268e0bb.svg" src="../../_images/e5b21ad2e46264ca6d058d72ca64a7821159918cebc54616898043620268e0bb.svg" />
 </div>
 </div>
 <p>By default, the <em>x</em>-axis contains the column labels from the DataFrame, but the <em>y</em>-axis is without any label. Again, one of the conveniences of the seaborn library is that it is built on top of matplotlib, so any plot created by seaborn can be further modified by matplotlib commands as shown below.</p>
@@ -949,7 +969,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/07891ff6e490cf5fa38a9e35094348679d4158d9f2235e0bcc3a0e19cccda38a.svg" src="../../_images/07891ff6e490cf5fa38a9e35094348679d4158d9f2235e0bcc3a0e19cccda38a.svg" />
+<img alt="../../_images/779b6662440ae5bd9f24bceefe8b987ed894844773ccd96925e77d2a4bd36437.svg" src="../../_images/779b6662440ae5bd9f24bceefe8b987ed894844773ccd96925e77d2a4bd36437.svg" />
 </div>
 </div>
 </section>
@@ -965,7 +985,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/046d3374f42e149d0cd6033489457daf023603ea1881c093d0216c89e00ebf1f.svg" src="../../_images/046d3374f42e149d0cd6033489457daf023603ea1881c093d0216c89e00ebf1f.svg" />
+<img alt="../../_images/3934a1b3419e3fd63fcd5916a08e0df92056f91ebad99abbcc1cb1d17198b6ef.svg" src="../../_images/3934a1b3419e3fd63fcd5916a08e0df92056f91ebad99abbcc1cb1d17198b6ef.svg" />
 </div>
 </div>
 <p>A power feature of seaborn is the ability to change the marker style based on a value in one of the DataFrame columns. For example, below is a plot of regular and diet Coke densities measured using different glassware for the volume measurement.</p>
@@ -1043,7 +1063,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1c570823862dd714ea95d977029052db151c12d49d5b30ab9cc1b7ecafedb250.svg" src="../../_images/1c570823862dd714ea95d977029052db151c12d49d5b30ab9cc1b7ecafedb250.svg" />
+<img alt="../../_images/f97f168a74346a1ff46a9c5676463f665d4e6e97e5f5765faffdce323687bb3f.svg" src="../../_images/f97f168a74346a1ff46a9c5676463f665d4e6e97e5f5765faffdce323687bb3f.svg" />
 </div>
 </div>
 <p>Currently all measurements are grouped together. It would be nice to sort the data by the glassware. This can be done by adding <code class="docutils literal notranslate"><span class="pre">x='Glassware'</span></code>. This instructs the plotting function to sort along the <em>x</em>-axis using labels in the DataFrame’s <em>Glassware</em> column.</p>
@@ -1055,7 +1075,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/800ba1f7ccfac646b96c8e755024f28cfe9028badb357078d8d6cdb36b235da5.svg" src="../../_images/800ba1f7ccfac646b96c8e755024f28cfe9028badb357078d8d6cdb36b235da5.svg" />
+<img alt="../../_images/5aeda984070ac4181c9de27e5c7fa364e20e3f6b113ab9277b7d473f0ec64645.svg" src="../../_images/5aeda984070ac4181c9de27e5c7fa364e20e3f6b113ab9277b7d473f0ec64645.svg" />
 </div>
 </div>
 <p>We can also change the color of the markers using any column we like. Below, we set <code class="docutils literal notranslate"><span class="pre">hue='Soda'</span></code>, which instructs the plotting function to color the markers based on the <em>Soda</em> column.</p>
@@ -1067,7 +1087,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/985349c2e3f9be65523ad089be921e40b2f7f0bdf6ce7dfd2aad7e2d8036b9c6.svg" src="../../_images/985349c2e3f9be65523ad089be921e40b2f7f0bdf6ce7dfd2aad7e2d8036b9c6.svg" />
+<img alt="../../_images/8e30dd7f325339364b32c9e58e8c49e34c1008fb67e4c4a916e66688aedfeee0.svg" src="../../_images/8e30dd7f325339364b32c9e58e8c49e34c1008fb67e4c4a916e66688aedfeee0.svg" />
 </div>
 </div>
 <p>The different soda types can be further separated using <code class="docutils literal notranslate"><span class="pre">dodge=True</span></code>.</p>
@@ -1079,7 +1099,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/bacb338c1a0fa5bc2570d50a00b37b818624036974f34ed43b71b75f58146c70.svg" src="../../_images/bacb338c1a0fa5bc2570d50a00b37b818624036974f34ed43b71b75f58146c70.svg" />
+<img alt="../../_images/17ccf08a376b706e4048e3192850c03e567311acc30d7d2bd50264e935f78d39.svg" src="../../_images/17ccf08a376b706e4048e3192850c03e567311acc30d7d2bd50264e935f78d39.svg" />
 </div>
 </div>
 </section>
@@ -1095,7 +1115,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6e554dbbbc7476c9fa8fde0d03e7c67805d643df4bc4246660073fd37bf754c9.svg" src="../../_images/6e554dbbbc7476c9fa8fde0d03e7c67805d643df4bc4246660073fd37bf754c9.svg" />
+<img alt="../../_images/a447d417f427c67637da18b57da0b7faf81f8eed20f0a967da41f2aa0912a22a.svg" src="../../_images/a447d417f427c67637da18b57da0b7faf81f8eed20f0a967da41f2aa0912a22a.svg" />
 </div>
 </div>
 </section>
@@ -1113,7 +1133,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/98986faa8307d5608401a54fd69af242b3352feacdc691844d0695c052b7a930.svg" src="../../_images/98986faa8307d5608401a54fd69af242b3352feacdc691844d0695c052b7a930.svg" />
+<img alt="../../_images/a35b5f335bed6df84dc76049fe8a2a183913e08ef138041f8512c11b3b347793.svg" src="../../_images/a35b5f335bed6df84dc76049fe8a2a183913e08ef138041f8512c11b3b347793.svg" />
 </div>
 </div>
 </section>
@@ -1205,7 +1225,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/455cfce0891c86e2f0f0e0fa0e749909448e35c8d971a07c3af3e1de347bae8f.svg" src="../../_images/455cfce0891c86e2f0f0e0fa0e749909448e35c8d971a07c3af3e1de347bae8f.svg" />
+<img alt="../../_images/00ba3950b0d5551525096fc1634c38a4e9ebfe40fc5ebced24a590cb0ea0a707.svg" src="../../_images/00ba3950b0d5551525096fc1634c38a4e9ebfe40fc5ebced24a590cb0ea0a707.svg" />
 </div>
 </div>
 <p>Like many plotting types in seaborn, the count plot can be further customized through keyword arguments and using other available data. One shortcoming of the above plot is that the states are listed in the order they first appear in the dataset instead of based on physical disorder. We can assert a different order by providing the <code class="docutils literal notranslate"><span class="pre">order</span></code> argument as a list of how the states should appear.</p>
@@ -1216,7 +1236,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f46c40038c97afa88420ebf847b2c3ad9a7b739822981570c62555b53203354c.svg" src="../../_images/f46c40038c97afa88420ebf847b2c3ad9a7b739822981570c62555b53203354c.svg" />
+<img alt="../../_images/f5e8065f27fd38ab12a9296c8f9461984b45ef2ce74347a92ebfa8647ef7b445.svg" src="../../_images/f5e8065f27fd38ab12a9296c8f9461984b45ef2ce74347a92ebfa8647ef7b445.svg" />
 </div>
 </div>
 <p>We can also set the color of each bar based on the valence orbital block by providing the <code class="docutils literal notranslate"><span class="pre">hue</span></code> argument with the name of the column.</p>
@@ -1227,7 +1247,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0e1a9a42388568458ecb190c31be0b0b15154c074f74e449ef35dc7a8e6292b0.svg" src="../../_images/0e1a9a42388568458ecb190c31be0b0b15154c074f74e449ef35dc7a8e6292b0.svg" />
+<img alt="../../_images/352b702430801018394133735250e373b56c6251572c9d68bb6c977c9ba49b44.svg" src="../../_images/352b702430801018394133735250e373b56c6251572c9d68bb6c977c9ba49b44.svg" />
 </div>
 </div>
 </section>
@@ -1257,7 +1277,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/25955aeadc3ff7381e849b24a691ffaa8204134ad675ab4fe8e068e1b3f63320.svg" src="../../_images/25955aeadc3ff7381e849b24a691ffaa8204134ad675ab4fe8e068e1b3f63320.svg" />
+<img alt="../../_images/b1ffa6eb04a579baa1d01e91403f18ee9cd9f39c27c242bbf571396cc97ed609.svg" src="../../_images/b1ffa6eb04a579baa1d01e91403f18ee9cd9f39c27c242bbf571396cc97ed609.svg" />
 </div>
 </div>
 </section>
@@ -1274,7 +1294,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/141e9880b5dd6d958e7c4030135a16f4e0332543324a82aa5b34fd8412528ff1.svg" src="../../_images/141e9880b5dd6d958e7c4030135a16f4e0332543324a82aa5b34fd8412528ff1.svg" />
+<img alt="../../_images/508c1d790be33dc6cd20dfe11011b69dabdd6c2cb7160a3ce50a9baae16b12f2.svg" src="../../_images/508c1d790be33dc6cd20dfe11011b69dabdd6c2cb7160a3ce50a9baae16b12f2.svg" />
 </div>
 </div>
 </section>
@@ -1297,7 +1317,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/318c31fe3fce809f16a2331e82aa00f465a22d714005a43317941359e91a3b0b.svg" src="../../_images/318c31fe3fce809f16a2331e82aa00f465a22d714005a43317941359e91a3b0b.svg" />
+<img alt="../../_images/f17c6aba8a4768a8dea111a849b0fd3c08c9863618afb96c974abc39e576be59.svg" src="../../_images/f17c6aba8a4768a8dea111a849b0fd3c08c9863618afb96c974abc39e576be59.svg" />
 </div>
 </div>
 <p>One of the issues with this plot is that there are so many data points in the plot that it is difficult to determine the distribution/density inside the blanket of solid dots. The seaborn joint plot adds histograms to the side to help the viewer recognize where most of the data points reside.</p>
@@ -1312,10 +1332,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x11f5b7f80&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x14045a900&gt;
 </pre></div>
 </div>
-<img alt="../../_images/dbe92329860052d5781529539fb7f966b914702a0ff4589de8d8e72a065d4d51.svg" src="../../_images/dbe92329860052d5781529539fb7f966b914702a0ff4589de8d8e72a065d4d51.svg" />
+<img alt="../../_images/69864fa207730044da0473e8cfde2c86124e83e261348ae60618610842b304df.svg" src="../../_images/69864fa207730044da0473e8cfde2c86124e83e261348ae60618610842b304df.svg" />
 </div>
 </div>
 <p>There are numerous arguments to fine-tune the joint plot. For example, the joint plot does not need to be a scatter plot with histograms. The density of the data points can be represented with hexagonal patches or <em>kernel density estimates (kde)</em>. The latter represents the density of points through contours and is a recurring option in other plotting functions in the seaborn library. It is worth noting that the kde plotting types take a little time to calculate, so expect a brief delay in generating these plots.</p>
@@ -1326,7 +1346,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c30873af11661dfc93fcec1d639f1d62785a714c03cc1759cbd7babe130d76a5.svg" src="../../_images/c30873af11661dfc93fcec1d639f1d62785a714c03cc1759cbd7babe130d76a5.svg" />
+<img alt="../../_images/edb460deeade83c509ddf41f5aa4bce022d05f4f8655a430294be09957d7727c.svg" src="../../_images/edb460deeade83c509ddf41f5aa4bce022d05f4f8655a430294be09957d7727c.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1336,7 +1356,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e538628a8e5134cb83ea510909c859f045a6034b61c560fdb5420b57ef020717.svg" src="../../_images/e538628a8e5134cb83ea510909c859f045a6034b61c560fdb5420b57ef020717.svg" />
+<img alt="../../_images/d1497152d2d59b2c2b1c097848a407a01fcdc2377f3dbc5eb86caf8e556808ac.svg" src="../../_images/d1497152d2d59b2c2b1c097848a407a01fcdc2377f3dbc5eb86caf8e556808ac.svg" />
 </div>
 </div>
 </section>
@@ -1508,7 +1528,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/dfe1ebd43dcbf1dec3c55e8c10514ef23bb18884d57e5a6e2877375ce44c434e.svg" src="../../_images/dfe1ebd43dcbf1dec3c55e8c10514ef23bb18884d57e5a6e2877375ce44c434e.svg" />
+<img alt="../../_images/1c2a192ad78fd43ee552fd767cfdc638a2748a6fd3e8c88e13553d39d2cce1b5.svg" src="../../_images/1c2a192ad78fd43ee552fd767cfdc638a2748a6fd3e8c88e13553d39d2cce1b5.svg" />
 </div>
 </div>
 <p>The color can also be set based on any piece of information. Below, the row is used to dictate the color of each data point.</p>
@@ -1519,7 +1539,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/106db894a1185c35bebe000c5d21b9e882fcdd77b17f890f397de5838623fba3.svg" src="../../_images/106db894a1185c35bebe000c5d21b9e882fcdd77b17f890f397de5838623fba3.svg" />
+<img alt="../../_images/b121de2586418e098f86efc0ee4827833e022d33ac11ee93a569fdb38923f2d8.svg" src="../../_images/b121de2586418e098f86efc0ee4827833e022d33ac11ee93a569fdb38923f2d8.svg" />
 </div>
 </div>
 </section>
@@ -1612,7 +1632,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d9137934952831f49e03a4278723f07c1f762d0e02528026857a0233fcc6b61f.svg" src="../../_images/d9137934952831f49e03a4278723f07c1f762d0e02528026857a0233fcc6b61f.svg" />
+<img alt="../../_images/ecf11ba85756a10ab2ba9e9aba121f10be585e46720a5ef9f1a4f98c06aeba7b.svg" src="../../_images/ecf11ba85756a10ab2ba9e9aba121f10be585e46720a5ef9f1a4f98c06aeba7b.svg" />
 </div>
 </div>
 <p>Now we have a color grid where the colors represent numerical values defined in a colorbar automatically displayed on the right side. This default color map can easily be customized through various arguments in the <code class="docutils literal notranslate"><span class="pre">heatmap()</span></code> function. One nice addition is to display the numerical values on the heat map by setting <code class="docutils literal notranslate"><span class="pre">annot=True</span></code>. If you choose to annotate the rectangles, you may need to use the <code class="docutils literal notranslate"><span class="pre">fmt=</span></code> parameter to dictate the format of the annotation labels. Some common formats are <code class="docutils literal notranslate"><span class="pre">d</span></code> for decimal, <code class="docutils literal notranslate"><span class="pre">f</span></code> for floating point, and <code class="docutils literal notranslate"><span class="pre">.2f</span></code> gives two places after the decimal point in a floating point number. If you want a different color map, this can be set using the <code class="docutils literal notranslate"><span class="pre">cmap</span></code> argument and any <a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">matplotlib colormap</a> you want. Below, the annotation is turned on with the perceptually uniform viridis colormap. To further customize the colorbar, use the <code class="docutils literal notranslate"><span class="pre">cbar_kws=</span></code> argument that takes a dictionary of parameters found on the <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure.colorbar">matplotlib website</a>. For example, to add a label, use the <code class="docutils literal notranslate"><span class="pre">label</span></code> key and the label text is the dictionary value as shown below.</p>
@@ -1624,7 +1644,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/634318bf53e0ad0ce31256801c339f3b26c7fd01cea4fd2ab86d17f6c9b97830.svg" src="../../_images/634318bf53e0ad0ce31256801c339f3b26c7fd01cea4fd2ab86d17f6c9b97830.svg" />
+<img alt="../../_images/04ab8b0bb38f9890e41b6fa57472cece5aef2de630c81198916b00449649260b.svg" src="../../_images/04ab8b0bb38f9890e41b6fa57472cece5aef2de630c81198916b00449649260b.svg" />
 </div>
 </div>
 </section>
@@ -1642,7 +1662,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f6e4988debb4c4c00be56d25dd3a75d933906630f9d7f000de834cc86f08ed4d.svg" src="../../_images/f6e4988debb4c4c00be56d25dd3a75d933906630f9d7f000de834cc86f08ed4d.svg" />
+<img alt="../../_images/cb583e12c1e84adde114902564ab0f6e686ec1572a217adcbfc6f496cde70699.svg" src="../../_images/cb583e12c1e84adde114902564ab0f6e686ec1572a217adcbfc6f496cde70699.svg" />
 </div>
 </div>
 <p>To modify the color, size, and marker style of the data points, use the <code class="docutils literal notranslate"><span class="pre">hue</span></code>, <code class="docutils literal notranslate"><span class="pre">size</span></code>, and <code class="docutils literal notranslate"><span class="pre">marker</span></code> arguments. This allows additional information to be infused into a single plot. Note that the legend automatically appears on the plot. In addition, the colormap for the plot can be modified using the <code class="docutils literal notranslate"><span class="pre">palette</span></code> keyword argument and the name of any matplotlib colormap.</p>
@@ -1654,7 +1674,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/77e6097de8177def3038067a435a3ee6132b21da853f9f81c57d20023e38171e.svg" src="../../_images/77e6097de8177def3038067a435a3ee6132b21da853f9f81c57d20023e38171e.svg" />
+<img alt="../../_images/7940fed11089c787479ec42414c335b6987a80cd726b40b69e292ed8c1023b5a.svg" src="../../_images/7940fed11089c787479ec42414c335b6987a80cd726b40b69e292ed8c1023b5a.svg" />
 </div>
 </div>
 </section>
@@ -1742,7 +1762,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/307d684df672e1766cc8c1d246e81b1956680ff523b174d2ea77f2d0fcabf390.svg" src="../../_images/307d684df672e1766cc8c1d246e81b1956680ff523b174d2ea77f2d0fcabf390.svg" />
+<img alt="../../_images/1d07f762bb2985f365bfa1f7484e0b6bf3af66da2eb9837fe8a189fdfd9d9b1e.svg" src="../../_images/1d07f762bb2985f365bfa1f7484e0b6bf3af66da2eb9837fe8a189fdfd9d9b1e.svg" />
 </div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">[A]</span></code> was plotted versus <code class="docutils literal notranslate"><span class="pre">Time</span></code>, and the hue of each line was set to the <code class="docutils literal notranslate"><span class="pre">Run</span></code> number. The result is that each kinetic run is shown in a separate color. If the user is not concerned so much with seeing the individual runs but instead wants to see an average of each of the runs with some indication of the variation, the <code class="docutils literal notranslate"><span class="pre">lineplot()</span></code> function provides a default 95% confidence interval as is shown below.</p>
@@ -1755,7 +1775,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/131f5f816b521997b12e187a92de712026038f7a3e51f7c2d383647b7b6718fa.svg" src="../../_images/131f5f816b521997b12e187a92de712026038f7a3e51f7c2d383647b7b6718fa.svg" />
+<img alt="../../_images/1de755cb86849d29a9f23309b94d31729587988784b2d57ce76246aea0070c34.svg" src="../../_images/1de755cb86849d29a9f23309b94d31729587988784b2d57ce76246aea0070c34.svg" />
 </div>
 </div>
 <p>A confidence interval is only shown if there are multiple data points for each time. The confidence intervals can also be represented with error bars by setting <code class="docutils literal notranslate"><span class="pre">err_style</span> <span class="pre">=</span> <span class="pre">'bars'</span></code>.</p>
@@ -1768,7 +1788,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/80c113b0e243d1c343ce94a64d4bee21b68681e7caf8a31db7c3d765f7bb07df.svg" src="../../_images/80c113b0e243d1c343ce94a64d4bee21b68681e7caf8a31db7c3d765f7bb07df.svg" />
+<img alt="../../_images/258c52dbceb11c1be1fd5e6e105d3ef669c9b0448f4f2b3546f84eedbcbe721b.svg" src="../../_images/258c52dbceb11c1be1fd5e6e105d3ef669c9b0448f4f2b3546f84eedbcbe721b.svg" />
 </div>
 </div>
 </section>
@@ -1838,10 +1858,10 @@
 <li><p>Import the file <strong>ROH_data_small.csv</strong> and visualize how boiling point (bp), molecular weight (MW), degree, and whether a compound is aliphatic are correlated using a <a class="reference internal" href="#id16"><span class="std std-ref">pairplot</span></a>.</p></li>
 <li><p>The following code generates the radial probability plot for hydrogen atomic orbitals for n = 1-4 (see <a class="reference internal" href="../chapter_03/chap_03_notebook.html#id2"><span class="std std-ref">section 3.1</span></a>) and determines the radius of maximum probability (see <a class="reference internal" href="../chapter_06/chap_06_notebook.html#id3"><span class="std std-ref">section 6.1.1</span></a>). These values are combined into a pandas DataFrame called <code class="docutils literal notranslate"><span class="pre">max_prob</span></code> where the rows are the principal quantum numbers and columns are the angular quantum numbers. Display the DataFrame using a heatmap. Your heatmap should include numerical labels on each colored block on the heatmap, and you should select a non-default, perceptually uniform colormap for your colormap.</p></li>
 </ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">sympy</span>
-<span class="kn">from</span> <span class="nn">sympy.physics.hydrogen</span> <span class="kn">import</span> <span class="n">R_nl</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sympy.physics.hydrogen</span><span class="w"> </span><span class="kn">import</span> <span class="n">R_nl</span>
 
 <span class="n">R</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">)</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
@@ -1920,8 +1940,7 @@
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -2011,8 +2030,8 @@ By Charles J. Weiss
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

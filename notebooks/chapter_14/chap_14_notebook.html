@@ -16,33 +16,30 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -69,7 +66,6 @@
     <link rel="prev" title="Chapter 13: Machine Learning using Scikit-Learn" href="../chapter_13/chap_13_notebook.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -85,8 +81,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -94,6 +101,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -101,8 +109,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -118,8 +126,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -147,17 +154,21 @@
     
     
     <img src="../../_static/logo.svg" class="logo__image only-light" alt="Scientific Computing for Chemists with Python - Home"/>
-    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Scientific Computing for Chemists with Python - Home"/>
+    <script>document.write(`<img src="../../_static/logo.svg" class="logo__image only-dark" alt="Scientific Computing for Chemists with Python - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -191,6 +202,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../chapter_15/chap_15_notebook.html">Chapter 15: Cheminformatics with RDKit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_16/chap_16_notebook.html">Chapter 16: Bioinformatics with Biopython &amp; Nglview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_17/chap_17_notebook.html">Chapter 17: Command Line &amp; Spyder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_18/chap_18_notebook.html">Chapter 18: ChemPy</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Back Matter</span></p>
 <ul class="nav bd-sidenav">
@@ -354,16 +366,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -424,10 +444,10 @@
 <p>The examples in this chapter assume the following imports from NumPy, SciPy, pandas, and matplotlib.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">optimize</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
@@ -443,7 +463,7 @@
 <p>Being that energy described by the Lennard-Jones energy equation is what we are trying to minimize, this is our objective function. We first need to define this equation as a Python function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">PE_LJ</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">PE_LJ</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
     <span class="n">epsilon</span> <span class="o">=</span> <span class="mf">1.77</span> <span class="c1"># kJ/mol</span>
     <span class="n">sigma</span> <span class="o">=</span> <span class="mf">4.10</span> <span class="c1"># angstroms</span>
     <span class="n">PE</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">epsilon</span> <span class="o">*</span> <span class="p">(</span> <span class="p">(</span><span class="n">sigma</span><span class="o">/</span><span class="n">r</span><span class="p">)</span><span class="o">**</span><span class="mi">12</span> <span class="o">-</span> <span class="p">(</span><span class="n">sigma</span><span class="o">/</span><span class="n">r</span><span class="p">)</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span>
@@ -540,7 +560,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9e8a8e02966e056df61f2560a6039c306dd1864a1aceb2802b50bb7e2976c1f8.svg" src="../../_images/9e8a8e02966e056df61f2560a6039c306dd1864a1aceb2802b50bb7e2976c1f8.svg" />
+<img alt="../../_images/3d656bbabf26ed2703b1e819345a69b9b5f555fb5aca25f6357c490a34d985dc.svg" src="../../_images/3d656bbabf26ed2703b1e819345a69b9b5f555fb5aca25f6357c490a34d985dc.svg" />
 </div>
 </div>
 <aside class="margin sidebar">
@@ -560,8 +580,8 @@
 <p>The SciPy library does not contain any maximization functions, but maximization functions are not really necessary as minimizing the negative of a function provides the maximum. For example, below we have the radial probability function for the hydrogen 3s orbital. For convenience, the SymPy library’s <code class="docutils literal notranslate"><span class="pre">sympy.physics</span></code> module is used to generate the 3s radial function (<span class="math notranslate nohighlight">\(\psi\)</span>, <code class="docutils literal notranslate"><span class="pre">psi</span></code>) as a Python function. For this maximization example, let’s find the radius of maximum probability for the electron. The normalized probability can be calculated by <span class="math notranslate nohighlight">\(\psi ^2 r^2\)</span> where <span class="math notranslate nohighlight">\(r\)</span> is the distance from the nucleus.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span>
-<span class="kn">from</span> <span class="nn">sympy.physics.hydrogen</span> <span class="kn">import</span> <span class="n">R_nl</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sympy.physics.hydrogen</span><span class="w"> </span><span class="kn">import</span> <span class="n">R_nl</span>
 <span class="n">R</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">)</span>
 
 <span class="n">psi_expr</span> <span class="o">=</span> <span class="n">R_nl</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span> <span class="c1"># generate wave function using SymPy</span>
@@ -578,7 +598,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/292b90b4372febd66077882424a11f593e3a4fa8cf147218b368d7a082799d77.svg" src="../../_images/292b90b4372febd66077882424a11f593e3a4fa8cf147218b368d7a082799d77.svg" />
+<img alt="../../_images/32c1ea60f4df2d3075655e75e42237b5fb42d67212a63c4803f03d5e7e97cdba.svg" src="../../_images/32c1ea60f4df2d3075655e75e42237b5fb42d67212a63c4803f03d5e7e97cdba.svg" />
 </div>
 </div>
 <p>There are multiple ways to make the function negative, like including a negative sign in the Python function definition. Our Python function has already been created, so below we will make the radial probability density negative using a <code class="docutils literal notranslate"><span class="pre">lambda</span></code> function (see <a class="reference internal" href="../chapter_02/chap_02_notebook.html#id6"><span class="std std-ref">section 2.1.4</span></a> for review on lambda functions).</p>
@@ -639,7 +659,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a13292a624c36e4ea38143e1e627b032de39ff0b09632cb67011e56a02bc56fd.svg" src="../../_images/a13292a624c36e4ea38143e1e627b032de39ff0b09632cb67011e56a02bc56fd.svg" />
+<img alt="../../_images/52d82f0bea41968f5c24d8902a9700c00d0073024dc43d7f3f6da06c91928a88.svg" src="../../_images/52d82f0bea41968f5c24d8902a9700c00d0073024dc43d7f3f6da06c91928a88.svg" />
 </div>
 </div>
 </section>
@@ -658,7 +678,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K1</span><span class="p">,</span> <span class="n">K2</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.80</span>
 
-<span class="k">def</span> <span class="nf">obj_func</span><span class="p">(</span><span class="n">guess</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">obj_func</span><span class="p">(</span><span class="n">guess</span><span class="p">):</span>
     <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">guess</span>
     
     <span class="n">Q1</span> <span class="o">=</span> <span class="n">B</span><span class="o">/</span><span class="n">A</span>  <span class="c1"># reaction quotient</span>
@@ -761,7 +781,7 @@
 <p>A common application of optimization is fitting an equation to a series of data points, such as a linear regression. While linear regression also  happens to have an analytical solution demonstrated in <a class="reference internal" href="../chapter_08/chap_08_notebook.html#id15"><span class="std std-ref">section 8.3.3</span></a>, we will solve it here using optimization. In the figure below, a regression line (solid orange) runs through the data points. The <em>residuals</em> are the difference between the regression line and the data points (green vertical dotted lines). The goal of linear regression is to generate a regression line that minimizes these residuals.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/674ae52d14bd7f298c311d93ace7b6d79dbd0e5c2a32392cd45e0d23e8dbe885.svg" src="../../_images/674ae52d14bd7f298c311d93ace7b6d79dbd0e5c2a32392cd45e0d23e8dbe885.svg" />
+<img alt="../../_images/f8eb1f92960dcc7473b89c18f6bc2596ed17b5e4588d4957088d7a7f1409fcc0.svg" src="../../_images/f8eb1f92960dcc7473b89c18f6bc2596ed17b5e4588d4957088d7a7f1409fcc0.svg" />
 </div>
 </div>
 <p><strong>Figure 1</strong> An example of a line of best fit (solid orange) running through data points (blue) with residuals (green dashed) shown as the difference on the <span class="math notranslate nohighlight">\(y\)</span>-axis between the data point and linear regression.</p>
@@ -823,7 +843,7 @@
 <p>Below we have defined a Python function describing our equation that will be used to fit the data. The Python function used with <code class="docutils literal notranslate"><span class="pre">optimize.curve_fit()</span></code> requires that the first argument of the Python function must be the independent variable(s), and all the rest of the arguments are the parameters used to fit the equation to the data. In this case, these are the slope, <span class="math notranslate nohighlight">\(m\)</span>, and the <em>y</em>-intercept, <span class="math notranslate nohighlight">\(b\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">lin_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">lin_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">m</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
 </pre></div>
 </div>
@@ -859,7 +879,7 @@
 <p>We need to again define the theoretical equation in the form of a Python function. Our function calculates the rate of the chemical reaction versus the concentration of B, but it would also work using data for rate versus the concentration of A depending upon what data you happen to have.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">frate</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">k1</span><span class="p">,</span> <span class="n">kr1</span><span class="p">,</span> <span class="n">k2</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">frate</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">k1</span><span class="p">,</span> <span class="n">kr1</span><span class="p">,</span> <span class="n">k2</span><span class="p">):</span>
     <span class="n">rate</span> <span class="o">=</span> <span class="p">(</span><span class="n">k2</span> <span class="o">*</span> <span class="n">k1</span> <span class="o">*</span> <span class="n">M</span> <span class="o">*</span> <span class="n">A</span> <span class="o">*</span> <span class="n">B</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">kr1</span> <span class="o">+</span> <span class="n">k2</span> <span class="o">*</span> <span class="n">B</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">rate</span>
 </pre></div>
@@ -890,7 +910,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2269c17ce51d932426fa51bb9f855cc2efc304962eeb5cef2256ca75c3289506.svg" src="../../_images/2269c17ce51d932426fa51bb9f855cc2efc304962eeb5cef2256ca75c3289506.svg" />
+<img alt="../../_images/9bc4463ff92b10817dcaee046bb0a966564ba7fdff821ed22f86eefbfc52b023.svg" src="../../_images/9bc4463ff92b10817dcaee046bb0a966564ba7fdff821ed22f86eefbfc52b023.svg" />
 </div>
 </div>
 <p>Now that we have our data, we can fit it to the theoretical equation to extract the rate constants.</p>
@@ -923,7 +943,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01e77e9a34af66bad497da5496972220c40728ccfadb625a10f85b50d6662ef5.svg" src="../../_images/01e77e9a34af66bad497da5496972220c40728ccfadb625a10f85b50d6662ef5.svg" />
+<img alt="../../_images/149f2b63cd45d99ec1fe7b0ec8cff755d7dd243da975c39250d08199a02daca5.svg" src="../../_images/149f2b63cd45d99ec1fe7b0ec8cff755d7dd243da975c39250d08199a02daca5.svg" />
 </div>
 </div>
 <div class="admonition note">
@@ -1009,7 +1029,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/475a791b94ed76a791b87f4533af9d3572133cf4291d4cd86209602bf44962f8.svg" src="../../_images/475a791b94ed76a791b87f4533af9d3572133cf4291d4cd86209602bf44962f8.svg" />
+<img alt="../../_images/0871ea2111fa914e026d2b27e30f55c4cf58d4c267ec67f0d8b3f217db6dc9a6.svg" src="../../_images/0871ea2111fa914e026d2b27e30f55c4cf58d4c267ec67f0d8b3f217db6dc9a6.svg" />
 </div>
 </div>
 <p>Next, we will use the absorbances for each pure dye sample to find the molar absorptivities using Beer’s law. The path length, <span class="math notranslate nohighlight">\(b\)</span>, in this instrument is 1 cm, and the molarities are known from the experimental setup. That is, below  we are solving for molar absorptivity (<span class="math notranslate nohighlight">\(\epsilon\)</span>) by the following.</p>
@@ -1027,7 +1047,7 @@
 <p>Finally, we will write a Python function that calculates the total absorbance from the individual concentrations and molar absorptivities, and we will provide this function to the <code class="docutils literal notranslate"><span class="pre">optimize.curve_fit()</span></code> function. The fitting parameters are the calculated concentrations of the individual dyes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">absorb</span><span class="p">(</span><span class="n">spec</span><span class="p">,</span> <span class="n">C_red</span><span class="p">,</span> <span class="n">C_blue</span><span class="p">,</span> <span class="n">C_yellow</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">absorb</span><span class="p">(</span><span class="n">spec</span><span class="p">,</span> <span class="n">C_red</span><span class="p">,</span> <span class="n">C_blue</span><span class="p">,</span> <span class="n">C_yellow</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">eps_red</span> <span class="o">*</span> <span class="n">C_red</span> <span class="o">+</span> <span class="n">eps_blue</span> <span class="o">*</span> <span class="n">C_blue</span> <span class="o">+</span> <span class="n">eps_yellow</span> <span class="o">*</span> <span class="n">C_yellow</span>
 
 <span class="n">fit</span><span class="p">,</span> <span class="n">__</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">absorb</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">A_mix</span><span class="p">)</span>
@@ -1045,7 +1065,7 @@
 <p>Below is a quick demonstration on how to also solve this problem using the <code class="docutils literal notranslate"><span class="pre">optimize.least_squares()</span></code> function. As mentioned earlier, both the <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> and <code class="docutils literal notranslate"><span class="pre">least_squares()</span></code> functions can be used to solve the same problems. The <code class="docutils literal notranslate"><span class="pre">least_squares()</span></code> function requires a Python function that calculates the residuals (i.e., the difference between the calculated and measured absorbances) instead of the theoretical equation. This function also requires an initial guess for the fit parameters. Even if you don’t know the concentrations, just give some reasonable value. In this case, we guessed 1 <span class="math notranslate nohighlight">\(\times\)</span> 10<span class="math notranslate nohighlight">\(^{-3}\)</span> M for each dye.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">residuals</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">residuals</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
     <span class="n">C_red</span><span class="p">,</span> <span class="n">C_blue</span><span class="p">,</span> <span class="n">C_yellow</span> <span class="o">=</span> <span class="n">X</span>
     <span class="n">A_calc</span> <span class="o">=</span> <span class="n">C_red</span> <span class="o">*</span> <span class="n">eps_red</span> <span class="o">+</span> <span class="n">C_blue</span> <span class="o">*</span> <span class="n">eps_blue</span> <span class="o">+</span> <span class="n">C_yellow</span> <span class="o">*</span> <span class="n">eps_yellow</span>
     <span class="k">return</span> <span class="n">A_mix</span> <span class="o">-</span> <span class="n">A_calc</span>
@@ -1082,7 +1102,7 @@
 <p>As a root finding example, we can locate the nodes in a radial wave function for the hydrogen 3s orbital. Because there is only one variable, <span class="math notranslate nohighlight">\(r\)</span>, we can use the <code class="docutils literal notranslate"><span class="pre">scipy.optimize.root_scalar()</span></code> function. Below, we first define our radial wave function as a Python function, <code class="docutils literal notranslate"><span class="pre">orbital_3s</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">orbital_3s</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">orbital_3s</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
     <span class="n">wf</span> <span class="o">=</span> <span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span><span class="o">/</span><span class="mi">27</span><span class="p">)</span><span class="o">*</span><span class="p">((</span><span class="mi">2</span><span class="o">/</span><span class="mi">9</span><span class="p">)</span><span class="o">*</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">r</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span><span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">r</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">wf</span>
 </pre></div>
@@ -1104,7 +1124,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f33327e957379effe99bf70ff669488bb39cf2e4d8c63c15c1a732b48b466aa7.svg" src="../../_images/f33327e957379effe99bf70ff669488bb39cf2e4d8c63c15c1a732b48b466aa7.svg" />
+<img alt="../../_images/d3817fb627dbd51806375f84b5f6549e9403f0d0500fe9322f954b7298c71519.svg" src="../../_images/d3817fb627dbd51806375f84b5f6549e9403f0d0500fe9322f954b7298c71519.svg" />
 </div>
 </div>
 <p>The function has two nodes, so our <code class="docutils literal notranslate"><span class="pre">bracket=</span></code> values will determine which we will end up
@@ -1161,7 +1181,7 @@ solving for.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/74375ef00dbdf2c5623b15099baee732b6f1028f86ab826c677033a6df9018e2.svg" src="../../_images/74375ef00dbdf2c5623b15099baee732b6f1028f86ab826c677033a6df9018e2.svg" />
+<img alt="../../_images/9ffa77407d8f76a2ba0a6f8e9923aabdbc9cc40be23140bcefae94b3fc8eaab0.svg" src="../../_images/9ffa77407d8f76a2ba0a6f8e9923aabdbc9cc40be23140bcefae94b3fc8eaab0.svg" />
 </div>
 </div>
 <p>The two dots above show the location of the two roots for this function which clearly are located on the nodes of the wave function.</p>
@@ -1337,8 +1357,7 @@ solving for.</p>
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1413,8 +1432,8 @@ By Charles J. Weiss
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

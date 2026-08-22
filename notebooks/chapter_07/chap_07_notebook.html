@@ -16,33 +16,30 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -69,7 +66,6 @@
     <link rel="prev" title="Chapter 6: Signal &amp; Noise" href="../chapter_06/chap_06_notebook.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -85,8 +81,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -94,6 +101,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -101,8 +109,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -118,8 +126,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -147,17 +154,21 @@
     
     
     <img src="../../_static/logo.svg" class="logo__image only-light" alt="Scientific Computing for Chemists with Python - Home"/>
-    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Scientific Computing for Chemists with Python - Home"/>
+    <script>document.write(`<img src="../../_static/logo.svg" class="logo__image only-dark" alt="Scientific Computing for Chemists with Python - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -191,6 +202,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../chapter_15/chap_15_notebook.html">Chapter 15: Cheminformatics with RDKit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_16/chap_16_notebook.html">Chapter 16: Bioinformatics with Biopython &amp; Nglview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_17/chap_17_notebook.html">Chapter 17: Command Line &amp; Spyder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_18/chap_18_notebook.html">Chapter 18: ChemPy</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Back Matter</span></p>
 <ul class="nav bd-sidenav">
@@ -354,16 +366,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -427,15 +447,15 @@
 <p>Images are a major data format in chemistry and other sciences. They can be electron microscope images of a surface, photos of a reaction, or images from fluorescence microscopy. Image processing and analysis can be performed using software like Photoshop or <a class="reference external" href="https://www.gimp.org/">GIMP</a>, but this can be tedious and subjective when done manually. A better alternative is to have software automate the entire process to provide consistent, precise, and objective processing of images and taking measurements of their features.</p>
 <p>Among the more popular Python libraries for performing scientific image analysis is scikit-image. This is a library specifically designed for scientific image analysis and includes a wide variety of tools for the processing and extracting information from images. Examples of tools in scikit-image include functions for boundary detection, object counting, entropy quantification, color space conversion, image comparison, and many others. Even though there are other Python libraries for working with images, such as <a class="reference external" href="https://pillow.readthedocs.io/en/4.2.x/">pillow</a>, scikit-image is designed for scientific image analysis while pillow is intended for more fundamental operations such as image rotation and cropping.</p>
 <p id="index-0">Like SciPy, scikit-image stores most of its functions in modules, so it is common to import modules individually. For example, if the user wants to import the <code class="docutils literal notranslate"><span class="pre">color</span></code> module, it is imported using the following code.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">color</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">skimage</span><span class="w"> </span><span class="kn">import</span> <span class="n">color</span>
 </pre></div>
 </div>
 <p>Multiple modules can also be imported in a single import such as below. A list of modules and their description are shown in Table 1, and additional information can be found on the project website at <a class="reference external" href="http://scikit-image.org/">http://scikit-image.org/</a>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">color</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">io</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">skimage</span><span class="w"> </span><span class="kn">import</span> <span class="n">color</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">io</span>
 </pre></div>
 </div>
 <p>We can also import a single function from a module using the following code structure.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage.module</span> <span class="kn">import</span> <span class="n">function</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">skimage.module</span><span class="w"> </span><span class="kn">import</span> <span class="n">function</span>
 </pre></div>
 </div>
 <p><strong>Table 1</strong> Scikit-Image Modules</p>
@@ -506,10 +526,10 @@
 <p>This chapter assumes the following imports. Because we will be doing some plotting, this includes the following matplotlib import and that inline plotting is enabled. In addition, there are functions inside scikit-image that are not in a module, so we also need to <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">skimage</span></code> as well.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="kn">import</span> <span class="nn">skimage</span>
-<span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">data</span><span class="p">,</span> <span class="n">io</span><span class="p">,</span> <span class="n">color</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">skimage</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skimage</span><span class="w"> </span><span class="kn">import</span> <span class="n">data</span><span class="p">,</span> <span class="n">io</span><span class="p">,</span> <span class="n">color</span>
 </pre></div>
 </div>
 </div>
@@ -535,7 +555,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/99e4977505b9dc75268145e1ca7e8b7d8f1523d6d4f3f261bcf83abc8eb08857.svg" src="../../_images/99e4977505b9dc75268145e1ca7e8b7d8f1523d6d4f3f261bcf83abc8eb08857.svg" />
+<img alt="../../_images/008259bde92fce46fada62c2a10a60d60c79843371c9f178b5a526813259d72f.svg" src="../../_images/008259bde92fce46fada62c2a10a60d60c79843371c9f178b5a526813259d72f.svg" />
 </div>
 </div>
 <p>The image does not look like a grayscale image because matplotlib is treating the image as data (see <a class="reference internal" href="#id6"><span class="std std-ref">section 7.1.4</span></a>). Use <code class="docutils literal notranslate"><span class="pre">cmap='gray',</span> <span class="pre">vmin=0,</span> <span class="pre">vmax=255</span></code> to make the image look like a grayscale image.</p>
@@ -551,7 +571,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/85e4dc6ddf5ce93cd3690b5d90205ca96ceae10524200776fb3c2b8ca75044fc.svg" src="../../_images/85e4dc6ddf5ce93cd3690b5d90205ca96ceae10524200776fb3c2b8ca75044fc.svg" />
+<img alt="../../_images/3955084b5b21771d8dedf7a2787bd1729a8038165a7b149747bc81ab1813f233.svg" src="../../_images/3955084b5b21771d8dedf7a2787bd1729a8038165a7b149747bc81ab1813f233.svg" />
 </div>
 </div>
 <p>If we take a closer look at the data contained inside the lunar surface image, we find a two-dimensional NumPy array filled with integers ranging from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> 255.</p>
@@ -582,7 +602,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/755b9fe43e47d7b2c133e4468e9174923d4d1539331f1bd40b67171ab641273d.svg" src="../../_images/755b9fe43e47d7b2c133e4468e9174923d4d1539331f1bd40b67171ab641273d.svg" />
+<img alt="../../_images/f6a4c8779fc57f6f533551679bcbf3410a4c166e10b1bf3ecceb76c2cbf8b8c2.svg" src="../../_images/f6a4c8779fc57f6f533551679bcbf3410a4c166e10b1bf3ecceb76c2cbf8b8c2.svg" />
 </div>
 </div>
 </section>
@@ -602,7 +622,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/98b41aca9cda6d22be4da27ac6289bca3534a020b9f8437a9e7d645aec7c5920.svg" src="../../_images/98b41aca9cda6d22be4da27ac6289bca3534a020b9f8437a9e7d645aec7c5920.svg" />
+<img alt="../../_images/88b60d38e7db8778b641af7cf45fb24f56b4f15295f7c26385b036a6057f8ff6.svg" src="../../_images/88b60d38e7db8778b641af7cf45fb24f56b4f15295f7c26385b036a6057f8ff6.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -673,7 +693,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e5cddfdcfcd624e66797060776bacd21905c8ae99233e1778ae1fc7af63749f1.svg" src="../../_images/e5cddfdcfcd624e66797060776bacd21905c8ae99233e1778ae1fc7af63749f1.svg" />
+<img alt="../../_images/c7462b4514dd70e6e7d2a3f2cfd697f6f43622de7b1944ec62f455860b156a63.svg" src="../../_images/c7462b4514dd70e6e7d2a3f2cfd697f6f43622de7b1944ec62f455860b156a63.svg" />
 </div>
 </div>
 </section>
@@ -688,7 +708,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3743d3b36458293493a5603bdb168e5ff9e7845248b3b41cee8c9220847d0941.svg" src="../../_images/3743d3b36458293493a5603bdb168e5ff9e7845248b3b41cee8c9220847d0941.svg" />
+<img alt="../../_images/311977804aaf1b0cf4f6dab37bf741bd4ba7aa125861b21b51ea275e2c597685.svg" src="../../_images/311977804aaf1b0cf4f6dab37bf741bd4ba7aa125861b21b51ea275e2c597685.svg" />
 </div>
 </div>
 <p>If we look at the array for the flask image below, you will notice that this is a three-dimensional array with four color channels. This can happen in some file types such as Portable Network Graphics (PNG) where a fourth <em>alpha color channel</em> is supported, making the coding RGBA. This channel measures opacity, which is how non-transparent a pixel is. All of the pixels in this image are fully opaque, which is represented by <code class="docutils literal notranslate"><span class="pre">255</span></code>. If the image was fully transparent, the alpha values would be all zeros, and anything in between would be translucent. PNG images support an alpha channel as do many image formats, but JPG/JPEG images do not support this feature.</p>
@@ -758,14 +778,14 @@
 <p>When matplotlib deals with a NumPy array, it treats it as generic data, not an image. The human mind does not effectively handle data on this scale, so to make it easier for humans to interpret, matplotlib maps the values to colors according to the colormap on the right. This is known as <strong>false color</strong> because the colors in the image are not the real image colors. By default, the colormap <em>viridis</em> is used, but there are many other colormaps available to choose from in matplotlib. Below is the red color channel from the Hubble image displayed using the <code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">hubble</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/bf262296fa1fb451265ab7f040691853b4b829ea18e7509da897f2cea4a780f8.svg" src="../../_images/bf262296fa1fb451265ab7f040691853b4b829ea18e7509da897f2cea4a780f8.svg" />
+<img alt="../../_images/e03e348c7ed57d66f49f4c4d8c5b189cd88605444e3b9a8bb14e083bb5adadc4.svg" src="../../_images/e03e348c7ed57d66f49f4c4d8c5b189cd88605444e3b9a8bb14e083bb5adadc4.svg" />
 </div>
 </div>
 <p>To change colormaps, input the name of a different colormap as a string in the optional <code class="docutils literal notranslate"><span class="pre">cmap</span></code> argument (e.g., <code class="docutils literal notranslate"><span class="pre">plt.imshow(hubble[:,:,0],</span> <span class="pre">cmap='magma')</span></code>). See <a class="reference external" href="https://matplotlib.org/examples/color/colormaps_reference.html">https://matplotlib.org/examples/color/colormaps_reference.html</a> for a list of available colormaps. It is strongly encouraged to use one of the <em>perceptually uniform</em> colormaps because they are more accurately interpreted by humans and also show up as a smooth, interpretable gradient when printed on a grayscale printer. Below is the display of the Hubble image red channel using the <code class="docutils literal notranslate"><span class="pre">Reds</span></code> colormap.</p>
@@ -776,7 +796,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4a9899d520f3b1b0348a40c2e12a0c322002421f86f4ac2c1f1fdf37b04650c9.svg" src="../../_images/4a9899d520f3b1b0348a40c2e12a0c322002421f86f4ac2c1f1fdf37b04650c9.svg" />
+<img alt="../../_images/a05eff04861ce27ee6a9f347140fc47c52d569ba092355b753d2bc94ce105997.svg" src="../../_images/a05eff04861ce27ee6a9f347140fc47c52d569ba092355b753d2bc94ce105997.svg" />
 </div>
 </div>
 <aside class="margin sidebar">
@@ -930,7 +950,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/60826fc98f460a653b5680fccdcea339f4d12a8de9ddb6d45a27a6f24a324c89.svg" src="../../_images/60826fc98f460a653b5680fccdcea339f4d12a8de9ddb6d45a27a6f24a324c89.svg" />
+<img alt="../../_images/3e5f4c512b5eb66445110c55c49325329e0262f18964213a1276ddf0676e2c1d.svg" src="../../_images/3e5f4c512b5eb66445110c55c49325329e0262f18964213a1276ddf0676e2c1d.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -942,7 +962,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2eb51bf4bc469ce4de85728c23c8171fd2650e59eb508787c1ff302ad85da443.svg" src="../../_images/2eb51bf4bc469ce4de85728c23c8171fd2650e59eb508787c1ff302ad85da443.svg" />
+<img alt="../../_images/a83fa4363dcbaede6f5784907cca219ecdd59cc754e09290316f3e97bbb74379.svg" src="../../_images/a83fa4363dcbaede6f5784907cca219ecdd59cc754e09290316f3e97bbb74379.svg" />
 </div>
 </div>
 <p>The appropriate threshold may vary from image to image, so manually setting a value is not always practical. Scikit-image provides a number of functions, shown below in Table 4, from the filters module for automatically choosing a threshold. If you are not sure which of the functions below to use, there is a <code class="docutils literal notranslate"><span class="pre">try_all_filters()</span></code> function in the filters module that will try seven of them and plot the results for easy comparison.</p>
@@ -994,7 +1014,7 @@
 <p>Below, we can see the Otsu filter being demonstrated.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">filters</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">skimage</span><span class="w"> </span><span class="kn">import</span> <span class="n">filters</span>
 <span class="n">threshold</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">threshold_otsu</span><span class="p">(</span><span class="n">chem_gray</span><span class="p">)</span>
 <span class="n">chem_otsu</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">img_as_ubyte</span><span class="p">(</span><span class="n">chem_gray</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">chem_otsu</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
@@ -1005,7 +1025,7 @@
 <p>Another method for increasing contrast is by modifying the image histogram. If the values from an image are plotted in a histogram, you will see something that looks like the following.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">exposure</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">skimage</span><span class="w"> </span><span class="kn">import</span> <span class="n">exposure</span>
 <span class="n">hist</span> <span class="o">=</span> <span class="n">exposure</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">chem_gray</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hist</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Values&#39;</span><span class="p">)</span>
@@ -1014,7 +1034,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3e1ae3c8b0e93b93be4a2bd0ece3b10ad91ce887ad6f18a5e0882e9a75f0717e.svg" src="../../_images/3e1ae3c8b0e93b93be4a2bd0ece3b10ad91ce887ad6f18a5e0882e9a75f0717e.svg" />
+<img alt="../../_images/1388c14a8be4aacad63862d99cfd3f3d435bb03878f3e16744eac28851cb0a12.svg" src="../../_images/1388c14a8be4aacad63862d99cfd3f3d435bb03878f3e16744eac28851cb0a12.svg" />
 </div>
 </div>
 <p>This is a plot of how many of each type of brightness value is present in the image. There are practically no pixels in the image that are black (value 0) or completely white (value 255), but there are two main collections of gray values. The contrast of this image can be increased by performing histogram equalization, which spreads these values out more evenly. The <code class="docutils literal notranslate"><span class="pre">exposure</span></code> module provides an <code class="docutils literal notranslate"><span class="pre">equalize_hist()</span></code> function for this task.</p>
@@ -1026,7 +1046,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/165d1945d0c40586f8b7949cc7e2fde6ca3491d67d5e80edc7de9b4c9e2ff52b.svg" src="../../_images/165d1945d0c40586f8b7949cc7e2fde6ca3491d67d5e80edc7de9b4c9e2ff52b.svg" />
+<img alt="../../_images/88e575f930c7daca5663ffe181d84c58d1fed49476290749eea6c79ac4157f8e.svg" src="../../_images/88e575f930c7daca5663ffe181d84c58d1fed49476290749eea6c79ac4157f8e.svg" />
 </div>
 </div>
 <p>Histogram equalization does not produce a black-and-white image, but it does make the dark values darker and the light values lighter. If we look at the histogram for this image, it will be more even as shown below.</p>
@@ -1040,7 +1060,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b625c3945256ae117783d59877a0eb7ba55f26ed4c9af123b4fa183c3eaa675a.svg" src="../../_images/b625c3945256ae117783d59877a0eb7ba55f26ed4c9af123b4fa183c3eaa675a.svg" />
+<img alt="../../_images/bc0b7d14aaa17d5c1c1d970da0a6257cd7bbfbdcd8d991fb862eac018b23d77e.svg" src="../../_images/bc0b7d14aaa17d5c1c1d970da0a6257cd7bbfbdcd8d991fb862eac018b23d77e.svg" />
 </div>
 </div>
 </section>
@@ -1067,7 +1087,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/bc605705f0ea3d5530f1c99e2209e5e39ae8a02512fcc49e812b9a5dcd35d6b5.svg" src="../../_images/bc605705f0ea3d5530f1c99e2209e5e39ae8a02512fcc49e812b9a5dcd35d6b5.svg" />
+<img alt="../../_images/238b6bc5cda27c01957f0d620c25394175945170a956ff3370c18876b044842c.svg" src="../../_images/238b6bc5cda27c01957f0d620c25394175945170a956ff3370c18876b044842c.svg" />
 </div>
 </div>
 <p>An image of black dots on a white background is imported above, but the blob detection algorithms work best with light colors on a dark background. We will invert the image below by subtracting the values from the maximum value or using the <code class="docutils literal notranslate"><span class="pre">color.rgb2gray()</span></code>.</p>
@@ -1086,13 +1106,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/56c690b253151c5ef586ab67988df77840833763749fb36cab07ef6af999ed1a.svg" src="../../_images/56c690b253151c5ef586ab67988df77840833763749fb36cab07ef6af999ed1a.svg" />
+<img alt="../../_images/ae5f86cbb1feb58c4017fe21e707fe9423e127b24eaaf1e29f13bfff88b6f62d.svg" src="../../_images/ae5f86cbb1feb58c4017fe21e707fe9423e127b24eaaf1e29f13bfff88b6f62d.svg" />
 </div>
 </div>
 <p>To detect the blobs, we will use the <code class="docutils literal notranslate"><span class="pre">blob_dog()</span></code> function as demonstrated below. The function allows for a <code class="docutils literal notranslate"><span class="pre">threshold</span></code> argument to be set to adjust the sensitivity of the algorithm in finding blobs. A lower threshold results in smaller or less intense blobs to be included in the returned array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">feature</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">skimage</span><span class="w"> </span><span class="kn">import</span> <span class="n">feature</span>
 <span class="n">blobs</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">blob_dog</span><span class="p">(</span><span class="n">dots_inverted</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">blobs</span>
 </pre></div>
@@ -1124,7 +1144,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/397e1e63aa24a7cd144fd10282d06237623aa1540f9f1fb41066da440dfac7a1.svg" src="../../_images/397e1e63aa24a7cd144fd10282d06237623aa1540f9f1fb41066da440dfac7a1.svg" />
+<img alt="../../_images/77c906ec5e48f0f84c4daaa841be72c2dc08fa080ba0448165228af1dcb074d1.svg" src="../../_images/77c906ec5e48f0f84c4daaa841be72c2dc08fa080ba0448165228af1dcb074d1.svg" />
 </div>
 </div>
 <p>To find the number of spots, determine the length of the array using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> Python function or looking at the shape of the array.</p>
@@ -1150,8 +1170,8 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage.morphology</span> <span class="kn">import</span> <span class="n">disk</span>
-<span class="kn">from</span> <span class="nn">skimage.filters.rank</span> <span class="kn">import</span> <span class="n">entropy</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">skimage.morphology</span><span class="w"> </span><span class="kn">import</span> <span class="n">disk</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skimage.filters.rank</span><span class="w"> </span><span class="kn">import</span> <span class="n">entropy</span>
 <span class="n">selem</span> <span class="o">=</span> <span class="n">disk</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">selem</span>
 </pre></div>
@@ -1184,7 +1204,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4f67d451943fda859e3fb68787edc970923bfbb5c060613113cf9fca92ad6037.svg" src="../../_images/4f67d451943fda859e3fb68787edc970923bfbb5c060613113cf9fca92ad6037.svg" />
+<img alt="../../_images/38286217be588b6458a885e5290b45db749ad86224c6f2eb2ed4a232bec6989c.svg" src="../../_images/38286217be588b6458a885e5290b45db749ad86224c6f2eb2ed4a232bec6989c.svg" />
 </div>
 </div>
 <aside class="margin sidebar">
@@ -1207,7 +1227,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/22637d777fa11b86d1427d2a48072c596377f6c3be316fbe9f93dc363c94610c.svg" src="../../_images/22637d777fa11b86d1427d2a48072c596377f6c3be316fbe9f93dc363c94610c.svg" />
+<img alt="../../_images/6788c2fade26a3861d5aa997eedfb17ad6bbd99ddc74d80e77740463ba42d0c2.svg" src="../../_images/6788c2fade26a3861d5aa997eedfb17ad6bbd99ddc74d80e77740463ba42d0c2.svg" />
 </div>
 </div>
 <p>The main function for measuring eccentricity is the <code class="docutils literal notranslate"><span class="pre">regionprops()</span></code> function, but this function by itself cannot find the objects. Luckily, there is another function in the <code class="docutils literal notranslate"><span class="pre">measure</span></code> module called <code class="docutils literal notranslate"><span class="pre">label()</span></code> that will do exactly this, and this function requires the regions to be light with dark backgrounds. The following inverts the light and dark and also truncates the alpha channel from the RGBA image.</p>
@@ -1219,13 +1239,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/576dc44ca9efb574be01a94f596b35a5debc60b1d9c8fa6dbbf69290720298c4.svg" src="../../_images/576dc44ca9efb574be01a94f596b35a5debc60b1d9c8fa6dbbf69290720298c4.svg" />
+<img alt="../../_images/3f544b45b3044cf0324330dc5d5d21be9cd6d1cd48827d969e8a4a48af339d08.svg" src="../../_images/3f544b45b3044cf0324330dc5d5d21be9cd6d1cd48827d969e8a4a48af339d08.svg" />
 </div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">regionprops()</span></code> function returns the properties of the two ovals in a list of lists. The first list corresponds to the first object and so on. Each list contains an extensive collection of properties, so it is worth visiting the scikit-image website to see the complete documentation. We are only concerned with eccentricity right now, so we can access the eccentricity of the first object with <code class="docutils literal notranslate"><span class="pre">props[0].eccentricity</span></code>, which gives a value of about 0.95 for the first object while the second object has a much lower value of about 0.40. This makes sense since the first object is very eccentric while the second object is much more circular.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage.measure</span> <span class="kn">import</span> <span class="n">label</span><span class="p">,</span> <span class="n">regionprops</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">skimage.measure</span><span class="w"> </span><span class="kn">import</span> <span class="n">label</span><span class="p">,</span> <span class="n">regionprops</span>
 <span class="n">lbl</span> <span class="o">=</span> <span class="n">label</span><span class="p">(</span><span class="n">ovals_invert</span><span class="p">)</span>
 <span class="n">props</span> <span class="o">=</span> <span class="n">regionprops</span><span class="p">(</span><span class="n">lbl</span><span class="p">)</span>
 </pre></div>
@@ -1350,8 +1370,7 @@
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1433,8 +1452,8 @@ By Charles J. Weiss
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
