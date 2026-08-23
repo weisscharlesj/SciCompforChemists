@@ -32,8 +32,9 @@ Answer keys to exercises are available to **instructors** upon request by [email
 * Chapter 13: Machine Learning using Scikit-Learn
 * Chapter 14: Optimization and Root Finding
 * Chapter 15: Cheminformatics with RDKit
-* Chapter 16: Bioinformations with Biopython and Nglview
+* Chapter 16: Bioinformatics with Biopython and Nglview
 * Chapter 17: Command Line & Spyder
+* Chapter 18: ChemPy
 * Appendix 0: IPython Widgets
 * Appendix 1: Remote Requests
 * Appendix 2: Visualizing Atomic Orbitals
@@ -44,11 +45,11 @@ Answer keys to exercises are available to **instructors** upon request by [email
 
 First, I'd love to hear how people are using this book. Second, this book may receive updates with additional content, clarifications, and corrections, so if you need a static copy of the book to use during the academic term, below are multiple options. The web version of the book is still the recommended form because of ease-of-use and interactivity (e.g., chapter 11).
 
-1. (Simplest) Download PDF copies of the chapters to share with your student - at the top right of each chapter page, click the download button and select the PDF option.
+1. (Simplest) Download PDF copies of the chapters to share with your students - at the top right of each chapter page, click the download button and select the PDF option.
 
 2. (Simple) Download a PDF of the entire book to share with your students using [this link](https://github.com/weisscharlesj/data_SciCompforChem/blob/main/SciCompforChem_Weiss.pdf). The download button (small down arrow) is on the right. The interactivity features in chapter 11 and appendix 0 do not work in the PDF version.
 
-3. (Advanced) Fork this repository to your GitHub page and have your students use your copy - create a GitHub account, fork this repository, build the book using [Jupyter Book](https://jupyterbook.org/), and have your students use your copy on your GitHub page. You can update your fork of this repository at any time to receive any updates, and unlike a PDF copy, this approach makes it easier for students to copy-and-paste code from the chapters. The approach does require the user to be comfortable using git and GitHub.
+3. (Advanced) Fork this repository to your GitHub page and have your students use your copy - create a GitHub account, fork this repository, build the book using [Jupyter Book](https://jupyterbook.org/), and have your students use your copy on your GitHub page. You can update your fork of this repository at any time to receive any updates, and unlike a PDF copy, this approach makes it easier for students to copy-and-paste code from the chapters. This approach does require the user to be comfortable using git and GitHub.
 
 ## Citing this Book and Curriculum
 
