@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -434,14 +434,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This chapter is still under construction. Errors may exist and significant changes may occur.</p>
-</div>
-<section class="tex2jax_ignore mathjax_ignore" id="chapter-18-chempy">
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-18-chempy">
 <span id="id1"></span><span id="index-1"></span><span id="index-0"></span><h1>Chapter 18: ChemPy<a class="headerlink" href="#chapter-18-chempy" title="Link to this heading">#</a></h1>
 <p>The ChemPy library provides a collection of tools useful for general, physical, analytical, and inorganic chemistry. Examples include balancing chemical reactions, stoichiometric calculations, solving complex equilibria, and decomposing reducible symmetry representations. This package does not come with Anaconda installations and is not automatically included in <a class="reference internal" href="../chapter_00/chap_00_notebook.html#id5"><span class="std std-ref">Colab</span></a>, so you will need to install it using either <code class="docutils literal notranslate"><span class="pre">pip</span></code> or <code class="docutils literal notranslate"><span class="pre">conda</span></code>. See the most recent <a class="reference external" href="https://github.com/bjodah/chempy">package instructions</a> for further details.</p>
-<p>For this chapter, we will also be using the following supporting libraries including NumPy, SymPy, and matplotlib.</p>
+<p>For this chapter, we will also be using NumPy, SymPy, and matplotlib to support our calculations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -463,7 +459,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>The most basic way to create a <code class="docutils literal notranslate"><span class="pre">Substance</span></code> is using the <code class="docutils literal notranslate"><span class="pre">Substance()</span></code> function, which accepts a number of parameters including those in Table 1. These are keyword arguments, but the <code class="docutils literal notranslate"><span class="pre">name</span></code> is frequently just supplied as the first positional argument.</p>
+<p>The most basic way to create a <code class="docutils literal notranslate"><span class="pre">Substance</span></code> is using <code class="docutils literal notranslate"><span class="pre">Substance()</span></code>, which accepts a number of parameters including those in Table 1. These are keyword arguments, but the <code class="docutils literal notranslate"><span class="pre">name</span></code> is frequently just supplied as the first positional argument.</p>
 <p><strong>Table 1</strong> <code class="docutils literal notranslate"><span class="pre">Substance()</span></code> Parameters</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -492,7 +488,7 @@ document.write(`
 </tbody>
 </table>
 </div>
-<p>In the example below, we create an ammonia substance. No parameters are required when a <code class="docutils literal notranslate"><span class="pre">Substance</span></code> is created, but including some attributes is helpful for later calculations. Below, we will include the elemental composition of ammonia using a dictionary with the element’s atomic number as the keys. For example, ammonia has one nitrogen atom (AN = 7) and three hydrogen atoms (AN = 1).</p>
+<p>In the example below, we create an ammonia <code class="docutils literal notranslate"><span class="pre">Substance</span></code>. No parameters are required when a <code class="docutils literal notranslate"><span class="pre">Substance</span></code> is created, but including some attributes is helpful for later calculations. Below, we will include the elemental composition of ammonia using a dictionary with the element’s atomic number as the keys. For example, ammonia has one nitrogen atom (AN = 7) and three hydrogen atoms (AN = 1).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">NH3</span> <span class="o">=</span> <span class="n">Substance</span><span class="p">(</span><span class="s1">&#39;NH3&#39;</span><span class="p">,</span> <span class="n">composition</span><span class="o">=</span><span class="p">{</span><span class="mi">7</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span>
@@ -500,7 +496,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Alternatively, you can create a <code class="docutils literal notranslate"><span class="pre">Substance</span></code> object using the <code class="docutils literal notranslate"><span class="pre">from_formula</span></code> constructor. This function parses a string molecular formula of the chemical substance and uses it to populate the name and composition of the <code class="docutils literal notranslate"><span class="pre">Substance</span></code>.</p>
+<p>Alternatively, you can create a <code class="docutils literal notranslate"><span class="pre">Substance</span></code> object using the <code class="docutils literal notranslate"><span class="pre">from_formula</span></code> constructor. This function parses a string molecular formula and uses it to populate the name and composition of the <code class="docutils literal notranslate"><span class="pre">Substance</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sulf</span> <span class="o">=</span> <span class="n">Substance</span><span class="o">.</span><span class="n">from_formula</span><span class="p">(</span><span class="s1">&#39;Na2SO4&#39;</span><span class="p">)</span>
@@ -538,7 +534,14 @@ document.write(`
 </div>
 </div>
 </div>
-<p>The charge defaults to 0 unless a charge is included in the formula. Note that the charge needs to be written with the sign first. That is, +2, not 2+.</p>
+<p>The charge default is 0 unless a charge is included in the formula. Note that the charge needs to be written with the sign first. That is, +2, not 2+.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>While it is convention that magnitude precedes sign in ionic charges and chemical formulas, ChemPy needs the sign before magnitude to definitively parse the formula. Otherwise, <code class="docutils literal notranslate"><span class="pre">O2+</span></code> could mean O<span class="math notranslate nohighlight">\(_2^{+}\)</span> or O<span class="math notranslate nohighlight">\(^{2+}\)</span>.</p>
+</div>
+</aside>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nitrate</span> <span class="o">=</span> <span class="n">Substance</span><span class="o">.</span><span class="n">from_formula</span><span class="p">(</span><span class="s1">&#39;NO3-&#39;</span><span class="p">)</span>
@@ -578,16 +581,16 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Additional information can be included in the <code class="docutils literal notranslate"><span class="pre">data</span></code> attribute using a dictionary with user-defined keys. Below, we include the boiling point of benzene.</p>
+<p>Additional information can be included in the <code class="docutils literal notranslate"><span class="pre">data</span></code> attribute using a dictionary with user-defined keys. Below, we include the boiling point (<span class="math notranslate nohighlight">\(^\circ\)</span>C) and density (g/mL) of benzene.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">benzene</span> <span class="o">=</span> <span class="n">Substance</span><span class="p">(</span><span class="s1">&#39;C6H6&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;bp&#39;</span><span class="p">:</span> <span class="mi">80</span><span class="p">})</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">benzene</span> <span class="o">=</span> <span class="n">Substance</span><span class="p">(</span><span class="s1">&#39;C6H6&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;bp&#39;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="s1">&#39;density&#39;</span><span class="p">:</span> <span class="mf">0.88</span><span class="p">})</span>
 <span class="n">benzene</span><span class="o">.</span><span class="n">data</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;bp&#39;: 80}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;bp&#39;: 80, &#39;density&#39;: 0.88}
 </pre></div>
 </div>
 </div>
@@ -638,7 +641,7 @@ document.write(`
 </section>
 <section id="calculating-theoretical-yields">
 <span id="id5"></span><h3>18.1.3 Calculating Theoretical Yields<a class="headerlink" href="#calculating-theoretical-yields" title="Link to this heading">#</a></h3>
-<p>The ChemPy library does not include an explicit function to calculate the limiting reactant or theoretical yield, but a short Python script can be written to leverage the above functionality. As our example, we will use the oxidation of nitrogen monoxide to nitrogen dioxide: NO(g) + O<span class="math notranslate nohighlight">\(_2\)</span>(g) <span class="math notranslate nohighlight">\(\rightarrow\)</span> NO<span class="math notranslate nohighlight">\(_2\)</span>(g).</p>
+<p>The ChemPy library does not include an explicit function to calculate the limiting reactant or theoretical yield, but a short Python script can be written to leverage the above functionality. As our example, we will use the oxidation of nitrogen monoxide to nitrogen dioxide NO(g) + O<span class="math notranslate nohighlight">\(_2\)</span>(g) <span class="math notranslate nohighlight">\(\rightarrow\)</span> NO<span class="math notranslate nohighlight">\(_2\)</span>(g), which is currently unbalanced.</p>
 <p>To carry out this calculation, we will use the following equations where <span class="math notranslate nohighlight">\(\xi\)</span>(xi) is the <strong>extent of reaction</strong>, <span class="math notranslate nohighlight">\(n_i\)</span> is the initial moles of a chemical species, <span class="math notranslate nohighlight">\(n_f\)</span> is the final moles of a chemical species, and <span class="math notranslate nohighlight">\(\nu\)</span> is the coefficient of that species in the balanced reaction with positive for products and negative for reactants. The extent of reaction is how many moles a chemical speices changes in the reaction divided or normalized by the stoichiometric coefficient. ChemPy will contribute to our calculations by balancing the chemical reaction and calculating the molecular weight from the formulas.</p>
 <div class="math notranslate nohighlight">
 \[ n_f = n_i + \nu\xi \]</div>
@@ -726,6 +729,11 @@ document.write(`
 <span class="sd">    prod : dict</span>
 <span class="sd">        Dictionary with product names (str) as keys and final grams of</span>
 <span class="sd">        product (float) as values.</span>
+
+<span class="sd">    Note</span>
+<span class="sd">    ----</span>
+<span class="sd">    All masses must be included in grams_r and grams_p, including those with</span>
+<span class="sd">    0.00 g.</span>
 <span class="sd">        </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">react</span><span class="p">,</span> <span class="n">prod</span> <span class="o">=</span> <span class="n">balance_stoichiometry</span><span class="p">([</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">grams_r</span><span class="o">.</span><span class="n">keys</span><span class="p">()],</span> 
@@ -746,7 +754,7 @@ document.write(`
 <p>Below we use this function to calculate the theoretical yields for the combustion of glucose and reduction of titanium(IV).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calc_grams</span><span class="p">({</span><span class="s1">&#39;C6H12O6&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s1">&#39;O2&#39;</span><span class="p">:</span> <span class="mi">40</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;CO2&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;H2O&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">})</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calc_grams</span><span class="p">({</span><span class="s1">&#39;C6H12O6&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s1">&#39;O2&#39;</span><span class="p">:</span> <span class="mi">40</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;CO2&#39;</span><span class="p">:</span> <span class="mf">0.00</span><span class="p">,</span> <span class="s1">&#39;H2O&#39;</span><span class="p">:</span> <span class="mf">0.00</span><span class="p">})</span>
 </pre></div>
 </div>
 </div>
@@ -811,7 +819,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>The integration results can be accessed with the following attributes. The concentrations (<code class="docutils literal notranslate"><span class="pre">yout</span></code>) are in same order as the names (<code class="docutils literal notranslate"><span class="pre">names</span></code>).</p>
+<p>The integration results can be accessed with the following attributes. The concentrations (<code class="docutils literal notranslate"><span class="pre">yout</span></code>) are in the same order as the names (<code class="docutils literal notranslate"><span class="pre">names</span></code>).</p>
 <p><strong>Table 2</strong> Integration Results Attributes</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -861,10 +869,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6023bf0d93191fdd1484b627241fef03f889d645940b6588f34db8bd87b9e740.svg" src="../../_images/6023bf0d93191fdd1484b627241fef03f889d645940b6588f34db8bd87b9e740.svg" />
+<img alt="../../_images/692c6c60012acc4b1a2cf3dacd64ae7a4549aed232b4e83dc356ae6910ca8cbf.svg" src="../../_images/692c6c60012acc4b1a2cf3dacd64ae7a4549aed232b4e83dc356ae6910ca8cbf.svg" />
 </div>
 </div>
-<p id="index-4">As you simulate longer mechanisms, you will likely find yourself creating an initial concentration dictionary with a large number of <code class="docutils literal notranslate"><span class="pre">0.00</span></code> values since everything except reactants have zero concentration.  To make this task easier, use the Python <strong>defaultdict</strong> object, which is essentially a Python dictionary that returns a default value for anything not defined in the dictionary. For floats, the default is <code class="docutils literal notranslate"><span class="pre">0.0</span></code>, for integers, it is <code class="docutils literal notranslate"><span class="pre">0</span></code>, and for strings, it is <code class="docutils literal notranslate"><span class="pre">''</span></code> (i.e., empty string). To use the defaultdict object, import it from the collections module and then give the <code class="docutils literal notranslate"><span class="pre">defaultdict(type,</span> <span class="pre">dict)</span></code> a default object type and a dictionary with the values you do want to define.</p>
+<p id="index-4">As you simulate longer mechanisms, you will likely find yourself creating an initial concentration dictionary with a large number of <code class="docutils literal notranslate"><span class="pre">0.00</span></code> values since everything except reactants has zero concentration.  To make this task easier, use the Python <strong>defaultdict</strong> object, which is essentially a Python dictionary that returns a default value for anything not defined in the dictionary. For floats, the default is <code class="docutils literal notranslate"><span class="pre">0.0</span></code>, for integers, it is <code class="docutils literal notranslate"><span class="pre">0</span></code>, and for strings, it is <code class="docutils literal notranslate"><span class="pre">''</span></code> (i.e., empty string). To use the defaultdict object, import it from the collections module and then give the <code class="docutils literal notranslate"><span class="pre">defaultdict(type,</span> <span class="pre">dict)</span></code> a default object type and a dictionary with the values you do want to define.</p>
 <p>In our above example, the <code class="docutils literal notranslate"><span class="pre">C0</span></code> dictionary can be replaced by the one below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -915,11 +923,11 @@ document.write(`
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Equilibrium</span><span class="p">(</span><span class="n">react_dict</span><span class="p">,</span> <span class="n">prod_dict</span><span class="p">,</span> <span class="n">Keq</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">EqSystem</span></code> object holds one or more <code class="docutils literal notranslate"><span class="pre">Equilibrium</span></code> object as a list or tuple followed by all chemical species in the form of a <code class="docutils literal notranslate"><span class="pre">Substance</span></code> object.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">EqSystem</span></code> object holds one or more <code class="docutils literal notranslate"><span class="pre">Equilibrium</span></code> objects as a list or tuple followed by all chemical species in the form of a <code class="docutils literal notranslate"><span class="pre">Substance</span></code> object.</p>
 <p>Below, we demonstrate this with the decomposition of ammonia to nitrogen and hydrogen gas.</p>
 <div class="math notranslate nohighlight">
 \[ 2 NH_3 \rightleftharpoons N_2 + 3 H_2 \]</div>
-<p>We first define each chemical species as a <code class="docutils literal notranslate"><span class="pre">Substance</span></code>. Be sure to include the name since this will be used by ChemPy to connect each <code class="docutils literal notranslate"><span class="pre">Substance</span></code> with the species in various dictionaries. Next, the <code class="docutils literal notranslate"><span class="pre">Equilibrium</span></code> object is created. The first dictionary describes the stoichiometry of all reactants, the second dictionary describes the stoichiometry of all products, and the third positional argument is the equilibrium constant for this reaction as written. The equilibrium system (<code class="docutils literal notranslate"><span class="pre">EqSystem</span></code>) is created by providing all equilibria as a list or tuple followed by all <code class="docutils literal notranslate"><span class="pre">Substance</span></code> objects as a list or tuple. Even if there is only one equilibrium, it still needs to be packaged in a list or tuple.</p>
+<p>We first define each chemical species as a <code class="docutils literal notranslate"><span class="pre">Substance</span></code>. Be sure to include the name since this will be used by ChemPy to connect each <code class="docutils literal notranslate"><span class="pre">Substance</span></code> with the species in various dictionaries. Next, the <code class="docutils literal notranslate"><span class="pre">Equilibrium</span></code> object is created. The equilibrium system (<code class="docutils literal notranslate"><span class="pre">EqSystem</span></code>) is created by providing all equilibria as a list or tuple followed by all <code class="docutils literal notranslate"><span class="pre">Substance</span></code> objects as a list or tuple. Even if there is only one equilibrium, it still needs to be packaged in a list or tuple.</p>
 <p>If you are working to solve an equilibrium where you don’t know the formulas of the species or want to use names other than their molecular formula, you will need to turn off the check for mass balance. This is accomplished by adding <code class="docutils literal notranslate"><span class="pre">dont_check={'balance'}</span></code> as the last argument of <code class="docutils literal notranslate"><span class="pre">EqSystem()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -933,7 +941,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>To solve the equilibrium, we used the <code class="docutils literal notranslate"><span class="pre">root()</span></code> method, which requires the initial concentrations of all species as a dictionary. Be sure the names of all chemical species match those in your <code class="docutils literal notranslate"><span class="pre">Substance</span></code> objects above. This is how ChemPy knows they are the same chemical species.</p>
+<p>To solve the equilibrium, we use the <code class="docutils literal notranslate"><span class="pre">root()</span></code> method, which requires the initial concentrations of all species as a dictionary. Be sure the names of all chemical species match those in your <code class="docutils literal notranslate"><span class="pre">Substance</span></code> objects above since this is how ChemPy knows they are the same chemical species.</p>
 <p>There are three outputs from this calculation listed below. The first one is really what most people are interested in while the latter two are more for troubleshooting or checking that everything worked as intended.</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> - The equilibrium concentrations of all species in the order provided to the <code class="docutils literal notranslate"><span class="pre">EqSystem()</span></code> function</p></li>
@@ -944,13 +952,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C0</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;NH3&#39;</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span> <span class="s1">&#39;N2&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;H2&#39;</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">}</span>
 <span class="n">x</span><span class="p">,</span> <span class="n">sol</span><span class="p">,</span> <span class="n">sane</span> <span class="o">=</span> <span class="n">eqsys</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">C0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
+<span class="n">x</span>
 </pre></div>
 </div>
 </div>
@@ -991,13 +993,7 @@ document.write(`
 <span class="n">C0</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Fe+3&#39;</span><span class="p">:</span> <span class="mf">1.0</span> <span class="p">,</span> <span class="s1">&#39;SCN-&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">})</span>
 
 <span class="n">x</span><span class="p">,</span> <span class="n">sol</span><span class="p">,</span> <span class="n">sane</span> <span class="o">=</span> <span class="n">eqsys</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">C0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
+<span class="n">x</span>
 </pre></div>
 </div>
 </div>
@@ -1048,7 +1044,7 @@ document.write(`
 </section>
 <section id="molecular-symmetry">
 <span id="id8"></span><h2>18.4 Molecular Symmetry<a class="headerlink" href="#molecular-symmetry" title="Link to this heading">#</a></h2>
-<p>Molecular symmetry is important to chemistry in a variety of applications including bonding, chirality, electronic transitions, and chemical spectroscopy to name a few. While chemists frequently apply symmetry on a qualitative level, group theory can be used as a more rigorous, quantitative treatment of the subject. The application of group theory to chemistry is a very powerful tool, but it often involves an onerous amount of matrix math (i.e., linear algebra) when done by hand. These are the kind of calculations that computers are well suited for. The <code class="docutils literal notranslate"><span class="pre">chempy.symmetry</span></code> module includes tools specifically to carry out these types of calculations such as decomposing (i.e., reducing) reducible representations, predicting IR- and Raman-active vibrational modes, generating reducible representations for all motions, and generating symmetry-adapted linear combinations (SALCs) of atomic orbitals among others. In this section, we will examine a few of these features for removing some of the tedium from group theory calculations.</p>
+<p>Molecular symmetry is important to chemistry in a variety of applications including bonding, chirality, electronic transitions, and chemical spectroscopy to name a few. While chemists frequently apply symmetry on a qualitative level, group theory can be used as a more rigorous, quantitative treatment of the subject. The application of group theory to chemistry is a very powerful tool, but it often involves an onerous amount of matrix math (i.e., linear algebra) when done by hand. These are the kinds of calculations that computers are well suited for. The <code class="docutils literal notranslate"><span class="pre">chempy.symmetry</span></code> module includes tools specifically to carry out these types of calculations such as decomposing (i.e., reducing) reducible representations, predicting IR- and Raman-active vibrational modes, generating reducible representations for all motions, and generating symmetry-adapted linear combinations (SALCs) of atomic orbitals among others. In this section, we will examine a few of these features for removing some of the tedium from group theory calculations.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">chempy.symmetry</span></code> module has two submodules, <code class="docutils literal notranslate"><span class="pre">representations</span></code> and <code class="docutils literal notranslate"><span class="pre">salcs</span></code>. The <code class="docutils literal notranslate"><span class="pre">representations</span></code> module works with reducible and irreducible representations and vibrational predictions while the <code class="docutils literal notranslate"><span class="pre">salcs</span></code> module predicts SALCs by either the projection operator method or using the symmetry functions in character tables. We will address both here.</p>
 <section id="symmetry-representations">
 <span id="id9"></span><h3>18.4.1 Symmetry Representations<a class="headerlink" href="#symmetry-representations" title="Link to this heading">#</a></h3>
@@ -1061,7 +1057,14 @@ document.write(`
 </div>
 </div>
 <p>The main object in the <code class="docutils literal notranslate"><span class="pre">representations</span></code> module is a reducible representation created using the <code class="docutils literal notranslate"><span class="pre">Reducible()</span></code> function. This requires the values (<code class="docutils literal notranslate"><span class="pre">gamma</span></code>) provided as a list, tuple, or array followed by the point group name (<code class="docutils literal notranslate"><span class="pre">group</span></code>) as a string. The <code class="docutils literal notranslate"><span class="pre">all_motion=</span></code> keyword argument is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> if the reducible representation is for all motions (i.e., rotation, vibration, and translation) and <code class="docutils literal notranslate"><span class="pre">False</span></code> if it represents only vibrations. The default is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
-<p>The following example is all motions of water with the molecule on the <em>xz</em>-plane. The most important attribute here is <code class="docutils literal notranslate"><span class="pre">gamma</span></code> which returns the <span class="math notranslate nohighlight">\(\Gamma\)</span> values.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">reps.print_point_groups()</span></code> function shows you all of the point group names supported in this module.</p>
+</div>
+</aside>
+<p>The following example is all motions of water with the molecule on the <em>xz</em>-plane. The most important attribute here is <code class="docutils literal notranslate"><span class="pre">gamma</span></code>, which returns the <span class="math notranslate nohighlight">\(\Gamma\)</span> values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reduc</span> <span class="o">=</span> <span class="n">reps</span><span class="o">.</span><span class="n">Reducible</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;c2v&#39;</span><span class="p">,</span> <span class="n">all_motion</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1228,7 +1231,7 @@ document.write(`
 <p>This method automatically sets <code class="docutils literal notranslate"><span class="pre">all_motion=True</span></code> because it includes rotational, translational, and vibrational modes.</p>
 </div>
 </aside>
-<p>With this reducible representation, we can then determine the number of vibrational modes (<code class="docutils literal notranslate"><span class="pre">vibe_modes()</span></code>), IR-active modes (<code class="docutils literal notranslate"><span class="pre">ir_active()</span></code>), and Raman-active modes (<code class="docutils literal notranslate"><span class="pre">raman_active()</span></code>).</p>
+<p>With this reducible representation, we can then determine the number of vibrational, IR-active, and Raman-active modes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">XeOF4</span><span class="o">.</span><span class="n">vibe_modes</span><span class="p">(</span><span class="n">to_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1268,7 +1271,7 @@ document.write(`
 </section>
 <section id="symmetry-adapted-linear-combinations">
 <span id="id11"></span><h3>18.4.3 Symmetry-Adapted Linear Combinations<a class="headerlink" href="#symmetry-adapted-linear-combinations" title="Link to this heading">#</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">chempy.symmetry.salcs</span></code> submodule predicts symmetry-adapted linear combinations (SALCs) by either the projection operator method or using the symmetry functions on the right side of character tables. Both of these functions require that the user assign SymPy variables to outer atoms, orbitals, or ligands; so the <code class="docutils literal notranslate"><span class="pre">sympy.symbols()</span></code> function needs to also be imported. This was done at the start of this chapter.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">chempy.symmetry.salcs</span></code> submodule predicts symmetry-adapted linear combinations (SALCs) by either the projection operator method or using the symmetry functions on the right side of character tables. Both of these functions require that the user assign SymPy variables to outer atoms, orbitals, or ligands; so SymPy needs to also be imported. This was done at the start of this chapter.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">chempy.symmetry.salcs</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">salcs</span>
@@ -1324,7 +1327,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>The projections are provided to the <code class="docutils literal notranslate"><span class="pre">calc_salcs_projection()</span></code> function as the first positional argument as a list of SymPy variables. The function also requires the point group as a string and also accepts the <code class="docutils literal notranslate"><span class="pre">to_dict</span></code> optional argument. The output below is a dictionary showing the SALCs for each irreducible representation.</p>
+<p>The projections are provided to the <code class="docutils literal notranslate"><span class="pre">calc_salcs_projection()</span></code> function as the first positional argument as a list of SymPy variables. The function requires the point group as a string and accepts the <code class="docutils literal notranslate"><span class="pre">to_dict</span></code> optional argument. The output below is a dictionary showing the SALCs for each irreducible representation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;a b c&#39;</span><span class="p">)</span>
@@ -1338,9 +1341,9 @@ document.write(`
 </div>
 </div>
 </div>
-<p>The result is an A’<span class="math notranslate nohighlight">\(_1\)</span> SALC that has equal contribution from all three <em>s</em>-orbitals and a SALC with E’ symmetry where the <span class="math notranslate nohighlight">\(a\)</span> orbital contributes twice the magnitude and opposite sign as the <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(c\)</span> orbitals. Even though E’ is a doubly-degenerate representation, the projection of <em>a</em> only yields one of the SALCs. This is a known limitation of the projection operator method.</p>
+<p>The result is an A’<span class="math notranslate nohighlight">\(_1\)</span> SALC that has equal contribution from all three <em>s</em>-orbitals and a SALC with E’ symmetry where the <span class="math notranslate nohighlight">\(a\)</span> orbital contributes twice the magnitude and opposite sign from the <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(c\)</span> orbitals. Even though E’ is a doubly degenerate representation, the projection of <em>a</em> only yields one of the SALCs. This is a known limitation of the projection operator method.</p>
 <p>An alternative approach to calculating SALCs is to use the symmetry functions in character tables. This can be performed with pen and paper by assuming all outer atoms are a unit distance from the central atom and plugging their <span class="math notranslate nohighlight">\(xyz\)</span> coordinates into the functions on the right side of the character table. The <code class="docutils literal notranslate"><span class="pre">calc_salcs_func()</span></code> function carries out much of this calculation for the user.</p>
-<p>For example, to calculate the <em>s</em>-orbital ligand SALCs of a square-planar complex, if we imagine the four bonds on the <span class="math notranslate nohighlight">\(x\)</span>- and <span class="math notranslate nohighlight">\(y\)</span>-axes, the <span class="math notranslate nohighlight">\(xyz\)</span> coordinates would be (0, 1, 0), (1, 0, 0), (0, -1, 0), and (-1, 0, 0). Because we are providing the <span class="math notranslate nohighlight">\(xyz\)</span> coordinates, the <code class="docutils literal notranslate"><span class="pre">mode='vector'</span></code>. The result is four SALCs, and both doubly-degenerate E<span class="math notranslate nohighlight">\(_u\)</span> SALCs are returned here.</p>
+<p>For example, to calculate the <em>s</em>-orbital ligand SALCs of a square-planar complex, if we imagine the four bonds on the <span class="math notranslate nohighlight">\(x\)</span>- and <span class="math notranslate nohighlight">\(y\)</span>-axes, the <span class="math notranslate nohighlight">\(xyz\)</span> coordinates would be (0, 1, 0), (1, 0, 0), (0, -1, 0), and (-1, 0, 0). Because we are providing the <span class="math notranslate nohighlight">\(xyz\)</span> coordinates, the <code class="docutils literal notranslate"><span class="pre">mode='vector'</span></code>. The result is four SALCs, and both doubly degenerate E<span class="math notranslate nohighlight">\(_u\)</span> SALCs are returned here.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;a b c d&#39;</span><span class="p">)</span>
@@ -1364,7 +1367,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Determining the <span class="math notranslate nohighlight">\(xyz\)</span> coordinates for molecules with angles that are not 90<span class="math notranslate nohighlight">\(^\circ\)</span> is more challenging and can require trigonometry. To make these a little easier, the <code class="docutils literal notranslate"><span class="pre">calc_salcs_func()</span></code> function can also be set <code class="docutils literal notranslate"><span class="pre">mode='angle'</span></code> and provided the spherical coordinate angles instead of <span class="math notranslate nohighlight">\(xyz\)</span> coordinates. That is, identify the location of the ligand using the azimuthal and polar angles where the azimuthal is the angle from the positive <em>x</em>-axis on the <em>xy</em> plane and polar angle is the angle from the positive <em>z</em>-axis. As an example, we will again determine the SALCs for hydrogen <em>s</em>-orbitals in a trigonal-planar molecule. The azimuthal angles are 0<span class="math notranslate nohighlight">\(^\circ\)</span>, 120<span class="math notranslate nohighlight">\(^\circ\)</span>, and 240<span class="math notranslate nohighlight">\(^\circ\)</span>, while the polar angles are 90<span class="math notranslate nohighlight">\(^\circ\)</span> for all three of them.</p>
+<p>Determining the <span class="math notranslate nohighlight">\(xyz\)</span> coordinates for molecules with angles that are not 90<span class="math notranslate nohighlight">\(^\circ\)</span> is more challenging and can require trigonometry. To make these a little easier, the <code class="docutils literal notranslate"><span class="pre">calc_salcs_func()</span></code> function can also be set to <code class="docutils literal notranslate"><span class="pre">mode='angle'</span></code> and provided the spherical coordinate angles instead of <span class="math notranslate nohighlight">\(xyz\)</span> coordinates. That is, identify the location of the ligand using the azimuthal and polar angles where the azimuthal is the angle from the positive <em>x</em>-axis on the <em>xy</em> plane and polar angle is the angle from the positive <em>z</em>-axis. As an example, we will again determine the SALCs for hydrogen <em>s</em>-orbitals in a trigonal-planar molecule. The azimuthal angles are 0<span class="math notranslate nohighlight">\(^\circ\)</span>, 120<span class="math notranslate nohighlight">\(^\circ\)</span>, and 240<span class="math notranslate nohighlight">\(^\circ\)</span>, while the polar angles are 90<span class="math notranslate nohighlight">\(^\circ\)</span> for all three of them.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lig</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">],</span> <span class="p">[</span><span class="mi">120</span><span class="p">,</span> <span class="mi">90</span><span class="p">],</span> <span class="p">[</span><span class="mi">240</span><span class="p">,</span> <span class="mi">90</span><span class="p">]]</span> <span class="c1"># polar angles (azimuthal, polar)</span>
@@ -1383,7 +1386,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>The result above provides both the A’<span class="math notranslate nohighlight">\(_1\)</span> SALC and the two degenerate E’ SALCs. One minor issue with this method is that we sometimes get the same SALC listed multiple times. It is also worth noting that negative angles also work fine in this calculation like below.</p>
+<p>The result above provides both the A’<span class="math notranslate nohighlight">\(_1\)</span> SALC and the two degenerate E’ SALCs. One minor issue with this method is that we sometimes get the same SALC listed multiple times. It is also worth noting that negative angles work fine in this calculation as demonstrated below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lig</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">90</span><span class="p">],</span> <span class="p">[</span><span class="mi">120</span><span class="p">,</span> <span class="o">-</span><span class="mi">90</span><span class="p">],</span> <span class="p">[</span><span class="mi">240</span><span class="p">,</span> <span class="o">-</span><span class="mi">90</span><span class="p">]]</span> <span class="c1"># polar angles (azimuthal, polar)</span>
@@ -1421,16 +1424,15 @@ document.write(`
 </section>
 <section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
-<p>Complete the following exercises in a Jupyter notebook using ChemPy. You are encouraged to also use data libraries such as SymPy and NumPy to support your solutions. Any data file(s) referred to in the problems can be found in the <a class="reference external" href="https://github.com/weisscharlesj/SciCompforChemists/tree/master/notebooks">data</a> folder in the same directory as this chapter’s Jupyter notebook. Alternatively, you can download a zip file of the data for this chapter from <a class="reference external" href="https://github.com/weisscharlesj/data_SciCompforChem">here</a> by selecting the appropriate chapter file and then clicking the <strong>Download</strong> button.</p>
-<p>Complete the following calculations using the ChemPy library.</p>
+<p>Complete the following exercises in a Jupyter notebook using ChemPy. You are encouraged to also use other libraries such as SymPy and NumPy to support your solutions.</p>
 <ol class="arabic">
-<li><p>Calculate mass of melatonin, which has a formula C<span class="math notranslate nohighlight">\(_{13}\)</span>H<span class="math notranslate nohighlight">\(_{16}\)</span>N<span class="math notranslate nohighlight">\(_2\)</span>O<span class="math notranslate nohighlight">\(_2\)</span>.</p></li>
+<li><p>Calculate the mass of melatonin, which has a formula C<span class="math notranslate nohighlight">\(_{13}\)</span>H<span class="math notranslate nohighlight">\(_{16}\)</span>N<span class="math notranslate nohighlight">\(_2\)</span>O<span class="math notranslate nohighlight">\(_2\)</span>.</p></li>
 <li><p>Balance the following reactions.</p>
 <p>a. Fe + O<span class="math notranslate nohighlight">\(_2\)</span> <span class="math notranslate nohighlight">\(\rightarrow\)</span> Fe<span class="math notranslate nohighlight">\(_2\)</span>O<span class="math notranslate nohighlight">\(_3\)</span></p>
 <p>b. KClO<span class="math notranslate nohighlight">\(_3\)</span> <span class="math notranslate nohighlight">\(\rightarrow\)</span> KCl + O<span class="math notranslate nohighlight">\(_2\)</span></p>
 <p>c. C<span class="math notranslate nohighlight">\(_6\)</span>H<span class="math notranslate nohighlight">\(_6\)</span> + O<span class="math notranslate nohighlight">\(_2\)</span> <span class="math notranslate nohighlight">\(\rightarrow\)</span> CO<span class="math notranslate nohighlight">\(_2\)</span> + H<span class="math notranslate nohighlight">\(_2\)</span>O</p>
 </li>
-<li><p>Solve the following equilibrium for the equilibrium concentrations given that we start with 1.0 M of A with <em>K</em><span class="math notranslate nohighlight">\(_1\)</span>=0.8 and <em>K</em><span class="math notranslate nohighlight">\(_2\)</span>=1.9. Be sure to add <code class="docutils literal notranslate"><span class="pre">dont_check={'balance'}</span></code> as the last argument to <code class="docutils literal notranslate"><span class="pre">EqSystem()</span></code>.</p></li>
+<li><p>Determine the equilibrium concentrations for the following equilibrium given that we start with 1.0 M of A with <em>K</em><span class="math notranslate nohighlight">\(_1\)</span>=0.8 and <em>K</em><span class="math notranslate nohighlight">\(_2\)</span>=1.9. Be sure to add <code class="docutils literal notranslate"><span class="pre">dont_check={'balance'}</span></code> as the last argument to <code class="docutils literal notranslate"><span class="pre">EqSystem()</span></code> so that it doesn’t mandate atom balance.</p></li>
 </ol>
 <div class="math notranslate nohighlight">
 \[A {\stackrel{K_1}{\rightleftharpoons}} B {\stackrel{K_2}{\rightleftharpoons}} C\]</div>
@@ -1444,11 +1446,11 @@ document.write(`
 <p>a. <span class="math notranslate nohighlight">\(\Gamma\)</span> = [9, 0, -1] for C<span class="math notranslate nohighlight">\(_{3v}\)</span></p>
 <p>b. <span class="math notranslate nohighlight">\(\Gamma\)</span> = [5, 1, 1, 1, 3] for D<span class="math notranslate nohighlight">\(_{2d}\)</span></p>
 </li>
-<li><p>For the D<span class="math notranslate nohighlight">\(_{2h}\)</span> molecule <em>trans</em>-Pt(CN)<span class="math notranslate nohighlight">\(_2\)</span>(PEt<span class="math notranslate nohighlight">\(_3\)</span>)<span class="math notranslate nohighlight">\(_2\)</span>, the CN reducible stretch has <span class="math notranslate nohighlight">\(\Gamma\)</span> = [2, 0, 2, 0, 0, 2, 0, 2] (assumes CN are on the <em>y</em>-axis).</p>
+<li><p>For the D<span class="math notranslate nohighlight">\(_{2h}\)</span> molecule <em>trans</em>-Pt(CN)<span class="math notranslate nohighlight">\(_2\)</span>(PEt<span class="math notranslate nohighlight">\(_3\)</span>)<span class="math notranslate nohighlight">\(_2\)</span>, the CN stretch reducible has <span class="math notranslate nohighlight">\(\Gamma\)</span> = [2, 0, 2, 0, 0, 2, 0, 2] (assumes CN are on the <em>y</em>-axis).</p>
 <p>a. Reduce/decompose the reducible representation.</p>
-<p>b. Predict the IR- and Raman-active modes (i.e., give the Mulliken symbols)</p>
+<p>b. Predict the IR- and Raman-active modes.</p>
 </li>
-<li><p>Generate the reducible representation for d<span class="math notranslate nohighlight">\(_{4h}\)</span> composed of A<span class="math notranslate nohighlight">\(_{1g}\)</span>, 2 E<span class="math notranslate nohighlight">\(_g\)</span>, A<span class="math notranslate nohighlight">\(_{2u}\)</span>, and 3 B<span class="math notranslate nohighlight">\(_{2u}\)</span>.</p></li>
+<li><p>Generate the D<span class="math notranslate nohighlight">\(_{4h}\)</span> reducible representation composed of A<span class="math notranslate nohighlight">\(_{1g}\)</span>, 2 E<span class="math notranslate nohighlight">\(_g\)</span>, A<span class="math notranslate nohighlight">\(_{2u}\)</span>, and 3 B<span class="math notranslate nohighlight">\(_{2u}\)</span>.</p></li>
 <li><p>Generate the reducible representation for <em>all motions</em> for the octahedral (O<span class="math notranslate nohighlight">\(_h\)</span>) SF<span class="math notranslate nohighlight">\(_6\)</span> molecule.</p></li>
 <li><p>Calculate the SALCs for the fluorine atom <em>s</em>-orbitals of the octahedral (O<span class="math notranslate nohighlight">\(_h\)</span>) SF<span class="math notranslate nohighlight">\(_6\)</span> molecule.</p></li>
 </ol>
